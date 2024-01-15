@@ -1,0 +1,28 @@
+
+state={
+	id=855
+	local_supplies=0.0 
+	name="STATE_855"
+
+	history={
+		buildings = {
+			infrastructure = 1
+
+		}
+		owner = FRA
+		add_claim_by = CMR
+
+		1960.1.1 = {
+			owner = CMR
+			add_core_of = CMR
+		}
+
+	}
+
+	provinces={
+		7963 9137 11194 
+	}
+	manpower=2472891
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

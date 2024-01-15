@@ -1,0 +1,350 @@
+update_cw_score = {
+	### calculate hard power ###
+	set_variable = { cw_hard_power = 0 }
+	
+	# manpower
+	set_variable = {cw_manpower = max_available_manpower_k}
+	subtract_from_variable = {cw_manpower = manpower_k}
+	set_variable = {cw_foreign_manpower = foreign_manpower }
+	divide_variable = { cw_foreign_manpower = 500}
+	add_to_variable = { cw_manpower = cw_foreign_manpower }
+	
+	set_variable = {cw_manpower_score = cw_manpower }
+	divide_variable = {cw_manpower_score = 100}
+	round_variable = cw_manpower_score
+	add_to_variable = { cw_hard_power = cw_manpower_score}
+	# nuke
+	set_variable = { cw_nuke_score = num_of_nukes}
+	divide_variable = {cw_nuke_score = 5}
+	round_variable = cw_nuke_score
+	add_to_variable = { cw_hard_power = cw_nuke_score}
+	
+	# industry 
+	set_variable = {cw_score_industry =  num_of_military_factories}
+	divide_variable = { cw_score_industry = 25}
+	round_variable = cw_score_industry
+	add_to_variable = { cw_hard_power = cw_score_industry}
+	
+	
+	# 
+	set_variable = { cw_score_doctrine  = land_doctrine_level}
+	divide_variable = { cw_score_doctrine = 3}
+	round_variable = cw_score_doctrine
+	add_to_variable = { cw_hard_power = cw_score_doctrine}
+	
+	
+	set_variable = {cw_military_base_score = cw_number_base}
+	divide_variable = { cw_military_base_score = 1}
+	add_to_variable = { cw_hard_power = cw_military_base_score}
+	
+	### soft power ###
+	set_variable = { cw_soft_power = 0 }
+	set_variable = {cw_score_industry_civilian =  num_of_civilian_factories}
+	divide_variable = { cw_score_industry_civilian = 12 }
+	add_to_variable = { cw_soft_power = cw_score_industry_civilian }
+	
+	
+	set_variable = { cw_sphere = 0}
+	every_country = {
+		limit = { OR = { is_puppet_of = ROOT  is_in_faction_with = ROOT } }
+			
+		
+		
+		if = { limit = { OR  = { has_idea = cw_partially_recognized_state  has_idea = cw_non_recognized_state }} 
+			add_to_variable = { ROOT.cw_sphere = 1} 
+		}
+		else = {
+			add_to_variable = { ROOT.cw_sphere = 2}
+		}
+	}
+	
+	set_variable = {cw_sphere_score = cw_sphere }
+	divide_variable = { cw_sphere_score = 1}
+	add_to_variable = {
+		cw_soft_power = cw_sphere_score
+	}
+	
+	
+	# programme de developpement
+	
+	set_variable = { cw_economic_aid_score = 0 }
+	
+	for_each_scope_loop = {
+		array = aid_program_participants_array
+		add_to_variable = { ROOT.cw_economic_aid_score = economic_aid_level@ROOT}
+	}
+	
+	divide_variable = { cw_economic_aid_score = 2 }
+	add_to_variable = { cw_soft_power = cw_economic_aid_score}
+	
+	
+	# ideological purity 
+	add_to_variable = { cw_soft_power = cw_ideology_power}
+	
+	# research
+	
+	# set_variable = { cw_research_score = num_researched_technologies}
+	# divide_variable = { cw_research_score = 10}
+	
+
+	set_variable = { monthly_gain = 0 }
+	
+	add_to_variable = {
+		monthly_gain = cw_hard_power
+	}
+	
+	add_to_variable = {
+		monthly_gain = cw_soft_power
+	}
+}
+
+
+update_revanchism = {
+	if = {
+		limit = { original_tag = SOV }
+		SOV = {
+			# reset revanchism if score similar
+			if = { limit = { check_variable = { SOV.cw_score > USA.cw_score } OR = { has_country_flag = looser_boost_1 has_country_flag = looser_boost_2 } }
+				remove_ideas = {
+					revanchism_2
+					revanchism_1
+				}
+				news_event = cw_proxy_war.17
+			}
+			
+			set_variable = { threshold = SOV.cw_score }
+			add_to_variable = { threshold = 300 }
+			
+			# if sov lag 300 point behind
+			if = {
+				limit = { check_variable = { threshold < USA.cw_score } NOT = { has_country_flag = looser_boost_1 has_country_flag = looser_boost_2 }}
+				country_event = {
+					id = cw_proxy_war.12
+					days = 1
+				}
+			}
+			
+			
+			# if sov lag 450 point behind
+			add_to_variable = { threshold = 150 }
+			if = {
+				limit = { check_variable = { threshold < USA.cw_score } NOT = {  has_country_flag = looser_boost_2 }}
+				country_event = {
+					id = cw_proxy_war.13
+					days = 1
+				}
+			}
+			
+			
+		}
+	}
+
+	if = {
+		limit = { original_tag = USA }
+		
+		
+		USA = {
+			# reset revanchism if score similar
+			if = { limit = { check_variable = { USA.cw_score > SOV.cw_score } OR = { has_country_flag = looser_boost_1 has_country_flag = looser_boost_2 } }
+				remove_ideas = {
+					revanchism_2
+					revanchism_1
+				}
+				news_event = cw_proxy_war.16
+			}
+			
+			set_variable = { threshold = USA.cw_score }
+			add_to_variable = { threshold = 300 }
+			
+			# if USA lag 300 point behind
+			if = {
+				limit = { check_variable = { threshold < SOV.cw_score } NOT = { has_country_flag = looser_boost_1 has_country_flag = looser_boost_2 }}
+				country_event = {
+					id = cw_proxy_war.8
+					days = 1
+				}
+			}
+		
+		
+			# if USA lag 450 point behind
+			add_to_variable = { threshold = 150 }
+			if = {
+				limit = { check_variable = { threshold < SOV.cw_score } NOT = {  has_country_flag = looser_boost_2 }}
+				country_event = {
+					id = cw_proxy_war.9
+					days = 1
+				}
+			}
+		}
+		
+	
+	}
+}
+
+update_nuclear_program = {
+	if  = { limit = {OR = { has_country_flag = building_nuclear_prototype			has_country_flag = nuclear_program }}
+				
+		set_variable = { nuclear_effort_score = nuclear_effort}
+		divide_variable = { nuclear_effort_score = 4 }
+		add_to_variable = { nuclear_completion = nuclear_effort_score }
+		
+		set_variable = { max_nuke = 0 }
+		set_variable = { num_reactor = 0}
+		every_controlled_state = {
+				add_to_variable = { ROOT.num_reactor = building_level@nuclear_reactor}
+				add_to_variable = { ROOT.max_nuke = building_level@rocket_site}
+		}
+		
+		add_to_variable = { nuclear_completion = num_reactor }
+		
+		
+		set_variable = { uranium_score = resource@uranium }
+		divide_variable = { uranium_score = 4 }
+		add_to_variable = { enrichement_completion =  uranium_score }
+		
+		if = { limit = { check_variable = { nuclear_completion > 100 }} 
+			set_variable = { nuclear_completion =  100 }
+		}
+		if = { limit = { check_variable = { enrichement_completion > 100 }} 
+			set_variable = { enrichement_completion =  100 }	
+		}
+		if = { limit = {is_ai = yes} set_variable = { max_nuke = 100 } }
+		if = { limit  = { 
+				check_variable = {enrichement_completion =  100 } 
+				check_variable =  { nuclear_completion =  100 } 
+				has_country_flag = nuclear_program 
+				#check_variable =  {num_of_nukes < var:max_nuke@ROOT}
+				} 
+			add_nuclear_bombs = 1
+			set_variable = { nuclear_completion =  0 }
+			set_variable = { enrichement_completion =  0 }	
+			}
+		
+	}
+
+}
+
+compute_proxy_score = {
+	if = {
+		limit = { NOT = { check_variable = { THIS.proxy_point = 0 }}}
+	set_variable = { THIS.proxy_point = 0 }
+	
+	}
+
+	every_owned_state = {
+		if = { limit = { OR = { is_core_of =  PREV is_claimed_by = PREV} } add_to_variable = { PREV.proxy_point = victory_point }	 }
+		
+			
+	}
+	
+	
+	
+	every_enemy_country = {
+		every_controlled_state = {  if = { limit = { OR = { is_core_of = PREV.PREV is_claimed_by = PREV.PREV }  } add_to_variable = { PREV.PREV.proxy_point = victory_point }  } }
+	}
+
+}
+
+
+reset_capital = {
+	
+	set_variable = { new_capital = 0}
+	every_controlled_state = {
+		set_variable = { current = victory_point }
+		if = {
+			limit = { check_variable = { PREV.new_capital < current }}
+			set_variable = { PREV.new_capital = current }
+		}
+	
+	}
+
+	if = {
+		limit = { check_variable = { new_capital > 0} }
+		set_capital = { state = new_capital }
+	
+	}
+}
+
+
+
+
+colony_back_to_puppet = {
+	if = {
+		limit = { 
+			is_in_array = { global.FROM_colonies = FROM }
+		}
+			
+			ENG = { puppet = FROM}
+	}
+	
+	if = {
+		limit = { 
+			is_in_array = { global.FRA_colonies = FROM }
+		}
+			
+			FRA = { puppet = FROM}
+	}
+	
+	if = {
+		limit = { 
+			is_in_array = { global.HOL_colonies = FROM }
+		}
+			
+		HOL = { puppet = FROM}
+	}
+	
+	if = {
+		limit = { 
+			is_in_array = { global.POR_colonies = FROM }
+		}
+			
+		POR = { puppet = FROM}
+	}
+	
+	if = {
+		limit = { 
+			is_in_array = { global.BEL_colonies = FROM }		
+			
+		}
+		BEL = { puppet = FROM}
+	}
+
+}
+
+update_free_europe = {
+	if = {
+		limit = { check_variable = { 801.building_level@radar_station < 2 } }
+			set_variable = { BRL.free_europe_com  = 0.01 }
+			set_variable = { BRL.free_europe_com_tot  = 0.01 }
+		}
+		else_if  = {
+			limit = { check_variable = { 801.building_level@radar_station = 2 } }
+			set_variable = { BRL.free_europe_com  = 0.015 }
+			set_variable = { BRL.free_europe_com_tot  = 0.015 }
+		
+		}
+		else_if  = {
+			limit = { check_variable = { 801.building_level@radar_station = 3 } }
+			set_variable = { BRL.free_europe_com  = 0.02 }
+			set_variable = { BRL.free_europe_com_tot  = 0.02 }
+		
+		}
+		else_if = {
+			limit = { check_variable = { 801.building_level@radar_station = 4 } }
+			set_variable = { BRL.free_europe_com  = 0.025 }
+			set_variable = { BRL.free_europe_com_tot  = 0.025 }
+		
+		}
+		else_if = {
+			limit = { check_variable = { 801.building_level@radar_station = 5 } }
+			set_variable = { BRL.free_europe_com  = 0.03 }
+			set_variable = { BRL.free_europe_com_tot  = 0.03 }
+		
+		}
+		else_if = {
+			limit = { check_variable = { 801.building_level@radar_station = 6 } }
+			set_variable = { BRL.free_europe_com  = 0.035 }
+			set_variable = { BRL.free_europe_com_tot  = 0.035 }
+		}
+
+}

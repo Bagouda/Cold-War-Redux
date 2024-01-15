@@ -1,0 +1,116 @@
+﻿division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		mechanized = { x = 2 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+		artillery_brigade = { x = 2 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}	
+}
+division_template = {
+	name = "Armour Division"
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 1 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 1 y = 1 }
+	}
+	support = {
+		logistics_company = { x = 0 y = 0 }
+	}	
+}
+units = {
+	division = {
+		location = 12589
+		division_template = "Armour Division"
+	}
+	division = {
+		location = 12589
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 12589
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 8178
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 7900
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 10566
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 1688
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 5217
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 2213
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 1509
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 5203
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 7770
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 13217
+		division_template = "Armour Division"
+	}
+	division = {
+		location = 12519
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 8136
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 12921
+		division_template = "Infantry Division"
+	}
+}
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_3
+			creator = "SAF"
+		}
+		requested_factories = 2
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "SAF"
+		}
+		requested_factories = 2
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_3
+			creator = "SAF"
+		}
+		requested_factories = 1
+	}
+}

@@ -1,0 +1,43 @@
+state = {
+	id=28
+	local_supplies=0.0 
+	name="STATE_28" # Alsace-Lorraine
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 9559 }
+ 	add_to_array = { list_victory_point = 9503 }
+ 	add_to_array = { list_victory_point = 678 }
+ 	set_variable = { victory_point = 20 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = FRA
+		add_core_of = FRA
+		add_claim_by = GER
+		
+		1947.2.10 = {	#Treaty of Paris 1947
+			remove_claim_by = GER
+		}
+
+		add_building_construction = {
+			type = bunker
+			level = 5
+			instant_build = yes
+			province = {
+				all_provinces = yes
+			}
+		}				
+
+		victory_points = { 678 5 }
+		victory_points = { 9503 5 }
+		victory_points = { 9559 10 }
+	}
+	resources={
+		steel=30 # was: 236
+		crops = 5
+	}
+	manpower = 1915600
+	provinces={
+		549 678 1346 3629 6529 9503 9559 11502 
+	}
+}

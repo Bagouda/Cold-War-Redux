@@ -1,0 +1,24 @@
+state={
+	id=856
+	local_supplies=0.0 
+	name="STATE_856"
+	history={
+ 	add_to_array = { list_victory_point = 12986 }
+ 	set_variable = { victory_point = 1 }
+		owner = ENG
+		add_claim_by = MLW
+		
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			12986 1 
+		}
+	}
+	provinces={
+		12908 
+	}
+	manpower=903987
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+}

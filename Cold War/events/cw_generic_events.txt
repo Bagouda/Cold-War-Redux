@@ -1,0 +1,375 @@
+﻿add_namespace = generic_events
+country_event = {
+	id = generic_events.2		#Weapons deliver from support focuses/decisions
+	title = un_resolutions.2.t
+	desc = un_resolutions.2.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = no
+	is_triggered_only = yes	
+
+	immediate = {
+
+	}
+
+	option = {
+		name = "We are greateful"
+		add_equipment_to_stockpile = { type = infantry_equipment_3 amount = 10000 }
+		add_equipment_to_stockpile = { type = support_equipment amount = 10000 }
+	}
+}
+
+country_event = {
+	id = generic_events.3		#Military Aid Request
+	title = generic_events.3.t
+	desc = generic_events.3.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes	
+
+	option = {
+		name = "Grant them aid"	
+		ai_chance = {
+			factor = 10
+			modifier = {
+				add = 50
+				has_opinion = { target = FROM value > 10 }
+			}
+		}
+		if = {
+			limit = {
+				has_event_target = alternative_event_target
+			}
+			event_target:alternative_event_target = { cw_give_military_aid = yes }
+			else = {
+				FROM = { cw_give_military_aid = yes }
+			}
+		}
+	}
+	option = {
+		name = "Refuse their request"	
+		ai_chance = {
+			factor = 10
+			modifier = {
+				add = 50
+				has_opinion = { target = FROM value < 10 }
+			}
+		}
+		if = {
+			limit = {
+				has_event_target = alternative_event_target
+			}
+			event_target:alternative_event_target = { 
+				phone_notification_generic_aid_refused = yes
+				add_opinion_modifier = { target = ROOT modifier = refused_our_demands }
+			}
+			else = {
+				FROM = {
+					phone_notification_generic_aid_refused = yes
+					add_opinion_modifier = { target = ROOT modifier = refused_our_demands }
+				}
+			}
+		}
+	}	
+}
+country_event = {
+	id = generic_events.4		#Monopoly Offer
+	title = generic_events.4.t
+	desc = generic_events.4.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes	
+
+	option = {
+		name = "Accept monopoly offer"
+		ai_chance = {
+			modifier = {
+				factor = 50
+			}
+		}		
+		var:ROOT.monopoly_offer_state = { ROOT = { cw_give_state_monopoly_perpetual_country = yes } }
+		clear_variable = monopoly_offer_state
+		hidden_effect = {
+			if = {
+				limit = {
+					FROM = {
+						has_idea = CHI_hyper_inflation_2
+					}
+				}
+				swap_ideas = {
+					remove_idea = CHI_hyper_inflation_2
+					add_idea = CHI_hyper_inflation_1
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						has_idea = CHI_hyper_inflation_3
+					}
+				}
+				swap_ideas = {
+					remove_idea = CHI_hyper_inflation_3
+					add_idea = CHI_hyper_inflation_2
+				}
+			}			
+			if = {
+				limit = {
+					FROM = {
+						has_idea = CHI_hyper_inflation_4
+					}
+				}
+				swap_ideas = {
+					remove_idea = CHI_hyper_inflation_4
+					add_idea = CHI_hyper_inflation_3
+				}
+			}			
+			if = {
+				limit = {
+					FROM = {
+						has_idea = CHI_hyper_inflation_5
+					}
+				}
+				swap_ideas = {
+					remove_idea = CHI_hyper_inflation_5
+					add_idea = CHI_hyper_inflation_4
+				}
+			}
+		}
+	}
+	option = {
+		name = "It's not worth it"
+		ai_chance = {
+			modifier = {
+				factor = 50
+			}
+		}
+		FROM = {
+			phone_notification_generic_request_refused = yes
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = refused_our_demands
+			}
+		}
+		clear_variable = monopoly_offer_state
+	}	
+}
+country_event = {
+	id = generic_events.6		#Lease Renegotiation - Demands
+	title = generic_events.6.t
+	desc = generic_events.6.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Allow a 10 Year lease"
+		ai_chance = {
+			modifier = {
+				factor = 25
+			}
+		}		
+		event_target:lease_negotiation_target = { OWNER = { PREV = { save_event_target_as = lease_negotiation_target_state } set_variable = { lease_demand = 10 } country_event = { id = generic_events.7 days = 3 } } }
+	}
+	option = {
+		name = "Allow a 20 Year lease"
+		ai_chance = {
+			modifier = {
+				factor = 25
+			}
+		}		
+		event_target:lease_negotiation_target = { OWNER = { PREV = { save_event_target_as = lease_negotiation_target_state } set_variable = { lease_demand = 20 } country_event = { id = generic_events.7 days = 3 } } }
+	}
+	option = {
+		name = "Allow a 50 Year lease"
+		ai_chance = {
+			modifier = {
+				factor = 25
+			}
+		}		
+		event_target:lease_negotiation_target = { OWNER = { PREV = { save_event_target_as = lease_negotiation_target_state } set_variable = { lease_demand = 50 } country_event = { id = generic_events.7 days = 3 } } }
+	}	
+	option = {
+		name = "Demand Immediate Return"
+		ai_chance = {
+			modifier = {
+				factor = 25
+			}
+		}		
+		event_target:lease_negotiation_target = { OWNER = { PREV = { save_event_target_as = lease_negotiation_target_state } country_event = { id = generic_events.7 days = 3 } } }
+	}	
+}
+
+country_event = {
+	id = generic_events.7		#Lease Renegotiation - Demands Presented to holder of state
+	title = generic_events.7.t
+	desc = generic_events.7.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Agree to their demands"
+		ai_chance = {
+			modifier = {
+				factor = 25
+			}
+		}
+		FROM = {
+			phone_notification_generic_request_accepted = yes
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = returned_territory
+			}
+		}		
+		if = {
+			limit = {
+				check_variable = { lease_demand = 0 }
+			}
+			event_target:lease_negotiation_target_state = {
+				cw_revoke_state_lease = yes
+			}
+		}		
+		if = {
+			limit = {
+				check_variable = { lease_demand = 10 }
+			}
+			event_target:lease_negotiation_target_state = {
+				set_variable = { lease_timer = 120 }
+				set_variable = { lease_timer_display = 10 }
+				if = {
+					limit = {
+						has_state_flag = perpetual_lease
+					}
+					clr_state_flag = perpetual_lease
+				}
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { lease_demand = 20 }
+			}
+			event_target:lease_negotiation_target_state = {
+				set_variable = { lease_timer = 240 }
+				set_variable = { lease_timer_display = 20 }
+				if = {
+					limit = {
+						has_state_flag = perpetual_lease
+					}
+					clr_state_flag = perpetual_lease
+				}
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { lease_demand = 50 }
+			}
+			event_target:lease_negotiation_target_state = {
+				set_variable = { lease_timer = 600 }
+				set_variable = { lease_timer_display = 50 }
+				if = {
+					limit = {
+						has_state_flag = perpetual_lease
+					}
+					clr_state_flag = perpetual_lease
+				}
+			}
+		}		
+	}
+	option = {
+		name = "This is unacceptable"
+		ai_chance = {
+			modifier = {
+				factor = 25
+			}
+		}		
+		FROM = { event_target:lease_negotiation_target_state = { save_event_target_as = lease_negotiation_target_state_response } country_event = { id = generic_events.8 days = 3 } }
+		FROM = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = refused_our_demands
+			}
+		}
+	}	
+}
+
+country_event = {
+	id = generic_events.8		#Lease Renegotiation - Holder rejected demands
+	title = generic_events.8.t
+	desc = generic_events.8.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "They will regret this."
+		ai_chance = {
+			modifier = {
+				factor = 100
+			}
+		}	
+	}	
+}
+country_event = {
+	id = generic_events.9		# Oil Nationalization begun
+	title = generic_events.9.t
+	desc = generic_events.9.d
+	picture = GFX_report_event_generic_read_write
+
+	is_triggered_only = yes
+
+	option = {
+		name = "OK"
+	}
+}
+country_event = {
+	id = generic_events.10		# Economic aid request
+	title = generic_events.10.t
+	desc = generic_events.10.d
+	picture = GFX_report_event_generic_read_write
+
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = {
+			modifier = {
+				factor = 50
+			}
+			modifier = {
+				FROM = { has_country_flag = scripted_aid_request }
+				factor = 500
+			}			
+		}	
+		name = "Give Aid"
+		FROM = { 
+			cw_give_economic_aid_effect_locked = yes
+			phone_notification_generic_aid_granted = yes
+			clear_variable = cw_economic_aid_lock
+		}
+	}
+	option = {
+		ai_chance = {
+			modifier = {
+				factor = 50
+			}
+		}	
+		name = "Reject Aid Request"
+		FROM = {
+			add_opinion_modifier = { target = ROOT modifier = refused_humanitarian_relief }
+			phone_notification_generic_aid_refused = yes 
+		}
+	}	
+}
+news_event = {
+	id = generic_events.11		# Country abolishes war reparations
+	title = generic_events.11.t
+	desc = generic_events.11.d
+	picture = GFX_news_event_generic_sign_treaty2
+
+	major = yes
+	is_triggered_only = yes
+	#fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}

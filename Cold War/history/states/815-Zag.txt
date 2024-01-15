@@ -1,0 +1,29 @@
+state = {
+	id=815
+	local_supplies=0.0 
+	name="STATE_815"
+	state_category = wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 8038 }
+ 	set_variable = { victory_point = 5 }
+		owner = SDR
+		add_claim_by = MOR
+		
+		buildings = {
+			infrastructure = 1
+			air_base = 1
+			8038 = {
+				naval_base = 1
+			}
+		}
+		
+		1975.11.14 = {
+			owner = MOR
+		}
+		victory_points = { 8038 5 }
+	}
+	manpower = 21056
+	provinces={
+		4920 8111 8038 
+	}
+}

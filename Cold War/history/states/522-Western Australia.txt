@@ -1,0 +1,32 @@
+state = {
+	id=522
+	local_supplies=0.0 
+	name="STATE_522"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 1652 }
+ 	set_variable = { victory_point = 20 }
+		owner = AST
+		add_core_of = AST
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 3
+			dockyard  = 2
+			1652 = {
+				naval_base = 2
+			}			
+		}
+		
+		victory_points = {
+			1652 20		#Perth
+		}
+	}
+	resources={
+		crops = 12
+	}	
+	manpower = 367200
+	provinces={
+		1652 2157 4630 5175 7453 8130 8228 8243 10983 
+	}
+}

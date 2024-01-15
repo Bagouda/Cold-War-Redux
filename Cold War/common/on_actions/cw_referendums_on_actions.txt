@@ -1,0 +1,418 @@
+@REF_INF_MIN = 1
+@REF_INF_MAX = 3
+on_actions = {
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = { referendum_timeout_counter > 0 }
+				}
+				subtract_from_variable = { referendum_timeout_counter = 1.0 }
+			}
+			if = {
+				limit = {
+					any_owned_state = { check_variable = { referendum_timeout_counter > 0 } }
+				}
+				every_owned_state = {
+					limit = {
+						has_state_flag = {
+							flag = ref_state
+						}
+					}
+					subtract_from_variable = { referendum_timeout_counter = 1 }
+				}
+			}
+		}
+	}
+	on_weekly = {
+		effect = {
+			### COMMUNIST POWER STRUGGLE ###
+			if = {
+				limit = {
+					NOT = { has_country_flag = referendum_randomizer_timeout }
+					has_country_flag = communist_power_struggle
+				}
+				random_list = {
+					25 = {
+						modifier = {
+	            factor = 20.0
+	            has_country_flag = cps_favor_first_candiate
+		        }
+						modifier = {
+	            factor = 5.0
+	            NOT = { has_country_flag = back_first_candidate }
+		        }
+						if = {
+							limit = {
+								NOT = { has_country_flag = first_option_disabled }
+							}
+							cw_country_ref_update_first_option = yes
+							####################################
+							#### GRAPHIC BAR FRAME UPDATE	####
+							####################################
+							cw_country_ref_update_bars = yes
+						}
+					}
+					25 = {
+						modifier = {
+							factor = 20.0
+							has_country_flag = cps_favor_second_candiate
+						}
+						modifier = {
+	            factor = 5.0
+	            NOT = { has_country_flag = back_second_candidate }
+		        }
+						if = {
+							limit = {
+								NOT = { has_country_flag = second_option_disabled }
+							}
+							cw_country_ref_update_second_option = yes
+							####################################
+							#### GRAPHIC BAR FRAME UPDATE	####
+							####################################
+							cw_country_ref_update_bars = yes
+						}
+					}
+					25 = {
+						modifier = {
+							factor = 20.0
+							has_country_flag = cps_favor_third_candiate
+						}
+						modifier = {
+	            factor = 5.0
+	            NOT = { has_country_flag = back_third_candidate }
+		        }
+						if = {
+							limit = {
+								has_country_flag = third_option_occupied
+								NOT = { has_country_flag = third_option_disabled }
+							}
+							cw_country_ref_update_third_option = yes
+							####################################
+							#### GRAPHIC BAR FRAME UPDATE	####
+							####################################
+							cw_country_ref_update_bars = yes
+						}
+					}
+					25 = {
+						modifier = {
+							factor = 20.0
+							has_country_flag = cps_favor_fourth_candiate
+						}
+						modifier = {
+	            factor = 5.0
+	            NOT = { has_country_flag = back_fourth_candidate }
+		        }
+						if = {
+							limit = {
+								has_country_flag = fourth_option_occupied
+								NOT = { has_country_flag = fourth_option_disabled }
+							}
+							cw_country_ref_update_fourth_option = yes
+							####################################
+							#### GRAPHIC BAR FRAME UPDATE	####
+							####################################
+							cw_country_ref_update_bars = yes
+						}
+					}
+				}
+				set_country_flag = { flag = referendum_randomizer_timeout value = 1 days = 8 }
+			}
+			### COUNTRY REF RANDOMIZER ###
+			if = {
+				limit = {
+					NOT = { has_country_flag = referendum_randomizer_timeout }
+					OR = {
+					 has_country_flag = cs_ref_initiator
+					 has_country_flag = mon_ref_initiator
+					 has_country_flag = cw_election_holder
+				 	}
+				}
+				#### COUNTRY REFERENDUM RANDOMIZER ####
+				random_list = {
+					25 = {
+						modifier = {
+		            factor = 2.0
+		            has_country_flag = ref_favor_first_option
+		        }
+						if = {
+							limit = {
+								NOT = { has_country_flag = first_option_disabled }
+							}
+							cw_country_ref_update_first_option = yes
+							####################################
+							#### GRAPHIC BAR FRAME UPDATE	####
+							####################################
+							cw_country_ref_update_bars = yes
+						}
+					}
+					25 = {
+						modifier = {
+								factor = 2.0
+								has_country_flag = ref_favor_second_option
+						}
+						if = {
+							limit = {
+								NOT = { has_country_flag = second_option_disabled }
+							}
+							cw_country_ref_update_second_option = yes
+							####################################
+							#### GRAPHIC BAR FRAME UPDATE	####
+							####################################
+							cw_country_ref_update_bars = yes
+						}
+					}
+					25 = {
+						modifier = {
+								factor = 2.0
+								has_country_flag = ref_favor_third_option
+						}
+						if = {
+							limit = {
+								has_country_flag = third_option_occupied
+								NOT = { has_country_flag = third_option_disabled }
+							}
+							cw_country_ref_update_third_option = yes
+							####################################
+							#### GRAPHIC BAR FRAME UPDATE	####
+							####################################
+							cw_country_ref_update_bars = yes
+						}
+					}
+					25 = {
+						modifier = {
+								factor = 2.0
+								has_country_flag = ref_favor_fourth_option
+						}
+						if = {
+							limit = {
+								has_country_flag = fourth_option_occupied
+								NOT = { has_country_flag = fourth_option_disabled }
+							}
+							cw_country_ref_update_fourth_option = yes
+							####################################
+							#### GRAPHIC BAR FRAME UPDATE	####
+							####################################
+							cw_country_ref_update_bars = yes
+						}
+					}
+				}
+				set_country_flag = { flag = referendum_randomizer_timeout value = 1 days = 5 }
+			}
+			#### STATE REFERENDUM RANDOMIZER ####
+			if = {
+				limit = {
+					NOT = { has_country_flag = referendum_randomizer_timeout }
+					any_owned_state = {
+						has_state_flag = {
+							flag = ref_state
+						}
+					}
+				}
+				random_owned_state = {
+					limit = {
+						has_state_flag = {
+							flag = ref_state
+						}
+						OWNER = { has_country_flag = state_ref_initiator }
+					}
+					random_list = {
+						25 = {
+						  randomize_temp_variable = {
+						    var = random_generator
+						    distribution = uniform
+						    min = @REF_INF_MIN
+						    max = @REF_INF_MAX
+						  }
+						  set_variable = { ref_random_inf = random_generator }
+						  round_variable = ref_random_inf
+						  set_variable = { ref_currently_changed_option = state_ref_first_option_votes_percent }			#Current option
+						  add_to_array = {
+						    array = referendum_options_array
+						    value = state_ref_second_option_votes_percent			#Other option
+						  }
+						  if = {
+						    limit = {
+						      OWNER = { has_country_flag = third_option_occupied }
+						    }
+						    add_to_array = {
+						      array = referendum_options_array
+						      value = state_ref_third_option_votes_percent			#Other option
+						    }
+						  }
+						  if = {
+						    limit = {
+						      OWNER = { has_country_flag = fourth_option_occupied }
+						    }
+						    add_to_array = {
+						      array = referendum_options_array
+						      value = state_ref_fourth_option_votes_percent			#Other option
+						    }
+						  }
+						  cw_add_referandum_option_vote = yes
+						  set_variable = { state_ref_first_option_votes_percent = ref_currently_changed_option }			#Current option
+						  set_variable = { state_ref_second_option_votes_percent = referendum_options_array^0 }			#Other option
+						  if = {
+						    limit = {
+						      OWNER = { has_country_flag = third_option_occupied }
+						    }
+						    set_variable = { state_ref_third_option_votes_percent = referendum_options_array^1 }			#Other option
+						  }
+						  if = {
+						    limit = {
+						      OWNER = { has_country_flag = fourth_option_occupied }
+						    }
+						    set_variable = { state_ref_fourth_option_votes_percent = referendum_options_array^2 }			#Other option
+						  }
+						  clear_array = referendum_options_array
+							####################################
+						  #### GRAPHIC BAR FRAME UPDATE	####
+						  ####################################
+							cw_state_ref_update_bars = yes
+						}
+						25 = {
+					    randomize_temp_variable = {
+					      var = random_generator
+					      distribution = uniform
+					      min = @REF_INF_MIN
+					      max = @REF_INF_MAX
+					    }
+					    set_variable = { ref_random_inf = random_generator }
+					    round_variable = ref_random_inf
+					    set_variable = { ref_currently_changed_option = state_ref_second_option_votes_percent }			#Current option
+					    add_to_array = {
+					      array = referendum_options_array
+					      value = state_ref_first_option_votes_percent			#Other option
+					    }
+					    if = {
+					      limit = {
+					        OWNER = { has_country_flag = third_option_occupied }
+					      }
+					      add_to_array = {
+					        array = referendum_options_array
+					        value = state_ref_third_option_votes_percent			#Other option
+					      }
+					    }
+					    if = {
+					      limit = {
+					        OWNER = { has_country_flag = fourth_option_occupied }
+					      }
+					      add_to_array = {
+					        array = referendum_options_array
+					        value = state_ref_fourth_option_votes_percent			#Other option
+					      }
+					    }
+					    cw_add_referandum_option_vote = yes
+					    set_variable = { state_ref_second_option_votes_percent = ref_currently_changed_option }			#Current option
+					    set_variable = { state_ref_first_option_votes_percent = referendum_options_array^0 }			#Other option
+					    if = {
+					      limit = {
+					        OWNER = { has_country_flag = third_option_occupied }
+					      }
+					      set_variable = { state_ref_third_option_votes_percent = referendum_options_array^1 }			#Other option
+					    }
+					    if = {
+					      limit = {
+					        OWNER = { has_country_flag = fourth_option_occupied }
+					      }
+					      set_variable = { state_ref_fourth_option_votes_percent = referendum_options_array^2 }			#Other option
+					    }
+					    clear_array = referendum_options_array
+							####################################
+						  #### GRAPHIC BAR FRAME UPDATE	####
+						  ####################################
+							cw_state_ref_update_bars = yes
+						}
+						25 = {
+							if = {
+								limit = {
+									OWNER = { has_country_flag = third_option_occupied }
+								}
+							  randomize_temp_variable = {
+							    var = random_generator
+							    distribution = uniform
+							    min = @REF_INF_MIN
+							    max = @REF_INF_MAX
+							  }
+							  set_variable = { ref_random_inf = random_generator }
+							  round_variable = ref_random_inf
+							  set_variable = { ref_currently_changed_option = state_ref_third_option_votes_percent }			#Current option
+							  add_to_array = {
+							    array = referendum_options_array
+							    value = state_ref_first_option_votes_percent			#Other option
+							  }
+							  add_to_array = {
+							    array = referendum_options_array
+							    value = state_ref_second_option_votes_percent			#Other option
+							  }
+							  if = {
+							    limit = {
+							      OWNER = { has_country_flag = fourth_option_occupied }
+							    }
+							    add_to_array = {
+							      array = referendum_options_array
+							      value = state_ref_fourth_option_votes_percent			#Other option
+							    }
+							  }
+							  cw_add_referandum_option_vote = yes
+							  set_variable = { state_ref_third_option_votes_percent = ref_currently_changed_option }			#Current option
+							  set_variable = { state_ref_first_option_votes_percent = referendum_options_array^0 }			#Other option
+							  set_variable = { state_ref_second_option_votes_percent = referendum_options_array^1 }			#Other option
+							  if = {
+							    limit = {
+							      OWNER = { has_country_flag = fourth_option_occupied }
+							    }
+							    set_variable = { state_ref_fourth_option_votes_percent = referendum_options_array^2 }			#Other option
+							  }
+							  clear_array = referendum_options_array
+								####################################
+							  #### GRAPHIC BAR FRAME UPDATE	####
+							  ####################################
+								cw_state_ref_update_bars = yes
+							}
+						}
+						25 = {
+							if = {
+								limit = {
+									OWNER = { has_country_flag = fourth_option_occupied }
+								}
+							  randomize_temp_variable = {
+							    var = random_generator
+							    distribution = uniform
+							    min = @REF_INF_MIN
+							    max = @REF_INF_MAX
+							  }
+							  set_variable = { ref_random_inf = random_generator }
+							  round_variable = ref_random_inf
+							  set_variable = { ref_currently_changed_option = state_ref_fourth_option_votes_percent }			#Current option
+							  add_to_array = {
+							    array = referendum_options_array
+							    value = state_ref_first_option_votes_percent			#Other option
+							  }
+							  add_to_array = {
+							    array = referendum_options_array
+							    value = state_ref_second_option_votes_percent			#Other option
+							  }
+							  add_to_array = {
+							    array = referendum_options_array
+							    value = state_ref_third_option_votes_percent			#Other option
+							  }
+							  cw_add_referandum_option_vote = yes
+							  set_variable = { state_ref_fourth_option_votes_percent = ref_currently_changed_option }			#Current option
+							  set_variable = { state_ref_first_option_votes_percent = referendum_options_array^0 }			#Other option
+							  set_variable = { state_ref_second_option_votes_percent = referendum_options_array^1 }			#Other option
+							  set_variable = { state_ref_third_option_votes_percent = referendum_options_array^2 }			#Other option
+							  clear_array = referendum_options_array
+								####################################
+							  #### GRAPHIC BAR FRAME UPDATE	####
+							  ####################################
+								cw_state_ref_update_bars = yes
+							}
+						}
+					}
+				}
+				set_country_flag = { flag = referendum_randomizer_timeout value = 1 days = 5 }
+			}
+		}
+	}
+}

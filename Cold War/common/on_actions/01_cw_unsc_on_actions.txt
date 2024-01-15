@@ -1,0 +1,570 @@
+on_actions = {
+	on_send_volunteers = {
+		effect = {
+			if = {
+				limit = {
+					FROM = { has_variable = volunteers_allowed_from@ROOT }
+				}
+				FROM = { clear_variable = volunteers_allowed_from@ROOT }
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = sent_volunteers_action }
+					NOT = {
+						has_volunteers_amount_from = {
+							tag = FROM
+							count > 0
+						}
+					}
+					ROOT = {
+						OR = {
+							has_government = communism
+							has_government = communism_totalitarian
+						}
+						NOT = { has_country_flag = un_police_action_allowed }
+					}
+				}
+				if = {
+					limit = {
+						ROOT = { 
+							is_major = yes
+							NOT = { has_country_flag = sent_volunteers_action }
+						}
+					}
+					ROOT = {
+						add_named_threat = { threat = 3 name = "Intervened in foreign conflict without UN authorization." }
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							is_major = no 
+							NOT = { has_country_flag = sent_volunteers_action }
+						}
+					}
+					ROOT = {
+						add_named_threat = { threat = 1 name = "Intervened in foreign conflict without UN authorization." }
+					}
+				}
+				ROOT = { set_country_flag = { flag = sent_volunteers_action value = 1 days = 5 } }
+			}
+			every_other_country = {
+				limit = {
+					has_war_with = FROM
+				}
+				ROOT = {
+					add_relation_modifier  = {
+						target = PREV
+						modifier = sided_with_enemy_modifier
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { OR = { has_government = democratic has_government = democratic_socialist } }
+				}
+				ROOT = { clr_country_flag = can_increase_troop_levels }
+			}
+		}
+	}
+	on_monthly = {
+		effect = {			
+			##### SANCTIONS PERIOD SUBTRACTOR ####
+			if = {
+				limit = {
+					ROOT = { sanctioned_by_unsc = yes }
+				}
+				if = {
+					limit = {
+						check_variable = { unsc_sanctions_cooldown > 0 }
+					}
+					set_variable = { duration_calculator_output = unsc_sanctions_cooldown }
+					cw_duration_calculator = yes
+					subtract_from_variable = { unsc_sanctions_cooldown = 30 }
+					clamp_variable = { var = unsc_sanctions_cooldown min = 0 max = 9999 }
+				}				
+				if = {
+					limit = {
+						check_variable = { unsc_civ_sanctions_duration > 0 }
+					}
+					subtract_from_variable = { unsc_civ_sanctions_duration = 30 }
+					clamp_variable = { var = unsc_civ_sanctions_duration min = 0 max = 9999 }
+				}
+				if = {
+					limit = {
+						check_variable = { unsc_mil_sanctions_duration > 0 }
+					}
+					subtract_from_variable = { unsc_mil_sanctions_duration = 30 }
+					clamp_variable = { var = unsc_mil_sanctions_duration min = 0 max = 9999 }
+				}
+				if = {
+					limit = {
+						check_variable = { unsc_trade_sanctions_duration > 0 }
+					}
+					subtract_from_variable = { unsc_trade_sanctions_duration = 30 }
+					clamp_variable = { var = unsc_trade_sanctions_duration min = 0 max = 9999 }
+				}
+				if = {
+					limit = {
+						check_variable = { unsc_leader_sanctions_duration > 0 }
+					}
+					subtract_from_variable = { unsc_leader_sanctions_duration = 30 }
+					clamp_variable = { var = unsc_leader_sanctions_duration min = 0 max = 9999 }
+				}
+				if = {
+					limit = {
+						check_variable = { unsc_nuclear_sanctions_duration > 0 }
+					}
+					subtract_from_variable = { unsc_nuclear_sanctions_duration = 30 }
+					clamp_variable = { var = unsc_nuclear_sanctions_duration min = 0 max = 9999 }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { unsc_civ_sanctions_duration = 0 }
+							check_variable = { unsc_mil_sanctions_duration = 0 }
+							check_variable = { unsc_trade_sanctions_duration = 0 }
+							check_variable = { unsc_leader_sanctions_duration = 0 }
+							check_variable = { unsc_nuclear_sanctions_duration = 0 }
+						}
+					}
+					ROOT = { unsc_remove_sanctions = yes }
+				}
+			}
+			##### UN POLICE ACTION SUBTRACTOR ####
+			if = {
+				limit = {
+					has_variable = police_action_days_remaining
+				}
+				subtract_from_variable = { police_action_days_remaining = 30 }
+				clamp_variable = { var = police_action_days_remaining min = 0 max = 720 }
+			}
+			if = {		# UNSC Debugger in case UNSC gets stuck in implementation of a resolution
+				limit = {
+					has_global_flag = unsc_implementing_resolution_flag
+				}
+				add_to_variable = { global.unsc_debugger = 0.1 }
+				if = {
+					limit = {
+						has_global_flag = unsc_implementing_resolution_flag
+						check_variable = { global.unsc_debugger > 20.0 }		#Supposed to add once a week but adds every day, crappy code by Paradox god knows what's its doing
+					}
+					cw_unsc_clear_junk = yes
+				}
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					THIS = { check_variable = { THIS.unsc_actions_cooldown > 0 } }
+				}
+				subtract_from_variable = { THIS.unsc_actions_cooldown = 1.0 }
+			}
+			if = {
+				limit = {
+					THIS = { check_variable = { THIS.resoultion_failed_cooldown_timer > 0 } }
+				}
+				subtract_from_variable = { THIS.resoultion_failed_cooldown_timer = 1.0 }
+			}
+			if = {
+				limit = {
+					check_variable = { global.unsc_non_permanent_shuffle > 1 }
+				}
+				subtract_from_variable = { global.unsc_non_permanent_shuffle = 0.01 }
+			}
+			if = {
+				limit = {
+					check_variable = { global.unsc_non_permanent_shuffle = 1 }
+					unsc_in_session = no
+				}
+				unsc_shuffle_non_permanent = yes
+			}
+			if = {
+				limit = {
+					check_variable = { global.unsc_resolution_vote_timer > 0 }
+				}
+				subtract_from_variable = { global.unsc_resolution_vote_timer = 0.01 }
+				if = {
+					limit = {
+						has_event_target = unsc_target
+						event_target:unsc_target = {
+							OR = {
+								has_country_flag = unsc_generic_extend_police_action
+								has_country_flag = unsc_generic_increase_police_participation
+								AND = {
+									has_country_flag = unsc_police_action_target
+									has_war = no
+								}
+							}
+						}
+						event_target:unsc_target = { exists = no }
+					}
+					UNN = { add_named_threat = { threat = -0.1 name = CW_RESOLUTION_REMOVED_FROM_AGENDA } }
+					clear_variable = global.unsc_resolution_vote_timer
+					cw_unsc_clear_votes = yes
+					cw_unsc_clear_junk = yes
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { global.unsc_resolution_vote_timer > 5 }
+					all_of_scopes = {
+						array = global.unsc_non_permanent_members_array
+						OR = {
+							has_country_flag = unsc_voted_yes
+							has_country_flag = unsc_voted_no
+							has_country_flag = unsc_voted_veto
+							has_country_flag = unsc_voted_abstain
+						}
+					}
+					all_of_scopes = {
+						array = global.unsc_permanent_members_array
+						OR = {
+							has_country_flag = unsc_voted_yes
+							has_country_flag = unsc_voted_no
+							has_country_flag = unsc_voted_veto
+							has_country_flag = unsc_voted_abstain
+						}
+					}
+					NOT = { has_global_flag = unsc_days_reset }
+				}
+				set_variable = { global.unsc_resolution_vote_timer = 6 }
+				set_global_flag = unsc_days_reset
+			}			
+			if = {
+				limit = {
+					check_variable = { global.unsc_resolution_vote_timer = 5 }
+					check_variable = { global.unsc_total_votes < global.unsc_members }
+				}
+				cw_unsc_force_puppet_votes = yes
+				cw_unsc_force_abstain = yes
+			}
+			if = {
+				limit = {
+					check_variable = { global.unsc_resolution_vote_timer = 1 }
+					check_variable = { global.unsc_total_votes_veto = 0 }
+					check_variable = { global.unsc_total_votes_yes > global.unsc_total_votes_no }
+				}
+				clear_variable = global.unsc_resolution_vote_timer
+				cw_unsc_adjust_relations = yes
+				cw_unsc_adopt_resolution = yes
+				cw_unsc_clear_votes = yes	#Always put this, DO NOT put clear junk since it will cancel implementation of resolutions. Clear junk must be put in the resolution finishing code itself
+			}
+			else_if = {
+				limit = {
+					check_variable = { global.unsc_resolution_vote_timer = 1 }
+					check_variable = { global.unsc_total_votes_veto = 0 }
+					check_variable = { global.unsc_total_votes_no > global.unsc_total_votes_yes }
+				}
+				clear_variable = global.unsc_resolution_vote_timer
+				cw_unsc_adjust_relations = yes
+				cw_unsc_reject_resolution = yes
+				cw_unsc_clear_votes = yes	#Always put this
+			}
+			else_if = {
+				limit = {
+					check_variable = { global.unsc_resolution_vote_timer = 1 }
+					check_variable = { global.unsc_total_votes_veto > 0 }
+				}
+				clear_variable = global.unsc_resolution_vote_timer
+				cw_unsc_adjust_relations = yes
+				cw_unsc_veto_resolution = yes
+				cw_unsc_clear_votes = yes	#Always put this
+			}
+			else_if = {
+				limit = {
+					check_variable = { global.unsc_resolution_vote_timer = 1 }
+					NOT = { check_variable = { global.unsc_total_votes_veto > 0 } }
+					NOT = {
+						OR = {
+							check_variable = { global.unsc_total_votes_yes > global.unsc_total_votes_no }
+							check_variable = { global.unsc_total_votes_no > global.unsc_total_votes_yes }
+						} 
+					}
+				}
+				clear_variable = global.unsc_resolution_vote_timer
+				cw_unsc_adjust_relations = yes
+				cw_unsc_clear_votes = yes	#Always put this
+				cw_unsc_abstain_resolution = yes
+			}
+		}
+	}
+	on_government_exiled = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						is_in_array = {
+							array = global.unsc_permanent_members_array
+							value = THIS.id
+						}
+					}
+				}
+				FROM = { remove_ideas  = cw_un_permanent }
+				FROM = { remove_from_unsc_balance = yes }
+				FROM = { remove_from_array = { global.unsc_permanent_members_array = THIS.id } }
+				UNA = { add_ideas = cw_un_permanent }
+				UNA = { add_to_array = { array = global.unsc_permanent_members_array value = THIS.id } }
+				UNA = { add_to_unsc_balance = yes }
+			}
+			else_if = {
+				limit = {
+					FROM = {
+						is_in_array = {
+							array = global.unsc_non_permanent_members_array
+							value = THIS.id
+						}
+					}
+				}
+				FROM = { remove_ideas  = cw_un_non_permanent }
+				FROM = { remove_from_unsc_balance = yes }
+				FROM = { remove_from_array = { global.unsc_non_permanent_members_array = THIS.id } }
+				UNB = { add_ideas = cw_un_non_permanent }
+				UNB = { add_to_array = { array = global.unsc_non_permanent_members_array value = THIS.id } }
+				UNB = { add_to_unsc_balance = yes }
+			}
+			else = {}
+		}
+	}
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						has_variable = twin_country
+						NOT = { has_war_with = var:twin_country }
+						is_puppet_of = var:twin_country
+					}
+				}
+				FROM = { annex_country = { target = ROOT } }
+			}
+			if = {
+				limit = {
+					ROOT = { has_government = colonial OVERLORD = { has_war_together_with = ROOT } }
+					ROOT = { has_civil_war_cwtrigger = yes }
+				}
+				ROOT = { OVERLORD = { save_event_target_as = MY_LORD } }
+				ROOT = { set_variable = { my_killer = FROM.id } }
+				ROOT = { become_exiled_in = { target = event_target:MY_LORD legitimacy = 100 } }
+				ROOT = { OVERLORD = { activate_targeted_decision = { target = ROOT decision = colonial_capital_control } } }
+				if = {
+					limit = {
+						NOT = { ROOT = { has_country_flag = lost_colonial_capital } }
+					}
+					ROOT = { news_event = cw_colonial_news_events.1 }					
+				}
+				ROOT = { set_country_flag = { flag = lost_colonial_capital value = 1 days = 120 } }				
+				if = {
+					limit = {
+						OR = {
+							ROOT = { OVERLORD = { has_government = democratic } }
+							ROOT = { OVERLORD = { has_government = democratic_socialist } }
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = { has_country_flag = un_police_action_granted }
+					ROOT = { NOT = { has_government = colonial } }
+				}
+				ROOT = { become_exiled_in = { target = UNN legitimacy = 10 } }
+
+			}
+		}
+	}
+	on_annex = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						is_in_array = {
+							array = global.unsc_sanctioned_countries_array
+							value = THIS.id
+						}
+					}
+				}
+				FROM = {
+					remove_from_array = {
+						array = global.unsc_sanctioned_countries_array
+						value = THIS.id
+					}
+				}
+			}		
+			if = {
+				limit = {
+					FROM = {
+						is_in_array = {
+							array = UNN.multiple_participant_resolution
+							value = THIS.id
+						}
+					}
+				}
+				FROM = {
+					remove_from_array = {
+						array = UNN.multiple_participant_resolution
+						value = THIS.id
+					}
+				}
+				subtract_from_variable = { UNN.multiple_participant_resolution_members = 1 }
+			}
+			if = {
+				limit = {
+					NOT = { ROOT = { original_tag = FROM } }
+					FROM = {
+						is_major = no
+						OR = {
+							is_in_array = {
+								array = global.unsc_non_permanent_members_array
+								value = THIS.id
+							}
+							is_in_array = {
+								array = global.unsc_permanent_members_array
+								value = THIS.id
+							}
+						}
+					}
+				}
+				FROM = { cw_remove_from_unsc = yes }
+				else = {
+					if = {
+						limit = {
+							FROM = {
+								is_in_array = {
+									array = global.unsc_permanent_members_array
+									value = THIS.id
+								}
+							}
+						}
+						FROM = { cw_remove_from_unsc = yes }
+					}
+					if = {
+						limit = {
+							FROM = {
+								is_in_array = {
+									array = global.unsc_non_permanent_members_array
+									value = THIS.id
+								}
+							}
+						}
+						FROM = { cw_remove_from_unsc = yes }
+					}
+				}
+			}			
+		}
+	}
+	#FROM is war target
+	on_declare_war = {
+		effect = {
+			FROM = { set_variable = { our_true_capital = THIS.capital } }
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							FROM = { has_country_flag = democratic_leader_flag }
+							ROOT = { has_country_flag = communist_leader_flag }
+						}
+						AND = {
+							FROM = { has_country_flag = communist_leader_flag }
+							ROOT = { has_country_flag = democratic_leader_flag }
+						}
+					}
+				}
+				add_threat = 100
+			}
+			if  = {
+				limit = {
+					ROOT = {
+						any_owned_state = {
+							OR = {
+								has_state_flag = leased_rec_territory
+								has_state_flag = leased_non_rec_territory								
+							}
+						}
+					}
+				}
+				every_owned_state = {
+					limit = {
+						check_variable = { true_owner = FROM.id }
+					}
+					PREV = { save_event_target_as = revoked_state }
+					var:true_owner = { state_event = { id = state_events.3 } }
+					if = {
+					  limit = {
+						has_state_flag = leased_rec_territory
+							  NOT = { has_state_flag = unsc_international_territory_lease }
+					  }
+					  add_core_of = var:true_owner
+					  owner = { subtract_from_variable = { THIS.lease_cost_var = 5 } }
+					  var:true_owner = { transfer_state = PREV }
+					  var:true_owner = { add_offsite_building = { type = industrial_complex level = -5 } }
+					  clr_state_flag = leased_rec_territory
+					  clear_variable = true_owner
+					  clear_variable = lease_timer_display
+					  clear_variable = lease_timer
+					  clr_state_flag = five_year_lease
+					  clr_state_flag = three_year_lease
+					  clr_state_flag = one_year_lease
+					}
+					if = {
+					  limit = {
+						has_state_flag = leased_non_rec_territory
+							  NOT = { has_state_flag = unsc_international_territory_lease }
+					  }
+					  owner = { subtract_from_variable = { THIS.lease_cost_var = 5 } }
+					  var:true_owner = { transfer_state = PREV }
+					  var:true_owner = { add_offsite_building = { type = industrial_complex level = -5 } }
+					  clr_state_flag = leased_non_rec_territory
+					  clear_variable = true_owner
+					  clear_variable = lease_timer_display
+					  clear_variable = lease_timer
+					  clr_state_flag = five_year_lease
+					  clr_state_flag = three_year_lease
+					  clr_state_flag = one_year_lease
+					}
+				}
+			}		
+			if = {
+				limit = {
+					has_civil_war_cwtrigger = yes
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_idea = cw_non_recognized_state
+								has_idea = cw_partially_recognized_state
+							}
+						}
+					}
+					ROOT = { cw_make_unrecognized = yes }					
+				}
+				ROOT = { 
+					add_equipment_to_stockpile = { type = infantry_equipment_2 amount = 10000 }
+					add_equipment_to_stockpile = { type = mechanized_equipment_2 amount = 10 }
+					add_equipment_to_stockpile = { type = convoy amount = 10 }
+					set_stability = 0.5
+				}
+				#every_country = { limit = { has_war_with = FROM } declare_war_on = { target = ROOT type = cw_status_quo } }
+				if = {
+					limit = {
+						FROM = { has_government = colonial }
+					}
+					ROOT = {
+						add_ideas = anti_imperialist_war
+						set_variable = { twin_country = FROM.id }
+					}
+					if = {
+						limit = {
+							FROM = { num_divisions < 10 }
+						}
+						FROM = { country_event = { id = setup_event.5 hours = 12 } }
+					}
+					FROM = { OVERLORD = { declare_war_on = { target = ROOT type = annex_everything } } }
+				}				
+			}
+		}
+	}
+}

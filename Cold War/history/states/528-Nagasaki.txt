@@ -1,0 +1,39 @@
+state = {
+	id=528
+	local_supplies=0.0 
+	name="STATE_528" # Kyushu
+	state_category = devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 9950 }
+ 	add_to_array = { list_victory_point = 4102 }
+ 	add_to_array = { list_victory_point = 1025 }
+ 	set_variable = { victory_point = 55 }
+		owner = USA
+		add_core_of = JAP
+		
+		buildings = {
+			infrastructure = 1
+			air_base = 1
+			1025 = {
+				naval_base = 2
+			}			
+		}
+		victory_points = {
+			9950 30
+		}
+		victory_points = {
+			4102 15 
+		}
+		victory_points = {
+			1025 10 
+		}
+	}
+	resources={
+		chromium=52 # was: 88
+		crops = 7
+	}
+	manpower = 9069000
+	provinces={
+		1020 1025 1158 1183 4027 4102 4164 4198 7110 7178 9950 10011 10020 10092 11925 11949 12006 12032 
+	}
+}

@@ -1,0 +1,20 @@
+state = {
+	id=410
+	local_supplies=0.0 
+	name="STATE_410"
+	state_category = rural
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = ENG
+		add_core_of = PER
+		1946.2.2 = {
+			owner = PER
+		}
+	}
+	manpower = 341053
+	provinces={
+		1889 2039 2070 4891 10782 13082 
+	}
+}

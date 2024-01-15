@@ -1,0 +1,45 @@
+
+state={
+	id=670
+	local_supplies=0.0 
+	name="STATE_670"
+	resources={
+		crops=10.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 1464 }
+ 	add_to_array = { list_victory_point = 10456 }
+ 	set_variable = { victory_point = 15 }
+		owner = VIN
+		add_claim_by = LAO
+		
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+		buildings = {
+			infrastructure = 1
+
+		}
+		1953.10.22 = {
+			owner = LAO
+			add_core_of = LAO
+			remove_core_of = FRA
+
+		}
+		victory_points = { 10456 5 }	#Luang Prabang
+		victory_points = { 1464 10 }
+	}
+
+	provinces={
+		1464 1507 4568 7103 7356 10330 10356 10456 10496
+	}
+	manpower=1184000
+	buildings_max_level_factor=1.000
+	state_category=city
+}

@@ -1,0 +1,28 @@
+﻿capital = 279
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1942.11.19"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 10
+		democratic_socialist = 5
+		neutrality = 65
+		communism_totalitarian = 10
+		unaligned_right = 10
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Juan Morales"
+		desc = ""
+		picture = "CHLNL1.dds"
+		ideology = agrarianism
+		expire = 1956.6.27		
+		traits = { }
+	}
+}

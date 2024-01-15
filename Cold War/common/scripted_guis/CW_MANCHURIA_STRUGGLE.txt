@@ -1,0 +1,86 @@
+scripted_gui = {
+	cw_manchuria_struggle_decisions_ui = {
+		context_type = decision_category
+		window_name = "cw_manchuria_struggle_decision_ui_window"
+
+		properties = {
+		}
+		triggers = {
+			manchuria_holunbuir_prc_icon_visible = {
+				761 = { check_variable = { .man_struggle_prc_control > man_struggle_chi_control } }
+			}
+			manchuria_holunbuir_chi_icon_visible = {
+				761 = { check_variable = { man_struggle_prc_control < man_struggle_chi_control } }
+			}
+			manchuria_holunbuir_undecided_icon_visible = {
+				761 = { check_variable = { man_struggle_chi_control = man_struggle_prc_control } }
+			}
+			#
+			manchuria_heilngikiang_prc_icon_visible = {
+				714 = { check_variable = { man_struggle_prc_control > man_struggle_chi_control } }
+			}
+			manchuria_heilngikiang_chi_icon_visible = {
+				714 = { check_variable = { man_struggle_prc_control < man_struggle_chi_control } }
+			}
+			manchuria_heilngikiang_undecided_icon_visible = {
+				714 = { check_variable = { man_struggle_chi_control = man_struggle_prc_control } }
+			}
+			#
+			manchuria_sungukiang_prc_icon_visible = {
+				717 = { check_variable = { man_struggle_prc_control > man_struggle_chi_control } }
+			}
+			manchuria_sungukiang_chi_icon_visible = {
+				717 = { check_variable = { man_struggle_prc_control < man_struggle_chi_control } }
+			}
+			manchuria_sungukiang_undecided_icon_visible = {
+				717 = { check_variable = { man_struggle_chi_control = man_struggle_prc_control } }
+			}
+			#
+			manchuria_kirin_prc_icon_visible = {
+				328 = { check_variable = { man_struggle_prc_control > man_struggle_chi_control } }
+			}
+			manchuria_kirin_chi_icon_visible = {
+				328 = { check_variable = { man_struggle_prc_control < man_struggle_chi_control } }
+			}
+			manchuria_kirin_undecided_icon_visible = {
+				328 = { check_variable = { man_struggle_chi_control = man_struggle_prc_control } }
+			}
+			#
+			manchuria_liaoning_prc_icon_visible = {
+				715 = { check_variable = { man_struggle_prc_control > man_struggle_chi_control } }
+			}
+			manchuria_liaoning_chi_icon_visible = {
+				715 = { check_variable = { man_struggle_prc_control < man_struggle_chi_control } }
+			}
+			manchuria_liaoning_undecided_icon_visible = {
+				715 = { check_variable = { man_struggle_chi_control = man_struggle_prc_control } }
+			}
+			#
+			manchuria_jehol_prc_icon_visible = {
+				610 = { check_variable = { man_struggle_prc_control > man_struggle_chi_control } }
+			}
+			manchuria_jehol_chi_icon_visible = {
+				610 = { check_variable = { man_struggle_prc_control < man_struggle_chi_control } }
+			}
+			manchuria_jehol_undecided_icon_visible = {
+				610 = { check_variable = { man_struggle_chi_control = man_struggle_prc_control } }
+			}
+			#
+			manchuria_liaotung_prc_icon_visible = {
+				716 = { check_variable = { man_struggle_prc_control > man_struggle_chi_control } }
+			}
+			manchuria_liaotung_chi_icon_visible = {
+				716 = { check_variable = { man_struggle_prc_control < man_struggle_chi_control } }
+			}
+			manchuria_liaotung_undecided_icon_visible = {
+				716 = { check_variable = { man_struggle_chi_control = man_struggle_prc_control } }
+			}			
+		}
+		effects = {
+		}
+		
+		ai_enabled = {
+		  always = no
+		}
+	}
+}

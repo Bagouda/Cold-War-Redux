@@ -1,0 +1,50 @@
+﻿#################
+# FRENCH EVENTS #
+#################
+add_namespace = fra_events
+country_event = {
+	id = fra_events.1
+	title = fra_events.1.t
+	desc = fra_events.1.d
+	picture = GFX_event_morocco_muhammad_v
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {		# End exile of MOhammed V
+		name = fra_events.1.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+		}		
+		MOR = {
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "Mohammed V"
+				desc = ""
+				picture = "MORH1.dds"
+				ideology = colonial_government
+				expire = 1961.2.26
+				traits = { anti_colonial_leader }
+			}
+			add_autonomy_score = { value = 500 }			
+		}		
+	}
+	option = {		# Reject Moroccan demands
+		name = fra_events.1.b
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 100
+				is_historical_focus_on = no
+			}
+		}		
+		custom_effect_tooltip = FRA_EVENTS_1_EFFECT_TT
+		hidden_effect = {
+			MOR = { country_event = { id = cw_colonial_setup_events.1 days = 3 } }
+		}		
+	}
+}

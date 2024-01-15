@@ -1,0 +1,419 @@
+on_actions = {
+	on_daily = {
+		effect = {	
+			if = {
+				limit = {
+					check_variable = { ROOT.aid_program_upgrade_cooldown > 0 }
+				}
+				subtract_from_variable = { ROOT.aid_program_upgrade_cooldown = 1.0  }
+			}
+		}
+	}
+	on_weekly = {
+		effect = {
+			################################### REMOVING AID LOCK ###################################
+			if = {
+				limit = {
+					has_variable = cw_economic_aid_lock@event_target:neutral_leader
+					check_variable = { cw_economic_aid_lock@event_target:neutral_leader < 0 }
+				}
+				clear_variable = cw_economic_aid_lock@event_target:neutral_leader
+			}
+			if = {
+				limit = {
+					has_variable = cw_economic_aid_lock@event_target:democratic_leader
+					check_variable = { cw_economic_aid_lock@event_target:democratic_leader < 0 }
+				}
+				clear_variable = cw_economic_aid_lock@event_target:democratic_leader
+			}			
+			if = {
+				limit = {
+					has_variable = cw_economic_aid_lock@event_target:communist_leader
+					check_variable = { cw_economic_aid_lock@event_target:communist_leader < 0 }
+				}
+				clear_variable = cw_economic_aid_lock@event_target:communist_leader
+			}
+			if = {
+				limit = {
+					has_variable = cw_economic_aid_lock@event_target:communist_reformist_leader
+					check_variable = { cw_economic_aid_lock@event_target:communist_reformist_leader < 0 }
+				}
+				clear_variable = cw_economic_aid_lock@event_target:communist_reformist_leader
+			}			
+			################################### COUNTING DOWN AID LOCK ###################################
+			if = {
+				limit = {
+					has_variable = cw_economic_aid_lock@event_target:democratic_leader
+				}
+				subtract_from_variable = { cw_economic_aid_lock@event_target:democratic_leader = 7 }
+			}
+			if = {
+				limit = {
+					has_variable = cw_economic_aid_lock@event_target:communist_leader
+				}
+				subtract_from_variable = { cw_economic_aid_lock@event_target:communist_leader = 7 }
+			}
+			if = {
+				limit = {
+					has_variable = cw_economic_aid_lock@event_target:communist_reformist_leader
+				}
+				subtract_from_variable = { cw_economic_aid_lock@event_target:communist_reformist_leader = 7 }
+			}			
+			if = {
+				limit = {
+					has_variable = cw_economic_aid_lock@event_target:neutral_leader
+				}
+				subtract_from_variable = { cw_economic_aid_lock@event_target:neutral_leader = 7 }
+			}			
+		}
+	}
+	on_government_change = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						NOT = { OR = { has_government = democratic has_government = democratic_socialist } }
+						OR = {
+							AND = {
+								ROOT = { has_country_flag = democratic_leader_flag }
+								has_global_flag = democratic_aid_program_active
+							}
+							AND = {
+								ROOT = { has_country_flag = communist_leader_flag }
+								has_global_flag = communist_aid_program_active
+							}
+							AND = {
+								ROOT = { has_country_flag = communist_reformist_leader_flag }
+								has_global_flag = communist_reformist_aid_program_active
+							}							
+							AND = {
+								ROOT = { has_country_flag = neutral_leader_flag }
+								has_global_flag = neutral_aid_program_active
+							}
+						}
+					}
+				}
+				every_country = {
+					limit = {
+						is_in_array  = {
+							array = ROOT.aid_program_participants_array
+							value = THIS.id
+						}
+					}
+					cw_remove_from_aid_program = yes
+					cw_give_economic_aid_effect = yes
+				}
+			}
+		}
+	}
+	### FROM GETS ANNEXED ###
+	on_annex = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { original_tag = FROM }
+					FROM = { has_country_flag = communist_reformist_leader_flag }
+				}
+				if = {
+					limit = {
+						ROOT = { has_government = communism_totalitarian }
+					}
+					FROM = { clr_country_flag = communist_reformist_leader_flag }
+					random_country = {
+						limit = {
+							has_government = communism
+							num_of_controlled_states > 2
+						}
+						save_global_event_target_as = communist_reformist_leader
+						set_country_flag = communist_reformist_leader_flag
+						clear_variable = global.com_ref_aid_program_max_participants
+					}
+					if = {
+						limit = {
+							check_variable = { global.com_aid_program_max_participants = 0 }
+						}
+						set_variable = { global.com_aid_program_max_participants = 7 }
+					}
+					random_country = {
+						limit = {
+							NOT = { tag = ROOT }
+							has_government = communism_totalitarian
+							has_country_flag = communist_leader_flag
+							is_major = yes
+							strength_ratio = {
+								tag = ROOT
+								ratio < 2.0
+							}
+							ic_ratio = {
+								tag = ROOT
+								ratio < 0.99
+							}
+						}
+						save_event_target_as = former_communist_total_leader
+						clr_country_flag = communist_leader_flag
+					}
+					if = {
+						limit = {
+							event_target:former_communist_total_leader = {
+								strength_ratio = {
+									tag = ROOT
+									ratio < 2.0
+								}
+								ic_ratio = {
+									tag = ROOT
+									ratio < 0.99
+								}
+							}
+						}
+						FROM = { 
+							save_global_event_target_as = communist_leader
+							set_country_flag = communist_leader_flag
+						}
+						set_global_flag = communist_aid_program_active
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { original_tag = FROM }
+					FROM = { has_country_flag = communist_leader_flag }
+				}
+				if = {
+					limit = {
+						ROOT = { has_government = communism }
+					}
+					FROM = { clr_country_flag = communist_leader_flag }
+					random_country = {
+						limit = {
+							has_government = communism_totalitarian
+							num_of_controlled_states > 2
+						}
+						save_global_event_target_as = communist_leader
+						set_country_flag = communist_leader_flag
+						clear_variable = global.com_aid_program_max_participants
+					}
+					if = {
+						limit = {
+							check_variable = { global.com_ref_aid_program_max_participants = 0 }
+						}
+						set_variable = { global.com_ref_aid_program_max_participants = 7 }
+					}
+					random_country = {
+						limit = {
+							NOT = { tag = ROOT }
+							has_government = communism
+							has_country_flag = communist_reformist_leader_flag
+							is_major = yes
+							strength_ratio = {
+								tag = ROOT
+								ratio < 2.0
+							}
+							ic_ratio = {
+								tag = ROOT
+								ratio < 0.99
+							}
+						}
+						save_event_target_as = former_communist_ref_leader
+						clr_country_flag = communist_reformist_leader_flag
+					}
+					if = {
+						limit = {
+							event_target:former_communist_ref_leader = {
+								strength_ratio = {
+									tag = ROOT
+									ratio < 2.0
+								}
+								ic_ratio = {
+									tag = ROOT
+									ratio < 0.99
+								}
+							}
+						}
+						FROM = { 
+							save_global_event_target_as = communist_reformist_leader
+							set_country_flag = communist_reformist_leader_flag
+						}
+						set_global_flag = communist_reformist_aid_program_active
+					}
+				}
+			}			
+			if = {
+				limit = {
+					NOT = { ROOT = { original_tag = FROM } }
+					FROM = { has_dynamic_modifier = { modifier = cw_aid_program_giver_dm } }
+				}
+				every_country = {
+					limit = {
+						is_in_array = {
+							array = FROM.aid_program_participants_array
+							value = THIS.id
+						}
+					}
+					remove_from_array = {
+						array = FROM.aid_program_participants_array
+						value = THIS.id
+					}
+					remove_dynamic_modifier = {
+						modifier = cw_aid_program_target_dm 
+						scope = FROM 
+					}
+					if = {
+						limit = {
+							check_variable = { economic_aid_level@FROM = 1 }
+						}
+						add_offsite_building = { type = industrial_complex level = -4 }
+						FROM = { subtract_from_variable = { aid_program_cost = 5 } }
+					}
+					if = {
+						limit = {
+							check_variable = { economic_aid_level@FROM = 2 }
+						}
+						add_offsite_building = { type = industrial_complex level = -8 }
+						FROM = { subtract_from_variable = { aid_program_cost = 10 } }
+					}
+					if = {
+						limit = {
+							check_variable = { economic_aid_level@FROM = 3 }
+						}
+						add_offsite_building = { type = industrial_complex level = -12 }
+						FROM = { subtract_from_variable = { aid_program_cost = 15 } }
+					}
+					if = {
+						limit = {
+							check_variable = { economic_aid_level@FROM = 4 }
+						}
+						add_offsite_building = { type = industrial_complex level = -16 }
+						FROM = { subtract_from_variable = { aid_program_cost = 20 } }
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						OR = {
+							has_dynamic_modifier = { modifier = cw_aid_program_target_dm scope = event_target:democratic_leader }
+							has_dynamic_modifier = { modifier = cw_aid_program_target_dm scope = event_target:neutral_leader }
+							has_dynamic_modifier = { modifier = cw_aid_program_target_dm scope = event_target:communist_leader }
+							has_dynamic_modifier = { modifier = cw_aid_program_target_dm scope = event_target:communist_reformist_leader }
+						}
+					}
+				}
+				every_country = {
+					limit = {
+						FROM = {
+							is_in_array = {
+								array = PREV.aid_program_participants_array
+								value = FROM.id
+							}
+						}
+					}
+					save_event_target_as = economic_aid_giver
+					subtract_from_variable = { economic_aid_program_participants = 1 }
+					FROM = {
+						remove_from_array = {
+							array = PREV.aid_program_participants_array
+							value = THIS.id
+						}
+						remove_dynamic_modifier = {
+							modifier = cw_aid_program_target_dm 
+							scope = PREV 
+						}
+					}
+				}
+				FROM = {
+					add_offsite_building = { type = industrial_complex level = 4 }
+					if = {
+						limit = {
+							check_variable = { economic_aid_level@event_target:economic_aid_giver = 1 }
+						}
+						add_offsite_building = { type = industrial_complex level = -4 }
+						event_target:economic_aid_giver = { subtract_from_variable = { aid_program_cost = 5 } }
+					}
+					if = {
+						limit = {
+							check_variable = { economic_aid_level@event_target:economic_aid_giver = 2 }
+						}
+						add_offsite_building = { type = industrial_complex level = -8 }
+						event_target:economic_aid_giver = { subtract_from_variable = { aid_program_cost = 10 } }
+					}
+					if = {
+						limit = {
+							check_variable = { economic_aid_level@event_target:economic_aid_giver = 3 }
+						}
+						add_offsite_building = { type = industrial_complex level = -12 }
+						event_target:economic_aid_giver = { subtract_from_variable = { aid_program_cost = 15 } }
+					}
+					if = {
+						limit = {
+							check_variable = { economic_aid_level@event_target:economic_aid_giver = 4 }
+						}
+						add_offsite_building = { type = industrial_complex level = -16 }
+						event_target:economic_aid_giver = { subtract_from_variable = { aid_program_cost = 20 } }
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = { has_country_flag = recieves_military_aid }
+				}
+				every_country = {
+					limit = {
+						FROM = {
+							is_in_array = {
+								array = PREV.military_aid_countries_array
+								value = FROM.id
+							}
+						}
+					}
+					subtract_from_variable = { military_aid_recievers = 1 }
+					if = {
+						limit = {
+							FROM = { check_variable = { military_aid_level@PREV = 1 } }
+						}
+						FROM = { add_offsite_building = { type = arms_factory level = -2 } }
+						THIS = {
+							subtract_from_variable = { military_aid_cost_factories = 5 }
+							add_to_variable = { military_aid_cost_fuel = 0.1 }
+							add_to_variable = { military_aid_cost_stability = 0.01 }
+							add_to_variable = { military_aid_cost_production = 0.01 }
+						}
+						else_if = {
+							limit = {
+								FROM = { check_variable = { military_aid_level@PREV = 2 } }
+							}
+							FROM = { add_offsite_building = { type = arms_factory level = -4 } }
+							THIS = { 
+								subtract_from_variable = { military_aid_cost_factories = 10 }
+								add_to_variable = { military_aid_cost_fuel = 0.2 }
+								add_to_variable = { military_aid_cost_stability = 0.02 }
+								add_to_variable = { military_aid_cost_production = 0.02 }
+							}
+						}
+						else_if = {
+							limit = {
+								FROM = { check_variable = { military_aid_level@PREV = 3 } }
+							}
+							FROM = { add_offsite_building = { type = arms_factory level = -6 } }
+							THIS = { 
+								subtract_from_variable = { military_aid_cost_factories = 15 }
+								add_to_variable = { military_aid_cost_fuel = 0.3 }
+								add_to_variable = { military_aid_cost_stability = 0.03 }
+								add_to_variable = { military_aid_cost_production = 0.03 }
+							}
+						}
+					}
+					FROM = {
+						clear_variable = military_aid_level@PREV
+						clear_variable = military_aid_effect@PREV
+						clear_variable = military_aid_cost_to_giver@PREV
+						clr_country_flag = recieves_military_aid
+						remove_from_array = {
+							array = PREV.military_aid_countries_array
+							value = FROM.id
+						}
+					}
+				}
+			}		
+		}
+	}
+}

@@ -1,0 +1,25 @@
+political_actions = {
+	cw_land_reform_law_timer_mission = {
+		icon = generic_operation
+		allowed = { always = no }
+		available = { 
+			OR = {
+				NOT = {
+					has_idea = cw_farmland_redistribution 
+				}
+				has_stability < 0.1
+			}
+		}
+		is_good = yes
+		
+		days_mission_timeout = 210
+		
+		timeout_effect = {
+			add_ideas = cw_fair_individual_land_ownership
+		}
+		complete_effect = {
+			add_political_power = -100
+			add_ideas = cw_stratified_farmers
+		}
+	}
+}

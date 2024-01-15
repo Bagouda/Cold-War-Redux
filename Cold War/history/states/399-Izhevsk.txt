@@ -1,0 +1,21 @@
+state = {
+	id=399
+	local_supplies=0.0 
+	name="STATE_399"
+	state_category = rural
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+	}
+	resources={
+		chromium=18 # was: 24
+	}
+	manpower = 1324935
+	provinces={
+		305 3027 3270 3294 3300 3394 4356 4400 6217 6224 6278 6297 6388 7359 7403 9293 11365 12203 12244 
+	}
+}

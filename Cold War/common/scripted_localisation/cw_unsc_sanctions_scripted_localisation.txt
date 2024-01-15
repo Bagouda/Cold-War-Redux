@@ -1,0 +1,872 @@
+@UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD = 4		# Also change in unsc_resolutions_scripted_effects if changed here
+@UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD = 8	# Also change in unsc_resolutions_scripted_effects if changed here
+@UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD = 9		# Also change in unsc_resolutions_scripted_effects if changed here
+defined_text = {
+	name = UNSC_SANCTIONS_GET_SEVERITY_UNSC		#USED IN UNSC INTERFACES
+	# ECONOMIC SANCTIONS
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_civilian_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_civ_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_MILD"
+	}
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_civilian_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_civ_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_SEVERE"
+	}
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_civilian_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_civ_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_EXTREME"
+	}
+	# MILITARY SANCTIONS
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_military_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_mil_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_MILD"
+	}
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_military_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_mil_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_SEVERE"
+	}
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_military_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_mil_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_EXTREME"
+	}
+	# TRADE SANCTIONS
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_trade_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_trade_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+			check_variable = { 	var = unsc_trade_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_MILD"
+	}
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_trade_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_trade_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_SEVERE"
+	}
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_trade_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_trade_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_EXTREME"
+	}
+	# LEADER SANCTIONS
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_leader_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_leader_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_MILD"
+	}
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_leader_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_leader_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_SEVERE"
+	}
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_leader_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_leader_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_EXTREME"
+	}
+	# NUCLEAR SANCTIONS
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_nuclear_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_nuclear_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_MILD"
+	}
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_nuclear_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_nuclear_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_SEVERE"
+	}
+	text = {
+		trigger = {
+			event_target:unsc_initiator = { has_country_flag = unsc_sanctions_nuclear_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					event_target:unsc_initiator = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = event_target:unsc_initiator.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_nuclear_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_EXTREME"
+	}	
+}
+defined_text = {
+	name = UNSC_SANCTIONS_GET_SEVERITY			#USED IN SANCTIONS GUI
+	# ECONOMIC SANCTIONS
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_civilian_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_civ_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_MILD"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_civilian_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_civ_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_SEVERE"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_civilian_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_civ_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_EXTREME"
+	}
+	# MILITARY SANCTIONS
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_military_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_mil_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_MILD"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_military_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_mil_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_SEVERE"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_military_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_mil_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_EXTREME"
+	}
+	# TRADE SANCTIONS
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_trade_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_trade_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+			check_variable = { 	var = unsc_trade_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_MILD"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_trade_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_trade_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_SEVERE"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_trade_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_trade_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_EXTREME"
+	}
+	# LEADER SANCTIONS
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_leader_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_leader_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_MILD"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_leader_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_leader_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_SEVERE"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_leader_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_leader_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_EXTREME"
+	}
+	# NUCLEAR SANCTIONS
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_nuclear_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_nuclear_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_LOW_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_MILD"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_nuclear_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_nuclear_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_MEDIUM_THRESHOLD compare = less_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_SEVERE"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_nuclear_sanctions }
+			if = {																						# CHECKS IF A DIFFERENT LVL OF SANCTION WAS REQUESTED, CHCECKED PER SANCTION TYPE		
+				limit = {
+					ROOT = { check_variable = { requested_sanction_level > 0 } }
+				}
+				check_variable = { 	var = ROOT.requested_sanction_level value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				else = {
+					check_variable = { 	var = unsc_nuclear_sanctions_lvl value = @UNSC_SANTIONS_SEVERITY_HIGH_THRESHOLD compare = greater_than_or_equals }
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_EFFECT_EXTREME"
+	}	
+}
+defined_text = {
+	name = UNSC_SANCTIONS_TARGET_OF_SANCTIONS
+	# MILITARY SANCTIONS
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_military_sanctions }
+		}
+		localization_key = "CW_USNC_SANCTIONS_TARGET_MILITARY"
+	}
+	# LEADER SANCTIONS
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_leader_sanctions }
+		}
+		localization_key = "CW_USNC_SANCTIONS_TARGET_LEADER"
+	}
+	# NUCLEAR SANCTIONS
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_nuclear_sanctions }
+		}
+		localization_key = "CW_USNC_SANCTIONS_TARGET_NUCLEAR_PROGRAM"
+	}
+	text = { localization_key = "CW_USNC_SANCTIONS_TARGET_GENERIC" }
+}
+defined_text = {
+	name = UNSC_SANCTIONS_DISPLAY_UNIT_CIV_SANCTIONS
+	text = {
+		trigger = {
+			check_variable  = { unsc_civ_sanctions_duration > 0 }
+			check_variable  = { unsc_civ_sanctions_duration < 30 }
+		}
+		localization_key = "CW_DAYS"
+	}
+	text = {
+		trigger = {
+			check_variable  = { unsc_civ_sanctions_duration > 30 }
+			check_variable = { var = unsc_civ_sanctions_duration value = 365 compare = less_than_or_equals }
+		}
+		localization_key = "CW_MONTHS"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = unsc_civ_sanctions_duration value = 365 compare = greater_than_or_equals }
+		}
+		localization_key = "CW_YEARS"
+	}
+}
+defined_text = {
+	name = UNSC_SANCTIONS_DISPLAY_UNIT_MIL_SANCTIONS
+	text = {
+		trigger = {
+			check_variable  = { unsc_mil_sanctions_duration > 0 }
+			check_variable  = { unsc_mil_sanctions_duration < 29 }
+		}
+		localization_key = "CW_DAYS"
+	}
+	text = {
+		trigger = {
+			check_variable  = { unsc_mil_sanctions_duration > 30 }
+			check_variable = { var = unsc_mil_sanctions_duration value = 365 compare = less_than_or_equals }
+		}
+		localization_key = "CW_MONTHS"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = unsc_mil_sanctions_duration value = 365 compare = greater_than_or_equals }
+		}
+		localization_key = "CW_YEARS"
+	}
+}
+defined_text = {
+	name = UNSC_SANCTIONS_DISPLAY_UNIT_TRADE_SANCTIONS
+	text = {
+		trigger = {
+			check_variable  = { unsc_trade_sanctions_duration > 0 }
+			check_variable  = { unsc_trade_sanctions_duration < 29 }
+		}
+		localization_key = "CW_DAYS"
+	}
+	text = {
+		trigger = {
+			check_variable  = { unsc_trade_sanctions_duration > 30 }
+			check_variable = { var = unsc_trade_sanctions_duration value = 365 compare = less_than_or_equals }
+		}
+		localization_key = "CW_MONTHS"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = unsc_trade_sanctions_duration value = 365 compare = greater_than_or_equals }
+		}
+		localization_key = "CW_YEARS"
+	}
+}
+defined_text = {
+	name = UNSC_SANCTIONS_DISPLAY_UNIT_LEADER_SANCTIONS
+	text = {
+		trigger = {
+			check_variable  = { unsc_leader_sanctions_duration > 0 }
+			check_variable  = { unsc_leader_sanctions_duration < 29 }
+		}
+		localization_key = "CW_DAYS"
+	}
+	text = {
+		trigger = {
+			check_variable  = { unsc_leader_sanctions_duration > 30 }
+			check_variable = { var = unsc_leader_sanctions_duration value = 365 compare = less_than_or_equals }
+		}
+		localization_key = "CW_MONTHS"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = unsc_leader_sanctions_duration value = 365 compare = greater_than_or_equals }
+		}
+		localization_key = "CW_YEARS"
+	}
+}
+defined_text = {
+	name = UNSC_SANCTIONS_DISPLAY_UNIT_NUCLEAR_SANCTIONS
+	text = {
+		trigger = {
+			check_variable  = { unsc_nuclear_sanctions_duration > 0 }
+			check_variable  = { unsc_nuclear_sanctions_duration < 29 }
+		}
+		localization_key = "CW_DAYS"
+	}
+	text = {
+		trigger = {
+			check_variable  = { unsc_nuclear_sanctions_duration > 30 }
+			check_variable = { var = unsc_nuclear_sanctions_duration value = 365 compare = less_than_or_equals }
+		}
+		localization_key = "CW_MONTHS"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = unsc_nuclear_sanctions_duration value = 365 compare = greater_than_or_equals }
+		}
+		localization_key = "CW_YEARS"
+	}
+}
+defined_text = {
+	name = UNSC_SANCTIONS_INSTRUCTIONS
+	text = {
+		trigger = {
+			FROM = { check_variable = { unsc_sanctions_cooldown = 0 } }
+			NOT = {
+					ROOT = {
+					OR = {
+						has_country_flag = unsc_sanctions_civilian_sanctions
+						has_country_flag = unsc_sanctions_military_sanctions
+						has_country_flag = unsc_sanctions_trade_sanctions
+						has_country_flag = unsc_sanctions_leader_sanctions
+						has_country_flag = unsc_sanctions_nuclear_sanctions
+					}
+				}
+			}
+		}
+		localization_key = "CW_UNSC_SANCTIONS_NO_SANCTIONS_SELECTED"
+	}
+	text = {
+		trigger = {
+			FROM = { check_variable = { unsc_sanctions_cooldown > 0 } }
+		}
+		localization_key = "CW_UNSC_SANCTIONS_COOLDOWN_ACTIVE"
+	}	
+	text = { localization_key = CW_UNSC_SANCTIONS_EFFECT_LOC }
+}
+defined_text = {
+	name = UNSC_SANCTIONS_GET_DURATION_OF_SANCTIONS
+	text = {
+		trigger = {
+			has_country_flag = sanctions_gui_period_one_year
+		}
+		localization_key = "CW_SANCTIONS_PERIOD_ONE_YEAR"
+	}
+	text = {
+		trigger = {
+			has_country_flag = sanctions_gui_period_five_year
+		}
+		localization_key = "CW_SANCTIONS_PERIOD_FIVE_YEAR"
+	}
+	text = {
+		trigger = {
+			has_country_flag = sanctions_gui_period_ten_year
+		}
+		localization_key = "CW_SANCTIONS_PERIOD_TEN_YEAR"
+	}	
+}
+defined_text = {
+	name = UNSC_SANCTIONS_GET_SANCTIONS_COOLDOWN
+	text = {
+		trigger = {
+			has_country_flag = sanctions_gui_period_one_year
+		}
+		localization_key = "CW_SANCTIONS_COOLDOWN_1"
+	}
+	text = {
+		trigger = {
+			has_country_flag = sanctions_gui_period_five_year
+		}
+		localization_key = "CW_SANCTIONS_COOLDOWN_2"
+	}
+	text = {
+		trigger = {
+			has_country_flag = sanctions_gui_period_ten_year
+		}
+		localization_key = "CW_SANCTIONS_COOLDOWN_3"
+	}	
+}
+defined_text = {
+	name = UNSC_SANCTIONS_GET_NAME_OF_SANCTIONS
+	text = {
+		trigger = {
+			has_country_flag = unsc_sanctions_civilian_sanctions
+		}
+		localization_key = "CW_UNSC_SANCTION_TYPE_ECONOMIC"
+	}
+	text = {
+		trigger = {
+			has_country_flag = unsc_sanctions_military_sanctions
+		}
+		localization_key = "CW_UNSC_SANCTION_TYPE_MILITARY"
+	}
+	text = {
+		trigger = {
+			has_country_flag = unsc_sanctions_trade_sanctions
+		}
+		localization_key = "CW_UNSC_SANCTION_TYPE_TRADE"
+	}
+	text = {
+		trigger = {
+			has_country_flag = unsc_sanctions_leader_sanctions
+		}
+		localization_key = "CW_UNSC_SANCTION_TYPE_LEADER"
+	}
+	text = {
+		trigger = {
+			has_country_flag = unsc_sanctions_nuclear_sanctions
+		}
+		localization_key = "CW_UNSC_SANCTION_TYPE_NUCLEAR"
+	}
+}
+defined_text = {
+	name = COUNTRY_EXPECTED_SANCTIONS_LVL
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_civilian_sanctions }
+		}
+		localization_key = "[?FROM.unsc_civ_sanctions_lvl]"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_military_sanctions }
+		}
+		localization_key = "[?FROM.unsc_mil_sanctions_lvl]"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_trade_sanctions }
+		}
+		localization_key = "[?FROM.unsc_trade_sanctions_lvl]"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_leader_sanctions }
+		}
+		localization_key = "[?FROM.unsc_country_leader_sanctions_lvl]"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = unsc_sanctions_nuclear_sanctions }
+		}
+		localization_key = "[?FROM.unsc_country_leader_sanctions_lvl]"
+	}	
+}
+defined_text = {
+	name = CW_CIV_SANCTIONS_DURATION_LOC
+	text = {
+		trigger = {
+			check_variable = { unsc_civ_sanctions_duration > 0 }
+		}
+		localization_key = "[?FROM.unsc_civ_sanctions_duration_display]"
+	}
+	text = { localization_key = "CW_NO_SANCTIONS_AVAILABLE" }
+}
+defined_text = {
+	name = CW_MIL_SANCTIONS_DURATION_LOC
+	text = {
+		trigger = {
+			check_variable = { unsc_mil_sanctions_duration > 0 }
+		}
+		localization_key = "[?FROM.unsc_mil_sanctions_duration_display]"
+	}
+	text = { localization_key = "CW_NO_SANCTIONS_AVAILABLE" }
+}
+defined_text = {
+	name = CW_TRADE_SANCTIONS_DURATION_LOC
+	text = {
+		trigger = {
+			check_variable = { unsc_trade_sanctions_duration > 0 }
+		}
+		localization_key = "[?FROM.unsc_trade_sanctions_duration_display]"
+	}
+	text = { localization_key = "CW_NO_SANCTIONS_AVAILABLE" }
+}
+defined_text = {
+	name = CW_LEADER_SANCTIONS_DURATION_LOC
+	text = {
+		trigger = {
+			check_variable = { unsc_leader_sanctions_duration > 0 }
+		}
+		localization_key = "[?FROM.unsc_leader_sanctions_duration_display]"
+	}
+	text = { localization_key = "CW_NO_SANCTIONS_AVAILABLE" }
+}
+defined_text = {
+	name = CW_NUCLEAR_SANCTIONS_DURATION_LOC
+	text = {
+		trigger = {
+			check_variable = { unsc_nuclear_sanctions_duration > 0 }
+		}
+		localization_key = "[?FROM.unsc_nuclear_sanctions_duration_display]"
+	}
+	text = { localization_key = "CW_NO_SANCTIONS_AVAILABLE" }
+}
+defined_text = {
+	name = UNSC_SANCTIONS_RESOLUTION_GET_LOC
+	text = {
+		trigger = {
+			has_country_flag = unsc_sanctions_civilian_sanctions
+		}
+		localization_key = "CW_UNSC_SANCTIONS_RESOLUTION_CIV_SANCTIONS_LOC"
+	}
+}
+defined_text = {
+	name = UNSC_SANCTIONS_RESOLUTION_GET_SANCTION_TARGET
+	text = {
+		trigger = {
+			has_event_target = unsc_target
+			event_target:unsc_target = {
+				OR = {
+					has_cosmetic_tag = COM_REVOLT
+					has_cosmetic_tag = MILITARY_COUP
+					has_cosmetic_tag = AFRICAN_NATIONALIST_REVOLT
+				}
+			}
+		}
+		localization_key = CW_UNSC_SANCTIONS_RESOLUTION_TARGET
+	}
+	text = { localization_key = CW_UNSC_SANCTIONS_RESOLUTION_TARGET_NORMAL }
+}
+defined_text = {
+	name = UNSC_SANCTIONS_RESOLUTION_GET_SANCTION_TARGET_PLUS_FLAG
+	text = {
+		trigger = {
+			has_event_target = unsc_target
+			event_target:unsc_target = {
+				OR = {
+					has_cosmetic_tag = COM_REVOLT
+					has_cosmetic_tag = MILITARY_COUP
+					has_cosmetic_tag = AFRICAN_NATIONALIST_REVOLT
+				}
+			}
+		}
+		localization_key = CW_UNSC_SANCTIONS_RESOLUTION_TARGET_WITH_FLAG
+	}
+	text = { localization_key = CW_UNSC_SANCTIONS_RESOLUTION_TARGET_NORMAL }
+}
+defined_text = {
+	name = UNSC_SANCTIONS_INTERFACE_GET_SANCTIONS_NAME
+	text = {
+		trigger = {
+			check_variable = { unsc_civ_sanctions_duration > 0 }
+		}
+		localization_key = CW_UNSC_SANCTION_TYPE_ECONOMIC
+	}
+	text = {
+		trigger = {
+			check_variable = { unsc_mil_sanctions_duration > 0 }
+		}
+		localization_key = CW_UNSC_SANCTION_TYPE_MILITARY
+	}
+	text = {
+		trigger = {
+			check_variable = { unsc_trade_sanctions_duration > 0 }
+		}
+		localization_key = CW_UNSC_SANCTION_TYPE_TRADE
+	}
+	text = {
+		trigger = {
+			check_variable = { unsc_leader_sanctions_duration > 0 }
+		}
+		localization_key = CW_UNSC_SANCTION_TYPE_LEADER
+	}
+	text = {
+		trigger = {
+			check_variable = { unsc_nuclear_sanctions_duration > 0 }
+		}
+		localization_key = CW_UNSC_SANCTION_TYPE_NUCLEAR
+	}
+}

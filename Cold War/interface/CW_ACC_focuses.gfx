@@ -1,0 +1,80 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_focus_introduce_deutschemark"
+		texturefile = "gfx/interface/cw_focuses/GER/shared/focus_intoruce_deutschemark.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_abolish_prussia"
+		texturefile = "gfx/interface/cw_focuses/GER/shared/focus_abolish_prussia.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_south_german_state"
+		texturefile = "gfx/interface/cw_focuses/GER/shared/focus_south_german_state.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_rhineland_confederation"
+		texturefile = "gfx/interface/cw_focuses/GER/shared/focus_rhine_confederation.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_french_rhineland"
+		texturefile = "gfx/interface/cw_focuses/GER/shared/focus_french_rhineland.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_international_territory"
+		texturefile = "gfx/interface/cw_focuses/GER/shared/focus_generic_internationalize_territory.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_devided_germany"
+		texturefile = "gfx/interface/cw_focuses/GER/shared/focus_devided_germany.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_disarmed_germany"
+		texturefile = "gfx/interface/cw_focuses/GER/shared/disarmed_germany.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_french_saarland"
+		texturefile = "gfx/interface/cw_focuses/GER/shared/french_saarland.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_saarland_protectorate"
+		texturefile = "gfx/interface/cw_focuses/GER/shared/focus_saar_protectorate.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_shumann_plan"
+		texturefile = "gfx/interface/cw_focuses/GER/shared/focus_shumman_plan.dds"
+		animation = {
+			animationmaskfile = "gfx/interface/cw_focuses/GER/shared/focus_shumman_plan.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 5.00				# in seconds
+			animationdelay = 5			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "scrolling"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 10.0 y = 10.0 } 
+		}
+		legacy_lazy_load = no		
+	}
+	spriteType = {
+		name = "GFX_focus_morgentau_plan"
+		texturefile = "gfx/interface/cw_focuses/GER/shared/focus_morgentau_plan.dds"
+		animation = {
+			animationmaskfile = "gfx/interface/cw_focuses/GER/shared/focus_morgentau_plan.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 5.00				# in seconds
+			animationdelay = 5			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "scrolling"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 10.0 y = 10.0 } 
+		}
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_focus_monnet_plan"
+		texturefile = "gfx/interface/cw_focuses/GER/shared/focus_monnet_plan.dds"
+	}	
+}

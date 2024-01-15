@@ -1,0 +1,35 @@
+state = {
+	id=290
+	local_supplies=0.0 
+	name="STATE_290"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 9945 }
+ 	set_variable = { victory_point = 5 }
+		owner = SPR
+		add_core_of = SPR
+		add_claim_by = MOR
+		
+		buildings = {
+			infrastructure = 1		
+			industrial_complex = 1
+			9945 = {
+				naval_base = 3	
+			}			
+		}		
+		1958.6.30 = {
+			owner = MOR
+			add_core_of = MOR
+		}
+		victory_points = {
+			9945 5 
+		}
+	}
+	resources={
+		steel=15 # was: 20
+	}
+	manpower = 744000
+	provinces={
+		4199 7215 9945 10113 12087 12100 
+	}
+}

@@ -1,0 +1,67 @@
+﻿l_english:
+ ### FRA Historic Ministers ### 
+ fra_hog_felix_gouin:0 "Felix Gouin"
+ fra_hog_leon_blum:0 "Leon Blum"
+ fra_hog_paul_ramadier:0 "Paul Ramadier"
+ fra_hog_andre_marie:0 "Andre Marie"
+ fra_hog_henri_queuille:0 "Henri Queuille"
+ fra_hog_rene_pleven:0 "Rene Pleven" 
+ fra_hog_maurice_couve_murville:0 "Maurice Couve de Murville"
+ fra_hog_georges_bidault:0 "Georges Bidault"
+ fra_hog_michel_debre:0 "Michel Debré"
+ #
+ fra_fm_georges_bidault:0 "Georges Bidault"
+ fra_fm_leon_blum:0 "Leon Blum"
+ fra_fm_robert_schuman:0 "Robert Schuman"
+ fra_fm_edgar_faure:0 "Edgar Faure"
+ fra_fm_antoine_pinay:0 "Antoine Pinay"
+ fra_fm_christian_pineau:0 "Christian Pineau" 
+ fra_fm_pierre_mendes_france:0 "Pierre Mendès France"
+ fra_fm_maurice_couve_murville:0 "Maurice Couve de Murville"
+ #
+ fra_dm_edmond_michelet:0 "Edmond Michelet"
+ fra_dm_felix_gouin:0 "Felix Gouin"
+ fra_dm_jules_moch:0 "Jules Moch"
+ fra_dm_pierre_koenig:0 "Pierre Koenig"
+ fra_dm_maurice_maunoury:0 "Maurice Maunoury"
+ fra_dm_pierre_billotte:0 "Pierre Billotte"
+ fra_dm_pierre_guillaumat:0 "Pierre Guillaumat"
+ fra_dm_pierre_messmer:0 "Pierre Messmer"
+ #
+ fra_tm_rene_pleven:0 "Rene Pleven"
+ fra_tm_pierre_mendes_france:0 "Pierre Mendes France"
+ fra_tm_andre_philip:0 "Andre Philip"
+ fra_tm_rene_mayer:0 "Rene Mayer"
+ fra_tm_jean_monnet:0 "Jean Monnet"
+ fra_tm_henri_queuille:0 "Henri Queuille"
+ fra_tm_paul_ramadier:0 "Paul Ramadier"
+ fra_tm_wilfrid_baumgartner:0 "Wilfrid Baumgartner"
+ #
+ fra_chief_jean_de_lattre:0 "Jean de Lattre de Tassigny"
+ fra_georges_revers:0 "Georges Revers"
+ fra_chief_clement_blanc:0 "Clément Blanc"
+ fra_chief_andre_zeller:0 "André Zeller"
+ fra_chief_henri_lorillot:0 "Henri Lorillot"
+ fra_chief_andre_demetz:0 "André Demetz"
+ #
+ fra_chief_alphonse_juin:0 "Alphonse Juin"
+ fra_chief_henri_navarre:0 "Henri Navarre"
+ fra_chief_paul_ely:0 "Paul Ely"
+ fra_chief_roger_blaizot:0 "Roger Blaizot"
+ fra_chief_marcel_carpentier:0 "Marcel Carpentier"
+ fra_chief_jacques_massu:0 "Jacques Massu"
+ #
+ fra_pa_bertrand_goldschmidt:0 "Betrand Goldschmidt"
+ fra_pa_jacques_duclos:0 "Jacques Duclos"
+ fra_pa_francois_mitterrand:0 "Francois Mitterrand"
+ fra_pa_robert_prigent:0 "Robert Prigent"
+ fra_pa_francois_tanguy_pringent:0 "Francoius Tanguy Pringent"
+ #
+ FRA_blum_violette:0 "Blum Violette"
+  
+
+
+
+
+
+

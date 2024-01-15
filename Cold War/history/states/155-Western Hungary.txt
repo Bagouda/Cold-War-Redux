@@ -1,0 +1,26 @@
+state = {
+	id=155
+	local_supplies=0.0 
+	name="STATE_155" # Transdanubia
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 11610 }
+ 	set_variable = { victory_point = 5 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = HUN
+		add_core_of = HUN
+		victory_points = {
+			11610 5 
+		}
+	}
+	resources={
+		oil = 1 # was: 1
+		crops = 5
+	}
+	manpower = 2197605
+	provinces={
+		682 686 701 3670 3680 3683 6685 6703 6720 9624 9643 9676 11610 11627 11663 13125 
+	}
+}

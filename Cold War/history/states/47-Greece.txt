@@ -1,0 +1,50 @@
+state = {
+	id=47
+	local_supplies=0.0 
+	name="STATE_47" # Thessaly
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 4109 }
+ 	add_to_array = { list_victory_point = 3973 }
+ 	set_variable = { victory_point = 23 }
+		owner = GRE
+		add_core_of = GRE
+		add_claim_by = CGR
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				id = 47
+			}
+		}		
+
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			air_base = 3
+			arms_factory = 1
+			dockyard  = 1
+			4109 = {	#Athens Port
+				naval_base = 3
+			}		
+		}		
+		
+		victory_points = {
+			3973 3
+		}
+		victory_points = {
+			4109 20 
+		}
+	}
+	resources={
+		steel=3 # was: 4
+		chromium=12 # was: 22
+		aluminium=30 # was: 58
+		tungsten = 10 # was: 20
+		crops = 12
+	}
+	manpower=2312500
+	provinces={
+		863 976 1109 3864 3973 3988 4109 6930 7127 
+	}
+}

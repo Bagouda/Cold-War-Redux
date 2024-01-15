@@ -1,0 +1,33 @@
+egy_support_algerian_rebels = {
+	enable = {
+		tag = EGY
+		ALG = { has_war_with = FRA }
+	}
+	
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "ALG"
+		value = 500
+	}
+}
+algeria_befriend_potential_allies = {
+	enable = {
+		tag = ALG
+		has_war_with = FRA
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = befriend
+		id = "SOV"			
+		value = 200
+	}	
+	ai_strategy = {
+		type = befriend
+		id = "EGY"
+		value = 200
+	}
+}

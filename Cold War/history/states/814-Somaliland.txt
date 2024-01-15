@@ -1,0 +1,22 @@
+state = {
+	id=814
+	local_supplies=0.0 
+	name="STATE_814"
+	state_category = rural
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = ENG
+		add_claim_by = SOM
+		add_claim_by = ITA
+		1960.7.1 = {
+			owner = SOM
+			add_core_of = SOM
+		}	
+	}
+	manpower = 1028895
+	provinces=
+	{ 4909 10818 10891 1966 
+ 	}
+}

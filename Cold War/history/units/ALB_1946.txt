@@ -1,0 +1,33 @@
+﻿division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		motorized = { x = 2 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+	}
+}
+units = {
+	division = {
+		location = 9914
+		division_template = "Infantry Division"	
+	}
+	division = {
+		location = 9914
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 11767
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 3448
+		division_template = "Infantry Division"
+	}
+	division = {
+		name = "4th Infantry Division"
+		location = 6900
+		division_template = "Infantry Division"
+	}		
+}

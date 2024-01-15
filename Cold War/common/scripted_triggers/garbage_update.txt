@@ -1,0 +1,81 @@
+# only to not get error
+
+is_literally_china = {
+	OR = {
+		original_tag = CHI
+		original_tag = PRC
+		original_tag = GXC
+		original_tag = YUN
+		original_tag = SHX
+		original_tag = XSM
+		original_tag = SIK
+	}
+}
+NOR_AAT = { # Trigger to check if playing as Norway while having AAT
+	original_tag = NOR
+	has_dlc = "Arms Against Tyranny"
+}
+
+ITA_is_northern_designer = { #Only meant to be used for tooltip purposes
+	custom_trigger_tooltip = {
+		tooltip = ITA_northern_designer_tt
+		hidden_trigger = {
+			always = yes	
+		}
+	}
+}
+
+ITA_is_southern_designer = { #Only meant to be used for tooltip purposes
+	custom_trigger_tooltip = {
+		tooltip = ITA_southern_designer_tt
+		hidden_trigger = {
+			always = yes	
+		}
+	}
+}
+
+ITA_is_northern_designer_improved = { #Only meant to be used for tooltip purposes
+	custom_trigger_tooltip = {
+		tooltip = ITA_northern_designer_improved_tt
+		hidden_trigger = {
+			always = yes	
+		}
+	}
+}
+
+ITA_is_southern_designer_improved = { #Only meant to be used for tooltip purposes
+	custom_trigger_tooltip = {
+		tooltip = ITA_southern_designer_improved_tt
+		hidden_trigger = {
+			always = yes	
+		}
+	}
+}
+
+SPR_scw_in_progress = {
+	has_global_flag = spanish_civil_war
+	NOT = { has_global_flag = scw_over }
+}
+
+can_unlock_new_special_forces_tree = {
+	if = {
+		limit = { NOT = { has_variable = sf_trees } }
+		custom_trigger_tooltip = {
+			tooltip = can_unlock_new_special_forces_tree_none
+			NOT = { has_variable = sf_trees }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { sf_trees > 0 } }
+		custom_trigger_tooltip = {
+			tooltip = can_unlock_new_special_forces_tree_more_yes
+			check_variable = { sf_trees > 0 }
+		}
+	}
+	else = {
+		custom_trigger_tooltip = {
+			tooltip = can_unlock_new_special_forces_tree_more_no
+			always = no
+		}
+	}
+}

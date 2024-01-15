@@ -1,0 +1,237 @@
+character_is_active_on_cabinet = {
+	custom_trigger_tooltip = {
+		tooltip = SCRIPTED_TRIGGER_CHAR_IS_ON_CABINET
+		THIS = { has_character_flag = serving_on_country_cabinet }
+	}
+}
+
+character_serving_as_hog = {
+	custom_trigger_tooltip = {
+		tooltip = SCRIPTED_TRIGGER_CHAR_IS_HOG
+		THIS = { has_character_flag = serving_as_hog }
+	}
+}
+
+character_serving_as_foreign_minister = {
+	custom_trigger_tooltip = {
+		tooltip = SCRIPTED_TRIGGER_CHAR_IS_FOREIGN_MINISTER
+		THIS = { has_character_flag = serving_as_foreign_minister }
+	}
+}
+
+character_serving_as_defense_minister = {
+	custom_trigger_tooltip = {
+		tooltip = SCRIPTED_TRIGGER_CHAR_IS_DEFENSE_MINISTER
+		THIS = { has_character_flag = serving_as_defense_minister }
+	}
+}
+
+character_serving_as_treasury_minister = {
+	custom_trigger_tooltip = {
+		tooltip = SCRIPTED_TRIGGER_CHAR_IS_TREASURY_MINISTER
+		THIS = { has_character_flag = serving_as_treasury_minister }
+	}
+}
+
+character_serving_as_head_of_intelligence = {
+	custom_trigger_tooltip = {
+		tooltip = SCRIPTED_TRIGGER_CHAR_IS_HOI
+		THIS = { has_character_flag = serving_as_head_of_intelligence }
+	}
+}
+
+character_serving_as_chief_of_staff = {
+	custom_trigger_tooltip = {
+		tooltip = SCRIPTED_TRIGGER_CHAR_IS_CHIEF_OF_STAFF
+		THIS = { has_character_flag = serving_as_chief_of_staff }
+	}
+}
+
+is_ideology_leader = {
+	OR = {
+		has_country_flag = communist_leader_flag
+		has_country_flag = communist_reformist_leader_flag
+		has_country_flag = democratic_leader_flag
+		has_country_flag = neutral_leader_flag
+	}
+}
+is_recognized_regime = {
+	custom_trigger_tooltip = {
+		tooltip = "CW_IS_RECOGNIZED_REGIME_TRIGGET_TT"
+		THIS = {
+			OR = {
+				has_country_flag = recognition_restriction_override
+				NOT = {
+					OR = {
+						has_idea = cw_non_recognized_state
+						has_idea = cw_partially_recognized_state
+					}
+				}
+			}
+		}
+	}
+}
+
+has_civil_war_cwtrigger = {
+	custom_trigger_tooltip = {
+		tooltip = "CW_CIVIL_WAR_CHECK"
+		OR = {
+			THIS = { has_civil_war = yes }
+			AND = {
+				THIS = {
+					tag = CHI 
+					has_war_with = PRC
+				}
+			}
+			AND = {
+				THIS = { 
+					tag = PRC
+					has_war_with = CHI
+				}
+			}
+			AND = {
+				THIS = { 
+					tag = PRK 
+					has_war_with = KOR
+				}
+			}
+			AND = {
+				THIS = { 
+					tag = KOR
+					has_war_with = PRK
+				}
+			}
+			AND = {
+				THIS = { 
+					tag = SVI 
+					has_war_with = VIN
+				}
+			}
+			AND = {
+				THIS = {
+					tag = VIN
+					has_war_with = SVI
+				}
+			}
+			AND = {
+				THIS = { 
+					tag = CGR
+					has_war_with = GRE
+				}
+			}
+			AND = {
+				THIS = { 
+					tag = GRE
+					has_war_with = CGR
+				}
+			}
+			AND = {
+				THIS = { 
+					tag = COG
+					has_war_with = KAT
+				}
+			}
+			AND = {
+				THIS = { 
+					tag = KAT
+					has_war_with = COG
+				}
+			}			
+		}		
+	}
+}
+anti_submarine_strategy_required_trigger = {
+}
+cw_can_use_espionage = {
+	has_dlc = "La Resistance"
+}
+same_ideology_check = {
+	OR = {
+		AND = {
+			ROOT = { has_government = neutrality }
+			THIS = { has_government = neutrality }
+		}
+		AND = {
+			ROOT = { has_government = unaligned_right }
+			THIS = { has_government = unaligned_right }
+		}		
+		AND = {
+			ROOT = { has_government = communism_totalitarian }
+			THIS = { has_government = communism_totalitarian }
+		}			
+		AND = {
+			ROOT = { has_government = communism }
+			THIS = { has_government = communism }
+		}	
+		AND = {
+			ROOT = { OR = { has_government = democratic has_government = democratic_socialist } }
+			THIS = { OR = { has_government = democratic has_government = democratic_socialist } }
+		}
+	}
+}
+similar_ideology_check = {
+	custom_trigger_tooltip = {
+		tooltip = HAS_SAME_IDEOLOGY_GROUP
+		OR = {
+			AND = {
+				ROOT = { has_government = communism_totalitarian }
+				THIS = { OR = { has_government = communism has_government = communism_totalitarian has_government = neutrality } }
+			}
+			AND = {
+				ROOT = { has_government = communism }
+				THIS = { OR = { has_government = communism has_government = communism_totalitarian has_government = neutrality } }
+			}
+			AND = {
+				ROOT = { has_government = neutrality }
+				THIS = { OR = { has_government = communism has_government = communism_totalitarian has_government = neutrality } }
+			}
+			AND = {
+				ROOT = { OR = { has_government = democratic has_government = democratic_socialist has_government = unaligned_right } }
+				THIS = { OR = { has_government = colonial has_government = democratic has_government = democratic_socialist has_government = unaligned_right } }
+			}
+			AND = {
+				THIS = { has_government = unaligned_right }
+				THIS = { OR = { has_government = democratic has_government = democratic_socialist has_government = unaligned_right } }
+			}
+		}
+	}
+}
+
+same_ideology_org_checker = {
+	OR = {
+		AND = {
+			ROOT = { has_government = communism_totalitarian }
+			THIS = { communism_totalitarian < 0.30 }
+		}			
+		AND = {
+			ROOT = { has_government = communism }
+			THIS = { communism < 0.30 }
+		}
+		AND = {
+			ROOT = { has_government = neutrality }
+			THIS = { OR = { neutrality < 0.30  unaligned_right < 0.30 } }
+		}		
+		AND = {
+			ROOT = { OR = { has_government = democratic has_government = democratic_socialist } }
+			THIS = { OR = { communism_totalitarian > 0.10 communism > 0.10 } }
+		}		
+	}
+}
+is_available_to_collaboration_government = { # occupied_countries.1 should be updated along with this
+	#NOT = {
+	#	any_country_with_original_original_tag = {
+	#		original_original_tag_to_check = FROM
+	#		is_puppet_of = PREV # if already created one do not create another
+	#		has_autonomy_state = autonomy_collaboration_government
+	#	}
+	#}
+} 
+cw_is_a_major_power = {
+	THIS = {
+		OR = {
+			has_country_flag = communist_leader_flag
+			has_country_flag = democratic_leader_flag
+			has_country_flag = neutral_leader		
+		}
+	}
+}

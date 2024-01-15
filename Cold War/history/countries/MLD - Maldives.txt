@@ -1,0 +1,105 @@
+﻿capital = 281
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = democratic
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 51
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 49
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Ibrahim Muhammad Didi"
+		desc = ""
+		picture = "MLDG2.dds"
+		ideology = social_cons_idolg
+		expire = 1954.3.7
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Mohamed Amin Didi"
+		desc = ""
+		picture = "MLDG1.dds"
+		ideology = social_cons_idolg
+		expire = 1953.9.2
+		traits = {}
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+}
+1956.10.29 = {	#Suez Crisis
+	set_politics = {
+		ruling_party = unaligned_right
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 51
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 49
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Maumoon Abdul Gayoom"
+		desc = ""
+		picture = "MLDG4.dds"
+		ideology = social_cons_idolg
+		expire = 2008.11.11
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Ibrahim Nasir"
+		desc = ""
+		picture = "MLDG3.dds"
+		ideology = social_cons_idolg
+		expire = 1978.11.11
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Muhammad Fareed Didi"
+		desc = ""
+		picture = "MLDM1.dds"
+		ideology = despotism
+		expire = 1968.11.11
+		traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = democratic
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 51
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 49
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Maumoon Abdul Gayoom"
+		desc = ""
+		picture = "MLDG4.dds"
+		ideology = social_cons_idolg
+		expire = 2008.11.11
+		traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+}

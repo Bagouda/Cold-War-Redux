@@ -1,0 +1,34 @@
+﻿capital = 331	#Newfoundland
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_cosmetic_tag = UK_COL # British Newfoundland
+	set_country_flag = decolonization
+	leave_faction = yes
+	set_politics = {
+		ruling_party = colonial
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 50
+		democratic_socialist = 50
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Gordon Macdonald"
+		desc = ""
+		picture = "NFLCG1.dds"
+		ideology = colonial_government
+		expire = 1948.7.22
+		traits = {}
+	}
+}
+
+1949.3.31 = {
+	drop_cosmetic_tag = yes
+	clr_country_flag = decolonization
+}

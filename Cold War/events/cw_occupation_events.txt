@@ -1,0 +1,446 @@
+﻿#####################
+# REFERENDUM EVENTS #
+#####################
+add_namespace = cw_occupation_events
+country_event = {
+	id = cw_occupation_events.1		#Demand for increased autonomy
+	title = cw_occupation_events.1.t
+	desc = cw_occupation_events.1.d
+	picture = GFX_event_peaceful_protest
+
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = has_occupation_event_active
+	}
+
+	option = {
+		ai_chance = {
+			modifier = {
+				factor = 10
+			}			
+			modifier = {
+				factor = 50
+				OR = { has_government = communism has_government = communism_totalitarian }
+			}			
+		}
+		name = "Allow the referendum"
+		every_owned_state = { limit = { OR = { is_core_of = var:ROOT.occupied_country is_claimed_by = var:ROOT.occupied_country } } set_resistance = 0 }
+		every_owned_state = { limit = { is_on_continent = africa has_resistance = yes } add_resistance = -20 }
+		hidden_effect= {
+			var:occupied_country = { save_event_target_as = state_ref_second_option_temp }
+			every_owned_state = { limit = { OR = { is_core_of = var:ROOT.occupied_country is_claimed_by = var:ROOT.occupied_country } } set_variable = { state_ref_second_option_votes_percent = 60 } }
+			cw_territory_ref_initial_setup = yes
+			clear_variable = occupier_country
+			clear_variable = occupied_country
+			clear_variable = occupied_state
+			clr_country_flag = has_occupation_event_active
+		}
+	}
+	option = {
+		ai_chance = {
+			modifier = {
+				factor = 10
+			}
+			modifier = {
+				factor = 10
+				OR = { has_government = unaligned_right  has_government = neutrality }
+			}
+			modifier = {
+				factor = 50
+				capital_scope = { is_on_continent = europe }
+				NOT = { has_global_flag = decolonization_started }
+			}
+			modifier = {
+				factor = 50
+				capital_scope = { is_on_continent = europe }
+				has_global_flag = decolonization_started
+				OR = {
+					tag = POR
+					AND = {
+						var:occupied_country = { tag = ALG }
+						tag = FRA
+					}
+					AND = {
+						var:occupied_country = { tag = KEN }
+						tag = ENG
+					}
+				}
+			}
+		}	
+		name = "Round up the usual suspects!"
+		every_owned_state = {
+			limit = {
+				OR = {
+					is_core_of = var:ROOT.occupied_country 
+					is_claimed_by = var:ROOT.occupied_country 
+				} 
+			}
+			add_compliance = 5
+			hidden_effect = {
+				add_state_modifier = {
+					modifier = {
+						resistance_growth = 0.1
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			clear_variable = occupier_country
+			clear_variable = occupied_country
+			clear_variable = occupied_state
+			clr_country_flag = has_occupation_event_active
+			clr_country_flag = territory_demanding_outside_union
+			clr_country_flag = territory_demanding_autonomy
+		}
+	}
+	option = {
+		trigger = {
+			has_political_power > 100
+		}
+		ai_chance = {
+			modifier = {
+				add = -50
+				is_ai = yes
+			}				
+		}	
+		name = "Give them vague promises."
+		add_political_power = -100
+		every_owned_state = { limit = { OR = { is_core_of = var:ROOT.occupied_country is_claimed_by = var:ROOT.occupied_country } } add_resistance = -10 }
+		hidden_effect = {
+			clear_variable = occupier_country
+			clear_variable = occupied_country
+			clear_variable = occupied_state
+			clr_country_flag = has_occupation_event_active
+			clr_country_flag = territory_demanding_outside_union
+			clr_country_flag = territory_demanding_autonomy			
+		}
+	}	
+}
+country_event = {
+	id = cw_occupation_events.2		#Demand for independence
+	title = cw_occupation_events.2.t
+	desc = cw_occupation_events.2.d
+	picture = GFX_event_peaceful_protest_violent
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = has_occupation_event_active
+	}	
+
+	option = {
+		ai_chance = {
+			modifier = {
+				factor = 10
+			}			
+			modifier = {
+				factor = 50
+				OR = { has_government = communism has_government = communism_totalitarian }
+			}
+		}	
+		name = "Allow the referendum."
+		every_owned_state = { limit = { OR = { is_core_of = var:ROOT.occupied_country is_claimed_by = var:ROOT.occupied_country } } set_resistance = 0 }
+		every_owned_state = { limit = { is_on_continent = africa has_resistance = yes } add_resistance = -30 }
+		hidden_effect= {
+			var:occupied_country = { save_event_target_as = state_ref_second_option_temp }
+			every_owned_state = { limit = { OR = { is_core_of = var:ROOT.occupied_country is_claimed_by = var:ROOT.occupied_country } } set_variable = { state_ref_second_option_votes_percent = 65 } }
+			cw_territory_ref_initial_setup = yes
+			clear_variable = occupier_country
+			clear_variable = occupied_country
+			clear_variable = occupied_state
+			clr_country_flag = has_occupation_event_active
+		}
+	}
+	option = {
+		ai_chance = {
+			modifier = {
+				factor = 10
+			}
+			modifier = {
+				factor = 10
+				OR = { has_government = unaligned_right  has_government = neutrality }
+			}
+			modifier = {
+				factor = 50
+				capital_scope = { is_on_continent = europe }
+				NOT = { has_global_flag = decolonization_started }
+			}
+			modifier = {
+				factor = 50
+				capital_scope = { is_on_continent = europe }
+				has_global_flag = decolonization_started
+				OR = {
+					tag = POR
+					AND = {
+						var:occupied_country = { tag = ALG }
+						tag = FRA
+					}
+					AND = {
+						var:occupied_country = { tag = KEN }
+						tag = ENG
+					}
+				}
+			}
+		}
+		name = "Never!"
+		every_owned_state = {
+			limit = {
+				OR = {
+					is_core_of = var:ROOT.occupied_country 
+					is_claimed_by = var:ROOT.occupied_country 
+				} 
+			}
+			add_resistance = 10
+			hidden_effect = {
+				add_state_modifier = {
+					modifier = {
+						resistance_growth = 0.3
+						resistance_damage_to_garrison = 0.3
+					}
+				}
+			}
+		}
+		add_named_threat = { threat = 1 name = CW_THREAT_REJECTED_CALLS_FOR_INDEPENDENCE }
+		if = {
+			limit = {
+				OR = {
+					has_government = democratic_socialist
+					has_government = democratic
+				}
+			}
+			add_stability = -0.03
+			add_popularity = { ideology = ROOT popularity = -0.05 }
+		}
+		hidden_effect = {
+			clear_variable = occupier_country
+			clear_variable = occupied_country
+			clear_variable = occupied_state	
+			clr_country_flag = has_occupation_event_active
+			clr_country_flag = territory_demanding_outside_annexation
+			clr_country_flag = territory_demanding_independence
+		}
+	}
+}
+country_event = {		# Occupation Uprising
+	id = cw_occupation_events.3
+	
+	is_triggered_only = yes
+	
+	hidden = yes
+	
+	immediate = {	
+		every_owned_state = {
+			limit = {
+				OR = {
+					is_core_of = var:PREV.occupied_country
+					is_claimed_by = var:PREV.occupied_country
+				}
+			}
+			add_core_of = var:PREV.occupied_country
+			remove_claim_by = var:PREV.occupied_country
+		}
+		if = {
+			limit = {
+				OR = {
+					has_government = communism
+					has_government = communism_totalitarian
+				}
+			}
+			release_puppet = var:occupied_country
+			end_puppet = var:occupied_country
+			var:ROOT.occupied_country = {	
+				random_list = {
+					25 = {
+						start_civil_war = {
+							ruling_party = unaligned_right
+							ideology = communism_totalitarian
+							keep_political_leader = yes
+							size = 0.5
+							states_filter = {
+								impassable = no
+							}
+							compute_proxy_score = yes
+						}
+						compute_proxy_score = yes
+					}
+					25 = {
+						start_civil_war = {
+							ruling_party = democratic
+							ideology = communism_totalitarian
+							keep_political_leader = yes
+							size = 0.5
+							states_filter = {
+								impassable = no
+							}
+							compute_proxy_score = yes
+						}
+						compute_proxy_score = yes
+					}					
+					25 = {
+						start_civil_war = {
+							ruling_party = neutrality
+							ideology = unaligned_right
+							keep_political_leader = yes
+							size = 0.4
+							states_filter = {
+								impassable = no
+							}
+							compute_proxy_score = yes
+						}
+						compute_proxy_score = yes
+					}
+					0 = {
+						start_civil_war = {
+							ruling_party = communism
+							ideology = communism_totalitarian
+							keep_political_leader = yes
+							size = 0.2
+							states_filter = {
+								impassable = no
+							}
+							compute_proxy_score = yes
+						}
+						compute_proxy_score = yes
+						modifier = {
+							factor = 25
+							SOV = { has_government = communism }
+						}					
+					}
+				}
+				capital_scope = {
+					create_unit = {
+						division = "division_template = \"Colonial Infantry\" start_experience_factor = 0.1" 
+						owner = PREV
+						allow_spawning_on_enemy_provs = no
+						count = 5
+					}
+				}
+				set_political_party = { ideology = unaligned_right popularity = 25 }
+				set_political_party = { ideology = neutrality popularity = 25 }
+				set_political_party = { ideology = communism_totalitarian popularity = 25 }
+				set_political_party = { ideology = communism popularity = 25 }
+			}
+			else = {
+				release_puppet = var:ROOT.occupied_country
+				var:ROOT.occupied_country = { 
+					if = {
+						limit = {
+							is_in_faction = yes
+						}
+						leave_faction = yes
+					}
+					if = {
+						limit = {
+							capital_scope = { is_on_continent = africa }
+							NOT = { has_country_flag = decolonization }
+						}
+						set_country_flag = decolonization
+					}
+					create_country_leader = {
+						name = "Colonial Administration"				# Impossible to localize
+						desc = ""
+						picture = "gfx/leaders/generic_colonial_administration.dds"
+						ideology = colonial_government
+						expire = 2000.1.1
+						traits = {}
+					}
+				}			
+				if = {
+					limit = {
+						var:ROOT.occupied_country = {
+							num_of_controlled_states > 1
+						}
+					}
+					var:ROOT.occupied_country = {
+						random_list = {
+							25 = {
+								start_civil_war = {
+									ruling_party = colonial
+									ideology = communism_totalitarian
+									keep_political_leader = yes
+									size = 0.4
+									states_filter = {
+										impassable = no
+									}
+									compute_proxy_score = yes
+								}
+								compute_proxy_score = yes
+							}
+							25 = {
+								start_civil_war = {
+									ruling_party = colonial
+									ideology = communism
+									keep_political_leader = yes
+									size = 0.3
+									states_filter = {
+										impassable = no
+									}
+									compute_proxy_score = yes
+								}
+								compute_proxy_score = yes
+							}						
+							25 = {
+								start_civil_war = {
+									ruling_party = colonial
+									ideology = unaligned_right
+									keep_political_leader = yes
+									size = 0.5
+									states_filter = {
+										impassable = no
+									}
+									compute_proxy_score = yes
+								}
+								compute_proxy_score = yes
+							}
+							25 = {
+								start_civil_war = {
+									ruling_party = colonial
+									ideology = neutrality
+									keep_political_leader = yes
+									size = 0.3
+									states_filter = {
+										impassable = no
+									}
+									compute_proxy_score = yes
+								}
+								compute_proxy_score = yes
+							}
+						}
+						set_political_party = { ideology = unaligned_right popularity = 25 }
+						set_political_party = { ideology = neutrality popularity = 25 }
+						set_political_party = { ideology = communism_totalitarian popularity = 25 }
+						set_political_party = { ideology = communism popularity = 25 }
+					}
+					else = {
+						end_puppet = var:ROOT.occupied_country
+						hold_election = var:ROOT.occupied_country
+						var:ROOT.occupied_country = {
+							cw_gained_unilateral_independence_notification = yes
+							cw_make_unrecognized = yes
+						}
+						create_wargoal = {
+							type = annex_everything
+							target = var:ROOT.occupied_country
+							expire = 365
+						}
+					}
+				}
+			}
+		}
+		every_country_with_original_tag = {
+			original_tag_to_check = var:ROOT.occupied_country
+			limit = {
+				has_war_with = var:ROOT.occupied_country
+			}
+			ROOT = { save_event_target_as = unilateral_indepdendence_master }
+			add_ideas = cw_annihilate_kill_kill
+			cw_gained_unilateral_independence_notification = yes
+		}
+		clear_variable = occupier_country
+		clear_variable = occupied_country
+		clear_variable = occupied_state
+	}
+}

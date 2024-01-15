@@ -1,0 +1,28 @@
+﻿capital = 305
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1942.11.19"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 55
+		democratic_socialist = 10
+		neutrality = 15
+		communism_totalitarian = 10
+		unaligned_right = 10
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "José Ibarra"
+		desc = ""
+		picture = "ECUDR1.dds"
+		ideology = social_cons_idolg
+		expire = 1979.3.30		
+		traits = { }
+	}
+}

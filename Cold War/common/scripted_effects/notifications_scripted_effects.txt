@@ -1,0 +1,268 @@
+@PHONE_NOTIFICATION_DAYS = 3
+@TOPBAR_NOTIFICATION_DAYS = 4
+@TOPBAR_DECISIONS_NOTIFICATION_DAYS = 3
+unsc_vote_phone_alert = {
+	every_country = {
+		limit = {
+			is_ai = no
+			NOT = { has_country_flag = block_unsc_notifications }	
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+				has_country_flag = resolution_obeserver
+			}
+		}
+		phone_notification_generic_unsc_voting = yes
+	}
+}
+country_phone_alert = {
+	set_country_flag = { flag = phone_notification_activated value = 1 days = @PHONE_NOTIFICATION_DAYS }
+	if = {
+		limit = {
+			is_ai = no
+		}
+		set_variable = { phone_notification_from = PREV.id }
+		advisor_scripted_effect = yes
+	}
+}
+cw_activate_topbar_notification_with_country_flag = {
+	set_country_flag = { flag = top_bar_notificaton_activated_with_country_flag value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+}
+cw_activate_topbar_notification_with_country_flag_global = {
+	set_global_flag = { flag = global_top_bar_notificaton_activated_with_country_flag value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+}
+cw_activate_topbar_notification_with_un_logo = {
+	set_country_flag = { flag = top_bar_notificaton_activated_with_un_logo value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+}
+cw_activate_topbar_notification_with_un_logo_global = {
+	set_global_flag = { flag = global_top_bar_notificaton_activated_with_un_logo value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+}
+cw_top_bar_notification_sanctions_allowed = {
+	cw_activate_topbar_notification_with_un_logo_global = yes
+	set_global_flag = { flag = top_bar_notificaton_sanctions_allowed value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+	set_variable = { global.top_bar_notification_country = THIS.id }
+}
+cw_top_bar_notification_new_unsc_members = {
+	cw_activate_topbar_notification_with_un_logo_global = yes
+	set_global_flag = { flag = unsc_shuffle_done value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+}
+cw_new_country_notification = {
+	cw_activate_topbar_notification_with_country_flag_global = yes
+	set_global_flag = { flag = global_top_bar_notificaton_new_country value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+	set_variable = { global.top_bar_notification_country = THIS.id }
+}
+cw_gained_independence_notification = {
+	cw_activate_topbar_notification_with_country_flag_global = yes
+	set_global_flag = { flag = global_top_bar_notificaton_gained_independence value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+	set_variable = { global.top_bar_notification_country = THIS.id }
+	add_named_threat = { threat = 1 name = "CW_THREAT_DECLARED_INDEPENDENCE" }
+	FROM = { save_global_event_target_as = former_owner }
+}
+cw_gained_unilateral_independence_notification = {
+	cw_activate_topbar_notification_with_country_flag_global = yes
+	set_global_flag = { flag = global_top_bar_notificaton_gained_independence value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+	set_variable = { global.top_bar_notification_country = THIS.id }
+	add_named_threat = { threat = 1 name = "CW_THREAT_DECLARED_INDEPENDENCE" }
+	event_target:unilateral_indepdendence_master = { save_global_event_target_as = former_owner }
+}
+cw_gained_independence_notification_colonial_war = {
+	cw_activate_topbar_notification_with_country_flag_global = yes
+	set_global_flag = { flag = global_top_bar_notificaton_gained_independence value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+	set_variable = { global.top_bar_notification_country = THIS.id }
+	ROOT = { save_global_event_target_as = former_owner }
+}
+cw_economic_aid_upgraded_notification = {
+	cw_activate_topbar_notification_with_country_flag = yes
+	set_country_flag = { flag = top_bar_notificaton_economic_aid_increased value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+	set_variable = { top_bar_notification_aid_provider = ROOT.id }
+}
+cw_economic_aid_downgraded_notification = {
+	cw_activate_topbar_notification_with_country_flag = yes
+	set_country_flag = { flag = top_bar_notificaton_economic_aid_decreased value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+	set_variable = { top_bar_notification_aid_provider = ROOT.id }
+}
+cw_economic_aid_suspended_notification = {
+	cw_activate_topbar_notification_with_country_flag = yes
+	set_country_flag = { flag = top_bar_notificaton_economic_aid_suspended value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+	set_variable = { top_bar_notification_aid_provider = ROOT.id }
+}
+cw_top_bar_notification_removed_from_cultural_union_euu = {
+	cw_activate_topbar_notification_with_country_flag = yes
+	if = {
+		limit = {
+			OR = {
+				is_in_array = {
+					array = global.acc_members
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.euu_members_array
+					value = THIS.id
+				}
+			}
+		}
+		set_country_flag = { flag = top_bar_notificaton_left_cultural_union_euu value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+	}
+}
+cw_top_bar_notification_added_to_cultural_union = {
+	cw_activate_topbar_notification_with_country_flag = yes
+	set_country_flag = { flag = top_bar_notificaton_joined_cultural_union value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+}
+cw_top_bar_notification_became_unsc_member = {
+	cw_activate_topbar_notification_with_un_logo = yes
+	set_country_flag = { flag = top_bar_notificaton_joined_unsc value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+}
+cw_top_bar_notification_lost_unsc_seat = {
+	cw_activate_topbar_notification_with_un_logo = yes
+	set_country_flag = { flag = top_bar_notificaton_left_unsc value = 1 days = @TOPBAR_NOTIFICATION_DAYS }
+}
+phone_notification_intervention_tip_notification = {
+	set_country_flag = { flag = notification_involvment_tip value = 1 days = @PHONE_NOTIFICATION_DAYS }
+	country_phone_alert = yes
+}
+phone_notification_lease_revoked = {
+	set_country_flag = { flag = phone_notification_state_lease_revoked value = 1 days = @PHONE_NOTIFICATION_DAYS }
+	set_variable = { phone_notification_state = PREV.id }
+	var:phone_notification_state = { var:true_owner = { save_event_target_as = PHONE_NOTIFICATION_COUNTRY_ET } }
+	set_variable = { phone_notification_country = event_target:PHONE_NOTIFICATION_COUNTRY_ET.id }
+	country_phone_alert = yes
+}
+phone_notification_monopoly_suspended_by_state_controller = {
+	set_country_flag = { flag = phone_notification_state_monopoly_suspended value = 1 days = @PHONE_NOTIFICATION_DAYS }
+	set_variable = { phone_notification_state = PREV.id }
+	set_variable = { phone_notification_country = event_target:state_controller }
+	country_phone_alert = yes
+}
+phone_notification_monopoly_suspended_by_monopoly_holder = {
+	set_country_flag = { flag = phone_notification_state_monopoly_suspended_by_monopoly_holder value = 1 days = @PHONE_NOTIFICATION_DAYS }
+	set_variable = { phone_notification_state = PREV.id }
+		set_variable = { phone_notification_country = event_target:monopoly_holder }
+	country_phone_alert = yes
+}
+phone_notification_monopoly_granted_state_owner = {
+	set_country_flag = { flag = phone_notification_state_monopoly_given_by_us value = 1 days = @PHONE_NOTIFICATION_DAYS }
+	set_variable = { phone_notification_state = PREV.PREV.id }
+	set_variable = { phone_notification_country = PREV.id }
+	country_phone_alert = yes
+}
+phone_notification_joined_international_sanctions = {
+	set_country_flag = { flag = phone_notification_joined_unsc_embargo value = 1 days = @PHONE_NOTIFICATION_DAYS }
+	set_variable = { phone_notification_country = PREV.id }
+	country_phone_alert = yes
+}
+phone_notification_military_aid_granted = {
+	hidden_effect = {
+		set_country_flag = { flag = phone_notification_military_aid_granted value = 1 days = @PHONE_NOTIFICATION_DAYS }
+		set_variable = { phone_notification_country = PREV.id }
+		country_phone_alert = yes
+	}
+}
+phone_notification_generic_aid_granted = {
+	hidden_effect = {
+		set_country_flag = { flag = phone_notification_generic_economic_aid_granted value = 1 days = @PHONE_NOTIFICATION_DAYS }
+		set_variable = { phone_notification_country = PREV.id }
+		country_phone_alert = yes
+	}
+}
+phone_notification_generic_aid_refused = {
+	hidden_effect = {
+		set_country_flag = { flag = phone_notification_generic_economic_aid_refused value = 1 days = @PHONE_NOTIFICATION_DAYS }
+		set_variable = { phone_notification_country = PREV.id }
+		country_phone_alert = yes
+	}
+}
+phone_notification_generic_request_refused = {
+	custom_effect_tooltip = "CW_PHONE_NOTIFICATION_GENERIC_REQUEST_REFUSED_TT"
+	hidden_effect = {
+		set_country_flag = { flag = phone_notification_generic_refused_request value = 1 days = @PHONE_NOTIFICATION_DAYS }
+		set_variable = { phone_notification_country = PREV.id }
+		country_phone_alert = yes
+	}
+}
+phone_notification_generic_request_accepted = {
+	hidden_effect = {
+		set_country_flag = { flag = phone_notification_generic_accepted_request value = 1 days = @PHONE_NOTIFICATION_DAYS }
+		set_variable = { phone_notification_country = PREV.id }
+		country_phone_alert = yes
+	}
+}
+phone_notification_generic_unsc_voting = {
+	hidden_effect = {
+		set_country_flag = { flag = notification_unsc_in_session value = 1 days = @PHONE_NOTIFICATION_DAYS }
+		country_phone_alert = yes
+	}
+}
+################## DECISIONS NOTIFICATIONS ##################
+cw_country_top_bar_decisions_notification = {
+	if = {
+		limit = {
+			is_ai = no 
+		}
+		set_country_flag = { flag = decisions_notification_activated value = 1 days = @TOPBAR_DECISIONS_NOTIFICATION_DAYS }
+	}
+}
+top_bar_decisions_notification_new_decisions_available = {
+	hidden_effect = {
+		set_country_flag = { flag = new_decisions_available_notification value = 1 days = @TOPBAR_DECISIONS_NOTIFICATION_DAYS }
+		cw_country_top_bar_decisions_notification = yes
+	}
+}
+top_bar_decisions_notification_new_state_decisions_available = {
+	hidden_effect = {
+		set_country_flag = { flag = new_state_decisions_available_notification value = 1 days = @TOPBAR_DECISIONS_NOTIFICATION_DAYS }
+		cw_country_top_bar_decisions_notification = yes
+	}
+}
+top_bar_decisions_notification_too_many_insurgencies = {
+	hidden_effect = {
+		set_country_flag = { flag = too_many_insurgencies_notification value = 1 days = @TOPBAR_DECISIONS_NOTIFICATION_DAYS }
+		cw_country_top_bar_decisions_notification = yes
+	}
+}
+top_bar_decisions_notification_new_spy_missions_available = {
+	hidden_effect = {
+		set_country_flag = { flag = new_intelligence_agency_mission_available value = 1 days = @TOPBAR_DECISIONS_NOTIFICATION_DAYS }
+		cw_country_top_bar_decisions_notification = yes
+	}
+}
+top_bar_decisions_notification_new_elections_started = {
+	hidden_effect = {
+		set_country_flag = { flag = notification_new_elections_started value = 1 days = @TOPBAR_DECISIONS_NOTIFICATION_DAYS }
+		cw_country_top_bar_decisions_notification = yes
+	}
+}
+top_bar_decisions_notification_elections_ended = {
+	hidden_effect = {
+		set_country_flag = { flag = notification_elections_ended value = 1 days = @TOPBAR_DECISIONS_NOTIFICATION_DAYS }
+		cw_country_top_bar_decisions_notification = yes
+	}
+}
+top_bar_decisions_notification_country_referendum_started = {
+	hidden_effect = {
+		set_country_flag = { flag = notification_country_referendum_started value = 1 days = @TOPBAR_DECISIONS_NOTIFICATION_DAYS }
+		cw_country_top_bar_decisions_notification = yes
+	}
+}
+top_bar_decisions_notification_state_referendum_started = {
+	hidden_effect = {
+		set_country_flag = { flag = notification_state_referendum_started value = 1 days = @TOPBAR_DECISIONS_NOTIFICATION_DAYS }
+		cw_country_top_bar_decisions_notification = yes
+	}
+}
+################## ARMYY CORPS NOTIFICATIONS ##################
+new_military_char_notification = {
+	if = {
+		limit = {
+			is_ai = no
+		}
+		hidden_effect = {
+			set_country_flag = { flag = officer_corps_notification_activated value = 1 days = @TOPBAR_DECISIONS_NOTIFICATION_DAYS }
+		}
+	}
+}

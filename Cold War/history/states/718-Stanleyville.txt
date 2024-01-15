@@ -1,0 +1,43 @@
+
+state={
+	id=718
+	local_supplies=0.0 
+	name="STATE_718"
+	resources={
+		crops=30
+	}
+	history={
+ 	add_to_array = { list_victory_point = 12808 }
+ 	set_variable = { victory_point = 5 }
+		owner = BEL
+		add_claim_by = COG
+
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+				
+		1960.6.30 = {
+			owner = COG
+			add_core_of = COG
+			remove_core_of = BEL
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			12808 5		#Aketi Port-Chaltin
+		}		
+	}
+
+	provinces={
+		2073 12808 
+	}
+	manpower=2366783
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+}

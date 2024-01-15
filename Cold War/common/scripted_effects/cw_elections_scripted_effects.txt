@@ -1,0 +1,29 @@
+cw_start_elections = {
+	custom_effect_tooltip = "CW_START_ELECTIONS_EFFECT_TT"
+	hidden_effect = {
+		if = {
+			limit = {
+				is_ai = no
+			}
+			top_bar_decisions_notification_new_elections_started = yes
+		}
+		if = {
+			limit = {
+				NOT = { has_active_mission = cw_national_elections_timer }
+			}
+			add_to_variable = { num_of_elections = 1 }
+			add_ideas = cw_holding_elections
+			activate_mission = cw_national_elections_timer
+			if = {
+				limit = {
+					has_elections = yes
+				}
+				set_politics = {
+					ruling_party = ROOT
+					elections_allowed = yes
+					election_frequency = 48
+				}
+			}						
+		}
+	}
+}

@@ -1,0 +1,30 @@
+state = {
+	id=723
+	local_supplies=0.0 
+	name="STATE_723"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 2197 }
+ 	add_to_array = { list_victory_point = 2211 }
+ 	set_variable = { victory_point = 2 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = NZL
+		add_core_of = NZL
+		victory_points = {
+			2211 1 
+		}
+		victory_points = {
+			2197 1 
+		}
+	}
+	resources={
+		tungsten=4 # was: 6
+		crops = 5
+	}
+	manpower = 947198
+	provinces={
+		2197 2203 2211 4819 5195 7839 8204 8212 8232 8241 10650 12632 12966 12974 12980 12988 
+	}
+}

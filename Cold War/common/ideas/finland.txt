@@ -1,0 +1,30 @@
+ideas = {
+	country = {
+		idea_finlandization = {
+			removal_cost = -1
+			
+			allowed = {
+				always = no 
+			}
+			
+			available = {
+				OR = {
+					is_puppet_of = SOV
+					is_subject_of = SOV
+				}
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				communism_totalitarian_drift = 0.01
+				subjects_autonomy_gain = -0.1
+				production_speed_arms_factory_factor = -0.2
+			}
+			
+			picture = tur_etatism_bonus
+		}
+	}
+}

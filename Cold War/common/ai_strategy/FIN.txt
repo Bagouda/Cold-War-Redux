@@ -1,0 +1,43 @@
+finnish_neutrality = {
+	enable = {
+		tag = FIN
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = befriend
+		id = "SOV"			
+		value = 100
+	}
+}
+FIN_protect_soviet_border = {
+	enable = {
+		tag = FIN
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = SOV
+		value = 1000
+	}
+}
+FIN_join_alliances_against_soviets = {
+	enable = {
+		tag = FIN
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = alliance
+		id = "FIN"
+		value = 200
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = SWE
+		target = call_allies
+		value = 1000
+	}
+}

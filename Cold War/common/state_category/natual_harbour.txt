@@ -1,0 +1,8 @@
+state_categories={
+	natural_harbour = {
+		local_building_slots = 2
+	
+		color = { 40 43 40 }
+
+	}
+}

@@ -1,0 +1,59 @@
+cuban_civil_war_usa = {
+	enable = {
+		tag = USA
+		CUB = { has_civil_war = yes }
+		event_target:CCB = {
+			has_volunteers_amount_from = {
+				tag = SOV
+				count > 0
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "CUB"
+		value = 500
+	}
+}
+cuaban_civil_war_sov = {
+	enable = {
+		tag = SOV
+		CUB = { has_civil_war = yes }
+		CUB = {
+			has_volunteers_amount_from = {
+				tag = USA
+				count > 0
+			}
+		}
+		D01 = { original_tag = CUB }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "D01"
+		value = 500
+	}
+}
+cuaban_civil_war_sov = {
+	enable = {
+		tag = SOV
+		CUB = { has_civil_war = yes }
+		CUB = {
+			has_volunteers_amount_from = {
+				tag = USA
+				count > 0
+			}
+		}
+		D02 = { original_tag = CUB }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "D02"
+		value = 500
+	}
+}

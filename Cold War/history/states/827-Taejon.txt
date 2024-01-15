@@ -1,0 +1,35 @@
+state={
+	id=827
+	local_supplies=0.0 
+	name="STATE_827"
+	resources={
+		crops = 10.000
+	}	
+	
+	history={
+ 	add_to_array = { list_victory_point = 7204 }
+ 	set_variable = { victory_point = 5 }
+		owner = KOR
+		add_core_of = KOR
+		add_claim_by = PRK
+		
+		1948.8.15 = {
+			owner = KOR
+		}
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+		}
+		
+		victory_points = {
+			7204 5
+		}		
+	}	
+	
+	provinces={
+		1100 7175 7204 7221 10115 11992 
+	}
+	manpower = 2300000
+	buildings_max_level_factor=1.000
+	state_category = rural
+}

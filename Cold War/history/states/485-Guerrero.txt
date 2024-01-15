@@ -1,0 +1,41 @@
+state = {
+	id=485
+	local_supplies=0.0 
+	name="STATE_485"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 10730 }
+ 	add_to_array = { list_victory_point = 8032 }
+ 	add_to_array = { list_victory_point = 4887 }
+ 	set_variable = { victory_point = 18 }
+		owner = MEX
+		add_core_of = MEX
+		
+		buildings = {
+			infrastructure = 3
+			arms_factory = 1
+			industrial_complex = 2
+			air_base = 1
+			dockyard  = 2		
+			8032 = {	
+				naval_base = 3
+			}		
+		}		
+		victory_points = {
+			8032 5
+		}
+		victory_points = {
+			4887 3
+		}
+		victory_points = {
+			10730 10
+		}
+	}
+	resources={
+		steel=4 #was 2
+	}
+	manpower = 1598311
+	provinces={
+		4887 5066 8032 10730 10832 
+	}
+}

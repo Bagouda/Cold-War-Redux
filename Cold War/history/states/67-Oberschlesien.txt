@@ -1,0 +1,41 @@
+
+state={
+	id=67
+	name="STATE_67"
+	resources={
+		steel=19.000
+		aluminium=6.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 11467 }
+ 	add_to_array = { list_victory_point = 9511 }
+ 	set_variable = { victory_point = 8 }
+		buildings = {
+			infrastructure = 1
+
+		}
+		owner = SOV
+		add_core_of = GER
+		1947.2.10 = {
+			remove_core_of = GER
+			add_core_of = POL
+
+		}
+		victory_points = {
+			9511 3 
+		}
+		victory_points = {
+			11467 5 
+		}
+
+	}
+
+	provinces={
+		6512 9457 
+	}
+	manpower=1402591
+	buildings_max_level_factor=1.000
+	state_category=city
+	local_supplies=0.000
+}

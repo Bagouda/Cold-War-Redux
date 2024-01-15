@@ -1,0 +1,509 @@
+spriteTypes = {
+	####################### ECONOMIC LAWS #######################
+	spriteType = {
+		name = "GFX_idea_cw_illegal_trade_unions"
+		texturefile = "gfx/interface/laws/cw_illegal_trade_unions.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_state_controlled"
+		texturefile = "gfx/interface/laws/cw_state_controlled.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_minor_unions_allowed"
+		texturefile = "gfx/interface/laws/cw_minor_unions_allowed.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_medium_unions_allowed"
+		texturefile = "gfx/interface/laws/cw_medium_unions_allowed.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_large_unions_allowed"
+		texturefile = "gfx/interface/laws/cw_large_unions_allowed.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_all_unions_allowed"
+		texturefile = "gfx/interface/laws/cw_all_unions_allowed.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_no_worktime_regulation"
+		texturefile = "gfx/interface/laws/cw_no_worktime_regulation.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_14_hour_workday"
+		texturefile = "gfx/interface/laws/cw_14_hour_workday.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_12_hour_workday"
+		texturefile = "gfx/interface/laws/cw_12_hour_workday.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_10_hour_workday"
+		texturefile = "gfx/interface/laws/cw_10_hour_workday.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_8_hour_workday"
+		texturefile = "gfx/interface/laws/cw_8_hour_workday.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_6_hour_workday"
+		texturefile = "gfx/interface/laws/cw_6_hour_workday.dds"
+	}
+###
+	spriteType = {
+		name = "GFX_idea_cw_hardline"
+		texturefile = "gfx/interface/laws/foreign_policy_hardline.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_containment"
+		texturefile = "gfx/interface/laws/foreign_policy_continment.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_appeasement"
+		texturefile = "gfx/interface/laws/foreign_policy_appeasement.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_detente"
+		texturefile = "gfx/interface/laws/foreign_policy_detente.dds"
+	}	
+	spriteType = {
+		name = "GFX_idea_cw_rollback"
+		texturefile = "gfx/interface/laws/foreign_policy_rollback.dds"
+	}	
+	spriteType = {
+		name = "GFX_idea_cw_isolationism"
+		texturefile = "gfx/interface/laws/foreign_policy_isolationism.dds"
+	}	
+####
+	spriteType = {
+		name = "GFX_idea_cw_resource_industry_focus"
+		texturefile = "gfx/interface/laws/cw_resource_industry_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_military_industry_focus"
+		texturefile = "gfx/interface/laws/cw_military_industry_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_civilian_industry_focus"
+		texturefile = "gfx/interface/laws/cw_civilian_industry_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_infra_industry_focus"
+		texturefile = "gfx/interface/laws/cw_infra_industry_focus.dds"
+	}
+	#
+	spriteType = {
+		name = "GFX_idea_cw_five_year_resource_industry_focus"
+		texturefile = "gfx/interface/laws/cw_resource_industry_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_five_year_plan_military_industry_focus"
+		texturefile = "gfx/interface/laws/cw_military_industry_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_five_year_plan_civilian_industry_focus"
+		texturefile = "gfx/interface/laws/cw_civilian_industry_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_five_year_plan_infra_industry_focus"
+		texturefile = "gfx/interface/laws/cw_infra_industry_focus.dds"
+	}
+	#	
+	spriteType = {
+		name = "GFX_idea_cw_minimum_education_budget"
+		texturefile = "gfx/interface/laws/cw_minimum_education_budget.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_low_education_budget"
+		texturefile = "gfx/interface/laws/cw_low_education_budget.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_acceptable_education_budget"
+		texturefile = "gfx/interface/laws/cw_acceptable_education_budget.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_high_education_budget"
+		texturefile = "gfx/interface/laws/cw_high_education_budget.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_very_high_education_budget"
+		texturefile = "gfx/interface/laws/cw_very_high_education_budget.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_closed_economy"
+		texturefile = "gfx/interface/laws/cw_closed_economy.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_restricted_trade_policy"
+		texturefile = "gfx/interface/laws/cw_restricted_trade_policy.dds"
+	}	
+	spriteType = {
+		name = "GFX_idea_cw_high_tariffs"
+		texturefile = "gfx/interface/laws/cw_high_tariffs.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_medium_tariffs"
+		texturefile = "gfx/interface/laws/cw_medium_tariffs.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_low_tariffs"
+		texturefile = "gfx/interface/laws/cw_low_tariffs.dds"
+	}	
+	####################### MILITARY LAWS #######################
+	spriteType = {
+		name = "GFX_idea_cw_no_military_budget"
+		texturefile = "gfx/interface/laws/cw_no_military_budget.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_minimum_military_budget"
+		texturefile = "gfx/interface/laws/cw_minimum_military_budget.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_low_military_budget"
+		texturefile = "gfx/interface/laws/cw_low_military_budget.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_medium_military_budget"
+		texturefile = "gfx/interface/laws/cw_medium_military_budget.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_high_military_budget"
+		texturefile = "gfx/interface/laws/cw_high_military_budget.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_very_high_military_budget"
+		texturefile = "gfx/interface/laws/cw_very_high_military_budget.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_disarmed_nation"
+		texturefile = "gfx/interface/laws/cw_disarmed_nation.dds"
+	}	
+	spriteType = {
+		name = "GFX_idea_cw_volunteer_only"
+		texturefile = "gfx/interface/laws/cw_volunteer_only.dds"
+	}	
+	spriteType = {
+		name = "GFX_idea_cw_volunteer_only"
+		texturefile = "gfx/interface/laws/cw_volunteer_only.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_limited_conscription"
+		texturefile = "gfx/interface/laws/cw_limited_conscription.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_extensive_conscription"
+		texturefile = "gfx/interface/laws/cw_extensive_conscription.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_service_by_requirement"
+		texturefile = "gfx/interface/laws/cw_service_by_requirement.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_all_adults_serve"
+		texturefile = "gfx/interface/laws/cw_all_adults_serve.dds"
+	}	
+	spriteType = {
+		name = "GFX_idea_cw_minimal_training"
+		texturefile = "gfx/interface/laws/cw_minimal_training.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_acceptable_training"
+		texturefile = "gfx/interface/laws/cw_acceptable_training.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_medium_training"
+		texturefile = "gfx/interface/laws/cw_medium_training.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_long_training"
+		texturefile = "gfx/interface/laws/cw_long_training.dds"
+	}	
+	spriteType = {
+		name = "GFX_idea_cw_mobile_forces"
+		texturefile = "gfx/interface/laws/cw_mobile_forces.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_infantry_forces"
+		texturefile = "gfx/interface/laws/cw_infantry_forces.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_artillery_forces"
+		texturefile = "gfx/interface/laws/cw_artillery_forces.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_armored_forces"
+		texturefile = "gfx/interface/laws/cw_armored_forces.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_special_forces"
+		texturefile = "gfx/interface/laws/cw_special_forces.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_land_doctrine_focus"
+		texturefile = "gfx/interface/laws/cw_land_doctrine_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_air_superiority_forces"
+		texturefile = "gfx/interface/laws/cw_air_superiority_forces.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_long_range_forces"
+		texturefile = "gfx/interface/laws/cw_long_range_forces.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_tactical_strike_forces"
+		texturefile = "gfx/interface/laws/cw_tactical_strike_forces.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_strategic_weapons"
+		texturefile = "gfx/interface/laws/cw_strategic_weapons.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_defense_focus"
+		texturefile = "gfx/interface/laws/cw_defense_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_air_doctrine_focus"
+		texturefile = "gfx/interface/laws/cw_air_doctrine_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_submerged_forces_focus"
+		texturefile = "gfx/interface/laws/cw_submerged_forces_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_blue_water_navy_focus"
+		texturefile = "gfx/interface/laws/cw_blue_water_navy_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_green_water_navy_focus"
+		texturefile = "gfx/interface/laws/cw_green_water_navy_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_transport_navy_focus"
+		texturefile = "gfx/interface/laws/cw_transport_navy_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_transport_navy_focus"
+		texturefile = "gfx/interface/laws/cw_transport_navy_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_carrier_focus"
+		texturefile = "gfx/interface/laws/cw_carrier_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_naval_doctrine_focus"
+		texturefile = "gfx/interface/laws/cw_naval_doctrine_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_state_press"
+		texturefile = "gfx/interface/laws/cw_state_press.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_propaganda_press"
+		texturefile = "gfx/interface/laws/cw_propaganda_press.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_censored_press"
+		texturefile = "gfx/interface/laws/cw_limited_restrictions.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_free_press"
+		texturefile = "gfx/interface/laws/cw_free_press.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_closed_borders_policy"
+		texturefile = "gfx/interface/laws/cw_closed_borders_policy.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_only_refugees_policy"
+		texturefile = "gfx/interface/laws/cw_only_refugees_policy.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_limited_immigration_policy"
+		texturefile = "gfx/interface/laws/cw_limited_immigration_policy.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_biased_immigration_policy"
+		texturefile = "gfx/interface/laws/cw_biased_immigration_policy.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_points_based_system"
+		texturefile = "gfx/interface/laws/cw_points_based_system.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_open_borders"
+		texturefile = "gfx/interface/laws/cw_open_borders.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_state_religion"
+		texturefile = "gfx/interface/laws/cw_state_religion.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_monitored_religous_institutions"
+		texturefile = "gfx/interface/laws/cw_monitored_religous_institutions.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_free_religious_practice"
+		texturefile = "gfx/interface/laws/cw_free_religious_practice.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_enforced_secular_state"
+		texturefile = "gfx/interface/laws/cw_enforced_secular_state.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_not_recognized"
+		texturefile = "gfx/interface/laws/cw_not_recognized.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_partially_recognized"
+		texturefile = "gfx/interface/laws/cw_partially_recognized.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_extensive_reform"
+		texturefile = "gfx/interface/laws/cw_extensive_reform.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_minority_not_recognized"
+		texturefile = "gfx/interface/laws/cw_minority_not_recognized.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_cultural_reletavism"
+		texturefile = "gfx/interface/laws/cw_cultural_reletavism.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_seprate_but_equal"
+		texturefile = "gfx/interface/laws/cw_seprate_but_equal.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_universal_rights"
+		texturefile = "gfx/interface/laws/cw_universal_rights.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_ni_patriotism"
+		texturefile = "gfx/interface/laws/cw_ni_patriotism.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_ni_imperialism"
+		texturefile = "gfx/interface/laws/cw_ni_imperialism.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_ni_nationalism"
+		texturefile = "gfx/interface/laws/cw_ni_nationalism.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_ni_isolation"
+		texturefile = "gfx/interface/laws/cw_ni_isolation.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_ni_unity"
+		texturefile = "gfx/interface/laws/cw_ni_unity.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_ni_personality_cult"
+		texturefile = "gfx/interface/laws/cw_ni_personality_cult.dds"
+	}
+	##############################
+	spriteType = {
+		name = "GFX_idea_cw_minorities_marginalised"
+		texturefile = "gfx/interface/laws/cw_minorities_marginalised.tga"
+	}
+	################################################################
+	spriteType = {
+		name = "GFX_idea_cw_no_military_consumption"
+		texturefile = "gfx/interface/laws/central_planning_ind3.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_minimum_military_consumption"
+		texturefile = "gfx/interface/laws/central_planning_ind2.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_low_military_consumption"
+		texturefile = "gfx/interface/laws/central_planning_ind1.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_medium_military_consumption"
+		texturefile = "gfx/interface/laws/central_planning_mil1.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_high_military_consumption"
+		texturefile = "gfx/interface/laws/central_planning_mil2.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_very_high_military_consumption"
+		texturefile = "gfx/interface/laws/central_planning_mil3.tga"
+	}
+	################################################################
+	spriteType = {
+		name = "GFX_idea_cw_workplace_democracy"
+		texturefile = "gfx/interface/laws/cw_soviet_unions1.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_soviet_trade_unions"
+		texturefile = "gfx/interface/laws/cw_soviet_unions2.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_state_incentives"
+		texturefile = "gfx/interface/laws/cw_soviet_unions3.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_enforced_quotas"
+		texturefile = "gfx/interface/laws/cw_soviet_unions4.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_opressive_quotas"
+		texturefile = "gfx/interface/laws/cw_soviet_unions5.tga"
+	}
+	################################################################
+	spriteType = {
+		name = "GFX_idea_cw_savings_rate_token"
+		texturefile = "gfx/interface/laws/savings_rate_token.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_savings_rate_small"
+		texturefile = "gfx/interface/laws/savings_rate_small.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_savings_rate_standard"
+		texturefile = "gfx/interface/laws/savings_rate_balanced.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_savings_rate_big"
+		texturefile = "gfx/interface/laws/savings_rate_big.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_savings_rate_huge"
+		texturefile = "gfx/interface/laws/savings_rate_huge.tga"
+	}
+	################################################################
+	spriteType = {
+		name = "GFX_idea_cw_feudal_landlords"
+		texturefile = "gfx/interface/laws/land_feudal.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_warlords"
+		texturefile = "gfx/interface/laws/land_warlord.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_landed_gentry"
+		texturefile = "gfx/interface/laws/land_capitalist.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_stratified_farmers"
+		texturefile = "gfx/interface/laws/land_kulak.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_farmland_redistribution"
+		texturefile = "gfx/interface/laws/land_reform.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_communal_land_ownership"
+		texturefile = "gfx/interface/laws/land_commune.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_state_land_ownership"
+		texturefile = "gfx/interface/laws/land_state.tga"
+	}
+	spriteType = {
+		name = "GFX_idea_cw_fair_individual_land_ownership"
+		texturefile = "gfx/interface/laws/land_egalitarian.tga"
+	}	
+}

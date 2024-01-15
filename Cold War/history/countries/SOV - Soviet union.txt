@@ -1,0 +1,581 @@
+﻿capital = 219
+set_variable = { twin_country = RUS.id }	#Russia
+set_variable = { cw_score = 0 }
+set_variable = { cw_soft_power = 0 }
+set_variable = { cw_hard_power = 0 }
+set_variable = {cw_manpower = max_available_manpower_k}
+set_variable = {cw_number_base = 0 }
+set_variable = {cw_ideology_power = 0}
+set_variable = {nuclear_effort = 0}
+set_variable = {nuclear_completion = 0}
+set_variable = {enrichement_completion = 0}
+
+
+# intelilgence modifier
+set_variable = {cw_slot_operative = 0}
+set_variable = {cw_intel_gain = 0}
+set_variable = {cw_ideology_operative = 0}
+set_variable = {cw_stability_operative = 0}
+set_variable = {cw_operative_capture = 0}
+set_variable = {cw_ennemy_operative_capture = 0}
+
+
+
+subtract_from_variable = {cw_manpower = manpower_k}
+
+
+add_dynamic_modifier = { modifier =  SOV_volunteers }
+add_dynamic_modifier = { modifier =  nuke_program }
+
+### famine event
+
+news_event = {
+    id = sov_events.10	
+    days = 10
+}
+
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+save_global_event_target_as = communist_leader
+set_country_flag = communist_leader_flag
+set_convoys = 50
+set_research_slots = 3
+####start tech####
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons2 = 1
+	infantry_weapons1 = 1
+	improved_infantry_weapons = 1
+	improved_infantry_weapons_2 = 1
+	infantry_at = 1
+	infantry_at2 = 1
+	advanced_infantry_weapons = 1
+	advanced_infantry_weapons2 = 1
+	marines = 1
+	paratroopers = 1
+	tech_mountaineers = 1
+	tech_special_forces = 1
+	jungle_warfare = 1
+	mountain_warfare = 1
+	night_vision = 1
+	support_weapons = 1
+	support_weapons2 = 1
+	support_weapons3 = 1
+	support_weapons4 = 1
+	motorised_infantry = 1
+	motorized_rocket_unit = 1
+	armored_car1 = 1
+	armored_car2 = 1
+	armored_car3 = 1
+	armored_car_at_upgrade = 1
+	mechanised_infantry = 1
+	amphibious_mechanized_infantry = 1
+	amphibious_mechanized_infantry_2 = 1
+	mechanised_infantry2 = 1
+	mechanised_infantry3 = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	railway_gun = 1
+	wartime_train = 1
+	armored_train = 1
+	
+	gw_artillery = 1
+	interwar_artillery = 1
+	artillery1 = 1
+	artillery2 = 1
+	artillery3 = 1
+	artillery4 = 1
+	artillery5 = 1
+	mountain_gun = 1
+	rocket_artillery = 1
+	rocket_artillery2 = 1
+	rocket_artillery3 = 1
+	rocket_artillery4 = 1
+	interwar_antiair = 1
+	antiair1 = 1
+	antiair2 = 1
+	antiair3 = 1
+	antiair4 = 1
+	antiair5 = 1
+	interwar_antitank = 1
+	antitank1 = 1
+	antitank2 = 1
+	antitank3 = 1
+	antitank4 = 1
+	antitank5 = 1
+	
+	early_fighter = 1
+	cv_early_fighter = 1
+	fighter1 = 1
+	cv_fighter1 = 1
+	fighter2 = 1
+	cv_fighter2 = 1
+	fighter3 = 1
+	cv_fighter3 = 1
+	jet_fighter1 = 1
+	jet_fighter2 = 1
+	CAS1 = 1
+	cv_CAS1 = 1
+	CAS2 = 1
+	cv_CAS2 = 1
+	CAS3 = 1
+	cv_CAS3 = 1
+	naval_bomber1 = 1
+	cv_naval_bomber1 = 1
+	naval_bomber2 = 1
+	cv_naval_bomber2 = 1
+	naval_bomber3 = 1
+	cv_naval_bomber3 = 1
+	early_bomber = 1
+	heavy_fighter1 = 1
+	heavy_fighter2 = 1
+	heavy_fighter3 = 1
+	scout_plane1 = 1
+	scout_plane2 = 1
+	tactical_bomber1 = 1
+	tactical_bomber2 = 1
+	tactical_bomber3 = 1
+	jet_tactical_bomber1 = 1
+	jet_tactical_bomber2 = 1
+	strategic_bomber1 = 1
+	strategic_bomber2 = 1
+	strategic_bomber3 = 1
+	jet_strategic_bomber1 = 1
+	
+	gwtank = 1
+	basic_light_tank = 1
+	basic_light_td = 1
+	basic_light_art = 1
+	basic_light_spaa = 1
+	improved_light_tank = 1
+	improved_light_td = 1
+	improved_light_art = 1
+	improved_light_spaa = 1
+	amphibious_tank = 1
+	amphibious_tank_2 = 1
+	advanced_light_tank = 1
+	advanced_light_td = 1
+	advanced_light_art = 1
+	advanced_light_spaa = 1
+	basic_medium_tank = 1
+	basic_medium_td = 1
+	basic_medium_art = 1
+	basic_medium_spaa = 1
+	improved_medium_tank = 1
+	improved_medium_td = 1
+	improved_medium_art = 1
+	improved_medium_spaa = 1
+	advanced_medium_tank = 1
+	advanced_medium_td = 1
+	advanced_medium_art = 1
+	advanced_medium_spaa = 1
+	main_battle_tank = 1
+	modern_td = 1
+	modern_art = 1
+	modern_spaa = 1
+	basic_heavy_tank = 1
+	basic_heavy_td = 1
+	basic_heavy_art = 1
+	basic_heavy_spaa = 1
+	improved_heavy_tank = 1
+	improved_heavy_td = 1
+	improved_heavy_art = 1
+	improved_heavy_spaa = 1
+	advanced_heavy_tank = 1
+	advanced_heavy_td = 1
+	advanced_heavy_art = 1
+	advanced_heavy_spaa = 1
+	super_heavy_tank = 1
+	super_heavy_td = 1
+	super_heavy_art = 1
+	super_heavy_spaa = 1
+	
+	
+	
+	
+	advanced_destroyer = 1
+	early_light_cruiser = 1
+	basic_light_cruiser = 1
+	improved_light_cruiser = 1
+	advanced_light_cruiser = 1
+	early_heavy_cruiser = 1
+	basic_heavy_cruiser = 1
+	improved_heavy_cruiser = 1
+	advanced_heavy_cruiser = 1
+	early_battlecruiser = 1
+	basic_battlecruiser = 1
+	early_battleship = 1
+	basic_battleship = 1
+	improved_battleship = 1
+	advanced_battleship = 1
+	heavy_battleship = 1
+	heavy_battleship2 = 1
+	transport = 1
+	landing_craft = 1
+	tank_landing_craft = 1
+	early_carrier = 1
+	basic_carrier = 1
+	improved_carrier = 1
+	advanced_carrier = 1
+	early_submarine = 1
+	basic_submarine = 1
+	improved_submarine = 1
+	advanced_submarine = 1
+	torpedo_cruiser = 1
+	
+	electronic_mechanical_engineering = 1
+	radio = 1
+	radio_detection = 1
+	experimental_rockets = 1
+	rocket_engines = 1
+	improved_rocket_engines = 1
+	advanced_rocket_engines = 1
+	jet_engines = 1
+	atomic_research = 1
+}
+if = {
+	limit = { 
+		has_dlc = "Man the Guns" 
+	}
+	set_technology = {
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		improved_ship_hull_light = 1
+		advanced_ship_hull_light = 1
+		smoke_generator = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		advanced_depth_charges = 1
+		modern_depth_charges = 1
+		sonar = 1
+		improved_sonar = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		improved_ship_hull_cruiser = 1
+		advanced_ship_hull_cruiser = 1
+		improved_airplane_launcher = 1
+		basic_cruiser_armor_scheme = 1
+		
+		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
+		ship_hull_super_heavy = 1
+		improved_ship_hull_heavy = 1
+		advanced_ship_hull_heavy = 1
+		basic_heavy_armor_scheme = 1
+		improved_heavy_armor_scheme = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		improved_ship_hull_carrier = 1
+		advanced_ship_hull_carrier = 1
+		basic_torpedo = 1
+		magnetic_detonator = 1
+		homing_torpedo = 1
+		electric_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		advanced_ship_torpedo_launcher = 1
+		modern_ship_torpedo_launcher = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		improved_ship_hull_submarine = 1
+		advanced_ship_hull_submarine = 1
+		basic_submarine_snorkel = 1
+		improved_submarine_snorkel = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		improved_light_battery = 1
+		advanced_light_battery = 1
+		basic_light_shell = 1
+		improved_light_shell = 1
+		basic_medium_battery = 1
+		improved_medium_battery = 1
+		advanced_medium_battery = 1
+		basic_medium_shell = 1
+		improved_medium_shell = 1
+		basic_heavy_battery = 1
+		improved_heavy_battery = 1
+		advanced_heavy_battery = 1
+		basic_heavy_shell = 1
+		improved_heavy_shell = 1
+		
+		
+		
+		damage_control_1 = 1
+		damage_control_2 = 1
+		damage_control_3 = 1
+		fire_control_methods_1 = 1
+		fire_control_methods_2 = 1
+		fire_control_methods_3 = 1
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		improved_submarine_mine_laying = 1
+		improved_naval_mines = 1
+		degaussing = 1
+		advanced_naval_mines = 1
+		airdrop_mines = 1
+		modern_naval_mines = 1
+		airsweep_mines = 1
+		mtg_transport = 1
+		mtg_landing_craft = 1
+		mtg_tank_landing_craft = 1
+		panzerschiffe = 1
+		torpedo_cruiser_mtg = 1
+		pre_dreadnoughts = 1
+		coastal_defense_ships = 1
+		cruiser_submarines = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		amphibious_tank_chassis = 1
+		amphibious_drive = 1
+		advanced_light_tank_chassis = 1
+		basic_medium_tank_chassis = 1
+		improved_medium_tank_chassis = 1
+		advanced_medium_tank_chassis = 1
+		main_battle_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		improved_heavy_tank_chassis = 1
+		advanced_heavy_tank_chassis = 1
+		super_heavy_tank_chassis = 1
+		armor_tech_1 = 1
+		armor_tech_2 = 1
+		armor_tech_3 = 1
+		armor_tech_4 = 1
+		engine_tech_1 = 1
+		engine_tech_2 = 1
+		engine_tech_3 = 1
+		engine_tech_4 = 1
+	}
+}
+####end tech####
+
+
+set_autonomy = {
+	target = POL
+	autonomous_state = autonomy_reichskommissariat
+	freedom_level = 0.5
+}
+set_autonomy = {
+	target = UKR
+	autonomous_state = autonomy_reichskommissariat
+	freedom_level = 0.2
+}
+set_autonomy = {
+	target = MON
+	autonomous_state = autonomy_reichsprotectorate
+	freedom_level = 0.8
+}
+	
+
+
+set_convoys = 500
+oob = "SOV_1946"
+set_naval_oob = "SOV_1946_naval_mtg"
+
+add_political_power = 500
+set_war_support = 0.1
+set_stability = 0.3
+give_military_access = PRC
+add_opinion_modifier = { target = ENG modifier = ww2_major_allies }
+add_opinion_modifier = { target = USA modifier = ww2_major_allies }
+add_opinion_modifier = { target = CHI modifier = ww2_major_allies }
+add_opinion_modifier = { target = FRA modifier = ww2_major_allies }
+add_opinion_modifier = { target = PRC modifier = ww2_major_allies }	
+add_opinion_modifier = { target = PRC modifier = revolutionary_brothers }
+diplomatic_relation = { country = FIN relation = non_aggression_pact }
+add_opinion_modifier = { target = SPR modifier = historic_grievances }
+add_opinion_modifier = { target = ITA modifier = historic_grievances }
+add_opinion_modifier = { target = JAP modifier = historic_grievances }
+set_country_flag = recent_five_year_plan_change
+
+add_equipment_to_stockpile = {
+	type = infantry_equipment_3
+	amount = 10000
+	producer = SOV
+}
+add_equipment_to_stockpile = {
+	type = support_equipment_1
+	amount = 10000
+	producer = SOV
+}
+### Country Leaders
+recruit_character = SOV_joseph_stalin
+### Deputy Minister
+recruit_character = sov_mikhail_kalinin	
+activate_advisor = sov_mikhail_kalinin
+recruit_character = sov_nikolai_shvernik
+recruit_character = SOV_georgy_malenkov
+recruit_character = SOV_nikita_khrushchev
+### Foreign Minister
+recruit_character = sov_fm_vyacheslav_molotov	
+activate_advisor = sov_fm_vyacheslav_molotov	
+recruit_character = sov_fm_andrey_vyshinsky
+recruit_character = sov_fm_andrei_gromyko
+recruit_character = sov_fm_boris_ponomare
+### Defense Minister
+recruit_character = sov_dm_bulganin
+activate_advisor = sov_dm_bulganin
+recruit_character = sov_dm_zhukov
+recruit_character = sov_dm_beria
+recruit_character = sov_dm_aleksandr_vasilevsky
+### Treasure Minister
+recruit_character = sov_tm_arseny_zverev
+activate_advisor = sov_tm_arseny_zverev
+recruit_character = sov_tm_sov_maksim_saburov
+recruit_character = sov_tm_alexei_kosygin
+recruit_character = sov_nikolai_voznesensky
+recruit_character = sov_tm_anastas_mikoyan
+### Head of Intelligence
+activate_advisor = sov_spy_beria
+recruit_character = sov_spy_viktor_abakumov
+recruit_character = sov_spy_sergei_kruglov
+recruit_character = sov_spy_nikolay_dudorov
+### Chief of Staff
+recruit_character = SOV_aleksei_antonov
+activate_advisor = sov_chief_aleksei_antonov
+### Military Characters
+recruit_character = SOV_georgy_zhukov_field_marshall
+recruit_character = SOV_aleksandr_vasilevsky_field_marshall
+recruit_character = SOV_vasily_sokolovsky_field_marshall
+recruit_character = SOV_matvei_zakharov_cc
+recruit_character = SOV_andrey_yeryomenko
+recruit_character = SOV_radion_malinovsky
+recruit_character = SOV_ivan_yefimovich_petrov
+recruit_character = SOV_vasily_chuikov
+recruit_character = SOV_konstantin_rokossovsky
+recruit_character = SOV_ivan_konev
+recruit_character = SOV_fyodor_tolbukhin
+recruit_character = SOV_ivan_bagramyan
+### Admirals
+recruit_character = SOV_admiral_arseniy_golovko
+recruit_character = SOV_admiral_filipp_oktyabrsky
+recruit_character = SOV_admiral_nikolai_yegipko
+
+add_ideas = {
+# Country ideas
+cw_home_of_revolution
+winner_ww2
+cw_gulag_system_4
+sov_dispersed_industry_4
+cw_sov_1946_famine_mild
+
+# sov_leningrad_plot
+# Economy
+	cw_opressive_quotas
+	cw_10_hour_workday
+	cw_containment
+	cw_acceptable_education_budget
+	cw_five_year_plan_military_industry_focus
+	cw_closed_economy	
+# Military
+	cw_medium_military_budget
+	cw_limited_conscription
+	cw_long_training
+	cw_armored_forces
+	cw_strategic_weapons
+	cw_blue_water_navy_focus
+# Society
+	cw_state_press
+	cw_closed_borders_policy
+	cw_monitored_religous_institutions
+	cw_minority_not_recognized
+	cw_ni_personality_cult
+}		
+set_politics = {
+	ruling_party = communism_totalitarian
+	last_election = "1930.11.9"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	democratic  = 0
+	democratic_socialist = 0
+	neutrality = 10
+	communism_totalitarian = 70
+	communism = 20
+	unaligned_right = 0
+	colonial =  0
+}
+
+
+
+
+#####ships#####
+create_equipment_variant = {
+		name = "Srednyaya Class"				
+		type = ship_hull_submarine_4
+		#name_group = POR_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_4
+			fixed_ship_engine_slot = sub_ship_engine_4
+			rear_1_custom_slot = empty
+		}
+	}
+create_equipment_variant = {
+	name = "Gnevny Class"
+	type = ship_hull_light_4
+	#name_group = USA_DD_HISTORICAL
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_battery_4
+		fixed_ship_anti_air_slot = ship_anti_air_4
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+		fixed_ship_radar_slot = ship_radar_4
+		fixed_ship_engine_slot = light_ship_engine_2
+		fixed_ship_torpedo_slot = ship_torpedo_4
+		mid_1_custom_slot = ship_mine_layer_1
+		rear_1_custom_slot = ship_depth_charge_4
+	}
+}
+# Heavy Cruisers #
+create_equipment_variant = {
+	name = "Kirov Class"
+	type = ship_hull_cruiser_4
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_medium_battery_4
+		fixed_ship_anti_air_slot = ship_anti_air_4
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+		fixed_ship_radar_slot = ship_radar_4
+		fixed_ship_engine_slot = cruiser_ship_engine_4
+		fixed_ship_armor_slot = ship_armor_cruiser_4
+		mid_1_custom_slot = ship_airplane_launcher_2
+		mid_2_custom_slot = ship_anti_air_4
+		rear_1_custom_slot = ship_medium_battery_4
+	}
+}
+# Battleships #
+create_equipment_variant = {
+	name = "Gangut Class"
+	type = ship_hull_heavy_4
+	#name_group = USA_BB_HISTORICAL
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_heavy_battery_4
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = ship_radar_4
+		fixed_ship_engine_slot = heavy_ship_engine_4
+		fixed_ship_secondaries_slot = dp_ship_secondaries
+		fixed_ship_armor_slot = ship_armor_bb_2
+		front_1_custom_slot = ship_heavy_battery_4
+		mid_1_custom_slot = ship_heavy_battery_4
+		mid_2_custom_slot = dp_ship_secondaries
+		mid_3_custom_slot = ship_heavy_battery_4
+		rear_1_custom_slot = ship_airplane_launcher_1
+	}
+}

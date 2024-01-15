@@ -1,0 +1,127 @@
+﻿capital = 183
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_country_flag = decolonization
+	add_ideas = {
+		eng_george_6
+	}	
+	set_politics = {
+		ruling_party = colonial
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 50
+		democratic_socialist = 0
+		neutrality = 10
+		communism_totalitarian = 40
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Makarios III"
+		desc = ""
+		picture = "CYPH1.dds"
+		ideology = social_cons_idolg
+		expire = 1961.12.11
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Colonial Administration"				# Impossible to localize
+		desc = ""
+		picture = "gfx/leaders/generic_colonial_administration.dds"
+		ideology = colonial_government
+		expire = 2000.1.1
+		traits = {}
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+	create_country_leader = {
+		name = "Andrew Barkworth Wright"
+		desc = ""
+		picture = "CYPCG2.dds"
+		ideology = colonial_government
+		expire = 1954.8.16
+		traits = {}
+	}
+}
+1956.10.29 = {	#Suez Crisis
+	set_politics = {
+		ruling_party = colonial
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 50
+		democratic_socialist = 0
+		neutrality = 10
+		communism_totalitarian = 40
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Hugh Foot"
+		desc = ""
+		picture = "CYPCG4.dds"
+		ideology = colonial_government
+		expire = 1960.8.16
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "John Francis Harding"
+		desc = ""
+		picture = "CYPCG3.dds"
+		ideology = colonial_government
+		expire = 1957.10.22
+		traits = {}
+	}	
+}
+1960.8.16 = {
+	drop_cosmetic_tag = yes
+	clr_country_flag = decolonization
+}
+1961.12.11 = {	#Vietnam War
+	set_politics = {
+		ruling_party = democratic
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 50
+		democratic_socialist = 0
+		neutrality = 10
+		communism_totalitarian = 40
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Glafcos Clerides"
+		desc = ""
+		picture = "CYPH2.dds"
+		ideology = social_cons_idolg
+		expire = 2003.2.28
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Makarios III"
+		desc = ""
+		picture = "CYPH1_2.dds"
+		ideology = social_cons_idolg
+		expire = 1977.8.3
+		traits = {}
+	}
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	create_country_leader = {
+		name = "Spyros Kyprianou"
+		desc = ""
+		picture = "CYPH3.dds"
+		ideology = social_cons_idolg
+		expire = 1988.2.28
+		traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+}

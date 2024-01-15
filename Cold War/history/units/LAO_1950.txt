@@ -1,0 +1,65 @@
+﻿division_template = {
+	name = "Royal Guard"
+	template_counter = 61
+	is_locked = yes	
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}	
+}
+division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 0 y = 1 }
+		artillery_brigade = { x = 1 y = 3 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}	
+}
+units = {
+	division = {
+		location = 1464
+		division_template = "Royal Guard"
+		start_equipment_factor = 1.0		
+	}
+	division = {
+		location = 1464
+		division_template = "Royal Guard"
+		start_equipment_factor = 1.0		
+	}
+	division = {
+		location = 1464
+		division_template = "Royal Guard"
+		start_equipment_factor = 1.0		
+	}
+	#
+	division = {
+		location = 9961
+		division_template = "Infantry Division"
+		start_equipment_factor = 1.0
+	}
+	division = {
+		location = 1362
+		division_template = "Infantry Division"
+		start_equipment_factor = 1.0		
+	}	
+}
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_3
+			creator = "VIN"
+		}
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_3
+			creator = "VIN"
+		}
+	}	
+}

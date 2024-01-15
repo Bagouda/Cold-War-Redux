@@ -1,0 +1,203 @@
+﻿add_namespace = unsc.resolution_news
+news_event = {
+	id = unsc.resolution_news.1		#UN intervention authorized
+	title = unsc.resolution_news.1.t
+	desc = unsc.resolution_news.1.d
+	picture = GFX_un_police_action_authorized
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = unsc.resolution_news.2		#UN condemnation
+	title = unsc.resolution_news.2.t
+	desc = unsc.resolution_news.2.d
+	picture = GFX_un_assembly
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = unsc.resolution_news.3		#UN Sanctions
+	title = unsc.resolution_news.3.t
+	desc = unsc.resolution_news.3.d
+	picture = GFX_un_assembly
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = unsc.resolution_news.4		#UN Police Action Failed
+	title = unsc.resolution_news.4.t
+	desc = unsc.resolution_news.4.d
+	picture = GFX_un_forces_retreat
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = unsc.resolution_news.A4	#UN Police Action Recalled
+	title = unsc.resolution_news.A4.t
+	desc = unsc.resolution_news.A4.d
+	picture = GFX_troops_retreat_news
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"		
+	}
+}
+news_event = {
+	id = unsc.resolution_news.5		#UN Police Action Success YAY the UN isn't worthless!, gib me monies!
+	title = unsc.resolution_news.5.t
+	desc = unsc.resolution_news.5.d
+	picture = GFX_un_forces_victorious
+
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = unsc.resolution_news.6		#UN Police Action Extended
+	title = unsc.resolution_news.6.t
+	desc = unsc.resolution_news.6.d
+	picture = GFX_un_police_action_extended
+
+	major = yes
+	is_triggered_only = yes	
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = unsc.resolution_news.7		#New Territory recognized (following sovernity referendum)
+	title = unsc.resolution_news.7.t
+	desc = unsc.resolution_news.7.d
+	picture = GFX_un_seembly_old
+
+	major = yes
+	is_triggered_only = yes	
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = unsc.resolution_news.8		#Foreign forces withdraw
+	title = unsc.resolution_news.8.t
+	desc = unsc.resolution_news.8.d
+	picture = GFX_generic_military_withdrwal_news
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+		if = {
+			limit = {
+				is_ai = no
+				NOT = { has_global_flag = withdrawal_resolution_event_fired }
+			}
+			hidden_effect = {
+				clear_variable = UNN.withdrawal_demand_agreed_total
+				clear_variable = UNN.withdrawal_demand_refused_total
+				clear_array = UNN.withdrawal_demand_agreed
+				clear_array = UNN.withdrawal_demand_refused
+			}
+		}
+	}
+}
+
+news_event = {
+	id = unsc.resolution_news.81		#Foreign forces refuse withdraw
+	title = unsc.resolution_news.81.t
+	desc = unsc.resolution_news.81.d
+	picture = GFX_news_event_004
+
+
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+		if = {
+			limit = {
+				is_ai = no
+				NOT = { has_global_flag = withdrawal_resolution_event_fired }
+			}
+			hidden_effect = {
+				clear_variable = UNN.withdrawal_demand_agreed_total
+				clear_variable = UNN.withdrawal_demand_refused_total
+				clear_array = UNN.withdrawal_demand_agreed
+				clear_array = UNN.withdrawal_demand_refused
+			}
+		}
+	}
+}
+news_event = {
+	id = unsc.resolution_news.9		# UN Famine Relief
+	title = unsc.resolution_news.9.t
+	desc = unsc.resolution_news.9.d
+	picture = GFX_un_generic_news_2
+
+	major = yes
+	is_triggered_only = yes	
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = unsc.resolution_news.10		# Permanent member removed from UNSC
+	title = unsc.resolution_news.10.t
+	desc = unsc.resolution_news.10.d
+	picture = GFX_un_generic_news_3
+
+	major = yes
+	is_triggered_only = yes	
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = unsc.resolution_news.11		# Permanent member leaves UNSC
+	title = unsc.resolution_news.11.t
+	desc = unsc.resolution_news.11.d
+	picture = GFX_un_generic_news_3
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}

@@ -1,0 +1,114 @@
+scripted_gui = {
+  cw_state_monopoly_diplomacy = {
+    window_name = "cw_state_monopoly_diplomacy_interface"
+    context_type = diplomatic_action
+
+    visible = {
+    }
+
+    triggers = {
+      state_has_potential_glow_visible = {
+        has_state_flag = high_resource_potential_oil
+      }
+      monopoly_binding_checkbox_ticked_visible = {
+        has_state_flag = requested_binding_monopoly
+      }
+      no_selection_background_selected_visible = {
+        ROOT = { has_country_flag = diplo_gui_no_selection }
+      }
+      monopoly_period_increase_button_click_enabled = {
+        ROOT = { NOT = { has_country_flag = diplo_gui_no_selection } }
+        ROOT = { check_variable = { requested_state_monopoly = PREV.id } }
+        check_variable = { requested_monopoly_period < 10 }
+      }
+      monopoly_period_decrease_button_click_enabled = {
+        ROOT = { NOT = { has_country_flag = diplo_gui_no_selection } }
+        ROOT = { check_variable = { requested_state_monopoly = PREV.id } }
+        check_variable = { requested_monopoly_period > 0 }
+      }
+      state_name_background_selected_visible = {
+        has_state_flag = monopoly_requested_state
+      }
+    }
+
+    effects = {
+      monopoly_binding_checkbox_ticked_click = {
+        clr_state_flag = requested_binding_monopoly
+      }
+      monopoly_binding_checkbox_click = {
+        set_state_flag = requested_binding_monopoly
+      }
+      no_selection_background_click = {
+        ROOT = {
+          clear_variable = requested_monopolies
+          clear_variable = requested_state_monopoly
+          clear_variable = requested_monopoly_period
+          set_country_flag = diplo_gui_no_selection
+        }
+        every_state = {
+          limit = {
+            is_in_array = {
+            	array = PREV.monopoly_eligable_states
+            	value = THIS.id
+            }
+          }
+          clr_state_flag = monopoly_requested_state
+          clr_state_flag = binding_monopoly
+          clear_variable = requested_monopoly_period
+        }
+      }
+      monopoly_period_increase_button_click = {
+        add_to_variable = { requested_monopoly_period = 1 }
+        ROOT = { add_to_variable = { requested_monopoly_period = 1 } }
+      }
+      monopoly_period_decrease_button_click = {
+        subtract_from_variable = { requested_monopoly_period = 1 }
+        ROOT = { subtract_from_variable = { requested_monopoly_period = 1 } }
+      }
+      state_name_background_click = {
+        every_state = {
+          limit = {
+            is_in_array = {
+            	array = FROM.monopoly_eligable_states
+            	value = THIS.id
+            }
+          }
+          clr_state_flag = monopoly_requested_state
+          clr_state_flag = binding_monopoly
+          clear_variable = requested_monopoly_period
+        }
+        set_state_flag = monopoly_requested_state
+        ROOT = {
+          clr_country_flag = diplo_gui_no_selection
+          clear_variable = requested_monopoly_period
+          set_variable = { requested_state_monopoly = PREV.id }
+          set_variable = { requested_monopolies = 1 }
+        }
+      }
+      state_name_background_selected_click = {
+        clr_state_flag = monopoly_requested_state
+        ROOT = { set_variable = { requested_monopolies = 0 } }
+      }
+      state_name_background_right_click = {
+        ROOT = { goto_state = PREV }
+      }
+      state_name_background_selected_right_click = {
+        ROOT = { goto_state = PREV }
+      }
+    }
+
+    dynamic_lists = {
+      country_eligable_states_gridbox = {
+        array = FROM.monopoly_eligable_states
+        entry_container = country_eligable_monopoly_states_entry
+        change_scope = yes
+      }
+    }
+    properties = {
+    }
+
+    ai_enabled = {
+      always = no
+    }
+  }
+}

@@ -1,0 +1,17 @@
+state = {
+	id=727
+	local_supplies=0.0 
+	name="STATE_727"
+	state_category = small_island
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = USA
+		add_core_of = USA
+	}
+	manpower=5367
+	provinces={
+		13048 13049 13053 
+	}
+}

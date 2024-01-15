@@ -1,0 +1,329 @@
+﻿capital = 49
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+####start tech####
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	early_fighter = 1
+	cv_early_fighter = 1
+	early_bomber = 1
+	CAS1 = 1
+	basic_train = 1
+	trench_warfare = 1
+	fleet_in_being = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+	basic_naval_mines = 1
+	submarine_mine_laying = 1
+	early_ship_hull_light = 1
+	basic_ship_hull_light = 1
+	early_ship_hull_submarine = 1
+	early_ship_hull_cruiser = 1
+	basic_ship_hull_cruiser = 1
+	early_ship_hull_heavy = 1
+	early_ship_hull_carrier = 1
+	basic_ship_hull_carrier = 1
+	basic_battery = 1
+	basic_light_battery = 1
+	basic_medium_battery = 1
+	basic_heavy_battery = 1
+	basic_torpedo = 1
+	sonar = 1
+	smoke_generator = 1
+	basic_depth_charges = 1
+	
+	basic_cruiser_armor_scheme = 1
+	basic_heavy_armor_scheme = 1
+	mtg_transport = 1
+	
+	basic_fire_control_system = 1
+}
+if = {
+	limit = { 
+		has_dlc = "Man the Guns" 
+	}
+	set_technology = {
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		improved_ship_hull_light = 1
+		advanced_ship_hull_light = 1
+		smoke_generator = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		advanced_depth_charges = 1
+		modern_depth_charges = 1
+		sonar = 1
+		improved_sonar = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		improved_ship_hull_cruiser = 1
+		advanced_ship_hull_cruiser = 1
+		improved_airplane_launcher = 1
+		basic_cruiser_armor_scheme = 1
+		
+		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
+		ship_hull_super_heavy = 1
+		improved_ship_hull_heavy = 1
+		advanced_ship_hull_heavy = 1
+		basic_heavy_armor_scheme = 1
+		improved_heavy_armor_scheme = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		improved_ship_hull_carrier = 1
+		advanced_ship_hull_carrier = 1
+		basic_torpedo = 1
+		magnetic_detonator = 1
+		homing_torpedo = 1
+		electric_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		advanced_ship_torpedo_launcher = 1
+		modern_ship_torpedo_launcher = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		improved_ship_hull_submarine = 1
+		advanced_ship_hull_submarine = 1
+		basic_submarine_snorkel = 1
+		improved_submarine_snorkel = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		improved_light_battery = 1
+		advanced_light_battery = 1
+		basic_light_shell = 1
+		improved_light_shell = 1
+		basic_medium_battery = 1
+		improved_medium_battery = 1
+		advanced_medium_battery = 1
+		basic_medium_shell = 1
+		improved_medium_shell = 1
+		basic_heavy_battery = 1
+		improved_heavy_battery = 1
+		advanced_heavy_battery = 1
+		basic_heavy_shell = 1
+		improved_heavy_shell = 1
+		
+		
+		
+		damage_control_1 = 1
+		damage_control_2 = 1
+		damage_control_3 = 1
+		fire_control_methods_1 = 1
+		fire_control_methods_2 = 1
+		fire_control_methods_3 = 1
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		improved_submarine_mine_laying = 1
+		improved_naval_mines = 1
+		degaussing = 1
+		advanced_naval_mines = 1
+		airdrop_mines = 1
+		modern_naval_mines = 1
+		airsweep_mines = 1
+		mtg_transport = 1
+		mtg_landing_craft = 1
+		mtg_tank_landing_craft = 1
+		panzerschiffe = 1
+		torpedo_cruiser_mtg = 1
+		pre_dreadnoughts = 1
+		coastal_defense_ships = 1
+		cruiser_submarines = 1
+	}
+}
+####end tech####
+1946.1.1 = {
+	oob = "TUR_1946"	
+	set_naval_oob = "TUR_1946_naval_mtg"
+	set_stability = 0.40
+	add_timed_idea = {
+		idea = unstable_government
+		days = 360
+	}
+	set_politics = {
+		ruling_party = unaligned_right
+		last_election = "1946.7.12"
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 25
+		neutrality = 0
+		communism_totalitarian = 30
+		unaligned_right = 45
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Şefik Hüsnü"
+		desc = ""
+		picture = "TURNHC1.dds"
+		ideology = stalinism_idolg
+		expire = 1970.1.1
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Celâl Bayar"
+		desc = ""
+		picture = "TURG1.dds"
+		ideology = social_democrat_idolg
+		expire = 1960.5.27
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Ismet Isnönü"
+		desc = ""
+		picture = "TURH1.dds"
+		ideology = kemalism
+		expire = 1960.5.26
+		traits = { neutrality_right }
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+	set_politics = {
+		ruling_party = democratic_socialist
+		last_election = "1950.3.10"		
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 50
+		democratic_socialist = 40
+		neutrality = 5
+		communism_totalitarian = 5
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+			name = "Celâl Bayar"
+			desc = ""
+			picture = "TURH2.dds"
+			ideology = social_democrat_idolg
+			expire = 1960.5.27
+			traits = {}
+	}
+}
+1956.10.29 = {	#Suez Crisis
+}
+1961.12.11 = {	#Vietnam War
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1957.3.10"
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 15
+		democratic_socialist = 20
+		neutrality = 60
+		communism_totalitarian = 5
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+			name = "Cevdet Sunay"
+			desc = ""
+			picture = "TURH4.dds"
+			ideology = military_idolg
+			expire = 1973.3.28
+			traits = {}
+	}	
+	create_country_leader = {
+			name = "Cemal Gürsel"
+			desc = ""
+			picture = "TURH3.dds"
+			ideology = military_idolg
+			expire = 1966.3.28
+			traits = {}
+	}
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	create_country_leader = {
+			name = "Turgut Özal"
+			desc = ""
+			picture = "TURH7.dds"
+			ideology = social_democrat_idolg
+			expire = 1993.4.17
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Kenan Evren"
+			desc = ""
+			picture = "TURH6.dds"
+			ideology = military_idolg
+			expire = 1989.11.9
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Fahri Korutürk"
+			desc = ""
+			picture = "TURH5.dds"
+			ideology = military_idolg
+			expire = 1980.4.6
+			traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	create_country_leader = {
+			name = "Kenan Evren"
+			desc = ""
+			picture = "TURH6.dds"
+			ideology = military_idolg
+			expire = 1989.11.9
+			traits = {}
+	}
+}
+create_equipment_variant = {
+	name = "Ay Class"				
+	type = ship_hull_submarine_4
+	#name_group = POR_SS_HISTORICAL
+	parent_version = 0
+	modules = {
+		fixed_ship_torpedo_slot = ship_torpedo_sub_4
+		fixed_ship_engine_slot = sub_ship_engine_4
+		rear_1_custom_slot = empty
+	}
+}
+create_equipment_variant = {
+	name = "Kocatepe Class"
+	type = ship_hull_light_4
+	#name_group = USA_DD_HISTORICAL
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_light_battery_4
+		fixed_ship_anti_air_slot = ship_anti_air_4
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+		fixed_ship_radar_slot = ship_radar_4
+		fixed_ship_engine_slot = light_ship_engine_2
+		fixed_ship_torpedo_slot = ship_torpedo_4
+		mid_1_custom_slot = ship_mine_layer_1
+		rear_1_custom_slot = ship_depth_charge_4
+	}
+}
+# Battleships #
+create_equipment_variant = {
+	name = "Yavuz Sultan Selim Class"
+	type = ship_hull_heavy_4
+	#name_group = USA_BB_HISTORICAL
+	parent_version = 0
+	modules = {
+		fixed_ship_battery_slot = ship_heavy_battery_4
+		fixed_ship_anti_air_slot = ship_anti_air_1
+		fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+		fixed_ship_radar_slot = ship_radar_4
+		fixed_ship_engine_slot = heavy_ship_engine_4
+		fixed_ship_secondaries_slot = dp_ship_secondaries
+		fixed_ship_armor_slot = ship_armor_bb_2
+		front_1_custom_slot = ship_heavy_battery_4
+		mid_1_custom_slot = ship_heavy_battery_4
+		mid_2_custom_slot = dp_ship_secondaries
+		mid_3_custom_slot = ship_heavy_battery_4
+		rear_1_custom_slot = ship_airplane_launcher_1
+	}
+}

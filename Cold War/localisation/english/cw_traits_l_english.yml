@@ -1,0 +1,241 @@
+﻿l_english:
+ anti_colonial_leader:0 "Anti Colonial Leader"
+ committed_antistalinist:0 "Committed Anti-Stalinist"
+ committed_maoist:0 "Committed Maoist"
+ factional_underdog:0 "Factional Underdog"
+ factional_underdog_1:0 "Factional Underdog"
+ stern_anti_imperialist:0 "Stern Anti Imperialist"
+ cw_mao_z_maoism:0 "Maoism"
+ unpopular_leader:0 "Unpopular Leader"
+ ###############################################
+ ###### COMMUNIST POWER STRUGGLE TRAITS  #######
+ ###############################################
+ badly_wounded:0 "Badly Wounded"
+ mild_reformer_malenkov:0 "Mild Reformer"
+ experienced_diplomat_molotov:0 "Experienced Diplomat"
+ schemer_beria_lar:0 "Schemer"
+ schemer_beria_no_lar:0 "Schemer"
+ man_of_the_people_khrushev:0 "Man of the People"
+ ###################################
+ ###### ADISOR ROLE TRAITS  #######
+ ################################### 
+ deputy_minister_trait:0 ""
+ foreign_minister_trait:0 ""
+ defense_minister_trait:0 ""
+ finance_minister_trait:0 ""
+ chief_of_staff_minister_trait:0 ""
+ personal_advisor_minister_trait:0 ""
+ ###################################
+ ###### ADISOR IDEOLOGY TRAITS INVISIBLE #######
+ ###################################
+ communist_totalitarian:0 ""
+ communist_reformist:0 ""
+ democratic_left:0 ""
+ democratic_right:0 ""
+ neutrality_right:0 ""
+ monarchist:0 ""
+ neutrality_left:0 ""
+ ###################################
+ ###### ADISOR IDEOLOGY TRAITS VISIBLE #######
+ ################################### 
+ communist_totalitarian_drift_trait:0 "$communism_totalitarian_noun$"
+ communist_reformist_drift_trait:0 "$communism_noun$"
+ democratic_left_drift_trait:0 "$democratic_socialist_noun$"
+ democratic_right_drift_trait:0 "$democratic_noun$"
+ neutrality_right_drift_trait:0 "$unaligned_right_noun$"
+ monarchist_drift_trait:0 "Monarchist"
+ neutrality_left_drift_trait:0 "$neutrality_noun$"
+ #
+ fiercely_independent:0 "Fiercely Independent"
+ skilled_diplomat:0 "Skilled Diplomat"
+ #####################################
+ ###### COUNTRY LEADER TRAITS  #######
+ #####################################
+ undisputed_leader:0 "Undisputed Leader"
+ ################################################
+ ###### DEPUTY MINISTER ADVISOR TRAITS  #######
+ ################################################
+ cw_man_of_the_people:0 "Man of The People"
+ cw_experienced_politician:0 "Seasoned Politician"
+ cw_skilful_campaigner:0 "Skilful Campaigner"
+ cw_political_strongman:0 "Political Strongman"
+ cw_naive_optimist:0 "Naive Optimist"
+ cw_unreliable_skeptic:0 "Unreliable Sceptic"
+ trusted_advisor:0 "Trusted Advisor"
+ ################################################
+ ###### FOREIGN RELATIONS ADVISOR TRAITS  #######
+ ################################################
+ cw_euro_enthusiast:0 "Euro Enthusiast"
+ cw_great_compromiser:0 "Great Compromiser"
+ cw_ideological_crusader:0 "Ideological Crusader"
+ cw_dialouge_proponent:0 "Dialogue Proponent"
+ cw_pactomaniac:0 "Pactomaniac"
+ cw_careful_diplomatist:0 "Careful Diplomat"
+ cw_fm_silent_workhorse:0 "Silent Workhorse"
+ cw_fm_mr_no:0 "$CW_VETO_POWER_TENSION_50_TT$"
+ cw_experienced_diplomat:0 "Experienced Diplomat"
+ cw_hawk_approach:0 "Hawkish Diplomacy"
+ cw_bipartisan:0 "Bi Partisan"
+ cw_peacemaker:0 "Peacemaker"
+ cw_veto_tension_reduced:0 "$CW_VETO_POWER_TENSION_50_TT$"
+ ######################################
+ ###### DEFENSE ADVISOR TRAITS  #######
+ ######################################
+ cw_efficient_delegator:0 "Efficient Delegator"
+ cw_army_training_specialist:0 "Army Training Specialist"
+ cw_construction_infra_specialist:0 "Military Infrastructure Specialist"
+ cw_war_propagandist:0 "War Propagandist"
+ cw_military_production_specialist:0 "Production Focused Bureaucrat"
+ cw_military_reformer:0 "Military Reformer"
+ cw_expirienced_veteran:0 "Experienced Veteran"
+ cw_military_industrial_specialist:0 "Military-Industrial Specialist"
+ cw_biased_entrepreneur:0 "Biased Entrepreneur"
+ cw_military_budget_wizard:0 "Budget Wizard"
+ cw_strategic_warfare_proponent:0 "Strategic Warfare Proponent"
+ cw_military_reorganizer:0 "Military Reorganizer"
+ cw_air_power_proponent:0 "Air Power Proponent"
+ #######################################
+ ###### TREASURY ADVISOR TRAITS  #######
+ #######################################
+ conscription_specialist:0 "Conscription Specialist"
+ cw_captain_of_industry:0 "Captain of Industry"
+ cw_efficient_administrator:0 "Efficient Administrator"
+ cw_small_minded_isolationist:0 "Small Minded Isolationist"
+ cw_tight_spender:0 "Tight Spender"
+ cw_ideological_workaholic:0 "Ideological Workaholic"
+ cw_silent_workhorse:0 "Silent Workhorse"
+ cw_briliant_economist:0 "Brilliant Economist"
+ ### HAF Traits ###
+ cw_expirienced_seaman:0 "Experienced Seaman"
+ ########################################
+ ###### INTELLIGENCE HEAD TRAITS  #######
+ ########################################
+ cw_naval_intelligence_speciality:0 "Naval Intelligence Specialist"
+ cw_air_intelligence_speciality:0 "Air Intelligence Specialist"
+ cw_efficient_administrator_intelligence:0 "Efficient Administrator"
+ cw_intelligence_coup_specialist:0 "Coup Specialist"
+ cw_intelligence_decryption_specialist:0 "Decryption Specialist"
+ cw_civilian_intelligence_specialist:0 "Civilian Intelligence Specialist"
+ #######################################
+ ###### PERSONAL ADVISOR TRAITS  #######
+ #######################################
+ cw_reformer:0 "Reformer"
+ cw_diligent:0 "Diligent"
+ cw_political_schemer:0 "Political Schemer"
+ cw_infamous_bolshevik:0 "Infamous Bolshevik"
+ cloak_and_dagger_schemer_beria:0 "Political Schemer"
+ cw_well_informed_infiltrator:0 "Master Infiltrator"
+ cw_ruthless_appeaser:0 "Ruthless Appeaser"
+ cw_efficient_tyrant:0 "Efficient Tyrant"
+ cw_efficient_spymaster:0 "Efficient Spymaster"
+ cw_war_hero:0 "War Hero"
+ cw_power_hungry_demagogue:0 "Power Hungry Demagogue"
+ ##############################
+ ###### MONARCH TRAITS  #######
+ ############################## 
+ monarch_in_exile:0 "In Exile"
+ unpopular_monarch:0 "Unpopular Monarch"
+ constitutional_monarch:0 "Constitutional Monarch"
+ constitutional_monarch_weak:0 "Weak Constitutional Monarch"
+ absolute_monarch:0 "Absolute Monarch"
+ ##############################
+ ### GENERIC ADVISOR TRAITS ###
+ ##############################
+ cw_prince_of_terror:0 "Prince of Terror"
+ cw_fiercely_neutral:0 "Neutrality Proponent"
+ cw_communist_revolutionary:0 "Communist Revolutionary"
+ cw_democratic_reformer:0 "Democratic Reformer"
+ cw_social_democrat:0 "Social Democrat" 
+ cw_pr_specialist:0 "PR Specialist"
+ cw_unrelenting_monarchist:0 "Unrelenting Monarchist"
+ cw_backroom_dealmaker:0 "Backroom Dealmaker"
+ cw_bureaucratic_specialist:0 "Bureaucratic Specialist"
+ cw_training_specialist:0 "Training Specialist"
+ cw_planing_expert:0 "Planing Specialist"
+ cw_defense_expert:0 "Defence Specialist"
+ cw_offense_expert:0 "Offence Specialist"
+ cw_air_technical_expert:0 "Technical Expert"
+ cw_naval_coordinator:0 "Naval Expert"
+ cw_budget_trimmer:0 "Efficient Budget Trimmer"
+ cw_business_magnate:0 "Business Magnate"
+ cw_international_businessman:0 "International Expert"
+ cw_military_industrialist:0 "Military Industrialist"
+ cw_construction_enthusiast:0 "Construction Enthusiast
+ cw_power_unon_boss:0 "Powerful Union Boss"
+ cw_training_specialist:0 "Training Specialist"
+ cw_planing_expert:0 "Planing Expert"
+ cw_defense_expert:0 "Defence Expert"
+ cw_offense_expert:0 "Offence Expert"
+ cw_air_technical_expert:0 "Technical Expert"
+ cw_naval_coordinator:0 "Naval Coordinator"
+ cw_popular_politician:0 "Popular Politician"
+ cw_political_specialist:0 "Political Specialist"
+ cw_political_protege:0 "Political Protege"
+ cw_model_governor:0 "Model Governor"
+ cw_well_connected_bureaucrat:0 "Well Connected Bureaucrat"
+ cw_skilled_geologist:0 "Skilled Geologist"
+ corrupt_politician:0 "Corrupt Politician"
+ unreliable_businessman:0 "Unreliable Businessman"
+ corrupt_businessman:0 "Corrupt Businessman"
+ cw_mafia_boss:0 "Mafia Boss"
+ cw_briliant_negotiator:0 "Brilliant Negotiator"
+ cw_expert_warmonger:0 "Warmonger"
+ cw_silver_tounged_diplomat:0 "Silver Tongued Diplomat"
+ cw_ideological_guardian:0 "Ideological Fighter"
+ cw_diplomatic_schemer:0 "Shadow Schemer"
+ cw_interventionist:0 "Interventionist"
+ cw_war_propagandist:0 "War Propagandist"
+ cw_volunteer_propagandist:0 "Experienced Campaigner"
+ cw_mobilization_expert:0 "Mobilization Expert"
+ cw_military_reformer:0 "Military Reformer"
+ cw_war_propaganda_specicalist:0 "Experienced Soldier"
+ cw_warmonger:0 "Warmonger"
+ cw_relentless_fighter:0 "Relentless Fighter"
+ cw_budget_trimmer:0 "Budget Trimmer" 
+ cw_business_magnate:0 "Business Magnate"
+ cw_international_businessman:0 "International Businessman"
+ cw_military_industrialist:0 "Military Industrialist"
+ cw_construction_enthusiast:0 "Construction Enthusiast"
+ ##############################
+ ### MILITARY LEADER TRAITS ###
+ ##############################
+ communist_sympathizer:0 "Communist Sympathizer"
+ communist_collaborator:0 "Communist Collaborator"
+ communist_puppet:0 "Communist Puppet"
+ communist_rev_sympathizer:0 "Communist Reformist Sympathizer"
+ communist_rev_collaborator:0 "Communist Reformist Collaborator"
+ communist_rev_puppet:0 "Communist Reformist Puppet"
+ unrelenting_nationalist:0 "Unrelenting Nationalist"
+ stern_anti_imperialist_vin_fra:0 "Stern Anti Imperialist"
+ stern_anti_communist:0 "Stern Anti Communist"
+ dutiful_administrator:0 "Dutiful Administrator"
+ split_leadership:0 "Split Leadership"
+ ineffectual_schemer:0 "Ineffectual Schemer"
+ last_stand_fighter:0 "Last Stand Fighter"
+ last_stand_fighter_chi:0 "Last Stand Fighter"
+ president_lost_china_dem:0 "The President Who Lost China"
+ president_lost_china_rep:0 "The President Who Lost China"
+ shadow_of_churchill:0 "In the Shadow of Churchill"
+ communist_symbol:0 "Communist Symbol"
+ inspiring_leader_mao:0 "Inspiring Leader"
+ popular_figurehead:0 "Popular Figurehead"
+ careful_diplomacy:0 "Careful Diplomat"
+ iron_fisted_brute:0 "Iron Fisted Brute"
+ stern_nationalist_upa:0 "Unrelenting Nationalist"
+ trait_overconfident:0 "Overconfident"
+ cloak_and_dagger_schemer:0 "Political Schemer"
+ stern_communist:0 "Stern Communist"
+ unsc_sanctions_low:0 "Security Council Sanctions"
+ unsc_sanctions_medium:0 "Security Council Sanctions"
+ unsc_sanctions_high:0 "Security Council Sanctions"
+ ### TRAITS LOCALISATION ###
+ hog_minister_cost_factor:0 "Deputy Minister Cost Factor"
+ foreign_minister_cost_factor:0 "Foreign Minister Cost Factor"
+ defense_minister_cost_factor:0 "Defense Minister Cost Factor"
+ treasury_minister_cost_factor:0 "Treasury Minister Cost Factor" 
+ chief_of_staff_cost_factor:0 "Chief of Staff Cost Factor"
+ personal_advisor_cost_factor:0 "Personal Advisor Cost Factor" 
+ ### Advisors Custom Bonuses ##
+ CW_VETO_POWER_TENSION_50_TT:0 "§YUnique Skill:§! Veto power impact"
+ CW_VETO_POWER_TENSION_50_TTL:0 "§YUnique Skill:§! When using our veto power on the Security Council, we will generate less world tension."
+ CW_VETO_POWER_PP_COST:0 "§YUnique Skill:§! Using our veto power will cost less $POLITICAL_POWER$."

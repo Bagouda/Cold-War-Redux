@@ -1,0 +1,27 @@
+state = {
+	id=701
+	local_supplies=0.0 
+	name="STATE_701"
+	state_category=enclave
+	history = {
+ 	add_to_array = { list_victory_point = 4989 }
+ 	set_variable = { victory_point = 10 }
+		owner = ENG
+		add_claim_by = GAM
+		
+		buildings = {
+			infrastructure = 1
+			4989 = {
+				naval_base = 1
+			}			
+		}		
+		victory_points = {
+			4989 10 
+		}
+	}
+	buildings_max_level_factor=1.000
+	manpower=99760
+	provinces={
+		4989  
+	}
+}

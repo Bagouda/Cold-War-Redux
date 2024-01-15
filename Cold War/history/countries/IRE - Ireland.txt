@@ -1,0 +1,173 @@
+﻿capital = 113
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1944.5.30"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 56
+		democratic_socialist = 37
+		neutrality = 0
+		communism_totalitarian = 7
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Éamon de Valera"
+		desc = ""
+		picture = "IREG1.dds"
+		ideology = social_cons_idolg
+		expire = 1959.6.23
+		traits = {}
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+	set_politics = {
+		ruling_party = democratic_socialist
+		last_election = "1948.2.4"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {	#Ahistorical Choice
+		name = "Richard Mulcahy"
+		desc = ""
+		picture = ""
+		ideology = social_liberal_idolg
+		expire = 1957.3.20
+		traits = {}
+	}
+	create_country_leader = {
+		name = "John A. Costello"
+		desc = ""
+		picture = "IREG2.dds"
+		ideology = social_liberal_idolg
+		expire = 1957.3.20
+		traits = {}
+	}
+}
+1949.4.18 = { clr_country_flag = decolonization }
+1950.6.25 = {	#Korean War
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1951.5.30"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Éamon de Valera"
+		desc = ""
+		picture = "IREG1.dds"
+		ideology = social_cons_idolg
+		expire = 1959.6.23
+		traits = {}
+	}	
+}
+1956.10.29 = {	#Suez Crisis
+	set_politics = {
+		ruling_party = democratic_socialist
+		last_election = "1954.5.18"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {	#Ahistorical Choice
+		name = "Richard Mulcahy"
+		desc = ""
+		picture = ""
+		ideology = social_liberal_idolg
+		expire = 1957.3.20
+		traits = {}
+	}
+	create_country_leader = {
+		name = "John A. Costello"
+		desc = ""
+		picture = "IREG2.dds"
+		ideology = social_liberal_idolg
+		expire = 1957.3.20
+		traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1961.10.4"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 50
+		democratic_socialist = 48
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Seán Lemass"
+		desc = ""
+		picture = "IREG3.dds"
+		ideology = social_cons_idolg
+		expire = 1959.6.23
+		traits = {}
+	}
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1977.6.16"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Garret FitzGerald"
+		desc = ""
+		picture = "IREG7.dds"
+		ideology = social_liberal_idolg
+		expire = 1992.2.11
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Liam Cosgrave"
+		desc = ""
+		picture = "IREG5.dds"
+		ideology = social_liberal_idolg
+		expire = 1981.6.30
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Jack Lynch"
+		desc = ""
+		picture = "IREG4.dds"
+		ideology = social_cons_idolg
+		expire = 1992.2.11
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Charles Haughey"
+		desc = ""
+		picture = "IREG6.dds"
+		ideology = social_cons_idolg
+		expire = 1992.2.11
+		traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1987.2.17"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Charles Haughey"
+		desc = ""
+		picture = "IREG6.dds"
+		ideology = social_cons_idolg
+		expire = 1992.2.11
+		traits = {}
+	}
+}

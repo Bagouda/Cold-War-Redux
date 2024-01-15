@@ -1,0 +1,33 @@
+﻿division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+	}
+}
+units = {
+    division = {
+		location = 9660
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 9660
+		division_template = "Infantry Division"
+	}
+    division = {
+		location = 11659
+		division_template = "Infantry Division"
+	}
+    division = {
+		location = 11659
+		division_template = "Infantry Division"
+	}
+    division = {
+		location = 11610
+		division_template = "Infantry Division"
+	}
+    division = {
+		location = 11610
+		division_template = "Infantry Division"
+	}	
+}

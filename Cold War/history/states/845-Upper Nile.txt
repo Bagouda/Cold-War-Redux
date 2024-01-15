@@ -1,0 +1,30 @@
+state={
+	id=845
+	local_supplies=0.0 
+	name="STATE_845"
+	resources={
+		oil=3
+		crops=10
+	}
+	
+	history={
+ 	add_to_array = { list_victory_point = 13271 }
+ 	set_variable = { victory_point = 1 }
+		owner = ENG
+		add_claim_by = SUD
+		
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			13271 1
+		}
+	}
+	
+	provinces={
+		10877 12800 13253 13255 13260 13261 13262 13263 13264 13271 
+	}
+	manpower=312000
+	buildings_max_level_factor=1.000
+	state_category=town
+}

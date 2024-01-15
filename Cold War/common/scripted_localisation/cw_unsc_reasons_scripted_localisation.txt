@@ -1,0 +1,10 @@
+defined_text = {
+	name = GET_REASON_FOR_SANCTIONS
+	text = {
+		trigger = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = resolution_generic_transfer_core_state_un }
+		}
+		localization_key = "CW_UNSC_SANCTION_REASON_TRANSFER_CORE"
+	}
+}

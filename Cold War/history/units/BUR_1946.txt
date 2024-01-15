@@ -1,0 +1,109 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Infantry division"		
+	#division_names_group = POR_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Rifle division"		
+	#division_names_group = POR_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 3 y = 2 }
+	}
+}
+
+
+units = {
+	
+	division = {
+		name = "1st Infantry division"
+		location = 12197
+		division_template = "Infantry division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "2nd Rifle division"
+		location = 1142
+		division_template = "Rifle division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "3rd Rifle division"
+		location = 4996
+		division_template = "Rifle division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "4th Rifle division"
+		location = 12404
+		division_template = "Rifle division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	
+}
+
+
+
+### Starting Production ###
+#instant_effect = {
+#	add_equipment_production = {
+#		equipment = {
+#			type = infantry_equipment_3
+#			creator = "POR"
+#		}
+#		requested_factories = 1
+#		progress = 0.66
+#		efficiency = 100
+#	}
+#	add_equipment_production = {
+#		equipment = {
+#			type = support_equipment_1
+#			creator = "POR"
+#		}
+#		requested_factories = 1
+#		progress = 0.64
+#		efficiency = 100
+#	}
+#	add_equipment_production = {
+#		equipment = {
+#			type = anti_air_equipment_3
+#			creator = "POR" 
+#		}
+#		requested_factories = 1
+#		progress = 0.3
+#		efficiency = 100
+#	}
+#}

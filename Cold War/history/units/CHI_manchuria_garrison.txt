@@ -1,0 +1,36 @@
+﻿units = {
+	# Harbin Garrision
+	division = {
+		location = 10443
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 10443
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 10443
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 10443
+		division_template = "Motorized Infantry"
+	}
+	# Mukden Garrision
+	division = {
+		location = 11771
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 11771
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 11771
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 11771
+		division_template = "Motorized Infantry"
+	}	
+}

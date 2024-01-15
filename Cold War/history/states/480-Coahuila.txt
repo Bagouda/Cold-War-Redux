@@ -1,0 +1,36 @@
+state = {
+	id=480
+	local_supplies=0.0 
+	name="STATE_480"
+	state_category = large_town
+	history = {
+ 	add_to_array = { list_victory_point = 12835 }
+ 	add_to_array = { list_victory_point = 10769 }
+ 	set_variable = { victory_point = 15 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = MEX
+		add_core_of = MEX
+		#victory_points = {
+		#	2060 3
+		#}
+		#victory_points = {
+		#	2060 3
+		#}
+		victory_points = {
+			10769 5
+		}
+		victory_points = {
+			12835 10
+		}
+	}
+	resources={
+		oil=8
+		#steel=4 sent to Mexico City
+	}
+	manpower = 827826
+	provinces={
+		2060 2104 7973 10738 10746 10769 10800 12811 12835 
+	}
+}

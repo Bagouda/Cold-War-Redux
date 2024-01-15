@@ -1,0 +1,477 @@
+# The following scripted effect sets-up the parliament at game start.
+parliament_gui_initial = {
+	# Put simply an array stores a list of things, used here to store the list of parties and list of seats.
+	
+	clear_array = parliament_seat_array
+
+	set_temp_variable = { party_1 = party_popularity_100@democratic }
+	round_temp_variable = party_1
+	set_temp_variable = { party_2 = party_popularity_100@democratic_socialist }
+	round_temp_variable = party_2
+	set_temp_variable = { party_3 = party_popularity_100@unaligned_right }
+	round_temp_variable = party_3
+	set_temp_variable = { party_4 = party_popularity_100@neutrality }
+	round_temp_variable = party_4
+	set_temp_variable = { party_5 = party_popularity_100@communism }
+	round_temp_variable = party_5
+	set_temp_variable = { party_6 = party_popularity_100@communism_totalitarian }
+	round_temp_variable = party_6
+	
+
+	# parliament_seat_array stores the list of seat numbers for each party
+	add_to_array = { parliament_seat_array = party_1 } # Party A
+	add_to_array = { parliament_seat_array = party_2 } # Party B
+	add_to_array = { parliament_seat_array = party_3 } # Party C
+	add_to_array = { parliament_seat_array = party_4 } # Party D
+	add_to_array = { parliament_seat_array = party_5 } # Party D
+	add_to_array = { parliament_seat_array = party_6 } # Party D
+
+	# parliament_member_array stores the list of parties
+	# This basically assigns an id for each party, so Party A = 1, Party B = 2, etc. (must start from 1 and is in order)
+	add_to_array = { parliament_member_array = 1 } # Party A
+	add_to_array = { parliament_member_array = 2 } # Party B
+	add_to_array = { parliament_member_array = 3 } # Party C
+	add_to_array = { parliament_member_array = 4 } # Party D
+	add_to_array = { parliament_member_array = 5 } # Party D
+	add_to_array = { parliament_member_array = 6 } # Party D
+
+	# Set up the positions of the dots for the semicircle parliament
+	parliament_gui_positions = yes
+
+	# Modify what shows up in the gui
+	reload_parliament_gui = yes
+}
+
+# The following scripted effect does the main job of generating the gui, by adding the seats for each party in a grid.
+# This should be called every time you need to update the gui, when you add/subtract seats for example.
+# Read the comments if you're interested in how it works
+reload_parliament_gui = {
+	# Clears what's currently on the gui, if there's anything there.
+	clear_array = parliament_main_array
+
+	# The array temp_seat is duplicated from the array parliament_seat_array.
+	for_each_loop = {
+		array = parliament_seat_array
+
+		add_to_array = { temp_seat = parliament_seat_array^i }
+	}
+
+	# It's a suprise tool for later
+	set_temp_variable = { temp_index_1 = 0 }
+	set_temp_variable = { temp_index_2 = 1 }
+
+	# Set temp_size as the highest index in the array, highest index is the highest value x in temp_array^x.
+	set_temp_variable = { temp_size = temp_seat^num }
+	subtract_from_temp_variable = { temp_size = 1 }
+
+	# What this does is loop through the temp_seat array, adding the current value to the next value on the list.
+	# temp_seat^0 is the first value on the list, temp_seat^1 is the next and so forth.
+	# the loop ends when temp_index_1 is equal to the size of the array - 1 (basically the max index).
+	while_loop_effect = {
+		limit = {
+			check_variable = { temp_index_1 < temp_size }
+		}
+		# The suprise tool starts out as temp_seat^0 and temp_seat^1 and then is incremented every loop , adding the current value to the next value on the list.
+		add_to_variable = { temp_seat^temp_index_2 = temp_seat^temp_index_1 }
+		add_to_temp_variable = { temp_index_1 = 1 }
+		add_to_temp_variable = { temp_index_2 = 1 }
+	}
+
+	# resize_array fills the parliament_member_array with the id of the parliament member x amount of times where x is the number of seats the member has.
+	# so the array will look like this basically:
+	# 1,1,1,1,1,1,1,...(repeated 90 times),2,2,2,2,2,2,2(repeated 35 times),3,3,3.. etc.
+	for_loop_effect = {
+		start = 0
+		end = temp_seat^num
+
+		resize_array = { array = parliament_main_array value = parliament_member_array^v size = temp_seat^v }
+	}
+
+	# Clear the temp_seat array used previously since it's not needed anymore.
+	clear_array = temp_seat
+}
+
+# Bonus code for adding/subtracting seats
+modify_parliament_seat = {
+	subtract_from_temp_variable = { temp_member = 1 }
+
+	# check to see if result overflows
+	set_temp_variable = { temp = parliament_seat_array^temp_member }
+	add_to_temp_variable = { temp = temp_seats }
+
+	if = {
+		limit = {
+			check_variable = { temp > parliament_main_array^num }
+		}
+		subtract_from_temp_variable = { temp = parliament_main_array^num }
+		subtract_from_temp_variable = { temp_seats = temp }
+	}
+	else_if = {
+		limit = {
+			check_variable = { temp < 0 }
+		}
+		multiply_temp_variable = { temp = -1 }
+		subtract_from_temp_variable = { temp_seats = temp }
+	}
+
+	# adds all parties to temp_array
+	for_loop_effect = {
+		start = 0
+		end = parliament_seat_array^num
+
+		add_to_temp_array = { temp_array = v }
+	}
+
+	# remove from list of parties the party to be added/subtracted
+	remove_from_temp_array = { array = temp_array value = temp_member }
+
+	# give party new seat value
+	add_to_variable = { parliament_seat_array^temp_member = temp_seats }
+
+	# if its add
+	if = {
+		limit = {
+			check_variable = { temp_seats > 0 }
+		}
+		# loop until seats to be added is 0
+		while_loop_effect = {
+			limit = {
+				check_variable = { temp_seats > 0 }
+			}
+
+			# loops through remaining parties, subtracting 1 seat each time
+			for_loop_effect = {
+				start = 0
+				end = temp_array^num
+
+				if = {
+					limit = {
+						check_variable = { parliament_seat_array^temp_array^v > 0 } # party must have more than 0 seats to be subtracted
+						check_variable = { temp_seats > 0 } # seats to be added is bigger than 0 currently
+					}
+					subtract_from_variable = { parliament_seat_array^temp_array^v = 1 } # subtract from party 1 seat
+					subtract_from_temp_variable = { temp_seats = 1 } # subtract from seats to be added
+				}
+			}
+		}
+	}
+	# if its subtract
+	else_if = {
+		limit = {
+			check_variable = { temp_seats < 0 }
+		}
+		# loop until seats to be subtracted is 0
+		while_loop_effect = {
+			limit = {
+				check_variable = { temp_seats < 0 }
+			}
+
+			# loops through remaining parties, adding 1 seat each time
+			for_loop_effect = {
+				start = 0
+				end = temp_array^num
+
+				if = {
+					limit = {
+						check_variable = { parliament_seat_array^temp_array^v < parliament_main_array^num } # party must have less than max seats to be added
+						check_variable = { temp_seats < 0 } # seats to be subtracted is less than 0 currently
+					}
+					add_to_variable = { parliament_seat_array^temp_array^v = 1 } # add to party 1 seat
+					add_to_temp_variable = { temp_seats = 1 } # add to seats to be subtracted
+				}
+			}
+		}
+	}
+	# do nothing if 0
+
+	# Modify what shows up in the gui
+	reload_parliament_gui = yes
+}
+
+# Clear all arrays (for debugging)
+clear_parliament_gui_arrays = {
+	clear_array = parliament_main_array
+	clear_array = parliament_member_array
+	clear_array = parliament_seat_array
+	clear_array = parliament_x_array
+	clear_array = parliament_y_array
+}
+
+# parliament_x_array and parliament_y_array stores the list of x and y positions of the parliament dots in the grid, these are generated from this lovely tool by Flaxbeard:
+# https://github.com/Flaxbeard/hoi4-parliament-diagram
+# I'll be using 200 seats as an example only (you'd have to generate your own if you have a different number of seats)
+parliament_gui_positions = {
+	add_to_array = { parliament_x_array = 0 }
+	add_to_array = { parliament_y_array = 193 }
+	add_to_array = { parliament_x_array = 16 }
+	add_to_array = { parliament_y_array = 193 }
+	add_to_array = { parliament_x_array = 32 }
+	add_to_array = { parliament_y_array = 193 }
+	add_to_array = { parliament_x_array = 48 }
+	add_to_array = { parliament_y_array = 193 }
+	add_to_array = { parliament_x_array = 65 }
+	add_to_array = { parliament_y_array = 193 }
+	add_to_array = { parliament_x_array = 81 }
+	add_to_array = { parliament_y_array = 193 }
+	add_to_array = { parliament_x_array = 3 }
+	add_to_array = { parliament_y_array = 173 }
+	add_to_array = { parliament_x_array = 19 }
+	add_to_array = { parliament_y_array = 173 }
+	add_to_array = { parliament_x_array = 36 }
+	add_to_array = { parliament_y_array = 173 }
+	add_to_array = { parliament_x_array = 53 }
+	add_to_array = { parliament_y_array = 173 }
+	add_to_array = { parliament_x_array = 8 }
+	add_to_array = { parliament_y_array = 154 }
+	add_to_array = { parliament_x_array = 69 }
+	add_to_array = { parliament_y_array = 173 }
+	add_to_array = { parliament_x_array = 26 }
+	add_to_array = { parliament_y_array = 153 }
+	add_to_array = { parliament_x_array = 86 }
+	add_to_array = { parliament_y_array = 175 }
+	add_to_array = { parliament_x_array = 43 }
+	add_to_array = { parliament_y_array = 154 }
+	add_to_array = { parliament_x_array = 16 }
+	add_to_array = { parliament_y_array = 135 }
+	add_to_array = { parliament_x_array = 61 }
+	add_to_array = { parliament_y_array = 153 }
+	add_to_array = { parliament_x_array = 35 }
+	add_to_array = { parliament_y_array = 134 }
+	add_to_array = { parliament_x_array = 79 }
+	add_to_array = { parliament_y_array = 155 }
+	add_to_array = { parliament_x_array = 53 }
+	add_to_array = { parliament_y_array = 136 }
+	add_to_array = { parliament_x_array = 27 }
+	add_to_array = { parliament_y_array = 117 }
+	add_to_array = { parliament_x_array = 47 }
+	add_to_array = { parliament_y_array = 117 }
+	add_to_array = { parliament_x_array = 97 }
+	add_to_array = { parliament_y_array = 158 }
+	add_to_array = { parliament_x_array = 74 }
+	add_to_array = { parliament_y_array = 136 }
+	add_to_array = { parliament_x_array = 40 }
+	add_to_array = { parliament_y_array = 102 }
+	add_to_array = { parliament_x_array = 66 }
+	add_to_array = { parliament_y_array = 121 }
+	add_to_array = { parliament_x_array = 92 }
+	add_to_array = { parliament_y_array = 140 }
+	add_to_array = { parliament_x_array = 62 }
+	add_to_array = { parliament_y_array = 102 }
+	add_to_array = { parliament_x_array = 55 }
+	add_to_array = { parliament_y_array = 88 }
+	add_to_array = { parliament_x_array = 89 }
+	add_to_array = { parliament_y_array = 122 }
+	add_to_array = { parliament_x_array = 82 }
+	add_to_array = { parliament_y_array = 107 }
+	add_to_array = { parliament_x_array = 112 }
+	add_to_array = { parliament_y_array = 145 }
+	add_to_array = { parliament_x_array = 79 }
+	add_to_array = { parliament_y_array = 90 }
+	add_to_array = { parliament_x_array = 71 }
+	add_to_array = { parliament_y_array = 76 }
+	add_to_array = { parliament_x_array = 109 }
+	add_to_array = { parliament_y_array = 128 }
+	add_to_array = { parliament_x_array = 99 }
+	add_to_array = { parliament_y_array = 97 }
+	add_to_array = { parliament_x_array = 108 }
+	add_to_array = { parliament_y_array = 111 }
+	add_to_array = { parliament_x_array = 89 }
+	add_to_array = { parliament_y_array = 66 }
+	add_to_array = { parliament_x_array = 98 }
+	add_to_array = { parliament_y_array = 80 }
+	add_to_array = { parliament_x_array = 130 }
+	add_to_array = { parliament_y_array = 137 }
+	add_to_array = { parliament_x_array = 109 }
+	add_to_array = { parliament_y_array = 60 }
+	add_to_array = { parliament_x_array = 119 }
+	add_to_array = { parliament_y_array = 90 }
+	add_to_array = { parliament_x_array = 129 }
+	add_to_array = { parliament_y_array = 121 }
+	add_to_array = { parliament_x_array = 118 }
+	add_to_array = { parliament_y_array = 74 }
+	add_to_array = { parliament_x_array = 128 }
+	add_to_array = { parliament_y_array = 104 }
+	add_to_array = { parliament_x_array = 129 }
+	add_to_array = { parliament_y_array = 55 }
+	add_to_array = { parliament_x_array = 139 }
+	add_to_array = { parliament_y_array = 87 }
+	add_to_array = { parliament_x_array = 138 }
+	add_to_array = { parliament_y_array = 71 }
+	add_to_array = { parliament_x_array = 149 }
+	add_to_array = { parliament_y_array = 118 }
+	add_to_array = { parliament_x_array = 149 }
+	add_to_array = { parliament_y_array = 134 }
+	add_to_array = { parliament_x_array = 149 }
+	add_to_array = { parliament_y_array = 102 }
+	add_to_array = { parliament_x_array = 149 }
+	add_to_array = { parliament_y_array = 54 }
+	add_to_array = { parliament_x_array = 159 }
+	add_to_array = { parliament_y_array = 71 }
+	add_to_array = { parliament_x_array = 159 }
+	add_to_array = { parliament_y_array = 87 }
+	add_to_array = { parliament_x_array = 169 }
+	add_to_array = { parliament_y_array = 55 }
+	add_to_array = { parliament_x_array = 170 }
+	add_to_array = { parliament_y_array = 104 }
+	add_to_array = { parliament_x_array = 180 }
+	add_to_array = { parliament_y_array = 74 }
+	add_to_array = { parliament_x_array = 169 }
+	add_to_array = { parliament_y_array = 121 }
+	add_to_array = { parliament_x_array = 179 }
+	add_to_array = { parliament_y_array = 90 }
+	add_to_array = { parliament_x_array = 189 }
+	add_to_array = { parliament_y_array = 60 }
+	add_to_array = { parliament_x_array = 168 }
+	add_to_array = { parliament_y_array = 137 }
+	add_to_array = { parliament_x_array = 200 }
+	add_to_array = { parliament_y_array = 80 }
+	add_to_array = { parliament_x_array = 209 }
+	add_to_array = { parliament_y_array = 66 }
+	add_to_array = { parliament_x_array = 190 }
+	add_to_array = { parliament_y_array = 111 }
+	add_to_array = { parliament_x_array = 199 }
+	add_to_array = { parliament_y_array = 97 }
+	add_to_array = { parliament_x_array = 189 }
+	add_to_array = { parliament_y_array = 128 }
+	add_to_array = { parliament_x_array = 227 }
+	add_to_array = { parliament_y_array = 76 }
+	add_to_array = { parliament_x_array = 219 }
+	add_to_array = { parliament_y_array = 90 }
+	add_to_array = { parliament_x_array = 186 }
+	add_to_array = { parliament_y_array = 145 }
+	add_to_array = { parliament_x_array = 216 }
+	add_to_array = { parliament_y_array = 107 }
+	add_to_array = { parliament_x_array = 209 }
+	add_to_array = { parliament_y_array = 122 }
+	add_to_array = { parliament_x_array = 243 }
+	add_to_array = { parliament_y_array = 88 }
+	add_to_array = { parliament_x_array = 236 }
+	add_to_array = { parliament_y_array = 102 }
+	add_to_array = { parliament_x_array = 205 }
+	add_to_array = { parliament_y_array = 140 }
+	add_to_array = { parliament_x_array = 232 }
+	add_to_array = { parliament_y_array = 121 }
+	add_to_array = { parliament_x_array = 258 }
+	add_to_array = { parliament_y_array = 102 }
+	add_to_array = { parliament_x_array = 224 }
+	add_to_array = { parliament_y_array = 136 }
+	add_to_array = { parliament_x_array = 201 }
+	add_to_array = { parliament_y_array = 158 }
+	add_to_array = { parliament_x_array = 250 }
+	add_to_array = { parliament_y_array = 117 }
+	add_to_array = { parliament_x_array = 271 }
+	add_to_array = { parliament_y_array = 117 }
+	add_to_array = { parliament_x_array = 245 }
+	add_to_array = { parliament_y_array = 136 }
+	add_to_array = { parliament_x_array = 219 }
+	add_to_array = { parliament_y_array = 155 }
+	add_to_array = { parliament_x_array = 263 }
+	add_to_array = { parliament_y_array = 134 }
+	add_to_array = { parliament_x_array = 237 }
+	add_to_array = { parliament_y_array = 153 }
+	add_to_array = { parliament_x_array = 282 }
+	add_to_array = { parliament_y_array = 135 }
+	add_to_array = { parliament_x_array = 255 }
+	add_to_array = { parliament_y_array = 154 }
+	add_to_array = { parliament_x_array = 212 }
+	add_to_array = { parliament_y_array = 175 }
+	add_to_array = { parliament_x_array = 272 }
+	add_to_array = { parliament_y_array = 153 }
+	add_to_array = { parliament_x_array = 229 }
+	add_to_array = { parliament_y_array = 173 }
+	add_to_array = { parliament_x_array = 290 }
+	add_to_array = { parliament_y_array = 154 }
+	add_to_array = { parliament_x_array = 245 }
+	add_to_array = { parliament_y_array = 173 }
+	add_to_array = { parliament_x_array = 262 }
+	add_to_array = { parliament_y_array = 173 }
+	add_to_array = { parliament_x_array = 279 }
+	add_to_array = { parliament_y_array = 173 }
+	add_to_array = { parliament_x_array = 295 }
+	add_to_array = { parliament_y_array = 173 }
+	add_to_array = { parliament_x_array = 217 }
+	add_to_array = { parliament_y_array = 193 }
+	add_to_array = { parliament_x_array = 233 }
+	add_to_array = { parliament_y_array = 193 }
+	add_to_array = { parliament_x_array = 250 }
+	add_to_array = { parliament_y_array = 193 }
+	add_to_array = { parliament_x_array = 266 }
+	add_to_array = { parliament_y_array = 193 }
+	add_to_array = { parliament_x_array = 282 }
+	add_to_array = { parliament_y_array = 193 }
+	add_to_array = { parliament_x_array = 298 }
+	add_to_array = { parliament_y_array = 193 }
+}
+refresh_parliament_data = {
+	# Put simply an array stores a list of things, used here to store the list of parties and list of seats.
+	
+	clear_array = parliament_seat_array
+
+	set_temp_variable = { party_1 = party_popularity_100@democratic }
+	round_temp_variable = party_1
+	set_temp_variable = { party_2 = party_popularity_100@democratic_socialist }
+	round_temp_variable = party_2
+	set_temp_variable = { party_3 = party_popularity_100@unaligned_right }
+	round_temp_variable = party_3
+	set_temp_variable = { party_4 = party_popularity_100@neutrality }
+	round_temp_variable = party_4
+	set_temp_variable = { party_5 = party_popularity_100@communism }
+	round_temp_variable = party_5
+	set_temp_variable = { party_6 = party_popularity_100@communism_totalitarian }
+	round_temp_variable = party_6
+	
+
+	# parliament_seat_array stores the list of seat numbers for each party
+	add_to_array = { parliament_seat_array = party_1 } # Party A
+	add_to_array = { parliament_seat_array = party_2 } # Party B
+	add_to_array = { parliament_seat_array = party_3 } # Party C
+	add_to_array = { parliament_seat_array = party_4 } # Party D
+	add_to_array = { parliament_seat_array = party_5 } # Party D
+	add_to_array = { parliament_seat_array = party_6 } # Party D
+
+	# Set up the positions of the dots for the semicircle parliament
+	parliament_gui_positions = yes
+
+	# Modify what shows up in the gui
+	reload_parliament_gui = yes
+}
+randomize_political_parties = {
+	random_list = {
+		16 = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.01
+			}
+		}
+		16 = {
+			add_popularity = {
+				ideology = democratic_socialist
+				popularity = 0.01
+			}
+		}
+		16 = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.01
+			}
+		}
+		16 = {
+			add_popularity = {
+				ideology = communism_totalitarian
+				popularity = 0.01
+			}
+		}
+		16 = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.01
+			}
+		}
+		16 = {
+			add_popularity = {
+				ideology = unaligned_right
+				popularity = 0.01
+			}
+		}
+	}
+}

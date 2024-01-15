@@ -1,0 +1,2477 @@
+focus_tree = {
+	id = prc_1946_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = PRC
+		}
+		modifier = {
+			add = -50
+			date > 1950.1.1
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+
+	###################################################
+	#	Crush the Kuomintang - Attack Kuomintang Forces
+	###################################################
+	focus = {
+		id = PRC_crush_the_kuomintang
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_PRC_crush_the_kuomintang
+		x = 32
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_STATE_ACTION_FOCUSES }
+
+		select_effect = {}
+
+		completion_reward = {
+			army_experience = 50
+			custom_effect_tooltip = CRUSH_KMT_FOCUS_EFFECT_1
+			custom_effect_tooltip = CRUSH_KMT_FOCUS_EFFECT_2
+			hidden_effect = {
+				unlock_national_focus = PRC_secure_soviet_aid
+				unlock_national_focus = PRC_civil_war_operations
+				add_dynamic_modifier = {
+					modifier = cw_ccw_invasion_preperation_dynamic_modifier
+				}
+				set_country_flag = { flag = free_border_incidents value = 1 days = 365 }
+				set_country_flag = { flag = free_border_incidents value = 1 days = 365 }
+				if = {
+					limit = {
+						ROOT = { is_ai = yes }
+					}
+					set_country_flag = { flag = initiate_border_skirmish value = 1 days = 365 }
+					615 = {
+						every_neighbor_state = {
+							limit = {
+								is_controlled_by = CHI 
+							}
+							set_state_flag = { flag = border_skirmish_target value = 1 days = 365 }
+						} 
+					}
+					743 = {
+						every_neighbor_state = {
+							limit = {
+								is_controlled_by = CHI 
+							}
+							set_state_flag = { flag = border_skirmish_target value = 1 days = 365 }
+						} 
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_attack_the_kuomintang
+		available = {
+			CHI = { exists = yes }
+			if = {
+				limit = {
+					is_ai = no
+				}
+				has_army_experience > 75
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_prc_remove_chiang_kai_shek
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_ANNEXATION }
+		relative_position_id = PRC_crush_the_kuomintang
+		will_lead_to_war_with = CHI
+
+		select_effect = {}
+
+		completion_reward = {
+			add_war_support = 0.10
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				add_timed_idea = { idea = cw_annihilate_kill_kill days = 600 }
+				declare_war_on = {
+					target = CHI
+					type = civil_war
+				}
+				
+				if = {
+				
+					limit = { XSM = { NOT = {   has_government = communism_totalitarian }}}
+					declare_war_on = {
+						target = XSM
+						type = annex_everything
+					}
+					
+					else = {
+						
+						if = { limit = { XSM = { is_puppet_of = SOV }}
+							SOV = {
+								country_event = sov_prc.1
+								
+							}
+							
+							else = {
+								annex_country = {
+									target = XSM
+									transfer_troops = yes
+								}
+							}
+						}
+					}
+				
+				}
+				else = {
+					create_wargoal = {
+						type = civil_war
+						target = CHI
+					}
+					
+					if = {
+						
+						limit = { XSM = { NOT = {   has_government = communism_totalitarian }}}
+						create_wargoal = {
+							type = civil_war
+							target = XSM
+						}
+						
+						
+						else = {
+						
+							SOV = {
+								country_event = sov_prc.1
+								
+							}
+					
+						}
+					}
+				}
+			}	
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_civil_war_operations
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 0
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_crush_the_kuomintang }
+		relative_position_id = PRC_crush_the_kuomintang
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_conduct_kuomintang_raids
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_prc_infiltration
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_STATE_ACTION_FOCUSES }
+		prerequisite = { focus = PRC_civil_war_operations }
+		relative_position_id = PRC_civil_war_operations		
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = KMT_RAIDS_FOCUS_EFFECT
+			set_country_flag = { flag = free_border_raids value = 1 days = 365 }
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				set_country_flag = { flag = initiate_border_raids value = 1 days = 365 }
+				615 = {
+					every_neighbor_state = {
+						limit = {
+							is_controlled_by = CHI 
+						}
+						set_state_flag = { flag = border_raid_target value = 1 days = 365 }
+					} 
+				}
+				743 = {
+					every_neighbor_state = {
+						limit = {
+							is_controlled_by = CHI 
+						}
+						set_state_flag = { flag = border_raid_target value = 1 days = 365 }
+					} 
+				}
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_civil_war_operations_seize_manchuria
+		available = {
+			NOT = { has_war_with = CHI }
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = "[CHI.GetFlag][CHI.GetName] - Controls Any Part of Manchuria."
+					OR = {
+						715 = { is_owned_by = CHI }
+						610 = { is_owned_by = CHI }
+						716 = { is_owned_by = CHI }
+						328 = { is_owned_by = CHI }
+						717 = { is_owned_by = CHI }
+						714 = { is_owned_by = CHI }
+						761 = { is_owned_by = CHI }
+					}
+				}
+				AND = {
+					date > 1947.1.1
+					custom_trigger_tooltip = {
+						tooltip = "[SOV.GetFlag][SOV.GetName] - Controls Any Part of Manchuria."
+						OR = {
+							715 = { is_owned_by = SOV }
+							610 = { is_owned_by = SOV }
+							716 = { is_owned_by = SOV }
+							328 = { is_owned_by = SOV }
+							717 = { is_owned_by = SOV }
+							714 = { is_owned_by = SOV }
+							761 = { is_owned_by = SOV }
+						}
+					}
+				}
+			}		
+		}
+		bypass = {
+		}
+		
+		icon = GFX_PRC_seize_manchuria
+		x = 0
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = PRC_conduct_kuomintang_raids }
+		relative_position_id = PRC_civil_war_operations		
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "SEIZE_MANCURIA_FOCUS_EFFECT"
+			715 = { set_state_flag = { flag = territory_change_allowed value = 1 days = 90 } }
+			610 = { set_state_flag = { flag = territory_change_allowed value = 1 days = 90 } }
+			716 = { set_state_flag = { flag = territory_change_allowed value = 1 days = 90 } }
+			328 = { set_state_flag = { flag = territory_change_allowed value = 1 days = 90 } }
+			717 = { set_state_flag = { flag = territory_change_allowed value = 1 days = 90 } }
+			714 = { set_state_flag = { flag = territory_change_allowed value = 1 days = 90 } }
+			761 = { set_state_flag = { flag = territory_change_allowed value = 1 days = 90 } }		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = PRC_civil_war_operations_west_china
+		available = {
+			has_war_with = CHI
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_major_war
+		x = -2
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_civil_war_operations }
+		relative_position_id = PRC_civil_war_operations		
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = CIVIL_WAR_PREPERATIONS_CHANGE_HEAT_ATTRITION
+			add_to_variable = { ccw_heat_attrition = -0.10 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = PRC_civil_war_operations_yellow_river_crossing
+		available = {
+			has_war_with = CHI
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_major_war
+		x = 2
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_civil_war_operations }
+		relative_position_id = PRC_civil_war_operations		
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = CIVIL_WAR_PREPERATIONS_CHANGE_MAX_PLANNING
+			add_to_variable = { ccw_max_planning = 0.10 }
+			custom_effect_tooltip = CIVIL_WAR_PREPERATIONS_CHANGE_ARMY_ORG
+			add_to_variable = { ccw_army_org = 0.10 }		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = PRC_civil_war_operations_remove_kmt_insuregency
+		available = {
+			NOT = { has_war_with = CHI }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_PRC_eradicate_kmt_insurgency
+		x = 0
+		y = 3
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_FRA_OCCUPATION_COST }
+		prerequisite = { focus = PRC_civil_war_operations_west_china focus = PRC_civil_war_operations_yellow_river_crossing }
+		relative_position_id = PRC_civil_war_operations		
+
+		select_effect = {}
+
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					NOT = {
+						is_claimed_by = SIK
+						is_core_of = TIB
+					}
+					resistance_target > 0
+				}
+				add_state_modifier = {
+					modifier = {
+						resistance_target = -0.1
+						compliance_gain = 0.20
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	#######################################################
+	#	Crush the Kuomintang - Central Military Commission
+	#######################################################
+	focus = {
+		id = PRC_central_military_commision
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_soviet_politics
+		x = -7
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = PRC_crush_the_kuomintang }
+		relative_position_id = PRC_crush_the_kuomintang	
+
+		select_effect = {}
+
+		completion_reward = {
+			add_command_power = 20
+			custom_effect_tooltip = CIVIL_WAR_PREPERATIONS_CHANGE_PLANNING_SPEED
+			add_to_variable = { ccw_planning_speed = 0.10 }			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_establish_plaaf
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_air_fighter2
+		x = 2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_central_military_commision }
+		relative_position_id = PRC_central_military_commision	
+
+		select_effect = {}
+
+		completion_reward = {
+			air_experience = 50
+			custom_effect_tooltip = CIVIL_WAR_PREPERATIONS_CHANGE_AIR_XP_GAIN		
+			add_to_variable = { ccw_air_experience_gain = 0.10 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_recruit_soviet_pilots
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_PRC_recruit_soviet_pilots
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_establish_plaaf }
+		relative_position_id = PRC_establish_plaaf
+		mutually_exclusive = { focus = PRC_recruit_kmt_pilots }
+
+		select_effect = {}
+
+		completion_reward = {
+			SOV = {
+				create_production_license = {
+					target = ROOT
+					equipment = {
+						type = fighter_equipment_3
+					}
+					cost_factor = 0
+				}
+				create_production_license = {
+					target = ROOT
+					equipment = {
+						type = CAS_equipment_3
+					}
+					cost_factor = 0
+				}	
+			}
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_3
+				amount = 100
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = CAS_equipment_3
+				amount = 100
+				producer = SOV
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_recruit_kmt_pilots
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_PRC_recruit_kmt_pilots
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_establish_plaaf }
+		relative_position_id = PRC_establish_plaaf
+		mutually_exclusive = { focus = PRC_recruit_soviet_pilots }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_3
+				amount = 200
+				producer = CHI
+			}
+			add_equipment_to_stockpile = {
+				type = CAS_equipment_1
+				amount = 200
+				producer = CHI
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_appoint_liu_yolau
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_build_airforce
+		x = 0
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_recruit_soviet_pilots focus = PRC_recruit_kmt_pilots }
+		relative_position_id = PRC_establish_plaaf
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = MAKES_THE_FOLLOWING_ADVISOR_AVAILABLE_TT
+			show_ideas_tooltip = prc_dm_liu_yalou
+			set_country_flag = established_prc_air_force		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_establish_defense_ministry
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = -2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = PRC_central_military_commision }
+		relative_position_id = PRC_central_military_commision
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = ALLOW_DEFENSE_MINISTER_TT
+			set_country_flag = established_defense_ministry
+			custom_effect_tooltip = CIVIL_WAR_PREPERATIONS_CHANGE_PLANNING_SPEED
+			add_to_variable = { ccw_planning_speed = 0.10 }
+			custom_effect_tooltip = CIVIL_WAR_PREPERATIONS_CHANGE_ARMY_MORALE
+			add_to_variable = { ccw_army_morale = 0.10 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = PRC_establish_officer_core
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_military_deal
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_establish_defense_ministry }
+		relative_position_id = PRC_establish_defense_ministry
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = CIVIL_WAR_PREPERATIONS_CHANGE_MAX_PLANNING
+			add_to_variable = { ccw_army_morale = 0.10 }
+			create_corps_commander = {
+				id = 145104
+				name = "Huang Kecheng"
+				picture = "PRC_CC_145104.dds"
+				traits = { trait_SPR_anti_stalinist_loyalties }
+				skill = 5
+				attack_skill = 4
+				defense_skill = 5
+				planning_skill = 3
+				logistics_skill = 4
+			}
+			create_corps_commander = {
+				id = 145105	
+				name = "Qin Jiwei"
+				picture = "PRC_CC_145105.dds"
+				traits = { trait_SPR_stalinist_loyalties }
+				skill = 3
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 3
+			}
+			create_corps_commander = {
+				id = 145106	
+				name = "Xu Guangda"
+				picture = "PRC_CC_145106.dds"
+				traits = { trait_SPR_stalinist_loyalties }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 3
+			}
+			create_corps_commander = {
+				id = 145107	
+				name = "Xu Haidong"
+				picture = "PRC_CC_145107.dds"
+				traits = { trait_SPR_stalinist_loyalties }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 3
+				logistics_skill = 3
+			}
+			create_corps_commander = {
+				id = 145108	
+				name = "Mao Anying"
+				picture = "PRC_CC_145108.dds"
+				traits = { politically_connected trait_SPR_stalinist_loyalties }
+			}
+			create_corps_commander = {
+				id = 145109
+				name = "Wen Yucheng"
+				picture = "PRC_CC_145109.dds"
+				traits = { trait_SPR_stalinist_loyalties }
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_rally_the_workers
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_YUG_pan_slavic_congress
+		x = 0
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRC_establish_officer_core }
+		relative_position_id = PRC_establish_officer_core
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = CIVIL_WAR_PREPERATIONS_CHANGE_PROD_EFFICIENCY
+			add_to_variable = { ccw_factory_max_effiriency = 0.10 }
+			add_war_support = 0.10		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_prioritize_military_production
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRC_establish_defense_ministry }
+		relative_position_id = PRC_establish_defense_ministry
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = CIVIL_WAR_PREPERATIONS_CHANGE_MIL_FACTORY_OUTPUT
+			add_to_variable = { ccw_industrial_capacity = 0.10 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_enforce_emergency_production_laws
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_forceful_treaty
+		x = 0
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRC_prioritize_military_production }
+		relative_position_id = PRC_prioritize_military_production
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = CIVIL_WAR_PREPERATIONS_CHANGE_MIL_FACTORY_OUTPUT
+			add_to_variable = { ccw_industrial_capacity = 0.50 }
+			add_stability = -0.05
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_seize_agricultural_factories
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_soviet_construction
+		x = 0
+		y = 3
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRC_rally_the_workers focus = PRC_enforce_emergency_production_laws }
+		relative_position_id = PRC_establish_defense_ministry
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = CIVIL_WAR_PREPERATIONS_CHANGE_FACTORY_CONVERSION
+			add_to_variable = { ccw_factory_conversion = 0.50 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	###################################################
+	#	Crush the Kuomintang - Secure Soviet Aid
+	###################################################
+	focus = {
+		id = PRC_secure_soviet_aid
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		x = 5
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_crush_the_kuomintang }
+		relative_position_id = PRC_crush_the_kuomintang
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_recruit_soviet_advisors
+		available = {
+			has_war = yes
+			custom_trigger_tooltip = {
+				tooltip = "Receiving Military Aid from [communist_leader.GetName]"
+				has_dynamic_modifier = {
+					modifier = cw_military_aid_target_modifier
+					scope = event_target:communist_leader
+				}
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_military_mission
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_secure_soviet_aid }
+		relative_position_id = PRC_secure_soviet_aid
+
+		select_effect = {}
+
+		completion_reward = {
+			add_ideas = communist_total_military_advisors
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_purchase_soviet_artillery
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_army_artillery2
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_secure_soviet_aid }
+		relative_position_id = PRC_secure_soviet_aid
+
+		select_effect = {}
+
+		completion_reward = {
+			add_equipment_to_stockpile = { type = artillery_equipment_3 amount = 1000 producer = SOV }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_purchase_soviet_tanks
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_army_tanks
+		x = 0
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_purchase_soviet_artillery focus = PRC_recruit_soviet_advisors }
+		relative_position_id = PRC_secure_soviet_aid
+
+		select_effect = {}
+
+		completion_reward = {
+			add_equipment_to_stockpile = { type = light_tank_equipment_3 amount = 200 producer = SOV }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	###########################################
+	#	A New China - Establish Our Dominance
+	###########################################	
+	focus = {
+		id = PRC_a_new_china
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_prc_proclaim_the_peoples_republic
+		x = 12
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.10		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_establish_our_dominance
+		available = {			
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_chi_one_china_policy
+		x = -6
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES }
+		prerequisite = { focus = PRC_a_new_china }
+		relative_position_id = PRC_a_new_china
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_support_xinxiang_rebellion
+		available = {
+			SIK = { exists = yes }
+			SIK = { has_war_with = CHI }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_BUL_condemn_macedonian_organizations
+		x = -2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES }
+		prerequisite = { focus = PRC_establish_our_dominance }
+		relative_position_id = PRC_establish_our_dominance
+
+		select_effect = {}
+
+		completion_reward = {
+			send_equipment_fraction = { target = SIK value = 0.05 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_beitashan_incident 
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_provoke_border_clashes
+		x = 2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_STATE_ACTION_FOCUSES }
+		prerequisite = { focus = PRC_establish_our_dominance }
+		relative_position_id = PRC_establish_our_dominance
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = MONGOLIAN_RAIDS_TT
+			hidden_effect = {
+				if = {
+					limit = {
+						MON = { is_ai = yes }
+					}
+					set_country_flag = { flag = initiate_border_skirmish value = 1 days = 180 }
+					330 = {
+						every_neighbor_state = {
+							limit = {
+								is_controlled_by = CHI 
+							}
+							set_state_flag = { flag = border_skirmish_target value = 1 days = 180 }
+						} 
+					}
+					330 = {
+						every_neighbor_state = {
+							limit = {
+								is_controlled_by = XSM 
+							}
+							set_state_flag = { flag = border_skirmish_target value = 1 days = 180 }
+						} 
+					}					
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_support_vietnam_communists
+		available = {
+			VIN = {
+				has_war_with = FRA
+				is_neighbor_of = ROOT
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_tank_production
+		x = -1
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES }
+		prerequisite = { focus = PRC_establish_our_dominance }
+		relative_position_id = PRC_establish_our_dominance
+
+		select_effect = {}
+
+		completion_reward = {
+			VIN = { cw_give_military_aid = yes }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_demand_indochina_withdrawal
+		available = {
+			VIN = { has_war_with = FRA }
+			unsc_in_session = no
+			unsc_implementing_resolution = no			
+		}
+		bypass = {
+		}
+		
+		icon = GFX_prc_vietnam_withdrawal
+		x = -1
+		y = 3
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES }
+		prerequisite = { focus = PRC_support_vietnam_communists }
+		relative_position_id = PRC_establish_our_dominance
+
+		select_effect = {
+			SVI = { cw_unsc_resolution_foreign_withdrawal = yes }
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				SVI = { cw_unsc_resolution_foreign_withdrawal = yes }
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = PRC_support_burma_communists
+		available = {
+			BUR = { has_civil_war = yes }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_tank_production
+		x = 1
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES }
+		prerequisite = { focus = PRC_establish_our_dominance }
+		relative_position_id = PRC_establish_our_dominance
+
+		select_effect = {}
+
+		completion_reward = {
+			random_country_with_original_tag = {
+				original_tag_to_check = BUR
+				limit = {
+					has_war_with = BUR
+				}
+				cw_give_military_aid = yes
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_demand_burma_withdrawal
+		available = {
+			BUR = { has_civil_war = yes }
+			unsc_in_session = no
+			unsc_implementing_resolution = no			
+		}
+		bypass = {
+		}
+		
+		icon = GFX_prc_burma_withdrawal
+		x = 1
+		y = 3
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES }
+		prerequisite = { focus = PRC_support_burma_communists }
+		relative_position_id = PRC_establish_our_dominance
+
+		select_effect = {
+			BUR = { cw_unsc_resolution_foreign_withdrawal = yes }
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				BUR = { cw_unsc_resolution_foreign_withdrawal = yes }
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = PRC_conduct_propoganda_campaign_in_asia
+		available = {
+			has_war = no
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_por_workers_of_iberia
+		x = 0
+		y = 4
+		cost = 20
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_PARTIES_FOCUSES }
+		prerequisite = { focus = PRC_establish_our_dominance }
+		relative_position_id = PRC_establish_our_dominance
+
+		select_effect = {}
+
+		completion_reward = {
+			every_country = {
+				limit = {
+					capital_scope = { is_on_continent = asia }
+				}
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.1
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	###########################################
+	#	A New China - Government Reform
+	###########################################	
+	focus = {
+		id = PRC_government_reform
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_propaganda
+		x = 0
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = PRC_a_new_china }
+		relative_position_id = PRC_a_new_china
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_pardon_japanese_collaborators
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_improve_relations
+		x = -1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_STABILITY }
+		prerequisite = { focus = PRC_government_reform }
+		relative_position_id = PRC_government_reform
+		mutually_exclusive = { focus = PRC_execute_japanese_collaborators }
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = EFFECT_INCREASE_WITH_TERRITORY_TT
+			add_stability = -0.10
+			every_owned_state = {
+				limit = {
+					OR = {
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+						has_state_category = city
+						has_state_category = large_city
+						has_state_category = large_town
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_execute_japanese_collaborators
+		available = {			
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_secret_weapon
+		x = 1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_STABILITY FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRC_government_reform }
+		relative_position_id = PRC_government_reform
+		mutually_exclusive = { focus = PRC_pardon_japanese_collaborators }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_stability = 0.10
+			swap_ideas = {
+				remove_idea = PRC_nationalist_mismanagment_5
+				add_idea = PRC_nationalist_mismanagment_4
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 50
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_promote_women_equality
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_demand_territory
+		x = -1
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = PRC_government_reform }
+		relative_position_id = PRC_government_reform
+		mutually_exclusive = { focus = PRC_promote_traditional_family_roles }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_political_power = 50
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 50
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_promote_traditional_family_roles
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_military_academy
+		x = 1
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_STABILITY }
+		prerequisite = { focus = PRC_government_reform }
+		relative_position_id = PRC_government_reform
+		mutually_exclusive = { focus = PRC_promote_women_equality }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_stability = 0.10
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = PRC_enforce_the_eight_points
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_support_the_left_right
+		x = 0
+		y = 3
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_FRA_OCCUPATION_COST }
+		prerequisite = { focus = PRC_promote_women_equality focus = PRC_promote_traditional_family_roles  }
+		relative_position_id = PRC_government_reform
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "Will increase compliance gain on all occupied territory for 360 days."
+			hidden_effect = {
+				add_timed_idea = {
+					idea = PRC_enforce_eight_points
+					days = 360
+				}
+			}		
+		}
+		ai_will_do = {
+			base = 50
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_set_up_laogai
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_construction2
+		x = 0
+		y = 4
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_FRA_OCCUPATION_COST }
+		prerequisite = { focus = PRC_enforce_the_eight_points }
+		relative_position_id = PRC_government_reform
+
+		select_effect = {}
+
+		completion_reward = {
+			add_ideas = cw_gulag_system_1
+		}
+		ai_will_do = {
+			base = 50
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_embrace_maoism
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_prc_maoism
+		x = 0
+		y = 5
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_PARTIES_FOCUSES }
+		prerequisite = { focus = PRC_set_up_laogai }
+		relative_position_id = PRC_government_reform
+
+		select_effect = {}
+
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.3
+			}
+			swap_ideas = {
+				remove_idea = cw_ni_patriotism
+				add_idea = cw_ni_personality_cult
+			}
+		}
+		ai_will_do = {
+			base = 50
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_proclaim_peoples_republic
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "[ROOT.GetName] Controls all of Mainland China."
+				owns_state = 613
+				owns_state = 592
+				owns_state = 608
+				owns_state = 593
+				owns_state = 594
+				owns_state = 595
+				owns_state = 596
+				owns_state = 613
+			}		
+		}
+		bypass = {
+		}
+		
+		icon = GFX_PRC_proclaim_peoples_republic
+		x = 0
+		y = 6
+		cost = 15
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_embrace_maoism }
+		relative_position_id = PRC_government_reform
+
+		select_effect = {}
+
+		completion_reward = {
+			remove_dynamic_modifier = {
+				modifier = cw_ccw_invasion_preperation_dynamic_modifier
+			}		
+			set_capital = { state = 608 }
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = PRC_OC_communism_totalitarian
+			news_event = cw_historic_events.17
+			every_state = { limit = { NOT = { state = 524 is_core_of = PRC is_claimed_by = SIK is_claimed_by = TIB } is_core_of = CHI } add_core_of = ROOT }
+			hidden_effect = {
+				set_war_support = 0.3
+				add_ideas = PRC_demoralized_intellectuals
+				add_ideas = PRC_uneducated_rural_population_5
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_claimed_by = SIK
+							is_core_of = SIK
+						}
+					}
+					start_resistance = yes
+					set_compliance = 10
+					set_resistance = 10
+					
+					add_state_modifier = {
+						modifier = {
+							resistance_target = 0.1
+							compliance_gain = -0.5
+						}
+					}
+				}
+				random_list = {
+					25 = { country_event = { id= cw_temp_events.3 days = 50 } }
+					25 = { country_event = { id= cw_temp_events.3 days = 100 } }
+					25 = { country_event = { id= cw_temp_events.3 days = 200 } }
+					25 = { country_event = { id= cw_temp_events.3 days = 30 } }
+				}
+			}
+		}
+		ai_will_do = {
+			base = 50
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	###########################################
+	#	A New China - Land Reform
+	###########################################	
+	focus = {
+		id = PRC_land_reform
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_treaty
+		x = 6
+		y = 1
+		cost = 4
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = PRC_a_new_china }
+		relative_position_id = PRC_a_new_china
+
+		select_effect = {}
+
+		completion_reward = {
+			hidden_effect = {
+				unlock_national_focus = PRC_land_reform
+				unlock_national_focus = PRC_government_reform
+				unlock_national_focus = PRC_establish_our_dominance
+			}
+			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_land_to_the_tiller
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_self_management
+		x = -2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_land_reform }
+		relative_position_id = PRC_land_reform
+		mutually_exclusive = { focus = PRC_land_redestribution }
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "This will cause the Land Law to have POSITIVE effects on stability."
+			every_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+							has_state_category = large_city
+							has_state_category = metropolis
+							has_state_category = megalopolis
+							has_state_category = city
+							has_state_category = large_city
+						}
+					}
+				}
+				add_resource = {
+					type = crops
+					amount = 5
+					state = THIS
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_compensate_land_owners
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_mex_privatisation
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = PRC_land_to_the_tiller }
+		relative_position_id = PRC_land_to_the_tiller
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "This will cost us civilian factories once the Land Law has been executed."
+			add_stability = 0.05
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = PRC_land_redestribution
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_war_with_comintern
+		x = 2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_STABILITY }
+		prerequisite = { focus = PRC_land_reform }
+		relative_position_id = PRC_land_reform
+		mutually_exclusive = { focus = PRC_land_to_the_tiller }
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "This will cause the Land Law to have NEGATIVE effects on stability."
+			add_stability = -0.10
+			every_owned_state = {
+				limit = {
+					NOT = {
+						OR = {
+							has_state_category = large_city
+							has_state_category = metropolis
+							has_state_category = megalopolis
+							has_state_category = city
+							has_state_category = large_city
+						}
+					}
+				}
+				add_resource = {
+					type = crops
+					amount = 10
+					state = THIS
+				}
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_allow_show_trials
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_CZE_german_puppet
+		x = -1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_WAR_SUPPORT }
+		prerequisite = { focus = PRC_land_redestribution }
+		relative_position_id = PRC_land_redestribution
+
+		select_effect = {}
+
+		completion_reward = {
+			add_war_support = 0.1
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_new_land_law
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 0
+		y = 3
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_WAR_SUPPORT }
+		prerequisite = { focus = PRC_allow_show_trials focus = PRC_compensate_land_owners }
+		prerequisite = { focus = PRC_land_redestribution focus = PRC_land_to_the_tiller }
+		relative_position_id = PRC_land_reform
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = PRC_land_to_the_tiller
+				}
+				add_timed_idea = {
+					idea = PRC_mao_land_reform_with_compensation
+					days = 1825
+				}
+				else = {
+					add_timed_idea = {
+						idea = PRC_mao_land_reform_no_compensation
+						days = 1825
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_seize_manchurian_industry
+		available = {
+			OR = {
+				controls_state = 716
+				controls_state = 714
+				controls_state = 715
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRC_new_land_law }
+		relative_position_id = PRC_new_land_law
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = PRC_land_to_the_tiller
+				}
+				if = {
+					limit = {
+						controls_state = 716
+					}
+					716 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						controls_state = 610
+					}
+					610 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						controls_state = 715
+					}
+					715 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						controls_state = 716
+					}
+					716 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 4
+							instant_build = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						controls_state = 610
+					}
+					610 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 4
+							instant_build = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						controls_state = 328
+					}
+					328 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 4
+							instant_build = yes
+						}
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_seize_mongolian_industry
+		available = {
+			OR = {
+				controls_state = 612
+				controls_state = 621
+				controls_state = 746
+			}		
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_construct_civ_factory
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRC_new_land_law }
+		relative_position_id = PRC_new_land_law
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = PRC_land_to_the_tiller
+				}
+				if = {
+					limit = {
+						controls_state = 612
+					}
+					612 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						controls_state = 621
+					}
+					621 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						controls_state = 756
+					}
+					756 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 2
+							instant_build = yes
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						controls_state = 612
+					}
+					612 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 4
+							instant_build = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						controls_state = 621
+					}
+					621 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 4
+							instant_build = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						controls_state = 756
+					}
+					756 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 4
+							instant_build = yes
+						}
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRC_incorporate_east_turkestan_republic
+		available = {
+			SIK = { exists = yes }
+			SIK = { has_war = no }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_prc_integrate_xinxiang
+		x = 0
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = PRC_new_land_law }
+		relative_position_id = PRC_new_land_law
+
+		select_effect = {}
+
+		completion_reward = {
+		
+			if = {
+				limit = { SIK = { is_puppet_of = SOV	} }
+						
+						
+				SOV = {
+					country_event = sov_prc.2
+				}
+				
+				
+				else = {
+					annex_country = {
+						target = SIK
+						transfer_troops = yes
+					}
+				
+				}
+			
+			}
+			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+}

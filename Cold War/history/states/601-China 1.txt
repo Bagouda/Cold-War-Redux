@@ -1,0 +1,32 @@
+state = {
+	id=601
+	local_supplies=0.0 
+	name="STATE_601"
+	state_category=wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 10856 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = CHI
+		add_core_of = CHI
+		add_claim_by= PRC
+		add_claim_by= TIB
+		
+		1951.5.23 = {
+		owner = PRC
+		}
+		victory_points = {
+			10856 1
+		}		
+	}	
+	resources={
+		oil=2.000
+	}
+	buildings_max_level_factor=1.000
+	manpower=368200
+	provinces={
+		4407 5018 5080 5102 8041 8059 10741 10856 
+	}
+}

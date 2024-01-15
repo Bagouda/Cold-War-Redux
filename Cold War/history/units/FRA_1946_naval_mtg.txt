@@ -1,0 +1,40 @@
+﻿
+units= {
+
+	####### NAVAL UNITS #######
+	
+	fleet = {
+	          name = "Mediterranean fleet"
+			  naval_base = 1145
+			  task_force = {
+			  name = "Battle line"
+			  location = 1145 
+			  ship = { name = "Richelieu" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = FRA version_name = "Richelieu Class" } } }
+			  ship = { name = "Le Fantasque" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = FRA version_name = "Le Fantasque Class" } } }
+			  ship = { name = "Le Malin" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = FRA version_name = "Le Fantasque Class" } } }
+			}
+			task_force = {
+			  name = "Scout force"
+			  location = 1145 
+			  ship = { name = "Gloire" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = FRA version_name = "La Galissonniere Class" } } }
+			  ship = { name = "montcalm" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = FRA version_name = "La Galissonniere Class" } } }
+			  ship = { name = "George Leygues" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = FRA version_name = "La Galissonniere Class" } } }
+			}
+	}
+	fleet = {
+	         name = "Indochina fleet"
+			 naval_base = 4119
+			 task_force = {
+			 name = "Indian ocean Flotilla"
+			  location = 4119 
+			ship = { name = "Bearn" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = FRA version_name = "Bearn Class" } } 
+				
+			}
+			ship = { name = "Doquesne" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = FRA version_name = "La Galissonniere Class" } } }
+			ship = { name = "Tourville" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = FRA version_name = "La Galissonniere Class" } } }
+			}
+	}
+	
+	
+} 
+

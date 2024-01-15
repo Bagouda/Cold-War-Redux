@@ -1,0 +1,26 @@
+state={
+	id=801
+	local_supplies=0.0 
+	name="STATE_801"
+	history = {
+ 	add_to_array = { list_victory_point = 6521 }
+ 	set_variable = { victory_point = 50 }
+		buildings = {
+			infrastructure = 2
+			air_base = 3
+		}
+		owner = USA
+		add_core_of = BRL
+		add_core_of = GER
+		
+		victory_points = {
+			6521 50 
+		}
+	}
+	provinces={
+		6521 
+	}
+	manpower= 436600
+
+	state_category=large_city
+}

@@ -1,0 +1,156 @@
+is_unsc_member = {
+	OR = {
+		is_in_array = {
+			array = global.unsc_non_permanent_members_array
+			value = THIS.id
+		}
+		is_in_array = {
+			array = global.unsc_permanent_members_array
+			value = THIS.id
+		}
+	}
+}
+eligable_to_join_unsc = {
+	is_unsc_member = no
+	NOT = {
+		OR = {
+			tag = EUU
+			tag = ARL
+			tag = AFU
+			tag = UNN
+			has_country_flag = left_unsc
+			has_government = colonial
+			has_idea = city_state
+			has_idea = cw_non_recognized_state
+			has_idea = cw_partially_recognized_state
+			has_country_flag = recent_removal_from_unsc
+		}
+	}	
+}
+unsc_sanctions_allowed = {
+	custom_trigger_tooltip = {
+		tooltip = "Eligible for sanctions by Security Council."
+		has_country_flag = eligable_unsc_sanctions_mild
+	}
+}
+sanctioned_by_unsc = {
+	custom_trigger_tooltip = {
+		tooltip = "Is sanctioned by the Security Council."
+		is_in_array = {
+			array = global.unsc_sanctioned_countries_array
+			value = THIS.id
+		}
+	}
+}
+unsc_in_session = {
+	custom_trigger_tooltip = {
+		tooltip = "The Security Council is NOT in session."
+		check_variable = { global.unsc_resolution_vote_timer > 0 }
+	}
+}
+
+unsc_implementing_resolution = {
+	custom_trigger_tooltip = {
+		tooltip = "A Security Council resolution is NOT being implemented."
+		has_global_flag = unsc_implementing_resolution_flag
+	}
+}
+
+unsc_no_non_permanent_members = {
+	has_game_rule = {
+		rule = unsc_members
+		option = UNSC_ONLY_PERM
+	}
+}
+
+unsc_has_state_vote_ukr = {
+	AND = {
+		original_tag = SOV	
+		SOV = {
+			is_in_array = {
+				array = global.unsc_permanent_members_array
+				value = THIS.id
+			}
+		}		
+		OR = {
+			AND = {
+				UKR = { is_puppet_of = SOV }
+				NOT = {
+					UKR = {
+							OR = {
+							is_in_array = {
+								array = global.unsc_non_permanent_members_array
+								value = THIS.id
+							}
+							is_in_array = {
+								array = global.unsc_permanent_members_array
+								value = THIS.id
+							}
+						}
+					}
+				}				
+			}
+			AND = {
+				NOT = { country_exists = UKR }
+				SOV = { has_full_control_of_state = 202 }
+			}			
+		}
+	}
+}
+unsc_has_state_vote_blr = {
+	AND = {
+		original_tag = SOV
+		SOV = {
+			is_in_array = {
+				array = global.unsc_permanent_members_array
+				value = THIS.id
+			}
+		}
+		OR = {
+			AND = {
+				BLR = { is_puppet_of = SOV }
+				NOT = {
+					BLR = {
+							OR = {
+							is_in_array = {
+								array = global.unsc_non_permanent_members_array
+								value = THIS.id
+							}
+							is_in_array = {
+								array = global.unsc_permanent_members_array
+								value = THIS.id
+							}
+						}
+					}
+				}				
+			}
+			AND = {
+				NOT = { country_exists = BLR }
+				SOV = { has_full_control_of_state = 206 }
+			}
+		}
+	}
+}
+
+unsc_all_resolution_targets_responded = {
+	check_variable = { global.unsc_resolution_targets_counter = 0 }
+}
+
+country_has_majority_support = {
+	OR = {
+		AND = {
+			OR = { has_government = democratic has_government = democratic_socialist has_government = unaligned_right }
+			check_variable = { global.unsc_western_countries_total > global.unsc_communist_countries_total }
+		}
+		AND = {
+			OR = { has_government = communism has_government = communism_totalitarian has_government = neutrality }
+			check_variable = { global.unsc_western_countries_total < global.unsc_communist_countries_total }
+		}
+	}
+}
+unsc_majority_democratic = {
+	check_variable = { global.unsc_western_countries_total > global.unsc_communist_countries_total }
+}
+unsc_majority_communist = {
+	check_variable = { global.unsc_western_countries_total < global.unsc_communist_countries_total }
+}

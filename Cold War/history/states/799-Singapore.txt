@@ -1,0 +1,45 @@
+state={
+	id=799
+	local_supplies=0.0 
+	name="STATE_799"
+	history={
+ 	add_to_array = { list_victory_point = 12299 }
+ 	set_variable = { victory_point = 10 }
+		owner = ENG
+		add_core_of = MAL
+		
+		buildings = {
+			infrastructure = 2		
+			industrial_complex = 2
+			arms_factory = 1
+			air_base = 1
+			dockyard  = 1
+			12299 = {
+				naval_base = 6
+			}			
+		}
+		
+		1946.4.1 = {
+			owner = SGP
+		}
+		1963.8.9 = {
+			owner = MAL
+			add_core_of = MAL
+			add_core_of = SGP
+		}
+		1965.8.9 ={
+			owner = SGP
+			add_core_of = MAL
+			add_core_of = SGP
+		}
+		victory_points = {
+			12299 10 
+		}
+	}	
+	provinces={
+		12299 
+	}
+	manpower=1446600
+	state_category=metropolis
+	buildings_max_level_factor=1.000
+}

@@ -1,0 +1,36 @@
+
+state={
+	id=68
+	name="STATE_68"
+	resources={
+		aluminium=15.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 3473 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+
+		}
+		owner = POL
+		add_core_of = GER
+		1947.2.10 = {
+			remove_core_of = GER
+			add_core_of = POL
+
+		}
+		victory_points = {
+			3473 1 
+		}
+
+	}
+
+	provinces={
+		444 537 3473 6236 9387 11478 
+	}
+	manpower=1250840
+	buildings_max_level_factor=1.000
+	state_category=city
+	local_supplies=0.000
+}

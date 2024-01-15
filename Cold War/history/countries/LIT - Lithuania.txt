@@ -1,0 +1,35 @@
+﻿capital = 784
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	OOB = LIT_1946	
+	set_politics = {
+		ruling_party = democratic
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 20
+		democratic_socialist = 0
+		neutrality = 10
+		communism_totalitarian = 30
+		unaligned_right = 40
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Adolfas Ramanauskas"
+		desc = ""
+		picture = ""
+		ideology = nationalism_idolg
+		expire = 1957.11.29
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Antanas Sniečkus"
+		desc = ""
+		picture = "LITH1.dds"
+		ideology = stalinism_idolg
+		expire = 1974.1.22
+		traits = {}
+	}
+}

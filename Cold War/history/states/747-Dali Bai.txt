@@ -1,0 +1,29 @@
+state = {
+	id=747
+	local_supplies=0.0 
+	name="STATE_747"
+	state_category = pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 7965 }
+ 	set_variable = { victory_point = 3 }
+		owner = CHI
+		add_core_of = CHI
+		add_claim_by= PRC
+		
+		buildings = {
+			infrastructure = 2
+		}		
+		
+		1949.10.1 = {
+			owner = PRC
+		}
+		victory_points = {
+			7965 3 
+		}
+	}
+	buildings_max_level_factor=1.000
+	manpower=1000000
+	provinces={
+		4559 4937 5009 7965 7976 8126 10413 10863 12789 12898 
+	}
+}

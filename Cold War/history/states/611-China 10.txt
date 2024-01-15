@@ -1,0 +1,25 @@
+state = {
+	id=611
+	local_supplies=0.0 
+	name="STATE_611" # South Chahar
+	state_category = pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 11752 }
+ 	set_variable = { victory_point = 3 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = PRC
+		add_core_of = CHI
+		add_core_of = PRC		
+		add_claim_by = INM
+		
+		victory_points = {
+			11752 3
+		}
+	}
+	manpower = 1470000
+	provinces={
+		828 952 1137 1489 1590 4495 4612 6904 7545 7674 9776 10397 11752 
+	}
+}

@@ -1,0 +1,30 @@
+state = {
+	id=712
+	local_supplies=0.0 
+	name="STATE_712"
+	state_category = tiny_island
+	history = {
+		owner = ENG
+		add_core_of = ENG
+		add_claim_by = AST
+		
+		buildings = {
+			infrastructure = 1
+			13002 = {
+				naval_base = 1
+			}
+		}	
+		
+		1946.4.1 = {
+			owner = SGP
+		}
+		1955.4.1 = {
+			owner = AST
+			add_core_of = AST
+		}
+	}
+	manpower=42	
+	provinces={
+		13002 
+	}
+}

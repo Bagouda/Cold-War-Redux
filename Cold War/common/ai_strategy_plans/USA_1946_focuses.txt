@@ -1,0 +1,37 @@
+USA_historical_plan_1946 = {
+	name = "USA 1946 Focuses"
+	desc = ""
+
+	enable = {
+		tag = USA
+		is_historical_focus_on = yes
+		has_focus_tree = usa_focus_1946
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		
+	}
+
+	research = {
+	}
+
+	ideas = {
+	}
+	traits = {
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

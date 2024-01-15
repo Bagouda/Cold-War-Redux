@@ -1,0 +1,354 @@
+defined_text = {
+	name = CW_AID_PARTICIPANTS_COM_REF_LOC
+	text = {
+		trigger = {
+			event_target:communist_reformist_leader = { check_variable = { economic_aid_program_participants = 1 } }
+		}
+		localization_key = "COM_REF_AID_PRGRAM_GET_PARTICIPANT_1"
+	}
+	text = {
+		trigger = {
+			event_target:communist_reformist_leader = { check_variable = { economic_aid_program_participants = 2 } }
+		}
+		localization_key = "COM_REF_AID_PRGRAM_GET_PARTICIPANT_2"
+	}
+	text = {
+		trigger = {
+			event_target:communist_reformist_leader = { check_variable = { economic_aid_program_participants = 3 } }
+		}
+		localization_key = "COM_REF_AID_PRGRAM_GET_PARTICIPANT_3"
+	}
+	text = {
+		trigger = {
+			event_target:communist_reformist_leader = { check_variable = { economic_aid_program_participants = 4 } }
+		}
+		localization_key = "COM_REF_AID_PRGRAM_GET_PARTICIPANT_4"
+	}
+	text = {
+		trigger = {
+			event_target:communist_reformist_leader = { check_variable = { economic_aid_program_participants = 5 } }
+		}
+		localization_key = "COM_REF_AID_PRGRAM_GET_PARTICIPANT_5"
+	}
+	text = {
+		trigger = {
+			event_target:communist_reformist_leader = { check_variable = { economic_aid_program_participants = 6 } }
+		}
+		localization_key = "COM_REF_AID_PRGRAM_GET_PARTICIPANT_6"
+	}
+	text = {
+		trigger = {
+			event_target:communist_reformist_leader = { check_variable = { economic_aid_program_participants = 7 } }
+		}
+		localization_key = "COM_REF_AID_PRGRAM_GET_PARTICIPANT_7"
+	}
+	text = {
+		trigger = {
+			event_target:communist_reformist_leader = { check_variable = { economic_aid_program_participants = 8 } }
+		}
+		localization_key = "COM_REF_AID_PRGRAM_GET_PARTICIPANT_8"
+	}
+	text = {
+		trigger = {
+			event_target:communist_reformist_leader = { check_variable = { economic_aid_program_participants = 9 } }
+		}
+		localization_key = "COM_REF_AID_PRGRAM_GET_PARTICIPANT_9"
+	}
+	text = {
+		trigger = {
+			event_target:communist_reformist_leader = { check_variable = { economic_aid_program_participants = 10 } }
+		}
+		localization_key = "COM_REF_AID_PRGRAM_GET_PARTICIPANT_10"
+	}	
+}
+defined_text = {
+	name = CW_AID_PARTICIPANTS_NEUTRAL_LOC
+	text = {
+		trigger = {
+			event_target:neutral_leader = { check_variable = { economic_aid_program_participants = 1 } }
+		}
+		localization_key = "NEUTRAL_AID_PRGRAM_GET_PARTICIPANT_1"
+	}
+	text = {
+		trigger = {
+			event_target:neutral_leader = { check_variable = { economic_aid_program_participants = 2 } }
+		}
+		localization_key = "NEUTRAL_AID_PRGRAM_GET_PARTICIPANT_2"
+	}
+	text = {
+		trigger = {
+			event_target:neutral_leader = { check_variable = { economic_aid_program_participants = 3 } }
+		}
+		localization_key = "NEUTRAL_AID_PRGRAM_GET_PARTICIPANT_3"
+	}
+	text = {
+		trigger = {
+			event_target:neutral_leader = { check_variable = { economic_aid_program_participants = 4 } }
+		}
+		localization_key = "NEUTRAL_AID_PRGRAM_GET_PARTICIPANT_4"
+	}
+	text = {
+		trigger = {
+			event_target:neutral_leader = { check_variable = { economic_aid_program_participants = 5 } }
+		}
+		localization_key = "NEUTRAL_AID_PRGRAM_GET_PARTICIPANT_5"
+	}
+	text = {
+		trigger = {
+			event_target:neutral_leader = { check_variable = { economic_aid_program_participants = 6 } }
+		}
+		localization_key = "NEUTRAL_AID_PRGRAM_GET_PARTICIPANT_6"
+	}
+	text = {
+		trigger = {
+			event_target:neutral_leader = { check_variable = { economic_aid_program_participants = 7 } }
+		}
+		localization_key = "NEUTRAL_AID_PRGRAM_GET_PARTICIPANT_7"
+	}
+	text = {
+		trigger = {
+			event_target:neutral_leader = { check_variable = { economic_aid_program_participants = 8 } }
+		}
+		localization_key = "NEUTRAL_AID_PRGRAM_GET_PARTICIPANT_8"
+	}
+	text = {
+		trigger = {
+			event_target:neutral_leader = { check_variable = { economic_aid_program_participants = 9 } }
+		}
+		localization_key = "NEUTRAL_AID_PRGRAM_GET_PARTICIPANT_9"
+	}
+	text = {
+		trigger = {
+			event_target:neutral_leader = { check_variable = { economic_aid_program_participants = 10 } }
+		}
+		localization_key = "NEUTRAL_AID_PRGRAM_GET_PARTICIPANT_10"
+	}	
+}
+defined_text = {
+	name = CW_AID_PARTICIPANTS_COM_LOC
+	text = {
+		trigger = {
+			event_target:communist_leader = { check_variable = { economic_aid_program_participants = 1 } }
+		}
+		localization_key = "COM_AID_PRGRAM_GET_PARTICIPANT_1"
+	}
+	text = {
+		trigger = {
+			event_target:communist_leader = { check_variable = { economic_aid_program_participants = 2 } }
+		}
+		localization_key = "COM_AID_PRGRAM_GET_PARTICIPANT_2"
+	}
+	text = {
+		trigger = {
+			event_target:communist_leader = { check_variable = { economic_aid_program_participants = 3 } }
+		}
+		localization_key = "COM_AID_PRGRAM_GET_PARTICIPANT_3"
+	}
+	text = {
+		trigger = {
+			event_target:communist_leader = { check_variable = { economic_aid_program_participants = 4 } }
+		}
+		localization_key = "COM_AID_PRGRAM_GET_PARTICIPANT_4"
+	}
+	text = {
+		trigger = {
+			event_target:communist_leader = { check_variable = { economic_aid_program_participants = 5 } }
+		}
+		localization_key = "COM_AID_PRGRAM_GET_PARTICIPANT_5"
+	}
+	text = {
+		trigger = {
+			event_target:communist_leader = { check_variable = { economic_aid_program_participants = 6 } }
+		}
+		localization_key = "COM_AID_PRGRAM_GET_PARTICIPANT_6"
+	}
+	text = {
+		trigger = {
+			event_target:communist_leader = { check_variable = { economic_aid_program_participants = 7 } }
+		}
+		localization_key = "COM_AID_PRGRAM_GET_PARTICIPANT_7"
+	}
+	text = {
+		trigger = {
+			event_target:communist_leader = { check_variable = { economic_aid_program_participants = 8 } }
+		}
+		localization_key = "COM_AID_PRGRAM_GET_PARTICIPANT_8"
+	}
+	text = {
+		trigger = {
+			event_target:communist_leader = { check_variable = { economic_aid_program_participants = 9 } }
+		}
+		localization_key = "COM_AID_PRGRAM_GET_PARTICIPANT_9"
+	}
+	text = {
+		trigger = {
+			event_target:communist_leader = { check_variable = { economic_aid_program_participants = 10 } }
+		}
+		localization_key = "COM_AID_PRGRAM_GET_PARTICIPANT_10"
+	}	
+}
+defined_text = {
+	name = CW_AID_PARTICIPANTS_DEM_LOC
+	text = {
+		trigger = {
+			event_target:democratic_leader = { check_variable = { economic_aid_program_participants = 1 } }
+		}
+		localization_key = "DEM_AID_PRGRAM_GET_PARTICIPANT_1"
+	}
+	text = {
+		trigger = {
+			event_target:democratic_leader = { check_variable = { economic_aid_program_participants = 2 } }
+		}
+		localization_key = "DEM_AID_PRGRAM_GET_PARTICIPANT_2"
+	}
+	text = {
+		trigger = {
+			event_target:democratic_leader = { check_variable = { economic_aid_program_participants = 3 } }
+		}
+		localization_key = "DEM_AID_PRGRAM_GET_PARTICIPANT_3"
+	}
+	text = {
+		trigger = {
+			event_target:democratic_leader = { check_variable = { economic_aid_program_participants = 4 } }
+		}
+		localization_key = "DEM_AID_PRGRAM_GET_PARTICIPANT_4"
+	}
+	text = {
+		trigger = {
+			event_target:democratic_leader = { check_variable = { economic_aid_program_participants = 5 } }
+		}
+		localization_key = "DEM_AID_PRGRAM_GET_PARTICIPANT_5"
+	}
+	text = {
+		trigger = {
+			event_target:democratic_leader = { check_variable = { economic_aid_program_participants = 6 } }
+		}
+		localization_key = "DEM_AID_PRGRAM_GET_PARTICIPANT_6"
+	}
+	text = {
+		trigger = {
+			event_target:democratic_leader = { check_variable = { economic_aid_program_participants = 7 } }
+		}
+		localization_key = "DEM_AID_PRGRAM_GET_PARTICIPANT_7"
+	}
+	text = {
+		trigger = {
+			event_target:democratic_leader = { check_variable = { economic_aid_program_participants = 8 } }
+		}
+		localization_key = "DEM_AID_PRGRAM_GET_PARTICIPANT_8"
+	}
+	text = {
+		trigger = {
+			event_target:democratic_leader = { check_variable = { economic_aid_program_participants = 9 } }
+		}
+		localization_key = "DEM_AID_PRGRAM_GET_PARTICIPANT_9"
+	}
+	text = {
+		trigger = {
+			event_target:democratic_leader = { check_variable = { economic_aid_program_participants = 10 } }
+		}
+		localization_key = "DEM_AID_PRGRAM_GET_PARTICIPANT_10"
+	}	
+}
+defined_text = {
+	name = CW_AID_MAX_PARTICIPANTS_LOC
+	text = {
+		trigger = {
+			has_country_flag = democratic_leader_flag
+		}
+		localization_key = "[?global.dem_aid_program_max_participants]"
+	}
+	text = {
+		trigger = {
+			has_country_flag = communist_leader_flag
+		}
+		localization_key = "[?global.com_aid_program_max_participants]"
+	}
+	text = {
+		trigger = {
+			has_country_flag = neutral_leader_flag
+		}
+		localization_key = "[?global.neutral_aid_program_max_participants]"
+	}	
+}
+defined_text = {
+	name = CW_AID_PROGRAM_SUBTITLE_LOC
+	text = {
+		trigger = {
+			check_variable = { aid_program_upgrade_cooldown > 0 }
+		}
+		localization_key = "AID_WINDOW_SUBTITLE_TIMEOUT_TIMER"
+	}
+	text = { localization_key = "AID_WINDOW_SUBTITLE" }
+}
+defined_text = {
+	name = CW_CANCEL_AID_TT
+	text = {
+		trigger = {
+			var:aid_modification_target = {
+				check_variable = {
+					cw_economic_aid_lock@ROOT > 0
+				}
+			}
+		}
+		localization_key = "CW_ECONOMIC_AID_CONTRACT_TT"
+	}
+}
+defined_text = {
+	name = CW_COMMUNIST_ORG_LOC
+	text = {
+		trigger = {
+			ROOT = { 
+				NOT = {
+					OR = {
+						has_government = communism
+						has_government = communism_totalitarian
+					}
+				}
+			}
+		}
+		localization_key = "[?communist_total_org|%0]"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_government = communism }
+		}
+		localization_key = "[?party_popularity_100@communism|0]%"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_government = communism_totalitarian }
+		}
+		localization_key = "[?party_popularity_100@communism_totalitarian|0]%"
+	}	
+}
+defined_text = {
+	name = CW_ECONOMIC_AID_MAP_MODE_LOC
+	text = {
+		trigger = {
+			is_in_array = {
+				array = democratic_leader.aid_program_participants_array
+				value = THIS.id
+			}
+		}
+		localization_key = AID_MAP_MODE_GETS_DEMOCRATIC_AID
+	}
+	text = {
+		trigger = {
+			is_in_array = {
+				array = communist_leader.aid_program_participants_array
+				value = THIS.id
+			}
+		}
+		localization_key = AID_MAP_MODE_GETS_COMMUNIST_TOTAL_AID
+	}
+	text = {
+		trigger = {
+			is_in_array = {
+				array = communist_reformist_leader.aid_program_participants_array
+				value = THIS.id
+			}
+		}
+		localization_key = AID_MAP_MODE_GETS_COMMUNIST_REF_AID
+	}	
+}	

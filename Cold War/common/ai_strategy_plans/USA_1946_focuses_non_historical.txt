@@ -1,0 +1,44 @@
+USA_historical_plan_1946_non_historical = {
+	name = "USA 1946 Non Historical Focuses"
+	desc = ""
+
+	enable = {
+		tag = USA
+		is_historical_focus_on = no
+		has_focus_tree = usa_focus_1946
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		USA_truman_doctrine	
+		USA_1946_domestic_policy
+		USA_the_marshall_plan
+		USA_deal_with_strikes
+		USA_taft_hartley_act
+		USA_nation_building_asia
+		USA_democratic_korea
+		USA_disarmed_japan		
+	}
+
+	research = {
+	}
+
+	ideas = {
+	}
+	traits = {
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

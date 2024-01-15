@@ -1,0 +1,26 @@
+spriteTypes = {
+	###############################################################################################
+	################################## CHI Political Characters ###################################
+	###############################################################################################
+	### Country Leaders
+	spriteType = {
+		name = "GFX_svi_georges_thierry_civilian_large"
+		texturefile = "gfx/leaders/SVI/SVIHC1.dds"
+	}
+	spriteType = {
+		name = "GFX_svi_bao_dai_civilian_large"
+		texturefile = "gfx/leaders/SVI/SVIH1.dds"
+	}
+	spriteType = {
+		name = "GFX_svi_ngo_dinh_diem_civilian_large"
+		texturefile = "gfx/leaders/SVI/SVIH2.dds"
+	}
+	spriteType = {
+		name = "GFX_svi_ngo_dinh_diem_civilian_small"
+		texturefile = "gfx/interface/ministers/SVI/svi_ngo_dinh_diem.dds"
+	}	
+	spriteType = {
+		name = "GFX_svi_nguyen_van_thieu_civilian_large"
+		texturefile = "gfx/leaders/SVI/SVIH3.dds"
+	}
+}

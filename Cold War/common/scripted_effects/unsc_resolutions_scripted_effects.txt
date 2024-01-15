@@ -1,0 +1,327 @@
+cw_unsc_generic_condemn_violence = {
+	#custom_effect_tooltip = CW_RESOLUTION_EFFECT_TT_SHUFFLE_UNSC
+	hidden_effect = {
+		ROOT = { save_global_event_target_as = unsc_initiator }
+		save_global_event_target_as = unsc_target
+		if = {
+			limit = {
+				OR = {
+					is_puppet = yes
+					is_subject = yes
+				}
+			}
+			OVERLORD = { set_country_flag = wants_unsc_support }
+		}
+		set_country_flag = unsc_condem_violence
+		cw_unsc_set_hate_resolution = yes
+		UNN = { set_temp_variable = { custom_usc_resolution_timer = 15 } }
+		cw_unsc_start_resolution_effect = yes
+	}
+}
+cw_unsc_generic_request_unraa_aid = {
+	custom_effect_tooltip = "CW_RESOLUTION_REQUEST_UNRAA_AID_EFFECT_TT"
+	hidden_effect = {
+		ROOT = { save_global_event_target_as = unsc_initiator }
+		save_global_event_target_as = unsc_target
+		set_country_flag = unsc_generic_request_unraa_aid
+		cw_unsc_start_resolution_effect = yes
+	}
+}
+cw_unsc_generic_establish_international_zone_non_canal = {		#Main Scope is state + controller of state
+	custom_effect_tooltip = "CW_REQUEST_UN_INTERNATIONAL_ZONE_NON_CANAL_TT"
+	hidden_effect = {
+		add_to_array = {
+			array = UNN.international_region_non_canal
+			value = THIS.id
+		}		
+		if = {
+			limit = {
+				has_variable = global.override_resolution_target
+			}
+			var:global.override_resolution_target = {
+				save_global_event_target_as = unsc_target
+				set_country_flag = unsc_resolution_generic_international_lease_non_canal
+			}
+		}
+		else = {
+			owner = {
+				cw_unsc_set_hate_resolution = yes 
+				save_global_event_target_as = unsc_target
+				set_country_flag = unsc_resolution_generic_international_lease_non_canal
+			}
+		}
+		if = {
+			limit = {
+				has_variable = global.override_resolution_initiator
+			}
+			var:global.override_resolution_initiator = { save_global_event_target_as = unsc_initiator }
+		}
+		else = {		
+			ROOT = {
+				save_global_event_target_as = unsc_initiator
+				set_country_flag = wants_unsc_support
+			}
+		}
+		#cw_unsc_start_resolution_effect = yes		#Resolution start is separate to allow more states to be added
+	}
+}
+
+cw_unsc_generic_demand_sanctions_military_significant_five_years = {
+	custom_effect_tooltip = "CW_REQUEST_UN_SANCTIONS_MILITARY_MEDIUM_FIVE_YEAR"
+	hidden_effect = {
+		PREV = {
+			set_country_flag = sanctions_gui_period_five_year
+			set_country_flag = unsc_sanctions_military_sanctions
+			set_variable = { requested_sanction_level = 5 }
+			save_global_event_target_as = unsc_initiator 
+		}
+		save_global_event_target_as = unsc_target
+		set_country_flag = hate_resolution
+		set_country_flag = unsc_generic_demand_sanctions
+		cw_unsc_start_resolution_effect = yes
+	}
+}
+cw_unsc_generic_demand_sanctions_economic_significant_five_years = {
+	custom_effect_tooltip = "CW_REQUEST_UN_SANCTIONS_ECONOMIC_MEDIUM_FIVE_YEAR"
+	hidden_effect = {
+		PREV = {
+			set_country_flag = sanctions_gui_period_five_year
+			set_country_flag = unsc_sanctions_civilian_sanctions
+			set_variable = { requested_sanction_level = 5 }
+			save_global_event_target_as = unsc_initiator 
+		}
+		save_global_event_target_as = unsc_target
+		set_country_flag = hate_resolution
+		set_country_flag = unsc_generic_demand_sanctions
+		cw_unsc_start_resolution_effect = yes
+	}
+}
+cw_unsc_generic_demand_sanctions_trade_significant_five_years = {
+	custom_effect_tooltip = "CW_REQUEST_UN_SANCTIONS_TRADE_MEDIUM_FIVE_YEAR"
+	hidden_effect = {
+		PREV = {
+			set_country_flag = sanctions_gui_period_five_year
+			set_country_flag = unsc_sanctions_trade_sanctions
+			set_variable = { requested_sanction_level = 5 }
+			save_global_event_target_as = unsc_initiator 
+		}
+		save_global_event_target_as = unsc_target
+		set_country_flag = hate_resolution
+		set_country_flag = unsc_generic_demand_sanctions
+		cw_unsc_start_resolution_effect = yes
+	}
+}
+cw_unsc_generic_demand_sanctions_political_significant_five_years = {
+	custom_effect_tooltip = "CW_REQUEST_UN_SANCTIONS_POLITICAL_MEDIUM_FIVE_YEAR"
+	hidden_effect = {
+		PREV = {
+			set_country_flag = sanctions_gui_period_five_year
+			set_country_flag = unsc_sanctions_leader_sanctions
+			set_variable = { requested_sanction_level = 5 }
+			save_global_event_target_as = unsc_initiator 
+		}
+		save_global_event_target_as = unsc_target
+		set_country_flag = hate_resolution
+		set_country_flag = unsc_generic_demand_sanctions
+		cw_unsc_start_resolution_effect = yes
+	}
+}
+cw_unsc_generic_demand_sanctions = {
+	hidden_effect = {
+		ROOT = {
+			save_global_event_target_as = unsc_initiator
+			set_country_flag = wants_unsc_support
+		}
+		save_global_event_target_as = unsc_target
+		set_country_flag = unsc_generic_demand_sanctions
+		set_country_flag = hate_resolution
+		add_opinion_modifier = { target = ROOT modifier = requested_sanctions_against_us }
+		cw_unsc_start_resolution_effect = yes
+	}
+}
+cw_unsc_generic_demand_un_shuffle = {
+	custom_effect_tooltip = CW_RESOLUTION_EFFECT_TT_SHUFFLE_UNSC
+	custom_effect_tooltip = "RESOLUTION_GENERIC_DEMAND_UNSC_SHUFFLE_TT"
+	hidden_effect = {
+		ROOT = { save_global_event_target_as = unsc_initiator }
+		save_global_event_target_as = unsc_target
+		set_country_flag = unsc_generic_demand_unsc_shuffle
+		set_global_flag = resolution_veto_disabled
+		cw_unsc_start_resolution_effect = yes
+	}
+}
+cw_unsc_generic_expel_from_un = {
+	custom_effect_tooltip = CW_RESOLUTION_EFFECT_TT_EXPEL_FROM_UN
+	hidden_effect = {
+		ROOT = { save_global_event_target_as = unsc_initiator }
+		ROOT = { add_named_threat = {  threat = 5 name = "Called for the removal of a permanent UNSC member." } }
+		ROOT = { cw_unsc_set_like_resolution = yes }
+		save_global_event_target_as = unsc_target
+		cw_unsc_set_hate_resolution = yes
+		set_country_flag = unsc_expel_from_un
+		if = {
+			limit = {
+				ROOT = {
+					NOT = {
+						is_in_array = {
+							array = global.unsc_permanent_members_array
+							value = THIS.id
+						}
+					}
+				}
+			}
+			set_global_flag = resolution_veto_disabled
+			set_global_flag = unsc_major_historical_resolution
+			ROOT = { save_global_event_target_as = unsc_pretender }
+		}
+		if = {
+			limit = {
+				ROOT = {
+					NOT = {
+						is_in_array = {
+							array = global.unsc_non_permanent_members_array
+							value = THIS.id
+						}
+					}
+				}
+			}
+			ROOT = { save_global_event_target_as = unsc_pretender_non_permanent }
+		}
+		cw_unsc_start_resolution_effect = yes
+	}
+}
+cw_usnc_generic_recognize_government = {
+	custom_effect_tooltip = "CW_REQUEST_REC_TT"
+	hidden_effect = {
+		UNN = { save_global_event_target_as = unsc_initiator }
+		save_global_event_target_as = unsc_target
+		cw_unsc_set_like_resolution = yes
+		set_country_flag = wants_unsc_support
+		set_country_flag = unsc_requesting_recognition
+		cw_unsc_start_resolution_effect = yes
+	}
+}
+cw_unsc_generic_recognize_region_resolution = {
+	custom_effect_tooltip = CW_RESOLUTION_EFFECT_TT_RECOGNIZE_REGION
+	hidden_effect = {
+		ROOT = {
+			save_global_event_target_as = unsc_initiator
+			save_global_event_target_as = unsc_target
+			set_country_flag = wants_unsc_support
+			set_country_flag = unsc_generic_resolution_recognize_region
+			every_controlled_state = {
+				limit = {
+					is_core_of = PREV.PREV
+				}
+				add_to_array = {
+					array = UNN.region_resolution_states
+					value = THIS.id
+				}
+			}
+		}
+		cw_unsc_set_hate_resolution = yes
+		add_to_array = {
+			array = UNN.region_resolution_countries
+			value = THIS.id
+		}
+		UNN = { add_to_variable = { region_resolution_country_amount = 1 } }
+		#cw_unsc_start_resolution_effect = yes		#Added from where this effect is called
+	}	
+}
+cw_unsc_resolution_foreign_withdrawal = {		# Default target is the country from which withdrawal is requested, INS = { cw_unsc_resolution_foreign_withdrawal = yes } will demand to withdraw from all INS cores.
+	custom_effect_tooltip = "GENERIC_FOREIGN_WITHDRAWAL"
+	hidden_effect = {
+		clear_array = UNN.multiple_participant_resolution
+		clear_variable = UNN.multiple_participant_resolution_members	
+		PREV = {
+			save_global_event_target_as = unsc_initiator
+			set_country_flag = wants_unsc_support
+		}
+		THIS = {
+			save_global_event_target_as = unsc_target
+			set_country_flag = unsc_generic_withdrawal_resolution
+			add_opinion_modifier = { target = ROOT modifier = took_stand_for_us }
+		}
+		every_other_country = {
+			limit = {
+				NOT = { has_civil_war_cwtrigger = yes }
+				OR = {
+					any_controlled_state = { is_core_of = event_target:unsc_target }
+					has_war_with = event_target:unsc_target
+					event_target:unsc_target = { any_enemy_country = { has_volunteers_amount_from = { tag = PREV.PREV count > 0 } } }
+				}
+			}
+			cw_unsc_set_hate_resolution = yes
+			set_country_flag = wants_unsc_support
+			set_country_flag = unsc_target_flag
+			add_to_variable = { UNN.multiple_participant_resolution_members = 1 }
+			add_to_array = {
+				array = UNN.multiple_participant_resolution
+				value = THIS.id
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_autonomy_state = autonomy_dominion
+					has_autonomy_state = autonomy_colony
+					has_autonomy_state = autonomy_puppet
+					has_autonomy_state = autonomy_integrated_puppet
+				}
+			}
+			OVERLORD = {
+				cw_unsc_set_hate_resolution = yes
+				set_country_flag = wants_unsc_support
+				set_country_flag = unsc_target_flag
+				add_to_variable = { UNN.multiple_participant_resolution_members = 1 }
+				add_to_array = {
+					array = UNN.multiple_participant_resolution
+					value = THIS.id
+				}
+			}
+		}
+		cw_unsc_start_resolution_effect = yes
+	}
+}
+cw_unsc_resolution_request_sanctions = {
+	hidden_effect = {
+		ROOT = { save_global_event_target_as = unsc_initiator }
+		THIS = {
+			save_global_event_target_as = unsc_target
+			set_country_flag = unsc_resolution_generic_mild_sanctions
+			add_opinion_modifier = { target = ROOT modifier = requested_sanctions_against_us }
+			cw_unsc_set_hate_resolution = yes
+		}		
+		cw_unsc_start_resolution_effect = yes
+	}
+}
+cw_unsc_resolution_police_action = {
+	custom_effect_tooltip = CW_RESOLUTION_EFFECT_TT_UN_PEACEKEEPING_MISSION
+	hidden_effect = {
+		ROOT = {
+			save_global_event_target_as = unsc_initiator
+			set_global_flag = resolution_veto_disabled
+			set_global_flag = unsc_military_resolution
+			set_country_flag = wants_unsc_support
+		}
+		THIS = {
+			save_global_event_target_as = unsc_target
+			set_country_flag = unsc_police_action_target
+			every_enemy_country = {
+				cw_unsc_set_hate_resolution = yes
+				if = {
+					limit = {
+						has_war_with = PREV
+					}
+					add_to_variable = { UNN.multiple_participant_resolution_members = 1 }
+					add_to_array = {
+						array = UNN.multiple_participant_resolution
+						value = THIS.id
+					}
+				}
+			}
+		}
+		UNN = { set_temp_variable = { custom_usc_resolution_timer = 15 } }
+		cw_unsc_start_resolution_effect = yes
+	}
+}

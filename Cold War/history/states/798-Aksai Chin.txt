@@ -1,0 +1,36 @@
+state={
+	id=798
+	local_supplies=0.0 
+	name="STATE_798"
+
+	history={
+		buildings = {
+			infrastructure = 1
+		}
+		owner = IND
+		add_claim_by = CHI
+		add_claim_by= PRC
+		add_core_of = KAS
+		1947.8.15 = {
+			owner = KAS
+			add_core_of = CHI
+			add_claim_by= PRC
+		}
+		1952.11.17 = {
+			owner = IND
+			add_core_of = CHI
+			add_claim_by= PRC
+		}
+		1962.11.21 = {
+			owner = PRC
+			add_core_of = CHI
+			add_claim_by= PRC
+		}
+	}
+	provinces={
+		5042 10821 
+	}
+	manpower=1000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

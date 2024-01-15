@@ -1,0 +1,674 @@
+cw_add_to_european_union = {
+	hidden_effect = {
+		if = {
+			limit = {
+				is_ai = no
+			}
+			cw_top_bar_notification_added_to_cultural_union = yes
+		}
+		add_to_array = { global.euu_members_array = THIS.id }
+	}
+}
+cw_remove_from_european_union = {
+	custom_effect_tooltip = REMOVE_FROM_EUU_EFFECT_TT
+	hidden_effect = {
+		news_event = cw_historic_events.46
+		if = {
+			limit = {
+				is_in_array = {
+					array = global.euu_members_array
+					value = THIS.id
+				}
+			}
+			cw_top_bar_notification_lost_unsc_seat = yes
+			remove_from_array = { array = global.euu_members_array value = THIS.id }
+		}
+		if = {
+			limit = {
+				is_in_array = {
+					array = global.euu_members_array_acc
+					value = THIS.id
+				}
+			}
+			remove_from_array = { array = global.euu_members_array_acc value = THIS.id }
+		}
+	}
+}
+cw_add_to_european_union_observers = {
+	if = {
+		limit = {
+			NOT = {
+				OR = {
+					is_in_array = {
+						array = global.euu_observers_array
+						value = THIS.id
+					}
+					is_in_array = {
+						array = global.euu_members_array
+						value = THIS.id
+					}
+				}
+			}
+		}
+		add_to_array = { array = global.euu_observers_array value = THIS.id }
+	}
+}
+cw_remove_from_european_union_observers = {
+	if = {
+		limit = {
+			is_in_array = {
+				array = global.euu_observers_array
+				value = THIS.id
+			}
+		}
+		remove_from_array = { array = global.euu_observers_array value = THIS.id }
+	}
+}
+cw_add_to_european_union_candidates = {
+	if = {
+		limit = {
+			NOT = {
+				is_in_array = {
+					array = global.euu_candidates_array
+					value = THIS.id
+				}
+			}
+		}
+		cw_remove_from_european_union_observers = yes
+		add_to_array = { array = global.euu_candidates_array value = THIS.id }
+	}
+}
+cw_remove_from_european_union_candidates = {
+	if = {
+		limit = {
+			is_in_array = {
+				array = global.euu_candidates_array
+				value = THIS.id
+			}
+		}
+		remove_from_array = { array = global.euu_candidates_array value = THIS.id }
+	}
+}
+cw_cultural_union_set_like_resolution = {
+	if = {
+		limit = {
+			is_ai = yes
+			is_in_array = {
+				array = global.euu_members_array
+				value = THIS.id
+			}
+		}
+		set_country_flag = like_cultural_union_resolution
+	}
+}
+
+cw_cultural_union_set_hate_resolution = {
+	if = {
+		limit = {
+			is_ai = yes
+			is_in_array = {
+				array = global.euu_members_array
+				value = THIS.id
+			}
+		}
+		set_country_flag = hate_cultural_union_resolution
+	}
+}
+
+cw_euu_make_resolution_absolute = {
+	custom_effect_tooltip = MAKE_RESOLUTION_ABSOLUTE_EUU_EFFECT_TT
+	set_global_flag = euu_absolute_majority_required
+}
+
+cw_cultural_union_set_abstain_resolution = {
+	if = {
+		limit = {
+			is_ai = yes
+			is_in_array = {
+				array = global.euu_members_array
+				value = THIS.id
+			}
+		}
+		set_country_flag = abstain_cultural_union_resolution
+	}
+}
+cw_cultural_union_set_resolution_vote_randomizer_one_member = {
+	if = {
+		limit = {
+			is_ai = yes
+			is_in_array = {
+				array = global.euu_members_array
+				value = THIS.id
+			}
+		}
+		random_list = {
+			33 = {
+				set_country_flag = like_cultural_union_resolution
+			}
+			33 = {
+				set_country_flag = hate_cultural_union_resolution
+			}
+			34 = {
+				set_country_flag = abstain_cultural_union_resolution
+			}
+		}
+	}
+}
+
+cw_cultural_union_set_resolution_vote_randomizer_all_memmbers = {
+	every_other_country = {
+		limit = {
+			is_ai = yes
+			is_in_array = {
+				array = global.euu_members_array
+				value = THIS.id
+			}
+			NOT = {
+				OR = {
+					has_country_flag = like_cultural_union_resolution
+					has_country_flag = hate_cultural_union_resolution
+					has_country_flag = abstain_cultural_union_resolution
+				}
+			}
+		}
+		random_list = {
+			33 = {
+				set_country_flag = like_cultural_union_resolution
+			}
+			33 = {
+				set_country_flag = hate_cultural_union_resolution
+			}
+			34 = {
+				set_country_flag = abstain_cultural_union_resolution
+			}
+		}
+	}
+}
+
+cw_euu_start_resolution_effect = {
+	hidden_effect = {
+		event_target:euu_initiator = {
+			set_country_flag = euu_initiator_flag
+		}
+		event_target:euu_target = { set_country_flag = euu_target_flag }
+		if = {
+			limit = {
+				NOT = { event_target:euu_initiator = { tag = EUU } }
+			}
+			event_target:euu_initiator = { set_country_flag = like_resolution }
+		}
+		if = {
+			limit = {
+				event_target:euu_target = { has_country_flag = euu_generic_demand_sanctions }
+			}
+			every_country = {
+				limit = {
+					OR = {
+						is_lend_leasing = event_target:euu_target
+						event_target:euu_target = {
+							OR = { 
+								has_volunteers_amount_from = {
+									tag = PREV
+									count > 0
+								}
+								is_in_array = {
+									array = PREV.aid_program_participants_array
+									value = THIS.id
+								}
+								is_in_array = {
+									array = PREV.military_aid_countries_array
+									value = THIS.id
+								}
+								has_war_together_with = PREV
+							}
+						}
+					}
+				}
+				set_country_flag = hate_cultural_union_resolution
+			}
+		}
+		if = {
+			limit = {
+				EUU = { check_variable = { custom_euu_resolution_timer = 0 } }
+			}
+			set_variable = { global.euu_resolution_vote_timer = 30 }
+			else = {
+				set_variable = { global.euu_resolution_vote_timer = EUU.custom_usc_resolution_timer }
+			}
+		}
+		add_to_variable = { global.euu_resolution_counter = 1 }
+	}
+}
+cw_euu_clear_votes = {
+	every_country = {
+		limit = {
+			is_in_array = {
+				array = global.euu_members_array
+				value = THIS.id
+			}
+		}
+		clr_country_flag = cultural_union_voted_yes
+		clr_country_flag = cultural_union_voted_no
+		clr_country_flag = cultural_union_voted_abstain
+	}
+	clear_variable = global.euu_total_votes
+	clear_variable = global.euu_total_votes_yes
+	clear_variable = global.euu_total_votes_no
+	clear_variable = global.euu_total_votes_abstain
+}
+cw_euu_clear_junk = {
+	if = {
+		limit = {
+			has_global_flag = euu_days_reset
+		}
+		clr_global_flag = euu_days_reset
+	}
+	##### CLEARING GENERIC RESOLUTION FLAGS ###
+	if = {
+		limit = {
+			event_target:euu_target = { has_country_flag = cu_generic_transfer_territory }
+		}
+		event_target:euu_target = { clr_country_flag = cu_generic_transfer_territory }
+	}
+	if = {
+		limit = {
+			event_target:euu_target = { has_country_flag = cw_generic_increase_reparations }
+		}
+		event_target:euu_target = { clr_country_flag = cw_generic_increase_reparations }
+	}
+	##### CLEARING HATE/LIKE/ABSTAIN FLAGS ###
+	every_country = {
+		limit = {
+			OR = {
+				is_in_array = {
+					array = global.euu_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.euu_observers_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.euu_candidates_array
+					value = THIS.id
+				}					
+			}			
+		}
+		if = {
+			limit = {
+				has_country_flag = like_cultural_union_resolution
+			}
+			clr_country_flag = like_cultural_union_resolution
+		}
+		if = {
+			limit = {
+				has_country_flag = hate_cultural_union_resolution
+			}
+			clr_country_flag = hate_cultural_union_resolution
+		}
+		if = {
+			limit = {
+				has_country_flag = abstain_cultural_union_resolution
+			}
+			clr_country_flag = abstain_cultural_union_resolution
+		}		
+	}
+	##### CLEARING MAJOR RESOLUTION/IMPLEMENTING FLAGS ###
+	if = {
+		limit = {
+			has_global_flag = euu_major_historical_resolution
+		}
+		clr_global_flag = euu_major_historical_resolution
+	}
+	if = {
+		limit = {
+			has_global_flag = euu_implementing_resolution_flag
+		}
+		clr_global_flag = euu_implementing_resolution_flag
+	}
+	if = {
+		limit = {
+			has_global_flag = euu_absolute_majority_required
+		}
+		clr_global_flag = euu_absolute_majority_required
+	}	
+	##### CLEARING EVENT TARGETS ###	 
+	if = {
+		limit = {
+			has_event_target = euu_initiator
+		}
+		clear_global_event_target = euu_initiator
+	}
+	if = {
+		limit = {
+			has_event_target = euu_target
+		}
+		clear_global_event_target = euu_target
+	}	
+	##### CLEARING ARRAYS ###
+	clear_array = global.euu_multiple_target_resolution_array
+	##### CLOSING WINDOW FOR AI TO REDUCE AI CALCULATIONS ###
+	every_country = {
+		limit = {
+			is_ai = yes
+			is_in_array = {
+				array = global.euu_members_array
+				value = THIS.id
+			}
+		}
+		clr_country_flag = open_euu_window
+	}
+}
+###########################################################################
+########################### RESOLUTION REJECTED ###########################
+###########################################################################
+cw_euu_reject_resolution = {
+	##### ACC RESOLUTIONS ###
+	if = {
+		limit = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_abolish_prussia }
+		}
+		event_target:euu_target = { clr_country_flag = acc_abolish_prussia }
+	}
+	if = {
+		limit = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_resolution_adopt_morgentau_plan }
+		}
+		event_target:euu_target = { 
+			clr_country_flag = acc_resolution_adopt_morgentau_plan
+			set_country_flag = devided_ger_plan_failed
+		}
+	}
+	if = {
+		limit = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_resolution_adopt_schuman_plan }
+		}
+		event_target:euu_target = { 
+			clr_country_flag = acc_resolution_adopt_schuman_plan
+			set_country_flag = devided_ger_plan_failed
+		}
+	}
+	if = {
+		limit = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_resolution_establish_bavaria }
+		}
+		event_target:euu_target = { clr_country_flag = acc_resolution_establish_bavaria }
+	}
+	cw_euu_clear_junk = yes
+}
+###########################################################################
+########################### RESOLUTION STALLED ###########################
+###########################################################################
+cw_euu_abstain_resolution = {
+	##### ACC RESOLUTIONS ###
+	if = {
+		limit = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_abolish_prussia }
+		}
+		event_target:euu_target = { clr_country_flag = acc_abolish_prussia }
+	}
+	if = {
+		limit = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_resolution_adopt_morgentau_plan }
+		}
+		event_target:euu_target = { 
+			clr_country_flag = acc_resolution_adopt_morgentau_plan
+			set_country_flag = devided_ger_plan_failed
+		}
+	}
+	if = {
+		limit = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_resolution_adopt_schuman_plan }
+		}
+		event_target:euu_target = { 
+			clr_country_flag = acc_resolution_adopt_schuman_plan
+			set_country_flag = devided_ger_plan_failed
+		}
+	}
+	if = {
+		limit = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_resolution_establish_bavaria }
+		}
+		event_target:euu_target = { clr_country_flag = acc_resolution_establish_bavaria }
+	}
+	cw_euu_clear_junk = yes
+}
+##########################################################################
+########################### RESOLUTION ADOPTED ###########################
+##########################################################################
+cw_euu_adopt_resolution = {
+	##### GENERIC SHARED CU RESOLUTIONS ###
+	if = {
+		limit = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = cw_generic_increase_reparations }
+		}
+		every_country = {
+			limit = {
+				is_in_array = {
+					array = global.euu_members_array
+					value = THIS.id
+				}
+			}
+			add_named_threat = { threat = 1 name = CW_INCREASED_RREPARATIONS }
+			event_target:euu_target = { add_to_variable = { amount_of_reperations_remaining@PREV = 5 } }			
+		}
+		if = {
+			limit = {
+				event_target:euu_initiator = {
+					OR = {
+						has_government = communism
+						has_government = communism_totalitarian
+					}
+				}
+			}
+			event_target:euu_target = { add_popularity = { ideology = unaligned_right popularity = 0.15 } }
+			else = {
+				random_list = {
+					50 = {
+						event_target:euu_target = { add_popularity = { ideology = communism_totalitarian popularity = 0.15 } }
+					}
+					0 = {
+						event_target:euu_target = {  add_popularity = { ideology = communism popularity = 0.15 } }
+						modifier = {
+							factor = 50
+							event_target:communist_leader = { has_government = communism }
+						}
+					}			
+				}
+			}
+		}		
+		cw_euu_clear_junk = yes
+	}
+	if = {
+		limit = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = cu_generic_transfer_territory }
+		}
+		every_state = {
+			limit = {
+				is_in_array = {
+					array = global.euu_multiple_target_resolution_array
+					value = THIS.id
+				}
+			}
+			event_target:euu_initiator = { transfer_state = PREV }
+		}
+		event_target:euu_target = { clr_country_flag = cu_generic_transfer_territory }
+		cw_euu_clear_junk = yes
+	}
+	##### ACC RESOLUTIONS ###
+	if = {
+		limit = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_resolution_abolish_prussia }
+		}
+		66 = { remove_claim_by = GER }
+		68 = { remove_claim_by = GER }
+		63 = { remove_claim_by = GER }
+		67 = { remove_claim_by = GER }
+		5 = { remove_claim_by = GER }
+		763 = { remove_claim_by = GER }
+		event_target:euu_target = { clr_country_flag = acc_resolution_abolish_prussia }
+		every_country = {
+			limit = {
+				is_in_array = {
+					array = global.euu_members_array
+					value = THIS.id
+				}
+			}
+			unlock_national_focus = FOG_unified_germany_prussia_recognize_polish_control
+		}
+		cw_euu_clear_junk = yes
+	}	
+	if = {
+		limit = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_resolution_adopt_morgentau_plan }
+		}
+		USA = {
+			release_puppet = GER
+			new_military_char_notification = yes
+		}
+		GER = {
+			cw_new_country_notification = yes
+			add_ideas = enforced_disarnament
+			add_timed_idea = { idea = cw_populatioin_boost_high days = 720 }
+			set_cosmetic_tag = GER_WGR
+			cw_add_to_european_union_observers = yes
+			give_military_access = USA
+			give_military_access = SOV
+			give_military_access = FRA
+			give_military_access = ENG
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+				election_frequency = 48
+			}
+			set_political_party = {
+				ideology = democratic
+				popularity = 55
+			}
+		}
+		DEN = { transfer_state = 58 }
+		every_country = {
+			limit = {
+				is_in_array = {
+					array = global.euu_members_array
+					value = THIS.id
+				}
+			}
+			GER = { add_opinion_modifier = { target = PREV modifier = protest_action } }
+			unlock_national_focus = FOG_the_morgentau_plan
+		}
+		set_global_flag = morgentau_plan_adopted
+		event_target:euu_target = { 
+			clr_country_flag = acc_resolution_adopt_morgentau_plan
+			if = {
+				limit = {
+					has_country_flag = devided_ger_plan_failed
+				}
+				clr_country_flag = devided_ger_plan_failed
+			}
+		}
+		cw_euu_clear_junk = yes
+	}
+	if = {
+		limit = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_resolution_adopt_schuman_plan }
+		}
+		USA = {
+			release_puppet = GER
+			give_guarantee = GER
+			new_military_char_notification = yes
+		}
+		GER = {
+			cw_new_country_notification = yes
+			cw_make_unrecognized = yes
+			add_ideas = enforced_disarnament
+			add_timed_idea = { idea = cw_populatioin_boost_high days = 720 }
+			cw_add_to_european_union_observers = yes
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+				election_frequency = 48
+			}
+			set_political_party = {
+				ideology = democratic
+				popularity = 55
+			}
+			give_military_access = USA
+			give_military_access = ENG
+			give_military_access = FRA
+		}
+		every_country = {
+			limit = {
+				is_in_array = {
+					array = global.euu_members_array
+					value = THIS.id
+				}
+			}
+			unlock_national_focus = FOG_the_schuman_plan
+		}
+		set_global_flag = schuman_plan_adopted
+		event_target:euu_target = { 
+			clr_country_flag = acc_resolution_adopt_schuman_plan
+			if = {
+				limit = {
+					has_country_flag = devided_ger_plan_failed
+				}
+				clr_country_flag = devided_ger_plan_failed
+			}			
+		}
+		cw_euu_clear_junk = yes
+	}
+	if = {
+		limit = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_resolution_establish_bavaria }
+		}
+		GER = {
+			add_popularity = {
+				ideology = unaligned_right
+				popularity = 0.2
+			}
+			add_popularity = {
+				ideology = communism_totalitarian
+				popularity = 0.2
+			}
+			release = BAV 
+		}
+		BAV = {
+			cw_new_country_notification = yes
+			cw_make_unrecognized = yes
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+				election_frequency = 48
+			}
+			set_political_party = {
+				ideology = democratic
+				popularity = 40
+			}
+			set_political_party = {
+				ideology = communism_totalitarian
+				popularity = 20
+			}
+			set_political_party = {
+				ideology = unaligned_right
+				popularity = 20
+			}			
+		}
+		event_target:euu_target = { clr_country_flag = acc_resolution_establish_bavaria }
+		cw_euu_clear_junk = yes
+	}
+}

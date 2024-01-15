@@ -1,0 +1,52 @@
+focus_tree = {
+	id = ukraine_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = UKR
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	focus = {
+		id = UKR_replace_khrushev
+		available = {
+			OR = {
+				date > 1947.2.10
+				surrender_progress > 0.5
+			}
+		}
+		icon = GFX_SOV_favor_khrushev
+		x = 1
+		y = 1
+		cost = 5
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			retire_country_leader = yes
+			hidden_effect = { SOV = { remove_country_leader_trait = careful_diplomacy } }
+			if = {
+				limit = {
+					SOV = { is_ai = yes }
+				}
+				SOV = { add_timed_idea = { idea = protect_our_colonies days = 30 } }
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

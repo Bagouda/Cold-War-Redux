@@ -1,0 +1,680 @@
+﻿capital = 361
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+
+set_variable = { cw_score = 0 }
+set_variable = { cw_soft_power = 0 }
+set_variable = { cw_hard_power = 0 }
+set_variable = {cw_manpower = max_available_manpower_k}
+subtract_from_variable = {cw_manpower = manpower_k}
+set_variable = {cw_number_base = 0}
+set_variable = {cw_ideology_power = 0}
+
+add_nuclear_bombs = 10
+
+
+add_dynamic_modifier = { modifier =  USA_volunteers }
+
+# intelilgence modifier
+set_variable = {cw_slot_operative = 0}
+set_variable = {cw_intel_gain = 0}
+set_variable = {cw_ideology_operative = 0}
+set_variable = {cw_stability_operative = 0}
+set_variable = {cw_operative_capture = 0}
+set_variable = {cw_ennemy_operative_capture = 0}
+
+save_global_event_target_as = democratic_leader
+set_country_flag = democratic_leader_flag
+set_country_flag = nuclear_program
+
+
+# bloated military
+set_variable =  { construction_bloat = -0.20 }
+set_variable =  { production_bloat = -0.2 }
+set_variable =  { change_bloat = -0.2 }
+set_variable =  { com_bloat = 0.02 }
+
+add_dynamic_modifier = {
+	modifier = bloated_military_complex
+}
+
+
+set_convoys = 500
+set_research_slots = 3
+####start tech####
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons2 = 1
+	infantry_weapons1 = 1
+	improved_infantry_weapons = 1
+	improved_infantry_weapons_2 = 1
+	infantry_at = 1
+	infantry_at2 = 1
+	advanced_infantry_weapons = 1
+	advanced_infantry_weapons2 = 1
+	marines = 1
+	paratroopers = 1
+	tech_mountaineers = 1
+	tech_special_forces = 1
+	jungle_warfare = 1
+	mountain_warfare = 1
+	night_vision = 1
+	support_weapons = 1
+	support_weapons2 = 1
+	support_weapons3 = 1
+	support_weapons4 = 1
+	motorised_infantry = 1
+	motorized_rocket_unit = 1
+	armored_car1 = 1
+	armored_car2 = 1
+	armored_car3 = 1
+	armored_car_at_upgrade = 1
+	mechanised_infantry = 1
+	amphibious_mechanized_infantry = 1
+	amphibious_mechanized_infantry_2 = 1
+	mechanised_infantry2 = 1
+	mechanised_infantry3 = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	railway_gun = 1
+	wartime_train = 1
+	armored_train = 1
+	
+	gw_artillery = 1
+	interwar_artillery = 1
+	artillery1 = 1
+	artillery2 = 1
+	artillery3 = 1
+	artillery4 = 1
+	artillery5 = 1
+	mountain_gun = 1
+	rocket_artillery = 1
+	rocket_artillery2 = 1
+	rocket_artillery3 = 1
+	rocket_artillery4 = 1
+	interwar_antiair = 1
+	antiair1 = 1
+	antiair2 = 1
+	antiair3 = 1
+	antiair4 = 1
+	antiair5 = 1
+	interwar_antitank = 1
+	antitank1 = 1
+	antitank2 = 1
+	antitank3 = 1
+	antitank4 = 1
+	antitank5 = 1
+	
+	
+	early_destroyer = 1
+	basic_destroyer = 1
+	improved_destroyer = 1
+	advanced_destroyer = 1
+	early_light_cruiser = 1
+	basic_light_cruiser = 1
+	improved_light_cruiser = 1
+	advanced_light_cruiser = 1
+	early_heavy_cruiser = 1
+	basic_heavy_cruiser = 1
+	improved_heavy_cruiser = 1
+	advanced_heavy_cruiser = 1
+	early_battlecruiser = 1
+	basic_battlecruiser = 1
+	early_battleship = 1
+	basic_battleship = 1
+	improved_battleship = 1
+	advanced_battleship = 1
+	heavy_battleship = 1
+	heavy_battleship2 = 1
+	transport = 1
+	landing_craft = 1
+	tank_landing_craft = 1
+	early_carrier = 1
+	basic_carrier = 1
+	improved_carrier = 1
+	advanced_carrier = 1
+	early_submarine = 1
+	basic_submarine = 1
+	improved_submarine = 1
+	advanced_submarine = 1
+	torpedo_cruiser = 1
+	
+	electronic_mechanical_engineering = 1
+	radio = 1
+	radio_detection = 1
+	experimental_rockets = 1
+	rocket_engines = 1
+	improved_rocket_engines = 1
+	advanced_rocket_engines = 1
+	jet_engines = 1
+	atomic_research = 1
+}
+if = {
+	limit = { 
+		has_dlc = "Man the Guns" 
+	}
+	set_technology = {
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		improved_ship_hull_light = 1
+		advanced_ship_hull_light = 1
+		smoke_generator = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		advanced_depth_charges = 1
+		modern_depth_charges = 1
+		sonar = 1
+		improved_sonar = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		improved_ship_hull_cruiser = 1
+		advanced_ship_hull_cruiser = 1
+		improved_airplane_launcher = 1
+		basic_cruiser_armor_scheme = 1
+		
+		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
+		ship_hull_super_heavy = 1
+		improved_ship_hull_heavy = 1
+		advanced_ship_hull_heavy = 1
+		basic_heavy_armor_scheme = 1
+		improved_heavy_armor_scheme = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		improved_ship_hull_carrier = 1
+		advanced_ship_hull_carrier = 1
+		basic_torpedo = 1
+		magnetic_detonator = 1
+		homing_torpedo = 1
+		electric_torpedo = 1
+		improved_ship_torpedo_launcher = 1
+		advanced_ship_torpedo_launcher = 1
+		modern_ship_torpedo_launcher = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		improved_ship_hull_submarine = 1
+		advanced_ship_hull_submarine = 1
+		basic_submarine_snorkel = 1
+		improved_submarine_snorkel = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		improved_light_battery = 1
+		advanced_light_battery = 1
+		basic_light_shell = 1
+		improved_light_shell = 1
+		basic_medium_battery = 1
+		improved_medium_battery = 1
+		advanced_medium_battery = 1
+		basic_medium_shell = 1
+		improved_medium_shell = 1
+		basic_heavy_battery = 1
+		improved_heavy_battery = 1
+		advanced_heavy_battery = 1
+		basic_heavy_shell = 1
+		improved_heavy_shell = 1
+		
+		
+		
+		damage_control_1 = 1
+		damage_control_2 = 1
+		damage_control_3 = 1
+		fire_control_methods_1 = 1
+		fire_control_methods_2 = 1
+		fire_control_methods_3 = 1
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		improved_submarine_mine_laying = 1
+		improved_naval_mines = 1
+		degaussing = 1
+		advanced_naval_mines = 1
+		airdrop_mines = 1
+		modern_naval_mines = 1
+		airsweep_mines = 1
+		mtg_transport = 1
+		mtg_landing_craft = 1
+		mtg_tank_landing_craft = 1
+		panzerschiffe = 1
+		torpedo_cruiser_mtg = 1
+		pre_dreadnoughts = 1
+		coastal_defense_ships = 1
+		cruiser_submarines = 1
+	}
+}
+####end tech####
+1946.1.1 = {
+    OOB = USA_1946
+    set_naval_oob = "USA_1946_naval_mtg"
+
+		set_autonomy = {
+			target = PHI
+			autonomous_state = autonomy_wtt_imperial_subject
+			freedom_level = 0.5
+		}
+		set_autonomy = {
+			target = BRL
+			autonomous_state = autonomy_wtt_imperial_subject
+			freedom_level = 0.5
+		}
+		set_autonomy = {
+			target = KOR
+			autonomous_state = autonomy_wtt_imperial_subject
+			freedom_level = 0.4
+		}		
+		
+	
+	set_war_support = 0.1
+	set_stability = 0.7
+	
+	give_guarantee = LIB
+	give_guarantee = BRL
+	give_guarantee = PHI
+	add_political_power = 200
+	
+	add_opinion_modifier = { target = ENG modifier = ww2_major_allies }
+	add_opinion_modifier = { target = CHI modifier = ww2_major_allies }
+	add_opinion_modifier = { target = CHI modifier = anti_communist_ally }
+	add_opinion_modifier = { target = SOV modifier = ww2_major_allies }
+	add_opinion_modifier = { target = FRA modifier = ww2_major_allies }
+	add_opinion_modifier = { target = PRC modifier = ww2_major_allies }
+	add_opinion_modifier = { target = GRE modifier = anti_communist_ally }
+	add_opinion_modifier = { target = SOV modifier = opposing_economic_outlooks }
+	#CHI = {
+	#	add_to_array = {
+	#		array = USA.lend_lease_blocked_countries
+	#		value = THIS.id
+	#	}
+	#}
+	create_production_license = {
+		target = CHI
+		equipment = {
+			type = infantry_equipment_3
+		}
+		cost_factor = 0
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_3
+		amount = 100000
+		producer = USA
+	}
+	add_ideas = {
+	# Country ideas
+		usa_beacon_of_liberty
+		winner_ww2
+		strikes_2
+		# Laws
+		cw_high_military_budget
+		cw_volunteer_only
+		cw_acceptable_training
+		cw_mobile_forces
+		cw_long_range_forces
+		cw_blue_water_navy_focus
+		
+		cw_acceptable_education_budget
+		cw_10_hour_workday
+		cw_medium_tariffs
+		cw_free_press
+		cw_free_religious_practice
+		cw_seprate_but_equal
+		cw_all_unions_allowed
+	}
+	
+	### Country Leaders
+	recruit_character = usa_harry_truman
+	### Deputy Minister
+	recruit_character = usa_hog_alben_barkley
+	activate_advisor = usa_hog_alben_barkley
+	### Foreign Minister
+	recruit_character = usa_fm_james_byrnes
+	activate_advisor = usa_fm_james_byrnes
+	recruit_character = usa_fm_george_marshall
+	recruit_character = usa_fm_dean_acheson
+	recruit_character = usa_fm_john_foster_dulles
+	recruit_character = usa_fm_christian_herter
+	### Defense Minister
+	recruit_character = usa_dm_james_forrestal
+	recruit_character = usa_dm_louis_johnson
+	recruit_character = usa_dm_robert_lovett
+	recruit_character = usa_dm_charles_wilson
+	recruit_character = usa_dm_thomas_gates_jr
+	### Treasure Minister
+	recruit_character = usa_tm_fred_vinson
+	activate_advisor = usa_tm_fred_vinson
+	recruit_character = usa_tm_john_snyder
+	recruit_character = usa_tm_george_humphrey
+	recruit_character = usa_tm_robert_bernard_anderson
+	### Chief of Staff
+	recruit_character = usa_chief_william_leahy
+	activate_advisor = usa_chief_william_leahy
+	### Head of Intelligence
+	recruit_character = usa_spy_roscoe_h_hillenkoetter
+	activate_advisor = usa_roscoe_h_hillenkoetter
+	recruit_character = usa_spy_hoyt_vandenberg
+	activate_advisor = usa_spy_hoyt_vandenberg
+	recruit_character = usa_spy_walter_bedell_smith
+	recruit_character = usa_spy_allen_dulles
+	recruit_character = usa_spy_john_a_mccone
+	### Military Characters
+	recruit_character = USA_dwight_d_eisenhower
+	recruit_character = USA_chief_omar_bradley_cc
+	recruit_character = USA_josepth_t_manarney_cc
+	recruit_character = USA_douglas_macarthur_field_marshall
+	recruit_character = USA_mark_w_clark_cc
+	recruit_character = USA_lucian_truscott_cc
+	recruit_character = USA_jacob_l_devers_cc
+	recruit_character = USA_leonard_t_gerow_cc
+	recruit_character = USA_charles_w_ryder_cc
+	recruit_character = USA_mattew_ridgway_cc
+	recruit_character = USA_william_f_dean_cc
+	### Admirals
+	recruit_character = USA_arthur_radford_admiral
+	recruit_character = USA_admiral_william_halsey_jr
+	recruit_character = USA_admiral_chester_w_nimitz
+	recruit_character = USA_admiral_raymond_a_spruance
+	recruit_character = USA_admiral_jonas_h_ingram
+	
+	set_politics = {
+		ruling_party = democratic_socialist
+		last_election = "1944.11.2"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 40
+		democratic_socialist = 60
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1949.8.24 = {
+	create_faction = "NATO"
+	add_to_faction = BEL
+	add_to_faction = DEN
+	add_to_faction = CAN
+	add_to_faction = FRA
+	add_to_faction = ITA
+	add_to_faction = LUX
+	add_to_faction = HOL
+	add_to_faction = NOR
+	add_to_faction = POR
+	add_to_faction = ENG
+	add_to_faction = ICE
+}
+1950.6.25 = {	#Korea War
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1948.11.2"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Dwight D. Eisenhower"
+		desc = ""
+		picture = USAH2.dds
+		ideology = social_cons_idolg
+		expire = 1961.1.20
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Harry S. Truman"
+		desc = POLITICAL_HARRY_TRUMAN_DESC
+		picture = USAH1.dds
+		ideology = social_liberal_idolg
+		expire = 1953.1.20
+		traits = { }
+	}	
+}
+1952.2.18 = { add_to_faction = GRE }
+1952.2.18 = { add_to_faction = TUR }
+1955.5.6 = { add_to_faction = GER }
+1956.10.29 = {	#Suez Crisis
+	add_ideas = {
+		usa_hog_richard_nixon		
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1952.11.6"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 60
+		democratic_socialist = 40
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Adlai Stevenson"
+		desc = ""
+		picture = USAH2_NH.dds
+		ideology = social_liberal_idolg
+		expire = 1965.7.14
+		traits = { }
+	}	
+	create_country_leader = {
+			name = "Dwight D. Eisenhower"
+			desc = ""
+			picture = USAH2.dds
+			ideology = social_cons_idolg
+			expire = 1961.1.20
+			traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	add_ideas = {
+		usa_hog_lyndon_johnson		
+	}
+	set_politics = {	
+		ruling_party = democratic_socialist
+		last_election = "1960.11.2"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 40
+		democratic_socialist = 60
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+			name = "Gerald Ford"
+			desc = ""
+			picture = USAH6.dds
+			ideology = social_cons_idolg
+			expire = 1977.1.20
+			traits = {}
+	}	
+	create_country_leader = {
+			name = "Richard Nixon"
+			desc = ""
+			picture = USAH5.dds
+			ideology = social_cons_idolg
+			expire = 1974.8.9
+			traits = {}
+	}	
+	create_country_leader = {
+			name = "Lyndon B. Johnson"
+			desc = ""
+			picture = USAH4.dds
+			ideology = social_liberal_idolg
+			expire = 1969.1.20
+			traits = {}
+	}
+	create_country_leader = {
+			name = "John F. Kennedy"
+			desc = ""
+			picture = USAH3.dds
+			ideology = social_liberal_idolg
+			expire = 1963.1.22
+			traits = {}
+	}
+}
+
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	add_ideas = {
+		usa_hog_walter_mondale
+	}
+	set_politics = {	
+		ruling_party = democratic_socialist
+		last_election = "1976.11.2"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 40
+		democratic_socialist = 60
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+			name = "Jimmy Carter"
+			desc = ""
+			picture = USAH7.dds
+			ideology = social_liberal_idolg
+			expire = 1969.1.20
+			traits = {}
+	}
+}
+1982.5.30 = { add_to_faction = SPR }
+1989.1.9 = {	#Fall of Berlin Wall
+	add_ideas = {
+		usa_hog_george_bush
+	}	
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1984.11.6"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 60
+		democratic_socialist = 40
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+			name = "Ronald Reagan"
+			desc = ""
+			picture = USAH8.dds
+			ideology = social_cons_idolg
+			expire = 1961.1.20
+			traits = {}
+	}
+}
+
+
+############# ships ##############
+create_equipment_variant = {
+		name = "Balao Class"				
+		type = ship_hull_submarine_4
+		#name_group = POR_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_4
+			fixed_ship_engine_slot = sub_ship_engine_4
+			rear_1_custom_slot = empty
+		}
+	}
+		create_equipment_variant = {
+			name = "Gearing Class"
+			type = ship_hull_light_4
+			#name_group = USA_DD_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_battery_slot = ship_light_battery_4
+			    fixed_ship_anti_air_slot = ship_anti_air_4
+			    fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			    fixed_ship_radar_slot = ship_radar_4
+			    fixed_ship_engine_slot = light_ship_engine_2
+			    fixed_ship_torpedo_slot = ship_torpedo_4
+			    mid_1_custom_slot = ship_mine_layer_1
+			    rear_1_custom_slot = ship_depth_charge_4
+			}
+		}
+		# Heavy Cruisers #
+		create_equipment_variant = {
+			name = "Baltimore Class"
+			type = ship_hull_cruiser_4
+			parent_version = 0
+			modules = {
+				fixed_ship_battery_slot = ship_medium_battery_4
+				fixed_ship_anti_air_slot = ship_anti_air_4
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+				fixed_ship_radar_slot = ship_radar_4
+				fixed_ship_engine_slot = cruiser_ship_engine_4
+				fixed_ship_armor_slot = ship_armor_cruiser_4
+				mid_1_custom_slot = ship_airplane_launcher_2
+				mid_2_custom_slot = ship_anti_air_4
+				rear_1_custom_slot = ship_medium_battery_4
+			}
+		}
+		# Battleships #
+		create_equipment_variant = {
+			name = "Iowa Class"
+			type = ship_hull_heavy_4
+			#name_group = USA_BB_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_battery_slot = ship_heavy_battery_4
+				fixed_ship_anti_air_slot = ship_anti_air_1
+				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+				fixed_ship_radar_slot = ship_radar_4
+				fixed_ship_engine_slot = heavy_ship_engine_4
+				fixed_ship_secondaries_slot = dp_ship_secondaries
+				fixed_ship_armor_slot = ship_armor_bb_2
+				front_1_custom_slot = ship_heavy_battery_4
+				mid_1_custom_slot = ship_heavy_battery_4
+				mid_2_custom_slot = dp_ship_secondaries
+				mid_3_custom_slot = ship_heavy_battery_4
+				rear_1_custom_slot = ship_airplane_launcher_1
+			}
+		}
+		# Carriers #
+		create_equipment_variant = {
+			name = "Essex Class"
+			type = ship_hull_carrier_3
+			#name_group = USA_CV_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_deck_slot_1 = ship_deck_space
+				fixed_ship_deck_slot_2 = ship_deck_space
+				fixed_ship_anti_air_slot = ship_anti_air_4
+				fixed_ship_radar_slot = ship_radar_4
+				fixed_ship_engine_slot = carrier_ship_engine_4
+				fixed_ship_secondaries_slot = dp_ship_secondaries
+				front_1_custom_slot = ship_deck_space
+			}
+		}
+		create_equipment_variant = {
+			name = "Independence Class"
+			type = ship_hull_carrier_3
+			#name_group = USA_CV_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_deck_slot_1 = ship_deck_space
+				fixed_ship_deck_slot_2 = empty
+				fixed_ship_anti_air_slot = ship_anti_air_4
+				fixed_ship_radar_slot = ship_radar_4
+				fixed_ship_engine_slot = carrier_ship_engine_4
+				fixed_ship_secondaries_slot = dp_ship_secondaries
+				front_1_custom_slot = empty
+			}
+		}

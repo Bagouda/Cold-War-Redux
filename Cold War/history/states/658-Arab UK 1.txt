@@ -1,0 +1,33 @@
+state = {
+	id=658
+	local_supplies=0.0 
+	name="STATE_658"
+	state_category = pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 7960 }
+ 	set_variable = { victory_point = 1 }
+		owner = ENG
+		add_core_of = ENG
+		
+		set_state_flag = high_resource_potential_oil
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			7960 = {
+				naval_base = 1
+			}		
+		}
+		
+		victory_points = {
+			7960 1 
+		}
+	}
+	resources={
+		oil=5 # was: 6
+	}
+	manpower = 170200
+	provinces={
+		2048 7960 8108 10904 
+	}
+}

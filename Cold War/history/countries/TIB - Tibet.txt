@@ -1,0 +1,280 @@
+﻿capital = 322
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+
+OOB = TIB_1946
+
+set_technology = {
+    antitank5 = 1
+}
+
+set_technology = {
+    advanced_light_tank = 1
+}
+
+set_technology = {
+    tech_mountaineers3 = 1
+}
+
+set_technology = {
+    improved_medium_art = 1
+}
+
+set_technology = {
+    advanced_medium_battery = 1
+}
+
+set_technology = {
+    advanced_ship_hull_cruiser = 1
+}
+
+set_technology = {
+    improved_airplane_launcher = 1
+}
+
+set_technology = {
+    advanced_heavy_battery = 1
+}
+
+set_technology = {
+    advanced_ship_hull_heavy = 1
+}
+
+set_technology = {
+    advanced_ship_hull_carrier = 1
+}
+
+set_technology = {
+    advanced_infantry_weapons = 1
+}
+
+set_technology = {
+    advanced_medium_tank = 1
+}
+
+set_technology = {
+    mechanised_infantry3 = 1
+}
+
+set_technology = {
+    motorised_infantry = 1
+}
+
+set_technology = {
+    tech_military_police4 = 1
+}
+
+set_technology = {
+    basic_naval_mines = 1
+}
+
+set_technology = {
+    submarine_mine_laying = 1
+}
+
+set_technology = {
+    advanced_fire_control_system = 1
+}
+
+set_technology = {
+    antiair5 = 1
+}
+
+set_technology = {
+    advanced_ship_hull_light = 1
+}
+
+set_technology = {
+    smoke_generator = 1
+}
+
+set_technology = {
+    modern_depth_charges = 1
+}
+
+set_technology = {
+    improved_sonar = 1
+}
+
+set_technology = {
+    homing_torpedo = 1
+}
+
+set_technology = {
+    electric_torpedo = 1
+}
+
+set_technology = {
+    modern_ship_torpedo_launcher = 1
+}
+
+set_technology = {
+    advanced_ship_hull_submarine = 1
+}
+
+set_technology = {
+    improved_submarine_snorkel = 1
+}
+
+set_technology = {
+    advanced_light_battery = 1
+}
+
+set_technology = {
+    advanced_medium_battery = 1
+}
+
+set_technology = {
+    advanced_heavy_battery = 1
+}
+
+
+set_technology = {
+    fire_control_methods_3 = 1
+}
+
+set_technology = {
+    advanced_centimetric_radar = 1
+}
+
+set_technology = {
+    infantry_weapons = 1
+}
+
+set_technology = {
+    infantry_weapons1 = 1
+}
+
+set_technology = {
+    gw_artillery = 1
+}
+
+set_technology = {
+    interwar_antiair = 1
+}
+
+set_technology = {
+    tech_support = 1		
+}
+
+set_technology = {
+    tech_engineers = 1
+}
+
+set_technology = {
+    fighter3 = 1
+}
+
+set_technology = {
+    cv_fighter3 = 1
+}
+
+set_technology = {
+    CAS3 = 1
+}
+
+set_technology = {
+    cv_CAS3 = 1
+}
+
+set_technology = {
+    naval_bomber3 = 1
+}
+
+set_technology = {
+    cv_naval_bomber3 = 1
+}
+
+set_technology = {
+    heavy_fighter3 = 1
+}
+
+set_technology = {
+    tactical_bomber3 = 1
+}
+
+set_technology = {
+    strategic_bomber3 = 1
+}
+
+set_technology = {
+    early_fighter = 1
+}
+
+set_technology = {
+    early_bomber = 1
+}
+
+set_technology = {
+    CAS1 = 1
+}
+
+set_technology = {
+    basic_naval_mines = 1
+}
+
+set_technology = {
+    submarine_mine_laying = 1
+}
+
+set_technology = {
+    early_ship_hull_light = 1
+}
+
+set_technology = {
+    basic_ship_hull_light = 1
+}
+
+set_technology = {
+    early_ship_hull_submarine = 1
+}
+
+set_technology = {
+    basic_ship_hull_submarine = 1
+}
+
+set_technology = {
+    basic_battery = 1
+}
+
+set_technology = {
+    basic_torpedo = 1
+}
+
+set_technology = {
+    basic_depth_charges = 1
+}
+
+set_technology = {
+    mtg_transport = 1
+}
+
+
+
+1946.1.1 = {
+	add_ideas = {
+		cw_non_recognized_state
+	}
+	set_politics = {
+		ruling_party = unaligned_right
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+			democratic  = 0
+			democratic_socialist = 0
+			neutrality = 0
+			communism_totalitarian = 0
+			unaligned_right = 100
+			colonial =  0
+	}	
+	create_country_leader = {
+			name = "Tenzin Gyatso"
+			desc = ""
+			picture = "TIBH1.dds"
+			ideology = despotism
+			expire = 2025.4.5
+			traits = {}
+	}
+}

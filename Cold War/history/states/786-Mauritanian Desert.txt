@@ -1,0 +1,15 @@
+state = {
+	id=786
+	local_supplies=0.0 
+	name="STATE_786" # Mauritanian Desert
+	state_category = wasteland
+	history = {
+		owner = FRA
+		add_claim_by = MRA
+	}
+	manpower = 124200
+	impassable = yes
+	provinces={
+		1897 1962 7943 8035 10771 10779 10838
+	}
+}

@@ -1,0 +1,45 @@
+state = {
+	id=29
+	local_supplies=0.0 
+	name="STATE_29"
+	state_category = devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 11548 }
+ 	add_to_array = { list_victory_point = 11548 }
+ 	add_to_array = { list_victory_point = 11483 }
+ 	add_to_array = { list_victory_point = 575 }
+ 	set_variable = { victory_point = 45 }
+		owner = FRA
+		add_core_of = FRA
+		
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			11548 = {		#Boston Shipyard
+				naval_base = 5
+			}
+		}
+		
+		victory_points = {
+			11548 15
+		}
+		victory_points = {
+			11548 15
+		}
+		victory_points = {
+			11483 10
+		}
+		victory_points = {
+			575 5
+		}
+	}
+	resources={
+		steel=20 # was: 112
+		aluminium=8 # was: 22
+		crops = 5
+	}
+	manpower = 2976400
+	provinces={
+		575 3476 3536 6504 9500 11483 11548 11606 
+	}
+}

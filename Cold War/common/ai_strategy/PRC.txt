@@ -1,0 +1,110 @@
+prce_dont_bother_taiwan_after_ccw = {
+	enable = {
+		original_tag = PRC
+		CHI = { has_country_flag = lost_ccw }
+	}
+	abort = {
+		always = no
+	}
+	ai_strategy = {
+		type = ignore_claim
+		id = "CHI"
+		value = 200
+	}
+	ai_strategy = {
+		type = ignore
+		id = "CHI"
+		value = 200
+	}
+}
+PRC_unit_production = {
+	enable = {
+		tag = PRC
+	}
+	abort = {
+		always = no
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = 0
+	}
+
+
+	ai_strategy = {
+		type = role_ratio
+		id = paratroopers
+		value = 0
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = 0
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = 0
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -100
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 35
+	}	
+	ai_strategy = {
+		type = ignore_army_incompetence
+		value = 500
+	}
+}
+prce_save_pp_during_great_leap_forward = {
+	enable = {
+		tag = PRC
+		has_active_mission = cw_prc_great_leap_forward
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = { 
+		type = pp_spend_priority
+		id = admiral
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = pp_spend_priority
+		id = guarantee
+		value = -9999
+	}
+
+	ai_strategy = { 
+		type = pp_spend_priority
+		id = relation
+		value = -9999
+	}
+	ai_strategy = {
+		type = pp_spend_amount
+		id = idea
+		value = -9999
+	}	
+	ai_strategy = {
+		type = pp_spend_amount
+		id = decision
+		value = 100
+	}
+}

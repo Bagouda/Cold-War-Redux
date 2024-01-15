@@ -1,0 +1,540 @@
+@MILITIA_DIVISIONS_TO_SPAWN = 2
+on_actions = {
+#	on_bi_yearly_pulse = {		On half a year (june) every two years
+#	}
+#	on_five_year_pulse = {
+#	}
+	#on_startup = {
+	#	effect = {
+	#		if = {
+	#			limit = {
+	#				has_start_date > 1946.01.01
+	#			}
+	#			#Create Azerbaijani Republic
+	#			create_dynamic_country = {
+	#				original_tag = AZR
+	#				save_event_target_as = france_vichy
+	#				every_state = {
+	#					limit = {
+	#						is_controlled_by = IRE
+	#					}
+	#					event_target:france_vichy = { transfer_state = PREV }
+	#				}
+	#			}
+	#		}
+	#	}
+	#}
+	#on_offer_join_faction = {
+	#	effect = {
+	#	}	
+	#}
+	#on_state_control_changed = {
+	#	effect = {
+	#	}
+	#}
+	#ROOT = attacking side
+	#FROM = defending side	
+	on_war_relation_added = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						has_civil_war = yes
+					}
+				}
+				#every_country = {
+				#	limit = {
+				#		has_war_with = FROM
+				#		NOT = { original_tag = ROOT }
+				#	}
+				#	white_peace = FROM
+				#	white_peace = ROOT
+				#}
+				if = {
+					limit = {
+						ROOT = {
+							has_government = communism
+						}
+					}
+					ROOT = {
+						set_cosmetic_tag = COM_REVOLT
+						retire_country_leader = yes
+						create_country_leader = {
+							name = "Communist Militias"
+							desc = ""
+							picture = "gfx/leaders/generic_communist_militia.dds"
+							ideology = communist_idolg
+							expire = 2020.10.10
+							traits = { stern_anti_imperialist last_stand_fighter }
+						}					
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							has_government = communism_totalitarian
+						}
+					}
+					ROOT = {
+						set_cosmetic_tag = COM_REVOLT
+						retire_country_leader = yes
+						create_country_leader = {
+							name = "Communist Militias"
+							desc = ""
+							picture = "gfx/leaders/generic_communist_militia.dds"
+							ideology = stalinism_idolg
+							expire = 2020.10.10
+							traits = { stern_anti_imperialist last_stand_fighter }
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							has_government = democratic
+						}
+					}
+					ROOT = {
+						retire_country_leader = yes
+						create_country_leader = {
+							name = "Pro Democracy Protestors"
+							desc = ""
+							picture = "gfx/leaders/SPR/portrait_spr_anarchist_commune.dds"
+							ideology = reactionary
+							expire = 2020.10.10
+							traits = { stern_anti_communist last_stand_fighter }
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							has_government = democratic_socialist
+						}
+					}
+					ROOT = {
+						retire_country_leader = yes
+						create_country_leader = {
+							name = "Pro Democracy Protestors"
+							desc = ""
+							picture = "gfx/leaders/SPR/portrait_spr_anarchist_commune.dds"
+							ideology = social_democrat_idolg
+							expire = 2020.10.10
+							traits = { stern_anti_communist last_stand_fighter }
+						}
+					}
+				}								
+				if = {
+					limit = {
+						ROOT = {
+							has_government = neutrality
+						}
+					}
+					ROOT = {
+						if = {
+							limit = {
+								original_tag = ALG
+								date < 1960.1.1
+							}
+							set_cosmetic_tag = ALG_REV
+						}						
+						if = {
+							limit = {
+								capital_scope = { is_on_continent = africa }
+								NOT = {
+									OR = {
+										original_tag = MOR
+										original_tag = ALG
+										original_tag = TUN
+										original_tag = LBY
+										original_tag = EGY
+									}
+								}								
+							}
+							set_cosmetic_tag = AFRICAN_NATIONALIST_REVOLT							
+						}					
+						retire_country_leader = yes
+						create_country_leader = {
+							name = "Left Wing Nationalists"
+							desc = ""
+							picture = "gfx/leaders/SPR/portrait_spr_anarchist_commune.dds"
+							ideology = neutrality_idolg
+							expire = 2020.10.10
+							traits = { stern_anti_imperialist last_stand_fighter }
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							has_government = neutrality
+							FROM = { capital_scope = { is_on_continent = south_america } }
+						}
+						FROM = { NOT = { is_in_array = { array = global.countries_with_monarchies value = THIS.id } } }
+					}
+					ROOT = {
+						retire_country_leader = yes
+						create_country_leader = {
+							name = "Left Wing Nationalists"
+							desc = ""
+							picture = "gfx/leaders/generic_right_wing_nationalists.dds"
+							ideology = anti_imperialist
+							expire = 2020.10.10
+							traits = { stern_anti_imperialist last_stand_fighter }
+						}
+					}
+				}				
+				if = {
+					limit = {
+						ROOT = {
+							has_government = unaligned_right
+							FROM = { capital_scope = { is_on_continent = central_america } }
+						}
+						FROM = { NOT = { is_in_array = { array = global.countries_with_monarchies value = THIS.id } } }
+					}
+					ROOT = {
+						retire_country_leader = yes
+						create_country_leader = {
+							name = "Right Wing Nationalists"
+							desc = ""
+							picture = "gfx/leaders/generic_right_wing_nationalists.dds"
+							ideology = nationalism_idolg
+							expire = 2020.10.10
+							traits = { stern_anti_imperialist last_stand_fighter }
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							has_government = unaligned_right
+						}
+						FROM = { is_in_array = { array = global.countries_with_monarchies value = THIS.id } }
+					}
+					ROOT = {
+						set_cosmetic_tag = MILITARY_COUP
+						retire_country_leader = yes
+						create_country_leader = {
+							name = "Military Junta"
+							desc = ""
+							picture = "gfx/leaders/generic_right_wing_nationalists.dds"
+							ideology = military_idolg
+							expire = 2020.10.10
+							traits = { stern_anti_communist last_stand_fighter }
+						}
+					}
+				}				
+				if = {
+					limit = {
+						ROOT = {
+							NOT = { has_idea = cw_we_hate_factions }
+						}
+					}
+					add_ideas = cw_we_hate_factions
+				}				
+			}
+			if = {
+				limit = {
+					ROOT = {
+						num_divisions < 10
+						has_civil_war = yes
+					}
+				}
+				ROOT = {
+					division_template = {
+						name = "Civil Militia"
+						template_counter = 13
+						is_locked = yes
+						regiments = {
+							insurgency = { x = 0 y = 0 }
+							insurgency = { x = 1 y = 0 }
+							insurgency = { x = 2 y = 0 }
+						} 
+					}
+					capital_scope = {
+						create_unit = {
+							division = "division_template = \"Civil Militia\" start_experience_factor = 0.1" 
+							owner = ROOT
+							allow_spawning_on_enemy_provs = yes
+							count = @MILITIA_DIVISIONS_TO_SPAWN 
+							id = 1500
+						}
+					}
+					random_controlled_state = {
+						limit = {
+							impassable = no
+						}
+						create_unit = {
+							division = "division_template = \"Civil Militia\" start_experience_factor = 0.1" 
+							owner = ROOT
+							allow_spawning_on_enemy_provs = yes
+							count = @MILITIA_DIVISIONS_TO_SPAWN
+							id = 1600
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { 
+						OR = {
+							has_government = communism
+							has_government = communism_totalitarian
+							has_government = unaligned_right
+						}
+					}
+				}
+				random_country_with_original_tag = {
+					original_tag_to_check = ROOT
+					limit = {
+						has_civil_war = yes
+						has_war_with = ROOT
+					}
+					ROOT = { add_timed_idea = { idea = cw_revolutionary_zeal days = 60 } }
+				}
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+			every_state = {
+				limit = {
+					has_state_flag = state_being_raided
+				}
+				subtract_from_variable = { border_raid_timer = 0.01 }
+			}
+			every_state = {
+				limit = {
+					has_state_flag = state_police_action_active
+				}
+				subtract_from_variable = { state_police_action_timer = 0.01 }
+			}			
+			if = {
+				limit = {
+					check_variable = { SOV.manchuria_pullback_timer > 0 }
+				}
+				subtract_from_variable = { SOV.manchuria_pullback_timer = 0.01  }
+			}
+		}
+	}
+	#ROOT = nation being released, FROM = overlord	
+	on_release_as_free = {
+		effect = {
+			ROOT = { cw_new_country_notification = yes }
+		}
+	}	
+	#ROOT = nation being released, FROM = overlord	
+	on_release_as_puppet = {
+		effect = {
+			ROOT = {
+				cw_new_country_notification = yes
+				cw_make_unrecognized = yes
+				set_political_party = {
+					ideology = colonial
+					popularity = 0
+				}
+			}
+		}
+	}
+	#ROOT is winner #FROM gets annexed - This will also fire on_annex
+	on_civil_war_end_before_annexation = {
+		effect = {
+			ROOT = {
+				every_owned_state = {
+					limit = {
+						is_core_of = FROM
+					}
+					remove_core_of = FROM
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = special_police_action_flag }
+				}
+				ROOT = { clr_country_flag = special_police_action_flag }
+			}
+			if = {
+				limit = {
+					FROM = { has_country_flag = special_police_action_flag }
+				}
+				FROM = { clr_country_flag = special_police_action_flag }
+			}
+			if = {				# Fixes Puppets loss on end of civil war - needs to be split in two separate functions to work properly, DO NOT REMOVE!
+				limit = {
+					FROM = { num_subjects > 0 }
+				}
+				every_country = {
+					limit = {
+						OR = {
+							is_subject_of = FROM
+							is_puppet_of = FROM
+						}
+					}
+					add_to_array = {
+						array = FROM.post_civil_war_puppets
+						value = THIS.id
+					}
+				}
+			}
+		}
+	}
+	on_civil_war_end = {
+		effect = {
+			if = {
+				limit = {
+					has_template = "Civil Militia"
+				}
+				delete_unit_template_and_units = {
+					division_template = "Civil Militia"
+					disband = yes #will refund equipment and manpower
+				}
+			}
+			if = {
+				limit = {
+					has_template = "Guerilla Brigade"
+				}
+				delete_unit_template_and_units = {
+					division_template = "Guerilla Brigade"
+					disband = yes #will refund equipment and manpower
+				}
+			}			
+			#every_country = {		# Fixes Puppets loss on end of civil war - needs to be split in two separate functions to work properly, DO NOT REMOVE!, removed since causes game crash
+			#	limit = {
+			#		is_in_array = {
+			#			array = FROM.post_civil_war_puppets
+			#			value = THIS.id
+			#		}
+			#	}
+			#	FROM = { puppet = PREV }
+			#	set_politics = { ruling_party = FROM }
+			#	clear_array = FROM.post_civil_war_puppets
+			#}
+			if = {
+				limit = {
+					has_global_flag = soviet_civil_war_enabled
+					ROOT = {
+						original_tag = SOV
+						has_government = communism_totalitarian
+					}
+				}
+				SOV = {
+					load_focus_tree = sov_focus_1946
+					load_focus_tree = sov_focus_1950
+					complete_national_focus = SOV_stalin_succession
+					complete_national_focus = SOV_the_old_guard
+					complete_national_focus = SOV_appoint_malenkov
+					add_named_threat = { 
+						threat = -15 
+						name = "Soviet Civil War Ended"
+					}
+				}
+			}		
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							has_government = communism_totalitarian
+							has_government = communism
+						}
+					}
+				}
+				ROOT = {
+					random_neighbor_country = {
+						limit = {
+							num_of_controlled_states > 1
+							has_civil_war = no
+							has_war = no
+							has_stability < 0.5
+							NOT = {
+								OR = {
+									has_government = communism_totalitarian
+									has_government = communism
+								}
+							}
+						}
+						random_list = {
+							10 = {
+								start_civil_war = {
+									ideology = ROOT
+									keep_political_leader = yes
+									size = 0.3
+									states_filter = { impassable = no }
+									compute_proxy_score = yes
+								}
+								compute_proxy_score = yes
+							}
+							90 = {
+								add_popularity = {
+									ideology = ROOT
+									popularity = 0.2
+								}
+							}
+						}
+					}
+				}
+			}			
+		}
+	}
+	on_nuke_drop = {
+		effect = {
+			FROM = {
+				add_state_modifier = {
+					modifier = {
+						state_production_speed_buildings_factor  = -0.9
+						state_repair_speed_complex_factor   = -0.9
+						state_repair_speed_arms_factory_factor   = -0.9
+						state_repair_speed_infrastructure_factor   = -0.9
+						state_repair_speed_dockyard_factor   = -0.9
+						local_manpower = -0.9
+					}
+				}
+				owner = {
+					add_stability = -0.05
+					set_country_flag = { flag = bombed_by_nuclear_weapons value = 1 days = 565 }
+				}
+			}
+			
+			
+			
+		}
+		#random_events = {
+		#	100 = nuke_dropped.0
+		#}
+	}
+	on_peaceconference_ended = {		#Removes blocker of sending volunteers if country has it
+		effect = {
+			ROOT = {
+				if = {
+					limit = {
+						has_variable = volunteers_blocked_from
+					}
+					clear_variable = volunteers_blocked_from
+				}
+			}
+			FROM = {
+				if = {
+					limit = {
+						has_variable = volunteers_blocked_from
+					}
+					clear_variable = volunteers_blocked_from
+				}
+			}
+		}
+	}
+	on_government_change = {
+		effect = {
+			if = {
+				limit = {
+					is_ai = no
+					has_government = communism_totalitarian
+				}
+				every_country = {
+					limit = {
+						NOT = { OR = { has_government = communism_totalitarian has_government = communism } }
+					}
+					add_opinion_modifier = { target = ROOT modifier = cw_closed_trade }
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,43 @@
+defined_text = {
+	name = ACC_GET_VOTES
+	text = {
+		trigger = {
+			check_variable = { global.acc_votes_var = 1 }
+		}
+		localization_key = "[?global.acc_votes^0.GetFlag] [?global.acc_votes^0.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { global.acc_votes_var = 2 }
+		}
+		localization_key = "| [?global.acc_votes^0.GetFlag] [?global.acc_votes^0.GetName] | [?global.acc_votes^1.GetFlag] [?global.acc_votes^1.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { global.acc_votes_var = 3 }
+		}
+		localization_key = "| [?global.acc_votes^0.GetFlag] [?global.acc_votes^0.GetName] | [?global.acc_votes^1.GetFlag] [?global.acc_votes^1.GetName] | [?global.acc_votes^2.GetFlag] [?global.acc_votes^2.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { global.acc_votes_var = 4 }
+		}
+		localization_key = "| [?global.acc_votes^0.GetFlag] [?global.acc_votes^0.GetName] | [?global.acc_votes^1.GetFlag] [?global.acc_votes^1.GetName] | [?global.acc_votes^2.GetFlag] [?global.acc_votes^2.GetName] | [?global.acc_votes^3.GetFlag] [?global.acc_votes^3.GetName]"
+	}	
+}
+defined_text = {
+	name = WAR_REPARATIONS_GET_REMAINING_PAYMENTS_TO_US
+	text = {
+		trigger = {
+		}
+		localization_key = "[?FROM.amount_of_reperations_remaining@ROOT]"
+	}
+}
+defined_text = {
+	name = WAR_REPARATIONS_GET_REMAINING_PAYMENTS_FROM_US
+	text = {
+		trigger = {
+		}
+		localization_key = "[?ROOT.amount_of_reperations_remaining@FROM]"
+	}
+}

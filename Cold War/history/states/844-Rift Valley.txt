@@ -1,0 +1,26 @@
+state={
+	id=844
+	local_supplies=0.0 
+	name="STATE_844"
+
+	history={
+ 	add_to_array = { list_victory_point = 13238 }
+ 	set_variable = { victory_point = 1 }
+		owner = ENG
+		add_claim_by = KEN
+		
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			13238 1
+		}
+	}
+
+	provinces={
+		2066 5079 11145 13135 13237 13238 13239 13240 13247 13248 
+	}
+	manpower=500000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

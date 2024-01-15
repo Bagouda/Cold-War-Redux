@@ -1,0 +1,25 @@
+state = {
+	id=342
+	local_supplies=0.0 
+	name="STATE_342" # Antalya
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 1005 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = TUR
+		add_core_of = TUR
+		victory_points = {
+			1005 1 
+		}
+	}
+	resources={
+		chromium=35 # was: 46
+	}
+	manpower = 362689
+	provinces={
+		1005 1119 9941 10122 11917 12013 12016 12096 
+	}
+}

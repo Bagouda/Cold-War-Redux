@@ -1,0 +1,30 @@
+
+state={
+	id=597
+	local_supplies=0.0 
+	name="STATE_597"
+
+	history={
+ 	add_to_array = { list_victory_point = 1069 }
+ 	set_variable = { victory_point = 3 }
+		owner = CHI
+		add_core_of = CHI
+		add_claim_by = PRC
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+
+		}
+		victory_points = {
+			1069 3 
+		}
+
+	}
+
+	provinces={
+		1069 1124 1154 4037 4071 4181 7055 9971 10043 10072 10102 12015 12045 12069 
+	}
+	manpower=38373200
+	buildings_max_level_factor=1.000
+	state_category=devestated_wasteland
+}

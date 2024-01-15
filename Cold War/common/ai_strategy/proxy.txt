@@ -1,0 +1,93 @@
+
+
+
+
+COL_proxy = {
+
+	enable = {
+		OR = {
+			tag = BRA
+			tag = MEX
+			tag = VEN
+		}
+	}
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = COL
+		value = 100
+	}
+	abort_when_not_enabled = yes
+}
+
+CGR_proxy = {
+
+	enable = {
+		OR = {
+			tag = BUL
+			tag = YUG
+			tag = ALB
+		}
+	}
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = CGR
+		value = 100
+	}
+	abort_when_not_enabled = yes
+
+}
+
+
+JAP_proxy = {
+	enable = {
+		tag = JAP
+		
+		has_country_flag = USA_favor
+		
+		USA = {
+			has_country_flag = sf_treaty_finish
+		}
+	
+	}
+	abort = { always = no }
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = PHI
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = KOR
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = VIN
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = EIN
+		value = 100
+	}
+	
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = MAL
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = BUR
+		value = 100
+	}
+	
+
+}

@@ -1,0 +1,13 @@
+﻿l_english:
+ cw_war_exaustion_events.1.t:0 "Anti War Protests"
+ cw_war_exaustion_events.1.d:0 "A demonstration has taken place in the capital, the demonstrations are calling for an end to the war and the return of [ROOT.GetAdjective] troops back home.\n\nThe demonstration was not significant in size and overall it seems like the majority of the [ROOT.GetAdjective] public supports the war but clearly some are becoming discontent with the war.\n\nIf our $WAR_SUPPORT$ continues to drop we may face further actions by the public against the war."
+ cw_war_exaustion_events.2.t:0 "Labour Unions Announce Strikes"
+ cw_war_exaustion_events.2.d:0 "A large labour union has announced a strike throughout the nation in support of anti war demonstrations.\n\nWith anti war protests increasing and public figures joining the anti war movement it was only a matter of time until strikes would take place to force the government's hand.\n\nWe can attempt to break up the strike but doing so will cause discontent among the people who are already unhappy about the the war"
+ cw_war_exaustion_events.3.t:0 "Country Wide Strike Announced"
+ cw_war_exaustion_events.3.d:0 "A country wide strike has been announced by the largest labour unions and the public sector.\n\nWith the war continuing the anti war movement has gained significant momentum and has now rallied the public sector to its cause.\n\nBreaking up this strike will have a more significant effect on the legitimacy of the government, perhaps we should allow it to blow over and wait for an end to the war."
+ cw_war_exaustion_events.4.t:0 "Widespread Draft Evasions"
+ cw_war_exaustion_events.4.d:0 ""
+ cw_war_exaustion_events.5.t:0 "Opposition Dennounces War"
+ cw_war_exaustion_events.5.d:0 "The opposition parties have called upon the government to end the war as soon as possible, the anti war protests have led to the resignation of one of our top politicians in protest of the war.\n\nThe war continues to divide the country but more and more voices even within the government are now saying the war in unwinable and our continued fighting in [?ROOT.enemies^0.GetName] will not change anything.\n\nIf we do not end to war it may cause a civil conflict in our own country..."
+ cw_war_exaustion_events.6.t:0 "Government calls to end the war"
+ cw_war_exaustion_events.6.d:0 "Key figures in our government are now calling to an end to the war with some of them resigning from our cabinet and joining the anti war movement.\n\nIf we do not end the war now we are at risk of a civil wall that will tear our country apart and which will take a considerable amount of time to recover from.\n\nWe must act now to stop the war at all costs before it is too late..."

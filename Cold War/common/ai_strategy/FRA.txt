@@ -1,0 +1,51 @@
+fra_focus_on_rebuilding_economy = {
+	enable = {
+		tag = FRA
+		date < 1949.1.1
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 17
+	}
+}
+fra_focus_on_vietnam_but_not_too_much = {
+	enable = {
+		tag = FRA
+		country_exists = VIN
+		has_war_with = VIN
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = vietnam
+		value = 40
+	}
+	ai_strategy = {
+		type = protect
+		id = "SVI"
+		value = 50
+	}
+}
+fra_protect_madagascar_colony = {
+	enable = {
+		tag = FRA
+		country_exists = MAD
+		MAD = { has_war = yes }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = madagascar
+		value = 50
+	}
+	ai_strategy = {
+		type = protect
+		id = "MAD"			
+		value = 35
+	}
+}

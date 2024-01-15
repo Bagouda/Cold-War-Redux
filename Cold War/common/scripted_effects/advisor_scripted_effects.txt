@@ -1,0 +1,3 @@
+advisor_scripted_effect = {
+	sound_effect = "notification_phone_effect"
+}

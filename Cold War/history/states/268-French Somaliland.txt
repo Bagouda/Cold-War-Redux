@@ -1,0 +1,18 @@
+state = {
+	id=268
+	local_supplies=0.0 
+	name="STATE_268"
+	state_category = enclave
+	history = {
+		owner = FRA
+		add_claim_by = DJI
+		
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	manpower = 35232
+	provinces={
+		4985 
+ 	}
+}

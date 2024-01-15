@@ -1,0 +1,19 @@
+state = {
+	id=637
+	local_supplies=0.0 
+	name="STATE_637"
+	state_category="wasteland"
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+	}
+	buildings_max_level_factor=1
+	manpower=48831
+	provinces={
+		1823 1839 1863 4728 7878 12207 12522 
+	}
+}

@@ -1,0 +1,167 @@
+cw_grant_monopoly_diplomacy = {		#Scope is country
+	set_variable = { my_resource_state_owner_name = ROOT.id  }
+	set_variable = { my_resource_state_owner = ROOT.id  }
+	FROM = {
+		give_resource_rights = { receiver = ROOT state = PREV } 
+		add_to_variable = { total_monopolies = 1 }
+		add_opinion_modifier = { target = ROOT modifier = investing_in_our_country }
+		add_to_array = { array = ROOT.active_monopolies_abroad value = THIS.id }
+	}
+	ROOT = {
+		add_opinion_modifier = { target = PREV modifier = gave_resource_rights_trade }
+		add_to_array = { array = PREV.PREV.active_monopolies_domestic value = THIS.id }
+	}
+	set_state_flag = monopoly_state
+	if = {
+		limit = {
+			has_state_flag = requested_binding_monopoly
+		}
+		clr_state_flag = requested_binding_monopoly
+		set_state_flag = binding_contract
+		set_state_flag = { flag = recent_monopoly_added value = 1 days = 365 }
+	}
+	########## LEASE TIME CALCULATIONS ##########
+	set_variable = { monopoly_timer = requested_monopoly_period }			
+	set_temp_variable = { monopoly_time_calculator = monopoly_timer }
+	multiply_temp_variable = { monopoly_time_calculator = 12 }
+	set_variable = { monopoly_timer = monopoly_time_calculator }				# Lease time calculated in months, change if need a shorter lease
+	round_variable = monopoly_timer
+	set_variable = { monopoly_timer_display = requested_monopoly_period } # Lease display for first figure to show to player
+}
+cw_remove_state_monopoly = {		#Scope is state
+	custom_effect_tooltip = "REMOVE_MONOPOLY_STATE_EFFECT_TT"
+	hidden_effect = {
+		controller = { save_event_target_as = state_controller }
+		var:my_resource_state_owner = { save_event_target_as = monopoly_holder }
+		if = {
+			limit = {
+				is_controlled_by = ROOT
+			}
+			event_target:monopoly_holder = {
+				remove_resource_rights = PREV
+				phone_notification_monopoly_suspended_by_state_controller = yes
+				add_opinion_modifier = { target = ROOT modifier = removed_resource_rights }
+			}
+			else = {
+				OWNER = { 
+					add_opinion_modifier = { target = ROOT modifier = unilateral_action }
+					phone_notification_monopoly_suspended_by_monopoly_holder = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_state_flag = binding_contract
+			}
+			clr_state_flag = monopoly_state
+		}
+		if = {
+			limit = {
+				has_state_flag = perpetual_monopoly
+			}
+			clr_state_flag = perpetual_monopoly
+		}
+		if = {
+			limit = {
+				has_state_flag = recent_monopoly_added
+			}		
+			clr_state_flag = recent_monopoly_added
+		}
+		event_target:monopoly_holder = { remove_from_array = { array = event_target:state_controller.active_monopolies_domestic value = THIS.id } }
+		OWNER = { remove_from_array = { array = event_target:monopoly_holder.active_monopolies_abroad value = THIS.id } }	
+		clear_variable = my_resource_state_owner_name
+		clear_variable = my_resource_state_owner
+		clear_variable = monopoly_timer_display
+		clear_variable = monopoly_timer
+		clr_state_flag = monopoly_state
+	}
+}
+cw_give_state_monopoly_binding_country = {
+	custom_effect_tooltip = "GIVE_MONOPOLY_EFFECT_BINDING_COUNTRY_TT"
+	hidden_effect = {
+		PREV = { save_event_target_as = desired_state }
+		every_country = {
+			limit = {
+				owns_state = event_target:desired_state
+			}
+			save_event_target_as = desired_state_owner
+		}
+		PREV = {
+			set_variable = { my_resource_state_owner_name = PREV.id  }
+			set_variable = { my_resource_state_owner = PREV.id  }
+		}
+		if = {
+			limit = {
+				has_event_target = desired_state_owner
+			}
+			event_target:desired_state_owner = {
+				give_resource_rights = { receiver = PREV state = PREV.PREV } 
+				add_to_variable = { total_monopolies = 1 }
+				add_to_array = { array = PREV.active_monopolies_abroad value = THIS.id }
+				phone_notification_monopoly_granted_state_owner = yes
+			}
+			THIS = {
+				add_to_array = { array = event_target:desired_state_owner.active_monopolies_domestic value = THIS.id }
+			}
+		}
+		PREV = {
+			set_state_flag = monopoly_state
+			set_state_flag = binding_contract
+			set_state_flag = { flag = recent_monopoly_added value = 1 days = 365 }
+		}
+		########## LEASE TIME CALCULATIONS ##########
+		PREV = {
+			set_variable = { monopoly_timer = requested_monopoly_period }			
+			set_temp_variable = { monopoly_time_calculator = monopoly_timer }
+			multiply_temp_variable = { monopoly_time_calculator = 12 }
+			set_variable = { monopoly_timer = monopoly_time_calculator }				# Lease time calculated in months, change if need a shorter lease
+			round_variable = monopoly_timer
+			set_variable = { monopoly_timer_display = requested_monopoly_period } # Lease display for first figure to show to player
+		}
+	}
+}
+
+cw_give_state_monopoly_perpetual_country = {		#Example: 594 = { SOV = { cw_give_state_monopoly_perpetual_country = yes } }
+	custom_effect_tooltip = "GIVE_MONOPOLY_EFFECT_PERPETUAL_COUNTRY_TT"
+	hidden_effect = {
+		PREV = { save_event_target_as = desired_state }
+		every_country = {
+			limit = {
+				owns_state = event_target:desired_state
+			}
+			save_event_target_as = desired_state_owner
+		}
+		PREV = {
+			set_variable = { my_resource_state_owner_name = PREV.id  }
+			set_variable = { my_resource_state_owner = PREV.id  }
+		}
+		if = {
+			limit = {
+				has_event_target = desired_state_owner
+			}		
+			event_target:desired_state_owner = {
+				give_resource_rights = { receiver = PREV state = PREV.PREV } 
+				add_to_variable = { total_monopolies = 1 }
+				add_to_array = { array = PREV.active_monopolies_abroad value = THIS.id }
+				phone_notification_monopoly_granted_state_owner = yes
+			}
+			THIS = {
+				add_to_array = { array = event_target:desired_state_owner.active_monopolies_domestic value = THIS.id }
+			}
+		}
+		PREV = {
+			set_state_flag = monopoly_state
+			set_state_flag = perpetual_monopoly
+			set_state_flag = { flag = recent_monopoly_added value = 1 days = 365 }		#Cooldown to make sure monopolies aren't removed immediately after being added.
+		}
+		########## LEASE TIME CALCULATIONS ##########
+		PREV = {
+			set_variable = { monopoly_timer = requested_monopoly_period }			
+			set_temp_variable = { monopoly_time_calculator = monopoly_timer }
+			multiply_temp_variable = { monopoly_time_calculator = 12 }
+			set_variable = { monopoly_timer = monopoly_time_calculator }				# Lease time calculated in months, change if need a shorter lease
+			round_variable = monopoly_timer
+			set_variable = { monopoly_timer_display = requested_monopoly_period } # Lease display for first figure to show to player
+		}
+	}
+}

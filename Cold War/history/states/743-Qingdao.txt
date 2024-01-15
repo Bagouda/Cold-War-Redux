@@ -1,0 +1,39 @@
+
+state={
+	id=743
+	local_supplies=0.0 
+	name="STATE_743"
+
+	history={
+ 	add_to_array = { list_victory_point = 10000 }
+ 	set_variable = { victory_point = 5 }
+		owner = PRC
+		add_core_of = CHI
+		add_claim_by = PRC
+		1949.10.1 = {
+			owner = PRC
+
+		}
+		buildings = {
+			infrastructure = 4
+			arms_factory = 3
+			dockyard = 2
+			10000 = {
+				naval_base = 4
+
+			}
+
+		}
+		victory_points = {
+			10000 5 
+		}
+
+	}
+
+	provinces={
+		1104 1184 1200 4089 4157 4186 4205 7089 7105 10000 10018 12074 
+	}
+	manpower=821300
+	buildings_max_level_factor=1.000
+	state_category=devestated_wasteland
+}

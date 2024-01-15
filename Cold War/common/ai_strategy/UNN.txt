@@ -1,0 +1,49 @@
+unn_protect_capital = {
+	enable = {
+		tag = UNN
+		always = yes
+	}
+
+	ai_strategy = {
+		type = put_unit_buffers
+		
+		order_id = 2
+		
+		states = { 
+			800
+		}
+		
+		ratio = 0.05
+		area = north_america
+		
+		subtract_invasions_from_need = no
+	}
+	ai_strategy = {
+		type = ignore
+		id = "USA"
+		value = 1000
+	}
+	ai_strategy = {
+		type = invade
+		id = "USA"			
+		value = -2000
+	}	
+	abort_when_not_enabled = yes
+}
+usa_dont_conquer_unn = {
+	enable = {
+		tag = USA
+		always = yes
+	}
+	ai_strategy = {
+		type = ignore
+		id = "UNN"
+		value = 1000
+	}
+	ai_strategy = {
+		type = invade
+		id = "UNN"			
+		value = -2000
+	}
+	abort = { always = no }
+}

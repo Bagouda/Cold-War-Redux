@@ -1,0 +1,10 @@
+spriteTypes = {	
+	spriteType = {
+		name = "GFX_cw_focus_blocker_overlay"
+		texturefile = "gfx/interface/focus_blurred_overlay.dds"
+	}
+	spriteType = {
+		name = "GFX_cw_focus_blocker_icon"
+		texturefile = "gfx/interface/focus_blocker_icon.dds"
+	}	
+}

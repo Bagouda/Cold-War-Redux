@@ -1,0 +1,447 @@
+guiTypes = {
+	containerWindowType = {
+		name = "cw_un_sanctions_diplomacy_interface"
+		position = { x = 0 y = 0 }
+		size = { width = 0 height = 320 }
+		orientation = center
+		origo = center
+		moveable = yes
+		fade_time = 200
+		fade_type = linear
+		clipping = no
+
+		containerWindowType = {
+			name = "cw_un_sanctions_interface_content"
+			position = { x = 0 y = 0 }
+			
+			iconType = {
+				name = "un_sanctions_background"
+				spriteType = "GFX_un_sanctions_gui_background"
+				position = { x = 7 y = 165 }
+				alwaystransparent = yes
+			}
+			
+			instantTextboxType = {
+				name = "sanctions_interface_subtitle"
+				position = { x = 30 y = 185 }
+				font = "hoi_20bs"
+				text = "CW_UNSC_SANCTIONS_GUI_SUBTITLE"
+				maxWidth = 500
+				maxHeight = 30
+				alwaystransparent = yes
+				format = center
+			}
+			
+			buttonType = {
+				name = "sanctions_hint_icon"
+				spriteType = "GFX_hint_icon"
+				position = { x = 545 y = 189 }
+				pdx_tooltip = ""
+				pdx_tooltip_delayed = ""
+			}	
+
+			containerWindowType = {
+				name = "types_of_un_sanctions"
+				position = { x = 13 y = 187 }
+				
+				containerWindowType = {
+					name = "civilian_sanctions"
+					position = { x = 0 y = 0 }
+					
+					buttonType = {
+						name = "civ_sanctions_button"
+						quadTextureSprite = "GFX_sanction_type_background"
+						position = { x = 10 y = 23 }
+						pdx_tooltip = "CW_TYPE_OF_SANCTIONS_TT"
+					}
+					buttonType = {
+						name = "civ_sanctions_button_selected"
+						quadTextureSprite = "GFX_sanction_type_background"
+						position = { x = 10 y = 23 }
+						frame = 2
+						pdx_tooltip = "CW_TYPE_OF_SANCTIONS_TT"
+					}					
+					iconType = {
+						name = "civ_sanctions_icon"
+						quadTextureSprite = "GFX_idea_tur_balkan_central_bank_wealthy_greece"
+						position = { x = 40 y = 35 }
+						scale = 0.85
+						alwaystransparent = yes
+						pdx_tooltip = ""
+					}			
+					instantTextboxType = {
+						name = "civ_sanctions_name"
+						position = { x = 14 y = 113 }
+						font = "hoi_18mbs"
+						text = "CW_UNSC_SANCTION_TYPE_ECONOMIC"
+						maxWidth = 100
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}
+					instantTextboxType = {
+						name = "current_civ_sanctions_lvl"
+						position = { x = -3 y = 33 }
+						font = "hoi_18"
+						text = "[?FROM.unsc_civ_sanctions_lvl]"
+						maxWidth = 50
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}
+					instantTextboxType = {
+						name = "current_civ_sanctions_duration"
+						position = { x = -33 y = 167 }
+						font = "hoi_18"
+						text = "[FROM.CW_CIV_SANCTIONS_DURATION_LOC] [FROM.UNSC_SANCTIONS_DISPLAY_UNIT_CIV_SANCTIONS]"
+						maxWidth = 200
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}
+				}
+				containerWindowType = {
+					name = "military_sanctions"
+					position = { x = 110 y = 0 }
+					
+					buttonType = {
+						name = "mil_sanctions_button"
+						quadTextureSprite = "GFX_sanction_type_background"
+						position = { x = 10 y = 23 }
+						pdx_tooltip = "CW_TYPE_OF_SANCTIONS_TT"
+					}
+					buttonType = {
+						name = "mil_sanctions_button_selected"
+						quadTextureSprite = "GFX_sanction_type_background"
+						position = { x = 10 y = 23 }
+						frame = 2
+						pdx_tooltip = "CW_TYPE_OF_SANCTIONS_TT"
+					}					
+					iconType = {
+						name = "mil_sanctions_icon"
+						quadTextureSprite = "GFX_idea_man_five_year_plan_tank"
+						position = { x = 40 y = 35 }
+						alwaystransparent = yes
+						scale = 0.9
+						pdx_tooltip = ""
+					}			
+					instantTextboxType = {
+						name = "mil_sanctions_name"
+						position = { x = 14 y = 113 }
+						font = "hoi_18mbs"
+						text = "CW_UNSC_SANCTION_TYPE_MILITARY"
+						maxWidth = 100
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}
+					instantTextboxType = {
+						name = "current_mil_sanctions_lvl"
+						position = { x = -3 y = 33 }
+						font = "hoi_18"
+						text = "[?FROM.unsc_mil_sanctions_lvl]"
+						maxWidth = 50
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}
+					instantTextboxType = {
+						name = "CW_MIL_SANCTIONS_DURATION_LOC"
+						position = { x = -33 y = 167 }
+						font = "hoi_18"
+						text = "[FROM.CW_MIL_SANCTIONS_DURATION_LOC] [FROM.UNSC_SANCTIONS_DISPLAY_UNIT_MIL_SANCTIONS]"
+						maxWidth = 200
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}
+				}
+				containerWindowType = {
+					name = "trade_sanctions"
+					position = { x = 220 y = 0 }
+					
+					buttonType = {
+						name = "trade_sanctions_button"
+						quadTextureSprite = "GFX_sanction_type_background"
+						position = { x = 10 y = 23 }
+						pdx_tooltip = "CW_TYPE_OF_SANCTIONS_TT"
+					}
+					buttonType = {
+						name = "trade_sanctions_button_selected"
+						quadTextureSprite = "GFX_sanction_type_background"
+						position = { x = 10 y = 23 }
+						frame = 2
+						pdx_tooltip = "CW_TYPE_OF_SANCTIONS_TT"
+					}					
+					iconType = {
+						name = "trade_sanctions_icon"
+						quadTextureSprite = "GFX_idea_generic_flexible_foreign_policy2"
+						position = { x = 40 y = 35 }
+						alwaystransparent = yes
+						scale = 0.9
+						pdx_tooltip = ""
+					}			
+					instantTextboxType = {
+						name = "trade_sanctions_name"
+						position = { x = 14 y = 113 }
+						font = "hoi_18mbs"
+						text = "CW_UNSC_SANCTION_TYPE_TRADE"
+						maxWidth = 100
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}
+					instantTextboxType = {
+						name = "current_trade_sanctions_lvl"
+						position = { x = -3 y = 33 }
+						font = "hoi_18"
+						text = "[?FROM.unsc_trade_sanctions_lvl]"
+						maxWidth = 50
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}
+					instantTextboxType = {
+						name = "CW_TRADE_SANCTIONS_DURATION_LOC"
+						position = { x = -33 y = 167 }
+						font = "hoi_18"
+						text = "[FROM.CW_TRADE_SANCTIONS_DURATION_LOC] [FROM.UNSC_SANCTIONS_DISPLAY_UNIT_TRADE_SANCTIONS]"
+						maxWidth = 200
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}
+				}
+				containerWindowType = {
+					name = "country_leader_sanctions"
+					position = { x = 330 y = 0 }
+					
+					buttonType = {
+						name = "country_leader_sanctions_button"
+						quadTextureSprite = "GFX_sanction_type_background"
+						position = { x = 10 y = 23 }
+						pdx_tooltip = "CW_TYPE_OF_SANCTIONS_TT"
+					}
+					buttonType = {
+						name = "country_leader_sanctions_button_selected"
+						quadTextureSprite = "GFX_sanction_type_background"
+						position = { x = 10 y = 23 }
+						frame = 2
+						pdx_tooltip = "CW_TYPE_OF_SANCTIONS_TT"
+					}
+					iconType = {
+						name = "country_leader_sanctions_icon"
+						quadTextureSprite = "GFX_idea_generic_government"
+						position = { x = 41 y = 40 }
+						alwaystransparent = yes
+						scale = 0.7
+						pdx_tooltip = ""
+					}			
+					instantTextboxType = {
+						name = "country_leader_sanctions_name"
+						position = { x = 14 y = 113 }
+						font = "hoi_18mbs"
+						text = "CW_UNSC_SANCTION_TYPE_LEADER"
+						maxWidth = 100
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}
+					instantTextboxType = {
+						name = "current_country_leader_sanctions_lvl"
+						position = { x = -3 y = 33 }
+						font = "hoi_18"
+						text = "[?FROM.unsc_leader_sanctions_lvl]"
+						maxWidth = 50
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}
+					instantTextboxType = {
+						name = "CW_LEADER_SANCTIONS_DURATION_LOC"
+						position = { x = -33 y = 167 }
+						font = "hoi_18"
+						text = "[FROM.CW_LEADER_SANCTIONS_DURATION_LOC] [FROM.UNSC_SANCTIONS_DISPLAY_UNIT_LEADER_SANCTIONS]"
+						maxWidth = 200
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}
+				}
+				containerWindowType = {
+					name = "nuclear_programm_sanctions"
+					position = { x = 440 y = 0 }
+					
+					buttonType = {
+						name = "nuclear_programm_sanctions_button"
+						quadTextureSprite = "GFX_sanction_type_background"
+						position = { x = 10 y = 23 }
+						pdx_tooltip = "CW_CURRENTLY_UNAVAILABLE"
+					}
+					buttonType = {
+						name = "nuclear_programm_sanctions_button_selected"
+						quadTextureSprite = "GFX_sanction_type_background"
+						position = { x = 10 y = 23 }
+						frame = 2
+						pdx_tooltip = "CW_CURRENTLY_UNAVAILABLE"
+					}
+					iconType = {
+						name = "nuclear_programm_sanctions_icon"
+						quadTextureSprite = "GFX_idea_generic_research_bonus"
+						position = { x = 39 y = 35 }
+						alwaystransparent = yes
+						scale = 0.9
+						pdx_tooltip = ""
+					}			
+					instantTextboxType = {
+						name = "nuclear_programm_sanctions_name"
+						position = { x = 14 y = 113 }
+						font = "hoi_18mbs"
+						text = "CW_UNSC_SANCTION_TYPE_NUCLEAR"
+						maxWidth = 100
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}
+					instantTextboxType = {
+						name = "current_nuclear_programm_sanctions_lvl"
+						position = { x = -1 y = 33 }
+						font = "hoi_18"
+						text = "[?FROM.unsc_nuclear_programm_sanctions_lvl] "
+						maxWidth = 50
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}
+					instantTextboxType = {
+						name = "CW_NUCLEAR_SANCTIONS_DURATION_LOC"
+						position = { x = -33 y = 167 }
+						font = "hoi_18"
+						text = "[FROM.CW_NUCLEAR_SANCTIONS_DURATION_LOC] [FROM.UNSC_SANCTIONS_DISPLAY_UNIT_NUCLEAR_SANCTIONS]"
+						maxWidth = 200
+						maxHeight = 30
+						alwaystransparent = yes
+						format = center
+					}					
+				}
+			}
+			containerWindowType = {
+				name = "sanctions_duration"
+				position = { x = 450 y = 406 }
+				
+				containerWindowType = {
+					name = "sanctions_effects_entry"
+					position = { x = -448 y = 0 }
+					margin = { top = 0 left = 3 bottom = 0 right = 0 }
+
+					instantTextboxType = {
+						name = "sanctions_effects_loc"
+						position = { x = 55 y = -3 }
+						font = "cw_terminal_font"
+						text = "[UNSC_SANCTIONS_INSTRUCTIONS]"
+						maxWidth = 255
+						maxHeight = 78
+						format = center
+						#vertical_alignment = center	
+						borderSize = { x = -13 y = 0 }
+						scrollbartype = "standardtext_slider"
+					}
+				}
+				
+				iconType = {
+					name = "info_screen_glass"
+					quadTextureSprite = "GFX_sanction_screen_glass"
+					position = { x = -410 y = -8 }
+					alwaystransparent = yes
+					pdx_tooltip = ""
+				}
+
+				buttonType = {
+					name = "sanction_duration_switch_ten_year"
+					quadTextureSprite = "GFX_interface_round_switch"
+					position = { x = -18 y = 24 }
+					frame = 3
+				}
+				
+				buttonType = {
+					name = "sanction_duration_switch_five_year"
+					quadTextureSprite = "GFX_interface_round_switch"
+					position = { x = -18 y = 24 }
+					frame = 2
+				}
+				
+				buttonType = {
+					name = "sanction_duration_switch_one_year"
+					quadTextureSprite = "GFX_interface_round_switch"
+					position = { x = -18 y = 24 }
+					frame = 1
+				}			
+
+				instantTextboxType = {
+					name = "sanctions_duration_title"
+					position = { x = -100 y = 15 }
+					font = "cg_16b"
+					text = "CW_UNSC_SANCTIONS_GUI_SANCTIONS_DURATION_TITLE"
+					maxWidth = 65
+					maxHeight = 30
+					alwaystransparent = yes
+					format = center
+				}
+				
+				iconType = {
+					name = "one_year_switch_light"
+					quadTextureSprite = "GFX_sanctions_period_light"
+					position = { x = -12 y = -23 }
+					alwaystransparent = yes
+				}			
+				
+				instantTextboxType = {
+					name = "one_year_duration"
+					position = { x = -4 y = 0 }
+					font = "cg_18b"
+					text = "1 Year"
+					maxWidth = 100
+					maxHeight = 30
+					alwaystransparent = yes
+					format = center
+				}
+				
+				iconType = {
+					name = "five_year_switch_light"
+					quadTextureSprite = "GFX_sanctions_period_light"
+					position = { x = -3 y = 7 }
+					alwaystransparent = yes
+				}
+				
+				instantTextboxType = {
+					name = "five_year_duration"
+					position = { x = 8 y = 30 }
+					font = "cg_18b"
+					text = "5 Years"
+					maxWidth = 100
+					maxHeight = 30
+					alwaystransparent = yes
+					format = center
+				}
+				
+				iconType = {
+					name = "ten_year_switch_light"
+					quadTextureSprite = "GFX_sanctions_period_light"
+					position = { x = -12 y = 36 }
+					alwaystransparent = yes
+				}
+				
+				instantTextboxType = {
+					name = "ten_year_duration"
+					position = { x = -2 y = 60 }
+					font = "cg_18b"
+					text = "10 Years"
+					maxWidth = 100
+					maxHeight = 30
+					alwaystransparent = yes
+					format = center
+				}			
+			}
+		}
+	}
+}

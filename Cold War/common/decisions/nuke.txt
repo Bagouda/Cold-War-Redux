@@ -1,0 +1,357 @@
+nuke_program = {
+	
+	add_factory = {
+	
+		available = { num_of_civilian_factories_available_for_projects > 0 }
+		icon = GFX_decision_eng_trade_unions_demand
+		cost = 0
+		
+		complete_effect = {
+			add_to_variable = { nuclear_effort = 1 }
+		}
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+				check_variable = { ROOT.num_of_civilian_factories_available_for_projects > 45 }
+			}
+		}
+	
+	}
+	
+	add_factory_10 = {
+		icon = GFX_decision_eng_trade_unions_demand
+		cost = 0
+		available = { num_of_civilian_factories_available_for_projects > 9 }
+		complete_effect = {
+			add_to_variable = { nuclear_effort = 10 }
+		}
+	
+	}
+	
+	
+	reduce_factory = {
+	
+		icon = GFX_decision_eng_trade_unions_demand
+		cost = 0
+		available = { check_variable = { nuclear_effort > 0 } } 
+		complete_effect = {
+			subtract_from_variable = { nuclear_effort = 1 }
+		}
+	
+	
+	}
+	
+	reduce_factory_10 = {
+	
+		icon = GFX_decision_eng_trade_unions_demand
+		cost = 0
+		available = { check_variable = { nuclear_effort > 9 } }
+		complete_effect = {
+			subtract_from_variable = { nuclear_effort = 10 }
+		}
+	
+	
+	}
+	
+	test_prototype = {
+	
+		icon = GFX_decision_eng_trade_unions_demand
+		cost = 0
+		
+		visible  = { has_country_flag  = building_nuclear_prototype}
+		
+		available = { check_variable  = {nuclear_completion > 99 } 
+					  check_variable  = {enrichement_completion > 99 } }
+					  
+					  
+		ai_will_do = {
+			base = 100
+		}
+
+
+		complete_effect = {
+			
+			hidden_effect = {
+				clr_country_flag = building_nuclear_prototype
+				set_country_flag = nuclear_program
+				
+				goto_province = 105
+				launch_nuke = {
+					province = 105
+				}
+				
+				
+				set_technology = {
+					nukes = 1
+				}
+				set_variable = {nuclear_completion = 0}
+				set_variable = {enrichement_completion = 0}
+				news_event = sov_events.9
+			}
+			
+		}
+		
+	}
+	
+	toggle_missile = {
+		icon = GFX_decision_eng_trade_unions_demand
+		cost = 0
+		
+		complete_effect = {
+			if = {
+				limit = { has_country_flag = toggle_missile }
+				clr_country_flag = toggle_missile
+			}
+			else = {
+				set_country_flag = toggle_missile
+			}
+		
+		}
+	}
+	
+	show_missile = {
+		state_target = yes
+		icon = GFX_decision_generic_air
+		visible = {
+			has_country_flag = toggle_missile
+		}
+		target_trigger = {
+
+			FROM = {
+				is_controlled_by_ROOT_or_ally  = yes
+				rocket_site > 0
+			}
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			set_country_flag =  nuking
+		
+			if = {
+				limit = { tag = USA }
+				FROM = {
+					save_global_event_target_as  = USA_launching_nuke_from
+				}
+			
+			}
+			
+			if = {
+				limit = { tag = SOV }
+				FROM = {
+					save_global_event_target_as  = SOV_launching_nuke_from
+				}
+			
+			}
+			
+			
+			
+			
+
+		}
+		
+
+	}
+	stop_nuking = {
+		
+		cost = 0
+		visible = {
+			has_country_flag = nuking
+		}
+		
+		complete_effect = {
+		
+			clr_country_flag = nuking
+			clr_country_flag = toggle_missile
+		}
+		
+	}
+	launch_nuke_on = {
+		state_target = yes
+		icon = GFX_decision_generic_ignite_civil_war
+		
+		visible = {
+			has_country_flag = nuking
+		}
+		target_trigger = {
+		
+
+			OR = {
+			
+				AND = {
+					
+					tag = USA
+					
+					FROM = {
+		
+						NOT = { is_controlled_by_ROOT_or_ally  = yes }
+						
+						distance_to = {
+							value < 1500
+							target = event_target:USA_launching_nuke_from 
+						}
+								
+					}
+				}
+				
+				AND = {
+					tag = SOV
+					FROM = {
+		
+						NOT = { is_controlled_by_ROOT_or_ally  = yes }
+						
+						distance_to = {
+							value < 1500
+							target = event_target:SOV_launching_nuke_from 
+						}
+								
+					}
+				}
+			}
+		}
+		
+		
+		
+	
+		
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				
+				state = FROM
+				
+			}
+		}
+		days_remove = 1
+		cost = 10
+		custom_cost_trigger = {
+			command_power > 14
+		}
+		custom_cost_text = decision_cost_CP_15
+	
+		complete_effect = {
+
+					
+			
+				
+			if = {
+				limit = {
+					FROM = { check_variable  = { list_victory_point^0 > 0 } }
+				}
+			
+				launch_nuke = {
+					province = FROM.list_victory_point^0
+					use_nuke = yes
+				}
+				
+		
+				add_victory_points  = {
+					province = FROM.list_victory_point^0
+					value = -30
+				
+				}
+				
+				FROM = {
+					subtract_from_variable = { victory_point = 5 }
+				}
+				
+				
+				
+				remove_from_array = {
+					array = FROM.list_victory_point
+					index = 0
+				}
+			}
+			else = {
+				launch_nuke = {
+					state = FROM
+					use_nuke = yes
+				}
+			
+			}
+				
+			if = { 
+				limit = { FROM = { is_capital = yes }}
+				
+				FROM = {
+					subtract_from_variable = { victory_point = 30 }
+				}
+				
+				FROM = {
+					owner = {
+						reset_capital = yes 
+					}
+				
+				}
+				
+			}
+			
+			if = {
+				limit = { NOT = { FROM = { owner = { has_war_with = ROOT } } } }
+				
+				ROOT = {
+			
+					save_event_target_as = nuke_aggressor
+				}
+				FROM = {					
+					owner = {
+						country_event = {
+							id = nuke.1
+							days  = 1
+						}
+					}
+				}
+			
+			}
+			
+			
+			
+			FROM = {
+					decrease_state_category =  yes
+					decrease_state_category =  yes
+			}
+			add_threat = 30
+			
+			if ={
+				limit = { tag = USA }
+				event_target:USA_launching_nuke_from  = {
+				
+				remove_building = {
+					type = rocket_site
+					level = 1
+				}
+			}
+			
+			if = {
+				limit = { event_target:USA_launching_nuke_from = { rocket_site < 1 } }
+				clear_global_event_target = USA_launching_nuke_from
+				clr_country_flag = nuking
+			}
+				
+			
+			}
+			
+			if = {
+				limit = { tag = SOV }
+				event_target:SOV_launching_nuke_from  = {
+				
+				remove_building = {
+					type = rocket_site
+					level = 1
+				}
+			}
+			
+			if = {
+				limit = { event_target:SOV_launching_nuke_from = { rocket_site < 1 } }
+				clear_global_event_target = SOV_launching_nuke_from
+				clr_country_flag = nuking
+			}
+			}
+			
+		}
+	}
+	
+	
+
+}

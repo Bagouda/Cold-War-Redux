@@ -1,0 +1,38 @@
+CHI_historical_plan_1946 = {
+	name = "China 1946 Focuses"
+	desc = ""
+
+	enable = {
+		tag = CHI
+		is_historical_focus_on = yes
+		has_focus_tree = chi_1946_focus_tree
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		CHI_enact_emergency_laws
+		CHI_secure_china_exterior
+		CHI_transfer_forces_manchuria
+	}
+
+	research = {
+	}
+	ideas = {
+	}
+	traits = {
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

@@ -1,0 +1,38 @@
+state={
+	id=808
+	local_supplies=0.0 
+	name="STATE_808"
+	
+	resources={
+		oil=12.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 7387 }
+ 	set_variable = { victory_point = 12 }
+		owner = ENG
+		add_core_of = ENG
+		add_claim_by = BRU
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			
+			7387 = {
+				naval_base = 1
+			}
+		}
+		
+		victory_points = {
+			7387 12
+		}
+
+	}	
+	
+	provinces={
+		7387 
+	}
+	manpower=48000
+	buildings_max_level_factor=1.000
+	state_category=town
+}

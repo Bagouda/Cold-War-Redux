@@ -1,0 +1,13 @@
+﻿l_english:
+ CW_CANDIDATES_WINDOW_TITLE:0 "§YCommunist Power Struggle§!"
+ CW_CANDIDATES_WINDOW_SUBTITLE:0 "§gChoose a candidate to support§!"
+ CW_CANDIDATES_WINDOW_DESC:0 "The next focus tree will feature a power struggle for control over the [ROOT.GetRulingParty] in which you must choose a candidate to support.\n\nEach candidate and faction have their unique forcus tree and traits, if your candidate wins the power struggle he will become leader of the [ROOT.GetRulingParty]."
+ CW_FIRST_CANDIDATE_NAME:0 "Nikita Khrushev"
+ FIRST_CANDIDATE_TT:0 "[!first_candidate_picture_click]"
+ CW_SECOND_CANDIDATE_NAME:0 "Lavrentiy Beria"
+ SECOND_CANDIDATE_TT:0 "[!second_candidate_picture_click]"
+ CW_THIRD_CANDIDATE_NAME:0 "Georgy Malenkov"
+ THIRD_CANDIDATE_TT:0 "[!third_candidate_picture_click]" 
+ CW_FOURTH_CANDIDATE_NAME:0 "Vyacheslav Molotov"
+ FOURTH_CANDIDATE_TT:0 "[!fourth_candidate_picture_click]"  
+ CANDIDATE_CHANGE_WARNING_TT:0 "§YYou cannot change your selection once it has been made!§!"

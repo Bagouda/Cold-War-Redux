@@ -1,0 +1,159 @@
+﻿
+units= {
+
+	####### NAVAL UNITS #######
+	
+	fleet = {
+	          name = "Home fleet"
+			  naval_base = 11374
+			  task_force = {
+			  name = "support carrier flotilla 1"
+			  location = 11374 
+			  
+			  ship = { name = "HMS Formidable" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = ENG version_name = "Implacable Class" } } 
+				
+			}
+			ship = { name = "HMS Victorius" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = ENG version_name = "Implacable Class" } } 
+				
+			}
+			}
+			task_force = {
+			  name = "support carrier flotilla 2"
+			  location = 11374 
+			ship = { name = "HMS Indomitable" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = ENG version_name = "Implacable Class" } } 
+				
+			}
+			ship = { name = "HMS Implacable" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = ENG version_name = "Implacable Class" } } 
+				
+			}
+			}
+			task_force = {
+			  name = "strike force"
+			  location = 11374 
+			ship = { name = "HMS Illusterius" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = ENG version_name = "Implacable Class" } } 
+				
+			}
+			
+			ship = { name = "HMS Duke of York" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = ENG version_name = "King George V Class" } } }
+			ship = { name = "HMS Howe" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = ENG version_name = "King George V Class" } } }
+			}
+			task_force = {
+			name = "recon force"
+			  location = 11374 
+			
+			ship = { name = "HMS Birmangham" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+			ship = { name = "HMS Sheffield" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+			ship = { name = "HMS Cumberland" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+			
+			
+			ship = { name = "Barfleur" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ENG version_name = "Battle Class" } } }
+			ship = { name = "Trafalgar" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ENG version_name = "Battle Class" } } }
+			}
+			task_force = {
+			name = "submarine squadron canal"
+			  location = 6384 
+			
+			ship = { name = "Amphion" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = ENG version_name = "Amphion Class" } } }
+			ship = { name = "Astute" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = ENG version_name = "Amphion Class" } } }
+			}
+	}
+	fleet = {
+	         name = "Mediteranian fleet"
+			 naval_base = 12003
+			 task_force = {
+			 name = "strike force malta"
+			  location = 12003 
+			ship = { name = "HMS Ocean" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = ENG version_name = "Magestic Class" } } 
+			
+			}
+			ship = { name = "HMS Glasgow" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+			ship = { name = "HMS Liverpool" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+			ship = { name = "HMS Mauritius" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+			ship = { name = "HMS Superb" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+			ship = { name = "St. Kitts" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ENG version_name = "Battle Class" } } }
+			ship = { name = "Armada" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ENG version_name = "Battle Class" } } }
+			}
+			task_force = {
+			 name = "submarine squadron malta"
+			  location = 12003 
+			ship = { name = "Auriga" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = ENG version_name = "Amphion Class" } } }
+			ship = { name = "Aurochs" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = ENG version_name = "Amphion Class" } } }
+			}
+	}
+	fleet = {
+	       name = "Indian Ocean fleet"
+		   naval_base = 7344 
+		   task_force = {
+		   name = "recon force north Indian ocean"
+			  location = 7344 
+		    ship = { name = "HMS Jamaica" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+			ship = { name = "Solebay" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ENG version_name = "Battle Class" } } }
+			ship = { name = "Saintes" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ENG version_name = "Battle Class" } } }
+			}
+			task_force = {
+		   name = "submarine squadron Sri Lanka"
+			  location = 7344
+			ship = { name = "Alcide" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = ENG version_name = "Amphion Class" } } }
+			ship = { name = "Alderney" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = ENG version_name = "Amphion Class" } } }
+			}
+		   task_force = {
+		   name = "Strike force Indian ocean"
+			  location = 12299
+		   ship = { name = "HMS Norfolk" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+		   ship = { name = "HMS Newcastle" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+		   ship = { name = "HMS Gambia" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+		   }
+		   task_force = {
+		   name = "submarine squadron Singapore"
+			  location = 12299
+		   ship = { name = "Camperdown" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ENG version_name = "Battle Class" } } }
+		   ship = { name = "Finisterre" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ENG version_name = "Battle Class" } } }
+		   }
+	}
+	fleet = {
+	       name = "Pacific fleet"
+		   naval_base = 7072 
+		   task_force = {
+		   name = "North Pacific strike force"
+			  location = 7072 
+		    ship = { name = "HMS Glory" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = ENG version_name = "Magestic Class" } } 
+				
+			}ship = { name = "HMS Vengence" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = ENG version_name = "Magestic Class" } } 
+				
+			}
+			ship = { name = "HMS Belfast" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+			}   
+		   task_force = {
+		   name = "South Pacific strike force"
+			  location = 7798 
+		   ship = { name = "HMS King George V" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = ENG version_name = "King George V Class" } } }
+		   ship = { name = "HMS Anson" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = ENG version_name = "King George V Class" } } }
+		   ship = { name = "Hogue" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ENG version_name = "Battle Class" } } }
+		   ship = { name = "Lagos" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ENG version_name = "Battle Class" } } }
+		   }  
+		   task_force = {
+		   name = "Escort Squadron Pacific"
+			  location = 12406
+		   ship = { name = "HMS Pioneer" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = ENG version_name = "Magestic Class" } } 
+				
+			}
+		   ship = { name = "HMS Perseus" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = ENG version_name = "Magestic Class" } } 
+				
+			}
+		   ship = { name = "Gabbard" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ENG version_name = "Battle Class" } } }
+		   ship = { name = "Gravelines" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ENG version_name = "Battle Class" } } }
+		   }
+		   task_force = {
+		   name = "Hong Kong Squadron"
+			  location = 10062
+		   ship = { name = "HMS London" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+		   ship = { name = "HMS Sussex" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+		   ship = { name = "HMS Bermuda" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = ENG version_name = "Mitnotaur Class" } } }
+		   ship = { name = "Sluys" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ENG version_name = "Battle Class" } } }
+		   ship = { name = "Cadiz" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ENG version_name = "Battle Class" } } }
+		   }
+	}
+	
+	
+} 
+

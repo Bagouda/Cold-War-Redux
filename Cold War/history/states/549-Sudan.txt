@@ -1,0 +1,24 @@
+state = {
+	id=549
+	local_supplies=0.0 
+	name="STATE_549"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 2096 }
+ 	set_variable = { victory_point = 1 }
+		owner = ENG
+		add_claim_by = SUD
+		
+		buildings = {
+			infrastructure = 1
+		}
+		
+		victory_points = {
+			2096 1
+		}
+	}
+	manpower = 3694293
+	provinces={
+		1914 1960 2016 4918 5060 8052 8084 10739 10795 10827 10851 12744 12887 13273 13274 13275 13276 13277 13278 13279 13280
+	}
+}

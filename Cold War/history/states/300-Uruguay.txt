@@ -1,0 +1,33 @@
+state = {
+	id=300
+	local_supplies=0.0 
+	name="STATE_300"
+	state_category = large_city
+	history = {
+ 	add_to_array = { list_victory_point = 10362 }
+ 	set_variable = { victory_point = 15 }
+		owner = URG
+		add_core_of = URG
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+			arms_factory = 1
+			dockyard  = 1
+			10362 = {
+				naval_base = 3
+			}			
+		}		
+		victory_points = {
+			10362 15
+		}
+	}
+	resources={
+		oil=1 # was: 2
+		steel=1 # was: 2
+		crops = 5
+	}
+	manpower = 1734000
+	provinces={
+		1613 1626 1641 1654 4457 10347 10362 10502 12336 12440 12468 12481 12496 
+	}
+}

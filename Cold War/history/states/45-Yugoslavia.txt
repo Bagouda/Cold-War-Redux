@@ -1,0 +1,36 @@
+
+state={
+	id=45
+	local_supplies=0.0 
+	name="STATE_45"
+
+	history={
+ 	add_to_array = { list_victory_point = 619 }
+ 	set_variable = { victory_point = 3 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = YUG
+		add_core_of = YUG
+		add_claim_by = SER
+		add_claim_by = HUN
+
+		1947.2.10 = {	#Treaty of Paris 1947
+			remove_claim_by = HUN
+		}
+		
+		victory_points = {
+			619 3 
+		}
+
+	}
+	resources={
+		crops = 5
+	}
+	provinces={
+		619 3617 3623 9621 
+	}
+	manpower=440621
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

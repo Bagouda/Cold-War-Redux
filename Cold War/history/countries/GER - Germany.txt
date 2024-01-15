@@ -1,0 +1,184 @@
+﻿capital = 851	#Bonn
+set_variable = { twin_country = DDR.id }	#East Germany
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+set_research_slots = 3
+1946.1.1 = {
+	diplomatic_relation = { country = FRA relation = non_aggression_pact }
+	diplomatic_relation = { country = ENG relation = non_aggression_pact }
+	diplomatic_relation = { country = USA relation = non_aggression_pact }
+	diplomatic_relation = { country = SOV relation = non_aggression_pact }
+	set_cosmetic_tag = ALLIED_PUP_GER
+	set_politics = {
+		ruling_party = colonial
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 30
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 20
+		unaligned_right = 50
+		colonial =  0
+	}
+	create_country_leader = {	#Wilhelm, German Crown Prince
+		name = "Wilhelm III"
+		desc = ""
+		picture = "GERM1.dds"
+		ideology = despotism
+		expire = 1951.7.20
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Kurt Georg Kiesinger"
+		desc = ""
+		picture = "GERNH1.dds"
+		ideology = nationalist_idolg
+		expire = 1973.2.13
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Willy Brandt"
+		desc = ""
+		picture = "WGRG4.dds"
+		ideology = social_democrat_idolg
+		expire = 1969.10.21
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Kurt Georg Kiesinger"
+		desc = ""
+		picture = "WGRG3.dds"
+		ideology = social_cons_idolg
+		expire = 1969.10.21
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Ludwig Erhard"
+		desc = ""
+		picture = "WGRG2.dds"
+		ideology = social_cons_idolg
+		expire = 1966.11.30
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Konrad Adenauer"
+		desc = ""
+		picture = "WGRG1.dds"
+		ideology = social_cons_idolg
+		expire = 1963.10.11
+		traits = { democratic_right_drift_trait }
+	}
+	create_country_leader = {
+		name = "Lucius D. Clay"
+		desc = ""
+		picture = "gfx/leaders/USA/USAGER_2.dds"
+		ideology = military_occupation_government
+		expire = 1978.2.5
+		traits = {}
+	}	
+	create_country_leader = {		#https://en.wikipedia.org/wiki/List_of_administrators_of_Allied-occupied_Germany
+		name = "Joseph T. McNarney"
+		desc = ""
+		picture = "gfx/leaders/USA/USAGER_1.dds"
+		ideology = military_occupation_government
+		expire = 1963.10.11
+		traits = {}
+	}	
+}
+
+1948.5.14 = {
+}
+1950.6.25 = {
+	capital = 51
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+}
+1956.10.29 = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1953.9.6"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Louis I"	#Louis Ferdinand, Prince of Prussia
+		desc = ""
+		picture = "GERM2.dds"
+		ideology = despotism
+		expire = 1951.7.20
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Konrad Adenauer"
+		desc = ""
+		picture = "WGRG1.dds"
+		ideology = social_cons_idolg
+		expire = 1963.10.11
+		traits = {}
+	}	
+}
+1961.12.11 = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1961.9.17"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+}
+1979.12.24 = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1976.10.3"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+			democratic  = 49
+			democratic_socialist = 51
+			neutrality = 0
+			communism_totalitarian = 0
+			unaligned_right = 0
+			colonial =  0
+	}
+	create_country_leader = {
+		name = "Louis I"	#Louis Ferdinand, Prince of Prussia
+		desc = ""
+		picture = "GERM2_1.dds"
+		ideology = despotism
+		expire = 1951.7.20
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Helmut Schmidt"
+		desc = ""
+		picture = "WGRG5.dds"
+		ideology = social_democrat_idolg
+		expire = 1982.10.1
+		traits = {}
+	}
+}
+1989.1.9 = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1987.1.26"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+			democratic  = 44
+			democratic_socialist = 37
+			neutrality = 0
+			communism_totalitarian = 0
+			unaligned_right = 0
+			colonial =  0
+	}	
+	create_country_leader = {
+		name = "Helmut Kohl"
+		desc = ""
+		picture = "WGRG6.dds"
+		ideology = social_cons_idolg
+		expire = 1998.10.27
+		traits = {}
+	}
+}

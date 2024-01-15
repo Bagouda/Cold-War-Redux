@@ -1,0 +1,35 @@
+state = {
+	id=190
+	local_supplies=0.0 
+	name="STATE_190"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 9262 }
+ 	set_variable = { victory_point = 3 }
+		owner = SOV
+		add_core_of = LAT
+		
+		start_resistance = yes
+		set_compliance = 10
+		set_resistance = 10
+		
+		add_state_modifier = {
+			modifier = {
+				resistance_target = 0.1
+				compliance_gain = -0.5
+			}
+		}		
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+		}
+		victory_points = {
+			9262 3
+		}
+	}
+	manpower = 379500
+	provinces={
+		265 3194 3296 3319 3525 6222 6322 6342 9262 11246 
+	}
+}

@@ -1,0 +1,1121 @@
+guiTypes = {
+	containerWindowType = {
+		name = "cw_unsc_interface"
+		position = { x = 0 y = 0}
+		size = { width = 800 height= 650 }
+		orientation = center
+		origo = center
+		fade_time = 100
+		moveable = yes
+		fade_type = linear
+		click_to_front = no
+		clipping = no
+
+
+		background = {
+			name = "unsc_interface_background"
+			spriteType  ="GFX_unsc_interface_background"
+		}
+		iconType = {
+			name = "unsc_interface_background_2"
+			spriteType  ="GFX_unsc_interface_background"
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "unsc_hint_icon"
+			spriteType = "GFX_hint_icon"
+			position = { x = 754 y = 32 }
+			pdx_tooltip = "CW_UNSC_HINT_TT"
+			pdx_tooltip_delayed = "CW_UNSC_HINT_TTL"
+		}
+		instantTextboxType = {
+			name = "unsc_window_title"
+			position = { x = 100 y = 40 }
+			font = "cw_inba_title_20"
+			text = "CW_UNSC_WINDOW_TITLE"
+			maxWidth = 600
+			maxHeight = 10
+			fixedsize = yes
+			format = center
+		}
+		iconType = {
+			name = "title_glass_cover"
+			spriteType  ="GFX_unsc_title_glass_cover"
+			position = { x = 96 y = 33 }
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "inba_window_subtitle"
+			position = { x = 190 y = 76 }
+			font = "cw_digital_font"
+			text = "[CW_UNSC_SUBTITLE_LOC]"
+			maxWidth = 420
+			maxHeight = 10
+			fixedsize = yes
+			format = center
+		}
+		iconType = {
+			name = "subtitle_glass_cover"
+			spriteType  ="GFX_unsc_subtitle_glass_cover"
+			position = { x = 151 y = 70 }
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "unsc_sub_hint_subtitle_icon"
+			spriteType = "GFX_hint_icon"
+			position = { x = 590 y = 80 }
+			pdx_tooltip = "CW_UNSC_SUBTITLE_HINT_TT"
+			pdx_tooltip_delayed = "CW_UNSC_SUBTITLE_HINT_TTL"
+		}
+		iconType = {
+			name = "usnc_president_flag"
+			spriteType = "GFX_flag_extra_large"
+			position = { x = 69 y = 134 }
+		}
+		gridboxtype = {
+			name = "unsc_permanent_members_list_gridbox"
+			position = { x = 35 y = 75 }
+			size = { width = 0 height = 0 }
+			slotsize = { width = 95 height = 2 }
+			max_slots_horizontal = 8
+			add_horizontal = yes
+		}
+		buttonType = {
+			name = "unsc_sub_hint_permanent_icon"
+			spriteType = "GFX_hint_icon"
+			position = { x = 715 y = 155 }
+			pdx_tooltip = "CW_UNSC_PERM_MEM_HINT_TT"
+			pdx_tooltip_delayed = "CW_UNSC_PERM_MEM_HINT_TTL"
+		}
+		gridboxtype = {
+			name = "unsc_non_permanent_members_list_gridbox"
+			position = { x = 0 y = 180 }
+			size = { width = 0 height = 0 }
+			slotsize = { width = -47 height = 2 }
+			max_slots_horizontal = 15
+			add_horizontal = yes
+		}
+		buttonType = {
+			name = "unsc_sub_hint_non_permanent_icon"
+			spriteType = "GFX_hint_icon"
+			position = { x = 730 y = 205 }
+			pdx_tooltip = "CW_UNSC_NON_PER_HINT_TT"
+			pdx_tooltip_delayed = "CW_UNSC_NON_PER_HINT_TTL"
+		}
+		instantTextboxType = {
+			name = "unsc_western_countries"
+			position = { x = 73 y = 224 }
+			font = "cw_terminal_font"
+			text = "[?global.unsc_western_countries_total]"
+			maxWidth = 30
+			maxHeight = 20
+			format = center
+			pdx_tooltip = "CW_UNSC_WESTERN_TOTAL_TT"
+			pdx_tooltip_delayed = "CW_UNSC_WESTERN_TOTAL_TTL"
+		}		
+		instantTextboxType = {
+			name = "unsc_members_count"
+			position = { x = 113 y = 224 }
+			font = "cw_terminal_font"
+			text = "[?global.unsc_members]"
+			maxWidth = 30
+			maxHeight = 20
+			format = center
+			pdx_tooltip = "CW_UNSC_TOTAL_MEMBERS_TT"
+		}
+		instantTextboxType = {
+			name = "unsc_communist_countries"
+			position = { x = 152 y = 224 }
+			font = "cw_terminal_font"
+			text = "[?global.unsc_communist_countries_total]"
+			maxWidth = 30
+			maxHeight = 20
+			format = center
+			pdx_tooltip = "CW_UNSC_COMMUNIST_TOTAL_TT"
+			pdx_tooltip_delayed = "CW_UNSC_COMMUNIST_TOTAL_TTL"
+		}
+		buttonType = {
+			name = "show_sanctioned_countries"
+			position = { x = 135 y = 249 }
+			quadTextureSprite ="GFX_unsc_show_sanctioned"
+			pdx_tooltip = "CW_SACNTIONED_BUTTON_TT"
+			clicksound = click_close
+		}
+		buttonType = {
+			name = "show_unrecognized_countries"
+			position = { x = 72 y = 249 }
+			quadTextureSprite ="GFX_unsc_show_unrecognized"
+			pdx_tooltip = "CW_UNRECOGNIZED_BUTTON_TT"
+			clicksound = click_close
+		}
+		buttonType = {
+			name = "unsc_sub_hint_leaning_countries"
+			spriteType = "GFX_hint_icon"
+			position = { x = 55 y = 223 }
+			pdx_tooltip = "CW_UNSC_LEANINGS_TT"
+			pdx_tooltip_delayed = "CW_UNSC_LEANINGS_TTL"
+		}
+		instantTextboxType = {
+			name = "non_perm_shuffle_timer"
+			position = { x = 688 y = 235 }
+			font = "cg_18b"
+			text = "[?global.unsc_non_permanent_shuffle|0.]"
+			maxWidth = 40
+			maxHeight = 20
+			format = center
+			pdx_tooltip = "CW_UNSC_SHUFFLE_TIMER_TT"
+		}
+		buttonType = {
+			name = "left_vote_no_button"
+			position = { x = 208 y = 524 }
+			quadTextureSprite ="GFX_unsc_vote_button_no"
+			buttonFont = "cw_terminal_font"
+			Orientation = "UPPER_LEFT"
+			buttonText = "Reject"
+		}
+		buttonType = {
+			name = "left_vote_veto_button"
+			position = { x = 308 y = 524 }
+			quadTextureSprite ="GFX_unsc_vote_button_veto"
+			buttonFont = "cw_terminal_font"
+			Orientation = "UPPER_LEFT"
+			buttonText = "Veto"
+		}
+		instantTextboxType = {
+			name = "veto_cost"
+			position = { x = 100 y = 534 }
+			font = "cg_18b"
+			text = "[?THIS.unsc_veto_cost]"
+			maxWidth = 40
+			maxHeight = 20
+			format = center
+		}
+		buttonType = {
+			name = "unsc_sub_hint_veto_cost_icon"
+			spriteType = "GFX_hint_icon"
+			position = { x = 145 y = 520 }
+			pdx_tooltip = "CW_UNSC_VETO_COST_HINT_TT"
+			pdx_tooltip_delayed = "CW_UNSC_VETO_COST_HINT_TTL"
+		}
+		buttonType = {
+			name = "right_vote_yes_button"
+			position = { x = 508 y = 524 }
+			quadTextureSprite ="GFX_unsc_vote_button_yes"
+			buttonFont = "cw_terminal_font"
+			Orientation = "UPPER_LEFT"
+			buttonText = "Support"
+		}
+		buttonType = {
+			name = "right_vote_abstain_button"
+			position = { x = 408 y = 524 }
+			quadTextureSprite ="GFX_unsc_vote_button_abstain"
+			buttonFont = "cw_terminal_font"
+			Orientation = "UPPER_LEFT"
+			buttonText = "Abstain"
+		}
+		instantTextboxType = {
+			name = "abstain_cost"
+			position = { x = 660 y = 534 }
+			font = "cg_18b"
+			text = "[?THIS.unsc_abstain_cost]"
+			maxWidth = 40
+			maxHeight = 20
+			format = center
+		}
+		buttonType = {
+			name = "unsc_sub_hint_abstain_cost_icon"
+			spriteType = "GFX_hint_icon"
+			position = { x = 700 y = 520 }
+			pdx_tooltip = "CW_UNSC_ABSTAIN_COST_HINT_TT"
+			pdx_tooltip_delayed = "CW_UNSC_ABSTAIN_COST_HINT_TTL"
+		}
+		instantTextboxType = {
+			name = "unsc_resolution_status"
+			position = { x = 200 y = 313 }
+			font = "cg_18b"
+			text = "[CW_UNSC_RESOLUTION_STATUS]"
+			maxWidth = 320
+			maxHeight = 20
+			format = center
+		}
+		instantTextboxType = {
+			name = "unsc_resolution_number"
+			position = { x = 550 y = 313 }
+			font = "cw_digital_font"
+			text = "#[?global.resolution_counter]"
+			maxWidth = 50
+			maxHeight = 20
+			format = center
+		}
+		iconType = {
+		  name = "resolution_status_glass_cover"
+		  quadTextureSprite = "GFX_resolution_title_glass_cover"
+		  position = { x = 195 y = 308 }
+		}
+		iconType = {
+		  name = "resolution_veto_disabled_warning"
+		  quadTextureSprite = "GFX_cryptology_defense_level"
+		  position = { x = 205 y = 313 }
+		  pdx_tooltip = "CW_UNSC_VETO_DISABLED_TT"
+		  pdx_tooltip_delayed = "CW_UNSC_VETO_DISABLED_TTL"
+		  scale = 0.8
+		}
+		buttonType = {
+			name = "unsc_sub_hint_resolution_status_icon"
+			spriteType = "GFX_hint_icon"
+			position = { x = 500 y = 317 }
+			pdx_tooltip = "CW_UNSC_STATUS_HINT_TT"
+			pdx_tooltip_delayed = "CW_UNSC_STATUS_HINT_TTL"
+		}
+		instantTextboxType = {
+			name = "unsc_total_votes_no"
+			position = { x = 88 y = 343 }
+			font = "cw_digital_font"
+			text = "[?global.unsc_total_votes_no|0.]"
+			maxWidth = 65
+			maxHeight = 20
+			format = center
+			pdx_tooltip = "CW_UNSC_TOTAL_VOTES_NO_TT"
+		}
+		instantTextboxType = {
+			name = "unsc_total_votes_veto"
+			position = { x = 88 y = 445 }
+			font = "cw_digital_font"
+			text = "[?global.unsc_total_votes_veto|0.]"
+			maxWidth = 65
+			maxHeight = 20
+			format = center
+			pdx_tooltip = "CW_UNSC_TOTAL_VOTES_VETO_TT"
+		}
+		instantTextboxType = {
+			name = "unsc_total_votes_yes"
+			position = { x = 648 y = 343 }
+			font = "cw_digital_font"
+			text = "[?global.unsc_total_votes_yes|0.]"
+			maxWidth = 65
+			maxHeight = 20
+			format = center
+			pdx_tooltip = "CW_UNSC_TOTAL_VOTES_YES_TT"
+		}
+		instantTextboxType = {
+			name = "unsc_total_votes_abstain"
+			position = { x = 648 y = 445 }
+			font = "cw_digital_font"
+			text = "[?global.unsc_total_votes_abstain|0.]"
+			maxWidth = 65
+			maxHeight = 20
+			format = center
+			pdx_tooltip = "CW_UNSC_TOTAL_VOTES_ABSTAIN_TT"
+		}
+		buttonType = {
+			name = "leave_unsc_button"
+			position = { x = 150 y = 590 }
+			quadTextureSprite ="GFX_button_123x34"
+			buttonFont = "hoi_16mbs"
+			Orientation = "UPPER_LEFT"
+			buttonText = "Resign"
+			pdx_tooltip = "CW_UNSC_LEAVE_BUTTON_TT"
+			clicksound = click_close
+		}
+		buttonType = {
+			name = "unsc_window_close_button"
+			position = { x = 540 y = 590 }
+			quadTextureSprite ="GFX_button_123x34"
+			buttonFont = "hoi_16mbs"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_LEFT"
+			buttonText = "DIPLOMACY_CLOSE"
+			pdx_tooltip = "CLOSE"
+			clicksound = click_close
+		}
+		iconType = {
+		  name = "unsc_not_active_image"
+		  quadTextureSprite = "GFX_unsc_not_in_session_image"
+		  position = { x = 197 y = 346 }
+		}
+		iconType = {
+		  name = "unsc_active_image"
+		  quadTextureSprite = "GFX_unsc_in_session_image"
+		  position = { x = 197 y = 346 }
+		}
+		iconType = {
+		  name = "unsc_implementing_image"
+		  quadTextureSprite = "GFX_unsc_implementing_image"
+		  position = { x = 197 y = 346 }
+		}
+		instantTextboxType = {		#Shows only if non permanent UNSC members have been disabled
+			name = "unsc_no_non_permanent_loc"
+			position = { x = 250 y = 235 }
+			font = "cg_18b"
+			text = "Non Permanent UNSC Members Have Been Disabled"
+			maxWidth = 400
+			maxHeight = 20
+			format = center
+		}
+		iconType = {
+		  name = "most_votes_yes_light"
+		  spriteType = "GFX_most_votes_yes_light"
+		  position = { x = 605 y = 353 }
+		  alwaystransparent = yes
+		}
+		iconType = {
+		  name = "most_votes_no_light"
+		  spriteType = "GFX_most_votes_no_light"
+		  position = { x = 45 y = 353 }
+		  alwaystransparent = yes
+		}
+		iconType = {
+		  name = "most_votes_veto_light"
+		  spriteType = "GFX_most_votes_veto_light"
+		  position = { x = 45 y = 456 }
+		  alwaystransparent = yes
+		}
+		iconType = {
+		  name = "unsc_vote_screen_overlay_left_1"
+		  quadTextureSprite = "GFX_unsc_vote_screen_overlay"
+		  position = { x = 85 y = 330 }
+			alwaystransparent = yes
+		}
+		iconType = {
+		  name = "unsc_vote_screen_overlay_left_2"
+		  quadTextureSprite = "GFX_unsc_vote_screen_overlay"
+		  position = { x = 86 y = 431 }
+			alwaystransparent = yes
+		}
+		iconType = {
+		  name = "unsc_vote_screen_overlay_right_1"
+		  quadTextureSprite = "GFX_unsc_vote_screen_overlay"
+		  position = { x = 646 y = 330 }
+			alwaystransparent = yes
+		}
+		iconType = {
+		  name = "unsc_vote_screen_overlay_right_2"
+		  quadTextureSprite = "GFX_unsc_vote_screen_overlay"
+		  position = { x = 646 y = 431 }
+			alwaystransparent = yes
+		}
+	}
+	containerWindowType = {
+		name = "unsc_generic_resolution_entry"
+		position = { x = -5 y = 12 }
+
+		instantTextboxType = {
+			name = "unsc_resolution_desc"
+			position = { x = 226 y = 352 }
+			font = "cw_terminal_font"
+			text = "[CW_UNSC_GENERIC_RESOLUTION_GET_DESC]"
+			maxWidth = 345
+			maxHeight = 112
+			format = left
+			borderSize = {x = 0 y = 0 }
+			scrollbartype = "standardtext_slider"
+		}
+		instantTextboxType = {
+			name = "no_voting_loc"
+			position = { x = 206 y = 395 }
+			font = "cw_terminal_font"
+			text = "[CW_UNSC_MONITOR_LOC]"
+			maxWidth = 400
+			maxHeight = 100
+			format = center
+		}	
+		iconType = {
+		  name = "unsc_screen_overlay"
+		  quadTextureSprite = "GFX_unsc_screen_overlay"
+		  position = { x = 210 y = 343 }
+			alwaystransparent = yes
+		}
+		iconType = {
+		  name = "unsc_screen_noise"
+		  quadTextureSprite = "GFX_unsc_main_monitor_noise"
+		  position = { x = 202 y = 335 }
+			alwaystransparent = yes
+		}
+		iconType = {
+		  name = "unsc_major_resolution_effect"
+		  quadTextureSprite = "GFX_unsc_major_resolution_effect_monitor"
+		  position = { x = 210 y = 343 }
+			alwaystransparent = yes
+		}
+	}
+	############### UNSC PERMANENT MEMBERS GRIDBOX ###############
+	containerWindowType = {
+		name = "unsc_permanent_members_list_entry"		#Draws data from the gridbox above
+		position = { x = 245 y = 60 }
+		size = { width = 0 height = 0 }
+
+		iconType = {
+			name = "unsc_permanent_vote_indicator_blank"
+			quadTextureSprite = "GFX_unsc_vote_indicator_blank"
+			position = { x = 30 y = 67 }
+		}
+		iconType = {
+			name = "unsc_permanent_vote_indicator_yes"
+			quadTextureSprite = "GFX_unsc_vote_indicator_yes"
+			position = { x = 30 y = 67 }
+		}
+		iconType = {
+			name = "unsc_permanent_vote_indicator_no"
+			quadTextureSprite = "GFX_unsc_vote_indicator_no"
+			position = { x = 30 y = 67 }
+		}
+		iconType = {
+			name = "unsc_permanent_vote_indicator_veto"
+			quadTextureSprite = "GFX_unsc_vote_indicator_veto"
+			position = { x = 30 y = 67 }
+		}
+		iconType = {
+			name = "unsc_permanent_vote_indicator_abstain"
+			quadTextureSprite = "GFX_unsc_vote_indicator_abstain"
+			position = { x = 30 y = 67 }
+		}
+		buttonType = {
+			name = "unsc_permanent_flag"
+			quadTextureSprite = "GFX_shield_medium"
+			position = { x = 0 y = 3 }
+			pdx_tooltip = "CW_GET_MEMBER_NAME_PERM"
+			pdx_tooltip_delayed = "CW_MEMBER_NAME_RIGHT_CLICK"
+		}
+		iconType = {
+			name = "unsc_permanent_flag_frame"
+			quadTextureSprite = "GFX_large_flag_frame"
+			position = { x = -4 y = 0 }
+			alwaystransparent = yes
+		}		
+		iconType = {
+			name = "voting_blocked_indicator_perm"
+			quadTextureSprite = "GFX_cannot_vote_indicator"
+			frame = 1
+			position = { x = 31 y = 62 }
+			scale = 0.7
+			pdx_tooltip = "CW_UNSC_VOTING_BLOCKED_TT"
+		}
+		iconType = {
+			name = "sov_ukr_flag"
+			quadTextureSprite = "GFX_flag_smallest"
+			position = { x = 59 y = 5 }
+			pdx_tooltip = "CW_UNSC_SOV_UKR_VOTE"
+		}
+		iconType = {
+			name = "sov_blr_flag"
+			quadTextureSprite = "GFX_flag_smallest"
+			position = { x = 59 y = 30 }
+			pdx_tooltip = "CW_UNSC_SOV_BLR_VOTE"
+		}
+	}
+	############### UNSC NON PERMANENT MEMBERS GRIDBOX ###############
+	containerWindowType = {
+		name = "unsc_non_permanent_members_list_entry"
+		position = { x = 614 y = 47 }
+		size = { width = 0 height = 0 }
+
+		iconType = {
+			name = "country_flag_glow"
+			quadTextureSprite = "GFX_unsc_major_resolution_effect"
+			position = { x = 0 y = 0 }
+			scale = 0.6
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "usnc_non_permanent_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = 0 y = 5 }
+			pdx_tooltip = "CW_GET_MEMBER_NAME"
+			pdx_tooltip_delayed = "CW_MEMBER_NAME_NON_PERM_RIGHT_CLICK"
+		}
+		iconType = {
+			name = "unsc_member_flag_border"
+			quadTextureSprite = "GFX_diplo_countrylist_flag_frame"
+			position = { x = -4 y = 0 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "voting_bribe_flag_border"
+			quadTextureSprite = "GFX_tiny_flag_border"
+			position = { x = 15 y = 25 }
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "voting_bribe_flag"
+			position = { x = 12 y = 20 }
+			font = "cw_terminal_font"
+			text = "[UNSC_GET_BRIBE_FLAG]"
+			maxWidth = 20
+			maxHeight = 20
+			format = center
+			pdx_tooltip = "UNSC_BRIBE_DESC"
+		}
+		iconType = {
+			name = "puppet_indicator"
+			quadTextureSprite = "GFX_relation_puppet"
+			position = { x = 9 y = 17 }
+			scale = 0.8
+			pdx_tooltip = "CW_UNSC_PUPPET_TT"
+		}
+		iconType = {
+			name = "unsc_permanent_vote_indicator_blank"
+			quadTextureSprite = "GFX_unsc_vote_indicator_blank"
+			position = { x = 9 y = 44 }
+		}
+		iconType = {
+			name = "unsc_permanent_vote_indicator_yes"
+			quadTextureSprite = "GFX_unsc_vote_indicator_yes"
+			position = { x = 9 y = 44 }
+		}
+		iconType = {
+			name = "unsc_permanent_vote_indicator_no"
+			quadTextureSprite = "GFX_unsc_vote_indicator_no"
+			position = { x = 9 y = 44 }
+		}
+		iconType = {
+			name = "unsc_permanent_vote_indicator_abstain"
+			quadTextureSprite = "GFX_unsc_vote_indicator_abstain"
+			position = { x = 9 y = 44 }
+		}
+		iconType = {
+			name = "voting_blocked_indicator_non_perm"
+			quadTextureSprite = "GFX_cannot_vote_indicator"
+			frame = 1
+			position = { x = 10 y = 39	 }
+			scale = 0.7
+			pdx_tooltip = "CW_UNSC_VOTING_BLOCKED_TT"
+		}
+		buttonType = {
+			name = "bribe_vote_toggle_no"
+			quadTextureSprite = "GFX_checkbox_small4"
+			position = { x = 33 y = 43 }
+			frame = 1
+			scale = 0.6
+			clicksound = click_checkbox
+			pdx_tooltip = "UNSC_BRIBE_TOGGLE_OFF_TT"
+			pdx_tooltip_delayed = "UNSC_BRIBE_TOGGLE_OFF_TTL"
+		}
+		buttonType = {
+			name = "bribe_vote_toggle_yes"
+			quadTextureSprite = "GFX_checkbox_small4"
+			position = { x = 33 y = 43 }
+			frame = 2
+			scale = 0.6
+			clicksound = click_checkbox
+			pdx_tooltip = "UNSC_BRIBE_TOGGLE_ON_TT"
+			pdx_tooltip_delayed = "UNSC_BRIBE_TOGGLE_ON_TTL"
+		}
+	}
+	containerWindowType = {
+		name = "unsc_indicator_diplomacy"
+		position = { x = 163 y = 17 }
+		size = { width = 0 height = 0 }
+		iconType = {
+			name = "background"
+			quadTextureSprite = "GFX_diplomacy_unsc_background"
+			position = { x = -17 y = -19 }
+		}
+		iconType = {
+			name = "unsc_not_regognized_indicator"
+			quadTextureSprite = "GFX_idea_un_non_recognized"
+			position = { x = 0 y = -10 }
+			pdx_tooltip = "CW_UNSC_UNRECOGNIZED_INDICATOR_SELF_TT"
+			pdx_tooltip_delayed = "CW_UNSC_UNRECOGNIZED_INDICATOR_SELF_TTL"
+		}
+		iconType = {
+			name = "unsc_partially_regognized_indicator"
+			quadTextureSprite = "GFX_idea_un_partially_recognized"
+			position = { x = 0 y = -10 }
+			pdx_tooltip = "CW_UNSC_PARTIALLY_RECO_INDICATOR_SELF_TT"
+			pdx_tooltip_delayed = "CW_UNSC_PARTIALLY_RECO_INDICATOR_SELF_TTL"
+		}
+		iconType = {
+			name = "unsc_permanent_indicator"
+			quadTextureSprite = "GFX_idea_un_permanent"
+			position = { x = 0 y = -10 }
+			pdx_tooltip = "CW_UNSC_PERM_INDICATOR_SELF_TT"
+			pdx_tooltip_delayed = "CW_UNSC_PERM_INDICATOR_SELF_TTL"
+		}
+		iconType = {
+			name = "unsc_non_permanent_indicator"
+			quadTextureSprite = "GFX_idea_un_non_permanent"
+			position = { x = 0 y = -10 }
+			pdx_tooltip = "CW_UNSC_NON_PERM_INDICATOR_SELF_TT"
+			pdx_tooltip_delayed = "CW_UNSC_NON_PERM_INDICATOR_SELF_TTL"
+		}
+	}
+	containerWindowType = {
+		name = "unsc_indicator_self"
+		position = { x = 405 y = 310 }
+		size = { width = 0 height = 0 }
+
+		iconType = {
+			name = "parties_blocker"
+			quadTextureSprite = "GFX_pary_blocker"
+			position = { x = -65 y = -5 }
+		}
+		iconType = {
+			name = "unsc_not_regognized_indicator"
+			quadTextureSprite = "GFX_idea_un_non_recognized"
+			position = { x = 0 y = 0 }
+			pdx_tooltip = "CW_UNSC_UNRECOGNIZED_INDICATOR_SELF_TT"
+			pdx_tooltip_delayed = "CW_UNSC_UNRECOGNIZED_INDICATOR_SELF_TTL"
+		}
+		iconType = {
+			name = "unsc_partially_regognized_indicator"
+			quadTextureSprite = "GFX_idea_un_partially_recognized"
+			position = { x = 0 y = 0 }
+			pdx_tooltip = "CW_UNSC_PARTIALLY_RECO_INDICATOR_SELF_TT"
+			pdx_tooltip_delayed = "CW_UNSC_PARTIALLY_RECO_INDICATOR_SELF_TTL"
+		}
+		iconType = {
+			name = "country_master_flag"
+			quadTextureSprite = "GFX_minishield"
+			position = { x = -270 y = -85 }
+			pdx_tooltip = "CW_SELF_MASTER_INDICATOR_TT"
+			pdx_tooltip_delayed = "CW_SELF_MASTER_INDICATOR_TTL"
+		}
+		iconType = {
+			name = "unsc_permanent_indicator"
+			quadTextureSprite = "GFX_idea_un_permanent"
+			position = { x = 0 y = 0 }
+			pdx_tooltip = "CW_UNSC_PERM_INDICATOR_SELF_TT"
+			pdx_tooltip_delayed = "CW_UNSC_PERM_INDICATOR_SELF_TTL"
+		}
+		iconType = {
+			name = "unsc_non_permanent_indicator"
+			quadTextureSprite = "GFX_idea_un_non_permanent"
+			position = { x = 0 y = 0 }
+			pdx_tooltip = "CW_UNSC_NON_PERM_INDICATOR_SELF_TT"
+			pdx_tooltip_delayed = "CW_UNSC_NON_PERM_INDICATOR_SELF_TTL"
+		}
+	}
+	containerWindowType = {
+		name = "unsc_indicator_top_bar"
+		position = { x=-65 y=-290 }
+		Orientation = LOWER_RIGHT
+		iconType = {
+			name = "unsc_not_regognized_indicator"
+			quadTextureSprite = "GFX_idea_un_non_recognized"
+			position = { x = 0 y = 0 }
+		}
+		iconType = {
+			name = "unsc_partially_regognized_indicator"
+			quadTextureSprite = "GFX_idea_un_partially_recognized"
+			position = { x = 0 y = 0 }
+		}
+		iconType = {
+			name = "unsc_permanent_indicator"
+			quadTextureSprite = "GFX_idea_un_permanent"
+			position = { x = 0 y = 0 }
+		}
+		iconType = {
+			name = "unsc_non_permanent_indicator"
+			quadTextureSprite = "GFX_idea_un_non_permanent"
+			position = { x = 0 y = 0 }
+		}
+	}
+	containerWindowType = {
+		name = "unsc_list_unrecognized_countries"
+		position = { x = 0 y = 0}
+		size = { width =507 height=336 }
+		orientation = center
+		origo = center
+		moveable = yes
+		fade_time = 200
+		fade_type = linear
+		click_to_front = yes
+		clipping = no
+
+		instantTextboxType = {
+			name = "unrecognized_countries_window_title"
+			position = { x = 40 y = 10 }
+			font = "hoi_24header"
+			text = "CW_UNRECOGNIZED_COUNTRIES_SCREEN_TITLE"
+			maxWidth = 420
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "countries_summary"
+			position = { x = 545 y = 10 }
+			font = "hoi_24header"
+			text = "UNRECOGNIZED_COUNTRIES_TOTAL"
+			maxWidth = 200
+			maxHeight = 20
+			format = right
+			fixedsize = yes
+		}
+
+		containerWindowType = {
+			name = "top_filter_buttons"
+			position = { x = 0 y = 60 }
+
+			iconType = {
+				name = "title_bg"
+				spriteType ="GFX_country_ledger_title_bar_956X35"
+				position = { x = 35 y = -5 }
+				scale = 0.8
+			}
+
+			instantTextboxType = {
+				name = "country_name"
+				position = { x = 78 y = 0 }
+				font = "cg_16b"
+				text = "Country Name"
+				maxWidth = 100
+				maxHeight = 10
+				format = left
+				fixedsize = yes
+			}
+
+			iconType = {
+				name = "government_indicator"
+				quadTextureSprite = "GFX_pol_idea"
+				position = { x = 268 y = 1 }
+				pdx_tooltip = "GOVERNMENT_INDICATOR_TT"
+				pdx_tooltip_delayed = "GOVERNMENT_INDICATOR_TTL"
+			}
+			iconType = {
+				name = "communist_parties_icon"
+				quadTextureSprite = "GFX_communist_texticon"
+				position = { x = 400 y = -1 }
+				pdx_tooltip = "COMMUNIST_INDICATOR_TT"
+				pdx_tooltip_delayed = "COMMUNIST_INDICATOR_TTL"
+			}
+			iconType = {
+				name = "largest_opposition_party_icon"
+				quadTextureSprite = "GFX_national_unity_texticon"
+				position = { x = 510 y = -1 }
+				pdx_tooltip = "LARGEST_NON_RULING_PARTY_ICON_TT"
+				pdx_tooltip_delayed = "LARGEST_NON_RULING_PARTY_ICON_TTL"
+			}
+			iconType = {
+				name = "country_stability"
+				quadTextureSprite = "GFX_stability_texticon"
+				position = { x = 668 y = -1 }
+			}
+			iconType = {
+				name = "country_mil_factories"
+				quadTextureSprite = "GFX_mil_factory"
+				position = { x = 730 y = 0 }
+				pdx_tooltip = "TOTAL_FACTORIES_ICON_TT"
+			}
+			iconType = {
+				name = "country_civ_factories"
+				quadTextureSprite = "GFX_civ_factory"
+				position = { x = 740 y = 0 }
+				pdx_tooltip = "TOTAL_FACTORIES_ICON_TT"
+			}
+		}
+
+		buttonType = {
+			name = "close_button"
+			position = { x = 532 y = -160 }
+			quadTextureSprite ="GFX_closebutton"
+			buttonFont = "hoi_16mbs"
+			shortcut = "ESCAPE"
+			Orientation = "CENTER"
+			clicksound = click_close
+		}
+
+		containerWindowType = {
+			name = "unsc_unrecognized_countries_list"
+			position = { x = -30 y = 35 }
+			size = { width = 845 height = 545 }
+			margin = { top = 50 left = 4 bottom = 75 right = 4 }
+			verticalScrollbar = "right_vertical_slider"
+
+			background = {
+				name = "member_list_background"
+				spriteType = "GFX_member_countries_bg"
+				alwaystransparent = yes
+			}
+			
+			iconType = {
+				name = "sanctioned_countries_background"
+				position = { x = 40 y = -20 }
+				spriteType = "GFX_unsc_window_background"
+				alwaystransparent = yes
+				scale = 0.9
+			}			
+
+			gridboxtype = {
+				name = "unsc_unrecognized_list_gridbox"
+				position = { x = 10 y = -10 }
+				size = { width = 259 height = 1 }
+				slotsize = { width = 259 height = 40 }
+				max_slots_horizontal = 1
+				add_horizontal = no
+			}
+		}
+	}
+	############### GRIDBOX INFORMATION IN A LIST ###############
+	containerWindowType = {
+		name = "unsc_list_unrecognized_countries_entry"		#Draws data from the gridbox above
+		position = { x = 35 y = 10 }
+		size = { width = 0 height = 50 }
+
+		iconType = {
+			name = "unrecognized_country_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = 5 y = 5 }
+			pdx_tooltip = "CW_UNRECOGNIZED_COUNTRY_FLAG_TT"
+			pdx_tooltip_delayed = "CW_UNRECOGNIZED_COUNTRY_FLAG_TTL"
+		}
+
+		iconType = {
+			name = "participant_flag_border"
+			quadTextureSprite = "GFX_diplo_countrylist_flag_frame"
+			position = { x = 1 y = 0 }
+			alwaystransparent = yes
+		}
+
+
+		iconType = {
+			name = "country_entry_devider_horizonal"
+			quadTextureSprite = "GFX_cw_devider_line_1"
+			position = { x = -3 y = -4 }
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "country_name"
+			position = { x = 57 y = 8 }
+			font = "cw_terminal_font"
+			text = "[UNSC_COUNTRY_NAME_IDEOLOGY]"
+			maxWidth = 167
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "ideology"
+			position = { x = 230 y = 8 }
+			font = "cw_terminal_font"
+			text = "[THIS.GetRulingParty]"
+			maxWidth = 200
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "communist_parties_org"
+			position = { x = 380 y = 8 }
+			font = "cw_terminal_font"
+			text = "[CW_COMMUNIST_ORG_LOC]"
+			maxWidth = 38
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "largest_party_org"
+			position = { x = 450 y = 8 }
+			font = "cw_terminal_font"
+			text = "[?highest_party_popularity@exclude_ruling_party|%0] ( [THIS.CW_HIGHEST_NON_RULING_ORG] )"
+			maxWidth = 200
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "country_stability"
+			position = { x = 650 y = 8 }
+			font = "cw_terminal_font"
+			text = "[?stability|%0]"
+			maxWidth = 200
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "country_num_of_factories"
+			position = { x = 725 y = 8 }
+			font = "cw_terminal_font"
+			text = "[?num_of_factories]"
+			maxWidth = 200
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+	}
+	containerWindowType = {
+		name = "unsc_list_sanctioned_countries_entry"
+		position = { x = 35 y = 10 }
+		size = { width = 0 height = 50 }
+
+		iconType = {
+			name = "sanctioned_country_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = 5 y = 5 }
+			pdx_tooltip = "CW_UNRECOGNIZED_COUNTRY_FLAG_TT"
+			pdx_tooltip_delayed = "CW_UNRECOGNIZED_COUNTRY_FLAG_TTL"
+		}
+
+		iconType = {
+			name = "participant_flag_border"
+			quadTextureSprite = "GFX_diplo_countrylist_flag_frame"
+			position = { x = 1 y = 0 }
+			alwaystransparent = yes
+		}
+
+
+		iconType = {
+			name = "country_entry_devider_horizonal"
+			quadTextureSprite = "GFX_cw_devider_line_1"
+			position = { x = -3 y = -4 }
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "country_name"
+			position = { x = 57 y = 8 }
+			font = "cw_terminal_font"
+			text = "[UNSC_SANCTIONS_GET_COUNTRY_NAME]"
+			maxWidth = 167
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}	
+		instantTextboxType = {
+			name = "ideology"
+			position = { x = 230 y = 8 }
+			font = "cw_terminal_font"
+			text = "[THIS.GetRulingParty]"
+			maxWidth = 200
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "sanctions_duration"
+			position = { x = 400 y = 8 }
+			font = "cw_terminal_font"
+			text = "CW_SANCTIONED_COUNTRY_PERIOD"
+			maxWidth = 1000
+			maxHeight = 500
+			format = left
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "sanctions_type"
+			position = { x = 500 y = 8 }
+			font = "cw_terminal_font"
+			text = "[THIS.UNSC_SANCTIONS_INTERFACE_GET_SANCTIONS_NAME]"
+			maxWidth = 1000
+			maxHeight = 500
+			format = left
+			fixedsize = yes
+		}
+	}	
+	containerWindowType = {
+		name = "unsc_list_sanctioned_countries"
+		position = { x = 0 y = 0}
+		size = { width =507 height=336 }
+		orientation = center
+		origo = center
+		moveable = yes
+		fade_time = 200
+		fade_type = linear
+		click_to_front = yes
+		clipping = no
+
+	
+		instantTextboxType = {
+			name = "unrecognized_countries_window_title"
+			position = { x = 40 y = 10 }
+			font = "hoi_24header"
+			text = "CW_SANCTIONED_COUNTRIES_SCREEN_TITLE"
+			maxWidth = 500
+			maxHeight = 20
+			format = left
+			fixedsize = yes
+		}
+
+		containerWindowType = {
+			name = "top_filter_buttons"
+			position = { x = 0 y = 60 }
+
+			iconType = {
+				name = "title_bg"
+				spriteType ="GFX_country_ledger_title_bar_956X35"
+				position = { x = 35 y = -5 }
+				scale = 0.8
+			}
+
+			instantTextboxType = {
+				name = "country_name"
+				position = { x = 78 y = 0 }
+				font = "cg_16b"
+				text = "Country Name"
+				maxWidth = 100
+				maxHeight = 10
+				format = left
+				fixedsize = yes
+			}
+			iconType = {
+				name = "government_indicator"
+				quadTextureSprite = "GFX_pol_idea"
+				position = { x = 285 y = 1 }
+				pdx_tooltip = ""
+				pdx_tooltip_delayed = ""
+			}
+			iconType = {
+				name = "sanctions_period"
+				quadTextureSprite = "GFX_building_status_overlay"
+				position = { x = 420 y = -10 }
+				pdx_tooltip = ""
+				pdx_tooltip_delayed = ""
+				scale = 0.8
+			}
+			iconType = {
+				name = "sanctions_type"
+				quadTextureSprite = "GFX_mission_spread_warning_icon"
+				position = { x = 550 y = -2 }
+				pdx_tooltip = ""
+				pdx_tooltip_delayed = ""
+				scale = 0.8
+			}			
+		}
+
+		buttonType = {
+			name = "close_button"
+			position = { x = 532 y = -160 }
+			quadTextureSprite ="GFX_closebutton"
+			buttonFont = "hoi_16mbs"
+			shortcut = "ESCAPE"
+			Orientation = "CENTER"
+			clicksound = click_close
+		}
+
+		containerWindowType = {
+			name = "unsc_sanctioned_countries_list"
+			position = { x = -30 y = 35 }
+			size = { width = 845 height = 545 }
+			margin = { top = 50 left = 4 bottom = 75 right = 4 }
+			verticalScrollbar = "right_vertical_slider"
+
+			background = {
+				name = "member_list_background"
+				spriteType = "GFX_member_countries_bg"
+				alwaystransparent = yes
+			}
+			
+			iconType = {
+				name = "sanctioned_countries_background"
+				position = { x = 40 y = -20 }
+				spriteType = "GFX_unsc_window_background"
+				alwaystransparent = yes
+				scale = 0.9
+			}
+
+			gridboxtype = {
+				name = "unsc_sanctioned_list_gridbox"
+				position = { x = 10 y = -10 }
+				size = { width = 259 height = 1 }
+				slotsize = { width = 259 height = 40 }
+				max_slots_horizontal = 1
+				add_horizontal = no
+			}
+		}
+	}	
+}

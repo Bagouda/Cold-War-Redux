@@ -1,0 +1,21 @@
+state={
+	id=867
+	local_supplies=0.0 
+	name="STATE_867"
+	state_category = pastoral
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = FRA
+		add_claim_by = CNG
+	}
+	resources={
+		crops=1 # was: 1
+	}
+	manpower = 373207
+	provinces={
+		3109 6008 
+	}
+	buildings_max_level_factor=1.000
+}

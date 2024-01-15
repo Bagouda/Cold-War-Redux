@@ -1,0 +1,24 @@
+state={
+	id=794
+	local_supplies=0.0 
+	name="STATE_794"
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = ENG
+		add_claim_by = PAL
+		add_claim_by = ISR
+		add_claim_by = EGY
+		
+		1967.6.1 = {
+			owner = ISR
+		}
+	}	
+	provinces={
+		4088 
+	}
+	manpower=137000
+	state_category=town	
+	buildings_max_level_factor=1.000
+}

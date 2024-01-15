@@ -1,0 +1,27 @@
+state = {
+	id=77
+	local_supplies=0.0 
+	name="STATE_77"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 11597 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = BUL
+		add_core_of = BUL
+		add_claim_by = ROM
+
+		1947.2.10 = {	#Treaty of Paris 1947
+			remove_claim_by = ROM
+		}		
+		victory_points = {
+			11597 1
+		}
+	}
+	manpower = 378000
+	provinces={
+		9614 11597 
+	}
+}

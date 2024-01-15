@@ -1,0 +1,49 @@
+
+state={
+	id=907
+	local_supplies=0.0 
+	name="STATE_907"
+	resources={
+		crops = 12
+		steel=60
+		tungsten = 30
+	}
+	history={
+ 	add_to_array = { list_victory_point = 4941 }
+ 	add_to_array = { list_victory_point = 9882 }
+ 	set_variable = { victory_point = 10 }
+		owner = BEL
+		add_claim_by = COG
+
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+				
+		1960.6.30 = {
+			owner = COG
+			add_core_of = COG
+			remove_core_of = BEL
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			9882 5		#Albertville
+		}
+		victory_points = {
+			4941 5		#Costermansville
+		}
+	}
+
+	provinces={
+		738 3737 3740 4941 9415 9882 10561 10659 10766 11688 
+	}
+	manpower=703150
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

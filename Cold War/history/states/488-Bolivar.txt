@@ -1,0 +1,25 @@
+state = {
+	id=488
+	local_supplies=0.0 
+	name="STATE_488"
+	state_category = pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 10879 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = VEN
+		add_core_of = VEN
+		victory_points = {
+			10879 1
+		}
+	}
+	resources={
+		crops = 3
+	}	
+	manpower = 245642
+	provinces={
+		1981 5317 7915 8050 10736 10849 10879 
+	}
+}

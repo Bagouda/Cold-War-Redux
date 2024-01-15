@@ -1,0 +1,138 @@
+﻿capital = 4
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+
+
+1946.1.1 = {
+	diplomatic_relation = { country = FRA relation = non_aggression_pact }
+	diplomatic_relation = { country = ENG relation = non_aggression_pact }
+	diplomatic_relation = { country = USA relation = non_aggression_pact }
+	diplomatic_relation = { country = SOV relation = non_aggression_pact }
+	set_politics = {
+		ruling_party = democratic_socialist
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 60
+		democratic_socialist = 40
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Johann Koplenig"
+		desc = ""
+		picture = "AUSHC2.dds"
+		ideology = revisionist_idolg
+		expire = 1968.12.13
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Johann Koplenig"
+		desc = ""
+		picture = "AUSHC1.dds"
+		ideology = stalinism_idolg
+		expire = 1968.12.13
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Julius Raab"
+		desc = ""
+		picture = "AUSH1.dds"
+		ideology = social_cons_idolg
+		expire = 1953.1.1
+		traits = {}
+	}
+	create_country_leader = {		#https://en.wikipedia.org/wiki/List_of_administrators_of_Allied-occupied_Austria
+		name = "Mark W. Clark"
+		desc = ""
+		picture = "gfx/leaders/USA/USA_CC_767005.dds"
+		ideology = military_occupation_government
+		expire = 1947.5.16
+		traits = {}
+	}	
+}
+
+1948.5.14 = {
+}
+1950.6.25 = {
+}
+1956.10.29 = {
+	set_politics = {
+		last_election = "1956.5.13"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+}
+1961.12.11 = {
+	set_politics = {
+		last_election = "1959.5.10"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Josef Klaus"
+		desc = ""
+		picture = "AUSH3.dds"
+		ideology = social_cons_idolg
+		expire = 1970.4.21
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Alfons Gorbach"
+		desc = ""
+		picture = "AUSH2.dds"
+		ideology = social_cons_idolg
+		expire = 1953.1.1
+		traits = {}
+	}
+}
+1979.12.24 = {
+	set_politics = {
+		ruling_party = democratic_socialist
+		last_election = "1979.5.6"
+		election_frequency = 48
+		elections_allowed = yes		
+	}
+	set_popularities = {	
+		democratic  = 40
+		democratic_socialist = 60
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Fred Sinowatz"
+		desc = ""
+		picture = "AUSH5.dds"
+		ideology = social_democrat_idolg
+		expire = 1986.6.16
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Bruno Kreisky"
+		desc = ""
+		picture = "AUSH4.dds"
+		ideology = social_democrat_idolg
+		expire = 1983.5.24
+		traits = {}
+	}
+}
+1989.1.9 = {
+	set_politics = {
+		last_election = "1986.11.23"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Franz Vranitzky"
+		desc = ""
+		picture = "AUSH6.dds"
+		ideology = social_democrat_idolg
+		expire = 1997.1.28
+		traits = {}
+	}
+}

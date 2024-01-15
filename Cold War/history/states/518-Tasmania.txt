@@ -1,0 +1,25 @@
+state = {
+	id=518
+	local_supplies=0.0 
+	name="STATE_518"
+	state_category = small_island
+	history = {
+ 	add_to_array = { list_victory_point = 2189 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = AST
+		add_core_of = AST
+		victory_points = {
+			2189 1 
+		}
+	}
+	resources={
+		crops = 5
+	}	
+	manpower = 224000
+	provinces={
+		2183 2189 5181 5187 10665 12645
+	}
+}

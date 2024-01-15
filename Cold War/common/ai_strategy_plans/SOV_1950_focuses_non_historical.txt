@@ -1,0 +1,39 @@
+SOV_historical_plan_1950_non_historical = {
+	name = "Soviet 1950 Non Historical Focuses"
+	desc = ""
+
+	enable = {
+		tag = SOV
+		is_historical_focus_on = no
+		has_focus_tree = sov_focus_1950
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		SOV_support_communists_abroad
+		SOV_establish_warsaw_pact
+		SOV_extend_comecon_asia
+		SOV_support_north_korea
+	}
+
+	research = {
+	}
+	ideas = {
+	}
+	traits = {
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

@@ -1,0 +1,33 @@
+state = {
+	id=274
+	local_supplies=0.0 
+	name="STATE_274"
+	state_category=rural
+	history = {
+ 	add_to_array = { list_victory_point = 10862 }
+ 	set_variable = { victory_point = 15 }
+		owner = ENG
+		add_core_of = ENG
+		add_claim_by = GHN
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			10862 = {
+				naval_base = 1
+			}			
+		}		
+		victory_points = {
+			10862 15
+		}
+	}
+	resources={
+		crops = 5
+	}	
+	buildings_max_level_factor=1.000
+	manpower=3561800
+
+	provinces={
+		  10862 12742  12787 13136 
+	}
+}

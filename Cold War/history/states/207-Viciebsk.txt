@@ -1,0 +1,23 @@
+state = {
+	id=207
+	local_supplies=0.0 
+	name="STATE_207"
+	state_category = devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 11241 }
+ 	set_variable = { victory_point = 5 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_core_of = BLR
+		victory_points = {
+			11241 5
+		}
+	}
+	manpower =  1217854
+	provinces={
+		323 3219 3331 6220 6249 6326 6371 9241 9323 11220 11241 
+	}
+}

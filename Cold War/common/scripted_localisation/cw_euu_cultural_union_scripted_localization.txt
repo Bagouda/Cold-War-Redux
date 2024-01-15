@@ -1,0 +1,144 @@
+
+defined_text = {
+	name = CU_BOTTOM_MONITOR_LOC
+	text = {
+		trigger = {
+			euu_in_session = yes
+		}
+		localization_key = "CW_EUU_RESOLUTION_TIMER_BOTTOM_INDICATOR"
+	}
+	text = { localization_key = "[EUU_INTERFACE_TITLE_LOCALIZATION]" }
+}
+defined_text = {
+	name = EUU_INTERFACE_TITLE_LOCALIZATION
+	text = {
+		trigger = {
+			has_global_flag = ACC_active
+		}
+		localization_key = "CW_EUU_TITLE_ACC_ACTIVE"
+	}
+	text = {
+		trigger = {
+			has_global_flag = ECSC_active
+		}
+		localization_key = "CW_EUU_TITLE_ECSC_ACTIVE"
+	}
+	text = { localization_key = "CW_EUU_TITLE_DEFAULT" }
+}
+defined_text = {
+	name = EUU_INTERFACE_SUBTITLE_LOCALIZATION
+	text = {
+		trigger = {
+			euu_in_session = yes
+		}
+		localization_key = "CW_CULTURAL_UNION_IN_SESSION"
+	}
+	text = { localization_key = "CW_CULTURAL_UNION_NOT_IN_SESSION_SUBTITLE" }
+}
+defined_text = {
+	name = CW_EUU_RESOLUTION_STATUS
+	text = {
+		trigger = {
+			euu_in_session = yes
+		}
+		localization_key = "CW_EUU_RESOLUTION_INDICATOR"
+	}
+	text = {
+		trigger = {
+			euu_implementing_resolution = yes
+		}
+		localization_key = "CW_EUU_IMPLEMENTING_RESOLUTION"
+	}
+	text = { localization_key = "CW_EUU_NO_VOTE" }
+}
+defined_text = {
+	name = CW_EUU_RESOLUTION_OUTCOME
+	text = {
+		trigger = {
+			check_variable = { global.euu_total_votes_yes > global.euu_total_votes_no }
+			NOT = { has_global_flag = euu_absolute_majority_required }
+		}
+		localization_key = "CW_RESOLUTION_ADOPTED"
+	}
+	text = {
+		trigger = {
+			any_of_scopes = {
+				array = global.euu_members_array
+				has_country_flag = cultural_union_voted_no
+			}
+			has_global_flag = euu_absolute_majority_required
+		}
+		localization_key = "CW_RESOLUTION_REJECTED"
+	}		
+	text = {
+		trigger = {
+			check_variable = { global.euu_total_votes_no > global.euu_total_votes_yes }
+		}
+		localization_key = "CW_RESOLUTION_REJECTED"
+	}
+	text = { localization_key = "CW_RESOLUTION_INCONCLUSIVE" }
+}
+defined_text = {
+	name = CW_EUU_MONITOR_LOC
+	text = {
+		trigger = {
+			euu_in_session = yes
+		}
+		localization_key = ""
+	}
+	text = {
+		trigger = {
+			euu_implementing_resolution = yes
+		}
+		localization_key = "RESOLUTION_IMPLEMENTED"
+	}
+	text = { localization_key = "CW_CULTURAL_UNION_NOT_IN_SESSION" }
+}
+defined_text = {
+	name = CW_EUU_MAIN_SCREEN_IMAGE
+	text = {
+		trigger = {
+			euu_in_session = no
+			has_global_flag = ACC_active
+		}
+		localization_key = "GFX_acc_main_screen_image_not_in_session"
+	}
+	text = {
+		trigger = {
+			euu_in_session = yes
+			has_global_flag = ACC_active
+		}
+		localization_key = "GFX_acc_main_screen_image_in_session"
+	}
+	text = {
+		trigger = {
+			euu_in_session = no
+		}
+		localization_key = "GFX_euu_main_screen_image_not_in_session"
+	}
+	text = {
+		trigger = {
+			euu_in_session = yes
+		}
+		localization_key = "GFX_euu_main_screen_image_in_session"
+	}
+}
+defined_text = {
+	name = CW_EUU_BOTTOM_INDICATOR_FLAG
+	text = {
+		trigger = {
+			euu_in_session = yes
+		}
+		localization_key = "[euu_target.GetFlag]"
+	}
+	text = { localization_key = "[?global.euu_president.GetFlag]" }
+}
+defined_text = {
+	name = CW_GET_CULTURAL_UNION_NAME
+	text = {
+		trigger = {
+			is_euu_member = yes
+		}
+		localization_key = "[EUU_INTERFACE_TITLE_LOCALIZATION]"
+	}	
+}

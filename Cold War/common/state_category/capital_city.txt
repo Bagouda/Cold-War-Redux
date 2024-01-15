@@ -1,0 +1,8 @@
+state_categories={
+	capital_city = {
+		local_building_slots = 25
+	
+			color = { 0 240 243 }
+
+	}
+}

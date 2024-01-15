@@ -1,0 +1,16 @@
+state = {
+	id=515
+	local_supplies=0.0 
+	name="STATE_515"
+	state_category = pastoral
+	history = {
+		owner = FRA
+		add_claim_by = NGR
+	}
+	buildings_max_level_factor=1.000
+	manpower=1456356
+	impassable = yes
+	provinces={
+		1956 4913 7939 8028 8128 10758 10780 10805 10917
+	}
+}

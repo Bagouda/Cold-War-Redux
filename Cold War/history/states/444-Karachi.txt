@@ -1,0 +1,42 @@
+state={
+	id=444
+	local_supplies=0.0 
+	name="STATE_444"
+
+	history={
+ 	add_to_array = { list_victory_point = 3456 }
+ 	add_to_array = { list_victory_point = 8066 }
+ 	set_variable = { victory_point = 35 }
+		owner = IND
+		add_core_of = IND
+		add_core_of = PAK
+		
+		buildings = {
+			infrastructure = 5		
+			industrial_complex = 3
+			air_base = 3
+			arms_factory = 2
+			dockyard  = 1
+			3456 = {		#Bethlehem San Pedro Shipyard
+				naval_base = 5
+			}		
+		}
+		
+		1947.8.15 = {
+			owner = PAK
+			add_core_of = PAK
+		}
+		victory_points = {
+			3456 30	#Karachi
+		}		
+		victory_points = {
+			8066 5
+		}
+	}
+	provinces={
+		1179 3456 5043 5075 7049 7917 8013 8066 10108 12761 12774 
+	}
+	manpower=463500
+	buildings_max_level_factor=1.000
+	state_category=large_city
+}

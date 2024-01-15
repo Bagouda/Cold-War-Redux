@@ -1,0 +1,28 @@
+state = {
+	id=118
+	local_supplies=0.0 
+	name="STATE_118"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 4135 }
+ 	set_variable = { victory_point = 10 }
+		owner = ENG
+		add_core_of = ENG
+		add_claim_by = SPR
+		
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1		
+			dockyard  = 1		
+			4135 = {	#Gibraltar Port
+				naval_base = 5
+			}		
+		}		
+		
+		victory_points = { 4135 10 }
+	}
+	manpower=21372
+	provinces={
+		4135
+	}
+}

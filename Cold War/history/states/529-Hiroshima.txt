@@ -1,0 +1,26 @@
+state = {
+	id=529
+	local_supplies=0.0 
+	name="STATE_529" # Chugoku
+	state_category = devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 1092 }
+ 	set_variable = { victory_point = 30 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = USA
+		add_core_of = JAP
+		
+		victory_points = {
+			1092 30
+		}
+	}
+	resources={
+		crops = 8
+	}		
+	manpower = 5341000
+	provinces={
+		1092 1167 1191 4197 7050 7145 7212 9968 10052 10055 11946 11985 
+	}
+}

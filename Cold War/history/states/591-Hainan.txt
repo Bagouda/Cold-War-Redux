@@ -1,0 +1,48 @@
+state={
+	id=591
+	local_supplies=0.0 
+	name="STATE_591"
+
+	history = {
+ 	add_to_array = { list_victory_point = 1070 }
+ 	set_variable = { victory_point = 1 }
+		owner = CHI
+		add_core_of = CHI
+		add_claim_by= PRC
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}		
+		
+		1949.10.1 = {
+			owner = PRC
+		}
+		
+		buildings = {
+			infrastructure = 3
+			air_base = 2
+			arms_factory = 1
+			dockyard  = 1
+			1070 = {
+				naval_base = 2
+			}				
+		}
+		
+		victory_points = {
+			1070 1 
+		}
+
+	}
+	resources={
+		crops = 3
+	}	
+	provinces={
+		994 1038 1070 11963 11990 
+	}
+	manpower=4350000
+	buildings_max_level_factor=1.000
+	state_category=town
+}

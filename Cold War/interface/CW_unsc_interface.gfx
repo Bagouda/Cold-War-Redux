@@ -1,0 +1,173 @@
+spriteTypes = {
+	SpriteType = {
+		name = "GFX_unsc_show_sanctioned"
+		texturefile = "gfx/interface/unsc_graphics/unsc_button_show_sanctioned.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_show_unrecognized"
+		texturefile = "gfx/interface/unsc_graphics/unsc_button_show_unrecognized.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_window_background"
+		texturefile = "gfx/interface/unsc_graphics/unsc_background.dds"
+	}
+	SpriteType = {
+		name = "GFX_resolution_title_glass_cover"
+		texturefile = "gfx/interface/unsc_graphics/resolution_title_glass_cover.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_title_glass_cover"
+		texturefile = "gfx/interface/unsc_graphics/unsc_title_glass_cover.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_subtitle_glass_cover"
+		texturefile = "gfx/interface/unsc_graphics/unsc_subtitle_glass_cover.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_interface_background"
+		texturefile = "gfx/interface/unsc_graphics/unsc_window_background.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_screen_overlay"
+		texturefile = "gfx/interface/unsc_graphics/unsc_monitor_overlay.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_major_resolution_effect_monitor"
+		texturefile = "gfx/interface/unsc_graphics/unsc_major_resolution_effect.dds"
+		animation = {
+			animationmaskfile = "gfx/interface/unsc_graphics/unsc_monitor_overlay.dds"
+			#animationtexturefile = "gfx/interface/unsc_monitor_overlay.dds"
+			animationrotation = 0.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 0.75				# in seconds
+			animationdelay = 0.1			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+		}
+	}	
+	SpriteType = {
+		name = "GFX_unsc_vote_screen_overlay"
+		texturefile = "gfx/interface/unsc_graphics/unsc_vote_monitor_overlay.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_in_session_image"
+		texturefile = "gfx/interface/unsc_graphics/unsc_active_image.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_not_in_session_image"
+		texturefile = "gfx/interface/unsc_graphics/unsc_inactive_image.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_implementing_image"
+		texturefile = "gfx/interface/unsc_graphics/unsc_implementing_image.dds"		
+	}
+	SpriteType = {
+		name = "GFX_unsc_round_flag_frame"
+		texturefile = "gfx/interface/unsc_graphics/unsc_round_flag_frame.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_vote_indicator_blank"
+		texturefile = "gfx/interface/unsc_graphics/unsc_vote_indicator_blank.dds"
+	}
+	### PERMANENT MEMBERS VOTE INDICATORS ###
+	SpriteType = {
+		name = "GFX_unsc_vote_indicator_yes"
+		texturefile = "gfx/interface/unsc_graphics/unsc_vote_indicator_yes.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_vote_indicator_no"
+		texturefile = "gfx/interface/unsc_graphics/unsc_vote_indicator_no.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_vote_indicator_veto"
+		texturefile = "gfx/interface/unsc_graphics/unsc_vote_indicator_veto.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_vote_indicator_abstain"
+		texturefile = "gfx/interface/unsc_graphics/unsc_vote_indicator_abstain.dds"
+	}
+	### BUTTONS ##
+	SpriteType = {
+		name = "GFX_unsc_vote_button_no"
+		texturefile = "gfx/interface/unsc_graphics/unsc_button_no.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_vote_button_yes"
+		texturefile = "gfx/interface/unsc_graphics/unsc_button_yes.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_vote_button_veto"
+		texturefile = "gfx/interface/unsc_graphics/unsc_button_veto.dds"
+	}
+	SpriteType = {
+		name = "GFX_unsc_vote_button_abstain"
+		texturefile = "gfx/interface/unsc_graphics/unsc_button_abstain.dds"
+	}
+	SpriteType = {
+		name = "GFX_cannot_vote_indicator"
+		texturefile = "gfx/interface/unsc_graphics/cannot_vote_indicator.dds"
+	}
+	SpriteType = {
+		name = "GFX_most_votes_yes_light"
+		texturefile = "gfx/interface/unsc_graphics/unsc_most_yes_votes_light.dds"
+	}	
+	SpriteType = {
+		name = "GFX_most_votes_no_light"
+		texturefile = "gfx/interface/unsc_graphics/unsc_most_no_votes_light.dds"
+	}
+	SpriteType = {
+		name = "GFX_most_votes_veto_light"
+		texturefile = "gfx/interface/unsc_graphics/unsc_most_veto_votes_light.dds"
+	}	
+	SpriteType = {
+		name = "GFX_un_communist"
+		texturefile = "gfx/interface/unsc_graphics/un_communist_maj.dds"
+		animation = {
+			animationmaskfile = "gfx/interface/ideas/un_permanent.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -100.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 0.75				# in seconds
+			animationdelay = 45			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "scrolling"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/ideas/un_permanent.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = 100.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 0.75				# in seconds
+			animationdelay = 45			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}	
+	frameAnimatedSpriteType = {
+		name = "GFX_unsc_main_monitor_noise"
+		texturefile = "gfx/interface/unsc_graphics/main_monitor_noise.dds"
+		noOfFrames = 5
+		loadType = "INGAME"
+		transparencecheck = yes
+		animation_rate_fps = 20
+		looping = yes
+		play_on_show = yes
+		pause_on_loop = 0.0
+	}
+	frameAnimatedSpriteType = {
+		name = "GFX_unsc_major_resolution_effect"
+		texturefile = "gfx/interface/idea_alert_glow.dds"
+		noOfFrames = 2
+		animation_rate_fps = 0.1
+		looping = yes
+		play_on_show = yes
+		pause_on_loop = 0.0
+		alwaystransparent = yes
+		effectFile = "gfx/FX/buttonstate_blendframes.lua"
+	}	
+}

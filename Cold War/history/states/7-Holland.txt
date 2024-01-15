@@ -1,0 +1,43 @@
+state = {
+	id=7
+	local_supplies=0.0 
+	name="STATE_7"
+	state_category=large_city
+	history = {
+ 	add_to_array = { list_victory_point = 391 }
+ 	add_to_array = { list_victory_point = 9498 }
+ 	add_to_array = { list_victory_point = 3211 }
+ 	set_variable = { victory_point = 70 }
+		owner = HOL
+		add_core_of = HOL
+		
+		buildings = {
+			infrastructure = 3
+			air_base = 3
+			industrial_complex = 5
+			arms_factory = 1
+			dockyard  = 2
+			3211 = {
+				naval_base = 3
+			}			
+		}		
+		victory_points = {
+			9498 20 
+		}
+		victory_points = {
+			3211 10 
+		}
+		victory_points = {
+			391 40 
+		}
+	}
+	resources={
+		steel=4.000
+		crops = 12
+	}
+	buildings_max_level_factor=1.000
+	manpower=4123000
+	provinces={
+		68 391 3211 3314 9498 
+	}
+}

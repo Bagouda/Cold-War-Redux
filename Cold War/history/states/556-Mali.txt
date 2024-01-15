@@ -1,0 +1,19 @@
+state = {
+	id=556
+	local_supplies=0.0 
+	name="STATE_556" # Mali (previously French West Africa)
+	state_category = rural
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = FRA
+		add_claim_by = MLI
+
+	}
+	manpower = 1662391
+
+	provinces={
+		2012 2044   5101    10788 10812 10829 10915 12751  12838
+	}
+}

@@ -1,0 +1,25 @@
+state = {
+	id=33
+	local_supplies=0.0 
+	name="STATE_33"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 651 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = FRA
+		add_core_of = FRA
+		victory_points = {
+			651 1
+		}
+	}
+	resources={
+		crops = 15
+	}		
+	manpower = 636400
+	provinces={
+		651 669 3655 6648 6651 9629 11869 
+	}
+}

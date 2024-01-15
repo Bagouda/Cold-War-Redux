@@ -1,0 +1,33 @@
+state = {
+	id=531
+	local_supplies=0.0 
+	name="STATE_531" # Kansai
+	state_category = metropolis
+	history = {
+ 	add_to_array = { list_victory_point = 7072 }
+ 	set_variable = { victory_point = 40 }
+		owner = USA
+		add_core_of = JAP
+		
+		buildings = {
+			infrastructure = 3		
+			industrial_complex = 2
+			arms_factory = 5
+			dockyard  = 3
+			7072 = {
+				naval_base = 3
+			}			
+		}
+		victory_points = {
+			7072 40
+		}
+	}
+	resources={
+		aluminium=3 # was: 6
+		crops = 10
+	}
+	manpower = 11015000
+	provinces={
+		1051 1067 1133 1136 4054 4142 7072 7113 9985 11960 12031 
+	}
+}

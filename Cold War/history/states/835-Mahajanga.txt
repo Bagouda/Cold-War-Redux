@@ -1,0 +1,31 @@
+
+state={
+	id=835
+	local_supplies=0.0 
+	name="STATE_835"
+	
+	history={
+ 	add_to_array = { list_victory_point = 13229 }
+ 	set_variable = { victory_point = 9 }
+		owner = FRA
+		add_claim_by = MAD
+
+		buildings = {
+			infrastructure = 2
+			13229 = {
+				naval_base = 2
+			}
+		}		
+
+		victory_points = {
+			13229 9
+		}
+	}
+	
+	provinces={
+		5185 8188 13227 13229 
+	}
+	manpower=420629
+	buildings_max_level_factor=1.000
+	state_category = rural
+}

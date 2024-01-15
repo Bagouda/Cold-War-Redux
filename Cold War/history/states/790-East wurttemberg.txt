@@ -1,0 +1,31 @@
+state={
+	id=790
+	local_supplies=0.0 
+	name="STATE_790"
+	state_category = city	
+	history = {
+ 	add_to_array = { list_victory_point = 9517 }
+ 	set_variable = { victory_point = 20 }
+		owner = USA
+		add_core_of = GER
+		add_core_of = BAV
+		
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			air_base = 1		
+		}
+		victory_points = {
+			9517 20
+		}
+	}	
+	resources={
+		crops = 12
+	}	
+	provinces={
+		3530 6568 6581 9517 9545 11499 3574 589
+	}
+	manpower=13339706
+	buildings_max_level_factor=1.000
+}

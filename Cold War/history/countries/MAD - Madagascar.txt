@@ -1,0 +1,63 @@
+﻿capital = 543
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+set_variable = {proxy_point = 40 }
+1946.1.1 = {
+	set_country_flag = decolonization
+	set_politics = {
+		ruling_party = unaligned_right
+		last_election = "1946.9.28"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 45
+		democratic_socialist = 5
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 50
+		colonial =  0
+	}
+	create_country_leader = {		
+		name = "Pierre Gabriel de Chevigné"
+		desc = ""
+		picture = "pdc.dds"
+		ideology = military_occupation_government
+		expire = 1960.9.7
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Philibert Tsiranana"
+		desc = ""
+		picture = "Philibert_Tsiranana.dds"
+		ideology = democratic_nationalist_idolg
+		expire = 1985.4.11
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Philibert Tsiranana"
+		desc = ""
+		picture = "Philibert_Tsiranana.dds"
+		ideology = social_cons_idolg
+		expire = 1969.4.28
+		traits = {}
+	}
+	create_country_leader = {
+			name = "Didier Ratsiraka"
+			desc = ""
+			picture = "Didier_Ratsiraka_chi.dds"
+			ideology = stalinism_idolg
+			expire = 1990.9.2
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Didier Ratsiraka"
+			desc = ""
+			picture = "Didier_Ratsiraka_sov.dds"
+			ideology = revisionist_idolg
+			expire = 1990.9.2
+			traits = {}
+	}
+	
+}

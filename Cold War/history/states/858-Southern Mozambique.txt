@@ -1,0 +1,33 @@
+state={
+	id=858
+	local_supplies=0.0 
+	name="STATE_858"
+	resources={
+		crops=5.000
+	}
+	history={
+ 	add_to_array = { list_victory_point = 8245 }
+ 	set_variable = { victory_point = 15 }
+		owner = POR
+		add_claim_by = MZB
+		
+		buildings = {
+			infrastructure = 1
+			8245 = {
+				naval_base = 1
+
+			}
+
+		}
+		victory_points = {
+			8245 15 
+		}
+
+	}
+	provinces={
+		2120 2193 5155 5177 5212 8245 12935 
+	}
+	manpower=3902500
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

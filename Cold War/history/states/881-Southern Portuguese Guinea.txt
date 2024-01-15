@@ -1,0 +1,22 @@
+state={
+	id=881
+	local_supplies=0.0 
+	name="STATE_881"
+	state_category = enclave
+	history = {
+		owner = POR
+		add_claim_by = GUB
+		
+		buildings = {
+			infrastructure = 1			
+		}
+	}
+	resources={
+		crops=1 # was: 1
+	}
+	manpower = 182450
+	provinces={
+		12747 
+	}
+	buildings_max_level_factor=1.000
+}

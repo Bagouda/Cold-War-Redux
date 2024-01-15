@@ -1,0 +1,26 @@
+state = {
+	id=539
+	local_supplies=0.0 
+	name="STATE_539"
+	state_category=pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 5139 }
+ 	set_variable = { victory_point = 15 }
+		owner = FRA
+		add_claim_by = GAB
+		buildings = {
+			infrastructure = 3
+			5139 = {
+				naval_base = 1
+			}			
+		}		
+		victory_points = {
+			5139 15 
+		}
+	}
+	buildings_max_level_factor=1.000
+	manpower=375566
+	provinces={
+		5139  10948  
+	}
+}

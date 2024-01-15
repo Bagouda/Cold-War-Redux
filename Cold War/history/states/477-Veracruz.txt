@@ -1,0 +1,30 @@
+state = {
+	id=477
+	local_supplies=0.0 
+	name="STATE_477"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 8089 }
+ 	add_to_array = { list_victory_point = 12810 }
+ 	set_variable = { victory_point = 15 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = MEX
+		add_core_of = MEX
+		victory_points = {
+			8089 10
+		}
+		victory_points = {
+			12810 5
+		}
+	}
+	resources={
+		oil=9
+		crops = 10
+	}
+	manpower = 1951460
+	provinces={
+		8079 8089 10732 12810 
+	}
+}

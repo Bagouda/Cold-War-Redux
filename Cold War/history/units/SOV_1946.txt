@@ -1,0 +1,815 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		artillery_brigade = { x = 2 y = 0 }
+		artillery_brigade = { x = 2 y = 1 }
+		artillery_brigade = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Border Guard Division"
+	regiments = {
+		motorized = { x = 0 y = 0 }
+	}
+	support = {
+		mot_recon = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "MGB"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		armored_car = { x = 1 y = 0 }
+		infantry = { x = 0 y = 1 }
+		armored_car = { x = 1 y = 1 }
+	}
+	support = {
+		military_police = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Motorized infantry Division"		
+	#division_names_group = SOV_INF_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Mountaineers Division"		
+	#division_names_group = SOV_INF_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 2 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 2 y = 1 }
+	}
+}
+division_template = {
+	name = "Tank Division"		
+	#division_names_group = SOV_INF_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 1 y = 2 }
+		medium_armor = { x = 2 y = 0 }
+		medium_armor = { x = 2 y = 1 }
+		medium_armor = { x = 2 y = 2 }
+	}
+}
+units = {
+	### Mongolia Border Units ###
+	division = {
+		location = 4745
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 12690
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 4719
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 4677
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 7786
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 10683
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 7860
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 12507
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 4766
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 1762
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 10543
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 1810
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 7703
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 12610
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 10597
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 1877
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 1676
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 7804
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 12509
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 10713
+		division_template = "Border Guard Division"
+	}
+	### West China Border Units ###
+	division = {
+		location = 1749
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 1818
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 10610
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 12662
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 13197
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 12529
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 10619
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 4845
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 1840
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 4391
+		division_template = "Border Guard Division"
+	}	
+	division = {
+		location = 4768
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 5062
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 12370
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 2058
+		division_template = "Border Guard Division"
+	}
+	### Afghanistan Border Units ###
+		division = {
+		location = 12805
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 10417
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 8027
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 12218
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 7224
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 12239
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 756
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 4549
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 5003
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 5003
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 4958
+		division_template = "Border Guard Division"
+	}
+	### East Iran Border Units ##
+	division = {
+		location = 7560
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 7491
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 12333
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 10510
+		division_template = "Border Guard Division"
+	}
+	division = {
+		location = 12359
+		division_template = "Border Guard Division"
+	}	
+	### MGB Units ###
+	division = {
+		location = 6380
+		division_template = "MGB"
+	}	
+	division = {
+		location = 11666
+		division_template = "MGB"
+	}	
+	division = {
+		location = 3151
+		division_template = "MGB"
+	}
+	division = {
+		location = 9340
+		division_template = "MGB"
+	}	
+	division = {
+		location = 3152
+		division_template = "MGB"
+	}	
+	division = {
+		location = 3707
+		division_template = "MGB"
+	}
+	division = {
+		location = 3320
+		division_template = "MGB"
+
+	}	
+	division = {
+		location = 11370
+		division_template = "MGB"
+	}
+	division = {
+		location = 418
+		division_template = "MGB"
+	}
+	division = {
+		location = 3529
+		division_template = "MGB"
+	}
+	division = {
+		location = 3734
+		division_template = "MGB"
+	}
+	division = {
+		location = 525
+		division_template = "MGB"
+	}
+	division = {
+		location = 3544
+		division_template = "MGB"
+	}
+	division = {
+		location = 11542
+		division_template = "MGB"
+	}
+	division = {
+		location = 9660
+		division_template = "MGB"
+	}
+	division = {
+		location = 9617
+		division_template = "MGB"
+	}
+	division = {
+		location = 11505
+		division_template = "MGB"
+	}
+	division = {
+		location = 11479
+		division_template = "MGB"
+	}
+	division = {
+		location = 1896
+		division_template = "MGB"
+	}	
+	###Infantry division###
+	division = {
+		name = "148th Infantry division"
+		location = 4837
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "154th Infantry division"
+		location = 7786
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "160th Infantry division"
+		location = 10433
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "161st Infantry division"
+		location = 11771
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "173rd Infantry division"
+		location = 4052
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "180th Infantry division"
+		location = 12446
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "198th Infantry division"
+		location = 898
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "139th Infantry division"
+		location = 7804
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "1st Infantry division"
+		location = 11305
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "2nd Infantry division"
+		location = 9294
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "3rd Infantry division"
+		location = 11219
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "4th Infantry division"
+		location = 11359
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "9th Infantry division"
+		location = 482
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "10th Infantry division"
+		location = 9497
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "5th Infantry division"
+		location = 6487
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "6th Infantry division"
+		location = 425
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "7th Infantry division"
+		location = 3561
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "25th Infantry division"
+		location = 11630
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "50th Infantry division"
+		location = 9771
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "54th Infantry division"
+		location = 6857
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "70th Infantry division"
+		location = 746
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "74th Infantry division"
+		location = 727
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "209th Infantry division"
+		location = 9902
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	
+	### Infantry Division ###
+	division = {
+		name = "157th Rifle division"
+		location = 10612
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "164th Rifle division"
+		location = 1150
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "166th Rifle division"
+		location = 12040
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "168th Rifle division"
+		location = 848
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "183rd Rifle division"
+		location = 855
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "204th Rifle division"
+		location = 957
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "113th Rifle division"
+		location = 12441
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	### Infantry Division ###
+	division = {
+		name = "170th Armored division"
+		location = 4052
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "52nd Armored division"
+		location = 949
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	
+	### ###
+	division = {
+		name = "167th Armored division"
+		location = 9981
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "117th Armored division"
+		location = 12333
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	
+	### Mountaineers Division ###
+	division = {
+		name = "110th Mountaineers division"
+		location = 3653
+		division_template = "Mountaineers Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "112th Mountaineers division"
+		location = 6669
+		division_template = "Mountaineers Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "114th Mountaineers division"
+		location = 3564
+		division_template = "Mountaineers Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "122nd Mountaineers division"
+		location = 9888
+		division_template = "Mountaineers Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	
+	### ###
+	division = {
+		name = "1st Tank division"
+		location = 3522
+		division_template = "Tank Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "2nd Tank division"
+		location = 3500
+		division_template = "Tank Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "7th Tank division"
+		location = 11651
+		division_template = "Tank Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	
+	### ###
+	division = {
+		name = "26th Infantry Division"
+		location = 9661
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "27th Infantry Division"
+		location = 6690
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "53rd Infantry Division"
+		location = 935
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+}
+	
+
+
+
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_3
+			creator = "SOV"
+		}
+		requested_factories = 10
+		progress = 0.66
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "SOV"
+		}
+		requested_factories = 10
+		progress = 0.64
+		efficiency = 100
+	}	
+	add_equipment_production = {
+		equipment = {
+			type = motorized_equipment_1
+			creator = "SOV"
+		}
+		requested_factories = 5
+		progress = 0.66
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = medium_tank_equipment_3
+			creator = "SOV"
+		}
+		requested_factories = 5
+		progress = 0.66
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_3
+			creator = "SOV"
+		}
+		requested_factories = 5
+		progress = 0.66
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = motorized_rocket_equipment_1
+			creator = "SOV"
+		}
+		requested_factories = 5
+		progress = 0.66
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = transport_plane_equipment_1
+			creator = "SOV"
+		}
+		requested_factories = 5
+		progress = 0.66
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = CAS_equipment_3
+			creator = "SOV"
+		}
+		requested_factories = 5
+		progress = 0.66
+		efficiency = 40
+	}
+	add_equipment_production = {
+		equipment = {
+			type = strat_bomber_equipment_3
+			creator = "SOV"
+		}
+		requested_factories = 5
+		progress = 0.66
+		efficiency = 40
+	}	
+}

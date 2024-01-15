@@ -1,0 +1,574 @@
+guiTypes = {
+	containerWindowType = {
+		name = "euu_indicator_top_bar"
+		position = { x=-500 y= -88 }	
+		Orientation = LOWER_RIGHT
+
+		iconType = {
+			name = "cultural_union_active_resolution_glow"
+			spriteType  ="GFX_ongoing_generic_glow_yellow"
+			position = { x = -45 y = -30 }
+			alwaystransparent = yes
+			scale = 1.5
+		}
+		buttonType = {
+			name = "cultural_union_bottom_indicator"
+			spriteType  ="GFX_cultural_union_indicator_icon"
+		}
+		iconType = {
+		  name = "cu_monitor_active_vote_animation"
+		  quadTextureSprite = "GFX_cu_bottom_monitor_animation"
+		  position = { x = 21 y = 19 }
+		  scale = 0.94
+		  alwaystransparent = yes
+		  #GFX_techtree_line_right_dot_currently_researching
+		  #GFX_landbattle_strip - For explosive resolutions
+		  #GFX_tutorial_national_focus_icon_glow - For UNSC president votes?
+		  #GFX_observer_button_overlay - For UNSC votes against player
+		}			
+		buttonType = {
+			name = "cultural_union_president_flag"
+			spriteType  = "GFX_construction_flag"
+			position = { x = 20 y = 13 }
+			alwaystransparent = yes
+		}		
+		instantTextboxType = {
+			name = "cultural_union_yes_votes"
+			position = { x = 72 y = 63 }
+			font = "cw_terminal_font"
+			text = [?global.euu_total_votes_yes|0.]
+			maxWidth = 28
+			maxHeight = 10
+			fixedsize = yes
+			format = center
+		}
+		instantTextboxType = {
+			name = "cultural_union_no_votes"
+			position = { x = 18 y = 63 }
+			font = "cw_terminal_font"
+			text = [?global.euu_total_votes_no|0.]
+			maxWidth = 28
+			maxHeight = 10
+			fixedsize = yes
+			format = center
+		}
+		instantTextboxType = {
+			name = "cultural_union_abstain_votes"
+			position = { x = 46 y = 63 }
+			font = "cw_terminal_font"
+			text = "[?global.euu_total_votes_abstain|0.] "
+			maxWidth = 28
+			maxHeight = 10
+			fixedsize = yes
+			format = center
+		}
+		instantTextboxType = {
+			name = "cultural_union_vote_timer"
+			position = { x = 12 y = 23 }
+			font = "garamond_12"
+			text = "[CU_BOTTOM_MONITOR_LOC]"
+			maxWidth = 95
+			maxHeight = 35
+			fixedsize = yes
+			format = center
+			vertical_alignment = center
+			alwaystransparent = yes
+		}
+	}
+	containerWindowType = {
+		name = "cw_culture_union_interface"
+		position = { x = 0 y = 0}
+		size = { width = 800 height= 650 }
+		orientation = center
+		origo = center
+		fade_time = 100
+		moveable = yes
+		fade_type = linear
+		click_to_front = no
+		clipping = no
+
+
+		background = {
+			name = "culture_union_interface_background"
+			spriteType  ="GFX_culture_union_background"
+		}
+		iconType = {
+			name = "culture_union_interface_background_2"
+			spriteType  ="GFX_culture_union_background"
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "unsc_hint_icon"
+			spriteType = "GFX_hint_icon"
+			position = { x = 754 y = 32 }
+			#pdx_tooltip = "CW_UNSC_HINT_TT"
+			#pdx_tooltip_delayed = "CW_UNSC_HINT_TTL"
+		}
+		instantTextboxType = {
+			name = "unsc_window_title"
+			position = { x = 100 y = 40 }
+			font = "cw_inba_title_20"
+			text = [EUU_INTERFACE_TITLE_LOCALIZATION]
+			maxWidth = 600
+			maxHeight = 10
+			fixedsize = yes
+			format = center
+		}
+		iconType = {
+			name = "title_glass_cover"
+			spriteType  ="GFX_unsc_title_glass_cover"
+			position = { x = 96 y = 33 }
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "inba_window_subtitle"
+			position = { x = 190 y = 76 }
+			font = "cw_digital_font"
+			text = "[EUU_INTERFACE_SUBTITLE_LOCALIZATION]"
+			maxWidth = 420
+			maxHeight = 10
+			format = center
+		}
+		iconType = {
+			name = "subtitle_glass_cover"
+			spriteType  ="GFX_unsc_subtitle_glass_cover"
+			position = { x = 151 y = 70 }
+			alwaystransparent = yes
+		}		
+		iconType = {
+			name = "culture_union_president_flag"
+			spriteType = "GFX_flag_round"
+			position = { x = 77 y = 163 }
+		}
+		instantTextboxType = {
+			name = "cultural_union_vote_status"
+			position = { x = 200 y = 313 }
+			font = "cg_18b"
+			text = "[CW_EUU_RESOLUTION_STATUS]"
+			maxWidth = 320
+			maxHeight = 20
+			format = center
+		}
+		instantTextboxType = {
+			name = "cultural_union_member_count"
+			position = { x = 188 y = 191 }
+			font = "cg_18b"
+			text = "[?global.euu_members_array^num]"
+			maxWidth = 30
+			maxHeight = 20
+			format = center
+		}
+		instantTextboxType = {
+			name = "cultural_union_observers_title"
+			position = { x = 615 y = 126 }
+			font = "garamond_12"
+			text = "CU_OBSERVERS_TITLE_LOC"
+			maxWidth = 47
+			maxHeight = 20
+			format = center
+			pdx_tooltip = "CU_OBSERVERS_TITLE_TT"
+			pdx_tooltip_delayed = "CU_OBSERVERS_TITLE_TTL"			
+		}
+		instantTextboxType = {
+			name = "cultural_union_candidates_title"
+			position = { x = 694 y = 126 }
+			font = "garamond_12"
+			text = "CU_CANDIDATES_TITLE_LOC"
+			maxWidth = 50
+			maxHeight = 20
+			format = center
+			pdx_tooltip = "CU_CANDIDATES_TITLE_TT"
+			pdx_tooltip_delayed = "CU_CANDIDATES_TITLE_TTL"		
+		}		
+		instantTextboxType = {
+			name = "euu_resolution_number"
+			position = { x = 550 y = 313 }
+			font = "cw_digital_font"
+			text = "#[?global.euu_resolution_counter]"
+			maxWidth = 50
+			maxHeight = 20
+			format = center
+		}		
+		iconType = {
+		  name = "cultural_union_vote_status_glass_cover"
+		  quadTextureSprite = "GFX_resolution_title_glass_cover"
+		  position = { x = 195 y = 308 }
+		}
+		iconType = {
+		  name = "resolution_absolute_majority_icon"
+		  quadTextureSprite = "GFX_lobby_player_mapmode_button_selected"
+		  position = { x = 205 y = 311 }
+		  pdx_tooltip = "CU_ABSOLUTE_MAJORITY_REQUIRED_ICON_TT"
+		  pdx_tooltip_delayed = "CU_ABSOLUTE_MAJORITY_REQUIRED_ICON_TTL"
+		  scale = 0.4
+		}		
+		iconType = {
+		  name = "cultural_union_main_screen_image"
+		  quadTextureSprite = ""
+		  position = { x = 197 y = 346 }
+		}
+		buttonType = {
+			name = "cultural_union_interface_close_button"
+			position = { x = 270 y = 592 }
+			quadTextureSprite ="GFX_button_261x34"
+			buttonFont = "hoi_16mbs"
+			Orientation = "UPPER_LEFT"
+			buttonText = "DIPLOMACY_CLOSE"
+			clicksound = click_close
+		}		
+		############################
+		####	VOTE COUNTERS	####
+		############################
+		containerWindowType = {
+			name = "cw_vote_counters_container"
+			position = { x = - y = 38 }
+
+			instantTextboxType = {
+				name = "cultural_union_votes_yes"
+				position = { x = 648 y = 355 }
+				font = "cw_digital_font"
+				text = "[?global.euu_total_votes_yes|0.]"
+				maxWidth = 65
+				maxHeight = 20
+				format = center
+				pdx_tooltip = "CW_UNSC_TOTAL_VOTES_YES_TT"
+			}
+			iconType = {
+			  name = "unsc_vote_screen_overlay_left_1"
+			  quadTextureSprite = "GFX_unsc_vote_screen_overlay"
+			  position = { x = 645 y = 340 }
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "cultural_union_votes_no"
+				position = { x = 88 y = 355 }
+				font = "cw_digital_font"
+				text = "[?global.euu_total_votes_no|0.]"
+				maxWidth = 65
+				maxHeight = 20
+				format = center
+				pdx_tooltip = "CW_UNSC_TOTAL_VOTES_NO_TT"
+			}		
+			iconType = {
+			  name = "unsc_vote_screen_overlay_left_2"
+			  quadTextureSprite = "GFX_unsc_vote_screen_overlay"
+			  position = { x = 85 y = 340 }
+				alwaystransparent = yes
+			}
+			iconType = {
+			  name = "cw_resolution_most_votes_supporting"
+			  quadTextureSprite = "GFX_most_votes_yes_light"
+			  position = { x = 606 y = 407 }
+			  alwaystransparent = yes
+			}
+			iconType = {
+			  name = "cw_resolution_most_votes_rejecting"
+			  quadTextureSprite = "GFX_most_votes_no_light"
+			  position = { x = 45 y = 407 }
+			  alwaystransparent = yes
+			}			
+		}
+		############################
+		####	VOTE BUTTONS	####
+		############################	
+		buttonType = {
+			name = "vote_button_yes_button"
+			position = { x = 498 y = 524 }
+			quadTextureSprite ="GFX_unsc_vote_button_yes"
+			buttonFont = "cw_terminal_font"
+			Orientation = "UPPER_LEFT"
+			buttonText = "Support"
+		}
+		buttonType = {
+			name = "vote_button_abstain_button"
+			position = { x = 358 y = 524 }
+			quadTextureSprite ="GFX_unsc_vote_button_abstain"
+			buttonFont = "cw_terminal_font"
+			Orientation = "UPPER_LEFT"
+			buttonText = "Abstain"
+		}
+		buttonType = {
+			name = "vote_button_no_button"
+			position = { x = 218 y = 524 }
+			quadTextureSprite ="GFX_unsc_vote_button_no"
+			buttonFont = "cw_terminal_font"
+			Orientation = "UPPER_LEFT"
+			buttonText = "Reject"
+		}		
+		####################################
+		####	CU MEMBERS GRIDBOX		####
+		####################################
+		containerWindowType = {
+			name = "cultural_union_members_list"
+			position = { x = -10 y = 90 }
+			size = { width = 605 height = 230 }
+			margin = { top = 40 left = 4 bottom = 45 right = 0 }
+			verticalScrollbar = "right_vertical_slider"
+
+			background = {
+				name = "member_list_background"
+				spriteType = "GFX_member_countries_bg"
+				alwaystransparent = yes
+			}		
+			gridboxtype = {
+				name = "culture_union_members_list_gridbox"
+				position = { x = 0 y = 5 }
+				size = { width = 0 height = 0 }
+				slotsize = { width = 53 height = 49 }
+				max_slots_horizontal = 6
+				add_horizontal = yes
+			}
+		}
+		####################################
+		####	CU OBSERVERS GRIDBOX	####
+		####################################
+		containerWindowType = {
+			name = "cultural_union_observers_list"
+			position = { x = 356 y = 145 }
+			size = { width = 338 height = 130 }
+			margin = { top = 8 left = 0 bottom = 0 right = 0 }
+			verticalScrollbar = "right_vertical_slider"
+
+			background = {
+				name = "member_list_background"
+				spriteType = "GFX_member_countries_bg"
+				alwaystransparent = yes
+			}		
+			gridboxtype = {
+				name = "culture_union_observers_list_gridbox"
+				position = { x = 0 y = 0 }
+				slotsize = { width = 53 height = 32 }
+				max_slots_horizontal = 1
+				add_horizontal = no
+			}
+		}
+		####################################
+		####	CU CANDIDATES GRIDBOX	####
+		####################################
+		containerWindowType = {
+			name = "cultural_union_candidates_list"
+			position = { x = 439 y = 145 }
+			size = { width = 333 height = 130 }
+			margin = { top = 8 left = 0 bottom = 0 right = 0 }
+			verticalScrollbar = "right_vertical_slider"
+
+			background = {
+				name = "candidates_list_background"
+				spriteType = "GFX_member_countries_bg"
+				alwaystransparent = yes
+			}
+			gridboxtype = {
+				name = "culture_union_candidates_list_gridbox"
+				position = { x = 0 y = 0 }
+				size = { width = 0 height = 0 }
+				slotsize = { width = 53 height = 32 }
+				max_slots_horizontal = 1
+				add_horizontal = no
+			}			
+		}		
+		####################################
+		####	ACC MEMBERS GRIDBOX		####
+		####################################			
+		gridboxtype = {
+			name = "allied_control_council_list_gridbox"
+			position = { x = 70 y = 113 }
+			size = { width = 0 height = 0 }
+			slotsize = { width = 150 height = 70 }
+			max_slots_horizontal = 2
+			max_slots_horizontal = 2
+			max_slots_vertical = 2
+			add_horizontal = yes
+		}		
+	}
+	containerWindowType = {
+		name = "cultural_union_resolution_entry"
+		position = { x = -5 y = 12 }
+
+		instantTextboxType = {
+			name = "cultural_union_resolution_desc"
+			position = { x = 226 y = 352 }
+			font = "cw_terminal_font"
+			text = "[CW_EUU_RESOLUTION_GET_DESC]"
+			maxWidth = 345
+			maxHeight = 112
+			format = left
+			borderSize = {x = 0 y = 0 }
+			scrollbartype = "standardtext_slider"
+		}
+		instantTextboxType = {
+			name = "no_voting_loc"
+			position = { x = 206 y = 395 }
+			font = "cw_terminal_font"
+			text = "[CW_EUU_MONITOR_LOC]"
+			maxWidth = 400
+			maxHeight = 100
+			format = center
+		}	
+		iconType = {
+		  name = "cultural_union_screen_overlay"
+		  quadTextureSprite = "GFX_unsc_screen_overlay"
+		  position = { x = 210 y = 343 }
+			alwaystransparent = yes
+		}
+		iconType = {
+		  name = "cultural_union_screen_noise"
+		  quadTextureSprite = "GFX_unsc_main_monitor_noise"
+		  position = { x = 202 y = 335 }
+			alwaystransparent = yes
+		}
+		iconType = {
+		  name = "cultural_union_major_resolution_effect"
+		  quadTextureSprite = "GFX_unsc_major_resolution_effect_monitor"
+		  position = { x = 210 y = 343 }
+			alwaystransparent = yes
+		}
+	}
+	############################################
+	####	CU MEMBERS ARRAY LIST ENTRY		####
+	############################################
+	containerWindowType = {
+		name = "cultural_union_members_list_entry"
+		position = { x = 290 y = -2 }
+		size = { width = 0 height = 65 }
+
+		#iconType = {
+		#	name = "country_flag_glow"
+		#	quadTextureSprite = "GFX_unsc_major_resolution_effect"
+		#	position = { x = 0 y = 2 }
+		#	scale = 0.6
+		#	alwaystransparent = yes
+		#}
+		buttonType = {
+			name = "cultural_union_member_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = 0 y = 0 }
+			pdx_tooltip = "CW_GET_MEMBER_NAME"
+			pdx_tooltip_delayed = "CW_MEMBER_NAME_NON_PERM_RIGHT_CLICK"
+		}
+		iconType = {
+			name = "unsc_member_flag_border"
+			quadTextureSprite = "GFX_diplo_countrylist_flag_frame"
+			position = { x = -4 y = -2 }
+			alwaystransparent = yes
+		}
+		#iconType = {
+		#	name = "voting_bribe_flag_border"
+		#	quadTextureSprite = "GFX_tiny_flag_border"
+		#	position = { x = 15 y = 25 }
+		#	alwaystransparent = yes
+		#}
+		#instantTextboxType = {
+		#	name = "voting_bribe_flag"
+		#	position = { x = 12 y = 20 }
+		#	font = "cw_terminal_font"
+		#	text = "[UNSC_GET_BRIBE_FLAG]"
+		#	maxWidth = 20
+		#	maxHeight = 20
+		#	format = center
+		#	pdx_tooltip = "UNSC_BRIBE_DESC"
+		#}
+		iconType = {
+			name = "puppet_indicator"
+			quadTextureSprite = "GFX_relation_puppet"
+			position = { x = 9 y = 13 }
+			scale = 0.8
+			pdx_tooltip = "CW_UNSC_PUPPET_TT"
+		}
+		iconType = {
+			name = "cultural_union_vote_indicator_blank"
+			quadTextureSprite = "GFX_unsc_vote_indicator_blank"
+			position = { x = 9 y = 34 }
+		}
+		iconType = {
+			name = "cultural_union_vote_indicator_yes"
+			quadTextureSprite = "GFX_unsc_vote_indicator_yes"
+			position = { x = 9 y = 34 }
+		}
+		iconType = {
+			name = "cultural_union_vote_indicator_no"
+			quadTextureSprite = "GFX_unsc_vote_indicator_no"
+			position = { x = 9 y = 34 }
+		}
+		iconType = {
+			name = "cultural_union_vote_indicator_abstain"
+			quadTextureSprite = "GFX_unsc_vote_indicator_abstain"
+			position = { x = 9 y = 34 }
+		}
+		iconType = {
+		  name = "country_flag_blocker"
+		  quadTextureSprite = "GFX_cu_acc_blocker"
+		  position = { x = -6 y = 0 }
+		}		
+	}
+	################################################
+	####	CU OBSERVERS ARRAY LIST ENTRY		####
+	################################################
+	containerWindowType = {
+		name = "cultural_union_observers_list_entry"
+		position = { x = 290 y = 0 }
+		size = { width = 0 height = 35 }
+
+		iconType = {
+			name = "cultural_union_observer_flag"
+			spriteType = "GFX_flag_small2"
+			position = { x = 0 y = 6 }
+			pdx_tooltip = "CW_GET_MEMBER_NAME"
+			pdx_tooltip_delayed = "CW_MEMBER_NAME_NON_PERM_RIGHT_CLICK"
+		}
+		iconType = {
+			name = "unsc_member_flag_border"
+			quadTextureSprite = "GFX_diplo_countrylist_flag_frame"
+			position = { x = -4 y = 0 }
+			alwaystransparent = yes
+		}
+	}	
+	################################################
+	####	ACC MEMBERS ARRAY LIST ENTRY		####
+	################################################
+	containerWindowType = {
+		name = "acc_members_list_entry"
+		position = { x = 290 y = 20 }
+		size = { width = 0 height = 0 }
+
+		iconType = {
+			name = "country_flag_glow"
+			quadTextureSprite = "GFX_unsc_major_resolution_effect"
+			position = { x = 0 y = 0 }
+			scale = 0.6
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "cultural_union_member_flag"
+			spriteType = "GFX_player_flag"
+			position = { x = 0 y = 3 }
+			pdx_tooltip = "CW_GET_MEMBER_NAME"
+			pdx_tooltip_delayed = "CW_MEMBER_NAME_NON_PERM_RIGHT_CLICK"
+		}
+		iconType = {
+			name = "unsc_member_flag_border"
+			quadTextureSprite = "GFX_large_flag_frame"
+			position = { x = -4 y = 0 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "unsc_permanent_vote_indicator_blank"
+			quadTextureSprite = "GFX_unsc_vote_indicator_blank"
+			position = { x = 30 y = 59 }
+		}
+		iconType = {
+			name = "cultural_union_vote_indicator_yes"
+			quadTextureSprite = "GFX_unsc_vote_indicator_yes"
+			position = { x = 30 y = 59 }
+		}
+		iconType = {
+			name = "cultural_union_vote_indicator_no"
+			quadTextureSprite = "GFX_unsc_vote_indicator_no"
+			position = { x = 30 y = 59 }
+		}
+		iconType = {
+			name = "cultural_union_vote_indicator_abstain"
+			quadTextureSprite = "GFX_unsc_vote_indicator_abstain"
+			position = { x = 30 y = 59 }
+		}
+	}	
+}

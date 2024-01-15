@@ -1,0 +1,27 @@
+state = {
+	id=492
+	local_supplies=0.0 
+	name="STATE_492"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 2210 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = PRU
+		add_core_of = PRU
+		victory_points = {
+			2210 1 
+		}
+	}
+	resources={
+		tungsten=2 # was: 2.000
+		crops = 5
+	}
+	buildings_max_level_factor=1.000
+	manpower=1601278
+	provinces={
+		2182 2210 2225 5202 12953 13086 13175 
+	}
+}

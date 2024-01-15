@@ -1,0 +1,33 @@
+
+state={
+	id=201
+	local_supplies=0.0 
+	name="STATE_201"
+
+	history={
+ 	add_to_array = { list_victory_point = 6593 }
+ 	set_variable = { victory_point = 3 }
+		buildings = {
+			infrastructure = 2
+		}
+		owner = UKR
+		add_core_of = SOV
+		add_core_of = UKR
+		1950.6.25 = {
+			owner = SOV
+		}		
+		victory_points = {
+			6593 3 
+		}
+
+	}
+	resources={
+		crops=6
+	}
+	provinces={
+		441 550 3470 3570 6556 6593 9466 9493 9533 11464 11477 11490 11514 
+	}
+	manpower=741783
+	buildings_max_level_factor=1.000
+	state_category=town
+}

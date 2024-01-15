@@ -1,0 +1,180 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_cw_cabinet_top_strip"
+		textureFile = "gfx/interface/cw_cabinet_advisor_top_strip.dds"
+	}
+	spriteType = {
+		name = "GFX_top_bar_decisions_notification_bubble"
+		textureFile = "gfx/interface/cw_decisions_notification_bubble.dds"
+	}
+	spriteType = {
+		name = "GFX_notification_bubble_close_button"
+		textureFile = "gfx/interface/notification_bubble_close_button.dds"
+	}
+	frameAnimatedSpriteType = {
+		name = "GFX_monopoly_potential_glow"
+		texturefile = "gfx/interface/diplo_interface_glow_yellow.dds"
+		noOfFrames = 2
+		animation_rate_fps = 0.5
+		looping = yes
+		play_on_show = yes
+		pause_on_loop = 0.0
+		alwaystransparent = yes
+		effectFile = "gfx/FX/buttonstate_blendframes.lua"
+	}
+	spriteType = {
+		name = "GFX_main_menu_iw_logo"
+		textureFile = "gfx/interface/iw_logo.dds"
+		animation = {
+			animationmaskfile = "gfx/interface/iw_logo.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -100.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 9.75				# in seconds
+			animationdelay = 0.50			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "scrolling"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 2.0 y = 2.0 } 
+		}
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_main_menu_wiki_icon"
+		textureFile = "gfx/interface/wiki_main_menu_icon.dds"
+	}	
+	spriteType = {
+		name = "GFX_country_ledger_title_bar_956X35"
+		textureFile = "gfx/interface/country_ledger_title_bar.dds"
+	}
+	spriteType = {
+		name = "GFX_cw_devider_line_1"
+		textureFile = "gfx/interface/devider_line.dds"
+	}
+	spriteType = {
+		name = "GFX_modifiers_untamable_terrain_icon"
+		textureFile = "gfx/interface/modifiers_untamable_terrain_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_top_bar_notification_background"
+		texturefile = "gfx/interface/top_bar_notification_background.dds"
+	}
+	spriteType = {
+		name = "GFX_placeholder1"
+		texturefile = "gfx/interface/placeholder1.dds"
+	}
+	SpriteType = {
+		name = "GFX_hint_icon"
+		texturefile = "gfx/interface/hint_icon.dds"
+		animation = {
+			animationmaskfile = "gfx/interface/ideas/un_permanent.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationlooping = yes			# yes or no ;)
+			animationtime = 1.0				# in seconds
+			animationdelay = 1.0			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+		}		
+		legacy_lazy_load = no		
+	}
+	maskedShieldType = {
+		name = "GFX_flag_extra_large"
+		textureFile1 = "gfx/interface/flag_overlay_large.dds"
+		textureFile2 = "gfx/interface/flag_frame_large_mask.tga"
+		effectFile = "gfx/FX/maskedflag.lua"		
+	}
+	maskedShieldType = {
+		name = "GFX_flag_round"
+		textureFile1 = "gfx/interface/pol_piechart_overlay.dds"		
+		textureFile2 = "gfx/interface/round_flag_frame_mask.dds"
+		effectFile = "gfx/FX/maskedflag.lua"		
+	}
+	maskedShieldType = {
+		name = "GFX_flag_round_small"
+		textureFile1 = "gfx/interface/flag_overlay_round_small.dds"		
+		textureFile2 = "gfx/interface/round_flag_frame_mask_small.tga"		
+		effectFile = "gfx/FX/maskedflag.lua"		
+	}	
+	maskedShieldType = {
+		name = "GFX_inba_flag_left"
+		textureFile1 = "gfx/interface/inba_flag_left_overlay.dds"
+		textureFile2 = "gfx/interface/inba_flag_left_mask.tga"
+		effectFile = "gfx/FX/maskedflag.lua"
+	}	
+	maskedShieldType = {
+		name = "GFX_inba_flag_right"
+		textureFile1 = "gfx/interface/inba_flag_left_overlay.dds"
+		textureFile2 = "gfx/interface/inba_flag_right_mask.tga"
+		effectFile = "gfx/FX/maskedflag.lua"
+	}	
+	SpriteType = {
+		name = "GFX_focus_blocker"
+		texturefile = "gfx/interface/national_focus_blocker.dds"
+	}
+	SpriteType = {
+		name = "GFX_research_blocker"
+		texturefile = "gfx/interface/researcch_tree_blocker.dds"
+	}
+	frameAnimatedSpriteType = {
+		name = "GFX_warning_texticon_animation"
+		texturefile = "gfx/texticons/cw_warning_texticon.dds"
+		noOfFrames = 2
+		loadType = "INGAME"
+		transparencecheck = yes
+		animation_rate_fps = 1
+		looping = yes
+		play_on_show = yes
+		pause_on_loop = 5.0
+	}	
+	frameAnimatedSpriteType = {
+		name = "GFX_notification_phone"
+		texturefile = "gfx/interface/notification_phone.dds"
+		noOfFrames = 5
+		loadType = "INGAME"
+		transparencecheck = yes
+		animation_rate_fps = 5
+		looping = yes
+		play_on_show = yes
+		pause_on_loop = 0.5
+	}
+	SpriteType = {
+		name = "GFX_notification_bubble"
+		texturefile = "gfx/interface/notification_bubble.dds"
+	}
+	SpriteType = {
+		name = "GFX_large_round_flag_overlay"
+		texturefile = "gfx/interface/round_large_flag_overlay.dds"
+	}
+	SpriteType = {
+		name = "GFX_tiny_flag_border"
+		texturefile = "gfx/interface/tiny_flag_frame.dds"
+	}
+	SpriteType = {
+		name = "GFX_focus_timer_background"
+		texturefile = "gfx/interface/focus_timer_background.dds"
+	}
+	SpriteType = {
+		name = "GFX_pary_blocker"
+		texturefile = "gfx/interface/diplomacy_party_blocker.dds"
+	}	
+	SpriteType = {
+		name = "GFX_un_button_back_laresistance"
+		texturefile = "gfx/interface/topbar/button_depressed_un.dds"
+	}
+	SpriteType = {
+		name = "GFX_diplomacy_unsc_background"
+		texturefile = "gfx/interface/diplomacy_unsc_icon_background.dds"
+	}
+	SpriteType = {
+		name = "GFX_prod_trade_blocker"
+		texturefile = "gfx/interface/prod_trade_blocker.dds"
+	}
+	SpriteType = {
+		name = "GFX_cw_alert_icons"
+		texturefile = "gfx/interface/alerts/cw_alert_icons.dds"
+	}
+	SpriteType = {
+		name = "GFX_cw_alert_new_focus_tree"
+		texturefile = "gfx/interface/alerts/topbar_new_focus_tree_alert.dds"
+	}
+}

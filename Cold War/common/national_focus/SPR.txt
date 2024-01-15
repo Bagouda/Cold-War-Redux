@@ -1,0 +1,45 @@
+focus_tree = {
+	id = spanish_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SPR
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	
+	focus = {
+		id = SPR_return_moroccan_territory
+		available = {
+			NOT = { MOR = { is_puppet_of = FRA } }
+			NOT = { MOR = { is_subject_of = FRA } }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_self_management
+		x = 10
+		y = 5
+		cost = 5
+
+		available_if_capitulated = no
+		prerequisite = {}
+
+		completion_reward = {
+			MOR = { transfer_state = 290 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+}

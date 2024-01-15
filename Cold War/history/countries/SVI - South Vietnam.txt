@@ -1,0 +1,88 @@
+﻿capital = 804 #Saigon
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+
+set_variable = {proxy_point = 90 }
+1946.1.1 = {
+	OOB = SVI_1946
+	set_cosmetic_tag = MON_SVI
+	set_country_flag = decolonization
+	set_country_flag = cw_volunteers_blocked
+	set_country_flag = police_action_blocked
+	add_ideas = { 
+		cw_svi_binh_xuyen
+	}
+	### Country Leaders
+	recruit_character = SVI_bao_dai
+	recruit_character = SVI_ngo_dinh_diem
+	### Deputy Minister
+	recruit_character = svi_hog_ngo_dinh_diem
+	activate_advisor = svi_hog_ngo_dinh_diem
+	set_politics = {
+		ruling_party = colonial		#https://en.wikipedia.org/wiki/List_of_Governors-General_of_French_Indochina
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 10
+		neutrality = 0
+		communism_totalitarian = 30
+		unaligned_right = 60
+		colonial =  0
+	}
+}
+
+1948.5.14 = {
+}
+1950.6.25 = {
+	set_cosmetic_tag = MON_SVI # South Vietnam under Bảo Đại
+}
+1955.10.26 = { drop_cosmetic_tag = yes }	#unaligned_right Abolished
+1956.10.29 = {
+	set_politics = {
+		ruling_party = neutrality
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Ngo Dinh Diem"
+		desc = ""
+		picture = "SVIH2.dds"
+		ideology = neutrality_idolg
+		expire = 1963.11.2
+		traits = {}
+	}
+}
+1961.12.11 = {
+}
+1979.12.24 = {
+	create_country_leader = {
+		name = "Nguyễn Văn Thiệu"
+		desc = ""
+		picture = "SVIH3.dds"
+		ideology = neutrality_idolg
+		expire = 1963.11.2
+		traits = {}
+	}
+}
+1989.1.9 = {
+	set_politics = {
+		ruling_party = democratic
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 50
+		democratic_socialist = 0
+		neutrality = 40
+		communism_totalitarian = 10
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Nguyễn Văn Thiệu"
+		desc = ""
+		picture = "SVIH3.dds"
+		ideology = social_democrat_idolg
+		expire = 1963.11.2
+		traits = {}
+	}
+}

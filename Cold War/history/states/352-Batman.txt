@@ -1,0 +1,22 @@
+state = {
+	id=352
+	local_supplies=0.0 
+	name="STATE_352" # Van
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 6935 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = TUR
+		add_core_of = TUR
+		victory_points = {
+			6935 1 
+		}
+	}
+	manpower = 365490
+	provinces={
+		864 1463 6935 7530 10497 12318 12476 
+	}
+}

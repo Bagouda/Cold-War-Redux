@@ -1,0 +1,25 @@
+state = {
+	id=154
+	local_supplies=0.0 
+	name="STATE_154"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 11659 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = HUN
+		add_core_of = HUN
+		victory_points = {
+			11659 1 
+		}
+	}
+	resources={
+		crops = 12
+	}	
+	manpower = 2735383
+	provinces={
+		679 699 730 3730 6670 6700 6735 9656 9706 11625 11644 11646 11659 
+	}
+}

@@ -1,0 +1,26 @@
+state = {
+	id=131
+	local_supplies=0.0 
+	name="STATE_131"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 351 }
+ 	set_variable = { victory_point = 10 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = ENG
+		add_core_of = ENG
+		victory_points = {
+			351 10 
+		}
+	}
+	resources={
+		steel=38 # was: 60
+		aluminium=5 # was: 8
+	}
+	manpower = 2128860
+	provinces={
+		219 351 3311 6399 9285 11270 11299 11332 
+	}
+}

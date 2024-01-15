@@ -1,0 +1,39 @@
+state={
+	id=888
+	local_supplies=0.0 
+	name="STATE_888"
+
+	history={
+		owner = BEL
+		add_claim_by = COG
+
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}		
+
+		1960.6.30 = {
+			owner = COG
+			add_core_of = COG
+			remove_core_of = BEL
+		}
+
+		buildings = {
+			infrastructure = 4
+			6775 = {
+				naval_base = 3
+			}
+		}
+	}
+
+	provinces={
+		10968 3534 6775 760
+	}
+	manpower=1257360
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

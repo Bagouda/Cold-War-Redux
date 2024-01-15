@@ -1,0 +1,36 @@
+state = {
+	id=745
+	local_supplies=0.0 
+	name="STATE_745"
+	state_category = large_town
+	history = {
+ 	add_to_array = { list_victory_point = 1150 }
+ 	set_variable = { victory_point = 10 }
+		owner = SOV
+		add_core_of = CHI
+		add_claim_by = PRC
+		
+		buildings = {
+			infrastructure = 1
+			arms_factory  = 1
+			dockyard  = 1
+			1150 = {
+				naval_base = 1
+			}
+		}
+		
+		1950.12.1 = {
+			owner = PRC
+			add_core_of = CHI
+			add_claim_by = PRC
+		}
+		victory_points = {
+			1150 10		#Dalian
+		}
+	}
+	buildings_max_level_factor=1.000
+	manpower=1000000
+	provinces={
+		1150 6851 
+	}
+}

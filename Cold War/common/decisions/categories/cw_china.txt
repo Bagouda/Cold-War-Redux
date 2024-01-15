@@ -1,0 +1,86 @@
+cw_china_coastal_cities_reconstruction = {
+	icon = GFX_decision_category_generic_industry
+	priority = 10
+	allowed = {
+		always = yes
+	}
+	visible = {
+		has_country_flag = china_reconstruction_started
+		check_variable = { ROOT.coast_reconstruction_progress < 100 }
+	}
+	
+	visible_when_empty = yes
+
+	on_map_area = {
+		state = 608		#Beijing
+		state = 613		#Shanghai
+		state = 595 	#Fujian
+		state = 592		#Guangzou
+		state = 743		#Qingdao
+		name = cw_china_coastal_cities_reconstruction_status
+		zoom = 300
+	}
+}
+cw_china_interior_reconstruction = {
+	icon = GFX_decision_category_generic_industry
+	priority = 10
+	allowed = {
+		always = yes
+	}
+	visible = {
+		has_country_flag = china_reconstruction_started
+		check_variable = { ROOT.interior_reconstruction_progress < 100 }
+	}
+	
+	visible_when_empty = yes
+
+	on_map_area = {
+		state = 622		#Shaanxi
+		state = 605		#Sichuan
+		state = 750 	#Changde
+		state = 602		#Hunan
+		state = 600		#Jiangxi
+		name = cw_china_interior_reconstruction_status
+		zoom = 300
+	}
+}
+CHI_army_reform = {
+	icon = army_reform
+	allowed = {
+		tag = CHI
+	}
+
+	visible = {
+	}
+}
+
+cw_struggle_for_manchuria_category = {
+	icon = jap_intervene_in_china
+	
+	scripted_gui = cw_manchuria_struggle_decisions_ui
+	visible_when_empty = yes
+	
+	allowed = {
+		OR = {
+			tag = CHI
+			tag = SOV
+			tag = USA
+			tag = PRC
+		}
+	}
+	visible = {
+		has_global_flag = manchuria_struggle_started
+	}
+
+	on_map_area = {
+		state = 715
+		state = 610		#Jehol
+		state = 716		#Liaoning
+		state = 328		#Kirin
+		state = 717		#Sungkiang
+		state = 714		#Heilungkiang
+		state = 761		#Hulunnbuir
+		name = cw_manchuria_control_status
+		zoom = 300
+	}	
+}

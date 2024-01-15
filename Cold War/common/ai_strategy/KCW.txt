@@ -1,0 +1,414 @@
+north_korea_prepare_for_war = {
+	enable = {
+		tag = PRK
+		date > 1950.1.1
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = KOR
+		value = 500
+	}
+	ai_strategy = {
+		type = ignore
+		id = "PRC"
+		value = 500
+	}
+
+	ai_strategy = {
+		type = ignore
+		id = "SOV"
+		value = 500
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = KOR
+		value = -700
+	}	
+}
+north_korea_attack = {
+	enable = {
+		tag = PRK
+		PRK = { has_war_with = KOR }
+	}
+	
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = ignore
+		id = "PRC"
+		value = 500
+	}
+
+	ai_strategy = {
+		type = ignore
+		id = "SOV"
+		value = 500
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "KOR"
+		value = 500
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = "KOR"
+		value = 800
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = KOR
+		value = -700
+	}
+}
+korea_protect_the_flank = {
+	enable = {
+		tag = KOR
+		KOR = { has_war_with = PRK }
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = invade
+		id = "PRK"
+		value = -2000
+	}
+	ai_strategy = {
+		type = area_priority
+		id = korea
+		value = 500
+	}
+	ai_strategy = {
+  		type = garrison
+   		value = 1000
+   	}
+}
+prk_train_many_units = {
+
+	enable = {
+		tag = PRK
+		PRK = {
+			has_war_with = KOR
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+        type = force_build_armies
+        value = 500
+    }
+}
+korean_civil_war_intervention_usa = {
+	enable = {
+		tag = USA
+		is_historical_focus_on = yes
+		has_global_flag = korean_war_activated
+		KOR = {
+			has_war_with = PRK
+			surrender_progress > 0.3 
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	ai_strategy = { 		#Don't waste PP on improving relations while Korean War is active
+		type = pp_spend_priority
+		id = relation
+		value = -500
+	}
+	ai_strategy = { 
+		type = pp_spend_priority
+		id = admiral
+		value = -9999
+	}	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KOR"
+		value = 500
+	}
+}
+korean_civil_war_intervention_jap = {
+	enable = {
+		tag = JAP
+		JAP = { 
+			is_guaranteed_by = USA 
+			NOT = { has_idea = enforced_disarnament }
+		}
+		PRK = { has_war_with = UNN }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KOR"
+		value = 500
+	}
+}
+korean_civil_war_intervention_eng = {
+	enable = {
+		tag = ENG
+		is_historical_focus_on = yes
+		KOR = {
+			has_war_with = PRK
+			surrender_progress > 0.5 
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KOR"
+		value = 500
+	}
+}
+korean_civil_war_intervention_can = {
+	enable = {
+		tag = CAN
+		is_historical_focus_on = yes
+		PRK = { has_war_with = UNN }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KOR"
+		value = 500
+	}
+}
+korean_civil_war_intervention_ast = {
+	enable = {
+		tag = AST
+		AST = { is_guaranteed_by = USA }
+		PRK = { has_war_with = UNN }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KOR"
+		value = 500
+	}
+}
+korean_civil_war_intervention_nzl = {
+	enable = {
+		tag = NZL
+		NZL = { is_guaranteed_by = USA }
+		PRK = { has_war_with = UNN }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KOR"
+		value = 500
+	}
+}
+korean_civil_war_intervention_nat_china = {
+	enable = {
+		tag = CHI
+		CHI = { is_guaranteed_by = USA }
+		PRK = { has_war_with = UNN }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KOR"
+		value = 500
+	}
+}
+korean_civil_war_intervention_tur = {
+	enable = {
+		tag = TUR
+		PRK = { has_war_with = UNN }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KOR"
+		value = 500
+	}
+}
+korean_civil_war_intervention_fra = {
+	enable = {
+		tag = FRA
+		PRK = { has_war_with = UNN }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KOR"
+		value = 500
+	}
+}
+korean_civil_war_intervention_gre = {
+	enable = {
+		tag = GRE
+		PRK = { has_war_with = UNN }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KOR"
+		value = 500
+	}
+}
+korean_civil_war_intervention_saf = {
+	enable = {
+		tag = SAF
+		PRK = { has_war_with = UNN }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "KOR"
+		value = 500
+	}
+}
+korean_civil_war_soviet_keep_enemies_from_china = {
+	enable = {
+		tag = SOV
+		has_global_flag = korean_war_activated
+		PRC = { has_war_with = UNN NOT = { has_full_control_of_state = 328 has_full_control_of_state = 716 } }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = PRC
+		value = 500
+	}
+}
+prc_fortify_border_with_korea = {
+	enable = {
+		tag = PRC
+		PRK = { has_war_with = UNN }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = area_priority
+		id = korea
+		value = 200
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "PRK"
+		value = 200
+	}
+	ai_strategy = {		#Actually works
+		type = conquer
+		id = "PRK"
+		value = 200
+	}
+	ai_strategy = {
+		type = ignore
+		id = "SOV"
+		value = 200
+	}
+	ai_strategy = {
+		type = ignore
+		id = "MON"
+		value = 200
+	}
+}
+korean_civil_war_intervention_china_attack = {
+	enable = {
+		tag = PRC
+		PRK = { has_war_with = UNN }
+		PRC = { is_in_faction_with = PRK }
+	}
+	
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = korea
+		value = 1000
+	}	
+	ai_strategy = {
+		type = consider_weak
+		id = "KOR"
+		value = 800
+	}
+	ai_strategy = {
+		type = invade
+		id = "KOR"
+		value = 800
+	}
+	ai_strategy = {
+		type = ignore
+		id = "SOV"
+		value = 200
+	}
+	ai_strategy = {
+		type = ignore
+		id = "MON"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = KOR
+		value = -700
+	}	
+}
+korean_civil_war_soviet_take_over_for_china = {
+	enable = {
+		tag = SOV
+		PRC = {
+			OR = {
+				exists = no
+				has_country_flag = communist_manchuria				
+			}
+		}
+		PRK = {
+			has_war_with = UNN
+			surrender_progress > 0.5
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = PRK
+		value = 500
+	}
+}
+PRC_support_prk_even_if_only_based_in_manchuria = {
+	enable = {
+		tag = PRC
+		has_country_flag = communist_manchuria
+		PRK = {
+			has_war_with = UNN
+			surrender_progress > 0.3
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = PRK
+		value = 500
+	}
+}
+
+

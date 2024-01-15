@@ -1,0 +1,29 @@
+state = {
+	id=476
+	local_supplies=0.0 
+	name="STATE_476"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 2021 }
+ 	add_to_array = { list_victory_point = 10889 }
+ 	set_variable = { victory_point = 4 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = MEX
+		add_core_of = MEX
+		victory_points = {
+			2021 3
+		}
+		victory_points = {
+			10889 1
+		}
+	}
+	resources={
+		oil=8
+	}
+	manpower = 1663331
+	provinces={
+		2021 8236 10773 10889 12712 
+	}
+}

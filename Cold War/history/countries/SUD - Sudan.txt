@@ -1,0 +1,51 @@
+﻿capital = 551
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_country_flag = decolonization
+	set_politics = {
+		ruling_party = democratic
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 60
+		democratic_socialist = 0
+		neutrality = 20
+		communism_totalitarian = 0
+		unaligned_right = 20
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Ismail al-Azhari"
+		desc = ""
+		picture = "SUDH1.dds"
+		ideology = social_cons_idolg
+		expire = 1969.5.25
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Gordon Muortat Mayen"
+		desc = ""
+		picture = "sudan2.dds"
+		ideology = democratic_nationalist_idolg
+		expire = 1985.4.11
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Abdel Khaliq Mahjub"
+		desc = ""
+		picture = "sudan_communistsov.dds"
+		ideology = revisionist_idolg
+		expire = 1988.10.14
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Abdel Khaliq Mahjub"
+		desc = ""
+		picture = "sudan_communistchi.dds"
+		ideology = stalinism_idolg
+		expire = 1982.10.16
+		traits = { }
+	}
+}

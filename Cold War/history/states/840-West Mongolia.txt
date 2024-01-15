@@ -1,0 +1,33 @@
+
+state={
+	id=840
+	local_supplies=0.0 
+	name="STATE_840"
+	resources={
+		crops=12.000
+	}	
+	
+	history = {
+ 	add_to_array = { list_victory_point = 12695 }
+ 	add_to_array = { list_victory_point = 4751 }
+ 	set_variable = { victory_point = 10 }
+		owner = MON
+		add_core_of = MON
+		1953.2.24 = {
+			add_claim_by = CHI
+		}
+		victory_points = {
+			4751 5	#Ölgii
+		}
+		victory_points = {
+			12695 5	#Ulaangom
+		}
+	}
+	
+	provinces={
+		1689 1774 1781 1855 4751 4777 7773 7799 7808 7843 7870 10539 10560 10563 10634 10669 10695 12520 12544 12695 
+	}
+	manpower=130000
+	buildings_max_level_factor=1.000
+	state_category=town
+}

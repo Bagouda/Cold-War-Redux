@@ -1,0 +1,40 @@
+
+state={
+	id=221
+	local_supplies=0.0 
+	name="STATE_221"
+	resources={
+		steel=33.000
+	}
+	history={
+ 	add_to_array = { list_victory_point = 418 }
+ 	set_variable = { victory_point = 20 }
+		owner = SOV
+		add_core_of = SOV
+		add_core_of = UKR
+		
+		add_state_modifier = {
+			modifier = {
+				local_resources_factor = 2.0
+			}
+		}
+
+		buildings = {
+			infrastructure = 2
+			arms_factory  = 1
+		}		
+		
+		victory_points = {
+			418 20	#Kharkiv
+		}		
+	}
+	resources={
+		crops=4
+	}	
+	provinces={
+		418 3409 3508 3531 6530 6554 9449 9531 9556 11397 11461 11541 
+	}
+	manpower=175000
+	buildings_max_level_factor=1.000
+	state_category=devestated_wasteland
+}

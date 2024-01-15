@@ -1,0 +1,28 @@
+﻿capital = 316
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1942.11.19"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 10
+		neutrality = 50
+		communism_totalitarian = 20
+		unaligned_right = 20
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Teodoro Picado Michalski"
+		desc = ""
+		picture = "COSNL1.dds"
+		ideology = agrarianism
+		expire = 1960.6.1		
+		traits = { }
+	}
+}

@@ -1,0 +1,38 @@
+state = {
+	id=731
+	local_supplies=0.0 
+	name="STATE_731"
+	state_category = devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 11818 }
+ 	set_variable = { victory_point = 5 }
+		owner = CGR
+		add_core_of = CGR
+		add_core_of = GRE
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}		
+		
+		buildings = {
+			arms_factory = 1
+			infrastructure = 1
+			11818 = {
+				naval_base = 2
+			}			
+		}
+		victory_points = {
+			11818 5 
+		}
+	}
+	resources={
+		crops = 3
+	}	
+	manpower=1155700
+	provinces={
+		895 936 966 3526 3844 3936 10163 11818 
+	}
+}

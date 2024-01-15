@@ -1,0 +1,36 @@
+state = {
+	id=56
+	local_supplies=0.0 
+	name="STATE_56"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 241 }
+ 	add_to_array = { list_victory_point = 11388 }
+ 	add_to_array = { list_victory_point = 11388 }
+ 	add_to_array = { list_victory_point = 11360 }
+ 	set_variable = { victory_point = 16 }
+		owner = ENG
+		add_core_of = GER
+		
+		buildings = {
+			infrastructure = 1
+		}		
+		
+		victory_points = {
+			11388 5
+		}
+		victory_points = {
+			11388 5
+		}
+		victory_points = {
+			11360 1
+		}
+		victory_points = {
+			241 5 
+		}
+	}
+	manpower = 2058467
+	provinces={
+		241 309 336 3234 9281 11233 11264 11360 11388 
+	}
+}

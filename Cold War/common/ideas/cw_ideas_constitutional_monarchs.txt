@@ -1,0 +1,184 @@
+ideas = {
+	country = {
+		hun_regency = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = communism 
+						has_government = communism_totalitarian 
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			picture = HUN_hungarian_monarchy
+
+			traits = { constitutional_monarch_weak }
+		}
+		rom_michael_1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = communism 
+						has_government = communism_totalitarian 
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			picture = michael_i
+
+			traits = { constitutional_monarch }
+		}
+		bul_simeon_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = communism 
+						has_government = communism_totalitarian 
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			picture = simeon_2_young
+
+			traits = { constitutional_monarch_weak }
+		}
+		eng_george_6 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = communism 
+						has_government = communism_totalitarian 
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			picture = george_6
+
+			traits = { constitutional_monarch }
+		}
+		eng_elizabeth_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = communism 
+						has_government = communism_totalitarian 
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			picture = elizabeth_2
+
+			traits = { constitutional_monarch }
+		}		
+		gre_george_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = communism 
+						has_government = communism_totalitarian 
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			picture = gre_george_2
+
+			traits = { constitutional_monarch }
+		}
+		ger_wilhelm_3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = communism 
+						has_government = communism_totalitarian 
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			picture = ger_wilhelm_3
+
+			traits = { constitutional_monarch }
+		}
+		ita_victor_emmanuel_3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = communism 
+						has_government = communism_totalitarian 
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			picture = ita_victor_emmanuel_3
+
+			traits = { unpopular_monarch }
+		}		
+		ita_umberto_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = communism 
+						has_government = communism_totalitarian 
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			picture = ita_umberto_2
+
+			traits = { constitutional_monarch }
+		}		
+	}
+}

@@ -1,0 +1,31 @@
+state = {
+	id=294
+	local_supplies=0.0 
+	name="STATE_294"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 10760 }
+ 	set_variable = { victory_point = 10 }
+		owner = OMA
+		add_core_of = OMA
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			10760 = {
+				naval_base = 1
+			}			
+		}		
+		victory_points = {
+			10760 10 
+		}
+	}
+	resources={
+		oil=2 # was: 2
+		crops = 2
+	}
+	manpower = 369000
+	provinces={
+		1947 2018 2059 2103 4993 5049 8002 8020 10760 
+	}
+}

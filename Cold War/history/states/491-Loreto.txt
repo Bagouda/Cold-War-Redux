@@ -1,0 +1,17 @@
+state = {
+	id=491
+	local_supplies=0.0 
+	name="STATE_491"
+	state_category = pastoral
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = PRU
+		add_core_of = PRU
+	}
+	manpower = 176626
+	provinces={
+		5162 8213 10970 12869 
+	}
+}

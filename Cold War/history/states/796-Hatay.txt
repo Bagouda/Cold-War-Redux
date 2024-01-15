@@ -1,0 +1,24 @@
+state={
+	id=796
+	local_supplies=0.0 
+	name="STATE_796"
+	history={
+ 	add_to_array = { list_victory_point = 12029 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = TUR
+		add_core_of = TUR
+		add_claim_by = SYR
+		victory_points = {
+			12029 1 
+		}
+	}	
+	provinces={
+		12029 
+	}
+	manpower=25000
+	state_category=town		
+	buildings_max_level_factor=1.000
+}

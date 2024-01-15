@@ -1,0 +1,74 @@
+on_actions = {
+	on_weekly = {
+		effect = {
+			if = {
+				limit = {
+					any_owned_state = { has_state_flag = leased_territory }
+				}
+				every_owned_state = {
+					limit = {
+						has_variable = lease_timer
+						check_variable = { lease_timer > 0 }
+						has_state_flag = leased_territory
+						NOT = { OR = { has_state_flag = perpetual_lease has_state_flag = perpetual_lease_with_payment } }
+						NOT = { has_state_flag = { flag = lease_timer_subtracted value = 0 } }
+					}
+					set_state_flag = { flag = lease_timer_subtracted days = 32 }
+					subtract_from_variable = { lease_timer = 1.0 }
+					set_temp_variable = { lease_timer_temp = lease_timer }
+					divide_temp_variable = { lease_timer_temp = 12 }
+					set_variable = { lease_timer_display = lease_timer_temp }
+					round_variable = lease_timer_display
+				}
+				every_owned_state = {
+					limit = {
+						has_variable = lease_timer
+						check_variable = { var = lease_timer value = 0 compare = less_than_or_equals }
+						has_state_flag = leased_territory
+					}
+					OWNER = { phone_notification_lease_revoked = yes }
+					cw_revoke_state_lease = yes
+				}
+			}
+		}
+	}
+	on_annex = {
+		effect = {
+			if  = {
+				limit = {
+					FROM = {
+						check_variable = { THIS.leased_territory > 0 }
+					}
+				}
+				every_state = {
+					limit = {
+						has_state_flag = leased_territory
+						var:true_owner = { tag = FROM }
+					}
+					set_variable = { true_owner = ROOT.id }
+					cw_revoke_state_lease = yes
+					remove_core_of = ROOT
+					OWNER = { phone_notification_lease_revoked = yes }
+				}
+			}
+		}
+	}
+	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
+	on_state_control_changed = {
+		effect = {
+			if  = {
+				limit = {
+					FROM.FROM = { has_state_flag = leased_territory }
+				}
+				FROM = { 
+					phone_notification_lease_revoked = yes
+					set_variable = { phone_notification_state = FROM.FROM.id }
+				}
+				FROM.FROM = {
+					set_variable = { true_owner = ROOT.id }
+					cw_revoke_state_lease = yes 
+				}
+			}
+		}
+	}
+}

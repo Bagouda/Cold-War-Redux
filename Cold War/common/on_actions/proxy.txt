@@ -1,0 +1,322 @@
+on_actions = {
+	on_send_volunteers = {
+		effect = {
+			#if its soviet volunteers
+			log = "[ROOT.GetName] volunteer to [FROM.GetName]"
+			if = {
+			
+				limit = {
+					ROOT  = {
+						OR = {
+							has_government = communism_totalitarian
+							has_government = communism
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT  = { original_tag = SOV }
+					 }
+					
+					
+					news_event  = {
+						id = cw_proxy_war.0
+						days = 1
+					}
+				
+					FROM = {
+						set_country_flag = sov_volunteers
+						clr_country_flag = sov_retreat
+					}
+				}
+				else = { # OTHER democratic country
+					if = { limit = { ROOT = { has_war = no  NOT  = { has_country_flag = sov_retreat   has_country_flag = usa_retreat  }}}
+						news_event  = {
+							id = cw_proxy_war.4
+							days = 1
+						}
+					}
+				}
+			
+			}
+			#if its usa volunteers
+			if = {
+				limit ={
+					ROOT  = {
+						NOT = {
+							OR = {
+								has_government = communism
+								has_government = communism_totalitarian
+							
+							}
+						}
+						
+					}
+				
+				}
+				
+				if = {
+					limit = {
+						ROOT  = { original_tag = USA }
+					 }
+
+					news_event  = {
+						id = cw_proxy_war.2
+						days = 1
+					}
+					
+					FROM = {
+						
+						set_country_flag = usa_volunteers
+						clr_country_flag = usa_retreat
+					}
+				}
+				
+				else = {     # OTHER communist country
+				
+					if = { limit = { ROOT = { has_war = no  NOT  = { has_country_flag = sov_retreat   has_country_flag = usa_retreat  } }}
+						news_event  = {
+							id = cw_proxy_war.6
+							days = 1
+						}
+					}
+				}
+			
+			}
+			
+		}
+	}
+	
+	on_weekly ={
+		effect = {
+		
+		
+			### USA volunteer
+			every_country = {
+				limit = {
+					OR = {
+						NOT =  { has_government  = communism has_government = communism_totalitarian}
+						has_government = colonial
+					}
+					any_enemy_country = {
+						OR = {
+							has_government  = communism
+							has_government = communism_totalitarian
+							has_country_flag = sov_volunteers
+							has_country_flag = sov_retreat
+						}
+						
+					}
+					
+					# check if civil war
+					
+					OR = {
+						has_civil_war = yes
+						has_war = yes
+					}
+
+						
+					
+				}
+				
+				USA = {
+				
+						add_ai_strategy = {
+							type = send_volunteers_desire
+							id = PREV
+							value = 400
+						}
+				}
+				
+				
+			}
+			
+			# SOV volunteers
+			
+			every_country = {
+				limit = {
+					
+					NOT = { has_government = colonial }
+					NOT = { has_country_flag = usa_volunteers has_country_flag = usa_retreat }
+					OR = {
+						has_government  = communism
+						has_government  = communism_totalitarian
+						has_idea = anti_imperialist_war
+						
+						any_enemy_country = {
+							OR = {
+								has_country_flag = usa_volunteers
+								has_country_flag = usa_retreat
+								has_government = colonial
+						
+							}
+							
+						}
+					}
+					
+					
+
+						# check if war
+						OR = {
+							has_war = yes
+							has_civil_war = yes
+						}
+					
+				}
+					
+				SOV = {
+				
+					add_ai_strategy = {
+						type = send_volunteers_desire
+						id = PREV
+						value = 400
+					}
+				}
+				
+				
+			}
+		
+		}
+	
+	}
+	
+
+	on_war_relation_added  = {
+		effect = {
+	
+			
+			ROOT = {
+				compute_proxy_score = yes	
+		
+			}	
+
+			FROM = {
+				compute_proxy_score = yes
+			
+			}
+		
+		}
+	
+	
+	}	
+
+
+	on_startup = {
+		effect = {
+			every_country = {
+				if = {
+					limit = { check_variable = { proxy_point = 0 }}
+					set_variable = {proxy_point = 50 }
+				}
+				
+			}
+	
+			GRE = { compute_proxy_score = yes }
+			CGR = { compute_proxy_score = yes }
+			INS = { compute_proxy_score = yes }
+			EIN = { compute_proxy_score = yes }
+			
+			
+			
+			
+		}
+
+	}
+
+	on_ruling_party_change = {
+		effect = {
+			if = { # Democracy end
+				limit = { ROOT = { is_democracy = no }  AND = { NOT = { check_variable = { old_ideology_token = communism_totalitarian } } NOT = {  check_variable = { old_ideology_token = communism } check_variable = { old_ideology_token = fascism } } NOT = {  check_variable = { old_ideology_token = unaligned_right } } } }  
+				USA = {
+					country_event = {
+						id = cw_proxy_war.17
+						days = 1
+					}
+				
+				}
+			
+			}
+			
+			
+			if = { # democracy win
+				limit = { ROOT = { is_democracy = yes } OR = { check_variable = { old_ideology_token = communism_totalitarian } check_variable = { old_ideology_token = communism } check_variable = { old_ideology_token = fascism } check_variable = { old_ideology_token = unaligned_right } } }
+				USA = {
+					country_event = {
+						id = cw_proxy_war.16
+						days = 1
+					}
+				
+				}
+			}
+			if = {  # communism end
+				limit = { AND = { OR  = { check_variable = { old_ideology_token = communism_totalitarian }   check_variable = { old_ideology_token = communism } } ROOT = { NOT = { is_communism = yes } } } }
+				SOV ={
+					country_event = {
+						id = cw_proxy_war.18
+						days = 1
+					
+					}
+				}
+			
+			}
+			
+			
+			if = { # communism win
+				limit = { AND = { NOT ={ check_variable = { old_ideology_token = communism_totalitarian } } NOT =  { check_variable = { old_ideology_token = communism } } } ROOT = {  is_communism = yes  } } 
+				SOV = {
+					country_event = {
+						id = cw_proxy_war.19
+						days = 1
+					}
+				}
+			}
+			
+		}
+	}
+	
+	
+	on_capitulation = {
+		effect = {
+		
+			# if civil war: annex everything
+			
+			log = "[ROOT.GetName] Capitulated to [FROM.GetName]for [?FROM.proxy_point]"
+			if = { limit = { FROM = { has_government  = communism_totalitarian }}
+				every_neighbor_country = {
+					add_popularity = {
+						ideology = communism_totalitarian
+						popularity = 0.15
+					}
+					
+					if = {
+						limit = { THIS = { has_government = communism_totalitarian }}
+						add_stability = 0.15
+					}
+					else = {
+						add_stability = -0.15
+					}
+				}
+			}
+			
+			
+			
+			
+			if = { limit = { FROM = { NOT = {  OR = { has_government  = communism_totalitarian has_government  = communism } } } }
+				every_neighbor_country = {
+					add_popularity = {
+						ideology = communism_totalitarian
+						popularity = -0.15
+					}
+					
+					if = {
+						limit = { THIS = { has_government = communism_totalitarian }}
+						add_stability = -0.15
+					}
+					else = {
+						add_stability = 0.15
+					}
+				}
+			}
+		}
+	}
+}

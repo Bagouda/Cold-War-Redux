@@ -1,0 +1,342 @@
+ideas = {
+		hidden_ideas = {
+		
+			PRK_implement_admin = {
+
+				picture = prc_the_long_march
+			
+				allowed = {
+					always = no
+				}
+
+				allowed_civil_war = {
+					always = no
+				}
+
+				removal_cost = -1
+				
+				modifier = {
+					compliance_gain = 0.10
+					occupation_cost = -0.10
+				}
+			}	
+		}
+	country = {
+		PRK_effects_of_the_coup = {
+			removal_cost = -1
+
+			picture = officers_purged
+			
+			allowed = {
+				always = no # Added via focus
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			
+			research_bonus = {
+				land_doctrine = -0.09
+				naval_doctrine = -0.09
+				air_doctrine = -0.09
+			}
+
+			modifier = {
+				army_org_factor = -0.45
+				send_volunteer_factor = -0.74
+				industrial_capacity_factory = -0.18
+				training_time_factor = 0.45
+			}
+		}
+		PRK_officers_purged = {
+			removal_cost = -1
+
+			picture = officers_purged
+			
+			allowed = {
+				always = no # Added via focus
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			
+			research_bonus = {
+				land_doctrine = -0.09
+				naval_doctrine = -0.09
+				air_doctrine = -0.09
+			}
+
+			modifier = {
+				army_org_factor = -0.45
+				send_volunteer_factor = -0.74
+				industrial_capacity_factory = -0.18
+				training_time_factor = 0.45
+			}
+		}
+		PRK_obtain_foreign_licenses = {
+			
+				allowed = {
+					always = no
+				}
+
+				allowed_civil_war = {
+					original_tag = PRK
+				}
+				
+				removal_cost = -1
+
+				picture = jap_the_unthinkable_option
+				
+				modifier = {
+					license_purchase_cost = -0.1
+				}
+				equipment_bonus = {
+					
+				}
+		}
+		PRK_uwak_idea_1 = {
+			
+				allowed = {
+					always = no
+				}
+
+				allowed_civil_war = {
+					original_tag = PRK
+				}
+				
+				removal_cost = -1
+
+				picture = jap_the_unthinkable_option
+				
+				modifier = {
+					consumer_goods_factor = -0.05
+				}
+				equipment_bonus = {
+					infantry_equipment = {
+						build_cost_ic = -0.1 instant = yes
+					}
+				}
+		}
+		PRK_demo_youth_league = {
+			
+				allowed = {
+					always = no
+				}
+
+				allowed_civil_war = {
+					original_tag = PRK
+				}
+				
+				removal_cost = -1
+
+				picture = generic_communist_army
+				
+				modifier = {
+					conscription = 0.01
+				}	
+		}
+		PRK_kva = {
+			
+				allowed = {
+					always = no
+				}
+
+				allowed_civil_war = {
+					original_tag = PRK
+				}
+				
+				removal_cost = -1
+
+				picture = tfv_can_conscription_crisis
+				
+				modifier = {
+					join_faction_tension = -1
+					send_volunteers_tension = -1
+				}	
+		}			
+		PRK_weak_economy = {
+			
+				allowed = {
+					always = no
+				}
+
+				allowed_civil_war = {
+					original_tag = PRK
+				}
+				
+				removal_cost = -1
+
+				picture = generic_local_self_management
+				
+				modifier = {
+					production_speed_buildings_factor = -0.20
+					consumer_goods_factor = 0.05
+				}
+		}
+		PRK_weak_economy_2 = {
+			
+				allowed = {
+					always = no
+				}
+
+				allowed_civil_war = {
+					original_tag = PRK
+				}
+				
+				removal_cost = -1
+
+				picture = generic_local_self_management
+				
+				modifier = {
+					production_speed_buildings_factor = -0.10
+				}
+		}
+		PRK_uwak_idea = {
+				picture = jap_the_unthinkable_option
+				allowed = {
+					original_tag = PRK
+					always = no
+				}
+
+				allowed_civil_war = {
+					always = yes
+				}
+
+				removal_cost = -1
+				
+				modifier = {
+					consumer_goods_factor = -0.05
+				}
+		}
+		PRK_juche = {
+				picture = generic_constitutional_guarantees
+				allowed = {
+					original_tag = PRK
+					always = no
+				}
+
+				allowed_civil_war = {
+					has_government = communism
+				}
+
+				removal_cost = -1
+				
+				modifier = {
+					political_power_gain = 0.15
+					stability_factor = 0.10
+				}
+		}		
+		PRK_southern_infiltration = {
+
+			picture = FRA_scw_intervention_nationalists_focus		
+
+			allowed = {
+				original_tag = PRK
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			targeted_modifier = {
+				tag = KOR
+				attack_bonus_against = 0.07
+			}
+		}
+		PRK_southern_infiltration_player = {
+
+			picture = FRA_scw_intervention_nationalists_focus		
+
+			allowed = {
+				original_tag = PRK
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			targeted_modifier = {
+				tag = KOR
+				attack_bonus_against = 0.25
+				
+			}
+		}
+		
+		PRK_pyongyang_speed = {
+			picture = generic_production_bonus
+			allowed = {
+				original_tag = PRK
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.2
+			}
+		}
+		PRK_chollima = {
+			picture = eng_spirit_of_the_industrial_revolution
+			allowed = {
+				original_tag = PRK
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = 0.1
+			}
+		}
+		PRK_chollima_1 = {
+			picture = eng_spirit_of_the_industrial_revolution
+			allowed = {
+				original_tag = PRK
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = 0.1
+				line_change_production_efficiency_factor = 0.05
+			}
+		}
+		PRK_foreign_equipment = {
+			picture = mex_callistas
+			allowed = {
+				original_tag = PRK
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				license_purchase_cost = 0.1
+			}
+		}
+	}
+}

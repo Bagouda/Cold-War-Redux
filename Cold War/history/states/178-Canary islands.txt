@@ -1,0 +1,27 @@
+state = {
+	id=178
+	local_supplies=0.0 
+	name="STATE_178"
+	state_category = small_island
+	history = {
+ 	add_to_array = { list_victory_point = 13071 }
+ 	set_variable = { victory_point = 1 }
+		owner = SPR
+		add_core_of = SPR
+		
+		buildings = {
+			infrastructure = 1
+			13071 = {
+				naval_base = 1
+			}			
+		}
+		
+		victory_points = {
+			13071 1
+		}
+	}
+	manpower = 561347
+	provinces={
+		13071 
+	}
+}

@@ -1,0 +1,24 @@
+state = {
+	id=809
+	local_supplies=0.0 
+	name="STATE_809"
+	state_category = town
+	history = {
+		owner = ENG
+		add_claim_by = NIG
+		
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+			air_base = 1		
+		}
+	}
+	resources={
+		crops=2 # was: 3
+		crops = 10
+	}
+	manpower = 19757000
+	provinces={ 10831 8034 
+                   }
+}

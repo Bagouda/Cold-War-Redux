@@ -1,0 +1,589 @@
+############### MONOPOLY DECISION LOCALISATION ###############
+defined_text = {
+	name = CW_RESOURCE_DECISION_OIL
+	text = {
+		trigger = {
+			var:ROOT.resource_state = {
+				has_resources_amount = {
+					resource = oil
+					amount > 0
+				}
+			}
+		}
+		localization_key = "CW_RESOURCE_OIL"
+	}
+}
+defined_text = {
+	name = CW_RESOURCE_DECISION_STEEL
+	text = {
+		trigger = {
+			var:ROOT.resource_state = {
+				has_resources_amount = {
+					resource = steel
+					amount > 0
+				}
+			}
+		}
+		localization_key = "CW_RESOURCE_STEEL"
+	}
+}
+defined_text = {
+	name = CW_RESOURCE_DECISION_RUBBER
+	text = {
+		trigger = {
+			var:ROOT.resource_state = {
+				has_resources_amount = {
+					resource = crops
+					amount > 0
+				}
+			}
+		}
+		localization_key = "CW_RESOURCE_RUBBER"
+	}
+}
+defined_text = {
+	name = CW_RESOURCE_DECISION_TUNGSTEN
+	text = {
+		trigger = {
+			var:ROOT.resource_state = {
+				has_resources_amount = {
+					resource = tungsten
+					amount > 0
+				}
+			}
+		}
+		localization_key = "CW_RESOURCE_TUNGSTEN"
+	}
+}
+defined_text = {
+	name = CW_RESOURCE_DECISION_ALUMINIUM
+	text = {
+		trigger = {
+			var:ROOT.resource_state = {
+				has_resources_amount = {
+					resource = aluminium
+					amount > 0
+				}
+			}
+		}
+		localization_key = "CW_RESOURCE_ALUMINIUM"
+	}	
+}
+defined_text = {
+	name = CW_RESOURCE_DECISION_CHROMIUM
+	text = {
+		trigger = {
+			var:ROOT.resource_state = {
+				has_resources_amount = {
+					resource = chromium
+					amount > 0
+				}
+			}
+		}
+		localization_key = "CW_RESOURCE_CHROMIUM"
+	}	
+}
+#####################################
+defined_text = {
+	name = CHECK_IF_ALREADY_MONOPOLY
+	text = {
+		trigger = {
+			controller = { any_owned_state = { check_variable = { extracting_resources = ROOT.id } } }
+		}
+		localization_key = "MONOPOLY_ALREADY_EXISTS_TT"
+	}	
+}
+defined_text = {
+	name = REVOKE_MONOPOLY_REASONS
+	text = {
+		trigger = {
+			has_state_flag = binding_contract
+		}
+		localization_key = "BINDING_CONTRACT_TT"
+	}
+}
+defined_text = {
+	name = STATE_RAID_REASONS
+	text = {
+		trigger = {
+			has_country_flag = raiding_a_state
+		}
+		localization_key = "STATE_RAID_ALREADY_RAIDING"
+	}
+}
+defined_text = {
+	name = ASK_FOR_MONOPOLY_REASONS
+	text = {
+		trigger = {
+			has_state_flag = offered_contract
+		}
+		localization_key = "CONSIDERING_MONOPOLY_TT"
+	}
+	text = {
+		trigger = {
+			controller = { has_opinion = { target = ROOT  value < 0 } }	
+		}
+		localization_key = "LOW_RELATIONS_TT"
+	}
+	text = {
+		trigger = {
+			NOT = { controller = { OR = { has_government = neutrality has_government = unaligned_right } } }
+		}
+		localization_key = "NOT_NEUTRAL_GOVERNMENT_TT"
+	}	
+}
+defined_text = {
+	name = "CW_CHECK_STATE_TYPE"
+	text = {
+		trigger = {
+			OR = {
+				has_state_category = megalopolis
+				has_state_category = wasteland		
+				has_state_category = tiny_island
+				has_state_category = small_island			
+			}
+		}
+		localization_key = "CW_DEVELOP_STATE_REASON_WRONG_TYPE"
+	}
+}
+defined_text = {
+	name = "CW_CHECK_UNSC_STATUS"
+	text = {
+		trigger = {
+			unsc_in_session = yes
+		}
+		localization_key = "The UN Security Council is currently voting on a resolution."
+	}
+	text = {
+		trigger = {
+			unsc_implementing_resolution = yes
+		}
+		localization_key = "The UN Security Council is currently implementing a resolution."
+	}	
+}
+defined_text = {
+	name = "CW_UPGRADE_STATE_COST"
+	text = {
+		trigger = {
+           has_state_category = devestated_wasteland
+        }
+		localization_key = "25"
+	}
+	text = {
+		trigger = {
+          has_state_category = town
+        }
+		localization_key = "10"
+	}
+	text = {
+		trigger = {
+          has_state_category = large_town
+        }
+		localization_key = "20"
+	}
+	text = {
+		trigger = {
+          has_state_category = city
+        }
+		localization_key = "25"
+	}
+	text = {
+		trigger = {
+          has_state_category = large_city
+        }
+		localization_key = "30"
+	}
+	text = {
+		trigger = {
+          has_state_category = metropolis
+        }
+		localization_key = "35"
+	}
+	text = { localization_key = "-" }	
+}
+defined_text = {
+	name = "CW_UPGRADE_STATE_COST_TIME"
+	text = {
+		trigger = {
+           has_state_category = devestated_wasteland
+        }
+		localization_key = "200"
+	}
+	text = {
+		trigger = {
+          has_state_category = town
+        }
+		localization_key = "100"
+	}
+	text = {
+		trigger = {
+          has_state_category = large_town
+        }
+		localization_key = "125"
+	}
+	text = {
+		trigger = {
+          has_state_category = city
+        }
+		localization_key = "130"
+	}
+	text = {
+		trigger = {
+          has_state_category = large_city
+        }
+		localization_key = "135"
+	}
+	text = {
+		trigger = {
+          has_state_category = metropolis
+        }
+		localization_key = "140"
+	}
+	text = { localization_key = "-" }
+}
+defined_text = {
+	name = "CW_STATE_BUTTON_ASK_FOR_CORE_REASONS"
+	text = {
+		trigger = {
+           is_capital = yes
+        }
+		localization_key = "CW_STATE_BUTTON_REQUEST_CORE_IS_CAPITAL"
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_state_flag = leased_territory
+				has_state_flag = leased_rec_territory
+				has_state_flag = leased_non_rec_territory
+			}
+        }
+		localization_key = "CW_STATE_BUTTON_REQUEST_CORE_IS_LEASED"
+	}	
+}
+defined_text = {
+	name = "CW_STATE_BUTTON_ABOLISH_CORE_REASONS"
+	text = {
+		trigger = {
+           is_capital = yes
+        }
+		localization_key = "CW_STATE_BUTTON_ABOLISH_CORE_IS_CAPITAL"
+	}
+}
+defined_text = {
+	name = "CW_STATE_BUTTON_SKIRMISH_REASONS"
+	text = {
+		trigger = {
+			NOT = {
+				any_neighbor_state = { ROOT = { divisions_in_state = { state = PREV size > 0 } } }
+			}
+        }
+		localization_key = "CW_STATE_BUTTON_SKIRMISH_NO_TROOPS_OURS"
+	}
+	text = {
+		trigger = {
+			NOT = {
+				controller = { divisions_in_state = { state = PREV size > 0 } }
+			}
+        }
+		localization_key = "CW_STATE_BUTTON_SKIRMISH_NO_TROOPS_THEIR"
+	}
+	text = {
+		trigger = {
+			NOT = { controller = { has_full_control_of_state = PREV } }
+        }
+		localization_key = "CW_STATE_BUTTON_SKIRMISH_NOT_FULLY_CONTROLLED"
+	}		
+	text = {
+		trigger = {
+			NOT = {
+				AND = {
+					controller = { divisions_in_state = { state = PREV size > 0 } }
+					any_neighbor_state = { is_owned_by = ROOT ROOT = { divisions_in_state = { state = PREV size > 0 } } }
+				}
+			}
+        }
+		localization_key = "CW_STATE_BUTTON_SKIRMISH_NO_TROOPS_BOTH"
+	}	
+	text = {
+		trigger = {
+			controller = { has_war_with = ROOT }
+        }
+		localization_key = "CW_STATE_BUTTON_SKIRMISH_WAR"
+	}
+	text = {
+		trigger = {
+			NOT = { THIS = { any_neighbor_state = { is_controlled_by = ROOT } } }
+        }
+		localization_key = "CW_STATE_BUTTON_REASON_CONTROL_ADJACENT"
+	}
+}
+defined_text = {
+	name = "CW_STATE_BUTTON_CLAIM_STATE_REASONS"
+	text = {
+		trigger = {
+			OR = {
+				any_neighbor_state = { is_owned_by = ROOT }
+				any_neighbor_state = { is_core_of = ROOT }
+			}
+        }
+		localization_key = "CW_STATE_BUTTON_CLAIM_STATE_NOT_CLOSE_TO_CORED_TERRITORY"
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_state_flag = leased_territory
+				has_state_flag = leased_rec_territory
+				has_state_flag = leased_non_rec_territory
+			}
+        }
+		localization_key = "CW_STATE_BUTTON_CLAIM_STATE_IS_LEASED"
+	}	
+}
+defined_text = {
+	name = "CW_STATE_BUTTON_MOVE_CAPITAL_REASONS"
+	text = {
+		trigger = {
+		  OR = {
+			NOT = {
+				has_state_category = city
+				has_state_category = large_city
+				has_state_category = large_town
+				has_state_category = megalopolis
+				has_state_category = metropolis
+				has_state_category = town
+			}
+		  }
+        }
+		localization_key = "CW_STATE_BUTTON_MOVE_CAPITAL_WRONG_STATE_CAT"
+	}
+}
+defined_text = {
+	name = "CW_STATE_BUTTON_REVOKE_LEASE_RESONS"
+	text = {
+		trigger = {
+			AND = {
+				NOT = { is_owned_by = ROOT }
+				has_state_flag = perpetual_lease
+			}
+        }
+		localization_key = "CW_PERPETUAL_LEASE_LOC"
+	}	
+}
+defined_text = {
+	name = "CW_STATE_BUTTON_LEASE_RESONS"
+	text = {
+		trigger = {
+			owner = { has_country_flag = lease_request_pending }
+        }
+		localization_key = "CW_STATE_BUTTON_PENDING_LEASE_REQUEST"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = asking_for_lease }
+        }
+		localization_key = "CW_STATE_BUTTON_PENDING_LEASE_REQUEST"
+	}
+	text = {
+		trigger = {
+			controller = { has_opinion = { target = ROOT  value < 0 } }	
+		}
+		localization_key = "LOW_RELATIONS_TT"
+	}	
+	
+}
+defined_text = {
+	name = "CW_DEVELOP_STATE_REASONS"
+	text = {
+		trigger = {
+			owner = { has_active_mission = cw_develop_state_decision }
+        }
+		localization_key = "CW_DEVELOP_STATE_REASON_DEVELOPING"
+	}
+}
+defined_text = {
+	name = CW_MONOPOLY_GET_FLAG
+	text = {
+		trigger = {
+			has_state_flag = monopoly_state
+		}
+		localization_key = "[?THIS.my_resource_state_owner.GetFlag]"
+	}
+	text = { localization_key = "" }
+}
+defined_text = {
+	name = CW_MONOPOLY_GET_TEXT
+	text = {
+		trigger = {
+			has_state_flag = monopoly_state
+		}
+		localization_key = "CW_MONOPOLY_TTL"
+	}
+	text = { localization_key = "" }
+}
+defined_text = {
+	name = CW_LEASE_GET_TEXT
+	text = {
+		trigger = {
+			has_state_flag = leased_territory
+		}
+		localization_key = "CW_LEASE_ICON_TT"
+	}
+}
+defined_text = {
+	name = CW_LEASE_TIMER_DISPLAY_LOC
+	text = {
+		trigger = {
+			check_variable = { THIS.lease_timer > 11 }
+			NOT = { OR = { has_state_flag = perpetual_lease has_state_flag = perpetual_lease_with_payment } }
+		}
+		localization_key = "[?THIS.lease_timer_display]"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = THIS.lease_timer value = 11 compare = less_than_or_equals }
+			NOT = { OR = { has_state_flag = perpetual_lease has_state_flag = perpetual_lease_with_payment } }
+		}
+		localization_key = "[?THIS.lease_timer]"
+	}
+	text = {
+		trigger = {
+			OR = { 
+				has_state_flag = perpetual_lease 
+				has_state_flag = perpetual_lease_with_payment
+			}
+		}
+		localization_key = "CW_PERPETUAL"
+	}		
+}
+defined_text = {
+	name = CW_MONOPOLY_TIMER_DISPLAY_LOC
+	text = {
+		trigger = {
+			check_variable = { THIS.monopoly_timer > 11 }
+			NOT = { has_state_flag = perpetual_monopoly }
+		}
+		localization_key = "[?THIS.monopoly_timer_display]"
+	}
+	text = {
+		trigger = {
+			check_variable = { var = THIS.lease_timer value = 11 compare = less_than_or_equals }
+			NOT = { has_state_flag = perpetual_monopoly }
+		}
+		localization_key = "[?THIS.monopoly_timer]"
+	}
+	text = {
+		trigger = {
+			has_state_flag = perpetual_monopoly
+		}
+		localization_key = "CW_PERPETUAL"
+	}
+}
+defined_text = {
+	name = CW_MONOPOLY_TIMER_LOC
+	text = {
+		trigger = {
+			check_variable = { THIS.monopoly_timer > 900 }
+			NOT = { has_state_flag = perpetual_monopoly }
+		}
+		localization_key = ""
+	}	
+	text = {
+		trigger = {
+			check_variable = { THIS.monopoly_timer > 11 }
+			NOT = { has_state_flag = perpetual_monopoly }
+		}
+		localization_key = CW_YEARS
+	}
+	text = {
+		trigger = {
+			check_variable = { var = THIS.monopoly_timer value = 11 compare = less_than_or_equals }
+			NOT = { has_state_flag = perpetual_monopoly }
+		}
+		localization_key = CW_MONTHS
+	}
+}
+defined_text = {
+	name = CW_LEASE_TIMER_LOC
+	text = {
+		trigger = {
+			check_variable = { THIS.lease_timer > 900 }
+		}
+		localization_key = ""
+	}	
+	text = {
+		trigger = {
+			check_variable = { THIS.lease_timer > 11 }
+		}
+		localization_key = CW_YEARS
+	}
+	text = {
+		trigger = {
+			check_variable = { var = THIS.lease_timer value = 11 compare = less_than_or_equals }
+		}
+		localization_key = CW_MONTHS
+	}
+}
+defined_text = {
+	name = CW_STATE_ACTION_COOLDOWN
+	text = {
+		trigger = {
+			check_variable = { unsc_actions_cooldown > 0 }
+		}
+		localization_key = "REASON_STATE_BUTTON_COOLDOWN"
+	}
+}
+defined_text = {
+	name = CW_MONOPOLY_INFO_LOC_STATE
+	text = {
+		trigger = {
+			NOT = { has_country_flag = has_active_monopoly }
+		}
+		localization_key = "CW_MON_CHECK_STATE_CONTROL_TT"
+	}	
+	text = {
+		trigger = {
+			has_country_flag = has_active_monopoly
+		}
+		localization_key = "CW_MON_CHECK_STATE_CONTROL_TT_2"
+	}
+}
+defined_text = {
+	name = CW_CHECK_EMBARGO_LOC_STATE
+	text = {
+		trigger = {
+			NOT = { has_country_flag = has_active_monopoly }
+		}
+		localization_key = "CW_CHECK_EMBARGO_TT"
+	}	
+	text = {
+		trigger = {
+			has_country_flag = has_active_monopoly
+		}
+		localization_key = "CW_CHECK_EMBARGO_TT_2"
+	}
+}
+defined_text = {
+	name = CW_CHECK_MON_CON_LOC_STATE
+	text = {
+		trigger = {
+			NOT = { has_country_flag = has_active_monopoly }
+		}
+		localization_key = "CW_CHECK_CAN_MON_TT"
+	}	
+	text = {
+		trigger = {
+			has_country_flag = has_active_monopoly
+		}
+		localization_key = "CW_CHECK_CAN_MON_TT_2"
+	}
+}
+
+defined_text = {
+	name = CW_TRUE_OWNER_LOC
+	text = {
+		trigger = {
+			has_state_flag = leased_territory
+		}
+		localization_key = "[?THIS.true_owner.GetName]"
+	}
+}

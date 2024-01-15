@@ -1,0 +1,37 @@
+state = {
+	id=271
+	local_supplies=0.0 
+	name="STATE_271"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 5010 }
+ 	add_to_array = { list_victory_point = 1984 }
+ 	add_to_array = { list_victory_point = 7980 }
+ 	set_variable = { victory_point = 17 }
+		owner = ETH
+		add_core_of = ETH
+		add_claim_by = ITA		
+		
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1			
+			industrial_complex = 1
+		}
+		victory_points = { 
+			7980 1.0 
+		}
+		victory_points = { 
+			1984 1.0 
+		}
+		victory_points = { 
+			5010 15
+		}
+	}
+	resources={
+		crops=15 # was: 2
+	}
+	manpower = 10000000
+	provinces=
+	{
+2009 5010 7912 8019 8036 8062 10734 12856 	}
+}

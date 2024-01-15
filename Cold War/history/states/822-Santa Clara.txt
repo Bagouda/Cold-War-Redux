@@ -1,0 +1,27 @@
+state={
+	id=822
+	local_supplies=0.0 
+	name="STATE_822"
+	resources={
+		crops=15.000
+	}	
+	history={
+ 	add_to_array = { list_victory_point = 13223 }
+ 	set_variable = { victory_point = 5 }
+		owner = CUB
+		add_core_of = CUB
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+		}
+		victory_points = {
+			13223 5	#Matanzas
+		}		
+	}	
+	provinces={
+		7451 10498 13222 13223 
+	}
+	manpower=125731
+	buildings_max_level_factor=1.000
+	state_category=city
+}

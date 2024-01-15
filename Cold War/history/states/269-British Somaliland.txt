@@ -1,0 +1,32 @@
+state = {
+	id=269
+	local_supplies=0.0 
+	name="STATE_269"
+	state_category = enclave
+	history = {
+ 	add_to_array = { list_victory_point = 10833 }
+ 	add_to_array = { list_victory_point = 5068 }
+ 	set_variable = { victory_point = 2 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = ENG
+		add_claim_by = ITA
+		add_claim_by = SOM
+		
+		1950.1.1 = {
+			owner = ENG
+		}		
+		
+		victory_points = { 
+			5068 1
+		}
+		victory_points = { 
+			10833 1
+		}
+	}
+	manpower = 344700
+	provinces={
+		1905 5068 8094 10777 10833 10921 12759 12814
+	}
+}

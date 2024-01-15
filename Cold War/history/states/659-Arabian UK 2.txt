@@ -1,0 +1,33 @@
+state = {
+	id=659
+	local_supplies=0.0 
+	name="STATE_659"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 5074 }
+ 	set_variable = { victory_point = 12 }
+		owner = SHY
+		add_core_of = SHY
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1
+			dockyard  = 1
+			air_base = 1
+			5074 = {
+				naval_base = 3
+			}			
+		}		
+		victory_points = {
+			5074 12
+		}
+	}
+	resources={
+		crops = 1
+	}	
+	manpower = 891505
+	provinces={
+		2029 4976 5074 8000 12821 12894 13079 
+	}
+}

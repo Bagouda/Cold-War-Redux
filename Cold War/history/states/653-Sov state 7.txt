@@ -1,0 +1,27 @@
+state = {
+	id=653
+	local_supplies=0.0 
+	name="STATE_653" # Sverdlovsk
+	state_category = large_city
+	history = {
+ 	add_to_array = { list_victory_point = 1821 }
+ 	set_variable = { victory_point = 10 }
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1	
+			industrial_complex = 4
+		}
+		
+		victory_points = {
+			1821 10	#Yekatirinburg
+		}
+	}
+	manpower = 2161650
+	provinces={
+		307 1543 1704 1750 1808 1821 1841 4813 7228 7778 9553 10133 10189 10648 10716 10720 12102 12567 12696 
+	}
+}

@@ -1,0 +1,265 @@
+﻿division_template = {
+	name = "Militia Infantry"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+	}
+}
+division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 3 y = 0 }	
+		artillery_brigade = { x = 1 y = 1 }
+		artillery_brigade = { x = 2 y = 1 }
+	}
+	support = {
+        signal_company = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		mot_recon = { x = 0 y = 2 }
+		field_hospital = { x = 0  y = 3 }
+	}
+}
+division_template = {
+	name = "Motorized Infantry"
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 3 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		mot_recon = { x = 0 y = 0 }
+		field_hospital = { x = 0 y = 1 }
+	}	
+}
+division_template = {
+	name = "Border Division"
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 1 y = 0 }
+	}
+	support = {
+		mot_recon = { x = 0 y = 0 }
+	}	
+}
+division_template = {
+	name = "Light Armour division"
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 2 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 2 y = 1 }		
+	}
+}
+units = {
+    division = {
+		location = 11125
+		division_template = "Border Division"
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 3193
+		division_template = "Border Division"
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 11115
+		division_template = "Border Division"
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 11130
+		division_template = "Border Division"
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 167
+		division_template = "Border Division"
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 6061
+		division_template = "Border Division"
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 3097
+		division_template = "Border Division"
+		start_equipment_factor = 1.0
+	}	
+	################################################
+    division = {
+		location = 6186
+		division_template = "Light Armour division"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 6186
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 6082
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 6082
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}	
+    division = {
+		location = 52
+		division_template = "Motorized Infantry"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 52
+		division_template = "Infantry Division"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1.0
+	}	
+    division = {
+		location = 139
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 3030
+		division_template = "Infantry Division"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 3156
+		division_template = "Infantry Division"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 9181
+		division_template = "Infantry Division"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 6210
+		division_template = "Infantry Division"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 6210
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}	
+    division = {
+		location = 3185
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 7
+		division_template = "Infantry Division"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 6134
+		division_template = "Motorized Infantry"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 3073
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 3073
+		division_template = "Infantry Division"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1.0
+	}	
+    division = {
+		location = 6045
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 203
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 6186
+		division_template = "Light Armour division"
+		start_experience_factor = 0.5
+		start_equipment_factor = 1.0
+	}	
+    division = {
+		location = 11030
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 6128
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 3097
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 1.0
+	}	
+}
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_3
+			creator = "FIN"
+		}
+		requested_factories = 5
+		progress = 0.66
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "FIN"
+		}
+		requested_factories = 5
+		progress = 0.64
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = motorized_equipment_1
+			creator = "FIN"
+		}
+		requested_factories = 2
+		progress = 0.66
+		efficiency = 20
+	}
+}

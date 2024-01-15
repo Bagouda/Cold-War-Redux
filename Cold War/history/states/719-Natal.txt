@@ -1,0 +1,29 @@
+state = {
+	id=719
+	local_supplies=0.0 
+	name="STATE_719" # Natal
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 1468 }
+ 	add_to_array = { list_victory_point = 4696 }
+ 	set_variable = { victory_point = 4 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SAF
+		add_core_of = SAF
+		victory_points = {
+			4696 1 
+		}
+		victory_points = {
+			1468 3 
+		}
+	}
+	resources={
+		chromium=60 # was: 116
+	}
+	manpower = 3962157
+	provinces={
+		1468 1494 1833 4584 4696 7576 8178 
+	}
+}

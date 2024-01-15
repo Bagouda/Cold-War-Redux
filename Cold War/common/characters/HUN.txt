@@ -1,0 +1,237 @@
+characters={
+	####################################################################################################
+	######################################### Country Leader ###########################################
+	####################################################################################################
+	HUN_zoltan_tildy = {
+		name = "Zoltán Tildy"
+		allowed_civil_war = {}		
+		portraits = {
+			civilian = {
+				large = GFX_hun_zoltan_tildy_civilian_large
+			}
+		}
+		country_leader={
+			ideology = social_cons_idolg
+			expire = 1948.9.3
+		}
+	}
+	HUN_ferenc_nagy = {
+		name = "Ferenc Nagy"
+		allowed_civil_war = {}		
+		portraits = {
+			civilian = {
+				large = GFX_hun_ferenc_nagy_large
+				small = GFX_hun_imre_nagy
+			}
+		}
+		country_leader={
+			ideology = social_cons_idolg
+			traits = { western_enthusiast committed_antistalinist }
+			expire = 1947.5.31
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = hun_hog_imre_nagy
+			
+			allowed  = {
+				always = no
+				tag = HUN
+				#date > 1956.10.24
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_civil_war = no
+			}
+			traits  = {
+				cw_democratic_reformer 
+			}
+			visible = {
+				NOT = { has_country_leader = { name = "Imre Nagy" ruling_only = yes } }	
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}		
+	}
+	HUN_matyas_rakosi = {
+		name = "Mátyás Rákosi"
+		allowed_civil_war = {}		
+		portraits = {
+			civilian = {
+				large = GFX_hun_matyas_rakosi_large
+			}
+		}
+		country_leader={
+			ideology = stalinism_idolg
+			expire = 1960.5.31
+		}		
+	}
+	####################################################################################################
+	######################################### Deputy Minister ##########################################
+	####################################################################################################	
+	####################################################################################################
+	######################################### Foreign Minister #########################################
+	####################################################################################################
+	hun_fm_lazlo_rajk = {
+		name = hun_fm_lazlo_rajk
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_lazlo_rajk
+			}
+		}		
+		advisor = {
+			slot = foreign_minister
+			idea_token = hun_fm_lazlo_rajk
+			
+			allowed  = {
+				tag = HUN
+				date < 1949.10.15
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_civil_war = no
+			}
+			traits  = {
+				communist_puppet
+			}
+			visible = {
+				date < 1972.4.9
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	####################################################################################################
+	######################################### Defense Minister #########################################
+	####################################################################################################
+	hun_dm_tombor_jeno = {
+		name = hun_dm_tombor_jeno
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_tombor_jeno
+			}
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = hun_dm_tombor_jeno
+			
+			allowed  = {
+				tag = HUN
+				date < 1946.7.25
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic_socialist
+				OR = {		#NATIONAL SECURITY ACT UNLOCKS DEFENSE MINISTER
+					custom_trigger_tooltip = {
+						tooltip = "National Security Council Established."
+						has_country_flag = national_security_act
+					}
+					hidden_trigger = { has_start_date > 1946.01.02 }
+				}
+			}
+			traits  = {
+			}
+			visible = {
+				date < 1950.1.20
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	######################################## Treasury Minister #########################################
+	####################################################################################################	
+	hun_tm_ferenc_gordon = {
+		name = hun_tm_ferenc_gordon
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_hog_2_european_2d
+			}
+		}		
+		advisor = {
+			slot = treasury_minister
+			idea_token = hun_tm_ferenc_gordon
+			
+			allowed  = {
+				tag = HUN
+				date < 1946.8.26
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+			}
+			visible = {
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	###################################### Head of Intelligence ########################################
+	####################################################################################################
+	####################################################################################################
+	######################################### Chief of Staff ###########################################
+	####################################################################################################
+	hun_chief_janos_voros = {
+		name = hun_chief_janos_voros
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_janos_voros
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = hun_chief_janos_voros
+			
+			allowed  = {
+				tag = HUN
+				date < 1968.7.23
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				army_infantry_2
+			}
+			visible = {
+				date < 1959.7.20
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	################################## Generals and Field Marshals #####################################
+	####################################################################################################	
+}

@@ -1,0 +1,27 @@
+﻿capital = 12
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	OOB = LAT_1946
+	set_politics = {
+		ruling_party = democratic
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 10
+		democratic_socialist = 0
+		neutrality = 10
+		communism_totalitarian = 40
+		unaligned_right = 40
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Jānis Kalnbērziņš"
+		desc = ""
+		picture = "LATH1.dds"
+		ideology = stalinism_idolg
+		expire = 1959.1.1
+		traits = {}
+	}	
+}

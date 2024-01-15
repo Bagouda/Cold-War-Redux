@@ -1,0 +1,22 @@
+﻿
+units= {
+
+	####### NAVAL UNITS #######
+	
+	fleet = {
+	          name = "Turkish Navy"
+			  naval_base = 4112
+			  task_force = {
+			  name = "Battle force"
+			  location = 4112 
+			  ship = { name = "Yavuz Sultan Selim" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = TUR version_name = "Yavuz Sultan Selim Class" } } }
+			  ship = { name = "Kocatepe" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = TUR version_name = "Kocatepe Class" } } }
+			  ship = { name = "Adatepe" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = TUR version_name = "Kocatepe Class" } } }
+			  }
+			  task_force = {
+			  name = "Submarine force"
+			  location = 9833 
+			  ship = { name = "Saldiray" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = TUR version_name = "Ay Class" } } }
+			  ship = { name = "Yildiray" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = TUR version_name = "Ay Class" } } }
+			}			
+}

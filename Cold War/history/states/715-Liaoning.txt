@@ -1,0 +1,29 @@
+state = {
+	id=715
+	local_supplies=0.0 
+	name="STATE_715"
+	state_category = town
+	history = {
+		owner = SOV
+		add_core_of = CHI
+		add_claim_by= PRC
+		add_claim_by = INM
+		add_claim_by = MAN
+		
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}	
+
+		1949.10.1 = {
+		owner = PRC
+		}		
+	}
+	resources={
+		crops = 10
+	}	
+	manpower = 3643373
+	provinces={
+		916 930 1499 1508 1558 1627 1638 3877 3978 4561 4633 4642 6893 7812 9831 10429 11836 11903 12337 12469 12478 
+	}
+}

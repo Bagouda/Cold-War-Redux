@@ -1,0 +1,24 @@
+state = {
+	id=511
+	local_supplies=0.0 
+	name="STATE_511" # Mendoza
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 12942 }
+ 	set_variable = { victory_point = 5 }
+		owner = ARG
+		add_core_of = ARG
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 2
+		}		
+		victory_points = {
+			12942 5 
+		}
+	}
+	manpower = 1090274
+	provinces={
+		2158 2179 2215 5152 5184 5219 7550 8215 10964 10992 11021 11022 12942 12970 
+	}
+}

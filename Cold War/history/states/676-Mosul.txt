@@ -1,0 +1,25 @@
+state = {
+	id=676
+	local_supplies=0.0 
+	name="STATE_676"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 10106 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = IRQ
+		add_core_of = IRQ
+		victory_points = {
+			10106 1 
+		}
+	}
+	resources={
+		oil=8 # was: 10
+	}
+	manpower = 1182741
+	provinces={
+		1600 1938 3916 5014 6826 8123 10106 10793 10804 10811 12372 
+	}
+}

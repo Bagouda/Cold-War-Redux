@@ -1,0 +1,29 @@
+state = {
+	id=536
+	local_supplies=0.0 
+	name="STATE_536"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 10444 }
+ 	add_to_array = { list_victory_point = 12421 }
+ 	set_variable = { victory_point = 20 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = USA
+		add_core_of = JAP
+		victory_points = {
+			12421 5 
+		}
+		victory_points = {
+			10444 15 
+		}
+	}
+	resources={
+		crops = 5
+	}		
+	manpower = 2812000
+	provinces={
+		1512 1642 3962 4576 4646 7532 7595 10444 10512 12352 12421 12493 
+	}
+}

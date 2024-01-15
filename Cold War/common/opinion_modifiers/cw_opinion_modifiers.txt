@@ -1,0 +1,234 @@
+opinion_modifiers = {
+	sided_with_enemy = {
+		value = -20
+		months = 120
+		decay = 1
+	}
+	promoting_imperialism = {
+		value = -20
+		months = 120
+		decay = 1	
+	}
+	anti_colonial_protector = {
+		value = 15
+		months = 120
+		decay = 1
+	}
+	ideological_conflict = {
+		value = -50
+		months = 365
+		decay = 0.1
+	}
+	seperated_at_birth = {
+		value = 50
+	}
+	opposing_economic_outlooks = {
+		value = -50
+		trade = yes
+	}
+	refused_our_demands = {
+		value = -25
+		months = 3
+		decay = 1
+	}
+	accepted_our_demands = {
+		value = -25
+		months = 3
+		decay = 1		
+	}
+	helped_us_against_agressor = {
+		value = 25
+		months = 3
+		decay = 1
+	}
+	refused_humanitarian_relief = {
+		value = -25
+		months = 12
+		decay = 1
+	}
+	provided_humanitarian_relief = {
+		value = 20
+		months = 12
+		decay = 1
+	}
+	disregarded_unsc_sanctions = {
+		value = -20
+		months = 12
+		decay = 1
+	}
+	historic_grievances_permanent = {
+		value = -100
+	}	
+	historic_grievances = {
+		value = -50
+		months = 48
+		decay = 1
+	}	
+	eased_tensions = {
+		value = 20
+		months = 0
+		decay = 5
+	}
+	increased_tensions = {
+		value = 20
+		months = 0
+		decay = 1
+	}	
+	refused_demand = {
+		value = -20
+		months = 0
+		decay = 1	
+	}
+	accepted_demand= {
+		value = 10
+		months = 0
+		decay = 1		
+	}
+	provided_military_aid = {
+		value = 20			
+	}
+	suspended_military_aid = {
+		value = -10		
+		months = 0
+		decay = 1		
+	}
+	suspended_military_aid_war = {
+		value = -40
+		months = 0
+		decay = 1
+	}	
+	valued_trade_partner = {
+		value = 20
+		trade = yes			
+	}
+	border_skirmish = {
+		value = -20
+	}
+	unilateral_action = {
+		value = -10
+		months = 10
+		decay = 1		
+	}
+	unilateral_action_severe = {
+		value = -90
+	}	
+	recognized_government = {
+		value = 25
+		months = 12
+		decay = 1		
+	}
+	charm_offensive = {
+		value = 25
+		months = 12
+		decay = 1
+	}
+	charm_offensive_extreme= {
+		value = 75
+		months = 12
+		decay = 1
+	}	
+	refused_offer = {
+		value = -10
+		months = 12
+		decay = 1
+	}
+	accepted_offer = {
+		value = 10
+		months = 12
+		decay = 1
+	}	
+	refused_lease_request = {
+		value = -10
+	}
+	leased_territory = {
+		value = 25
+		months = 6
+		decay = 1		
+	}
+	revoked_lease = {
+		value = -25
+		months = 6
+		decay = 1		
+	}	
+	loaning_resources = {
+		value = 100
+		trade = yes		
+	}
+	supporting_our_position = {
+		value = 50
+		months = 6
+		decay = 1		
+	}
+	ww2_major_allies = {
+		value = 25
+		months = 6
+		decay = 1
+	}
+	anti_communist_ally = {
+		value = 25
+		months = 6
+		decay = 1		
+	}
+	revolutionary_brothers = {
+		value = 50
+	}
+	gave_resource_rights = {
+		value = 10
+	}
+	removed_resource_rights = {
+		value = -20
+		months = 6
+		decay = 0.5
+	}	
+	gave_resource_rights_trade = {
+		value = 25
+		trade = yes		
+	}
+	investing_in_our_country = {
+		value = 20
+		months = 6
+		decay = 0.5		
+	}	
+	violated_treaty = {		#Sino-Soviet Treaty of Friendship and Alliance
+		value = -25
+		min_trust = -20		
+	}
+	returned_territory = {		#Sino-Soviet Treaty of Friendship and Alliance
+		value = 10
+		min_trust = 10
+		months = 6
+		decay = 0.5
+	}
+	annexed_our_core_territory = {		#Sino-Soviet Treaty of Friendship and Alliance
+		value = -10
+		min_trust = -20
+		months = 12
+		decay = 1		
+	}
+	
+	ideological_purity_1 = {
+		value = 10
+		months = 1
+	}
+	ideological_purity_2 = {
+		value = 15
+		months = 1
+	}
+	ideological_purity_3 = {
+		value = 20
+		months = 1
+	}
+	ideological_impurity_1 = {
+		value = -10
+		months = 1
+	}
+	ideological_impurity_2 = {
+		value = -15
+		months = 1
+	}
+	ideological_impurity_3 = {
+		value = -20
+		months = 1
+	}
+	
+}	

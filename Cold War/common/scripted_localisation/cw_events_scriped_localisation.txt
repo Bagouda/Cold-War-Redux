@@ -1,0 +1,60 @@
+defined_text = {
+	name = STALIN_NOTE_STATUS_USA
+	text = {
+		trigger = {
+			USA = { has_country_flag = agreed_stalin_note }
+		}
+		localization_key = "United States - Agreed"
+	}
+	text = {
+		trigger = {
+			USA = { has_country_flag = rejected_stalin_note }
+		}
+		localization_key = "United States - Rejected"
+	}
+}
+defined_text = {
+	name = STALIN_NOTE_STATUS_UK
+	text = {
+		trigger = {
+			ENG = { has_country_flag = agreed_stalin_note }
+		}
+		localization_key = "United Kingdom - Agreed"
+	}
+	text = {
+		trigger = {
+			ENG = { has_country_flag = rejected_stalin_note }
+		}
+		localization_key = "United Kingdom - Rejected"
+	}
+}
+defined_text = {
+	name = STALIN_NOTE_STATUS_FRANCE
+	text = {
+		trigger = {
+			FRA = { has_country_flag = agreed_stalin_note }
+		}
+		localization_key = "France - Agreed"
+	}
+	text = {
+		trigger = {
+			FRA = { has_country_flag = rejected_stalin_note }
+		}
+		localization_key = "France - Rejected"
+	}
+}
+defined_text = {
+	name = DPRK_SOUTH_KOREA_CHECK
+	text = {
+		trigger = {
+			country_exists = KOR
+		}
+		localization_key = "DPRK_SOUTH_EXISTS_LOC"
+	}
+	text = {
+		trigger = {
+			NOT = { country_exists = KOR }
+		}
+		localization_key = "DPRK_SOUTH_NOT_EXISTS_LOC"
+	}
+}

@@ -1,0 +1,11 @@
+﻿units= {
+	fleet = {
+	name = "Romanian Navy"
+	naval_base = 657
+		task_force = {
+			name = "Romanian Coast guard"
+			location = 657 
+			ship = { name = "Regele Ferdinand" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = ROM version_name = "Regele Ferdinand Class" } } }
+		}
+	}
+}

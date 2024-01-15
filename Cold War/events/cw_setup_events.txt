@@ -1,0 +1,256 @@
+﻿#########################
+# EVENTS TO SET UP VARIOUS STUFF #
+#########################
+add_namespace = setup_event
+country_event = {
+	id = setup_event.1		#MP aid suspended
+	title = mp_events.1.t
+	desc = mp_events.11.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		add_ideas =  cw_non_recognized_state
+	}	
+
+	option = {
+	}
+}
+
+country_event = {
+	id = setup_event.2		#Referendum state indicators painter
+	title = mp_events.2.t
+	desc = mp_events.2.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		every_owned_state = {
+			limit = {
+				has_state_flag = ref_state
+			}
+			set_border_war = yes
+		}
+	}	
+
+	option = {
+	}
+}
+
+country_event = {
+	id = setup_event.3		#Referendum state indicators painter
+	title = mp_events.3.t
+	desc = mp_events.3.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		every_owned_state = {
+			limit = {
+				has_state_flag = ref_state
+			}
+			set_border_war = no
+		}
+	}	
+
+	option = {
+	}
+}
+country_event = {
+	id = setup_event.4		#Africa resistance initiator, has to be done because fml
+	title = mp_events.4.t
+	desc = mp_events.4.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		every_owned_state = {
+			limit = {
+				is_on_continent = africa
+				is_island_state = no
+				NOT = { is_core_of = ROOT }
+				impassable = no
+				NOT = { check_variable = { core_countries^0 = null.id } }
+			}
+			force_enable_resistance = {
+				occupier = var:controller
+				occupied = var:core_countries^0
+			}
+			start_resistance = var:core_countries^0
+			random_list = {
+				25 = {
+					add_resistance = 2
+					add_state_modifier = { modifier = { required_garrison_factor = 0.10 resistance_target = 0.3 resistance_growth = 1.0 compliance_gain = -0.5 } }
+				}
+				25 = {
+					add_resistance = 5 
+					add_state_modifier = { modifier = { required_garrison_factor = 0.15 resistance_target = 0.4 resistance_growth = 1.0 compliance_gain = -0.5 } }
+				}
+				25 = {
+					add_resistance = 3 
+					add_state_modifier = { modifier = { required_garrison_factor = 0.20 resistance_target = 0.5 resistance_growth = 1.0 compliance_gain = -0.5 } }
+				}
+				25 = {
+					add_resistance = 7 
+					add_state_modifier = { modifier = { required_garrison_factor = 0.25 resistance_target = 0.6 resistance_growth = 1.0 compliance_gain = -0.5 } }
+				}
+			}			
+		}
+	}	
+
+	option = {}
+}
+country_event = {
+	id = setup_event.5		#Referendum state indicators painter
+	title = mp_events.5.t
+	desc = mp_events.5.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_template = "Colonial Infantry" }
+			}
+			division_template = {
+				name = "Colonial Infantry"
+				template_counter = 3
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					cavalry = { x = 1 y = 0 }
+				}
+				support = {
+					military_police = { x = 0 y = 0 }
+				}
+			}			
+		}
+		capital_scope = {
+			create_unit = {
+				division = "division_template = \"Colonial Infantry\" start_experience_factor = 0.1" 
+				owner = ROOT
+				allow_spawning_on_enemy_provs = yes
+				count = 5
+			}
+		}		
+	}	
+
+	option = {}
+}
+country_event = {
+	id = setup_event.6		#Transfer states after unconditional peace
+	title = mp_events.6.t
+	desc = mp_events.6.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {	
+		for_each_scope_loop = {
+			array = ROOT.states_to_transfer
+			ROOT = {
+				transfer_state = PREV 
+				remove_state_claim = PREV
+				add_state_core = PREV
+			}
+		}
+		clear_array = ROOT.states_to_transfer		
+	}	
+
+	option = {}
+}
+country_event = {
+	id = setup_event.7		# Starts Communist led civil war
+	title = mp_events.7.t
+	desc = mp_events.7.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			25 = {
+				start_civil_war = {
+					ideology = communism_totalitarian
+					keep_political_leader = yes
+					size = 0.4
+					states_filter = {
+						impassable = no
+					}
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+			}
+			0 = {
+				start_civil_war = {
+					ideology = communism
+					keep_political_leader = yes
+					size = 0.4
+					states_filter = {
+						impassable = no
+					}
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+				modifier = {
+					factor = 25
+					event_target:communist_leader = { has_government = communism }
+				}
+			}
+		}
+	}	
+
+	option = {}
+}
+country_event = {
+	id = setup_event.8		# Starts Nationalist led civil war
+	title = mp_events.8.t
+	desc = mp_events.8.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		start_civil_war = {
+			ideology = unaligned_right
+			keep_political_leader = yes
+			size = 0.4
+			states_filter = {
+				impassable = no
+			}
+			compute_proxy_score = yes
+		}
+		compute_proxy_score = yes
+	}	
+
+	option = {}
+}
+country_event = {
+	id = setup_event.9		# Return insurgency state to original owner
+	title = mp_events.9.t
+	desc = mp_events.9.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		transfer_state = var:state_to_return
+		clear_variable = state_to_return
+	}	
+
+	option = {}
+}

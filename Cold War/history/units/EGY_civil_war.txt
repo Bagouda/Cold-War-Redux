@@ -1,0 +1,60 @@
+﻿division_template = {
+	name = "Infantry division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 4 y = 0 }
+		infantry = { x = 1 y = 1 }
+		artillery_brigade = { x = 1 y = 1 }
+	}
+	support = {
+        anti_tank = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Tank division"
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 2 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 2 y = 1 }
+	}
+}
+units = {
+	division = {
+		location = 7011
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 7011
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 7011
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 4076
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 4076
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 7188
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 7188
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 1071
+		division_template = "Tank division"
+	}
+}

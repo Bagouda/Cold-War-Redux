@@ -1,0 +1,40 @@
+state={
+	id=440
+	local_supplies=0.0 
+	name="STATE_440"
+	history={
+ 	add_to_array = { list_victory_point = 10887 }
+ 	add_to_array = { list_victory_point = 12005 }
+ 	set_variable = { victory_point = 45 }
+		owner = IND
+		add_claim_by = IND
+		add_core_of = PAK
+		
+		buildings = {
+			infrastructure = 3	
+			industrial_complex = 3
+			arms_factory = 2
+		}		
+		1947.8.15 = {
+			owner = PAK
+			add_core_of = PAK
+
+		}
+		victory_points = {
+			10887 25 #Islamabad
+
+		}
+		victory_points = {
+			12005 20 #Lahore
+		}		
+	}
+	resources={
+		crops = 20
+	}
+	provinces={
+		4979 8007 8022 8106 9084 10066 10139 10173 10887 12005 
+	}
+	manpower=13665000
+	buildings_max_level_factor=1.000
+	state_category=large_city
+}

@@ -1,0 +1,50 @@
+
+state={
+	id=905
+	local_supplies=0.0 
+	name="STATE_905"
+	resources={
+		crops = 20
+		# Add Uranium
+		uranium=10
+	}
+	history={
+ 	add_to_array = { list_victory_point = 191 }
+ 	add_to_array = { list_victory_point = 9547 }
+ 	set_variable = { victory_point = 25 }
+		owner = BEL
+		add_claim_by = COG
+
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+				
+		1960.6.30 = {
+			owner = COG
+			add_core_of = COG
+			remove_core_of = BEL
+		}
+		buildings = {
+			infrastructure = 3
+			air_base = 1
+		}
+		victory_points = {
+			191 20		#Elisabethville 
+		}
+		victory_points = {
+			9547 5		#Jadotville 
+		}		
+	}
+
+	provinces={
+		191 4515 6555 9547 9917 11320 
+	}
+	manpower=3000000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

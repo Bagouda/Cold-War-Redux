@@ -1,0 +1,29 @@
+state={
+	id=816
+	local_supplies=0.0 
+	name="STATE_816"
+	resources={
+		crops=10
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 2096 }
+ 	set_variable = { victory_point = 5 }
+		owner = ENG
+		add_claim_by = SUD
+		
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			2096 5 
+		}
+	}
+
+	provinces={
+		1953 2096 7996 10859 13252 13254 13256 13257 13258 13272 
+	}
+	manpower=3694293
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

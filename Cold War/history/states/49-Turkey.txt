@@ -1,0 +1,35 @@
+state = {
+	id=49
+	local_supplies=0.0 
+	name="STATE_49" # Ankara
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 11747 }
+ 	add_to_array = { list_victory_point = 3951 }
+ 	set_variable = { victory_point = 11 }
+		owner = TUR
+		add_core_of = TUR
+		
+		buildings = {
+			infrastructure = 5
+			air_base = 5
+			industrial_complex = 3
+			arms_factory = 1		
+		}
+		
+		victory_points = {
+			3951 1
+		}
+		victory_points = {
+			11747 10 
+		}
+	}
+	resources={
+		chromium=11 # was: 16
+		crops = 5
+	}
+	manpower = 770758
+	provinces={
+		804 909 3907 3951 6808 6908 6925 9806 9901 11747 11784 
+	}
+}

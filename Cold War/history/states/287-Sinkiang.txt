@@ -1,0 +1,24 @@
+state = {
+	id=287
+	local_supplies=0.0 
+	name="STATE_287"
+	state_category=wasteland
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SIK
+		add_core_of = CHI
+		add_core_of= PRC
+		add_core_of= SIK
+		
+		1949.10.1 = {
+			owner = PRC
+		}
+	}
+	buildings_max_level_factor=1.000
+	manpower=408000
+	provinces={
+		4973 8042 8086 10885 10911 12864 
+	}
+}

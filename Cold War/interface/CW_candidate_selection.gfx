@@ -1,0 +1,66 @@
+spriteTypes = {
+	SpriteType = {
+		name = "GFX_candidate_selection_background"
+		texturefile = "gfx/interface/candidates_graphics/cw_candidate_selection_screen.dds"
+	}
+	SpriteType = {
+		name = "GFX_candidate_picture_khrushev"
+		texturefile = "gfx/interface/candidates_graphics/candidates_khrushev.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/candidates_graphics/candidates_khrushev.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationlooping = yes			# yes or no ;)
+			animationtime = 2.0				# in seconds
+			animationdelay = 5			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+		}
+		legacy_lazy_load = no		
+	}
+	SpriteType = {
+		name = "GFX_candidate_picture_beria"
+		texturefile = "gfx/interface/candidates_graphics/candidates_beria.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/candidates_graphics/candidates_beria.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationlooping = yes			# yes or no ;)
+			animationtime = 2.0				# in seconds
+			animationdelay = 6			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+		}
+		legacy_lazy_load = no		
+	}
+	SpriteType = {
+		name = "GFX_candidate_picture_malenkov"
+		texturefile = "gfx/interface/candidates_graphics/candidates_malenkov.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/candidates_graphics/candidates_malenkov.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationlooping = yes			# yes or no ;)
+			animationtime = 2.0				# in seconds
+			animationdelay = 7			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+		}
+		legacy_lazy_load = no		
+	}
+	SpriteType = {
+		name = "GFX_candidate_picture_molotov"
+		texturefile = "gfx/interface/candidates_graphics/candidates_molotov.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/candidates_graphics/candidates_molotov.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationlooping = yes			# yes or no ;)
+			animationtime = 2.0				# in seconds
+			animationdelay = 8			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+		}
+		legacy_lazy_load = no		
+	}	
+}

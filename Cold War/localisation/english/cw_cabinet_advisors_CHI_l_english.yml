@@ -1,0 +1,41 @@
+﻿l_english:
+ #################################
+ ###  CHI Historic Ministers   ###
+ ################################# 
+ ### Deputy Ministers
+ chi_hog_chiang_kai_shek:0 "Chiang Kai-shek"
+ chi_hog_song_ziwen:0 "T. V. Soong"
+ chi_hog_li_zongren:0 "Li Zongren"
+ chi_hog_chen_cheng:0 "Chen Cheng"
+ chi_hog_he_yingqin:0 "He Yingqin"
+ chi_hog_sun_fo:0 "Sun Fo"
+ ### Foreign Ministers
+ chi_fm_wang_shijie:0 "Wang Shijie"
+ chi_fm_wellington_koo:0 "Wellington Koo"
+ chi_fm_yeh_kung_chao:0 "Yeh Kung Chao"
+ chi_fm_chen_lifu:0 "Chen Lifu"
+ chi_fm_shen_chang_huan:0 "Shen Chang-huan"
+ ### Defense Ministers
+ chi_dm_bai_chongxi:0 "Bai Chongxi"
+ chi_dm_he_yingqin:0 "He Yingqin"
+ chi_dm_xu_yongchang:0 "Xu Yongchang"
+ chi_dm_yan_shixan:0 "Yan Shixan"
+ chi_dm_long_yun:0 "Long Yun"
+ chi_dm_zhang_fakui:0 "Zhang Fakui"
+ ### Treasury Ministers
+ chi_tm_weng_wenhao:0 "Weng Wenhao"
+ chi_tm_kung_hsiang_hsi:0 "H.H.Kung"
+ chi_tm_kung_hsiang_hsi_reformed:0 "H.H.Kung"
+ chi_tm_wang_yun_wu:0 "Wang Yun-wu"
+ chi_tm_du_yuesheng:0 "Du Yuesheng"
+ chi_tm_yen_chia_kan:0 "Yen Chia-kan"
+ ### Chiefs of Staff
+ chi_chief_he_yingqin:0 "He Yingqin"
+ chi_chief_sun_li_jen:0 "Sun Li-jen"
+ chi_chief_hu_zongnan:0 "Hu Zongnan"
+ chi_chief_xue_yue:0 "Xue Yue"
+ chi_chief_claire_lee_chennault:0 "Claire Lee Chennault"
+ ### Personal Adivosrs
+ chi_pa_soong_mei_ling:0 "Soong Mei-ling"
+ chi_pa_chiang_ching_kuo:0 "Chiang Ching-kuo"
+ 

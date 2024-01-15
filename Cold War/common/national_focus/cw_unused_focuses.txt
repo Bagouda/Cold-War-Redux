@@ -1,0 +1,240 @@
+focus_tree = {
+	id = unused_focuses
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = D15
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = -300 y = 1600 }
+
+############# FOCUSES TO REDUCE ERRORS FROM BASE GAME  #############
+############# THESE FOCUSES ARE NOT BEING USED ANYWHERE  #############
+############# THEY ARE USELESS, NOBODY CARES FOR THEM  #############
+############# WHY ARE YOU HERE???  #############
+############# GO AWAY!!!  #############
+
+	focus = {
+		id = BUL_overthrow_the_tsar
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+		
+		icon = GFX_USA_truman_doctrine
+		x = 10
+		y = 1
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 0
+		}		
+	}
+
+	focus = {
+		id = BUL_crush_the_communists
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+		
+		icon = GFX_USA_truman_doctrine
+		x = 10
+		y = 1
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 0
+		}		
+	}
+
+	focus = {
+		id = BUL_the_return_of_ferdinand_i
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+		
+		icon = GFX_USA_truman_doctrine
+		x = 10
+		y = 1
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 0
+		}		
+	}
+
+
+	focus = {
+		id = BUL_plot_against_boris
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+		
+		icon = GFX_USA_truman_doctrine
+		x = 10
+		y = 1
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 0
+		}		
+	}
+
+
+	focus = {
+		id = BUL_depose_the_tsar
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+		
+		icon = GFX_USA_truman_doctrine
+		x = 10
+		y = 1
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 0
+		}		
+	}
+
+	focus = {
+		id = BUL_abolish_the_monarchy 
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+		
+		icon = GFX_USA_truman_doctrine
+		x = 10
+		y = 1
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 0
+		}		
+	}
+
+	focus = {
+		id = USA_suspend_the_presecution 
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+		
+		icon = GFX_USA_truman_doctrine
+		x = 10
+		y = 1
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 0
+		}		
+	}
+	focus = {
+		id = USA_democratic_socialism 
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+		
+		icon = GFX_USA_truman_doctrine
+		x = 10
+		y = 1
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 0
+		}		
+	}
+	focus = {
+		id = USA_honor_the_confederacy 
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+		
+		icon = GFX_USA_truman_doctrine
+		x = 10
+		y = 1
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 0
+		}		
+	}		
+	focus = {
+		id = USA_america_first 
+		available = {
+			always = no
+		}
+		bypass = {
+		}
+		
+		icon = GFX_USA_truman_doctrine
+		x = 10
+		y = 1
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 0
+		}		
+	}
+}

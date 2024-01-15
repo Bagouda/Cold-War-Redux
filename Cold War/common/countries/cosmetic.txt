@@ -1,0 +1,114 @@
+############ DYNAMIC REVOLT NAMES
+COM_REVOLT = {
+	color = rgb { 231 0 0 }
+	color_ui = hsv { 0.18 0.3 0.9 }
+}
+AFRICAN_NATIONALIST_REVOLT = {
+	color = rgb { 63 63 63 }
+	color_ui = hsv { 0.18 0.3 0.9 }
+}
+MILITARY_COUP = {
+	color = rgb { 51 145 69 }
+	color_ui = hsv { 0.18 0.3 0.9 }
+}
+############
+SPR_MOR = {
+	color = rgb { 148 78 81  }
+	color_ui = rgb { 190 180 93 }
+}
+EUU_ECSC = {
+	color = rgb { 193 171 8  }
+	color_ui = hsv { 0.18 0.3 0.9 }
+}
+CHI_UNRECOGNIZED = {
+	color = rgb { 76  87  140 }
+	color_ui = hsv { 0.18 0.3 0.9 }
+}
+JAP_ARMED = {
+	color = rgb { 134  134  134 }
+	color_ui = rgb { 0  80  230 }	
+}
+UPA_UNRC = {
+	color = rgb { 112  112  112 }
+	color_ui = rgb { 0  80  230 }	
+}
+UK_COL = {
+    color = rgb { 201 56 93 }
+    color_ui = rgb { 255 179 96 }
+}
+MAL_UK = {
+    color = rgb { 201 56 93 }
+    color_ui = rgb { 255 179 96 }
+}
+SGP_UK = {
+    color = rgb { 201 56 93 }
+    color_ui = rgb { 255 179 96 }
+}
+IND_UK = {
+    color = rgb { 201 56 93 }
+    color_ui = rgb { 255 179 96 }
+}
+NFL_UK = {
+    color = rgb { 201 56 93 }
+    color_ui = rgb { 255 179 96 }
+}
+SHY_UK = {
+    color = rgb { 201 56 93 }
+    color_ui = rgb { 255 179 96 }
+}
+SHY_UK2 = {
+    color = rgb { 201 56 93 }
+    color_ui = rgb { 255 179 96 }
+}
+UK_PUP = {
+    color = rgb { 201 56 93 }
+    color_ui = rgb { 255 179 96 }
+}
+### Soviet Puppets ###
+YUG_PUP = {
+	color = rgb { 72 73 126 }
+	color_ui = rgb { 245 12 55 }
+}
+SOV_PUP = {
+	color = rgb { 231 0 0 }
+	color_ui = rgb { 245 12 55 }
+}
+USA_PUP = {
+	color = rgb { 20 133 237 }
+	color_ui = rgb { 245 12 55 }
+}
+ALLIED_PUP_JAP = {
+	color = rgb { 20 133 237 }
+	color_ui = rgb { 245 12 55 }
+}
+ALLIED_PUP_GER = {
+	color = rgb { 8 65 117 }
+	color_ui = rgb { 245 12 55 }
+}
+ALLIED_PUP_AUS = {
+	color = rgb { 66 102 136 }
+	color_ui = rgb { 245 12 55 }
+}
+### French Puppets ###
+FRA_PRO = {
+    color = rgb { 71  112  167 }
+    color_ui = rgb { 57  113  228 }
+}
+
+FRA_VIN = {
+	color = rgb { 26 134 165 }
+	color_ui = rgb { 74 147 255 }
+}
+
+
+MOR_FRA = {
+    color = rgb { 26  134  165 }
+    color_ui = rgb { 57  113  228 }
+}
+
+
+HOL_EIN = {
+	color = rgb { 203 138 74 }
+	color_ui = rgb { 255 179 96 }
+
+}

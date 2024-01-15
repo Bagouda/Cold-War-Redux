@@ -1,0 +1,397 @@
+focus_tree = {
+	id = united_nations_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = UNN
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	
+	focus = {
+		id = UNN_replace_sec_jebb		#Replace Gladwyn Jebb with Trygve Lie
+		available = {
+			date > 1948.2.2
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_self_management
+		x = 15
+		y = 10
+		cost = 1
+
+		available_if_capitulated = no
+		continue_if_invalid = yes
+
+		select_effect = {
+		}
+		completion_reward = {
+			kill_country_leader = yes
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+	
+	focus = {
+		id = UNN_replace_sec_trygve	#Replace Trygve Lie with Dag Hammarskjöld
+		available = {
+			date > 1953.4.10
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_self_management
+		x = 15
+		y = 12
+		cost = 1
+
+		available_if_capitulated = no
+		continue_if_invalid = yes
+
+		select_effect = {
+		}
+		completion_reward = {
+			kill_country_leader = yes
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}	
+	
+	focus = {
+		id = UNN_paris_treaty
+		available = {
+			
+			
+			SOV = { has_country_flag = ready_paris_treaty }
+			USA = { has_country_flag = ready_paris_treaty }
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+		bypass = {
+		}
+		
+		icon = GFX_USA_truman_doctrine
+		x = 10
+		y = 1
+		cost = 0
+
+		available_if_capitulated = no
+		continue_if_invalid = yes
+
+		select_effect = {
+			custom_effect_tooltip = "Will initiate the Paris Peace Treaty"
+			hidden_effect = {
+				save_global_event_target_as = unsc_initiator
+				save_global_event_target_as = unsc_target
+				set_global_flag = unsc_major_historical_resolution
+				set_global_flag = resolution_veto_disabled
+				set_country_flag = unsc_paris_peace_treaty
+				SOV = { cw_unsc_set_like_resolution = yes }
+				ENG = { cw_unsc_set_like_resolution = yes }
+				USA = { cw_unsc_set_like_resolution = yes }
+				FRA = { cw_unsc_set_like_resolution = yes }
+				CZE = { cw_set_resolution_observer = yes cw_unsc_set_like_resolution = yes }
+				ROM = { cw_set_resolution_observer = yes cw_unsc_set_like_resolution = yes }
+				HUN = { cw_set_resolution_observer = yes cw_unsc_set_like_resolution = yes }
+				POL = { cw_set_resolution_observer = yes cw_unsc_set_like_resolution = yes }
+				ITA = { cw_set_resolution_observer = yes cw_unsc_set_hate_resolution = yes }
+				FIN = { cw_set_resolution_observer = yes cw_unsc_set_hate_resolution = yes }
+				HUN = { cw_set_resolution_observer = yes cw_unsc_set_hate_resolution = yes }
+				cw_unsc_start_resolution_effect = yes
+			}
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = UNN_paris_treaty_second_try
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no			
+			AND = {
+				date > 1948.2.10
+				OR = {
+					has_global_flag = paris_treaty_stalled_by_unsc
+					has_global_flag = paris_treaty_vetoed_by_unsc
+					has_global_flag = paris_treaty_rejected_by_unsc			
+				}			
+			}
+		}
+		prerequisite = { focus = UNN_paris_treaty }
+		icon = GFX_USA_secure_asia
+		x = 0
+		y = 1
+		relative_position_id = UNN_paris_treaty
+		cost = 0
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		continue_if_invalid = yes		
+		
+		select_effect = {
+			custom_effect_tooltip = "Will initiate the Paris Peace Treaty"		
+			hidden_effect = {
+				save_global_event_target_as = unsc_initiator
+				save_global_event_target_as = unsc_target
+				set_global_flag = unsc_major_historical_resolution
+				set_country_flag = unsc_paris_peace_treaty
+				SOV = { cw_unsc_set_like_resolution = yes }
+				ENG = { cw_unsc_set_like_resolution = yes }
+				USA = { cw_unsc_set_like_resolution = yes }
+				FRA = { cw_unsc_set_like_resolution = yes }
+				CZE = { cw_set_resolution_observer = yes cw_unsc_set_like_resolution = yes }
+				ROM = { cw_set_resolution_observer = yes cw_unsc_set_like_resolution = yes }
+				HUN = { cw_set_resolution_observer = yes cw_unsc_set_like_resolution = yes }
+				POL = { cw_set_resolution_observer = yes cw_unsc_set_like_resolution = yes }
+				ITA = { cw_set_resolution_observer = yes cw_unsc_set_hate_resolution = yes }
+				FIN = { cw_set_resolution_observer = yes cw_unsc_set_hate_resolution = yes }
+				HUN = { cw_set_resolution_observer = yes cw_unsc_set_hate_resolution = yes }
+				cw_unsc_start_resolution_effect = yes
+			}		
+		}
+		
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = UNN_end_palestine_mandate		#United Nations Special Committee on Palestine
+		available = {
+			date > 1948.4.29
+			unsc_in_session = no
+			unsc_implementing_resolution = no		
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_self_management
+		x = 10
+		y = 4
+		cost = 1
+
+		available_if_capitulated = no
+		continue_if_invalid = yes
+
+		select_effect = {
+			hidden_effect = {
+				454 = {
+					save_global_event_target_as = requested_leased_state
+					add_to_variable = { global.lease_end_states_amount = 1 }
+				}
+				ROOT = { save_global_event_target_as = unsc_initiator }
+				set_global_flag = resolution_veto_disabled
+				ENG = {
+					save_global_event_target_as = unsc_target
+					cw_unsc_set_like_resolution = yes
+					set_country_flag = unsc_generic_resolution_revoke_lease 
+				}
+				ENG = { cw_unsc_set_abstain_resolution = yes }
+				USA = { cw_unsc_set_like_resolution = yes set_country_flag = wants_unsc_support }
+				SOV = { cw_unsc_set_like_resolution = yes }
+				FRA = { cw_unsc_set_like_resolution = yes }
+				set_global_flag = unsc_major_historical_resolution
+				cw_unsc_start_resolution_effect = yes
+			}
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+	
+	focus = {
+		id = UNN_hold_trieste_referendum		#United Nations Trieste Referendum
+		available = {
+			controls_state = 789
+			cw_holding_referendum = no
+			date > 1954.1.1
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_self_management
+		x = 10
+		y = 6
+		cost = 1
+
+		available_if_capitulated = no
+		continue_if_invalid = yes
+
+		select_effect = {
+			hidden_effect = {
+				UNN = { set_country_flag = territory_demanding_outside_annexation }
+				YUG = { save_event_target_as = state_ref_first_option_temp }
+				ITA = { save_event_target_as = state_ref_second_option_temp }
+				789 = { cw_state_ref_initial_setup = yes }
+			}
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+	
+	focus = {
+		id = UNN_release_palestine		#UN Releases Palestine and Israel if territory returned by UK
+		available = {
+			454 = { is_fully_controlled_by = ROOT }
+			454 = { is_fully_controlled_by = ROOT }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_self_management
+		x = 10
+		y = 10
+		cost = 3
+
+		available_if_capitulated = no
+		continue_if_invalid = yes
+
+		select_effect = {
+		}
+		completion_reward = {
+			hidden_effect = {
+				794 = { cw_revoke_state_lease = yes }
+				793 = { cw_revoke_state_lease = yes }
+				454 = { cw_revoke_state_lease = yes }
+				ISR = {
+					transfer_state = 454
+					cw_make_unrecognized = yes
+					set_politics = {
+						ruling_party = unaligned_right
+						elections_allowed = no
+					}
+					set_popularities = {
+						democratic  = 0
+						democratic_socialist = 60
+						neutrality = 0
+						communism_totalitarian = 40
+						unaligned_right = 0
+						colonial =  0
+					}
+					load_oob = "ISR_1946"
+				}
+				454 = {
+					add_core_of = ISR
+					add_claim_by = PAL
+				}
+				PAL = { cw_make_unrecognized = yes }
+				PAL = {
+					transfer_state = 793
+					transfer_state = 794
+					set_politics = {
+						ruling_party = unaligned_right
+						elections_allowed = no
+					}
+					set_popularities = {
+						democratic  = 10
+						democratic_socialist = 0
+						neutrality = 10
+						communism_totalitarian = 20
+						unaligned_right = 60
+						colonial =  0
+					}
+					create_country_leader = {
+						name = "Amin al-Husseini"
+						desc = ""
+						picture = "PALH1.dds"
+						ideology = fascistic_idolg
+						expire = 1952.9.18
+						traits = {}
+					}
+					load_oob = "PAL_1946"
+				}
+				793 = {
+					add_core_of = PAL
+					add_claim_by = ISR
+					add_claim_by = JOR
+				}
+				794 = {
+					add_core_of = PAL
+					add_claim_by = ISR
+					add_claim_by = EGY
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+	focus = {
+		id = UNN_resolution_1514		#Decolonization resolution
+		available = {
+			date > 1960.1.1
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+		bypass = {
+		}
+		
+		icon = GFX_USA_truman_doctrine
+		x = 10
+		y = 3
+		cost = 0
+
+		available_if_capitulated = yes
+		continue_if_invalid = yes
+		
+		select_effect = {
+			### NOTIFICATION ###
+			save_global_event_target_as = unsc_initiator
+			save_global_event_target_as = unsc_target
+			set_global_flag = unsc_major_historical_resolution
+			set_country_flag = unsc_decolonization_1514_resolution
+			set_global_flag = resolution_veto_disabled
+			SOV = { cw_unsc_set_like_resolution = yes }
+			USA = { cw_unsc_set_like_resolution = yes }
+			every_country = { limit = { has_idea = cw_un_non_permanent capital_scope = { is_on_continent = africa } } cw_unsc_set_like_resolution = yes }	
+			if = {
+				limit = {
+					is_historical_focus_on = yes
+				}
+				every_country = { limit = { is_ai = yes OR = { has_idea = cw_un_permanent has_idea = cw_un_non_permanent } any_owned_state = { is_on_continent = africa } capital_scope = { is_on_continent = europe } } set_country_flag = abstain_from_resolution }
+				else = {
+					every_country = { limit = { is_ai = yes  OR = { has_idea = cw_un_permanent has_idea = cw_un_non_permanent } any_owned_state = { is_on_continent = africa } capital_scope = { is_on_continent = europe } } cw_unsc_set_hate_resolution = yes }								
+				}
+			}
+			cw_unsc_start_resolution_effect = yes		
+		}
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}		
+	}	
+}

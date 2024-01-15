@@ -1,0 +1,114 @@
+﻿########################
+# WAR EXAUSTION EVENTS #
+########################
+add_namespace = cw_war_exaustion_events
+country_event = {		# Anti War Protests
+	id = cw_war_exaustion_events.1
+	title = cw_war_exaustion_events.1.t
+	desc = cw_war_exaustion_events.1.d
+	picture = GFX_event_peaceful_protest
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Ok"
+	}
+}
+country_event = {		# Small Strikes
+	id = cw_war_exaustion_events.2
+	title = cw_war_exaustion_events.2.t
+	desc = cw_war_exaustion_events.2.d
+	picture = GFX_event_peaceful_protest
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Nothing we can do"
+		add_timed_idea = { idea = strikes_1 days = 90 }
+		add_popularity = { ideology = var:highest_party_ideology@exclude_ruling_party popularity = 0.05 }
+	}
+	option = {
+		name = "Crush the strike"
+		add_timed_idea = { idea = strikes_1 days = 30 }
+		add_popularity = { ideology = ROOT popularity = -0.1 }	
+		add_popularity = { ideology = var:highest_party_ideology@exclude_ruling_party popularity = 0.10 }	
+	}	
+}
+country_event = {		# Large Strikes
+	id = cw_war_exaustion_events.3
+	title = cw_war_exaustion_events.3.t
+	desc = cw_war_exaustion_events.3.d
+	picture = GFX_event_peaceful_protest
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Nothing we can do"
+		add_timed_idea = { idea = strikes_2 days = 180 }
+		add_popularity = { ideology = var:highest_party_ideology@exclude_ruling_party popularity = 0.05 }
+	}
+	option = {
+		name = "Crush the strike"
+		add_timed_idea = { idea = strikes_1 days = 120 }
+		add_popularity = { ideology = var:highest_party_ideology@exclude_ruling_party popularity = 0.10 }
+	}	
+}
+country_event = {		# Draft Evasions
+	id = cw_war_exaustion_events.4
+	title = cw_war_exaustion_events.4.t
+	desc = cw_war_exaustion_events.4.d
+	picture = GFX_event_peaceful_protest
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Ok"
+		add_manpower = -500
+	}
+}
+country_event = {		# Government Instability
+	id = cw_war_exaustion_events.5
+	title = cw_war_exaustion_events.5.t
+	desc = cw_war_exaustion_events.5.d
+	picture = GFX_event_peaceful_protest
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Ok"
+		if = {
+			limit = {
+				OR = {
+					has_government = democratic
+					has_government = democratic_socialist
+				}
+			}
+			add_timed_idea = { idea = unstable_government_communist days = 180 }
+			else  = {
+				add_timed_idea = { idea = unstable_government days = 180 }				
+			}
+		}
+		add_popularity = { ideology = var:highest_party_ideology@exclude_ruling_party popularity = 0.15 }
+		random_list = {
+			50 = {
+				cw_remove_defense_advisor = yes
+			}
+			50 = {
+				cw_remove_army_chief_advisor = yes
+			}
+		}		
+	}
+}
+country_event = {		# Demand to stop war
+	id = cw_war_exaustion_events.6
+	title = cw_war_exaustion_events.6.t
+	desc = cw_war_exaustion_events.6.d
+	picture = GFX_event_peaceful_protest
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Ok"
+		activate_mission = cw_government_demands_war_end	
+	}
+}

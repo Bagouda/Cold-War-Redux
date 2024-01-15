@@ -1,0 +1,64 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			###############################################################
+			######## ADDING ALLIED CONTROL COUNCIL COUNTRIES ##############
+			###############################################################
+			every_state = {
+				limit = {
+					is_core_of = GER
+					NOT = { is_controlled_by = POL }
+				}
+				add_resistance = 30
+				add_state_modifier = {
+					modifier = {
+						required_garrison_factor = 2.0
+					}
+				}				
+			}
+			every_country = {
+				limit = {
+					any_owned_state = {
+						OR = {
+							any_neighbor_state = { is_core_of = GER }
+							any_neighbor_state = { is_core_of = AUS }
+						}
+					}
+					is_major = no
+					NOT = { tag = BRL }
+					NOT = { tag = SWI }
+					NOT = { tag = FRA }
+					NOT = { tag = ENG }
+				}
+				cw_add_to_european_union_observers = yes
+			}
+			set_global_flag = ACC_active
+			GER = {
+				add_to_array = { USA.countries_who_pay_us_reparations = THIS.id }
+				add_to_array = { SOV.countries_who_pay_us_reparations = THIS.id }
+				add_to_array = { FRA.countries_who_pay_us_reparations = THIS.id }
+				add_to_array = { ENG.countries_who_pay_us_reparations = THIS.id }
+				set_variable = { amount_of_reperations_remaining@SOV = 15 }
+				set_variable = { amount_of_reperations_remaining@USA = 10 }
+				set_variable = { amount_of_reperations_remaining@FRA = 15 }
+				set_variable = { amount_of_reperations_remaining@ENG = 10 }
+			}
+			SOV = {
+				add_to_array = { global.euu_members_array = THIS.id }
+				add_to_array = { global.euu_members_array_acc = THIS.id }
+			}
+			USA = { 
+				add_to_array = { global.euu_members_array = THIS.id }
+				add_to_array = { global.euu_members_array_acc = THIS.id }
+			}
+			FRA = { 
+				add_to_array = { global.euu_members_array = THIS.id }
+				add_to_array = { global.euu_members_array_acc = THIS.id }
+			}
+			ENG = { 
+				add_to_array = { global.euu_members_array = THIS.id }
+				add_to_array = { global.euu_members_array_acc = THIS.id }		
+			}
+		}
+	}
+}

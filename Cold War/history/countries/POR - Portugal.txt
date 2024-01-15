@@ -1,0 +1,178 @@
+﻿capital = 112
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+
+oob = "POR_1946"
+set_naval_oob = "POR_1946_naval_mtg"
+
+set_technology = {
+	advanced_infantry_weapons = 1
+	basic_naval_mines = 1
+	submarine_mine_laying = 1
+	advanced_fire_control_system = 1
+    antiair5 = 1
+	advanced_ship_hull_light = 1
+	smoke_generator = 1
+	modern_depth_charges = 1
+	improved_sonar = 1
+	homing_torpedo = 1
+	electric_torpedo = 1
+	modern_ship_torpedo_launcher = 1
+	advanced_ship_hull_submarine = 1
+	improved_submarine_snorkel = 1
+	advanced_light_battery = 1
+	advanced_medium_battery = 1
+	advanced_heavy_battery = 1
+	
+	fire_control_methods_3 = 1
+	advanced_centimetric_radar = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	tech_support = 1		
+	tech_engineers = 1
+	fighter3 = 1
+	early_fighter = 1
+	early_bomber = 1
+	CAS1 = 1
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		basic_battery = 1
+		basic_torpedo = 1
+		basic_depth_charges = 1
+		mtg_transport = 1
+}
+
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	add_ideas = {
+		cw_non_recognized_state
+	}
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 10
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 20
+		unaligned_right = 50
+		fascism = 20
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Óscar Carmona"
+		desc = ""
+		picture = "PORH1.dds"
+		ideology = military_conservative_idolg
+		expire = 1951.4.18
+		traits = {}
+	}
+}
+1948.5.14 = {
+}
+1950.6.25 = {
+}
+1956.10.29 = {
+	create_country_leader = {
+		name = "Francisco Craveiro Lopes"
+		desc = ""
+		picture = "PORH2.dds"
+		ideology = neutrality_idolg
+		expire = 1958.8.9
+		traits = {}
+	}
+}
+1961.12.11 = {
+	create_country_leader = {
+		name = " António Ramalho Eanes"
+		desc = ""
+		picture = "PORH6.dds"
+		ideology = social_liberal_idolg
+		expire = 1986.3.9
+		traits = {}
+	}
+	create_country_leader = {
+		name = "António de Spínola"
+		desc = ""
+		picture = "PORH4.dds"
+		ideology = military_idolg
+		expire = 1974.9.30
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Américo Tomás"
+		desc = ""
+		picture = "PORH3.dds"
+		ideology = neutrality_idolg
+		expire = 1974.4.25
+		traits = {}
+	}
+}
+1979.12.24 = {
+}
+1985.1.1 = {
+	set_politics = {
+		ruling_party = democratic
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 60
+		democratic_socialist = 0
+		neutrality = 20
+		communism_totalitarian = 20
+		unaligned_right = 0
+		colonial =  0
+	}		
+}
+1989.1.9 = {
+	set_politics = {
+		ruling_party = democratic
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Mário Soares"
+		desc = ""
+		picture = "PORH7.dds"
+		ideology = social_democrat_idolg
+		expire = 1996.3.9
+		traits = {}
+	}
+}
+
+	# Submarines #
+	create_equipment_variant = {
+		name = "Amplion Class"				
+		type = ship_hull_submarine_4
+		#name_group = POR_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_4
+			fixed_ship_engine_slot = sub_ship_engine_4
+			rear_1_custom_slot = empty
+		}
+	}
+	# Destroyers #
+	
+	create_equipment_variant = {
+		name = "Douro Class"	
+		type = ship_hull_light_4
+		#name_group = POR_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_4
+			fixed_ship_anti_air_slot = ship_anti_air_4
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+			fixed_ship_radar_slot = ship_radar_4
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_4
+			mid_1_custom_slot = ship_mine_layer_1
+			rear_1_custom_slot = ship_depth_charge_4
+		}
+	}

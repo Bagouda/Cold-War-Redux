@@ -1,0 +1,36 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Infantry Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+	}
+}
+
+units = {
+    division = {
+		location = 7622
+		division_template = "Infantry Brigade"
+	}
+    division = {
+		location = 7622
+		division_template = "Infantry Brigade"
+	}
+    division = {
+		location = 13224
+		division_template = "Infantry Brigade"
+	}
+    division = {
+		location = 13224
+		division_template = "Infantry Brigade"
+	}
+    division = {
+		location = 7590
+		division_template = "Infantry Brigade"
+	}
+    division = {
+		location = 7590
+		division_template = "Infantry Brigade"
+	}	
+}

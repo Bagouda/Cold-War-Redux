@@ -1,0 +1,27 @@
+state = {
+	id=51
+	local_supplies=0.0 
+	name="STATE_51"
+	state_category = devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 587 }
+ 	set_variable = { victory_point = 20 }
+		owner = ENG
+		add_core_of = GER
+		
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+		}
+		victory_points = {
+			587 20 
+		}
+	}
+	resources={
+		steel=30 # was: 54
+	}
+	manpower = 3144743
+	provinces={
+		587 3444 3547 9522 
+	}
+}

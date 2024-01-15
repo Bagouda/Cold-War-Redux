@@ -1,0 +1,47 @@
+state={
+	id=832
+	local_supplies=0.0 
+	name="STATE_832"
+	resources={
+		tungsten=28.000
+		crops = 5.000
+	}	
+	
+	history={
+ 	add_to_array = { list_victory_point = 978 }
+ 	add_to_array = { list_victory_point = 11835 }
+ 	set_variable = { victory_point = 16 }
+		owner = SOV
+		add_core_of = PRK
+		add_claim_by = KOR
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}		
+		
+		1948.9.9 = {
+			owner = SOV
+		}		
+		
+		buildings = {
+			infrastructure = 1
+			arms_factory = 2
+		}
+		victory_points = {
+			11835  5	#Sinuiju
+		}
+		victory_points = {
+			978  11			#Jonchon
+		}
+	}	
+	
+	provinces={
+		852 906 912 978 3912 6963 9795 9918 11775 11828 11835 11896 
+	}
+	manpower = 1300000
+	buildings_max_level_factor=1.000
+	state_category = pastoral
+}

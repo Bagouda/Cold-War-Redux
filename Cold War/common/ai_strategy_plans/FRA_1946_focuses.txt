@@ -1,0 +1,48 @@
+FRA_historical_plan_1946 = {
+	name = "France 1946 Focuses"
+	desc = ""
+
+	enable = {
+		tag = FRA
+		is_historical_focus_on = yes
+		has_focus_tree = france_1946_focus_tree
+	}
+	abort = {
+		has_government = communism_totalitarian
+	}
+
+	ai_national_focuses = {
+		FRA_post_war_france
+		FRA_empower_mrp
+		FRA_1946_elections
+		FRA_vietnam_baoi_dai_solution
+		FRA_hold_constitution_referendum
+		FRA_rebuild_relations_usa
+		FRA_secure_american_aid
+		FRA_interventions_support_israel
+		FRA_expel_communists
+		FRA_begin_reconstruction
+		FRA_rebuild_mainland
+		FRA_integrate_collaborators
+		FRA_disassemble_maginot
+	}
+
+	research = {
+	}
+
+	ideas = {
+	}
+	traits = {
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 10.0
+		}
+	}
+}

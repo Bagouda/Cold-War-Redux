@@ -1,0 +1,36 @@
+state={
+	id=333
+	local_supplies=0.0 
+	name="STATE_333"
+	resources={
+		crops = 5
+	}
+
+	history={
+		owner = MAL
+		add_core_of = MAL
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}		
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			
+			12905 = {
+				naval_base = 1
+			}
+		}		
+	}
+
+	provinces={
+		1208 1306 1335 2117 4216 4282 4338 4396 7358 7371 7443 8091 10143 10199 10212 10240 10269 10285 12171 12186 12228 12283 12905 
+	}
+	manpower=1885000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

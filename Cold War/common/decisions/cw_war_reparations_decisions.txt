@@ -1,0 +1,512 @@
+@CW_WAR_REPARATION_PAYMENT_TIMER = 35
+@CW_WAR_REPARATION_PAYMENT_TIMER_OFFSET = 37		#Must be higher by 2 than CW_WAR_REPARATION_PAYMENT_TIMER
+@CW_WAR_REPARATIONS_DELIBERATION_PERIOD = 30
+@CW_WAR_REPARATIONS_PARTY_DRIFT_EFFECT = 0.05
+cw_war_reparations_to_us_category = {	
+	cw_generic_war_reparations_collect_war_payment = {
+
+		icon = GFX_decision_hol_attract_foreign_investors
+		
+		allowed = {
+			always = yes
+		}
+
+		visible = {
+			FROM = { exists = yes }
+			is_ai = no
+		}
+
+		target_trigger = {
+			FROM = {
+				is_in_array = {
+					array = ROOT.countries_who_pay_us_reparations
+					value = THIS.id
+				}
+				check_variable = { amount_of_reperations_remaining@ROOT > 0 }
+			}
+		}
+
+		available = {
+			FROM = { exists = yes }
+			custom_trigger_tooltip = {
+				tooltip = GENERIC_WAR_REPARATIONS_COLLECT_WAR_PAYMENT_REQUIRMENT_1
+				NOT = { has_country_flag = { flag = paying_war_payments value = FROM.id } }				
+			}
+			custom_trigger_tooltip = {
+				tooltip = GENERIC_WAR_REPARATIONS_COLLECT_WAR_PAYMENT_REQUIRMENT_2
+				FROM = { check_variable = { amount_of_reperations_remaining@ROOT > 0 } }
+			}
+		}
+
+		cost = 0
+		days_re_enable = @CW_WAR_REPARATIONS_DELIBERATION_PERIOD
+
+		complete_effect = {
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							has_government = communism_totalitarian
+							has_government = communism
+						}
+					}
+				}
+				custom_effect_tooltip = NATIONALIST_ORG_INCREASE_WARNING
+				FROM = { activate_targeted_decision = { target = ROOT decision = cw_generic_war_reparations_transfer_payment_nationalist_increase } }
+				else = {
+					custom_effect_tooltip = COMMUNIST_ORG_INCREASE_WARNING
+					FROM = { activate_targeted_decision = { target = ROOT decision = cw_generic_war_reparations_transfer_payment_communist_increase } }
+				}
+			}
+		
+			if = {
+				limit = {
+					FROM = { check_variable = { amount_of_reperations_remaining@ROOT = 1 } }
+				}
+				custom_effect_tooltip = LAST_PAYMENT_NOTIFICATION
+				FROM = {
+					remove_from_array = {
+						array = ROOT.countries_who_pay_us_reparations
+						value = THIS.id
+					}					
+				}				
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = -50
+				tag = USA
+			}
+		}
+	}
+	cw_generic_war_reparations_on_map_seize_factories = {
+
+		icon = GFX_decision_generic_factory
+		on_map_mode = map_only
+		
+		allowed = {
+			always = yes
+		}		
+
+		visible = {
+			NOT = { FROM = { state = 850 } }
+			FROM = {
+				OWNER = {
+					is_in_array = {
+						array = ROOT.countries_who_pay_us_reparations
+						value = THIS.id
+					}
+				}
+				OR = {
+					is_controlled_by = ROOT
+					OWNER = { is_puppet_of = ROOT }
+					ROOT = { has_military_access_to = FROM.OWNER }
+				}
+			}
+			if = {
+				limit = {
+					var:FROM.core_countries^0 = { exists = yes }
+				}			
+				custom_trigger_tooltip = {
+					tooltip = GENERIC_WAR_REPARATIONS_COLLECT_WAR_PAYMENT_REQUIRMENT_STATE
+					FROM.OWNER = { check_variable = { amount_of_reperations_remaining@ROOT > 0 } }
+				}
+			}			
+		}
+
+		state_target = yes
+		target_array = GER.core_states
+		target_trigger = {
+			FROM = {
+				OR = {
+					arms_factory > 0
+					industrial_complex > 0
+				}
+			}
+		}
+
+		available = {
+			if = {
+				limit = {
+					var:FROM.core_countries^0 = { exists = no }
+				}
+				FROM = {
+					is_controlled_by = ROOT
+				}
+			}			
+			if = {
+				limit = {
+					var:FROM.core_countries^0 = { exists = yes }
+				}
+				custom_trigger_tooltip = {
+					tooltip = GENERIC_WAR_REPARATIONS_COLLECT_WAR_PAYMENT_REQUIRMENT_1
+					ROOT = { NOT = { has_country_flag = { flag = paying_war_payments value = OWNER.id } } }
+				}				
+				custom_trigger_tooltip = {
+					tooltip = GENERIC_WAR_REPARATIONS_COLLECT_WAR_PAYMENT_REQUIRMENT_STATE
+					FROM.OWNER = { check_variable = { amount_of_reperations_remaining@ROOT > 0 } }
+				}				
+				FROM.OWNER = { num_of_factories > 5 }
+				ROOT = { has_military_access_to = FROM.OWNER }				
+			}
+		}
+
+		cost = 0
+		days_re_enable = 0
+		days_remove = 90
+
+		modifier = {
+			compliance_gain = -0.25
+		}		
+
+		complete_effect = {
+			custom_effect_tooltip = CIVLIAN_AND_MILITARY_FACTORIES_REMOVED_EFFECT
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					var:FROM.core_countries^0 = { exists = yes }
+				}
+				FROM.OWNER = {
+					custom_effect_tooltip = CW_SEIZE_ASSETS_EFFECT_TT
+					subtract_from_variable = { amount_of_reperations_remaining@ROOT = 1 } 
+				}
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_government = communism_totalitarian
+								has_government = communism
+							}
+						}
+					}
+					FROM.OWNER = { add_popularity = { ideology = unaligned_right popularity = 0.05 } }
+					else = {
+						FROM.OWNER = { add_popularity = { ideology = communism_totalitarian popularity = 0.05 } }
+					}
+				}
+				FROM.OWNER = { add_opinion_modifier = { target = ROOT modifier = protest_action_light } }
+				custom_effect_tooltip = CW_INSERT_NEW_LINE				
+			}
+			FROM = {
+				if = {
+					limit = {
+						arms_factory > 0
+					}
+					remove_building = {
+						type = arms_factory
+						level = 1
+					}
+					ROOT = {
+						random_owned_state = {
+							limit = {
+								is_core_of = ROOT
+								is_in_home_area = yes
+							}
+							add_building_construction = {
+								type = arms_factory
+								level = 1
+								instant_build = yes
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						industrial_complex > 0
+					}
+					remove_building = {
+						type = industrial_complex
+						level = 1
+					}
+					ROOT = {
+						random_owned_state = {
+							limit = {
+								is_core_of = ROOT
+								is_in_home_area = yes
+							}
+							add_building_construction = {
+								type = industrial_complex
+								level = 1
+								instant_build = yes
+							}
+						}
+					}
+				}				
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = -50
+				tag = USA
+			}
+			modifier = {
+				factor = -50
+				tag = ENG
+			}			
+		}
+	}	
+	cw_generic_recieving_war_reparations = {
+	
+		icon = GFX_decision_hol_attract_foreign_investors
+		
+		allowed = {
+			always = no
+		}
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ""
+				always = no
+			}
+		}
+
+		activation = { always = no }
+		days_remove = @CW_WAR_REPARATION_PAYMENT_TIMER
+		days_mission_timeout = 0
+		fire_only_once = yes
+		is_good = yes
+		selectable_mission = no
+
+		modifier = {
+			consumer_goods_factor = -0.05
+			production_speed_buildings_factor = 0.05
+			local_resources = 0.05
+		}
+		timeout_effect = {
+		}
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}		
+	}	
+	ger_occupation_raise_reparations = {
+
+		icon = GFX_decision_gre_paying_ifc_debt
+		
+		allowed = {
+			always = yes
+		}		
+
+		visible = {
+			ROOT = { is_euu_member = yes }
+			has_global_flag = ACC_active
+		}
+
+		target_trigger = {
+			tag = GER
+		}
+
+		available = {
+			euu_in_session = no
+			euu_implementing_resolution = no
+			FROM = { exists = yes }
+		}
+
+		cost = 100
+		days_re_enable = 60
+		
+		complete_effect = {
+			if = {
+				limit = {
+					is_euu_member = yes
+				}
+				FROM = { 
+					cultural_union_generic_increase_reparations = yes 
+					add_opinion_modifier = { target = ROOT modifier = protest_action }
+				}
+				cw_euu_make_resolution_absolute = yes
+				FRA = { cw_cultural_union_set_like_resolution = yes }
+				ENG = { cw_cultural_union_set_abstain_resolution = yes }
+				SOV = { cw_cultural_union_set_like_resolution = yes }
+				USA = { cw_cultural_union_set_hate_resolution  = yes }				
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}
+cw_war_reparations_from_us_category = {
+	cw_generic_war_reparations_transfer_payment_communist_increase = {
+
+		icon = GFX_handout_decision_icon
+		
+		allowed = {
+			always = no
+		}
+
+		visible = {
+			FROM = { exists = yes }
+		}
+
+		activation = {
+			always = no
+		}
+
+		available = {
+			always = yes		
+		}
+
+		cost = 0
+		days_mission_timeout = @CW_WAR_REPARATIONS_DELIBERATION_PERIOD
+		days_remove = @CW_WAR_REPARATION_PAYMENT_TIMER
+		selectable_mission = yes
+		fire_only_once = yes
+		is_good = no
+
+		modifier = {
+			consumer_goods_factor = 0.05
+			communism_totalitarian_drift = @CW_WAR_REPARATIONS_PARTY_DRIFT_EFFECT
+			communism_drift = @CW_WAR_REPARATIONS_PARTY_DRIFT_EFFECT
+		}
+
+		timeout_effect = {
+			add_named_threat = {  threat = 5 name = CW_MISSED_WAR_REPARATIONS_PAYMENT }			
+			unsc_mark_for_sanctions = yes
+			custom_effect_tooltip = "CW_INSERT_NEW_SPACE"
+		}
+
+		complete_effect = {
+			subtract_from_variable = { amount_of_reperations_remaining@FROM = 1 }
+			FROM = { 
+				set_country_flag = {
+					flag = paying_war_payments
+					days = @CW_WAR_REPARATION_PAYMENT_TIMER_OFFSET
+					value = 1
+				}				
+				activate_targeted_decision = { target = ROOT decision = cw_generic_recieving_war_reparations } 
+			}
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	cw_generic_war_reparations_transfer_payment_nationalist_increase = {
+
+		icon = GFX_handout_decision_icon
+		
+		allowed = {
+			always = no
+		}
+
+		visible = {
+			FROM = { exists = yes }
+		}
+
+		activation = {
+			always = no
+		}
+
+		available = {
+			always = yes		
+		}
+
+		cost = 0
+		days_mission_timeout = @CW_WAR_REPARATIONS_DELIBERATION_PERIOD
+		days_remove = @CW_WAR_REPARATION_PAYMENT_TIMER
+		selectable_mission = yes
+		fire_only_once = yes
+		is_good = no
+
+		modifier = {
+			consumer_goods_factor = 0.05
+			unaligned_right_drift = @CW_WAR_REPARATIONS_PARTY_DRIFT_EFFECT
+		}
+
+		timeout_effect = {
+			add_named_threat = {  threat = 5 name = CW_MISSED_WAR_REPARATIONS_PAYMENT }			
+			unsc_mark_for_sanctions = yes
+			custom_effect_tooltip = "CW_INSERT_NEW_SPACE"
+		}
+
+		complete_effect = {
+			subtract_from_variable = { amount_of_reperations_remaining@FROM = 1 }
+			FROM = { 
+				set_country_flag = {
+					flag = paying_war_payments
+					days = @CW_WAR_REPARATION_PAYMENT_TIMER_OFFSET
+					value = 1
+				}				
+				activate_targeted_decision = { target = ROOT decision = cw_generic_recieving_war_reparations } 
+			}
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+	}	
+	cw_suspend_all_debt_payments_to_country = {
+
+		icon = GFX_decision_generic_break_treaty
+		
+		allowed = {
+			always = yes
+		}
+
+		visible = {
+			FROM = { exists = yes }
+		}
+
+		target_trigger = {
+			ROOT = {
+				is_in_array = {
+					array = FROM.countries_who_pay_us_reparations
+					value = THIS.id
+				}
+			}
+		}
+
+		available = {
+			always = yes		
+		}
+
+		cost = 100
+		days_remove = 180
+		is_good = no
+
+		modifier = {
+			consumer_goods_factor = 0.15
+			unaligned_right_drift = 0.15
+		}
+
+		complete_effect = {
+			add_named_threat = {  threat = 15 name = CW_REFUSED_WAR_REPARATIONS_PAYMENT }			
+			unsc_mark_for_sanctions = yes
+			custom_effect_tooltip = "CW_INSERT_NEW_SPACE"
+			FROM = { 
+				add_opinion_modifier = { target = ROOT modifier = protest_action_strong }
+				set_country_flag = { flag = lets_sanction_their_ass value = 1 days = 60 }
+				save_global_event_target_as = country_who_we_paid_to
+			}
+			hidden_effect = {
+				news_event = generic_events.11
+				clear_global_event_target = country_who_we_paid_to
+				clear_variable = amount_of_reperations_remaining@FROM
+				remove_from_array = {
+					array = FROM.countries_who_pay_us_reparations
+					value = ROOT.id
+				}				
+			}
+		}
+		
+		ai_will_do = {
+			factor = -50
+			modifier = {
+				factor = 10
+				has_government = unaligned_right
+			}
+			modifier = {
+				factor = 50
+				has_opinion = { target = FROM value < -20 }
+			}
+		}
+	}		
+}

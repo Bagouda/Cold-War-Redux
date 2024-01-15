@@ -1,0 +1,116 @@
+cgr_push_into_greece = {
+	enable = {
+		tag = CGR
+	}
+	abort = {
+		NOT = { has_war_with = GRE }
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "GRE"			
+		value = 100
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = "GRE"
+		value = 100
+	}	
+}
+gre_civil_war_intervention_yug = {
+	enable = {
+		tag = YUG
+		is_historical_focus_on = yes
+	}
+	abort = {
+		NOT = { GRE = { has_war_with = CGR } }
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "CGR"
+		value = 500
+	}
+}
+gre_civil_war_intervention_alb = {
+	enable = {
+		tag = ALB
+		is_historical_focus_on = yes
+	}
+	abort = {
+		NOT = { GRE = { has_war_with = CGR } }
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "CGR"
+		value = 500
+	}
+}
+gre_civil_war_intervention_sov_historical = {
+	enable = {
+		tag = SOV
+		is_historical_focus_on = yes
+	}
+	abort = {
+		USA = { has_war_with = CGR }
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "CGR"
+		value = -200
+	}
+}
+gre_civil_war_intervention_sov_ahistorical = {
+	enable = {
+		tag = SOV
+		is_historical_focus_on = no
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "CGR"
+		value = 100
+	}
+	abort_when_not_enabled = yes
+}
+gre_civil_war_intervention_eng_historical = {
+	enable = {
+		tag = ENG
+		CGR = { has_offensive_war_with = GRE }
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "GRE"
+		value = 200
+	}
+	abort_when_not_enabled = yes
+}
+gre_civil_war_intervention_usa_historical = {
+	enable = {
+		tag = USA
+		CGR = { has_offensive_war_with = GRE }
+	}
+	ai_strategy = {
+		type = befriend
+		id = "GRE"
+		value = 100
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "GRE"
+		value = 500
+	}
+}
+gre_civil_war_intervention_usa_gre_loosing = {
+	enable = {
+		tag = USA
+		GRE = { has_war_with = CGR }
+		USA = { has_completed_focus = USA_greek_civil_war }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "GRE"
+		value = 500
+	}
+}

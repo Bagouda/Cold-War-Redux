@@ -1,0 +1,57 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_referendum_votes_indicator_1"
+		texturefile = "gfx/interface/referendum/referendum_votes_graphic_1.dds"
+		noOfFrames = 21
+	}
+	spriteType = {
+		name = "GFX_referendum_votes_indicator_2"
+		texturefile = "gfx/interface/referendum/referendum_votes_graphic_2.dds"
+		noOfFrames = 21
+	}
+	spriteType = {
+		name = "GFX_referendum_votes_indicator_3"
+		texturefile = "gfx/interface/referendum/referendum_votes_graphic_3.dds"
+		noOfFrames = 21
+	}
+	spriteType = {
+		name = "GFX_elections_background_communist"
+		texturefile = "gfx/interface/referendum/elections_background_communist.dds"
+	}	
+	spriteType = {
+		name = "GFX_referendum_background"
+		texturefile = "gfx/interface/referendum/referendum_background.dds"
+	}
+	spriteType = {
+		name = "GFX_yes_no_referendum_choice_yes"
+		texturefile = "gfx/interface/referendum/yes_no_ref_yes_option.dds"
+	}
+	spriteType = {
+		name = "GFX_yes_no_referendum_choice_no"
+		texturefile = "gfx/interface/referendum/yes_no_ref_no_option.dds"
+	}		
+	spriteType = {
+		name = "GFX_mon_referendum_choice_republic"
+		texturefile = "gfx/interface/referendum/mon_ref_option_republic.dds"
+	}
+	spriteType = {
+		name = "GFX_mon_referendum_choice_c_monarchy"
+		texturefile = "gfx/interface/referendum/mon_ref_option_c_monarchy.dds"
+	}
+	spriteType = {
+		name = "GFX_mon_referendum_choice_a_monarchy"
+		texturefile = "gfx/interface/referendum/mon_ref_option_a_monarchy.dds"
+	}
+	spriteType = {
+		name = "GFX_ref_state_background"
+		texturefile = "gfx/interface/referendum/ref_state_background.dds"
+	}
+	spriteType = {
+		name = "GFX_ref_diplomacy_background"
+		texturefile = "gfx/interface/referendum/ref_diplomacy_4_background.dds"
+	}
+	spriteType = {
+		name = "GFX_mon_ref_diplomacy_background"
+		texturefile = "gfx/interface/referendum/mon_ref_diplomacy_background.dds"
+	}	
+}

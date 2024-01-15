@@ -1,0 +1,34 @@
+﻿division_template = {
+	name = "Cavarly Division"
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 2 y = 2 }
+	}
+}
+units = {
+	division = {
+		location = 7866
+		division_template = "Cavarly Division"
+	}
+	division = {
+		location = 1844
+		division_template = "Cavarly Division"
+	}
+	division = {
+		location = 1703
+		division_template = "Cavarly Division"
+	}
+	division = {
+		location = 4823
+		division_template = "Cavarly Division"
+	}
+	division = {
+		location = 4823
+		division_template = "Cavarly Division"
+	}
+	division = {
+		location = 4823
+		division_template = "Cavarly Division"
+	}	
+}

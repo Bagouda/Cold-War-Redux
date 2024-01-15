@@ -1,0 +1,37 @@
+state = {
+	id=447
+	local_supplies=0.0 
+	name="STATE_447"
+	state_category = large_city
+	history = {
+ 	add_to_array = { list_victory_point = 4076 }
+ 	add_to_array = { list_victory_point = 1071 }
+ 	set_variable = { victory_point = 21 }
+		owner = EGY
+		add_core_of = EGY
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 4
+			dockyard  = 2
+			4076 = {	#Alexandria Port
+				naval_base = 1
+			}		
+		}
+		
+		victory_points = {
+			1071 1 
+		}		
+		victory_points = {
+			4076 20		#Alexandria
+		}
+	}
+	resources={
+		oil=1 # was: 2
+	}
+	manpower = 3859239
+	provinces={
+		1071 4076 4145 7091 7164 10073 11964  
+	}
+}

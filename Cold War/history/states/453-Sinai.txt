@@ -1,0 +1,31 @@
+state = {
+	id=453
+	local_supplies=0.0 
+	name="STATE_453"
+	state_category = wasteland
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = EGY
+		add_core_of = EGY
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}		
+		
+		1967.6.1 = {
+			owner = ISR
+		}
+		1982.6.1 = {
+			owner = EGY
+		}
+	}
+	manpower = 15359
+	provinces={
+		1112 1155 4161 9947 10002 10099 11922 11979 12073 
+	}
+}

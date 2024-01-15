@@ -1,0 +1,35 @@
+
+state={
+	id=898
+	local_supplies=0.0 
+	name="STATE_898"
+	resources={
+		crops = 15
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 4397 }
+ 	set_variable = { victory_point = 5 }
+		owner = VIN
+		add_core_of = VIN
+		add_core_of = VTC
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}
+		
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = { 4397 5 }	#Vinh
+	}
+	provinces={
+		9988 4397 12297 7280
+	}
+	manpower=5764000
+	buildings_max_level_factor=1.000
+	state_category=town
+}

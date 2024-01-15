@@ -1,0 +1,27 @@
+spriteTypes = {	
+
+	spriteType = {
+		name = "GFX_ideology_neutrality_right_group"
+		texturefile = "gfx/interface/ideologies/neutrality_right_group.dds"
+	}
+
+	spriteType = {
+		name = "GFX_ideology_colonial_group"
+		texturefile = "gfx/interface/ideologies/colonial_group.dds"
+	}
+
+	spriteType = {
+		name = "GFX_ideology_democratic_socialist_group"
+		texturefile = "gfx/interface/ideologies/democratic_socialist_group.dds"
+	}
+
+	spriteType = {
+		name = "GFX_ideology_communism_totalitarian_group"
+		texturefile = "gfx/interface/ideologies/communism_group.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ideology_communism_group"
+		texturefile = "gfx/interface/ideologies/communism_revisionist_group.dds"
+	}
+}

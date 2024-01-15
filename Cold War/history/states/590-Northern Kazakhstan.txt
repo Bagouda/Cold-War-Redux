@@ -1,0 +1,22 @@
+state = {
+	id=590
+	local_supplies=0.0 
+	name="STATE_590" # Akmolinsk
+	state_category = pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 4333 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_claim_by = KAZ
+		victory_points = {
+			4333 1
+		}
+	}
+	manpower = 980533
+	provinces={
+		1223 1229 1309 1375 1391 1418 1662 1680 1694 4232 4238 4281 4333 4850 7298 7326 7383 7407 7425 7874 10211 10239 10308 10633 12152 12619 
+	}
+}

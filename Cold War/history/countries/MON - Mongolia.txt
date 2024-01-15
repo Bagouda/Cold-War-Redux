@@ -1,0 +1,123 @@
+﻿capital = 330
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+
+OOB = MON_1946
+
+set_technology = {
+    antitank5 = 1
+	advanced_light_tank = 1
+	tech_mountaineers3 = 1
+    improved_medium_art = 1
+	advanced_medium_battery = 1
+	advanced_ship_hull_cruiser = 1
+	improved_airplane_launcher = 1
+	advanced_heavy_battery = 1
+	advanced_ship_hull_heavy  = 1
+	advanced_ship_hull_carrier = 1
+	advanced_infantry_weapons = 1
+	advanced_medium_tank = 1
+	mechanised_infantry3 = 1
+	motorised_infantry = 1
+	tech_military_police4 = 1
+	basic_naval_mines = 1
+	submarine_mine_laying = 1
+	advanced_fire_control_system = 1
+    antiair5 = 1
+	advanced_ship_hull_light = 1
+	smoke_generator = 1
+	modern_depth_charges = 1
+	improved_sonar = 1
+	homing_torpedo = 1
+	electric_torpedo = 1
+	modern_ship_torpedo_launcher = 1
+	advanced_ship_hull_submarine = 1
+	improved_submarine_snorkel = 1
+	advanced_light_battery = 1
+	advanced_medium_battery = 1
+	advanced_heavy_battery = 1
+	
+	fire_control_methods_3 = 1
+	advanced_centimetric_radar = 1
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	tech_support = 1		
+	tech_engineers = 1
+	fighter3 = 1
+	cv_fighter3 = 1
+	CAS3 = 1
+	cv_CAS3 = 1
+	naval_bomber3 =1
+	cv_naval_bomber3 = 1
+	heavy_fighter3 = 1
+	tactical_bomber3 = 1
+	strategic_bomber3 = 1
+	early_fighter = 1
+	early_bomber = 1
+	CAS1 = 1
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		basic_battery = 1
+		basic_torpedo = 1
+		basic_depth_charges = 1
+		mtg_transport = 1
+}
+
+
+
+1946.1.1 = {
+	set_politics = {
+		ruling_party = communism_totalitarian
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 30
+		communism_totalitarian = 70
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Khorloogiin Choibalsan"
+		desc = ""
+		picture = "choibalsan.dds"
+		ideology = stalinism_idolg
+		expire = 1954.1.26
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Yumjaagiin Tsedenbal"
+		desc = ""
+		picture = "Tsedenbal.dds"
+		ideology = revisionist_idolg
+		expire = 1991.4.20
+		traits = {}
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korea War
+}
+1961.12.11 = {	#Vietnam War
+	create_country_leader = {
+		name = "Jamsrangiin Sambuu"
+		desc = ""
+		picture = "MONH2.dds"
+		ideology = stalinism_idolg
+		expire = 1953.9.23
+		traits = {}
+	}
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+}
+1989.1.9 = {	#Fall of Berlin Wall
+}

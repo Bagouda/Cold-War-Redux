@@ -1,0 +1,3045 @@
+focus_tree = {
+	id = france_1950_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 50
+			tag = FRA
+		}
+		modifier = {
+			add = -50
+			date > 1960.1.1
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	###################################################
+	
+	shared_focus = ACC_future_of_austria		#	Shared tree for future of Austria/ECSC
+	
+	###################################################
+	focus = {
+		id = FRA_extended_military_reform
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 16
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = {}
+
+		select_effect = {}
+
+		completion_reward = {
+			unlock_national_focus = FRA_conventional_military
+			unlock_national_focus = FRA_rebuild_military_industry
+			unlock_national_focus = FRA_force_de_frappe
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_rebuild_military_industry
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_tank_production
+		x = 7
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_extended_military_reform }
+		relative_position_id = FRA_extended_military_reform
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_mainland_military_industrial_complexes
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_construct_mil_factory
+		x = -1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_rebuild_military_industry }
+		relative_position_id = FRA_rebuild_military_industry
+
+		select_effect = {}
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_mainland_military_infrastrucre
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_rebuild_military_industry }
+		relative_position_id = FRA_rebuild_military_industry
+
+		select_effect = {}
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_in_home_area = yes
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}						
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_improve_island_ports
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_amphibious_assault
+		x = 0
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_rebuild_military_industry }
+		relative_position_id = FRA_rebuild_military_industry
+
+		select_effect = {}
+
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					is_island_state = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}		
+	focus = {
+		id = FRA_force_de_frappe
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_military_sphere
+		x = 0
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_extended_military_reform }
+		relative_position_id = FRA_extended_military_reform
+
+		select_effect = {}
+
+		completion_reward = {
+			army_experience = 50
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_naval_strategy
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_build_navy
+		x = 3
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_force_de_frappe }
+		relative_position_id = FRA_force_de_frappe
+
+		select_effect = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = naval_doctrine
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_expand_carrier_technology
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_navy_carrier
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_naval_strategy }
+		relative_position_id = FRA_naval_strategy
+
+		select_effect = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = cv_tech
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_carrier_planes_research
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_jap_zero
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_expand_carrier_technology }
+		relative_position_id = FRA_expand_carrier_technology
+
+		select_effect = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = naval_air
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}			
+	focus = {
+		id = FRA_land_strategy
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_force_de_frappe }
+		relative_position_id = FRA_force_de_frappe
+
+		select_effect = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = land_doctrine
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_french_special_forces
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_military_mission
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_land_strategy }
+		relative_position_id = FRA_land_strategy
+
+		select_effect = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = marine_tech
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_mobile_infantry_improvments
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_army_motorized
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_special_forces }
+		relative_position_id = FRA_french_special_forces
+
+		select_effect = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = cat_mechanized_equipment
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = FRA_air_strategy
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_expand_the_luftwaffe
+		x = -3
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_force_de_frappe }
+		relative_position_id = FRA_force_de_frappe
+
+		select_effect = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = air_doctrine
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_expand_air_bases
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_production
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_air_strategy }
+		relative_position_id = FRA_air_strategy
+
+		select_effect = {}
+
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					air_base > 1
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_replace_the_mirage
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_CAS
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_expand_air_bases }
+		relative_position_id = FRA_expand_air_bases
+
+		select_effect = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.50
+				uses = 1
+				category = tactical_bomber
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}		
+	focus = {
+		id = FRA_conventional_military
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_secret_rearmament
+		x = -8
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_extended_military_reform }
+		relative_position_id = FRA_extended_military_reform
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_assault_rifile_improvments
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_BUL_bulgarian_administration_of_the_balkans
+		x = 2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_conventional_military }
+		relative_position_id = FRA_conventional_military
+
+		select_effect = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = infantry_weapons
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_amx_tanks
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_army_tanks
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_assault_rifile_improvments }
+		relative_position_id = FRA_assault_rifile_improvments
+
+		select_effect = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = cat_medium_armor
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_artillery_advances
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_army_artillery2
+		x = 0
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_assault_rifile_improvments }
+		relative_position_id = FRA_assault_rifile_improvments
+
+		select_effect = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = artillery
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}		
+	focus = {
+		id = FRA_modernize_air_force
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_air_fighter
+		x = -2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_conventional_military }
+		relative_position_id = FRA_conventional_military
+
+		select_effect = {}
+
+		completion_reward = {
+			air_experience = 50
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_french_plane_designs
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_air_fighter2
+		x = -2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_modernize_air_force }
+		relative_position_id = FRA_modernize_air_force
+		mutually_exclusive = { focus = FRA_foreign_plane_designs }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = cas_bomber
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_foreign_plane_designs
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_air_bomber
+		x = 2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_modernize_air_force }
+		relative_position_id = FRA_modernize_air_force
+		mutually_exclusive = { focus = FRA_french_plane_designs }
+
+		select_effect = {}
+
+		completion_reward = {
+			USA = {
+				create_production_license = {
+					target = FRA
+					equipment = {
+						type = CAS_equipment_6
+						version = 0
+					}
+					cost_factor = 2
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_improve_jet_technology
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_production2
+		x = 0
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_foreign_plane_designs focus = FRA_french_plane_designs }
+		relative_position_id = FRA_modernize_air_force
+
+		select_effect = {}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.25
+				uses = 1
+				category = jet_technology
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	###########################################################
+	####################	FRENCH UNION		###################
+	###########################################################		
+	focus = {
+		id = FRA_french_union
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_fra_le_deluge
+		x = 16
+		y = 10
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = {}
+
+		select_effect = {}
+
+		completion_reward = {
+			add_political_power = 100
+			hidden_effect = {
+				unlock_national_focus = FRA_french_union_indochina
+				unlock_national_focus = FRA_french_union_india
+				unlock_national_focus = FRA_french_union_maghreb
+				unlock_national_focus = FRA_french_union_maghreb_morocco
+				unlock_national_focus = FRA_french_union_maghreb_algeria
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	###########################################################
+	####################	THE MAGHREB		###################
+	###########################################################	
+	focus = {
+		id = FRA_french_union_maghreb
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_magreb_flags
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union }
+		relative_position_id = FRA_french_union
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_french_union_maghreb_morocco
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_french_morocco_flag
+		x = -4
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union_maghreb }
+		relative_position_id = FRA_french_union_maghreb
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_exile_muhammad_v
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_rom_handle_king
+		x = -1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = FRA_french_union_maghreb_morocco }
+		relative_position_id = FRA_french_union_maghreb_morocco
+		mutually_exclusive = { focus = FRA_french_union_maghreb_morocco_independence }
+		
+		select_effect = {}
+
+		completion_reward = {
+			MOR = {
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Mohammed Ben Aarafa"
+					desc = ""
+					picture = "MORH2.dds"
+					ideology = colonial_government
+					expire = 1955.10.30
+					traits = { unpopular_monarch }
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						SDR = { exists = yes }
+					}
+					SDR = {
+						random_list = {
+							25 = {
+								country_event = { id = cw_colonial_setup_events.1 days = 60 }
+							}
+							25 = {
+								country_event = { id = cw_colonial_setup_events.1 days = 90 }
+							}
+							25 = {
+								country_event = { id = cw_colonial_setup_events.1 days = 120 }
+							}
+							25 = {
+								country_event = { id = cw_colonial_setup_events.1 days = 70 }
+							}
+						}
+					}
+					random_list = {
+						25 = {
+							country_event = { id = fra_events.1 days = 365 }
+						}
+						25 = {
+							country_event = { id = fra_events.1 days = 720 }
+						}
+						25 = {
+							country_event = { id = fra_events.1 days = 346 }
+						}
+						25 = {
+							country_event = { id = fra_events.1 days = 500 }
+						}
+					}
+					else = {
+						SPR = {
+							every_owned_state = {
+								limit = {
+									is_claimed_by = MOR
+								}
+								start_resistance = yes
+								if = {
+									limit = {
+										is_claimed_by = MOR
+									}
+									remove_claim_by = MOR
+								}
+								add_core_of = MOR
+								force_enable_resistance = {
+									occupier = SPR
+									occupied = MOR
+								}
+								start_resistance = MOR
+								add_state_modifier = {
+									modifier = {
+										resistance_growth = 0.01
+									}
+								}
+							}
+						}
+					}
+				}				
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_arrest_moroccan_insurgents
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		x = -1
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = FRA_exile_muhammad_v }
+		relative_position_id = FRA_french_union_maghreb_morocco
+		
+		select_effect = {}
+
+		completion_reward = {
+			MOR = {
+				add_autonomy_score = {
+					value = -50
+				}
+			}	
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = FRA_french_union_maghreb_morocco_independence
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_release_nation
+		x = 1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union_maghreb_morocco }
+		relative_position_id = FRA_french_union_maghreb_morocco
+		mutually_exclusive = { focus = FRA_exile_muhammad_v }
+		
+		select_effect = {}
+
+		completion_reward = {
+			end_puppet = MOR
+			cw_improve_relations_with_third_world = yes
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}	
+	focus = {
+		id = FRA_sign_tangier_protocol
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union_maghreb_morocco_independence }
+		relative_position_id = FRA_french_union_maghreb_morocco_independence
+		
+		select_effect = {}
+
+		completion_reward = {
+			reverse_add_opinion_modifier = {
+				target = MOR
+				modifier = eased_tensions
+			}
+			reverse_add_opinion_modifier = {
+				target = SPR
+				modifier = protest_action
+			}			
+			cw_improve_relations_with_third_world = yes
+			every_state = {
+				limit = {
+					is_claimed_by = MOR
+					is_controlled_by = SPR
+				}
+				remove_claim_by = MOR
+				add_core_of = MOR
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_morocco_ifni_war
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = CW_FOCUS_AUTO_UNLOCK_WORLD_EVENT_TT
+				always = no
+			}
+		}
+		bypass = {
+			SDR = { has_civil_war = yes }
+		}
+		
+		icon = GFX_focus_generic_flag_morocco
+		x = 0
+		y = 3
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_arrest_moroccan_insurgents focus = FRA_sign_tangier_protocol }
+		relative_position_id = FRA_french_union_maghreb_morocco
+		
+		select_effect = {}
+
+		completion_reward = {		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = FRA_support_spain_ifni_war
+		available = {
+			SDR = { has_civil_war = yes }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_spa_caudillo_of_spain
+		x = -2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = FRA_morocco_ifni_war }
+		relative_position_id = FRA_morocco_ifni_war
+		mutually_exclusive = { focus = FRA_morocco_ifni_war_demand_international_intervention focus = FRA_morocco_demand_spanish_withdrawal }
+		
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "FRA_SUPPORT_SPAIN_IFNI_WAR_EFFECT_TT"
+			if = {
+				limit = {
+					SPR = { has_war = yes }
+				}
+				hidden_effect = {
+					SPR = {
+						every_enemy_country = {
+							limit = {
+								original_tag = SDR
+							}
+							ROOT = {
+								add_to_war = {
+									targeted_alliance = SPR
+									enemy = PREV
+									hostility_reason = asked_to_join
+								}
+							}
+						}
+					}
+				}
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_morocco_ifni_war_demand_international_intervention
+		available = {
+			SDR = { has_civil_war = yes }
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_un_peacekeeping_mission
+		x = 0
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+		prerequisite = { focus = FRA_morocco_ifni_war }
+		relative_position_id = FRA_morocco_ifni_war
+		mutually_exclusive = { focus = FRA_support_spain_ifni_war focus = FRA_morocco_demand_spanish_withdrawal }
+
+		select_effect = {
+			SDR = { cw_unsc_resolution_police_action = yes }
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				SDR = { cw_unsc_resolution_police_action = yes }
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = FRA_morocco_demand_spanish_withdrawal
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			SDR = { has_civil_war = yes}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_withdrawal_spain_morocco
+		x = 2
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+		prerequisite = { focus = FRA_morocco_ifni_war }
+		relative_position_id = FRA_morocco_ifni_war
+		mutually_exclusive = { focus = FRA_support_spain_ifni_war focus = FRA_morocco_ifni_war_demand_international_intervention }
+
+		select_effect = {
+			MOR = { cw_unsc_resolution_foreign_withdrawal = yes }
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				MOR = { cw_unsc_resolution_foreign_withdrawal = yes }
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = FRA_french_union_maghreb_tunisia
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_tunisia_flag
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union_maghreb }
+		relative_position_id = FRA_french_union_maghreb
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {	
+			release = TUN	
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	###########################################################
+	####################	ALGERIAN WAR	###################
+	###########################################################	
+	focus = {
+		id = FRA_french_union_maghreb_algeria
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_algeria_flag
+		x = 4
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union_maghreb }
+		relative_position_id = FRA_french_union_maghreb
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_french_union_algeria_empower_assembly
+		available = {
+			NOT = { has_war_with = VIN }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_self_management
+		x = -2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union_maghreb_algeria }
+		relative_position_id = FRA_french_union_maghreb_algeria
+		mutually_exclusive = { focus = FRA_french_union_algeria_abolish_assembly }
+		
+		select_effect = {}
+
+		completion_reward = {	
+			add_political_power = -100
+			add_popularity = { ideology = unaligned_right popularity = 0.05 }
+			every_owned_state = {
+				limit = {
+					OR = {
+						is_claimed_by = ALG
+						is_core_of = ALG
+					}
+				}
+				add_resistance = -30
+				add_compliance = 30
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = FRA_french_union_algeria_soustelle_plan
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_usa_guarantee_the_american_dream
+		x = 1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union_algeria_empower_assembly }
+		relative_position_id = FRA_french_union_algeria_empower_assembly
+		
+		select_effect = {}
+
+		completion_reward = {		
+			ALG = { cw_unlock_pacification_decisions = yes }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_french_union_algeria_grant_algerians_full_rights
+		available = {
+			core_compliance = { occupied_country_tag = ALG value > 74 }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_support_democracy
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union_algeria_soustelle_plan }
+		relative_position_id = FRA_french_union_algeria_soustelle_plan
+		
+		select_effect = {}
+
+		completion_reward = {	
+			every_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = ALG
+						is_claimed_by = ALG
+					}
+				}
+				cancel_resistance = yes
+			}	
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = FRA_french_union_algeria_abolish_assembly
+		available = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				NOT = { has_war_with = VIN }
+			}			
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_political_pressure
+		x = 2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = FRA_french_union_maghreb_algeria }
+		relative_position_id = FRA_french_union_maghreb_algeria
+		mutually_exclusive = { focus = FRA_french_union_algeria_empower_assembly }
+		
+		select_effect = {}
+
+		completion_reward = {
+			add_political_power = 100
+			every_owned_state = {
+				limit = {
+					OR = {
+						is_claimed_by = ALG
+						is_core_of = ALG
+					}
+				}
+				add_resistance = 10
+				add_compliance = -5
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_french_union_algeria_arrest_nlf_members
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_CZE_german_puppet
+		x = -1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = FRA_french_union_algeria_abolish_assembly }
+		relative_position_id = FRA_french_union_algeria_abolish_assembly
+		
+		select_effect = {}
+
+		completion_reward = {	
+			every_owned_state = {
+				limit = {
+					has_resistance = yes
+					OR = {
+						is_claimed_by = ALG
+						is_core_of = ALG
+					}
+				}
+				add_resistance = -35
+				add_compliance = 15
+			}				
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_french_union_algeria_police_action
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_support_the_left_right
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = FRA_french_union_algeria_arrest_nlf_members }
+		relative_position_id = FRA_french_union_algeria_arrest_nlf_members
+		
+		select_effect = {}
+
+		completion_reward = {
+			army_experience = 100
+			every_owned_state = {
+				limit = {
+					has_resistance = yes
+					OR = {
+						is_core_of = ALG
+						is_claimed_by = ALG
+					}
+				}
+				cw_make_police_action_free_one_year = yes
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	###########################################################
+	####################	ALGERIS PUTSCH	###################
+	###########################################################	
+	focus = {
+		id = FRA_algeirs_putsch
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = CW_FOCUS_AUTO_UNLOCK_WORLD_EVENT_TT
+				always = no
+			}			
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_fra_algiers_coup
+		x = 0
+		y = 4
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union_algeria_grant_algerians_full_rights focus = FRA_french_union_algeria_police_action }
+		relative_position_id = FRA_french_union_maghreb_algeria
+		
+		select_effect = {}
+
+		completion_reward = {		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_algeirs_putsch_dennounce_coup
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_focus_fra_fascist_threat
+		x = 1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_algeirs_putsch }
+		relative_position_id = FRA_algeirs_putsch
+		mutually_exclusive = { focus = FRA_algeirs_putsch_accept_military_demands }
+		
+		select_effect = {}
+
+		completion_reward = {
+			add_stability = 0.25
+			add_war_support = 0.25
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.15
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_algeirs_putsch_form_civil_militia
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_focus_fra_revolution_utmost
+		x = 2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_algeirs_putsch_dennounce_coup }
+		relative_position_id = FRA_algeirs_putsch_dennounce_coup
+		
+		select_effect = {}
+
+		completion_reward = {
+		
+			division_template = {
+				name = "Civil Militia"
+				template_counter = 13
+				is_locked = yes
+				regiments = {
+					insurgency = { x = 0 y = 0 }
+					insurgency = { x = 1 y = 0 }
+					insurgency = { x = 2 y = 0 }
+				} 
+			}
+			capital_scope = {
+				create_unit = {
+					division = "division_template = \"Civil Militia\" start_experience_factor = 0.1" 
+					owner = ROOT
+					allow_spawning_on_enemy_provs = yes
+					count = 5 
+					id = 1500
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+				}
+				create_unit = {
+					division = "division_template = \"Civil Militia\" start_experience_factor = 0.1" 
+					owner = ROOT
+					allow_spawning_on_enemy_provs = yes
+					count = 5 
+					id = 1500
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+				}
+				create_unit = {
+					division = "division_template = \"Civil Militia\" start_experience_factor = 0.1" 
+					owner = ROOT
+					allow_spawning_on_enemy_provs = yes
+					count = 5 
+					id = 1500
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_algeirs_putsch_arrest_de_gaulle
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_arrest_de_gaulle
+		x = -2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_algeirs_putsch_form_civil_militia }
+		relative_position_id = FRA_algeirs_putsch_form_civil_militia
+		
+		select_effect = {}
+
+		completion_reward = {
+			remove_ideas = unstable_government
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = FRA_algeirs_putsch_accept_military_demands
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_military_deal
+		x = -1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = FRA_algeirs_putsch }
+		relative_position_id = FRA_algeirs_putsch
+		mutually_exclusive = { focus = FRA_algeirs_putsch_dennounce_coup }
+		
+		select_effect = {}
+
+		completion_reward = {
+			add_stability = -0.5
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_algeirs_putsch_dissolve_parliament
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = -2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = FRA_algeirs_putsch_accept_military_demands }
+		relative_position_id = FRA_algeirs_putsch_accept_military_demands
+		
+		select_effect = {}
+
+		completion_reward = {
+			remove_ideas_with_trait = deputy_minister_trait
+			hidden_effect = {
+				remove_ideas_with_trait = deputy_minister_trait
+				remove_ideas_with_trait = foreign_minister_trait
+				remove_ideas_with_trait = defense_minister_trait
+				remove_ideas_with_trait = finance_minister_trait
+				remove_ideas_with_trait = chief_of_staff_minister_trait
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_algeirs_putsch_establish_fifth_republic
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_fra_french_union
+		x = 2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = FRA_algeirs_putsch_dissolve_parliament }
+		relative_position_id = FRA_algeirs_putsch_dissolve_parliament
+		
+		select_effect = {}
+
+		completion_reward = {
+			effect_tooltip = {
+				create_country_leader = {
+					name = "Charles de Gaulle"
+					desc = ""
+					picture = "FRAH4.dds"
+					ideology = social_cons_idolg
+					expire = 1969.4.28
+					traits = {}
+				}
+			}
+			add_ideas = {
+				fra_hog_michel_debre
+				fra_fm_maurice_couve_murville
+				fra_tm_wilfrid_baumgartner
+				fra_dm_pierre_messmer
+				fra_chief_andre_zeller
+			}
+			add_stability = 0.25
+			remove_ideas = unstable_government	
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = no
+			}
+			every_country_with_original_tag = {
+				original_tag_to_check = ALG
+				limit = {
+					has_war_with = ALG
+				}
+				FRA = {
+					remove_targeted_decision = { target = PREV decision = fra_military_takeover_mission }
+					annex_country = {
+						target = PREV
+						transfer_troops = yes
+					}
+				}
+			}
+			hidden_effect = {
+				create_country_leader = {
+					name = "Charles de Gaulle"
+					desc = ""
+					picture = "FRAH4.dds"
+					ideology = social_cons_idolg
+					expire = 1969.4.28
+					traits = { man_of_the_people_khrushev cw_war_hero democratic_right_drift_trait }
+				}
+				declare_war_on = {
+					target = ALG
+					type = annex_everything
+				}				
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_algeirs_putsch_peace_of_the_brave
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_alliance
+		x = 0
+		y = 4
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = FRA_algeirs_putsch_establish_fifth_republic focus = FRA_algeirs_putsch_arrest_de_gaulle }
+		relative_position_id = FRA_algeirs_putsch
+		
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					ALG = { has_civil_war = yes }
+					has_completed_focus = FRA_algeirs_putsch_arrest_de_gaulle
+				}
+				hidden_effect = {
+					ALG = {
+						every_country_with_original_tag = {
+							original_tag_to_check = ALG
+							limit = {
+								has_war_with = ALG
+							}
+							ROOT = {
+								add_to_war = {
+									targeted_alliance = ALG
+									enemy = PREV
+									hostility_reason = asked_to_join
+								}
+							}
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						ALG = { has_civil_war = no }
+						has_completed_focus = FRA_algeirs_putsch_arrest_de_gaulle
+					}
+					every_state = {
+						limit = {
+							OR = {
+								is_core_of = ALG
+								is_claimed_by = ALG
+							}
+						}
+						remove_claim_by = ROOT
+						remove_core_of = ROOT
+						ALG = { 
+							transfer_state = PREV
+							set_state_owner = PREV
+							add_state_core = PREV
+							white_peace = ROOT
+						}
+					}					
+				}
+				else_if = {
+					limit = {
+						has_completed_focus = FRA_algeirs_putsch_establish_fifth_republic
+					}
+					every_state = {
+						limit = {
+							OR = {
+								is_core_of = ALG
+								is_claimed_by = ALG
+							}
+						}
+						remove_claim_by = ROOT
+						remove_core_of = ROOT
+						ALG = { 
+							transfer_state = PREV
+							set_state_owner = PREV
+							add_state_core = PREV
+							white_peace = ROOT
+						}
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	###########################################################
+	####################	INDIA	###################
+	###########################################################
+	focus = {
+		id = FRA_french_union_india
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_india_flag
+		x = 9
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union }
+		relative_position_id = FRA_french_union
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_french_union_india_submit_to_india
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_eng_decolonization
+		x = 1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union_india }
+		relative_position_id = FRA_french_union_india
+		mutually_exclusive = { focus = FRA_french_union_india_resist_india_demands }
+		
+		select_effect = {}
+
+		completion_reward = {
+			reverse_add_opinion_modifier = {
+				target = IND
+				modifier = eased_tensions
+			}
+			IND = { transfer_state = 320 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_french_union_india_resist_india_demands
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_support_the_left_right
+		x = -1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union_india }
+		relative_position_id = FRA_french_union_india
+		mutually_exclusive = { focus = FRA_french_union_india_submit_to_india }
+		
+		select_effect = {}
+
+		completion_reward = {
+			reverse_add_opinion_modifier = {
+				target = IND
+				modifier = protest_action_strong
+			}			
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = FRA_french_union_india_fortify_french_india
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_fortify_city
+		x = 1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union_india_resist_india_demands }
+		relative_position_id = FRA_french_union_india_resist_india_demands
+		
+		select_effect = {}
+
+		completion_reward = {
+			320 = {
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}	
+	###########################################################
+	####################	INDOCHINA WAR	###################
+	###########################################################
+	focus = {
+		id = FRA_french_union_indochina
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_south_vietnam_flag
+		x = -9
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union }
+		relative_position_id = FRA_french_union
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_indochina_pacification
+		available = {
+			has_war_with = VIN
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = -2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_french_union_indochina }
+		relative_position_id = FRA_french_union_indochina
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {
+			SVI = { add_stability = 0.10 }
+			SVI = { cw_unlock_pacification_decisions = yes }
+			hidden_effect = {
+				if = {
+					limit = {
+						804 = { is_controlled_by = SVI }
+					}
+					add_resource = {
+						type = crops
+						amount = 15
+						state = 804
+					}
+				}
+				if = {
+					limit = {
+						803 = { is_controlled_by = SVI }
+					}
+					add_resource = {
+						type = crops
+						amount = 15
+						state = 803
+					}
+				}
+			}
+			top_bar_decisions_notification_new_state_decisions_available = yes		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_rebrand_indochina_war
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_eng_expose_the_belly_of_the_bear
+		x = 2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_indochina_pacification }
+		relative_position_id = FRA_indochina_pacification
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {
+			add_war_support = 0.15
+			SVI = { add_war_support = 0.15 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_indochina_war_rcdp
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_prc_infiltration
+		x = -2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_indochina_pacification }
+		relative_position_id = FRA_indochina_pacification
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {
+			add_war_support = 0.15
+			VIN = { custom_effect_tooltip = FRA_INDOCHINA_WAR_RCDP_EFFECT_TT }
+			SVI = { set_variable = { insurgency_resistance = 15 } }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = FRA_appoint_henri_navarre
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_fra_appoint_henri_navarre
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_indochina_pacification }
+		relative_position_id = FRA_indochina_pacification
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {
+			add_command_power = 50
+			create_corps_commander = {
+				name = "Henri Navarre"
+				portrait_path = "gfx/leaders/FRA/fra_henri_navarre.dds"
+				traits = { ranger defensive_doctrine jungle_rat }
+				skill = 5
+				attack_skill = 3
+				defense_skill = 5
+				planning_skill = 5
+				logistics_skill = 5
+			}							
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_increase_autonomy
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_military_sphere
+		x = 0
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_indochina_war_rcdp focus = FRA_appoint_henri_navarre focus = FRA_rebrand_indochina_war }
+		relative_position_id = FRA_indochina_pacification
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {
+			subtract_from_variable = { }
+			add_war_support = 0.15
+			SVI = { 
+				add_war_support = 0.15
+				add_stability = 0.10
+				add_autonomy_score = { value = 50 }
+				set_politics = {
+					ruling_party = unaligned_right
+					elections_allowed = no
+				}
+				set_country_leader_ideology = consitutional
+			}
+			effect_tooltip = {
+				release_autonomy = {
+					target = SVI
+					autonomy_state = autonomy_wtt_imperial_subject
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_establish_south_vietnam_army
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_svi_military
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_increase_autonomy }
+		relative_position_id = FRA_increase_autonomy
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {	
+			reverse_add_opinion_modifier = { target = VIN modifier = protest_action }
+			SVI = {
+				add_autonomy_score = { value = 50 }
+				hidden_effect = { load_oob = SVI_ARVN_1950 }
+				capital_scope = {
+					create_unit = {
+						division = "division_template = \"Infantry Division\" start_experience_factor = 0.1" 
+						owner = PREV
+						allow_spawning_on_enemy_provs = yes
+						count = 2
+					}
+					create_unit = {
+						division = "division_template = \"Mechanized Division\" start_experience_factor = 0.1" 
+						owner = PREV
+						allow_spawning_on_enemy_provs = yes
+						count = 2
+					}
+					create_unit = {
+						division = "division_template = \"Armour Division\" start_experience_factor = 0.1" 
+						owner = PREV
+						allow_spawning_on_enemy_provs = yes
+						count = 1
+					}
+				}
+				803 = {
+					create_unit = {
+						division = "division_template = \"Infantry Division\" start_experience_factor = 0.1" 
+						owner = PREV
+						allow_spawning_on_enemy_provs = yes
+						count = 3
+					}
+				}
+			}	
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = FRA_disband_colonial_army
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_por_luso_tropicalism
+		x = -2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_establish_south_vietnam_army }
+		relative_position_id = FRA_establish_south_vietnam_army
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {
+			add_manpower = 10000
+			add_war_support = 0.15
+			SVI = {
+				add_manpower = 50000
+				delete_unit_template_and_units = {
+					division_template = "Colonial Infantry"
+					disband = yes
+				}
+				add_autonomy_score = {
+					value = 50
+				}				
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = FRA_svi_special_mission_squadron
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_air_fighter
+		x = 2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_establish_south_vietnam_army }
+		relative_position_id = FRA_establish_south_vietnam_army
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {
+			SVI = { 
+				air_experience = 50
+				add_equipment_to_stockpile = {
+					type = CAS_equipment
+					amount = 25
+					producer = GER
+				}				
+			}
+
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = FRA_hand_over_thu_duc_military_academy
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_svi_thu_duc_military_academy
+		x = 0
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_establish_south_vietnam_army }
+		relative_position_id = FRA_establish_south_vietnam_army
+		mutually_exclusive = {}
+		
+		select_effect = {}
+
+		completion_reward = {
+			SVI = {
+				add_autonomy_score = { value = 50 }
+				add_research_slot = 1
+				army_experience = 50
+				add_command_power = 100
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}		
+	focus = {
+		id = FRA_negotiate_indochina_war_ceasfire
+		available = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				OR = {
+					date > 1954.7.20
+					SVI = { surrender_progress > 0.50 }
+				}
+				804 = { is_controlled_by = SVI }
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_dangerous_deal
+		x = 0
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = FRA_disband_colonial_army focus = FRA_hand_over_thu_duc_military_academy focus = FRA_svi_special_mission_squadron }
+		relative_position_id = FRA_establish_south_vietnam_army
+		mutually_exclusive = {}
+		
+		select_effect = {
+			every_owned_state = {
+				limit = {
+					is_claimed_by = CAM
+				}
+				remove_claim_by = CAM
+				add_core_of = CAM
+			}
+			every_owned_state = {
+				limit = {
+					is_claimed_by = LAO
+				}
+				remove_claim_by = LAO
+				add_core_of = LAO
+			}
+		}
+
+		completion_reward = {
+			add_named_threat = { threat = -10 name = CW_ALLOWED_SELF_DETERMINATION }
+			release = CAM
+			release = LAO			
+			end_puppet = SVI
+			SVI = { clear_variable = twin_country }		# Needed to prevent annexation of twin country
+			VIN = {
+				clear_variable = twin_country
+				white_peace = FRA
+				white_peace = SVI
+				drop_cosmetic_tag = yes
+				cw_make_recognized_immediately = yes
+				diplomatic_relation = {
+					country = SVI
+					relation = non_aggression_pact
+					active = yes
+				}
+			}
+			hidden_effect = {
+				FRA = {
+					news_event = cw_historic_events.49
+					clear_variable = pacification_target 
+				}
+				SVI = {
+					cw_gained_independence_notification = yes
+					cw_make_recognized_immediately = yes
+					set_cosmetic_tag = MON_SVI
+					add_popularity = {
+						ideology = unaligned_right
+						popularity = 0.15
+					}						
+					set_politics = {
+						ruling_party = unaligned_right
+						elections_allowed = yes
+						election_frequency = 48
+					}
+					set_variable = { twin_country = VIN.id }
+					every_owned_state = {
+						limit = {
+							has_resistance = yes
+						}
+						cancel_resistance = yes
+						clear_variable = resistance_started_by
+					}
+				}
+				VIN = {
+					transfer_state = 897
+					transfer_state = 898
+					set_variable = { twin_country = SVI.id }
+					load_oob = VIN_1950
+					clear_variable = our_insurgency_target
+				}
+				LAO = {
+					load_oob = LAO_1950
+					set_cosmetic_tag = LAO_CM 
+				}
+				CAM = {
+					load_oob = CAM_1950
+					set_cosmetic_tag = CAM_CM 
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+}

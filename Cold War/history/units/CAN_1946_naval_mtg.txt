@@ -1,0 +1,23 @@
+﻿
+units= {
+
+	####### NAVAL UNITS #######
+	
+	fleet = {
+		  name = "Royal Canadian Navy"
+		  naval_base = 1408
+		  task_force = {
+		  name = "Task Force Canada"
+		  location = 1408 
+			  
+			ship = { name = "HMCS Warrior" definition = carrier equipment = { ship_hull_cruiser_4 = { amount = 1 owner = CAN version_name = "Magestic Class" } }  }
+			ship = { name = "HMCS Uganda" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = CAN version_name = "Minotaur Class" } } }
+			ship = { name = "HMCS Ontario" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = CAN version_name = "Minotaur Class" } } }
+			ship = { name = "HMCS Huron" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = CAN version_name = "Tribal Class" } } }
+			ship = { name = "HMCS Nootka" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = CAN version_name = "Tribal Class" } } }
+			}
+			
+	}
+	
+} 
+

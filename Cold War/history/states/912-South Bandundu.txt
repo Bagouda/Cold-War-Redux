@@ -1,0 +1,36 @@
+
+state={
+	id=912
+	local_supplies=0.0 
+	name="STATE_912"
+
+	history={
+		owner = BEL
+		add_claim_by = COG
+
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+				
+		1960.6.30 = {
+			owner = COG
+			add_core_of = COG
+			remove_core_of = BEL
+		}
+		buildings = {
+			infrastructure = 5
+		}
+	}
+
+	provinces={
+		381 755 7840 9734 10025 
+	}
+	manpower=230000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

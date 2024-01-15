@@ -1,0 +1,50 @@
+focus_tree = {
+	id = palestine_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = PAL
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	focus = {
+		id = PAL_war_against_israel
+		available = {
+			ISR = { has_completed_focus = ISR_declare_indepdence }
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 1
+		y = 1
+		cost = 1
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		will_lead_to_war_with = ISR
+		
+		completion_reward = {
+			add_opinion_modifier = {
+				target = ISR
+				modifier = historic_grievances_permanent
+			}
+			declare_war_on = {
+				target = ISR
+				type = annex_everything
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

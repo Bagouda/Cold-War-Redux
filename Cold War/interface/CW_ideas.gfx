@@ -1,0 +1,248 @@
+spriteTypes = {
+	#### SVI IDEAS ####
+	spriteType = {
+		name = "GFX_idea_svi_viet_cong"
+		texturefile = "gfx/interface/ideas/idea_svi_viet_cong.dds"
+	}	
+	#### PRC IDEAS ####
+	spriteType = {
+		name = "GFX_idea_great_leap_forward"
+		texturefile = "gfx/interface/ideas/great_leap_forward.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_gulag_system"
+		texturefile = "gfx/interface/ideas/gulag_system_idea.dds"
+	}
+	#### USA IDEAS ####
+	spriteType = {
+		name = "GFX_idea_usa_nsa"
+		texturefile = "gfx/interface/ideas/usa/idea_us_nsa.dds"
+	}	
+	spriteType = {
+		name = "GFX_idea_land_of_the_free"
+		texturefile = "gfx/interface/ideas/land_of_the_free.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_usa_intelligence_cia"
+		texturefile = "gfx/interface/ideas/idea_us_establish_cia.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_usa_dod_idea"
+		texturefile = "gfx/interface/ideas/usa_dod_idea.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_usa_red_scare"
+		texturefile = "gfx/interface/ideas/usa_red_scare.dds"
+	}	
+	spriteType = {
+		name = "GFX_idea_radio_free_europe"
+		texturefile = "gfx/interface/ideas/idea_radio_free_europe.dds"
+	}		
+	#### SOV IDEAS ####
+	spriteType = {
+		name = "GFX_idea_sov_integration"
+		texturefile = "gfx/interface/ideas/sov_integration.dds"
+	}
+	#### SOV IDEAS ####
+	spriteType = {
+		name = "GFX_idea_sov_fear"
+		texturefile = "gfx/interface/ideas/sov_fear.dds"
+	}
+	#### GENERIC IDEAS ####
+	spriteType = {
+		name = "GFX_idea_importing_food"
+		texturefile = "gfx/interface/ideas/idea_importing_food.dds"
+	}		
+	spriteType = {
+		name = "GFX_idea_exporting_food"
+		texturefile = "gfx/interface/ideas/idea_exporting_food.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_air_supply"
+		texturefile = "gfx/interface/ideas/air_supply.dds"
+	}	
+	spriteType = {
+		name = "GFX_idea_under_blockade"
+		texturefile = "gfx/interface/ideas/blockade_idea_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_new_world_order"
+		texturefile = "gfx/interface/ideas/new_world_order.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_dispersed_industry"
+		texturefile = "gfx/interface/ideas/dispersed_industry.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_un_sanctions"
+		texturefile = "gfx/interface/ideas/idea_un_sanctions.dds"
+		animation = {
+			animationmaskfile = "gfx/interface/ideas/idea_un_sanctions.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -100.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 0.75				# in seconds
+			animationdelay = 55			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "scrolling"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/ideas/idea_un_sanctions.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = 100.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 0.75				# in seconds
+			animationdelay = 55			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}	
+	spriteType = {
+		name = "GFX_idea_un_permanent"
+		texturefile = "gfx/interface/ideas/un_permanent.dds"
+		animation = {
+			animationmaskfile = "gfx/interface/ideas/un_permanent.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -100.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 0.75				# in seconds
+			animationdelay = 55			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "scrolling"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/ideas/un_permanent.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = 100.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 0.75				# in seconds
+			animationdelay = 55			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_idea_un_non_permanent"
+		texturefile = "gfx/interface/ideas/un_non_permanent.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/ideas/un_permanent.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -100.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 0.75				# in seconds
+			animationdelay = 50			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "scrolling"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/ideas/un_permanent.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = 100.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 0.75				# in seconds
+			animationdelay = 50			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_idea_un_non_recognized"
+		texturefile = "gfx/interface/ideas/un_non_recognized.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_un_partially_recognized"
+		texturefile = "gfx/interface/ideas/un_partially_recognized.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_inba_target"
+		texturefile = "gfx/interface/ideas/target_of_inba.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_mp_aid_low"
+		texturefile = "gfx/interface/ideas/idea_marshall_plan_aid_low.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_mp_aid_medium"
+		texturefile = "gfx/interface/ideas/idea_marshall_plan_aid_medium.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_mp_aid_high"
+		texturefile = "gfx/interface/ideas/idea_marshall_plan_aid_high.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_mp_aid_highest"
+		texturefile = "gfx/interface/ideas/idea_marshall_plan_aid_highest.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_comecon_aid_low"
+		texturefile = "gfx/interface/ideas/idea_comecon_aid_low.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_comecon_aid_medium"
+		texturefile = "gfx/interface/ideas/idea_comecon_aid_medium.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_comecon_aid_high"
+		texturefile = "gfx/interface/ideas/idea_comecon_aid_high.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_comecon_aid_highest"
+		texturefile = "gfx/interface/ideas/idea_comecon_aid_highest.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_comecon_aid"
+		texturefile = "gfx/interface/ideas/idea_comecon_aid.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_winner_ww2"
+		texturefile = "gfx/interface/ideas/winner_ww2.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/ideas/winner_ww2.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 5.00				# in seconds
+			animationdelay = 5			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "scrolling"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no		
+	}
+	
+	spriteType = {
+		name = "GFX_idea_devastated_nation"
+		texturefile = "gfx/interface/ideas/devastated_nation.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_gavel"
+		texturefile = "gfx/interface/ideas/idea_generic_gavel.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_generic_government"
+		texturefile = "gfx/interface/ideas/idea_generic_government.dds"
+	}		
+	
+	spriteType = {
+		name = "GFX_angry_peasant"
+		texturefile = "gfx/interface/ideas/angry_peasant.dds"
+	}	
+}

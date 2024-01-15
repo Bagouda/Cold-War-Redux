@@ -1,0 +1,29 @@
+state = {
+	id=175
+	local_supplies=0.0 
+	name="STATE_175"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 6832 }
+ 	add_to_array = { list_victory_point = 3945 }
+ 	set_variable = { victory_point = 2 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SPR
+		add_core_of = SPR
+		victory_points = {
+			3945 1
+		}
+		victory_points = {
+			6832 1
+		}
+	}
+	resources={
+		crops = 20
+	}		
+	manpower = 848903
+	provinces={
+		888 942 3891 3945 3953 6800 6832 6879 6896 9757 9778 9828 9852 9881 11742 11863 12081 
+	}
+}

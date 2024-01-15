@@ -1,0 +1,280 @@
+﻿capital = 278
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1946.2.24"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 50
+		democratic_socialist = 50
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Eduardo Lonardi"
+		desc = ""
+		picture = "ARGHM2.dds"
+		ideology = military_idolg
+		expire = 1955.11.13
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "José Tamborini"		#Non historic minister
+		desc = ""
+		picture = ""
+		ideology = social_democrat_idolg
+		expire = 1954.8.24
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Isabel Martínez de Perón"
+		desc = ""
+		picture = "ARGH3.dds"
+		ideology = social_cons_idolg
+		expire = 1976.3.24
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Juan Domingo Perón"
+		desc = ""
+		picture = "ARGH1.dds"
+		ideology = social_cons_idolg
+		expire = 1974.7.1
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Victorio Codovilla"
+		desc = ""
+		picture = "argentinasov.dds"
+		ideology = revisionist_idolg
+		expire = 1988.10.14
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Victorio Codovilla"
+		desc = ""
+		picture = "argentinachi.dds"
+		ideology = stalinism_idolg
+		expire = 1982.10.16
+		traits = { }
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+	set_popularities = {	
+		democratic  = 63
+		democratic_socialist = 37
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Ricardo Balbín"		#Non historic minister
+		desc = ""
+		picture = ""
+		ideology = social_democrat_idolg
+		expire = 1954.8.24
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Juan Domingo Perón"
+		desc = ""
+		picture = "ARGH1.dds"
+		ideology = social_cons_idolg
+		expire = 1955.9.19
+		traits = {}
+	}	
+}
+1956.10.29 = {	#Suez Crisis
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1951.11.11"
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 50
+		democratic_socialist = 50
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Pedro Eugenio Aramburu"
+		desc = ""
+		picture = "ARGHM3.dds"
+		ideology = military_idolg
+		expire = 1958.5.1
+		traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	create_country_leader = {
+		name = "Ítalo Lúder"
+		desc = ""
+		picture = "ARGH4.dds"
+		ideology = social_cons_idolg_2
+		expire = 1983.10.30
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Héctor José Cámpora"
+		desc = ""
+		picture = "ARGH2.dds"
+		ideology = social_cons_idolg_2
+		expire = 1973.7.13
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Alejandro Lanusse"
+		desc = ""
+		picture = "ARGHM9.dds"
+		ideology = military_idolg
+		expire = 1973.5.25
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Roberto Levingston"
+		desc = ""
+		picture = "ARGHM8.dds"
+		ideology = military_idolg
+		expire = 1971.3.23
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Juan Carlos Onganía"
+		desc = ""
+		picture = "ARGHM7.dds"
+		ideology = military_idolg
+		expire = 1970.7.8
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Arturo Umberto Illia"
+		desc = ""
+		picture = "ARGHM6.dds"
+		ideology = military_idolg
+		expire = 1966.6.28
+		traits = {}
+	}
+	create_country_leader = {
+		name = "José María Guido"
+		desc = ""
+		picture = "ARGHM5.dds"
+		ideology = military_idolg
+		expire = 1963.10.12
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Arturo Frondizi"
+		desc = ""
+		picture = "ARGHM4.dds"
+		ideology = military_idolg
+		expire = 1962.3.29
+		traits = {}
+	}
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1951.11.11"
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 50
+		democratic_socialist = 50
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Raúl Alfonsín"
+		desc = ""
+		picture = "ARGH5.dds"
+		ideology = social_liberal_idolg
+		expire = 1989.7.8
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Reynaldo Bignone"
+		desc = ""
+		picture = "ARGHM14.dds"
+		ideology = military_idolg
+		expire = 1983.12.10
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Alfredo Oscar Saint-Jean"
+		desc = ""
+		picture = "ARGHM13.dds"
+		ideology = military_idolg
+		expire = 1982.4.1
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Leopoldo Galtieri"
+		desc = ""
+		picture = "ARGHM12.dds"
+		ideology = military_idolg
+		expire = 1982.6.18
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Roberto Eduardo Viola"
+		desc = ""
+		picture = "ARGHM11.dds"
+		ideology = military_idolg
+		expire = 1981.12.11
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Jorge Rafael Videla"
+		desc = ""
+		picture = "ARGHM10.dds"
+		ideology = military_idolg
+		expire = 1981.3.29
+		traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1983.10.30"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 56
+		democratic_socialist = 44
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Carlos Menem"
+		desc = ""
+		picture = "ARGH6.dds"
+		ideology = social_cons_idolg
+		expire = 1999.12.10
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Raúl Alfonsín"
+		desc = ""
+		picture = "ARGH5.dds"
+		ideology = social_liberal_idolg
+		expire = 1989.7.8
+		traits = {}
+	}	
+}

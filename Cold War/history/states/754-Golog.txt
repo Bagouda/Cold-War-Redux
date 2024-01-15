@@ -1,0 +1,29 @@
+state = {
+	id=754
+	local_supplies=0.0 
+	name="STATE_754"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 12732 }
+ 	set_variable = { victory_point = 3 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = XSM
+		add_core_of = XSM
+		add_core_of = CHI
+		add_claim_by= PRC
+		
+		1949.10.1 = {
+		owner = PRC
+		}
+		victory_points = {
+			12732 3 
+		}
+	}
+	buildings_max_level_factor=1.000
+	manpower=400000
+	provinces={
+		1882 4536 4888 7270 10490 10817 11448 12732 12815 
+	}
+}

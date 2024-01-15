@@ -1,0 +1,309 @@
+@STATE_UPGRADE_COST = var:ROOT.upgrade_state_cost
+special_projects = {
+	cw_develop_state_decision = {
+		icon = GFX_decision_generic_construction
+		allowed = { always = no }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ""
+				always = no
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				NOT = { var:ROOT.upgrade_state = { owner = { controls_state = var:ROOT.upgrade_state } } }
+				num_of_civilian_factories_available_for_projects < var:ROOT.upgrade_state_cost
+			}
+		}
+		activation = { always = no }
+		days_mission_timeout = var:ROOT.upgrade_state_time
+		is_good = yes
+		fire_only_once = yes
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = var:ROOT.upgrade_state
+			}
+		}
+		
+		timeout_effect = {
+			var:ROOT.upgrade_state = { clr_state_flag = upgrade_state }
+			if = {
+				limit = {
+					var:ROOT.upgrade_state = { has_state_category = devestated_wasteland }
+				}
+				var:ROOT.upgrade_state = { set_state_category = city }
+			}
+			if = {
+				limit = {
+					var:ROOT.upgrade_state = { has_state_category = town }
+				}
+			var:ROOT.upgrade_state = { set_state_category = large_town }
+			}
+			if = {
+				limit = {
+					var:ROOT.upgrade_state = { has_state_category = large_town }
+				}
+			var:ROOT.upgrade_state = { set_state_category = city }
+			}
+			if = {
+				limit = {
+					var:ROOT.upgrade_state = { has_state_category = city }
+				}
+			var:ROOT.upgrade_state = { set_state_category = large_city }
+			}
+			if = {
+				limit = {
+					var:ROOT.upgrade_state = { has_state_category = large_city }
+				}
+			var:ROOT.upgrade_state = { set_state_category = metropolis }
+			}
+			if = {
+				limit = {
+					var:ROOT.upgrade_state = { has_state_category = metropolis }
+				}
+			var:ROOT.upgrade_state = { set_state_category = megalopolis }
+			}
+			else = {}
+			clear_variable = ROOT.upgrade_state
+			clear_variable = ROOT.upgrade_state_cost
+			clear_variable = ROOT.upgrade_state_time			
+		}
+	}
+	cw_move_capital = {
+		icon = GFX_decision_generic_construction
+		allowed = { always = no }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ""
+				always = no
+			}
+		}
+		cancel_trigger = {
+			NOT = { THIS = { controls_state = var:ROOT.designated_capital } }
+		}
+		activation = { always = no }
+		days_mission_timeout = 90
+		is_good = yes
+		fire_only_once = yes
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = var:ROOT.designated_capital
+			}
+		}
+		
+		timeout_effect = {
+			set_capital = { state = var:ROOT.designated_capital }
+			clear_variable = ROOT.designated_capital
+			clr_country_flag = moving_capital
+		}
+	}	
+}
+contracts = {
+	cw_resource_contract_reciever = {
+		icon = GFX_resource_companies_decision_icon
+		allowed = { always = yes }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ""
+				always = yes
+			}
+		}
+		cancel_trigger = {
+			OR = {
+				ROOT = { exists = no }
+				custom_trigger_tooltip = {
+					tooltip = "CW_MON_CHECK_STATE_CONTROL_TT_LOC_CHECK"
+					NOT = {
+						OR = {
+							ROOT = { controls_state = FROM.resource_state }
+							ROOT = { controls_state = THIS.my_resource_state }
+						}
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = "CW_CHECK_EMBARGO_TT_LOC_CHECK"
+					OR = {
+						AND = {
+							NOT = { has_country_flag = has_active_monopoly }
+							FROM = {
+								is_in_array = {
+									array = ROOT.embargoed_countries
+									value = FROM.id
+								}
+							}
+						}
+						AND = {
+							has_country_flag = has_active_monopoly							
+							var:THIS.my_resource_state_owner = {
+								is_in_array = {
+									array = ROOT.embargoed_countries
+									value = PREV.id
+								}
+							}
+						}
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = "CW_CHECK_CAN_MON_TT_LOC_CHECK"
+					OR = {
+						AND = {
+							NOT = { has_country_flag = has_active_monopoly }
+							var:FROM.resource_state = { has_state_flag = cancel_our_monpoly }
+						}
+						AND = {
+							has_country_flag = has_active_monopoly
+							var:THIS.my_resource_state = { has_state_flag = cancel_our_monpoly }
+						}
+					}
+				}				
+			}
+		}
+		activation = { always = no }
+		days_mission_timeout = 5
+		days_remove = 365
+		is_good = yes
+		fire_only_once = yes
+		selectable_mission = yes
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = var:FROM.resource_state
+			}
+		}
+		modifier = {
+			consumer_goods_factor = -0.10
+		}
+		target_trigger = {
+			FROM = { has_country_flag = awaiting_monopoly_responce }
+		}	
+		complete_effect = {
+			### NOTIFICATION ###
+			FROM = { set_country_flag = { flag = notification_state_monopoly_accepted value = 1 days = 5 } }
+			FROM = { set_variable = { monopoly_request_state = FROM.resource_state } }
+			FROM = { set_variable = { monopoly_state_owner = ROOT.id } }
+			### NOTIFICATION ###		
+			set_country_flag = has_active_monopoly
+			custom_effect_tooltip = "CW_MONOPOLY_AGREED_TT"
+			give_resource_rights = { receiver = FROM state = var:FROM.resource_state }
+			add_opinion_modifier = { target = FROM modifier = investing_in_our_country }
+			add_opinion_modifier = { target = FROM modifier = gave_resource_rights_trade }
+			reverse_add_opinion_modifier = { target = FROM modifier = gave_resource_rights }
+			hidden_effect = {
+				FROM = { clr_country_flag = awaiting_monopoly_responce }
+				set_variable = { THIS.my_resource_state = FROM.resource_state  }
+				set_variable = { THIS.my_resource_state_owner_name = FROM.id  }
+				var:THIS.my_resource_state = { set_variable = { THIS.my_resource_state_owner = FROM.id  } }
+				var:THIS.my_resource_state = { clr_state_flag = offered_contract }
+				var:THIS.my_resource_state = { set_state_flag = monopoly_state }
+			}
+		}		
+		remove_effect = {
+			clr_country_flag = has_active_monopoly
+			THIS = { remove_resource_rights = var:THIS.my_resource_state }
+			custom_effect_tooltip = "CW_STATE_MONOPOLY_TIMEOUT_EFFECT"
+			hidden_effect = {
+				random_list = {
+					5 = {
+						var:THIS.my_resource_state = { add_extra_state_shared_building_slots = 1 }
+					}
+					10 = {
+						var:THIS.my_resource_state = { add_building_construction = { type = industrial_complex level = 1 instant_build = yes } }
+					}
+					10 = {
+						var:THIS.my_resource_state = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
+					}				
+					10 = {
+						if = {
+							limit = {
+								var:THIS.my_resource_state = { has_resources_amount = { resource = oil amount > 0 } }
+							}
+							set_temp_variable = { global.news_monopoly_state = 292.id }
+							news_event = state_events.12
+							add_resource = {
+								type = oil
+								amount = 5
+								state = var:THIS.my_resource_state
+							}
+						}
+						if = {
+							limit = {
+								var:THIS.my_resource_state = { has_resources_amount = { resource = steel amount > 0 } }
+							}
+							add_resource = {
+								type = steel
+								amount = 5
+								state = var:THIS.my_resource_state
+							}
+						}
+						if = {
+							limit = {
+								var:THIS.my_resource_state = { has_resources_amount = { resource = tungsten amount > 0 } }
+							}
+							add_resource = {
+								type = tungsten
+								amount = 5
+								state = var:THIS.my_resource_state
+							}
+						}
+						if = {
+							limit = {
+								var:THIS.my_resource_state = { has_resources_amount = { resource = aluminium amount > 0 } }
+							}
+							add_resource = {
+								type = aluminium
+								amount = 5
+								state = var:THIS.my_resource_state
+							}
+						}
+						if = {
+							limit = {
+								var:THIS.my_resource_state = { has_resources_amount = { resource = chromium amount > 0 } }
+							}
+							add_resource = {
+								type = chromium
+								amount = 5
+								state = var:THIS.my_resource_state
+							}
+						}
+					}
+					65 = {
+					}
+				}
+			}
+			var:THIS.my_resource_state = { clr_state_flag = monopoly_state }
+			var:THIS.my_resource_state = { clear_variable = THIS.my_resource_state_owner }
+			clear_variable = THIS.my_resource_state
+			clear_variable = FROM.resource_state
+			clear_variable = THIS.my_resource_state_owner_name
+		}
+		timeout_effect = {
+			### NOTIFICATION ###
+			FROM = { set_country_flag = { flag = notification_state_monopoly_rejected value = 1 days = 5 } }
+			FROM = { set_variable = { monopoly_request_state = FROM.resource_state } }
+			FROM = { set_variable = { monopoly_state_owner = ROOT.id } }
+			### NOTIFICATION ###		
+			custom_effect_tooltip = "CW_MONOPOLY_REJECT_TT"
+			var:FROM.resource_state = { clr_state_flag = offered_contract }
+			var:FROM.resource_state = { clear_variable = FROM.resource_state }
+			FROM = { clr_country_flag = awaiting_monopoly_responce }
+			hidden_effect = { remove_targeted_decision = { target = FROM decision = cw_resource_contract_reciever } }
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 10
+				FROM = { similar_ideology_check = yes }
+			}
+			modifier = {
+				add = -10
+				FROM = { similar_ideology_check = no }
+			}
+			modifier = {
+				add = -50
+				any_owned_state = { is_claimed_by = FROM }
+			}
+		}		
+	}
+}

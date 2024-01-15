@@ -1,0 +1,36 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_sanctions_period_light"
+		texturefile = "gfx/interface/un_sanctions_dip_interface/sanctions_period_light.dds"
+	}
+	spriteType = {
+		name = "GFX_interface_round_switch"
+		texturefile = "gfx/interface/un_sanctions_dip_interface/interface_round_switch.dds"
+		noofframes = 3
+	}
+	spriteType = {
+		name = "GFX_sanction_screen_glass"
+		texturefile = "gfx/interface/un_sanctions_dip_interface/sanctions_interface_screen_glass.dds"
+	}
+	spriteType = {
+		name = "GFX_sanction_type_background"
+		texturefile = "gfx/interface/un_sanctions_dip_interface/sanctions_type_background.dds"
+		noofframes = 2
+		animation = {
+			animationmaskfile = "gfx/interface/un_sanctions_dip_interface/sanctions_type_background.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 5.00				# in seconds
+			animationdelay = 5			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}	
+	}	
+	SpriteType = {
+		name = "GFX_un_sanctions_gui_background"
+		texturefile = "gfx/interface/un_sanctions_dip_interface/sanctions_gui_background.dds"
+	}
+}

@@ -1,0 +1,25 @@
+state={
+	id=865
+	local_supplies=0.0 
+	name="STATE_865"
+	state_category = town
+	history = {
+		owner = SAF
+		add_claim_by = NAM
+	
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	resources={
+		crops = 5
+		steel = 10
+	}	
+	manpower = 245000
+	provinces={
+		7770 8136 10957 10978 12519 12921 13217 
+	}
+	
+	
+	buildings_max_level_factor=1.000
+}

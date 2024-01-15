@@ -1,0 +1,38 @@
+state = {
+	id=11
+	local_supplies=0.0 
+	name="STATE_11"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 6296 }
+ 	set_variable = { victory_point = 5 }
+		owner = SOV
+		add_core_of = LIT
+		
+		start_resistance = yes
+		set_compliance = 10
+		set_resistance = 10
+		
+		add_state_modifier = {
+			modifier = {
+				resistance_target = 0.1
+				compliance_gain = -0.5
+			}
+		}		
+		
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+		}
+		victory_points = {
+			6296 5
+		}
+	}
+	resources={
+		crops = 5
+	}		
+	manpower = 1353130
+	provinces={
+		327 3272 6281 6296 6407 9246 9357 9374 9404 9438 11226 11312 11498 
+	}
+}

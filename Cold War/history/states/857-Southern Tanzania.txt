@@ -1,0 +1,25 @@
+state={
+	id=857
+	local_supplies=0.0 
+	name="STATE_857"
+	
+	resources={
+		crops=2.000
+	}
+	
+	history={
+		owner = ENG
+		add_claim_by = TNZ
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+		}
+	}
+	provinces={
+		 2176 2281 8182 8201 10845 10988  12944 12967 
+	}
+	manpower=2649500
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

@@ -1,0 +1,50 @@
+﻿division_template = {
+	name = "UN Peacekeeping Forces"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+	}
+	support = {
+		military_police = { x = 0 y = 0 }
+	}
+}
+units = {
+	division = {
+		location = 13218
+		division_template = "UN Peacekeeping Forces"
+	}
+	division = {
+		location = 13218
+		division_template = "UN Peacekeeping Forces"
+	}
+	division = {
+		location = 13218
+		division_template = "UN Peacekeeping Forces"
+	}
+	division = {
+		location = 13218
+		division_template = "UN Peacekeeping Forces"
+	}
+	division = {
+		location = 13218
+		division_template = "UN Peacekeeping Forces"
+	}	
+}
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_3
+			creator = "UNN"
+		}
+		requested_factories = 3
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "UNN"
+		}
+		requested_factories = 1
+	}
+}

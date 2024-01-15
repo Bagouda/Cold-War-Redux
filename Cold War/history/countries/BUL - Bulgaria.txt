@@ -1,0 +1,117 @@
+﻿capital = 48
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	oob = "BUL_1946"
+	set_cosmetic_tag = BUL_CM #Tsardom of Bulgaria
+	give_military_access = SOV
+	give_military_access = CGR
+	add_ideas = {
+	# Country ideas
+		bul_simeon_2
+	# Cabinet
+		bul_hog_georgi_dimitrov	
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1945.1.1"		
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 10
+		neutrality = 40
+		communism_totalitarian = 15
+		unaligned_right = 35
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Georgi Dimitrov"
+		desc = ""
+		picture = "BULH2.dds"
+		ideology = stalinism_idolg
+		expire = 1949.7.2
+		traits = { communist_totalitarian_drift_trait }
+	}
+	create_country_leader = {
+		name = "Nikola Petkov"
+		desc = ""
+		picture = "BULG2.dds"
+		ideology = nationalism_idolg
+		expire = 1962.9.1
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Kimon Georgiev"
+		desc = ""
+		picture = "BULG1.dds"
+		ideology = agrarianism
+		expire = 1962.9.1
+		traits = {}
+	}
+}
+1948.5.14 = {
+	set_cosmetic_tag = SOV_PUP # Under Soviet influence
+	set_politics = {
+		ruling_party = communism_totalitarian
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 40
+		neutrality = 30
+		communism_totalitarian = 30
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Vasil Kolarov"
+		desc = ""
+		picture = "BULH3.dds"
+		ideology = stalinism_idolg
+		expire = 1950.1.23
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Georgi Dimitrov"
+		desc = ""
+		picture = "BULH2.dds"
+		ideology = stalinism_idolg
+		expire = 1949.7.2
+		traits = {}
+	}
+}
+1950.6.25 = {
+	create_country_leader = {
+		name = "Valko Chervenkov"
+		desc = ""
+		picture = "BULH4.dds"
+		ideology = revisionist_idolg
+		expire = 1956.4.18
+		traits = { communist_reformist }
+	}
+}
+1961.12.11 = {
+	create_country_leader = {
+		name = "Anton Yugov"
+		desc = ""
+		picture = "BULH5.dds"
+		ideology = stalinism_idolg
+		expire = 1962.9.19
+		traits = {}
+	}
+}
+1979.12.24 = {
+	create_country_leader = {
+		name = "Todor Zhivkov"
+		desc = ""
+		picture = "BULH6.dds"
+		ideology = stalinism_idolg
+		expire = 1989.11.10
+		traits = {}
+	}
+}
+1989.1.9 = {
+}

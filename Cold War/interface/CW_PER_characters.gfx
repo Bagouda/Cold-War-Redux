@@ -1,0 +1,18 @@
+spriteTypes = {
+	###############################################################################################
+	################################## CHI Political Characters ###################################
+	###############################################################################################
+	### Country Leaders
+	spriteType = {
+		name = "GFX_per_mohammadd_reza_shah_large"
+		texturefile = "gfx/leaders/PER/PERH1.dds"
+	}
+	spriteType = {
+		name = "GFX_per_noureddin_alamouti_large"
+		texturefile = "gfx/leaders/PER/PERNHCH1.dds"
+	}
+	spriteType = {
+		name = "GFX_per_mohammad_mosaddegh_large"
+		texturefile = "gfx/leaders/PER/PERNHDH1.dds"
+	}
+}

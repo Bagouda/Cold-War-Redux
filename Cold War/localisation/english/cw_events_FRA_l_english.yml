@@ -1,0 +1,12 @@
+﻿l_english:
+ ###############################################
+ ### French Events Localisation ###
+ ###############################################
+ fra_events.1.t:0 "Morrocans Demand Return of the King"
+ fra_events.1.d:0 "French colonial authorites in Morocco are reporting massive crowds that have gathered over all of Morocco demanding the return from exile of Muhammad V.\n\nThe King has been exiled by French authorities due to his support of sepratist movements, it seems like the King's exile was not enough to curb Moroccan sentiments for independence.\n\nHow should the government respond to this demand? While accepting this demand will no doubt set Morocco on a path to independence, refusing it could lead to rebellion against French rule..."
+ fra_events.1.a:0 "End Muhammad V's exile "
+ fra_events.1.b:0 "Our authority will not be questioned."
+ FRA_EVENTS_1_EFFECT_TT:0 "§RAn uprising against [ROOT.GetAdjective] rule will begin in Morocco.§!"
+ ###### DECISIONS ####
+ fra_military_takeover_mission:0 "[GetYear] French Algiers Crisis\n§gUse the focus tree to resolve this crisis.§!"
+ fra_military_takeover_mission_desc:0 "The governor of Algeria Jacques Soustelle has organized an anti government coup, the leaders of the coup demand the return of Charles de Gaulle as leader of France.\n\nIf the demand is not met the officers of the coup are threatning to use the army against the French government.\n\n§RWhile this crisis is active we cannot train new armies, edit templates or create new templates.§!"

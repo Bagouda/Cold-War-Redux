@@ -1,0 +1,128 @@
+focus_tree = {
+	id = belgium_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = BEL
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	focus = {
+		id = bel_congol_independence
+		available = {
+			date > 1960.1.1
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 5
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = COG
+						is_claimed_by = COG
+					}
+				}
+				COG = { transfer_state = PREV }
+				add_core_of = COG
+				remove_claim_by = COG
+				remove_core_of = ROOT
+			}
+			COG = {
+				load_oob = "COG_1960"
+				add_timed_idea = { idea = cw_disorganized_military days = 720 }
+				cw_gained_independence_notification = yes
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = bel_support_katanga_independence
+		available = {
+			COG = { 
+				exists = yes
+				NOT = {
+					OR = {
+						is_puppet_of = BEL
+						is_subject_of = BEL
+					}
+				}
+			}
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 5
+		y = 2
+		cost = 5
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = KAT
+					value = 200
+				}				
+			}
+			COG = {
+				every_owned_state = {
+					limit = {
+						region = 216
+						NOT = {
+							OR = {
+								state = 893
+								state = 902
+								state = 295
+							}
+						}
+					}
+					add_core_of = KAT
+					KAT = { transfer_state = PREV }
+				}
+				create_wargoal = {
+					type = civil_war
+					target = KAT
+				}
+			}
+			KAT = {
+				load_oob = "KAT_1960"
+				cw_allow_non_unsc_volunteers = yes
+				add_ideas = cw_foreign_mercenaries
+				cw_gained_unilateral_independence_notification = yes
+				cw_give_military_aid = yes
+			}
+			COG = { save_global_event_target_as = former_owner }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+}

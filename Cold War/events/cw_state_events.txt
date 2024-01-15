@@ -1,0 +1,320 @@
+﻿##################
+# STATE BUTTON EVENTS #
+##################
+add_namespace = state_events
+country_event = {
+	id = state_events.1		#Lease request event
+	title = state_events.1.t
+	desc = state_events.1.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = {
+			base = 25
+			modifier = {
+				add = 100
+				tag = UNN
+			}		
+		}	
+		name = "Grant The Lease"
+		FROM = {
+			var:ROOT.requested_state_lease = { cw_grant_lease_perpetual_with_payment = yes } 
+			phone_notification_generic_request_accepted = yes
+		}
+		clear_variable = requested_state_lease
+	}
+	option = {
+		ai_chance = {
+			base = 75
+		}		
+		name = "Refuse Request"	
+		FROM = { 
+			add_opinion_modifier = { target = ROOT modifier = refused_lease_request }
+			phone_notification_generic_request_refused = yes
+		}
+		clear_variable = requested_state_lease
+	}
+}
+news_event = {
+	id = state_events.5		#Police Action - Controller Atrocities 
+	title = state_events.5.t
+	desc = state_events.5.d
+	picture = GFX_state_event_attrocities
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					tag = FROM
+				}
+				clr_country_flag = police_action_condemnation_active
+				set_country_flag = { flag = condemn_violance_allowed value = 1 days = 90 }
+				add_named_threat = { threat = 5 name = "Commited attrocities on civilian population." }
+				var:FROM.police_action_event_state = {
+					add_resistance = 10
+					every_neighbor_state = {
+						limit = {
+							has_resistance = yes
+						}
+						add_resistance = 5 
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "OK"
+	}
+}
+
+country_event = {
+	id = state_events.6		# Border Raid - Captured Equipment
+	title = state_events.6.t
+	desc = {
+		text = state_events.6.d1
+		trigger = {
+			NOT = { var:border_raid_target = { is_controlled_by = ROOT } }
+		}
+	}
+	desc = {
+		text = state_events.6.d2
+		trigger = {
+			var:border_raid_target = { is_controlled_by = ROOT }
+		}
+	}	
+	picture = GFX_event_weapons_cache
+
+	is_triggered_only = yes
+
+	option = {
+		name = "OK"
+	}
+}
+country_event = {
+	id = state_events.7		# Border Raid - Infrastructre Damaged
+	title = state_events.7.t
+	desc = {
+		text = state_events.7.d1
+		trigger = {
+			NOT = { var:border_raid_target = { is_controlled_by = ROOT } }
+		}
+	}
+	desc = {
+		text = state_events.7.d2
+		trigger = {
+			var:border_raid_target = { is_controlled_by = ROOT }
+		}
+	}
+	picture = GFX_report_event_generic_train
+
+	is_triggered_only = yes
+
+	option = {
+		name = "OK"
+	}
+}
+country_event = {
+	id = state_events.8		# Border Raid - General Wounded
+	title = state_events.8.t
+	desc = {
+		text = state_events.8.d1
+		trigger = {
+			NOT = { var:border_raid_target = { is_controlled_by = ROOT } }
+		}
+	}
+	desc = {
+		text = state_events.8.d2
+		trigger = {
+			var:border_raid_target = { is_controlled_by = ROOT }
+		}
+	}
+	picture = GFX_report_event_chinese_officers
+
+	is_triggered_only = yes
+
+	option = {
+		name = "OK"
+	}
+}
+country_event = {
+	id = state_events.9		# Border Raid - Resistance Increased
+	title = state_events.9.t
+	desc = {
+		text = state_events.9.d1
+		trigger = {
+			NOT = { var:border_raid_target = { is_controlled_by = ROOT } }
+		}
+	}
+	desc = {
+		text = state_events.9.d2
+		trigger = {
+			var:border_raid_target = { is_controlled_by = ROOT }
+		}
+	}
+	picture = GFX_report_event_yugoslavia_partisans
+
+	is_triggered_only = yes
+
+	option = {
+		name = "OK"
+	}
+}
+
+country_event = {
+	id = state_events.10		# Border Raid - Enemy Forces Killed
+	title = state_events.10.t
+	desc = {
+		text = state_events.10.d1
+		trigger = {
+			NOT = { var:border_raid_target = { is_controlled_by = ROOT } }
+		}
+	}
+	desc = {
+		text = state_events.10.d2
+		trigger = {
+			var:border_raid_target = { is_controlled_by = ROOT }
+		}
+	}
+	picture = GFX_report_event_hungarian_soldiers
+
+	is_triggered_only = yes
+
+	option = {
+		name = "OK"
+	}
+}
+country_event = {
+	id = state_events.11		# Border Raid - Raiding Force Killed
+	title = state_events.11.t
+	desc = {
+		text = state_events.11.d1
+		trigger = {
+			NOT = { var:border_raid_target = { is_controlled_by = ROOT } }
+		}
+	}
+	desc = {
+		text = state_events.11.d2
+		trigger = {
+			var:border_raid_target = { is_controlled_by = ROOT }
+		}
+	}
+	picture = GFX_report_event_swedish_soldier
+
+	is_triggered_only = yes
+
+	option = {
+		name = "OK"
+	}
+}
+
+
+
+news_event = {
+	id = state_events.12		# New Oil Discoveries
+	title = "state_events.12.t"
+	desc = state_events.12.d
+	picture = GFX_state_event_oil_discoveries_news
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = state_events.13		# Foreign Companies Nationalized
+	title = state_events.13.t
+	desc = state_events.13.d
+	picture = GFX_oil_factories_news
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+
+
+country_event = {
+	id = state_events.14		# Border Raid - win
+	title = state_events.14.t
+	desc = state_events.14.d
+
+	
+	immediate = {
+		add_to_variable = { cw_score = 5 }
+		FROM.FROM.FROM = {
+				save_event_target_as = their_state
+		}
+	}
+
+	picture = GFX_report_event_swedish_soldier
+
+	is_triggered_only = yes
+
+	option = {
+		name = "A glorious Victory"
+		news_event = state_events.16
+		}
+}
+
+country_event = {
+	id = state_events.15		# Border Raid - lose
+	title = state_events.15.t
+	desc = state_events.15.d
+
+
+
+	picture = GFX_report_event_swedish_soldier
+
+	is_triggered_only = yes
+	immediate = {
+		subtract_from_variable = { cw_score = 5 }
+	}
+	option = {
+		name = "what a humilation"
+		news_event = state_events.17	
+
+	}
+}
+
+news_event = {
+	id = state_events.16		# Border raid win
+	title = state_events.16.t
+	desc = state_events.16.d
+	picture = GFX_news_event_032
+
+
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = state_events.17		# Border raid lose
+	title = state_events.17.t
+	desc = state_events.17.d
+	picture = GFX_news_event_spr_spanish_civil_war3
+
+
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}

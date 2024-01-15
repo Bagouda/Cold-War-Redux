@@ -1,0 +1,28 @@
+state = {
+	id=463
+	local_supplies=0.0 
+	name="STATE_463"
+	state_category= town
+	history = {
+ 	add_to_array = { list_victory_point = 13091 }
+ 	add_to_array = { list_victory_point = 13090 }
+ 	set_variable = { victory_point = 4 }
+		buildings = {
+			infrastructure = 1
+			rocket_site = 1
+		}
+		owner = USA
+		
+		victory_points = {
+			13091 3 
+		}
+		victory_points = {
+			13090 1 
+		}
+	}
+	buildings_max_level_factor=1
+	manpower=67500
+	provinces={
+		1135 1830 4833 4848 7855 7884 10679 10694 10707 12661 13069 13090 13091 13202 13203 
+	}
+}

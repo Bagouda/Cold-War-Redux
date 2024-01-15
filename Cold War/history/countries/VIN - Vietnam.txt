@@ -1,0 +1,258 @@
+﻿capital = 804 
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+
+set_variable = {proxy_point = 90 }
+
+
+####start tech####
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons2 = 1
+	infantry_weapons1 = 1
+	improved_infantry_weapons = 1
+	improved_infantry_weapons_2 = 1
+	infantry_at = 1
+	infantry_at2 = 1
+	advanced_infantry_weapons = 1
+	advanced_infantry_weapons2 = 1
+	marines = 1
+	paratroopers = 1
+	tech_mountaineers = 1
+	tech_special_forces = 1
+	jungle_warfare = 1
+	mountain_warfare = 1
+	night_vision = 1
+	support_weapons = 1
+	support_weapons2 = 1
+	support_weapons3 = 1
+	support_weapons4 = 1
+	motorised_infantry = 1
+	motorized_rocket_unit = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	railway_gun = 1
+	wartime_train = 1
+	armored_train = 1
+	
+	gw_artillery = 1
+	interwar_artillery = 1
+	artillery1 = 1
+	artillery2 = 1
+	artillery3 = 1
+	artillery4 = 1
+	artillery5 = 1
+	mountain_gun = 1
+	rocket_artillery = 1
+	rocket_artillery2 = 1
+	rocket_artillery3 = 1
+	rocket_artillery4 = 1
+	interwar_antiair = 1
+	antiair1 = 1
+	antiair2 = 1
+	antiair3 = 1
+	antiair4 = 1
+	antiair5 = 1
+	interwar_antitank = 1
+	antitank1 = 1
+	antitank2 = 1
+	antitank3 = 1
+	antitank4 = 1
+	antitank5 = 1
+	
+	early_fighter = 1
+	cv_early_fighter = 1
+	fighter1 = 1
+	cv_fighter1 = 1
+	fighter2 = 1
+	cv_fighter2 = 1
+	fighter3 = 1
+	cv_fighter3 = 1
+	jet_fighter1 = 1
+	jet_fighter2 = 1
+	CAS1 = 1
+	cv_CAS1 = 1
+	CAS2 = 1
+	cv_CAS2 = 1
+	CAS3 = 1
+	cv_CAS3 = 1
+	naval_bomber1 = 1
+	cv_naval_bomber1 = 1
+	naval_bomber2 = 1
+	cv_naval_bomber2 = 1
+	naval_bomber3 = 1
+	cv_naval_bomber3 = 1
+	early_bomber = 1
+	heavy_fighter1 = 1
+	heavy_fighter2 = 1
+	heavy_fighter3 = 1
+	scout_plane1 = 1
+	scout_plane2 = 1
+	tactical_bomber1 = 1
+	tactical_bomber2 = 1
+	tactical_bomber3 = 1
+	
+	gwtank = 1
+	basic_light_tank = 1
+	basic_light_td = 1
+	basic_light_art = 1
+	basic_light_spaa = 1
+	improved_light_tank = 1
+	improved_light_td = 1
+	improved_light_art = 1
+	improved_light_spaa = 1
+	amphibious_tank = 1
+	amphibious_tank_2 = 1
+	advanced_light_tank = 1
+	advanced_light_td = 1
+	advanced_light_art = 1
+	advanced_light_spaa = 1
+	basic_medium_tank = 1
+	basic_medium_td = 1
+	basic_medium_art = 1
+	basic_medium_spaa = 1
+	improved_medium_tank = 1
+	improved_medium_td = 1
+	improved_medium_art = 1
+	improved_medium_spaa = 1
+	advanced_medium_tank = 1
+	advanced_medium_td = 1
+	advanced_medium_art = 1
+	advanced_medium_spaa = 1
+	
+	electronic_mechanical_engineering = 1
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		amphibious_tank_chassis = 1
+		amphibious_drive = 1
+		advanced_light_tank_chassis = 1
+		basic_medium_tank_chassis = 1
+		improved_medium_tank_chassis = 1
+		advanced_medium_tank_chassis = 1
+		main_battle_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		improved_heavy_tank_chassis = 1
+		advanced_heavy_tank_chassis = 1
+		super_heavy_tank_chassis = 1
+		armor_tech_1 = 1
+		armor_tech_2 = 1
+		armor_tech_3 = 1
+		armor_tech_4 = 1
+		engine_tech_1 = 1
+		engine_tech_2 = 1
+		engine_tech_3 = 1
+		engine_tech_4 = 1
+	}
+}
+####end tech####
+1946.1.1 = {
+	oob = "VIN_1946"
+	set_cosmetic_tag = FRA_VIN
+	set_country_flag = cw_volunteers_blocked
+	set_country_flag = police_action_blocked
+	add_ideas = {
+		cw_closed_economy
+		cw_hardline
+		cw_high_military_budget
+		cw_five_year_plan_military_industry_focus
+		cw_infantry_forces
+		cw_extensive_conscription
+	}
+	### Country Leaders
+	recruit_character = SVI_georges_thierry
+	### Deputy Minister
+	recruit_character = vin_hog_vo_nguyen_giap
+	activate_advisor = vin_hog_vo_nguyen_giap
+	### Military Characters
+	
+	
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_3
+		amount = 10000
+	}
+	add_equipment_to_stockpile = {
+		type = support_equipment_1
+		amount = 10000
+	}
+	add_equipment_to_stockpile = {
+		type = artillery_equipment_3
+		amount = 1000
+	}
+	set_politics = {
+		ruling_party = colonial
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 5
+		communism = 10
+		unaligned_right = 5
+		colonial =  80
+	}	
+}
+
+1948.5.14 = {
+}
+1950.6.25 = {
+}
+1954.4.20 = {
+
+}
+1954.4.26 = {
+	drop_cosmetic_tag = yes	#Geneva confrence, partition of Vietnam
+	white_peace = VIN
+}
+1956.10.29 = {
+}
+1961.12.11 = {
+}
+1979.12.24 = {
+	if = {
+		limit = {
+		has_dlc = "Together for Victory"
+		}
+		set_autonomy = {
+			target = CAM
+			autonomous_state = autonomy_reichskommissariat
+			freedom_level = 0.0
+		}
+		else = {
+			puppet = CAM			
+		}
+	}
+	create_country_leader = {
+		name = "Tôn Đức Thắng"
+		desc = ""
+		picture = "VINH2.dds"
+		ideology = stalinism_idolg
+		expire = 1980.3.30
+		traits = {}
+	}
+}
+1989.1.9 = {
+	create_country_leader = {
+		name = "Võ Chí Công"
+		desc = ""
+		picture = "VINH5.dds"
+		ideology = stalinism_idolg
+		expire = 1992.9.22
+		traits = {}
+	}
+}

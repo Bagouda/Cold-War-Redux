@@ -1,0 +1,517 @@
+﻿capital = 47
+set_variable = { twin_country = CGR.id }	#Communist Greece
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_country_flag = police_action_blocked
+set_convoys = 50
+set_research_slots = 2
+####start tech####
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons2 = 1
+	infantry_weapons1 = 1
+	improved_infantry_weapons = 1
+	improved_infantry_weapons_2 = 1
+	infantry_at = 1
+	infantry_at2 = 1
+	advanced_infantry_weapons = 1
+	advanced_infantry_weapons2 = 1
+	marines = 1
+	paratroopers = 1
+	tech_mountaineers = 1
+	tech_special_forces = 1
+	jungle_warfare = 1
+	mountain_warfare = 1
+	night_vision = 1
+	support_weapons = 1
+	support_weapons2 = 1
+	support_weapons3 = 1
+	support_weapons4 = 1
+	motorised_infantry = 1
+	motorized_rocket_unit = 1
+	armored_car1 = 1
+	armored_car2 = 1
+	armored_car3 = 1
+	armored_car_at_upgrade = 1
+	mechanised_infantry = 1
+	amphibious_mechanized_infantry = 1
+	amphibious_mechanized_infantry_2 = 1
+	mechanised_infantry2 = 1
+	mechanised_infantry3 = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	railway_gun = 1
+	wartime_train = 1
+	armored_train = 1
+	
+	gw_artillery = 1
+	interwar_artillery = 1
+	artillery1 = 1
+	artillery2 = 1
+	artillery3 = 1
+	artillery4 = 1
+	artillery5 = 1
+	mountain_gun = 1
+	rocket_artillery = 1
+	rocket_artillery2 = 1
+	rocket_artillery3 = 1
+	rocket_artillery4 = 1
+	interwar_antiair = 1
+	antiair1 = 1
+	antiair2 = 1
+	antiair3 = 1
+	antiair4 = 1
+	antiair5 = 1
+	interwar_antitank = 1
+	antitank1 = 1
+	antitank2 = 1
+	antitank3 = 1
+	antitank4 = 1
+	antitank5 = 1
+	
+	early_fighter = 1
+	cv_early_fighter = 1
+	fighter1 = 1
+	cv_fighter1 = 1
+	fighter2 = 1
+	cv_fighter2 = 1
+	fighter3 = 1
+	cv_fighter3 = 1
+	jet_fighter1 = 1
+	jet_fighter2 = 1
+	CAS1 = 1
+	cv_CAS1 = 1
+	CAS2 = 1
+	cv_CAS2 = 1
+	CAS3 = 1
+	cv_CAS3 = 1
+	naval_bomber1 = 1
+	cv_naval_bomber1 = 1
+	naval_bomber2 = 1
+	cv_naval_bomber2 = 1
+	naval_bomber3 = 1
+	cv_naval_bomber3 = 1
+	early_bomber = 1
+	heavy_fighter1 = 1
+	heavy_fighter2 = 1
+	heavy_fighter3 = 1
+	scout_plane1 = 1
+	scout_plane2 = 1
+	tactical_bomber1 = 1
+	tactical_bomber2 = 1
+	tactical_bomber3 = 1
+	jet_tactical_bomber1 = 1
+	jet_tactical_bomber2 = 1
+	strategic_bomber1 = 1
+	strategic_bomber2 = 1
+	strategic_bomber3 = 1
+	jet_strategic_bomber1 = 1
+	
+	gwtank = 1
+	basic_light_tank = 1
+	basic_light_td = 1
+	basic_light_art = 1
+	basic_light_spaa = 1
+	improved_light_tank = 1
+	improved_light_td = 1
+	improved_light_art = 1
+	improved_light_spaa = 1
+	amphibious_tank = 1
+	amphibious_tank_2 = 1
+	advanced_light_tank = 1
+	advanced_light_td = 1
+	advanced_light_art = 1
+	advanced_light_spaa = 1
+	basic_medium_tank = 1
+	basic_medium_td = 1
+	basic_medium_art = 1
+	basic_medium_spaa = 1
+	improved_medium_tank = 1
+	improved_medium_td = 1
+	improved_medium_art = 1
+	improved_medium_spaa = 1
+	advanced_medium_tank = 1
+	advanced_medium_td = 1
+	advanced_medium_art = 1
+	advanced_medium_spaa = 1
+	main_battle_tank = 1
+	modern_td = 1
+	modern_art = 1
+	modern_spaa = 1
+	basic_heavy_tank = 1
+	basic_heavy_td = 1
+	basic_heavy_art = 1
+	basic_heavy_spaa = 1
+	improved_heavy_tank = 1
+	improved_heavy_td = 1
+	improved_heavy_art = 1
+	improved_heavy_spaa = 1
+	advanced_heavy_tank = 1
+	advanced_heavy_td = 1
+	advanced_heavy_art = 1
+	advanced_heavy_spaa = 1
+	super_heavy_tank = 1
+	super_heavy_td = 1
+	super_heavy_art = 1
+	super_heavy_spaa = 1
+	
+	electronic_mechanical_engineering = 1
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		amphibious_tank_chassis = 1
+		amphibious_drive = 1
+		advanced_light_tank_chassis = 1
+		basic_medium_tank_chassis = 1
+		improved_medium_tank_chassis = 1
+		advanced_medium_tank_chassis = 1
+		main_battle_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		improved_heavy_tank_chassis = 1
+		advanced_heavy_tank_chassis = 1
+		super_heavy_tank_chassis = 1
+		armor_tech_1 = 1
+		armor_tech_2 = 1
+		armor_tech_3 = 1
+		armor_tech_4 = 1
+		engine_tech_1 = 1
+		engine_tech_2 = 1
+		engine_tech_3 = 1
+		engine_tech_4 = 1
+	}
+}
+####end tech####
+1946.1.1 = {
+	set_variable = { volunteers_allowed_from@ENG = 1 }
+	add_opinion_modifier = { target = USA modifier = anti_communist_ally }
+	oob = "GRE_1946"
+	set_naval_oob = "GRE_1946_naval_mtg"
+	set_cosmetic_tag = GRE_CM # Monarchical Greece
+	set_stability = 0.40
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_2
+		amount = 100000
+		producer = GRE
+	}		
+	add_ideas = {
+		gre_george_2
+	}	
+	add_timed_idea = {
+		idea = unstable_government
+		days = 720
+	}
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 30
+		democratic_socialist = 10
+		neutrality = 10
+		communism_totalitarian = 10
+		unaligned_right = 40
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Nikolaos Zachariadis"
+		desc = ""
+		picture = "GREC3.dds"
+		ideology = stalinism_idolg
+		expire = 1949.6.24
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Paul"
+		desc = ""
+		picture = "GREH2.dds"
+		ideology = consitutional
+		expire = 1964.3.6
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "George II"
+		desc = ""
+		picture = "GREM1.dds"
+		ideology = consitutional
+		expire = 1947.4.1
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Themistoklis Sofoulis"
+		desc = ""
+		picture = "GREG3.dds"
+		ideology = social_liberal_idolg
+		expire = 1949.6.24
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Dimitrios Maximos"
+		desc = ""
+		picture = "GREG2.dds"
+		ideology = social_cons_idolg
+		expire = 1947.8.29
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Konstantinos Tsaldaris"
+		desc = ""
+		picture = "GREG1.dds"
+		ideology = autocracy
+		expire = 1950.9.7
+		traits = {}
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+	create_country_leader = {
+		name = "Alexandros Diomidis"
+		desc = ""
+		picture = "GREG4.dds"
+		ideology = social_liberal_idolg
+		expire = 1960.6.6
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Themistoklis Sofoulis"
+		desc = ""
+		picture = "GREG3.dds"
+		ideology = social_liberal_idolg
+		expire = 1949.6.24
+		traits = {}
+	}	
+}
+1950.6.25 = {	#Korean War
+	set_politics = {
+		ruling_party = democratic
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "Markos Vafiadis"
+		desc = ""
+		picture = "GREC2.dds"
+		ideology = stalinism_idolg
+		expire = 1980.2.7
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Dimitrios Partsalidis"
+		desc = ""
+		picture = "GREC1.dds"
+		ideology = stalinism_idolg
+		expire = 1950.10.10
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Alexander Papagos"
+		desc = ""
+		picture = "GREG7.dds"
+		ideology = social_cons_idolg
+		expire = 1965.6.6
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Sophoklis Venizelos"
+		desc = ""
+		picture = "GREG6.dds"
+		ideology = social_liberal_idolg
+		expire = 1960.6.6
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Nikolaos Plastiras"
+		desc = ""
+		picture = "GREG5.dds"
+		ideology = social_cons_idolg
+		expire = 1960.6.6
+		traits = {}
+	}
+}
+1956.10.29 = {	#Suez Crisis
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1956.2.19"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 50
+		democratic_socialist = 0
+		neutrality = 50
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Sophoklis Venizelos"
+		desc = ""
+		picture = "GREG4.dds"
+		ideology = fascistic_idolg
+		expire = 1960.6.6
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Konstantinos Karamanlis"
+		desc = ""
+		picture = "GREG8.dds"
+		ideology = social_cons_idolg
+		expire = 1981.10.21
+		traits = {}
+	}	
+}
+1961.12.11 = {	#Vietnam War
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1961.10.29"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 51
+		democratic_socialist = 49
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {	#Military Takeover Leaders
+		name = "Adamantios Androutsopoulos"
+		desc = ""
+		picture = "GREMG4.dds"
+		ideology = military_idolg
+		expire = 1980.5.10
+		traits = {}
+	}
+	create_country_leader = {	#Military Takeover Leaders
+		name = "Spyros Markezinis"
+		desc = ""
+		picture = "GREMG3.dds"
+		ideology = military_idolg
+		expire = 1980.5.10
+		traits = {}
+	}
+	create_country_leader = {	#Military Takeover Leaders
+		name = "Georgios Papadopoulos"
+		desc = ""
+		picture = "GREMG2.dds"
+		ideology = military_idolg
+		expire = 1980.5.10
+		traits = {}
+	}
+	create_country_leader = {	#Military Takeover Leaders
+		name = "Konstantinos Kollias"
+		desc = ""
+		picture = "GREMG1.dds"
+		ideology = military_idolg
+		expire = 1980.5.10
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Stefanos Stefanopoulos"
+		desc = ""
+		picture = "GREG11.dds"
+		ideology = social_liberal_idolg
+		expire = 1980.5.10
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Georgios Papandreou"
+		desc = ""
+		picture = "GREG10.dds"
+		ideology = social_liberal_idolg
+		expire = 1980.5.10
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Panagiotis Kanellopoulos"
+		desc = ""
+		picture = "GREG11.dds"
+		ideology = social_cons_idolg
+		expire = 1975.7.15
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Panagiotis Pipinelis"
+		desc = ""
+		picture = "GREG9.dds"
+		ideology = social_cons_idolg
+		expire = 1963.9.28
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Konstantinos Karamanlis"
+		desc = ""
+		picture = "GREG8.dds"
+		ideology = social_cons_idolg
+		expire = 1981.10.21
+		traits = {}
+	}	
+}
+1973.5.3 = {
+	drop_cosmetic_tag = yes	#unaligned_right Abolished
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1977.11.20"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 52
+		democratic_socialist = 36
+		neutrality = 0
+		communism_totalitarian = 10
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Konstantinos Karamanlis"
+		desc = ""
+		picture = "GREG8.dds"
+		ideology = social_cons_idolg
+		expire = 1981.10.21
+		traits = {}
+	}	
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	create_country_leader = {
+		name = "Andreas Papandreou"
+		desc = ""
+		picture = "GREG13.dds"
+		ideology = social_democrat_idolg
+		expire = 1981.10.21
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Konstantinos Karamanlis"
+		desc = ""
+		picture = "GREG8.dds"
+		ideology = social_cons_idolg
+		expire = 1981.10.21
+		traits = {}
+	}
+}
+############# ships ##############
+create_equipment_variant = {
+	name = "Amphion Class"				
+	type = ship_hull_submarine_4
+	#name_group = POR_SS_HISTORICAL
+	parent_version = 0
+	modules = {
+		fixed_ship_torpedo_slot = ship_torpedo_sub_4
+		fixed_ship_engine_slot = sub_ship_engine_4
+		rear_1_custom_slot = empty
+	}
+}

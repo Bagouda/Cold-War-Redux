@@ -1,0 +1,39 @@
+cw_war_reparations_to_us_category = {
+
+	icon = generic_arms_trade
+	visible_when_empty = no
+
+	allowed = {
+		always = yes
+	}
+
+	visible = {
+		always = yes
+	}
+	on_map_area = {
+		target_array = GER.controlled_states
+		target_trigger = {
+			FROM = {
+				OR = {
+					arms_factory > 0
+					industrial_complex > 0
+				}
+			}
+		}
+		name = CW_SEIZE_INDUSTRIAL_ASSETS_ON_MAP_TT
+		zoom = 150
+	}	
+}
+cw_war_reparations_from_us_category = {
+
+	icon = generic_arms_trade
+	visible_when_empty = no
+
+	allowed = {
+		always = yes
+	}
+
+	visible = {
+		always = yes	
+	}
+}

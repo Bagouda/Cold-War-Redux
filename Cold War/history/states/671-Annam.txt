@@ -1,0 +1,43 @@
+
+state={
+	id=671
+	local_supplies=0.0 
+	name="STATE_671"
+	resources={
+		chromium=6.000
+		tungsten=27.000
+		crops = 15
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 4075 }
+		set_variable = { victory_point = 20 }
+		owner = VTC
+		add_core_of = VTC
+		add_core_of = VIN
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}
+		
+		buildings = {
+			infrastructure = 3
+			air_base = 3
+			arms_factory = 1
+			dockyard  = 1
+		}
+
+		victory_points = {
+			4075 20 	#Hanoi
+		}
+	}
+	provinces={
+		1157 1185 4075 7015 7093 9948 10016 10103 10129 11909 11936 12048 12075
+	}
+	manpower=2304000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

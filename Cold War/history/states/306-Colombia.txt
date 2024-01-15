@@ -1,0 +1,25 @@
+state = {
+	id=306
+	local_supplies=0.0 
+	name="STATE_306" # Cundinamarca
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 10747 }
+ 	set_variable = { victory_point = 10 }
+		owner = COL
+		add_core_of = COL
+		buildings = {
+			infrastructure = 4
+			arms_factory = 1
+			industrial_complex = 5
+			air_base = 1			
+		}		
+		victory_points = {
+			10747 10
+		}
+	}
+	manpower = 6953049
+	provinces={
+		2079 7936 7991 7993 10747 10790 10846 
+	}
+}

@@ -1,0 +1,30 @@
+state = {
+	id=195
+	local_supplies=0.0 
+	name="STATE_195"
+	state_category = devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 3151 }
+ 	set_variable = { victory_point = 30 }
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		
+		buildings = {
+			infrastructure = 3
+			arms_factory  = 1
+			dockyard  = 1
+			3151 = {
+				naval_base = 5
+			}	
+		}	
+		
+		victory_points = {
+			3151 30.0
+		}
+	}
+	manpower = 1541000
+	provinces={
+		79 149 3151 6174 11068 
+	}
+}

@@ -1,0 +1,35 @@
+state = {
+	id=460
+	local_supplies=0.0 
+	name="STATE_460" # Constantine
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 12051 }
+ 	add_to_array = { list_victory_point = 7081 }
+ 	set_variable = { victory_point = 4 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = FRA
+		add_core_of = FRA
+		add_claim_by = ALG
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}		
+		
+		victory_points = {
+			12051 3 
+		}
+		victory_points = {
+			7081 1 
+		}
+	}
+	manpower = 2555151
+	provinces={
+		1058 1141 1160 4046 7065 7081 9976 10059 10078 11953 12034 12051 13077 
+	}
+}

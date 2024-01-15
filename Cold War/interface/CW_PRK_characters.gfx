@@ -1,0 +1,66 @@
+spriteTypes = {
+	#################
+	# PRK MINISTERS #
+	#################
+	spriteType = {
+		name = "GFX_PRK_terenty_shtykov_large"
+		texturefile = "gfx/leaders/PRK/PRK_SOV_1.dds"
+	}	
+	spriteType = {
+		name = "GFX_PRK_ho_kai_i_large"
+		texturefile = "gfx/leaders/PRK/ho_kai_i_leader.dds"
+	}	
+	spriteType = {
+		name = "GFX_PRK_kim_tu_bong_large"
+		texturefile = "gfx/leaders/PRK/kim_tu_bong_leader.dds"
+	}
+	spriteType = {
+		name = "GFX_PRK_kim_il_sung_large"
+		texturefile = "gfx/leaders/PRK/PRKH1.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_PRK_boom_ho_kai_i_cabinet"
+		texturefile = "gfx/interface/ministers/PRK/PRK_boom_ho_kai_i_cabinet.dds"
+	}	
+	spriteType = {
+		name = "GFX_idea_kim_tu_bong_advisor"
+		texturefile = "gfx/interface/ministers/PRK/kim_tu_bong_advisor.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_Kim_Il-sung_advisor"
+		texturefile = "gfx/interface/ministers/PRK/Kim_Il-sung_advisor.dds"
+	}
+	### Military Characters
+	spriteType = {
+		name = "GFX_PRK_cho_yong_gon_large"
+		texturefile = "gfx/leaders/PRK/choe_yong_gon.dds"
+	}	
+	spriteType = {
+		name = "GFX_PRK_cho_yong_gon_small"
+		texturefile = "gfx/interface/ministers/PRK/PRK_cho_yong_gon_small.dds"
+	}
+	spriteType = {
+		name = "GFX_PRK_nam_il_large"
+		texturefile = "gfx/leaders/PRK/nam_il.dds"
+	}	
+	spriteType = {
+		name = "GFX_PRK_nam_il_small"
+		texturefile = "gfx/interface/ministers/PRK/PRK_nam_il_small.dds"
+	}
+	spriteType = {
+		name = "GFX_PRK_mu_chong_large"
+		texturefile = "gfx/leaders/PRK/mu_chong.dds"
+	}	
+	spriteType = {
+		name = "GFX_PRK_mu_chong_small"
+		texturefile = "gfx/interface/ministers/PRK/PRK_mu_chong_small.dds"
+	}
+	spriteType = {
+		name = "GFX_PRK_o_jin_u_large"
+		texturefile = "gfx/leaders/PRK/o_jin_u.dds"
+	}	
+	spriteType = {
+		name = "GFX_PRK_o_jin_u_small"
+		texturefile = "gfx/interface/ministers/PRK/PRK_o_jin_u_small.dds"
+	}	
+}

@@ -1,0 +1,902 @@
+ideas = {
+	cw_trade_unions = {
+		law = yes
+		cw_illegal_trade_unions = {
+						
+			cost = 1000
+			removal_cost = -1
+			level = 6
+			
+			visible = {
+				NOT = {
+					OR = {
+						has_government = communism_totalitarian
+						has_government = communism
+					}
+				}
+			}
+			available = {
+			}
+
+			modifier = {
+				local_resources_factor = 0.20
+				line_change_production_efficiency_factor = -0.1
+				monthly_population = -0.03
+				stability_weekly = -0.005
+				political_power_factor = 0.15
+				drift_defence_factor = -0.30
+				production_speed_buildings_factor = 0.05
+				production_factory_max_efficiency_factor = -0.05
+				industrial_capacity_factory = 0.15
+				industrial_capacity_dockyard = 0.15
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_state_controlled = {
+			cost = 800
+			removal_cost = -1
+			level = 5
+			
+			visible = {
+				NOT = {
+					OR = {
+						has_government = communism_totalitarian
+						has_government = communism
+					}
+				}
+			}
+			available = {
+			}
+
+			modifier = {
+				local_resources_factor = 0.10
+				line_change_production_efficiency_factor = -0.05
+				monthly_population = -0.02
+				stability_weekly = -0.002
+				political_power_factor = 0.10
+				drift_defence_factor = -0.15
+				production_speed_buildings_factor = 0.02
+				production_factory_max_efficiency_factor = -0.01
+				industrial_capacity_factory = 0.10
+				industrial_capacity_dockyard = 0.10
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_minor_unions_allowed = {		
+			cost = 500
+			removal_cost = -1
+			level = 4
+			
+			visible = {
+				NOT = {
+					OR = {
+						has_government = communism_totalitarian
+						has_government = communism
+					}
+				}
+			}
+			available = {
+			}
+
+			modifier = {
+				stability_weekly = -0.001
+				political_power_factor = 0.05
+				
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_medium_unions_allowed = {
+			cost = 300
+			removal_cost = -1
+			level = 3
+
+			visible = {
+				NOT = {
+					OR = {
+						has_government = communism_totalitarian
+						has_government = communism
+					}
+				}
+			}
+			
+			available = {
+			}
+
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				industrial_capacity_factory = 0.10
+				industrial_capacity_dockyard = 0.10
+			}
+			default = yes
+			cancel_if_invalid = no
+		}		
+		cw_large_unions_allowed = {
+			cost = 200
+			removal_cost = -1
+			level = 2
+			
+			visible = {
+				NOT = {
+					OR = {
+						has_government = communism_totalitarian
+						has_government = communism
+					}
+				}
+			}
+			available = {
+			}
+
+			modifier = {
+				stability_weekly = 0.001
+				war_support_factor = -0.03
+				political_power_factor = -0.05
+				drift_defence_factor = 0.10
+				production_speed_buildings_factor = -0.05
+				industrial_capacity_factory = -0.02
+				industrial_capacity_dockyard = -0.02
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_all_unions_allowed = {
+			cost = 30
+			removal_cost = -1
+			level = 1
+			
+			visible = {
+				NOT = {
+					OR = {
+						has_government = communism_totalitarian
+						has_government = communism
+					}
+				}
+			}
+			available = {
+			}
+
+			modifier = {
+				stability_weekly = 0.003
+				war_support_factor = -0.05
+				political_power_factor = -0.10	
+				drift_defence_factor = 0.20
+				production_speed_buildings_factor = -0.10
+				industrial_capacity_factory = -0.05
+				industrial_capacity_dockyard = -0.05
+			}
+			
+			cancel_if_invalid = no
+		}
+	}
+	cw_work_hours = {
+		law = yes
+		cw_no_worktime_regulation = {
+						
+			cost = 500
+			removal_cost = -1
+			level = 6
+
+			available = {
+				NOT = { 
+					OR = {
+						has_government = democratic_socialist
+						has_government = neutrality
+						has_government = communism
+						has_government = communism_totalitarian
+					}
+				}
+			}
+
+			modifier = {
+				local_resources_factor = 0.10
+				research_speed_factor = -0.10
+				monthly_population = -0.1
+				stability_weekly = -0.005
+				line_change_production_efficiency_factor = -0.30
+				production_factory_efficiency_gain_factor = -0.30				
+				equipment_conversion_speed = 0.10
+				industry_repair_factor = 0.10
+				consumer_goods_factor = 0.0
+				industrial_capacity_factory = 0.10
+				industrial_capacity_dockyard = 0.10
+				production_speed_arms_factory_factor = 0.10
+				production_speed_industrial_complex_factor = 0.10
+			}
+			cancel_if_invalid = no
+		}
+		cw_14_hour_workday = {
+						
+			cost = 300
+			removal_cost = -1
+			level = 5
+					
+			available = {
+				NOT = { 
+					OR = {
+						has_government = democratic_socialist
+						has_government = neutrality
+						has_government = communism
+						#has_government = communism_totalitarian
+					}
+				}
+			}
+
+			modifier = {
+				local_resources_factor = 0.10
+				research_speed_factor = -0.05
+				monthly_population = -0.05
+				stability_weekly = -0.003
+				line_change_production_efficiency_factor = -0.10
+				production_factory_efficiency_gain_factor = -0.10				
+				equipment_conversion_speed = 0.05
+				industry_repair_factor = 0.05
+				consumer_goods_factor = 0.03
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+				production_speed_arms_factory_factor = 0.05
+				production_speed_industrial_complex_factor = 0.05
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_12_hour_workday = {
+						
+			cost = 200
+			removal_cost = -1
+			level = 4
+			
+			available = {
+				NOT = { 
+					OR = {
+						has_government = democratic_socialist
+						#has_government = neutrality
+						has_government = communism
+						#has_government = communism_totalitarian
+					}
+				}
+			}
+
+			modifier = {
+				local_resources_factor = 0.05
+				monthly_population = -0.01
+				stability_weekly = -0.001
+				line_change_production_efficiency_factor = -0.05
+				production_factory_efficiency_gain_factor = -0.05				
+				equipment_conversion_speed = 0.03
+				industry_repair_factor = 0.03
+				consumer_goods_factor = 0.05
+				industrial_capacity_factory = 0.03
+				industrial_capacity_dockyard = 0.03
+				production_speed_arms_factory_factor = 0.03
+				production_speed_industrial_complex_factor = 0.03
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+		cw_10_hour_workday = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 3
+			
+			available = {
+				NOT = { 
+					OR = {
+						has_government = democratic_socialist
+						#has_government = neutrality
+						#has_government = communism
+						#has_government = communism_totalitarian
+					}
+				}
+			}
+
+			modifier = {
+				line_change_production_efficiency_factor = -0.03
+				production_factory_efficiency_gain_factor = -0.03				
+				equipment_conversion_speed = 0.03
+				industry_repair_factor = 0.03
+				consumer_goods_factor = 0.06
+				industrial_capacity_factory = 0.03
+				industrial_capacity_dockyard = 0.03
+				production_speed_arms_factory_factor = 0.03
+				production_speed_industrial_complex_factor = 0.03
+			}
+			
+			cancel_if_invalid = no
+		}		
+		cw_8_hour_workday = {
+						
+			cost = 50
+			removal_cost = -1
+			level = 2
+			
+			available = {
+			}
+
+			modifier = {
+				research_speed_factor = 0.02
+				monthly_population = 0.02
+				stability_weekly = 0.001
+				line_change_production_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.1
+				equipment_conversion_speed = -0.05
+				industry_repair_factor = -0.05
+				consumer_goods_factor = 0.08
+				industrial_capacity_factory = -0.05
+				industrial_capacity_dockyard = -0.05
+				production_speed_arms_factory_factor = -0.05
+				production_speed_industrial_complex_factor = -0.05
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_6_hour_workday = {
+						
+			cost = 30
+			removal_cost = -1
+			level = 1
+			
+			available = {
+			}
+
+			modifier = {
+				local_resources_factor = -0.05
+				research_speed_factor = 0.05
+				monthly_population = 0.05
+				stability_weekly = 0.005
+				line_change_production_efficiency_factor = 0.5
+				production_factory_efficiency_gain_factor = 0.3		
+				equipment_conversion_speed = -0.05
+				industry_repair_factor = -0.05
+				consumer_goods_factor = 0.1
+				industrial_capacity_factory = -0.05
+				industrial_capacity_dockyard = -0.05
+				production_speed_arms_factory_factor = -0.05
+				production_speed_industrial_complex_factor = -0.05	
+			}
+			
+			cancel_if_invalid = no
+		}		
+	}
+	cw_foreign_policy = {
+		law = yes
+		cw_hardline = {
+						
+			cost = 1000
+			removal_cost = -1
+			level = 6
+			
+			available = {
+
+
+				AND = {
+					is_major = yes 
+					threat > 0.7
+				}
+				
+			}	
+
+			modifier = {
+				lend_lease_tension = -0.50
+				send_volunteer_size = 15
+				justify_war_goal_time = -0.50
+				drift_defence_factor = 0.5
+				enemy_operative_detection_chance_factor = 0.5
+				ai_focus_aggressive_factor = 0.5
+				ai_badass_factor = 0.05		
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_rollback = {
+			cost = 800
+			removal_cost = -1
+			level = 5
+			
+			available = {
+				AND = { is_major = yes threat > 0.5}
+			}
+
+			modifier = {
+				send_volunteer_size = 10
+				send_volunteers_tension = -0.30
+				subversive_activites_upkeep = -0.3
+				subjects_autonomy_gain = -0.1
+				drift_defence_factor = 0.4
+				enemy_operative_detection_chance_factor = 0.3
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		
+		cw_containment = {
+						
+			cost = 600
+			removal_cost = -1
+			level = 4
+			
+			available = {
+			
+			}
+
+			modifier = {
+				send_volunteers_tension = -0.30
+				subversive_activites_upkeep = -0.25
+				guarantee_tension = -0.25
+				drift_defence_factor = 0.3
+				enemy_operative_detection_chance_factor = 0.2
+				ai_join_ally_desire_factor = 25
+				ai_badass_factor = 0.01		
+				ai_get_ally_desire_factor = 50
+				send_volunteer_size = 5
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_detente = {
+						
+			cost = 300
+			removal_cost = -1
+			level = 3
+			
+			available = {
+			}
+
+			modifier = {
+				improve_relations_maintain_cost_factor = -0.50
+				license_purchase_cost = -0.5
+				trade_opinion_factor = 0.50				
+			}
+			cancel_if_invalid = no
+		}		
+		cw_appeasement = {
+						
+			cost = 200
+			removal_cost = -1
+			level = 2
+			
+			available = {
+			}
+
+			modifier = {
+				join_faction_tension = 0.50
+				guarantee_tension = 0.50
+				ai_focus_aggressive_factor = -0.5
+				foreign_subversive_activites = -0.25
+				ai_get_ally_desire_factor = -50
+				ai_join_ally_desire_factor = -50
+				ai_badass_factor = -0.05
+				defensive_war_stability_factor = 0.5
+			}
+			default = yes		
+			cancel_if_invalid = no
+		}		
+		cw_isolationism = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 1
+			
+			available = {
+				NOT = { is_major = yes }
+			}
+
+			modifier = {
+				drift_defence_factor = 0.50
+				foreign_subversive_activites = -0.50
+				enemy_justify_war_goal_time = 1.0
+				defensive_war_stability_factor = -0.5	
+				subversive_activites_upkeep = 0.50
+			}
+			
+			cancel_if_invalid = no
+		}		
+	}
+	cw_education_budget = {
+		law = yes
+		cw_minimum_education_budget = {
+						
+			cost = 300
+			removal_cost = -1
+			level = 1
+			
+			available = {
+				NOT = {
+					OR = {
+						has_government = communism
+						has_government = communism_totalitarian
+						has_government = neutrality
+						has_government = democratic_socialist
+					}
+				}
+			}
+
+			modifier = {
+				non_core_manpower = 0.5
+				research_speed_factor = -0.30
+				conscription_factor = 0.10
+				drift_defence_factor = 0.1
+				political_power_gain = 0.1			
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+		cw_low_education_budget = {
+						
+			cost = 200
+			removal_cost = -1
+			level = 2
+			
+			available = {
+				NOT = {
+					OR = {
+						has_government = communism
+						#has_government = communism_totalitarian
+						#has_government = neutrality
+						has_government = democratic_socialist
+					}
+				}
+			}
+
+			modifier = {
+				non_core_manpower = 0.25
+				stability_weekly = 0.001
+				conscription_factor = 0.05
+				research_speed_factor = -0.10
+				consumer_goods_factor = 0.02
+				drift_defence_factor = 0.05				
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_acceptable_education_budget = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 3
+			
+			available = {
+			}
+
+			modifier = {
+				non_core_manpower = 0.1
+				stability_weekly = 0.002
+				consumer_goods_factor = 0.04
+				political_power_gain = -0.1
+			}
+			
+			cancel_if_invalid = no
+		}		
+		cw_high_education_budget = {
+						
+			cost = 50
+			removal_cost = -1
+			level = 4
+			
+			available = {
+			}
+
+			modifier = {
+				conscription_factor = -0.05
+				stability_weekly = 0.003
+				war_support_weekly = -0.001
+				research_speed_factor = 0.15
+				non_core_manpower = -0.1
+				consumer_goods_factor = 0.08
+				drift_defence_factor = -0.15
+				political_power_gain = -0.15
+				production_factory_max_efficiency_factor = 0.1
+				experience_gain_army_factor = 0.1
+				experience_gain_navy_factor = 0.1
+				experience_gain_air_factor = 0.1
+			}
+			
+			cancel_if_invalid = no
+		}		
+	}
+	cw_industry_focus = {
+		law = yes
+		cw_resource_industry_focus = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 4
+
+			visible = {
+				NOT = {
+					OR = {
+						has_government = communism_totalitarian
+						has_government = communism
+					}
+				}
+			}
+
+			available = {		
+			}
+
+			modifier = {
+				local_resources_factor = 0.10
+				production_speed_synthetic_refinery_factor = 0.10				
+			}
+			
+			cancel_if_invalid = no
+			
+			ai_will_do = {
+   				factor = 0
+				modifier = {
+					factor = 100
+					OR = {
+						has_idea = cw_famine_mild
+						has_idea = cw_famine_severe
+					}
+				}
+			}
+		}
+		cw_military_industry_focus = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 3
+
+			visible = {
+				NOT = {
+					OR = {
+						has_government = communism_totalitarian
+						has_government = communism
+					}
+				}
+			}
+
+			available = {
+			}
+
+			modifier = {
+				production_speed_arms_factory_factor = 0.10			
+			}
+			
+			cancel_if_invalid = no
+			
+			ai_will_do = {
+   				factor = 0
+				modifier = {
+					factor = 20
+					has_war = yes
+				}
+			}			
+		}		
+		cw_civilian_industry_focus = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 2
+
+			visible = {
+				NOT = {
+					OR = {
+						has_government = communism_totalitarian
+						has_government = communism
+					}
+				}
+			}
+
+			available = {
+			}
+
+			modifier = {
+				production_speed_industrial_complex_factor = 0.10
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+		cw_infra_industry_focus = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 1
+
+			visible = {
+				NOT = {
+					OR = {
+						has_government = communism_totalitarian
+						has_government = communism
+					}
+				}
+			}
+
+			available = {
+			}
+
+			modifier = {
+				production_speed_infrastructure_factor = 0.10
+			}
+			
+			cancel_if_invalid = no
+		}		
+	}
+	trade_laws = {
+		law = yes
+		use_list_view = yes
+		
+		cw_closed_economy = {
+			cost = 100
+			removal_cost = -1
+			level = 7
+			
+			available = {
+				OR = { 
+					has_government = communism
+					has_government = communism_totalitarian
+				}
+				custom_trigger_tooltip = {
+					tooltip = "Is not a puppet of another country"
+					NOT = {
+						OR = {
+							has_autonomy_state = autonomy_wtt_imperial_subject
+							has_autonomy_state = autonomy_reichskommissariat
+							has_autonomy_state = autonomy_reichsprotectorate
+							has_autonomy_state = autonomy_colony
+							has_autonomy_state = autonomy_puppet
+							has_autonomy_state = autonomy_integrated_puppet
+						}
+					}
+				}
+			}
+
+			modifier = {
+				cw_industry_focus_cost_factor = 0.1
+				trade_cost_for_target_factor = -0.10
+				drift_defence_factor = 0.75
+				min_export = 0.0
+			}
+			
+			cancel_if_invalid = no
+			ai_will_do = {
+   				factor = 0
+   			}			
+		}
+		cw_restricted_trade_policy = {
+			cost = 0
+			removal_cost = -1
+			level = 6
+			
+			visible = {
+				OR = {
+					has_autonomy_state = autonomy_wtt_imperial_subject
+					has_autonomy_state = autonomy_reichskommissariat
+					has_autonomy_state = autonomy_reichsprotectorate
+					has_autonomy_state = autonomy_colony
+					has_autonomy_state = autonomy_puppet
+					has_autonomy_state = autonomy_integrated_puppet
+				}
+			}
+			
+			available = {
+			}
+
+			modifier = {
+				trade_opinion_factor = -1.00
+				min_export = -1.0
+				extra_trade_to_target_factor = 0.5
+			}
+			
+			cancel_if_invalid = no
+			
+			ai_will_do = {
+   				factor = 0
+   			}			
+		}
+		cw_high_tariffs = {			
+			cost = 100
+			removal_cost = -1
+			level = 4
+			
+			available = {
+				NOT = { has_government = communism_totalitarian }
+				custom_trigger_tooltip = {
+					tooltip = "Is not a puppet of another country"
+					NOT = {
+						OR = {
+							has_autonomy_state = autonomy_wtt_imperial_subject
+							has_autonomy_state = autonomy_reichskommissariat
+							has_autonomy_state = autonomy_reichsprotectorate
+							has_autonomy_state = autonomy_colony
+							has_autonomy_state = autonomy_puppet
+							has_autonomy_state = autonomy_integrated_puppet
+						}
+					}
+				}
+			}
+
+			modifier = {
+				trade_opinion_factor = -0.5
+				min_export = 0.10
+				cw_industry_focus_cost_factor = 0.1		
+				drift_defence_factor = 0.50				
+			}
+			cancel_if_invalid = yes
+			ai_will_do = {
+   				factor = 0
+   			}				
+		}
+		cw_medium_tariffs = {			
+			cost = 100
+			removal_cost = -1
+			level = 3
+			
+			available = {
+				NOT = {
+					OR = { 
+						has_government = communism
+						has_government = communism_totalitarian
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = "Is not a puppet of another country"
+					NOT = {
+						OR = {
+							has_autonomy_state = autonomy_wtt_imperial_subject
+							has_autonomy_state = autonomy_reichskommissariat
+							has_autonomy_state = autonomy_reichsprotectorate
+							has_autonomy_state = autonomy_colony
+							has_autonomy_state = autonomy_puppet
+							has_autonomy_state = autonomy_integrated_puppet
+						}
+					}
+				}
+			}
+
+			modifier = {
+				trade_opinion_factor = 0.1
+				min_export = 0.3
+				cw_industry_focus_cost_factor = -0.01
+			}
+			default = yes			
+			cancel_if_invalid = yes
+			ai_will_do = {
+   				factor = 0
+   			}				
+		}
+		cw_low_tariffs = {			
+			cost = 100
+			removal_cost = -1
+			level = 3
+			
+			available = {
+				NOT = {
+					OR = { 
+						has_government = communism
+						has_government = communism_totalitarian
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = "Is not a puppet of another country"
+					NOT = {
+						OR = {
+							has_autonomy_state = autonomy_wtt_imperial_subject
+							has_autonomy_state = autonomy_reichskommissariat
+							has_autonomy_state = autonomy_reichsprotectorate
+							has_autonomy_state = autonomy_colony
+							has_autonomy_state = autonomy_puppet
+							has_autonomy_state = autonomy_integrated_puppet
+						}
+					}
+				}				
+			}
+
+			modifier = {
+				trade_opinion_factor = 0.1
+				min_export = 0.5
+				cw_industry_focus_cost_factor = -0.01				
+			}
+			cancel_if_invalid = no
+			ai_will_do = {
+   				factor = 0
+   			}				
+		}		
+	}
+}

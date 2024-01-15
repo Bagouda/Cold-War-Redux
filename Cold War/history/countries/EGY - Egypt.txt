@@ -1,0 +1,92 @@
+﻿capital = 446
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+save_global_event_target_as = unaligned_right_leader
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+    OOB = EGY_1946
+	give_military_access = ENG
+	set_cosmetic_tag = EGY_MON
+	### Country Leaders
+	recruit_character = EGY_king_farouk	
+	recruit_character = EGY_mohamed_naguib
+	recruit_character = EGY_gamal_nasser
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 20
+		communism_totalitarian = 30
+		unaligned_right = 50
+		colonial =  0
+	}
+}
+set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		amphibious_tank_chassis = 1
+		amphibious_drive = 1
+		advanced_light_tank_chassis = 1
+		basic_medium_tank_chassis = 1
+		improved_medium_tank_chassis = 1
+		advanced_medium_tank_chassis = 1
+		main_battle_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		improved_heavy_tank_chassis = 1
+		advanced_heavy_tank_chassis = 1
+		super_heavy_tank_chassis = 1
+		armor_tech_1 = 1
+		armor_tech_2 = 1
+		armor_tech_3 = 1
+		armor_tech_4 = 1
+		engine_tech_1 = 1
+		engine_tech_2 = 1
+		engine_tech_3 = 1
+		engine_tech_4 = 1
+}
+	
+1948.5.14 = {
+}
+1950.6.25 = {
+}
+1952.7.23 = { drop_cosmetic_tag = yes } #Egypt unaligned_right overthrown
+1956.10.29 = {
+	set_politics = {
+		ruling_party = neutrality
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 70
+		communism_totalitarian = 30
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Gamal Abdel Nasser"
+		desc = ""
+		picture = "EGYH3_1.dds"
+		ideology = nasserism_ideol
+		expire = 1970.9.28
+		traits = {}
+	}
+}
+1961.12.11 = {
+}
+1979.12.24 = {
+	create_country_leader = {
+		name = "Anwar Sadat"
+		desc = ""
+		picture = "EGYH4.dds"
+		ideology = neutrality_idolg
+		expire = 1981.10.6
+		traits = {}
+	}
+}
+1989.1.9 = {
+}

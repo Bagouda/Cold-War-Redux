@@ -1,0 +1,146 @@
+﻿##########################
+# USA EVENTS AND RELATED EVENTS #
+##########################
+add_namespace = prk_events
+country_event = {
+	id = prk_events.1		#Power Struggles End
+	title = prk_events.1.t
+	desc = prk_events.1.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = prk_events.1.a
+			add_timed_idea = {
+				idea = PRK_officers_purged
+				days = 365
+				}
+			if = {
+				limit = {
+					has_country_leader_with_trait = factional_underdog_1
+				}
+				remove_country_leader_trait = factional_underdog_1
+			}
+			if = {
+				limit = {
+					has_country_leader_with_trait = factional_underdog
+				}
+				remove_country_leader_trait = factional_underdog
+			}
+			ai_chance = {
+			modifier = {
+				factor = 25
+			}
+			modifier = {
+				factor = 50
+				is_historical_focus_on = yes
+			}			
+		}			
+		
+	}
+		
+}
+country_event = {
+	id = prk_events.2	#Support PRK Factions?
+	title = prk_events.2.t
+	desc = prk_events.2.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {#yes
+		name = prk_events.2.a
+			country_event = {
+				id = prk_events.3
+				days = 1
+			}
+			
+			ai_chance = {
+			modifier = {
+				factor = 25
+			}
+			modifier = {
+				factor = -50
+				is_historical_focus_on = yes
+			}			
+		}			
+		
+	}
+	option = {#no
+		name = prk_events.2.b
+			country_event = {
+				id = prk_events.4
+				days = 1
+			}
+			
+			ai_chance = {
+			modifier = {
+				factor = 25
+			}
+			modifier = {
+				factor = 50
+				is_historical_focus_on = yes
+			}			
+		}			
+		
+	}
+		
+}
+country_event = {
+	id = prk_events.3	#Support PRK Factions?
+	title = prk_events.3.t
+	desc = prk_events.3.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {#soviets support
+		name = prk_events.3.a
+			custom_effect_tooltip = PRK_soviet_support_tt
+			hidden_effect = {
+				set_country_flag = PRK_soviet_support_for_coup
+			}
+			ai_chance = {
+			modifier = {
+				factor = 25
+			}
+			modifier = {
+				factor = 50
+				is_historical_focus_on = yes
+			}			
+		}			
+		
+	}
+	
+		
+}
+country_event = {
+	id = prk_events.4	# No Support PRK Factions
+	title = prk_events.4.t
+	desc = prk_events.4.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {#soviets dont support
+		name = prk_events.4.a
+			
+			ai_chance = {
+			modifier = {
+				factor = 25
+			}
+			modifier = {
+				factor = 50
+				is_historical_focus_on = yes
+			}			
+		}			
+		
+	}
+	
+		
+}

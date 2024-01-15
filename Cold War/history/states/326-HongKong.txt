@@ -1,0 +1,29 @@
+state = {
+	id=326
+	local_supplies=0.0 
+	name="STATE_326"
+	state_category = large_town
+	history = {
+ 	add_to_array = { list_victory_point = 10062 }
+ 	set_variable = { victory_point = 12 }
+		owner = ENG
+		add_core_of = ENG
+		add_claim_by = CHI
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			10062 = {
+				naval_base = 1	
+			}			
+		}
+		
+		victory_points = {
+			10062 12 
+		}
+	}
+	manpower = 1143516
+	provinces={
+		10062
+	}
+}

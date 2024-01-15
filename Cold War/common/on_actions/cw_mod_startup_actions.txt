@@ -1,0 +1,401 @@
+on_actions = {
+	##### UNSC RELATED STUFF #####
+	on_startup = {
+		effect = {
+			#######################################################
+			###### ADDINGCOUNTRIES TO PRIORITY LIST ##########
+			#######################################################
+			add_to_array = { array = USA.priority_countries value = KOR.id }
+			add_to_array = { array = USA.priority_countries value = PHI.id }
+			add_to_array = { array = USA.priority_countries value = ITA.id }
+			#######################################################
+			###### ADDING PERMANENT UNSC MEMBERS ##########
+			#######################################################
+			USA = { cw_add_to_unsc_permanent = yes }
+			SOV = { cw_add_to_unsc_permanent = yes }
+			ENG = { cw_add_to_unsc_permanent = yes }
+			CHI = { cw_add_to_unsc_permanent = yes }
+			FRA = { cw_add_to_unsc_permanent = yes }			
+			#######################################################
+			###### ADDING COUNTRIES WITH CUSTOM ADVISORS ##########
+			#######################################################
+			add_to_array = { array = global.countries_with_custom_advisors value = USA.id }
+			add_to_array = { array = global.countries_with_custom_advisors value = SOV.id }
+			add_to_array = { array = global.countries_with_custom_advisors value = PRC.id }
+			add_to_array = { array = global.countries_with_custom_advisors value = CHI.id }
+			add_to_array = { array = global.countries_with_custom_advisors value = FRA.id }																	
+			###############################################################
+			###### ADDING COUNTRIES WITH 1950's FOCUSES TO ARRAY ##########
+			###############################################################
+			add_to_array = { array = global.countries_with_switchable_focuses value = USA.id }
+			add_to_array = { array = global.countries_with_switchable_focuses value = SOV.id }
+			add_to_array = { array = global.countries_with_switchable_focuses value = CHI.id }
+			add_to_array = { array = global.countries_with_switchable_focuses value = FRA.id }			
+			add_to_array = { array = global.countries_with_switchable_focuses value = PRK.id }
+			add_to_array = { array = global.countries_with_switchable_focuses value = KOR.id }
+			add_to_array = { array = global.countries_with_switchable_focuses value = VIN.id }
+			###############################################################
+			######## ADDING NON RECOGNIZED COUNTRIES TO ARRAY #############
+			###############################################################
+			every_country = {
+				limit = {
+					OR = { has_idea = cw_non_recognized_state has_idea = cw_partially_recognized_state }
+				}
+				add_to_array = { array = global.unsc_unrecognized_countries_array value = THIS.id }
+			}
+			#############################################################
+			#################### SPLASH SCREEN SETUP ####################
+			#############################################################
+			every_country = {
+				limit = {
+					is_ai = no
+				}
+				if = {
+					limit = {
+						NOT = {
+							AND = {
+								has_dlc = "Death or Dishonor"
+								has_dlc = "Waking the Tiger"
+								has_dlc = "La Resistance"
+							}
+						}
+					}
+					set_country_flag = cw_splash_missing_critical_dlc
+					else = {
+						set_country_flag = cw_splash_show_features
+					}
+				}
+			}
+			#############################################################
+			#################### UNSC SHUFFLE SETTINGS ####################
+			#############################################################			
+			if = {
+				if = {
+					limit = {
+						has_game_rule = {
+							rule = unsc_shuffle
+							option = UNSC_SHUFFLE_ONE_YEARS
+						}
+					}
+					set_variable = { global.unsc_non_permanent_shuffle = 365 }
+				}
+				if = {
+					limit = {
+						has_game_rule = {
+							rule = unsc_shuffle
+							option = UNSC_SHUFFLE_TWO_YEARS
+						}
+					}
+					set_variable = { global.unsc_non_permanent_shuffle = 730 }
+				}
+				if = {
+					limit = {
+						has_game_rule = {
+							rule = unsc_shuffle
+							option = UNSC_SHUFFLE_THREE_YEARS
+						}
+					}
+					set_variable = { global.unsc_non_permanent_shuffle = 1095 }
+				}
+				if = {
+					limit = {
+						has_game_rule = {
+							rule = unsc_shuffle
+							option = UNSC_SHUFFLE_FIVE_YEARS
+						}
+					}
+					set_variable = { global.unsc_non_permanent_shuffle = 1825 }
+				}
+				YUG = { cw_add_to_unsc_non_permanent = yes }
+				MON = { cw_add_to_unsc_non_permanent = yes }
+				UNB = { cw_add_to_unsc_non_permanent = yes }
+				UNB = { cw_add_to_unsc_non_permanent = yes }
+				UNB = { cw_add_to_unsc_non_permanent = yes }
+				UNB = { cw_add_to_unsc_non_permanent = yes }
+				UNB = { cw_add_to_unsc_non_permanent = yes }
+				UNB = { cw_add_to_unsc_non_permanent = yes }
+				UNB = { cw_add_to_unsc_non_permanent = yes }
+				UNB = { cw_add_to_unsc_non_permanent = yes }
+				if = {
+					limit = {
+						check_variable = { 	var = global.unsc_non_permanent_members_array^num value = 10 compare = less_than }
+					}
+					while_loop_effect = {
+						break = var:global.unsc_non_permanent_members_array^num
+						limit = {
+							check_variable = { 	var = global.unsc_non_permanent_members_array^num value = 10 compare = less_than }
+						}
+						random_country = {
+							limit = {
+								eligable_to_join_unsc = yes
+							}
+							cw_add_to_unsc_non_permanent = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					SOV = { unsc_has_state_vote_ukr = yes }
+				}
+				add_to_variable = { global.unsc_communist_countries_total = 1 }
+			}
+			if = {
+				limit = {
+					SOV = { unsc_has_state_vote_blr = yes }
+				}
+				add_to_variable = { global.unsc_communist_countries_total = 1 }
+			}
+		}
+	}
+	##### BOOKMARK SPECIFIC STARTUP ACTIONS #####
+	on_startup = {
+		effect = {
+			##################### ADDING CABINET ADVISOR LIMITING IDEAS #####################
+			##### CANNOT BE ADDED IN HISTORY SINCE DO NOT ALLOW ADDING CABINET ADVISORS #####
+			CHI = {
+				add_ideas = CHI_cw_corrupt_bureaucracy_3
+			}
+			FRA = {
+				add_ideas = unstable_government
+			}			
+			###############################################################
+			##################### UN SANCTIONS DISTRIBUTION ###############
+			###############################################################
+			SPR = {
+				cw_impose_significant_unsc_sanctions_economic_five_years = yes 
+				cw_impose_significant_unsc_sanctions_trade_five_years = yes
+			}
+			###############################################################
+			########## MONOPOLY/RESOURCE RIGHTS DISTRIBUTION ##############
+			###############################################################
+			# American Concessions
+			479 = { USA = { cw_give_state_monopoly_perpetual_country = yes } }
+			477 = { USA = { cw_give_state_monopoly_perpetual_country = yes } }
+			476 = { USA = { cw_give_state_monopoly_perpetual_country = yes } }
+			489 = { USA = { cw_give_state_monopoly_perpetual_country = yes } }
+			307 = { USA = { cw_give_state_monopoly_perpetual_country = yes } }
+			292 = { USA = { cw_give_state_monopoly_perpetual_country = yes } }
+			315 = { USA = { cw_give_state_monopoly_perpetual_country = yes } }
+			CUB = {
+				every_owned_state = {
+					limit = {
+						is_owned_by = PREV
+						NOT = { state = 819 }
+					}
+					USA = { cw_give_state_monopoly_perpetual_country = yes }
+				}
+			}
+			313 = { USA = { cw_give_state_monopoly_perpetual_country = yes } }
+			# British Concessions
+			291 = { ENG = { cw_give_state_monopoly_perpetual_country = yes } }
+			# OTHERS
+			CHI = { give_resource_rights = { receiver = ITA state = 614 } }
+			###############################################################
+			#################### GREEK CIVIL WAR SETUP ####################
+			###############################################################
+			ENG = {
+				add_timed_idea = { idea = cw_police_action_level_1 days = 60 }
+				set_country_flag = { flag = exempt_from_volunteers_rule value = 1 days = 60 }
+			}
+			GRE = { set_country_flag = { flag = can_recieve_volunteers value = 1 days = 60 } }
+			YUG = { set_country_flag = { flag = exempt_from_volunteers_rule value = 1 days = 60 } }
+			ALB = { set_country_flag = { flag = exempt_from_volunteers_rule value = 1 days = 60 } }
+			###################################################################
+			#################### COUNTRIES WITH MONARCHIES ####################
+			###################################################################
+			add_to_array = { array = global.countries_with_monarchies value = SWE }
+			add_to_array = { array = global.countries_with_monarchies value = NOR }
+			add_to_array = { array = global.countries_with_monarchies value = DEN }
+			add_to_array = { array = global.countries_with_monarchies value = HOL }
+			add_to_array = { array = global.countries_with_monarchies value = BEL }
+			add_to_array = { array = global.countries_with_monarchies value = ENG }
+			add_to_array = { array = global.countries_with_monarchies value = LUX }
+			add_to_array = { array = global.countries_with_monarchies value = ITA }
+			add_to_array = { array = global.countries_with_monarchies value = GRE }
+			add_to_array = { array = global.countries_with_monarchies value = ROM }
+			add_to_array = { array = global.countries_with_monarchies value = BUL }
+			add_to_array = { array = global.countries_with_monarchies value = HUN }
+			add_to_array = { array = global.countries_with_monarchies value = SAU }
+			add_to_array = { array = global.countries_with_monarchies value = EGY }
+			add_to_array = { array = global.countries_with_monarchies value = IRQ }
+			add_to_array = { array = global.countries_with_monarchies value = SAU }
+			add_to_array = { array = global.countries_with_monarchies value = SIA }
+			add_to_array = { array = global.countries_with_monarchies value = MAL }
+			add_to_array = { array = global.countries_with_monarchies value = NEP }
+			add_to_array = { array = global.countries_with_monarchies value = BHU }
+			add_to_array = { array = global.countries_with_monarchies value = JAP }
+			add_to_array = { array = global.countries_with_monarchies value = AFG }
+			add_to_array = { array = global.countries_with_monarchies value = CAM }
+			add_to_array = { array = global.countries_with_monarchies value = LAO }
+			###########################################################
+			#################### SCANDINAVIAN UNION ####################
+			###########################################################
+			add_to_array = { array = global.scandinavian_union value = FIN }
+			add_to_array = { array = global.scandinavian_union value = SWE }
+			add_to_array = { array = global.scandinavian_union value = NOR }
+			add_to_array = { array = global.scandinavian_union value = ICE }
+			add_to_array = { array = global.scandinavian_union value = DEN }
+			###########################################################
+			#################### ARAB LEAUGE SETUP ####################
+			###########################################################
+			add_to_array = { array = global.arab_league_members value = EGY }
+			add_to_array = { array = global.arab_league_members value = IRQ }
+			add_to_array = { array = global.arab_league_members value = JOR }
+			add_to_array = { array = global.arab_league_members value = LEB }
+			add_to_array = { array = global.arab_league_members value = SAU }
+			add_to_array = { array = global.arab_league_members value = SYR }
+			add_to_array = { array = global.arab_league_members value = YEM }
+			##################################################################
+			##### Colonial overlord Array                              #######
+			##################################################################
+			
+			FRA = {
+				every_occupied_country = {
+					add_to_array = { array = global.FRA_colonies value = THIS }
+				}
+			}
+			
+			ENG = {
+				every_occupied_country = {
+					add_to_array = { array = global.ENG_colonies value = THIS }
+				}
+			}
+			
+			POR = {
+				every_occupied_country = {
+					add_to_array = { array = global.POR_colonies value = THIS }
+				}
+			}
+			
+			HOL = {
+				every_occupied_country = {
+					add_to_array = { array = global.HOL_colonies value = THIS }
+				}
+			}
+			
+			BEL = {
+				every_occupied_country = {
+					add_to_array = { array = global.BEL_colonies value = THIS }
+				}
+			}
+			
+			##################################################################
+			#                    WW2 devastation modifier                    #
+			##################################################################
+			
+			every_country = {
+				limit = { OR = { tag = FRA tag = HOL tag = ITA tag = BEL tag = DEN tag = NOR }}
+				set_variable =  { ww2_stability = -0.03 }
+				set_variable = { ww2_com_drift = 0.03 }
+				add_dynamic_modifier = {
+					modifier  = post_ww2_communist_insurgency
+					days = 430
+				
+				}
+			}
+			every_country = {
+				limit = { OR = { tag = SWE tag = SWI tag = ENG tag = IRE tag = SPR tag = POR tag = TUR }}
+				set_variable =  { ww2_stability = -0.01 }
+				set_variable = { ww2_com_drift = 0.02 }
+				add_dynamic_modifier = {
+					modifier  = post_ww2_communist_insurgency
+					days = 300
+				
+				}
+			
+			}
+			
+			##########################################################
+			#          volunteer       Army Set UP               #####
+			##########################################################
+			
+			every_country = {
+				limit = { has_army_size = { size < 1 } is_puppet = no }
+				set_technology = {
+					artillery1 = 1
+					antitank1 = 1
+
+				}
+				load_oob = default
+				random_controlled_state = {
+					
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.5"
+						owner = PREV
+					}
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.5"
+						owner = PREV
+					}
+					
+					set_temp_variable = { temp_man = 0 }
+					while_loop_effect = {
+						limit = {
+							check_variable = { temp_man < PREV.max_manpower_k }
+						}
+						
+						create_unit = {
+							division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.5"
+							owner = PREV
+						}
+						
+						add_to_temp_variable = { temp_man = 2500 }
+						
+					}
+					
+				}
+			}
+			
+			every_country = {
+				limit = { NOT = { tag = USA tag = SOV tag = FRA } is_ai = yes }
+				set_technology = {
+					artillery1 = 1
+					antitank1 = 1
+
+				}
+				set_temp_variable = { division = num_armies }
+				divide_variable = { division = 4 }
+				set_variable = { ai_volunteer_boost = division}
+				
+				add_dynamic_modifier = {
+					modifier = ai_volunteer
+					scope = THIS
+				}
+			
+			}
+			
+			
+			##################################################################
+			##################################################################
+			#################### MANDATES AND LEASE SETUP ####################
+			##################################################################
+			if = {
+				limit = {
+					has_start_date > 1946.01.01
+					NOT = { has_start_date > 1960.01.01 }
+				}
+				# Dalian Lease
+				USA = { 819 = { cw_grant_lease_perpetual_with_payment = yes } }				
+				##########################################################
+				#################### REFERENDUM SETUP ####################
+				##########################################################
+				HUN = {
+					if = {
+						limit = {
+							is_historical_focus_on = yes
+						}
+						set_country_flag = { flag = ref_favor_third_option value = 1 days = 90 }
+					}
+					set_variable = { country_ref_second_option_votes_percent = 45 }
+					set_variable = { country_ref_third_option_votes_percent = 55 }
+					cw_mon_ref_initial_setup = yes
+				}
+				##############################################################
+				#################### SPECIFIC MAP CHANGES ####################
+				##############################################################
+				IND = { every_owned_state = { limit = { OR = { is_claimed_by = PAK } } remove_core_of = IND } }				
+			}
+		}
+	}	
+}

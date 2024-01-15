@@ -1,0 +1,39 @@
+﻿capital = 9
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	oob = "CZE_1946"
+	give_military_access = SOV
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1945.1.1"		
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 23
+		democratic_socialist = 23
+		neutrality = 16
+		communism = 0
+		communism_totalitarian = 38
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Klement Gottwald"
+		desc = ""
+		picture = "CZEH2.dds"
+		ideology = stalinism_idolg
+		expire = 1953.3.14
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Edvard Beneš"
+		desc = ""
+		picture = "CZEH1.dds"
+		ideology = social_cons_idolg
+		expire = 1948.6.7
+		traits = {}
+	}
+}

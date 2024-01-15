@@ -1,0 +1,154 @@
+﻿capital = 553
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	OOB = LEB_1946
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1944.4.18"		
+		election_frequency = 48		
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 40
+		democratic_socialist = 30
+		neutrality = 10
+		communism_totalitarian = 20
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+			name = "Fuad Chehab"
+			desc = ""
+			picture = "LEBH2.dds"
+			ideology = social_cons_idolg
+			expire = 1952.9.22
+			traits = {}
+	}	
+	create_country_leader = {
+			name = "Bechara El Khoury"
+			desc = ""
+			picture = "LEBH1.dds"
+			ideology = social_cons_idolg
+			expire = 1952.9.18
+			traits = {}
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+
+}
+1950.6.25 = {	#Korean War
+}
+1956.10.29 = {	#Suez Crisis
+	create_country_leader = {
+			name = "Fuad Chehab"
+			desc = ""
+			picture = "LEBH2.dds"
+			ideology = social_cons_idolg
+			expire = 1964.9.22
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Camille Chamoun"
+			desc = ""
+			picture = "LEBH3.dds"
+			ideology = social_cons_idolg
+			expire = 1958.9.22
+			traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	create_country_leader = {
+			name = "Suleiman Frangieh"
+			desc = ""
+			picture = "LEBH5.dds"
+			ideology = social_cons_idolg
+			expire = 1976.9.22
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Charles Helou"
+			desc = ""
+			picture = "LEBH4.dds"
+			ideology = social_cons_idolg
+			expire = 1970.9.22
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Fuad Chehab"
+			desc = ""
+			picture = "LEBH2.dds"
+			ideology = social_cons_idolg
+			expire = 1964.9.22
+			traits = {}
+	}
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	create_country_leader = {
+			name = "Amine Gemayel"
+			desc = ""
+			picture = "LEBH8.dds"
+			ideology = social_cons_idolg
+			expire = 1982.9.14
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Bachir Gemayel"
+			desc = ""
+			picture = "LEBH7.dds"
+			ideology = social_cons_idolg
+			expire = 1982.9.14
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Elias Sarkis"
+			desc = ""
+			picture = "LEBH6.dds"
+			ideology = social_cons_idolg
+			expire = 1982.9.22
+			traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	create_country_leader = {
+			name = "Émile Lahoud"
+			desc = ""
+			picture = "LEBH14.dds"
+			ideology = military_idolg
+			expire = 1990.10.13
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Elias Hrawi"
+			desc = ""
+			picture = "LEBH12.dds"
+			ideology = social_cons_idolg
+			expire = 1990.10.13
+			traits = {}
+	}
+	create_country_leader = {
+			name = "René Moawad"
+			desc = ""
+			picture = "LEBH11.dds"
+			ideology = social_cons_idolg
+			expire = 1990.10.13
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Michel Aoun"
+			desc = ""
+			picture = "LEBH10.dds"
+			ideology = military_idolg
+			expire = 1990.10.13
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Selim Hoss"
+			desc = ""
+			picture = "LEBH9.dds"
+			ideology = social_cons_idolg
+			expire = 1989.11.24
+			traits = {}
+	}
+}

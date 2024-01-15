@@ -1,0 +1,32 @@
+
+state={
+	id=105
+	local_supplies=0.0 
+	name="STATE_105"
+	resources={
+		chromium=20.000
+		aluminium=70.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 9809 }
+ 	set_variable = { victory_point = 3 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = YUG
+		add_core_of = YUG
+		add_claim_by = MNT
+		victory_points = {
+			9809 3 
+		}
+
+	}
+
+	provinces={
+		3922 6913 9809 9821 11858 
+	}
+	manpower=895500
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

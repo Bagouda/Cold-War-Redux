@@ -1,0 +1,21 @@
+state = {
+	id=725
+	local_supplies=0.0 
+	name="STATE_725"
+	state_category = tiny_island
+	history = {
+ 	add_to_array = { list_victory_point = 13038 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = AST
+		victory_points = {
+			13038 1 
+		}
+	}
+	manpower=5785
+	provinces={
+		13038 
+	}
+}

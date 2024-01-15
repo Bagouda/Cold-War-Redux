@@ -1,0 +1,208 @@
+on_actions = {
+	on_capitulation = {
+		effect = {
+		
+			if = {
+				limit = { FROM = { has_government = colonial  } }
+				colony_back_to_puppet =  yes
+			}
+			# colony goes back to overlord
+			
+			
+			
+			
+			# if civil war: annex everything
+			if = { limit = { FROM = { has_civil_war  = yes }}
+			FROM = { annex_country = {
+						target = ROOT
+						transfer_troops = no
+					}
+				}
+			}
+		
+			if = {
+				limit = {
+					FROM = { 
+						OR = {
+							has_country_flag = sov_volunteers
+							has_country_flag = sov_retreat 
+						}
+					}
+				}
+										
+				add_to_variable = { SOV.cw_score = ROOT.proxy_point }
+				
+			}
+			
+			
+			
+			if = {
+				
+				limit = {
+					FROM = { 
+						OR = {
+							has_country_flag = usa_volunteers
+							has_country_flag = usa_retreat 
+						}
+					}
+				}
+				
+				add_to_variable = { USA.cw_score = ROOT.proxy_point }
+			}
+			
+
+
+
+			# Spain intervention
+			
+			if = {
+				limit = { 
+					ROOT = { original_tag =  SPR has_government = unaligned_right}
+					FROM = { has_country_flag = spanish_intervention }
+					
+				}
+				
+				FRA = { 
+					white_peace = ROOT
+					clr_country_flag = spanish_intervention
+				}
+				
+				ENG = {
+					white_peace = ROOT
+					
+					remove_ideas = cw_unpopular_war
+					clr_country_flag = spanish_intervention
+				}
+				USA = {
+					add_to_variable = { cw_score = 30 }
+					white_peace = ROOT
+					clr_country_flag = spanish_intervention
+					remove_ideas = cw_unpopular_war
+				}
+				
+				SPR  = {
+					set_politics = {
+						ruling_party = democratic
+						last_election = "1946.1.2"
+						election_frequency = 48
+						elections_allowed = yes
+					}
+					add_popularity = {
+						ideology = unaligned_right
+						popularity = -1
+					}
+					
+					
+					add_popularity = {
+						ideology = communism
+						popularity = 0.2
+					}
+					
+					save_global_event_target_as = democratic_leader
+					set_country_flag = democratic_leader_flag
+				}
+				news_event = spain_intervention.6
+				
+
+				
+			}
+			
+			# spain kill france
+			
+			if = {
+				limit = { FROM = { original_tag  = SPR } ROOT  = { original_tag = FRA has_country_flag = spanish_intervention }}
+				news_event = spain_intervention.5
+				SPR  = {
+					white_peace = FRA
+					white_peace = ENG
+					white_peace = USA
+				
+				}
+				FRA = { 
+					clr_country_flag = spanish_intervention
+					
+					
+					set_politics = {
+						ruling_party = unaligned_right
+						elections_allowed = no
+					}
+					add_popularity = {
+						ideology = unaligned_right
+						popularity = 0.5
+					}
+					
+					remove_ideas = cw_unpopular_war
+					clr_country_flag = spanish_intervention
+					
+				}
+				
+				ENG = {
+					remove_ideas = cw_unpopular_war
+					clr_country_flag = spanish_intervention
+				}
+				USA = {
+					subtract_from_variable = { cw_score = 50 }
+					clr_country_flag = spanish_intervention
+					remove_ideas = cw_unpopular_war
+				}
+				
+				
+				SPR = {
+					create_faction = third_way
+					add_to_faction = FRA
+					
+					if = { limit = { POR ={ has_government = unaligned_right }} add_to_faction = POR }
+					
+				}
+			
+			}
+
+			#turkey dead
+			if = {
+				limit = { 
+					ROOT = { original_tag = TUR }
+					FROM = { original_tag = SOV }
+
+				}
+				
+				FROM = {
+					white_peace = ROOT
+					annex_country = {
+							target = ROOT
+							transfer_troops = no
+					}
+					release_puppet = TUR
+					
+					transfer_state = 354
+					transfer_state = 340
+					transfer_state = 341
+					transfer_state = 806
+				
+				}
+				clr_global_flag = turkey_war
+				set_global_flag  = turkey_defeated
+			
+			}
+			
+			
+			# MAL win emergency
+			
+			if = { limit = {  FROM = { original_tag  = malaya_emergency_done } } clr_global_flag = malaya_emergency_done}
+			if = {
+				limit = { AND = { FROM = { tag = MAL }  has_global_flag = malaya_emergency_done  } }
+				MAL = { transfer_state =  333
+				}
+				
+			
+			}
+			
+			
+
+				
+				
+			
+		}
+	
+	}
+
+}

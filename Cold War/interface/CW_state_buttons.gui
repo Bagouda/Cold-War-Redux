@@ -1,0 +1,213 @@
+guiTypes = {
+	containerWindowType = {
+		name = "cw_extra_state_buttons"
+		position = { x = 156 y = 110 }
+
+		iconType = {
+			name = "state_cw_actions_back"
+			spriteType  = "GFX_state_actions_panel"
+			position = { x = 297 y = -50 }
+		}		
+		containerWindowType = {
+			name = "monopoly_information"
+			position = { x = -160 y = -13 }
+
+			iconType = {
+				name = "monopoly_period_background"
+				spriteType  = "GFX_deployment_named_division_bg"
+				position = { x = 30 y = 327 }
+				pdx_tooltip = CW_STATE_MONOPOLY_TIMEOUT_EFFECT
+				scale = 0.75
+			}
+			containerWindowType = {
+				name = "monopoly_flag_container"
+				position = { x = -3 y = -4 }
+				
+				iconType = {
+					name = "monopoly_flag"
+					spriteType  = "GFX_flag_small2"
+					position = { x = 48 y = 345 }
+					pdx_tooltip = "CW_MONOPOLY_TT"
+				}
+				iconType = {
+					name = "monopoly_flag_frame"
+					spriteType  = "GFX_diplo_countrylist_flag_frame"
+					position = { x = 43 y = 342 }
+					alwaystransparent = yes
+				}
+			}
+			instantTextboxType = {
+				name = "monopoly_period"
+				position = { x = 120 y = 340 }
+				font = "hoi_26mbs"
+				text = "[CW_MONOPOLY_TIMER_DISPLAY_LOC] [CW_MONOPOLY_TIMER_LOC]"
+				maxWidth = 125
+				maxHeight = 10
+				format = center
+				pdx_tooltip = CW_STATE_MONOPOLY_TIMEOUT_EFFECT
+			}			
+		}
+		containerWindowType = {
+			name = "lease_icons"
+			position = { x = 37 y = 73 }
+			
+			iconType = {
+				name = "lease_indicator_icon"
+				spriteType  = "GFX_idea_HUN_treaty_of_triannon"
+				position = { x = -75 y = 221 }
+				scale = 0.4
+				pdx_tooltip = "CW_LEASE_ICON_LOC"
+				pdx_tooltip_delayed = "CW_LEASE_ICON_TTL"
+			}
+			instantTextboxType = {
+				name = "lease_timer"
+				position = { x = -56 y = 225 }
+				font = "cw_terminal_font"
+				text = "[CW_LEASE_TIMER_DISPLAY_LOC] [CW_LEASE_TIMER_LOC]"
+				maxWidth = 70
+				maxHeight = 10
+				format = center
+			}
+		}		
+		containerWindowType = {
+			name = "cw_button_icons"
+			position = { x = -10 y = 5 }		
+			######## STATE BUTTONS ########
+			buttonType = {
+				name = "move_capital_button"
+				spriteType = "GFX_move_capital"
+				position = { x = 332 y = 260 }		#Y changes by 50
+				pdx_tooltip = "CW_STATE_BUTTON_MOVE_CAP_TT"
+				pdx_tooltip_delayed = "CW_STATE_BUTTON_MOVE_CAP_TTL"
+				clicksound = click_close
+			}
+			######## BORDER WAR BUTTONS ########
+			buttonType = {
+				name = "border_incident_button"
+				spriteType = "GFX_border_incident"
+				position = { x = 332 y = 260 }	#Y changes by 50
+				pdx_tooltip = "CW_STATE_BUTTON_BORDER_INCIDENT_TT"
+				pdx_tooltip_delayed = "CW_STATE_BUTTON_BORDER_INCIDENT_TTL"
+				clicksound = click_close
+			}
+			buttonType = {
+				name = "stop_border_incident_button"
+				spriteType = "GFX_stop_border_incident"
+				position = { x = 332 y = 260 }			#Y changes by 50
+				pdx_tooltip = "CW_STATE_BUTTON_STOP_BORDER_INCIDENT_TT"
+				pdx_tooltip_delayed = "CW_STATE_BUTTON_STOP_BORDER_INCIDENT_TTL"
+				clicksound = click_close
+			}
+			buttonType = {
+			  name = "border_raid_button"
+			  spriteType = "GFX_state_button_conduct_border_raid"
+			  position = { x = 332 y = 310 }	#Y changes by 50
+			  pdx_tooltip = "CW_STATE_BUTTON_BORDER_RAID_TT"
+			  pdx_tooltip_delayed = "CW_STATE_BUTTON_BORDER_RAID_TTL"
+			  clicksound = click_close
+			}
+			iconType = {
+			  name = "border_raid_button_active"
+			  spriteType = "GFX_state_button_conduct_border_raid_active"
+			  position = { x = 332 y = 310 }	#Y changes by 50
+			  pdx_tooltip = "CW_STATE_BUTTON_BORDER_RAID_ACTIVE_TT"
+			  pdx_tooltip_delayed = "CW_STATE_BUTTON_BORDER_RAID_ACTIVE_TTL"
+			}
+			buttonType = {
+			  name = "police_action_button"
+			  spriteType = "GFX_state_button_police_action"
+			  position = { x = 332 y = 310 }	#Y changes by 50
+			  pdx_tooltip = "CW_STATE_BUTTON_POLICE_ACTION_TT"
+			  pdx_tooltip_delayed = "CW_STATE_BUTTON_POLICE_ACTION_TTL"
+			}
+			iconType = {
+			  name = "police_action_button_active"
+			  spriteType = "GFX_state_button_police_action_active"
+			  position = { x = 332 y = 310 }	#Y changes by 50
+			  pdx_tooltip = "CW_STATE_BUTTON_POLICE_ACTION_ACTIVE_TT"
+			  pdx_tooltip_delayed = "CW_STATE_BUTTON_POLICE_ACTION_ACTIVE_TTL"
+			}
+			buttonType = {
+				name = "revoke_monopoly_button"
+				spriteType = "GFX_stop_develop_foreign_state"
+				position = { x = 332 y = 210 }		#Y changes by 50
+				pdx_tooltip = "CW_STATE_BUTTON_SUSPEND_MON_TT"
+				pdx_tooltip_delayed = "CW_STATE_BUTTON_SUSPEND_MON_TTL"
+				clicksound = click_close
+			}
+			buttonType = {
+				name = "develop_state_button"
+				spriteType = "GFX_develop_state"
+				position = { x = 332 y = 160 	}
+				pdx_tooltip = "CW_STATE_BUTTON_DEVELOP_STATE_TT"
+				pdx_tooltip_delayed = "CW_STATE_BUTTON_DEVELOP_STATE_TTL"
+				clicksound = click_close
+			}
+			buttonType = {
+				name = "stop_develop_state_button"
+				spriteType = "GFX_stop_develop_state"
+				position = { x = 332 y = 160 	}
+				pdx_tooltip = "CW_STATE_BUTTON_STOP_DEVELOP_STATE_TT"
+				pdx_tooltip_delayed = "CW_STATE_BUTTON_STOP_DEVELOP_STATE_TTL"
+				clicksound = click_close
+			}
+			buttonType = {
+				name = "demand_state_transfer_button"
+				spriteType = "GFX_cw_transfer_state"
+				position = { x = 332 y = 160 }		#Y changes by 50
+				pdx_tooltip = "CW_STATE_BUTTON_TRANSFER_CORE_TT"
+				pdx_tooltip_delayed = "CW_STATE_BUTTON_TRANSFER_CORE_TTL"
+				clicksound = click_close
+			}
+			buttonType = {
+				name = "abolish_core_button"
+				spriteType = "GFX_abolish_core"
+				position = { x = 332 y = 110 }		#Y changes by 50
+				pdx_tooltip = "CW_STATE_BUTTON_ABOLISH_CORE_TT"
+				pdx_tooltip_delayed = "CW_STATE_BUTTON_ABOLISH_CORE_TTL"
+				clicksound = click_close
+			}
+			buttonType = {
+				name = "request_core_button"
+				spriteType = "GFX_request_core"
+				position = { x = 332 y = 60 }		#Y changes by 50
+				pdx_tooltip = "Request Core"
+				pdx_tooltip = "CW_STATE_BUTTON_REQUEST_CORE_TT"
+				pdx_tooltip_delayed = "CW_STATE_BUTTON_REQUEST_CORE_TTL"
+				clicksound = click_close
+			}
+			buttonType = {
+				name = "remove_core_button"
+				spriteType = "GFX_remove_claim"
+				position = { x = 332 y = 10 }		#Y changes by 50
+				pdx_tooltip = "CW_STATE_BUTTON_REMOVE_CORE_TT"
+				pdx_tooltip_delayed = "CW_STATE_BUTTON_REMOVE_CORE_TTL"
+				clicksound = click_close
+			}
+			buttonType = {
+				name = "remove_claim_button"
+				spriteType = "GFX_remove_claim"
+				position = { x = 332 y = 10 }		#Y changes by 50
+				pdx_tooltip = "CW_STATE_BUTTON_REMOVE_CLAIM_TT"
+				pdx_tooltip_delayed = "CW_STATE_BUTTON_REMOVE_CLAIM_TTL"
+				clicksound = click_close
+			}
+			buttonType = {
+				name = "claim_state_button"
+				spriteType = "GFX_claim_state"
+				position = { x = 332 y = 10 }		#Y changes by 50
+				pdx_tooltip = "CW_STATE_BUTTON_CLAIM_TT"
+				pdx_tooltip_delayed = "CW_STATE_BUTTON_CLAIM_TTL"
+				clicksound = click_close
+			}
+			buttonType = {
+				name = "extend_revoke_lease_button"
+				spriteType = "GFX_extend_revoke_lease"
+				position = { x = 332 y = 260 }		#Y changes by 50
+				pdx_tooltip = "CW_STATE_BUTTON_REVOKE_LEASE_TT"
+				pdx_tooltip_delayed = "CW_STATE_BUTTON_REVOKE_LEASE_TTL"
+				clicksound = click_close
+			}
+		}		
+	}
+}

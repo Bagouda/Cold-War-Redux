@@ -1,0 +1,129 @@
+focus_tree = {
+	id = cuba_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = CUB
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	focus = {
+		id = CUB_batista_coup
+		available = {
+			date > 1952.3.10
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 1
+		y = 1
+		cost = 1
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			set_politics = {
+				ruling_party = unaligned_right
+			}
+			cw_make_unrecognized = yes
+			news_event = cw_historic_events.24
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CUB_castro_revolution
+		available = {
+			date > 1953.7.26
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 1
+		y = 2
+		cost = 1
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			start_civil_war = {
+				ideology = communism_totalitarian
+				keep_political_leader = yes
+				size = 0.3
+				states_filter = { impassable = no }
+				capital = 820
+				states = {
+					820
+				}
+				compute_proxy_score = yes
+			}
+			compute_proxy_score = yes
+			random_country_with_original_tag = {
+				original_tag_to_check = CUB
+				limit = {
+					has_war_with = CUB
+				}
+				add_timed_idea = {
+					idea = cw_revolutionary_zeal
+					days = 365
+				}				
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CUB_embrace_communism
+		available = {
+			has_government = neutrality
+			date > 1960.1.1
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 1
+		y = 3
+		cost = 1
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			create_country_leader = {
+				name = "Fidel Castro"
+				desc = ""
+				picture = "CUBH6_1.dds"
+				ideology = stalinism_idolg
+				expire = 2008.2.24
+				traits = {}
+			}			
+			set_politics = {
+				ruling_party = communism_totalitarian
+				elections_allowed = no
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+}

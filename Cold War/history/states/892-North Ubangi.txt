@@ -1,0 +1,41 @@
+
+state={
+	id=892
+	local_supplies=0.0 
+	name="STATE_892"
+
+	history={
+ 	add_to_array = { list_victory_point = 7931 }
+ 	set_variable = { victory_point = 5 }
+		owner = BEL
+		add_claim_by = COG
+
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+				
+		1960.6.30 = {
+			owner = COG
+			add_core_of = COG
+			remove_core_of = BEL
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			7931 5 
+		}
+	}
+
+	provinces={
+		7931 9142 10883 12741 12824 
+	}
+	manpower=1465879
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

@@ -1,0 +1,139 @@
+foreign_politics = {
+	colonial_capital_control = {
+		icon = GFX_decision_generic_ignite_civil_war
+		available = {
+			OR = {
+				ROOT = { has_full_control_of_state = var:FROM.our_true_capital }
+				FROM = { has_full_control_of_state = var:FROM.our_true_capital }
+			}
+		}
+		
+		days_remove = 60
+		days_mission_timeout = 50
+		is_good = no
+		fire_only_once = yes
+		
+		target_trigger = {
+			NOT = { FROM = { has_full_control_of_state = var:ROOT.our_true_capital } }
+			FROM = { has_government = colonial }
+			FROM = { has_civil_war = yes }
+			FROM = { has_capitulated = yes }
+			OR = {
+				AND = {
+					FROM = { is_puppet_of = ROOT }
+					FROM = { has_war_together_with = ROOT }
+				}
+				ROOT = { has_war_with = FROM }
+			}
+		}
+		targeted_modifier = {
+			tag = FROM
+			autonomy_gain = -1
+		}
+		modifier = {
+			war_support_weekly = 0.05
+			political_power_gain = 0.1 		
+		}
+		timeout_effect = {
+			if = {
+				limit = {
+					FROM = {
+						OR = {
+							is_puppet_of = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				ROOT = { save_event_target_as = former_colonial_rulers }
+				FROM = { save_event_target_as = colonial_puppet }
+				every_country_with_original_tag = {
+					original_tag_to_check = FROM
+					limit = {
+						has_war_with = FROM
+						has_civil_war_cwtrigger = yes
+					} 
+					save_event_target_as = colonial_rebels
+					news_event = cw_colonial_news_events.2
+				}
+				ROOT = { end_puppet = FROM }
+				if = {
+					limit = {
+						ROOT = { is_in_faction = yes }
+					}
+					every_country = {
+						limit = {
+							is_in_faction_with = ROOT
+							has_war_together_with = FROM
+						}
+						white_peace = event_target:colonial_rebels
+					}
+				}				
+				every_state = {
+					limit = { 
+						is_core_of = FROM 
+					} 
+					remove_core_of = ROOT
+					#add_claim_by = ROOT
+				}
+				every_enemy_country = {
+					limit = {
+						has_war_with = ROOT
+						OR = {
+							original_tag = FROM
+							check_variable = { twin_country = FROM.id }
+						}
+					}
+					white_peace = ROOT
+				}
+				hidden_effect = {
+					add_timed_idea = { idea = cw_lost_colony days = 360 }
+					FROM = { clear_variable = my_killer drop_cosmetic_tag = yes cw_gained_independence_notification_colonial_war = yes }
+				}
+			}
+		}
+	}
+	cw_generic_colony_independence_referendum = {
+	
+		icon = GFX_decision_eng_abdication_crisis
+		
+		allowed = {
+			always = yes
+		}
+		
+		available = {
+			FROM = { cw_holding_referendum = no }
+		}
+		
+		highlight_states = { highlight_states_trigger = { is_controlled_by = FROM } }
+
+		activation = { always = no }
+		days_mission_timeout = 120
+		is_good = no
+		selectable_mission = yes
+		fire_only_once = yes
+		
+		timeout_effect = {
+			if = {
+				limit = {
+					has_civil_war = no
+				}
+				FROM = {
+					start_civil_war = {
+						ideology = unaligned_right
+						keep_political_leader = yes
+						size = 0.5
+						states_filter = { impassable = no }
+						compute_proxy_score = yes
+					}
+					compute_proxy_score = yes
+				}
+			}
+		}
+		complete_effect = {
+			FROM = { cw_cs_ref_initial_setup = yes }
+		}
+		ai_will_do = {
+			factor = 100
+		}		
+	}
+}

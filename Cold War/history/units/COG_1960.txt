@@ -1,0 +1,52 @@
+﻿division_template = {
+	name = "Infantry Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+	}
+}
+units = {
+    division = { 
+		location = 5117
+		division_template = "Infantry Brigade"
+	}
+	division = {
+		location = 1757
+		division_template = "Infantry Brigade"
+	}
+	division = {
+		location = 191
+		division_template = "Infantry Brigade"
+	}
+	division = {
+		location = 1684
+		division_template = "Infantry Brigade"
+	}
+	division = {
+		location = 6775
+		division_template = "Infantry Brigade"
+	}	
+	division = {
+		location = 4941
+		division_template = "Infantry Brigade"
+	}	
+	division = {
+		location = 6817
+		division_template = "Infantry Brigade"
+	}
+}
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_3
+			creator = "COG"
+		}
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "COG"
+		}
+	}
+}

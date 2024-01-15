@@ -1,0 +1,435 @@
+@POLICE_ACTION_DAYS = 320
+cw_unsc_voting_category = {
+	police_action_timer = {
+		icon = GFX_police_action_icon
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ""
+				always = no
+			}
+		}
+		
+		cancel_trigger = {
+			FROM = {
+				AND = {
+					has_war = no
+					exists = yes
+				}
+			}		
+		}
+
+		days_mission_timeout = var:ROOT.police_action_days_remaining?320
+		is_good = no
+		fire_only_once = yes
+		activation = { always = no }
+		highlight_states = {
+			highlight_states_trigger = {
+				owner = {
+					tag = FROM
+				}
+			}
+		}
+		
+		timeout_effect = {		#Peacekeeping mission FAILURE
+			hidden_effect = {
+				FROM = {
+					clr_country_flag = can_recieve_volunteers
+					clr_country_flag = un_police_action_granted
+					set_country_flag = { flag = cw_volunteers_blocked value = 1 days = 365 }
+					set_country_flag = { flag = police_action_blocked value = 1 days = 365 }
+					remove_from_array = {
+						array = ROOT.police_action_targets
+						value = THIS.id
+					}
+					if = {
+						limit = {
+							is_in_faction_with = UNN
+						}
+						UNN = {
+							remove_from_faction = PREV
+							delete_unit = { id = 200 }
+						}
+					}
+					every_enemy_country = {
+						UNN = { white_peace = PREV }
+					}
+				}
+			}
+			FROM = { save_event_target_as = un_police_target }
+			if = {
+				limit = {
+					FROM = { surrender_progress > 0.1 }
+				}
+				news_event = unsc.resolution_news.4
+				else_if = {
+					limit = {
+						FROM = { surrender_progress < 0.01 }
+					}
+					news_event = unsc.resolution_news.A4
+				}
+			}
+			ROOT = { recall_volunteers_from = FROM }
+			if = {
+				limit = {
+					ROOT = { has_war = yes }
+				}
+				FROM = {
+					every_enemy_country = {
+						white_peace = ROOT
+					}
+				}
+			}
+			clear_array = ROOT.police_action_targets
+		}
+		cancel_effect = {		#Peacekeeping mission SUCCESS
+			hidden_effect = {
+				FROM = {
+					clr_country_flag = can_recieve_volunteers
+					clr_country_flag = un_police_action_granted
+					remove_from_array = {
+						array = ROOT.police_action_targets
+						value = THIS.id
+					}
+					if = {
+						limit = {
+							is_in_faction_with = UNN
+						}
+						UNN = {
+							remove_from_faction = PREV
+							delete_unit = { id = 200 }
+						}
+					}
+					every_enemy_country = {
+						white_peace = UNN
+					}
+				}
+			}
+			FROM = { save_event_target_as = un_police_target }
+			news_event = unsc.resolution_news.5
+			ROOT = { recall_volunteers_from = FROM }
+			clear_array = ROOT.police_action_targets
+		}
+	}
+	police_action_timer_police_target = {		#The country police action is against or countries that have sent that country volunteers
+		icon = GFX_police_action_icon
+		
+		available = {
+			always = no
+		}
+		
+		visible = {
+			is_ai = no
+			NOT = { has_country_flag = un_police_action_allowed }
+		}
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				is_controlled_by = var:FROM.police_action_targets^0
+			}
+		}
+
+		target_trigger = {
+			NOT = { tag = UNN }
+			FROM = { has_country_flag = un_police_action_allowed }
+		}
+	}
+	extend_police_action_against = {
+		icon = GFX_decision_eng_propaganda_campaigns
+		visible = {
+			ROOT = { has_country_flag = un_police_action_allowed }
+			FROM = {
+				is_in_array = {
+					array = ROOT.police_action_targets
+					value = THIS.id
+				}
+			}
+		}
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				owner = {
+					tag = FROM
+				}
+			}
+		}
+		
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			FROM = {
+				has_capitulated = no
+				any_enemy_country = {
+					surrender_progress > 0.05
+				}
+			}
+		}
+
+		cost = var:ROOT.police_action_cost?50
+		days_re_enable = 30
+
+		target_trigger = {
+			FROM = {
+				is_in_array = {
+					array = ROOT.police_action_targets
+					value = THIS.id
+				}
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = "CW_UNSC_POLICE_ACTION_EXTEND_TT"
+			hidden_effect = {
+				if = {
+					limit = {
+						ROOT = { is_ai = no }
+					}
+					add_to_variable = { ROOT.police_action_cost = 50 }
+				}
+				save_global_event_target_as = unsc_initiator
+				set_country_flag = wants_unsc_support
+				FROM = {
+					every_enemy_country = { cw_unsc_set_hate_resolution = yes }				
+				}
+				every_other_country = {
+					limit = {
+						FROM = {
+							has_volunteers_amount_from = {
+								tag = PREV
+								count > 0
+							}
+						}
+					}
+					cw_unsc_set_like_resolution = yes
+				}
+				FROM = { save_global_event_target_as = unsc_target }
+				FROM = { set_country_flag = unsc_generic_extend_police_action }
+				UNN = { set_temp_variable = { custom_usc_resolution_timer = 20 } }
+				set_global_flag = resolution_veto_disabled
+				set_global_flag = unsc_military_resolution
+				cw_unsc_start_resolution_effect = yes
+				if = {
+					limit = {
+						FROM = { tag = PRK }
+						has_global_flag = korean_war_activated
+					}
+					SOV = { cw_unsc_set_abstain_resolution = yes }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				FROM = { check_variable = { police_action_days_remaining < 90 } }				
+			}
+		}
+	}
+	request_recognition = {
+
+		icon = GFX_un_recognition_decision_icon
+
+		available = {
+			NOT = { has_autonomy_state = autonomy_wtt_imperial_subject }
+			custom_trigger_tooltip = {
+				tooltip = UNSC_REQUIRMENTS_NOT_UNDER_SANCTIONS
+				sanctioned_by_unsc = no
+			}
+			custom_trigger_tooltip = {
+				tooltip = UNSC_REQUIRMENTS_NOT_IN_SESSION_TT
+				unsc_in_session = no
+			}
+			custom_trigger_tooltip = {
+				tooltip = UNSC_REQUIRMENTS_NOT_IMPLEMENTING_TT
+				unsc_implementing_resolution = no
+			}
+			custom_trigger_tooltip = {
+				tooltip = UNSC_REQUIRMENTS_NOT_FAILED_RESOLUTION_TT
+				check_variable = { THIS.resoultion_failed_cooldown_timer = 0 }
+			}
+			has_war = no
+			custom_trigger_tooltip = {
+				tooltip = UNSC_ACTION_REC_SUPERPOWER
+				NOT = { has_idea = cw_non_recognized_state }
+			}
+		}
+
+		visible = {
+			OR = {
+				has_idea = cw_partially_recognized_state
+				has_idea = cw_non_recognized_state
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 100
+
+		complete_effect = {
+			cw_usnc_generic_recognize_government = yes
+			hidden_effect = {
+				# Twin Countries Don't want each other recognized
+				if = {
+					limit = {
+						has_variable = twin_country
+					}
+					var:twin_country = { set_country_flag = hate_resolution }
+					var:twin_country = { set_country_flag = wants_unsc_support }
+					set_country_flag = wants_unsc_support
+				}				
+			}
+		}
+
+		ai_will_do = {
+			base = 0			
+			#modifier = {
+			#	add = 100
+			#	ROOT = { country_has_majority_support = yes }
+			#}
+			modifier = {
+				add = 100
+				is_major = yes
+			}			
+			modifier = {
+				add = 1000
+				has_country_flag = has_recognition_backing
+			}
+			modifier = {
+				add = -500
+				has_global_flag = korean_war_activated
+				NOT = {
+					KOR = {
+						has_volunteers_amount_from = {
+							tag = USA
+							count > 1
+						}
+					}
+				}
+			}
+			modifier = {
+				add = -500
+				tag = PRC
+				CHI = { NOT = { has_country_flag = lost_ccw } }		#PRC - wait until after civil war to ask for recognition
+			}			
+		}
+	}
+	request_remove_sanctions = {
+
+		icon = GFX_un_recognition_decision_icon
+
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			custom_trigger_tooltip = {
+				tooltip = "At lest one year has passed since sanctions were imposed."
+				NOT = { has_country_flag = recently_sanctioned_by_unsc }
+			}
+			custom_trigger_tooltip = {
+				tooltip = UNSC_REQUIRMENTS_NOT_FAILED_RESOLUTION_TT
+				check_variable = { resoultion_failed_cooldown_timer = 0 }
+			}
+		}
+
+		visible = {
+			sanctioned_by_unsc = yes
+		}
+
+		fire_only_once = no
+
+		cost = 100
+
+		complete_effect = {
+			custom_effect_tooltip = DECISION_REMOVE_SACNTIONS_FROM_OURSELFES_TT
+			hidden_effect = {
+				save_global_event_target_as = unsc_initiator
+				save_global_event_target_as = unsc_target
+				cw_unsc_set_like_resolution = yes
+				set_country_flag = wants_unsc_support
+				set_country_flag = unsc_resolution_generic_remove_sanctions
+				#UNN = { set_temp_variable = { custom_usc_resolution_timer = 15 } }
+				cw_unsc_start_resolution_effect = yes
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 100
+				country_has_majority_support = yes
+			}
+			modifier = {
+				add = 100
+				is_major = yes
+			}
+		}
+	}
+	korean_war_ceasefire = {
+
+		icon = GFX_un_recognition_decision_icon
+		
+		allowed = {
+			tag = UNN
+		}
+
+		available = {
+			AND = {
+				unsc_in_session = no
+				unsc_implementing_resolution = no
+			}		
+			has_global_flag = korean_war_activated
+			date > 1952.1.1
+			KOR = {
+				has_war_with = PRK 
+				surrender_progress < 0.3
+			}
+			PRK = {
+				surrender_progress < 0.3
+			}
+			
+		}
+
+		visible = {
+			has_global_flag = korean_war_activated
+			date > 1953.7.27
+		}
+
+		fire_only_once = no
+		days_re_enable = 60
+
+		cost = 0
+
+		complete_effect = {
+			custom_effect_tooltip = "Initiates Korean War Ceasefire Resolution."
+			set_country_flag = unsc_initiator_flag
+			save_global_event_target_as = unsc_initiator
+			KOR = {
+				save_global_event_target_as = unsc_target
+				set_country_flag = unsc_korean_war_peace_resolution
+			}
+			PRK = { cw_set_resolution_observer = yes }
+			every_other_country = {
+				limit = {
+					OR = {
+						has_war_with = UNN
+						KOR = {
+							has_volunteers_amount_from = {
+								tag = PREV
+								count > 0
+							}
+						}						
+					}
+				}
+				cw_unsc_set_like_resolution = yes
+			}
+			set_global_flag = unsc_major_historical_resolution
+			set_global_flag = resolution_veto_disabled
+			cw_unsc_start_resolution_effect = yes
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}	
+}

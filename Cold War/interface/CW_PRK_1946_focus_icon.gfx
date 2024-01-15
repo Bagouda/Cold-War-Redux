@@ -1,0 +1,18 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_focus_PRK_consolidate_the_parties"
+		texturefile = "gfx/interface/cw_focuses/PRK/1946/focus_PRK_consolidate_the_parties.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_focus_PRK_found_korean_peoples_army"
+		texturefile = "gfx/interface/cw_focuses/PRK/1946/focus_PRK_found_korean_peoples_army.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_focus_PRK_proclaim_dprk"
+		texturefile = "gfx/interface/cw_focuses/PRK/1946/focus_PRK_proclaim_dprk.dds"
+		legacy_lazy_load = no
+	}
+	
+}

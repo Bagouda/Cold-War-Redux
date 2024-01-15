@@ -1,0 +1,21 @@
+state = {
+	id=694
+	local_supplies=0.0 
+	name="STATE_694"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 9377 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = FRA
+		victory_points = {
+			9377 1
+		}
+	}
+	manpower = 444290
+	provinces={
+		177 9377 13084 
+	}
+}

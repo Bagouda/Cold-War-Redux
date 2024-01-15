@@ -1,0 +1,22 @@
+state={
+	id=824
+	local_supplies=0.0 
+	name="STATE_824"
+	
+	history={
+		owner = FRA
+		add_claim_by = LBA
+		add_claim_by = ITA
+		1947.2.10 = {
+			remove_claim_by = ITA
+		}
+	}	
+	
+	provinces={
+		4962 5004 10884 12022 12082 12866 
+	}
+	manpower=10000
+	impassable = yes
+	buildings_max_level_factor=1.000
+	state_category=wasteland
+}

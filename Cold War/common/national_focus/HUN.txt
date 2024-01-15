@@ -1,0 +1,78 @@
+focus_tree = {
+	id = hungary_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = HUN
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	focus = {
+		id = HUN_declare_autonomy
+		available = {
+			has_idea = hun_hog_imre_nagy
+			democratic > 0.3
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 1
+		y = 1
+		cost = 1
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			SOV = { end_puppet = ROOT }
+			leave_faction = yes
+			ROOT = { drop_cosmetic_tag = yes }
+			cw_make_unrecognized = yes
+			load_oob = HUN_revolution_forces
+			create_country_leader = {
+				name = "Imre Nagy"
+				desc = ""
+				picture = "HUNH2_1.dds"
+				ideology = social_democrat_idolg
+				expire = 1970.9.28
+				traits = { cw_democratic_reformer cw_fiercely_neutral }
+			}
+			#start_civil_war = {
+			#	ideology = democratic_socialist
+			#	size = 0.8
+			#	capital = 43
+			#	states = { 
+			#		43
+			#	}
+			#}			
+			set_politics = {
+				ruling_party = democratic_socialist
+				elections_allowed = yes
+				election_frequency = 48
+			}
+			set_popularities = {
+				democratic  = 0
+				democratic_socialist = 80
+				neutrality = 0
+				communism_totalitarian = 0
+				communism = 10
+				unaligned_right = 10
+				colonial =  0
+			}
+			news_event = cw_historic_events.26
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

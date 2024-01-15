@@ -1,0 +1,35 @@
+state = {
+	id=532
+	local_supplies=0.0 
+	name="STATE_532" # Tokai
+	state_category = large_city
+	history = {
+ 	add_to_array = { list_victory_point = 10125 }
+ 	add_to_array = { list_victory_point = 7087 }
+ 	set_variable = { victory_point = 28 }
+		owner = USA
+		add_core_of = JAP
+		
+		buildings = {
+			infrastructure = 3		
+			industrial_complex = 3
+			arms_factory = 5
+			10125 = {
+				naval_base = 2
+			}			
+		}
+		victory_points = {
+			10125 25
+		}
+		victory_points = {
+			7087 3 
+		}
+	}
+	resources={
+		crops = 5
+	}		
+	manpower = 6174000
+	provinces={
+		4069 4172 7087 7157 7187 10100 10125 12072 12097 
+	}
+}

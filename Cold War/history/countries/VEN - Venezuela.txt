@@ -1,0 +1,209 @@
+﻿capital = 307
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = democratic_socialist
+		last_election = "1942.11.19"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 65
+		neutrality = 15
+		communism_totalitarian = 10
+		unaligned_right = 10
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Rómulo Gallegos"
+		desc = ""
+		picture = "VENH2.dds"
+		ideology = social_democrat_idolg
+		expire = 1948.11.24
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Rómulo Betancourt"
+		desc = ""
+		picture = "VENH1.dds"
+		ideology = social_democrat_idolg
+		expire = 1948.02.17
+		traits = {}
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1946.11.9"
+		elections_allowed = no
+	}
+	set_popularities = {
+			democratic  = 75
+			democratic_socialist = 0
+			neutrality = 25
+			communism_totalitarian = 0
+			unaligned_right = 0
+			colonial =  0
+	}
+	create_country_leader = {
+		name = "Germán Suárez Flamerich"
+		desc = ""
+		picture = "VENHM2.dds"
+		ideology = military_conservative_idolg
+		expire = 1952.12.2
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Carlos Delgado Chalbaud"
+		desc = ""
+		picture = "VENHM1.dds"
+		ideology = military_conservative_idolg
+		expire = 1950.11.30
+		traits = {}
+	}
+}
+1956.10.29 = {	#Suez Crisis
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1946.11.9"
+		elections_allowed = no
+	}
+	set_popularities = {
+			democratic  = 65
+			democratic_socialist = 0
+			neutrality = 35
+			communism_totalitarian = 0
+			unaligned_right = 0
+			colonial =  0
+	}
+	create_country_leader = {
+		name = "Edgar Sanabria"
+		desc = ""
+		picture = "VENHM5.dds"
+		ideology = military_conservative_idolg
+		expire = 1959.2.13
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Wolfgang Larrazábal"
+		desc = ""
+		picture = "VENHM4.dds"
+		ideology = military_conservative_idolg
+		expire = 1958.11.14
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Marcos Pérez Jiménez"
+		desc = ""
+		picture = "VENHM3.dds"
+		ideology = military_conservative_idolg
+		expire = 1958.1.23
+		traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1958.12.7"
+		elections_allowed = yes
+	}
+	set_popularities = {
+			democratic  = 80
+			democratic_socialist = 0
+			neutrality = 20
+			communism_totalitarian = 0
+			unaligned_right = 0
+			colonial =  0
+	}
+	create_country_leader = {
+		name = "Carlos Andrés Pérez"
+		desc = ""
+		picture = "VENH11.dds"
+		ideology = social_democrat_idolg
+		expire = 1984.2.2
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Rafael Caldera"
+		desc = ""
+		picture = "VENH10.dds"
+		ideology = social_cons_idolg
+		expire = 1974.3.12
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Raúl Leoni"
+		desc = ""
+		picture = "VENH9.dds"
+		ideology = social_democrat_idolg
+		expire = 1969.3.11
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Rómulo Betancourt"
+		desc = ""
+		picture = "VENH8.dds"
+		ideology = social_democrat_idolg
+		expire = 1964.3.13
+		traits = {}
+	}
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1978.12.3"
+		elections_allowed = yes
+	}
+	set_popularities = {
+			democratic  = 90
+			democratic_socialist = 0
+			neutrality = 10
+			communism_totalitarian = 0
+			unaligned_right = 0
+			colonial =  0
+	}
+	create_country_leader = {
+		name = "Jaime Lusinchi"
+		desc = ""
+		picture = "VENH13.dds"
+		ideology = social_democrat_idolg
+		expire = 1989.2.2
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Luis Herrera Campins"
+		desc = ""
+		picture = "VENH12.dds"
+		ideology = social_cons_idolg
+		expire = 1984.2.2
+		traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1988.12.4"
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Carlos Andrés Pérez"
+		desc = ""
+		picture = "VENH14.dds"
+		ideology = social_democrat_idolg
+		expire = 1993.5.21
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Jaime Lusinchi"
+		desc = ""
+		picture = "VENH13.dds"
+		ideology = social_democrat_idolg
+		expire = 1989.2.2
+		traits = {}
+	}
+}

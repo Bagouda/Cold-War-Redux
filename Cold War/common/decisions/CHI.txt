@@ -1,0 +1,409 @@
+@MANCHURIA_DAYS_REMOVE = 30
+CHI_army_reform = {
+	CHI_army_reform = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			has_army_experience > 50
+		}
+
+		cost = 0
+		ai_will_do = {
+			factor = 500
+		}
+		days_remove = 90
+
+		visible = {
+			has_completed_focus = CHI_military_reform
+			OR = {
+				has_idea = CHI_army_corruption_1
+				has_idea = CHI_army_corruption_2
+				has_idea = CHI_army_corruption_3
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = { has_idea = CHI_army_corruption_1 }
+				swap_ideas = {
+					remove_idea = CHI_army_corruption_1
+					add_idea = CHI_army_corruption_2
+				}
+			}
+			else_if = {
+				limit = { has_idea = CHI_army_corruption_2 }
+				swap_ideas = {
+					remove_idea = CHI_army_corruption_2
+					add_idea = CHI_army_corruption_3
+				}
+			}
+			else_if = {
+				limit = { has_idea = CHI_army_corruption_3 }
+				remove_ideas = CHI_army_corruption_3
+			}
+		}
+		complete_effect = {
+			army_experience = -100						
+		}		
+	}
+}
+cw_struggle_for_manchuria_category = {
+	cw_usa_sov_transfer_troops_manchuria = {
+		
+		icon = GFX_decision_eng_blackshirt_march
+		allowed = { OR = { tag = USA tag = SOV } }
+
+		available = {
+			if = {
+				limit = {
+					tag = USA
+				}
+				CHI = { has_manpower > 3000 }
+			}
+			if = {
+				limit = {
+					tag = SOV
+				}
+				PRC = { has_manpower > 3000 }
+			}			
+		}
+
+		visible = {
+		}
+
+		cost = 30
+		days_re_enable = 30
+		days_remove = @MANCHURIA_DAYS_REMOVE
+
+		modifier = {
+			experience_gain_army = -0.10
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					ROOT = { tag = USA }
+				}
+				custom_effect_tooltip = MANCHURIA_CONTROL_INCREASE_CHI_TT
+				hidden_effect = {
+					random_list = {
+						15 = {
+							610 = { set_temp_variable = { manchuria_control_bonus_chi = 5 } cw_calculate_manchuria_state_controll = yes }
+						}
+						15 = {
+							716 = { set_temp_variable = { manchuria_control_bonus_chi = 5 } cw_calculate_manchuria_state_controll = yes }
+						}
+						15 = {
+							328 = { set_temp_variable = { manchuria_control_bonus_chi = 5 } cw_calculate_manchuria_state_controll = yes }
+						}
+						15 = {
+							717 = { set_temp_variable = { manchuria_control_bonus_chi = 5 } cw_calculate_manchuria_state_controll = yes }
+						}
+						15 = {
+							714 = { set_temp_variable = { manchuria_control_bonus_chi = 5 } cw_calculate_manchuria_state_controll = yes }
+						}
+						15 = {
+							761 = { set_temp_variable = { manchuria_control_bonus_chi = 5 } cw_calculate_manchuria_state_controll = yes }
+						}		
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { tag = SOV }
+				}
+				custom_effect_tooltip = MANCHURIA_CONTROL_INCREASE_PRC_TT
+				hidden_effect = {
+					random_list = {
+						15 = {
+							610 = { set_temp_variable = { manchuria_control_bonus_prc = 5 } cw_calculate_manchuria_state_controll = yes }
+						}
+						15 = {
+							716 = { set_temp_variable = { manchuria_control_bonus_prc = 5 } cw_calculate_manchuria_state_controll = yes }
+						}
+						15 = {
+							328 = { set_temp_variable = { manchuria_control_bonus_prc = 5 } cw_calculate_manchuria_state_controll = yes }
+						}
+						15 = {
+							717 = { set_temp_variable = { manchuria_control_bonus_prc = 5 } cw_calculate_manchuria_state_controll = yes }
+						}
+						15 = {
+							714 = { set_temp_variable = { manchuria_control_bonus_prc = 5 } cw_calculate_manchuria_state_controll = yes }
+						}
+						15 = {
+							761 = { set_temp_variable = { manchuria_control_bonus_prc = 5 } cw_calculate_manchuria_state_controll = yes }
+						}		
+					}
+				}
+			}			
+			cw_calculate_manchuria_overall_control = yes
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	cw_commit_troops_to_manchuria_state = {
+		
+		icon = GFX_decision_eng_blackshirt_march
+		on_map_mode = map_only
+		allowed = {
+			OR = {
+				tag = CHI
+				tag = PRC
+			}
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_claimed_by = ROOT
+					is_core_of = ROOT
+				}
+				is_controlled_by = SOV
+				NOT = { state = 745 }
+			}
+		}
+
+		available = {
+			has_manpower > 3000
+			has_equipment = { infantry_equipment_3 > 2999 }
+			if = {
+				limit = {
+					tag = PRC
+				}
+				custom_trigger_tooltip = {
+					tooltip = "We do not have full control over [FROM.GetName]."
+					check_variable = { FROM.man_struggle_prc_control < 100 }
+				}
+			}
+			if = {
+				limit = {
+					tag = CHI
+				}
+				custom_trigger_tooltip = {
+					tooltip = "We do not have full control over [FROM.GetName]."
+					check_variable = { FROM.man_struggle_chi_control < 100 }
+				}
+			}			
+		}
+
+		visible = {}
+
+		cost = 0
+		days_re_enable = 0
+		days_remove = @MANCHURIA_DAYS_REMOVE
+
+		modifier = {
+			experience_gain_army = -0.10
+		}
+		remove_effect = {
+			custom_effect_tooltip = MANCHURIA_CONTROL_INCREASE_COUNTRY_TT
+			add_manpower = -3000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_3
+				amount = -3000
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						tag = PRC
+					}
+					FROM = { set_temp_variable = { manchuria_control_bonus_prc = 5 } }
+				}
+				if = {
+					limit = {
+						tag = CHI
+					}
+					FROM = { set_temp_variable = { manchuria_control_bonus_chi = 5 } }
+				}
+				FROM = { cw_calculate_manchuria_state_controll = yes }
+				cw_calculate_manchuria_overall_control = yes
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 50
+				AND = {
+					tag = CHI
+					check_variable = { var = FROM.man_struggle_chi_control value = FROM.man_struggle_prc_control compare = less_than_or_equals }
+				}
+			}
+			modifier = {
+				add = 50
+				AND = {
+					tag = PRC
+					check_variable = { var = FROM.man_struggle_prc_control value = FROM.man_struggle_chi_control compare = less_than_or_equals }
+				}
+			}
+		}
+	}
+}
+crisis_national = {
+	CHI_destory_costal_ports = {
+
+		icon = GFX_decision_generic_ignite_civil_war
+
+		allowed = {
+			tag = CHI
+		}
+
+		available = {
+			command_power > 30
+			595 = { is_controlled_by = ROOT }
+			592 = { is_controlled_by = ROOT }
+			596 = { is_controlled_by = ROOT }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 595
+				state = 592
+				state = 596
+			}
+		}
+
+		cost = 0
+		days_remove = 90
+
+		visible = {
+			surrender_progress > 0.50
+		}
+		remove_effect = {
+			595 = {
+				remove_building = {
+					type = dockyard
+					level = 2
+				}
+				remove_building = {
+					type = naval_base
+					level = 4
+					province = 4196
+				}
+			}
+			592 = {
+				remove_building = {
+					type = dockyard
+					level = 1
+				}
+				remove_building = {
+					type = naval_base
+					level = 6
+					province = 1047
+				}
+			}
+			596 = {
+				remove_building = {
+					type = naval_base
+					level = 3
+					province = 7191
+				}
+			}
+		}
+		complete_effect = {
+			add_command_power = -30					
+		}
+		ai_will_do = {
+			factor = 500
+		}		
+	}
+	cw_fall_of_chi = {
+		icon = GFX_decision_jap_conquer_china
+		
+		allowed = { OR = { tag = CHI tag = PRC } }
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ""
+				always = no
+			}
+		}
+
+		activation = { AND = { CHI = { surrender_progress > 0.8 has_war_with = PRC NOT = { has_full_control_of_state = 613 has_full_control_of_state = 592 } } } }
+		days_mission_timeout = 120
+		is_good = no
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 524
+			}
+		}
+		
+		timeout_effect = {
+			if = {
+				limit = {
+					ROOT = { tag = CHI }
+				}
+				custom_effect_tooltip = CHI_ABANDON_MAINLAND_TT
+				set_capital = { state = 524 }
+				524 = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 5
+						instant_build = yes
+					}
+					create_unit = {
+						division = "division_template = \"Infantry Division\" start_experience_factor = 0.5" 
+						owner = ROOT
+						count = 7
+					}
+				}
+				hidden_effect = {
+					PRC = { clr_country_flag = police_action_blocked }
+					CHI = { clr_country_flag = police_action_blocked }
+					XSM = { clr_country_flag = cw_volunteers_blocked }
+					XSM = { clr_country_flag = cw_volunteers_blocked }
+					if = {
+						limit = {
+							USA = { is_ai = yes }
+						}
+						USA = { give_guarantee = CHI }
+					}
+					if = {
+						limit = {
+							NOT = { 524 = { is_core_of = ROOT } }
+						}
+						524 = { add_core_of = ROOT }
+					}
+					745 = {
+						set_variable = { THIS.true_owner = PRC.id }
+						add_core_of = PRC
+						remove_claim_by = PRC
+					}				
+					set_country_flag = lost_ccw
+					remove_country_leader_trait = last_stand_fighter
+					every_state = { limit = { is_core_of = CHI NOT = { is_owned_by = SIK is_owned_by = TIB state = 524 } } PRC = { set_state_owner = PREV } }
+					set_truce = { target = PRC days = 600 }
+					white_peace = PRC
+					white_peace = SIK
+					if = {
+						limit = {
+							USA = { has_government = democratic_socialist }
+						}
+						USA = { add_country_leader_trait = president_lost_china_dem }
+					}
+					else_if = {
+						limit = {
+							USA = { has_government = democratic }
+						}
+						USA = { add_country_leader_trait = president_lost_china_rep }
+					}
+					news_event = cw_historic_events.16
+				}
+				else = {
+					custom_effect_tooltip = "CW_FALL_OF_CHI_PRC"
+					effect_tooltip = {
+						white_peace = CHI
+					}
+					add_stability = 0.20
+					every_state = {
+						limit = {
+							is_controlled_by = PRC
+						}
+						add_resistance = -50
+					}
+				}
+			}
+		}
+	}
+}

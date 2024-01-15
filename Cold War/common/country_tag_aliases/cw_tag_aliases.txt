@@ -1,0 +1,222 @@
+UNA = {	#UN Permanent Replacement
+	THIS = { eligable_to_join_unsc = yes }
+	country_score = {
+		base = 0
+		modifier = {
+			add = 10
+			num_of_military_factories > 100
+		}		
+		modifier = {
+			add = 10
+			num_of_nukes > 5
+		}
+		modifier = {
+			add = 30
+			num_of_nukes > 10
+		}
+		modifier = {
+			add = 50
+			num_of_controlled_states > 10
+		}
+		modifier = {
+			add = 100
+			num_of_controlled_states > 20
+		}
+		modifier = {
+			add = 50
+			is_ai = no
+		}
+		modifier = {
+			add = 30
+			is_major = yes
+		}
+		modifier = {
+			add = -1000
+			is_puppet = yes
+		}
+		modifier = {
+			add = -1000
+			tag = SWI
+		}
+		modifier = {
+			add = -1000
+			has_country_flag = resigned_from_unsc
+		}
+	}
+	target_array = global.majors
+}
+UNB = {	#UN Non Permanent Replacement
+	THIS = { eligable_to_join_unsc = yes }
+	country_score = {
+		base = 0
+		modifier = {
+			add = 50
+			unsc_majority_democratic = yes
+			OR = {
+				has_government = neutrality
+				has_government = communism
+				has_government = communism_totalitarian
+			}
+		}		
+		modifier = {
+			add = -50
+			unsc_majority_communist = yes
+			OR = {
+				has_government = communism
+				has_government = communism_totalitarian
+			}
+		}					
+		modifier = {
+			add = 1000
+			is_ai = no
+		}		
+		modifier = {
+			add = 10
+			num_of_military_factories > 50
+		}		
+		modifier = {
+			add = 10
+			num_of_nukes > 5
+		}
+		modifier = {
+			add = 30
+			num_of_nukes > 10
+		}
+		modifier = {
+			add = 10
+			num_of_controlled_states > 5
+		}
+		modifier = {
+			add = 20
+			num_of_controlled_states > 10
+		}
+		modifier = {
+			add = 30
+			is_major = yes
+		}
+		modifier = {
+			add = -1000
+			tag = SWI
+		}
+		modifier = {
+			add = -50
+			capital_scope = { is_on_continent = europe }
+			NOT = { OR = { has_government = communism has_government = communism_totalitarian } }
+		}
+		modifier = {
+			add = 50
+			date > 1961.1.1
+			capital_scope = { is_on_continent = africa }
+		}		
+		modifier = {
+			add = 50
+			check_variable = { 	var = global.unsc_non_permanent_members_array^num value = 10 compare = less_than }
+			check_variable = { 	var = global.unsc_non_permanent_members_array^num value = 8 compare = greater_than_or_equals }
+			capital_scope = { is_on_continent = asia }
+		}
+		modifier = {
+			add = 50
+			check_variable = { 	var = global.unsc_non_permanent_members_array^num value = 10 compare = less_than }
+			check_variable = { 	var = global.unsc_non_permanent_members_array^num value = 9 compare = greater_than_or_equals }
+			capital_scope = { is_on_continent = africa }
+		}				
+		modifier = {
+			add = -100
+			THIS = { capital_scope = { is_on_continent = europe } }
+			any_other_country = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				capital_scope = { is_on_continent = europe }
+			}
+		}
+		modifier = {
+			add = -100
+			THIS = { capital_scope = { is_on_continent = north_america } }
+			any_other_country = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				capital_scope = { is_on_continent = north_america }
+			}
+		}
+		modifier = {
+			add = -100
+			THIS = { capital_scope = { is_on_continent = central_america } }
+			any_other_country = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				capital_scope = { is_on_continent = central_america }
+			}
+		}		
+		modifier = {
+			add = -100
+			THIS = { capital_scope = { is_on_continent = south_america } }
+			any_other_country = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				capital_scope = { is_on_continent = south_america }
+			}
+		}
+		modifier = {
+			add = -100
+			THIS = { capital_scope = { is_on_continent = africa } }
+			any_other_country = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				capital_scope = { is_on_continent = africa }
+			}
+		}
+		modifier = {
+			add = -100
+			THIS = { capital_scope = { is_on_continent = asia } }
+			any_other_country = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				capital_scope = { is_on_continent = asia }
+			}
+		}
+		modifier = {
+			add = -100
+			THIS = { capital_scope = { is_on_continent = middle_east } }
+			any_other_country = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				capital_scope = { is_on_continent = middle_east }
+			}
+		}
+		modifier = {
+			add = 20
+			date > 1949.1.1
+			OR = {
+				has_government = communism
+				has_government = communism_totalitarian
+			}
+			unsc_majority_democratic = yes
+		}
+		modifier = {
+			add = -100
+			THIS = { capital_scope = { is_on_continent = australia } }
+			any_other_country = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				capital_scope = { is_on_continent = australia }
+			}
+		}
+	}
+	target_array = global.countries
+}

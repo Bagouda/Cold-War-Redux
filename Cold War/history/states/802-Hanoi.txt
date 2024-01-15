@@ -1,0 +1,38 @@
+
+state={
+	id=802
+	local_supplies=0.0 
+	name="STATE_802"
+
+	history={
+ 	add_to_array = { list_victory_point = 1073 }
+		set_variable = { victory_point = 5 }
+		owner = VTC
+		add_core_of = VTC
+		add_core_of = VIN
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 2
+			arms_factory = 3
+			air_base = 1
+		}
+		victory_points = {
+			1073 5 
+		}
+	}
+
+	provinces={
+		1073 4529 7518 10075 12008 12065 12319 
+	}
+	manpower=162300
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

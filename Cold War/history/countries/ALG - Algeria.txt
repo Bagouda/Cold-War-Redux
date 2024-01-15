@@ -1,0 +1,47 @@
+﻿capital = 459
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+set_country_flag = decolonization
+1946.1.1 = {
+	add_ideas = {
+		cw_non_recognized_state
+	}
+	set_politics = {
+		ruling_party = neutrality
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 10
+		neutrality = 50
+		communism_totalitarian = 15
+		communism = 15
+		unaligned_right = 10
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Houari Boumédiène"
+		desc = ""
+		picture = "ALGH1.dds"
+		ideology = nasserism_ideol
+		expire = 1970.9.28
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Bachir Hadj Ali"
+		desc = ""
+		picture = "bachir_hadj_ali_sov.dds"
+		ideology = revisionist_idolg
+		expire = 1984.10.14
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Bachir Hadj Ali"
+		desc = ""
+		picture = "bachir_hadj_ali_chi.dds"
+		ideology = stalinism_idolg
+		expire = 1982.10.16
+		traits = { }
+	}
+}

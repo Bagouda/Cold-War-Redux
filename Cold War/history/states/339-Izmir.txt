@@ -1,0 +1,32 @@
+state = {
+	id=339
+	local_supplies=0.0 
+	name="STATE_339"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 4112 }
+ 	set_variable = { victory_point = 20 }
+		owner = TUR
+		add_core_of = TUR
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 2
+			arms_factory = 1
+			dockyard  = 1
+			4112 = {
+				naval_base = 3
+			}			
+		}		
+		victory_points = {
+			4112 20		#Izmir 
+		}
+	}
+	resources={
+		chromium=50 # was: 86
+	}
+	manpower = 1111755
+	provinces={
+		928 3927 4112 6992 7130 9921 9929 10038 11848 11898 
+	}
+}

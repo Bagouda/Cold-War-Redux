@@ -1,0 +1,982 @@
+characters={
+	####################################################################################################
+	######################################### Country Leader ###########################################
+	####################################################################################################
+	PRC_mao_zedong = {
+		name = "Mao Zedong"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_prc_mao_zedong_large
+			}
+		}
+		country_leader={
+			desc = POLITICS_MAO_ZEDONG_DESC
+			ideology = stalinism_idolg
+			expire = 1976.9.9			
+			traits = { undisputed_leader cw_mao_z_maoism fiercely_independent inspiring_leader_mao last_stand_fighter }
+		}
+	}
+	####################################################################################################
+	######################################### Deputy Minister ##########################################
+	####################################################################################################
+	PRC_hog_prc_ren_bishi = {
+		name = prc_hog_prc_ren_bishi
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_ren_bishi
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = prc_hog_prc_ren_bishi
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1950.10.27
+			}
+			traits = { 
+				cw_popular_politician
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	PRC_hog_liu_shaoqi = {
+		name = prc_hog_liu_shaoqi
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_liu_shaoqi
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = prc_hog_liu_shaoqi
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1969.11.12
+			}
+			traits = { 
+				cw_fm_silent_workhorse
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	PRC_hog_zhou_enlai = {
+		name = prc_hog_zhou_enlai
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_zhou_enlai
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = prc_hog_zhou_enlai
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1976.1.8
+			}
+			traits = { 
+				trusted_advisor
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = prc_fm_zhou_enlai
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = communism_totalitarian
+				ROOT = { is_recognized_regime = yes }
+			}
+			traits  = {
+				cw_dialouge_proponent 
+			}
+			visible = {
+				date < 1976.1.8
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}		
+	}	
+	####################################################################################################
+	######################################### Foreign Minister #########################################
+	####################################################################################################
+	PRC_fm_zhang_wentian = {
+		name = prc_fm_zhang_wentian
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_zhang_wentian
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = prc_fm_zhang_wentian
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+				ROOT = { is_recognized_regime = yes }
+				has_government = communism_totalitarian
+			}
+			traits  = {
+				cw_diplomatic_schemer 
+			}
+			visible = {
+				date < 1976.7.1
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	PRC_fm_chen_yi = {
+		name = prc_fm_chen_yi
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_chen_yi
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = prc_fm_chen_yi
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+				ROOT = { is_recognized_regime = yes }
+				has_government = communism_totalitarian
+			}
+			traits  = {
+				cw_diligent 
+			}
+			visible = {
+				date < 1972.1.6
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	PRC_fm_lin_boqu = {
+		name = prc_lin_boqu
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_lin_boqu
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = prc_fm_lin_boqu
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+				ROOT = { is_recognized_regime = yes }
+				has_government = communism_totalitarian
+			}
+			traits  = {
+				cw_briliant_negotiator 
+			}
+			visible = {
+				date < 1960.5.29
+			}			
+			do_effect = {}
+			on_add = {
+				custom_effect_tooltip = AID_REDUCTION_TOTAL_LOC
+				cw_appoint_as_foreign_minister_effect = yes 
+			}	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	####################################################################################################
+	######################################### Defense Minister #########################################
+	####################################################################################################
+	PRC_dm_lu_dingyi = {
+		name = prc_dm_lu_dingyi
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_lu_dingyi
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = prc_dm_lu_dingyi
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = communism_totalitarian
+				custom_trigger_tooltip = {
+					tooltip = "Defense Ministry Established."
+					has_country_flag = established_defense_ministry
+				}
+			}
+			traits  = {
+				cw_war_propagandist
+			}
+			visible = {
+				date < 1996.5.9
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	PRC_dm_ye_jianying = {
+		name = prc_dm_ye_jianying
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_ye_jianying
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = prc_dm_ye_jianying
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = communism_totalitarian
+				custom_trigger_tooltip = {
+					tooltip = "Defense Ministry Established."
+					has_country_flag = established_defense_ministry
+				}
+			}
+			traits  = {
+				cw_military_production_specialist
+			}
+			visible = {
+				date < 1986.10.22
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	PRC_dm_xu_xiangqian = {
+		name = prc_dm_xu_xiangqian
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_xu_xiangqian
+			}
+			army = {
+				large = GFX_prc_xu_xiangqian_large
+			}			
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = prc_dm_xu_xiangqian
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = communism_totalitarian
+				custom_trigger_tooltip = {
+					tooltip = "Defense Ministry Established."
+					has_country_flag = established_defense_ministry
+				}
+			}
+			traits  = {
+				cw_military_reorganizer
+			}
+			visible = {
+				date < 1986.10.22
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	PRC_dm_zhang_aiping = {
+		name = prc_dm_zhang_aiping
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_zhang_aiping
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = prc_dm_zhang_aiping
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = communism_totalitarian
+				custom_trigger_tooltip = {
+					tooltip = "Defense Ministry Established."
+					has_country_flag = established_defense_ministry
+				}
+			}
+			traits  = {
+				cw_military_reformer
+			}
+			visible = {
+				date < 2003.7.5
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	PRC_dm_wu_yuzhang = {
+		name = prc_dm_wu_yuzhang
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_wu_yuzhang
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = prc_dm_wu_yuzhang
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = communism_totalitarian
+				custom_trigger_tooltip = {
+					tooltip = "Defense Ministry Established."
+					has_country_flag = established_defense_ministry
+				}
+			}
+			traits  = {
+				cw_military_budget_wizard
+			}
+			visible = {
+				date < 1966.12.12
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	######################################## Treasury Minister #########################################
+	####################################################################################################
+	PRC_tm_li_fuchun = {
+		name = prc_tm_li_fuchun
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_li_fuchun
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = prc_tm_li_fuchun
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_construction_infra_specialist
+			}
+			visible = {
+				date < 1975.1.9
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	PRC_tm_li_xiannian = {
+		name = prc_tm_li_xiannian
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_li_xiannian
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = prc_tm_li_xiannian
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_military_industrial_specialist
+			}
+			visible = {
+				date < 1992.6.21
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	PRC_tm_deng_xiaoping = {
+		name = prc_tm_deng_xiaoping
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_tm_deng_xiaoping
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = prc_tm_deng_xiaoping
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_captain_of_industry
+			}
+			visible = {
+				date < 1997.2.19
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	PRC_tm_chen_yun = {
+		name = prc_tm_chen_yun
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_tm_chen_yun
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = prc_tm_chen_yun
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_power_unon_boss
+			}
+			visible = {
+				date < 1995.4.10
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	PRC_tm_gao_gang = {
+		name = prc_tm_gao_gang
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_gao_gang
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = prc_tm_gao_gang
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_efficient_administrator
+			}
+			visible = {
+				date < 1995.4.10
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	###################################### Head of Intelligence ########################################
+	####################################################################################################
+	PRC_pa_kang_sheng = {
+		name = prc_pa_kang_sheng
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_kang_sheng
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = prc_pa_kang_sheng
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_prince_of_terror
+			}
+			visible = {
+				date < 1975.12.16
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	PRC_cai_chang = {
+		name = prc_prc_cai_chang
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_prc_cai_chang
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = prc_prc_cai_chang
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_popular_politician
+			}
+			visible = {
+				date < 1990.9.11
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	######################################### Chief of Staff ###########################################
+	####################################################################################################
+	PRC_chief_peng_zhen = {
+		name = prc_chief_peng_zhen
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_prc_peng_zhen
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = prc_chief_peng_zhen
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				army_chief_organizational_1
+			}
+			visible = {
+				date < 1986.10.22
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	PRC_dm_liu_yalou = {
+		name = prc_dm_liu_yalou
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_prc_liu_yalou
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = prc_dm_liu_yalou
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				air_close_air_support_1
+			}
+			visible = {
+				date < 1974.11.29
+				has_country_flag = established_prc_air_force
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
+	PRC_chief_hu_yaobang = {
+		name = prc_chief_hu_yaobang
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_prc_hu_yaobang
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = prc_chief_hu_yaobang
+			
+			allowed  = {
+				tag = PRC
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				conscription_specialist
+			}
+			visible = {
+				date < 1989.7.15
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	################################## Generals and Field Marshals #####################################
+	####################################################################################################
+	PRC_zhu_de = {
+		name = "Zhu De"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_prc_zhu_de_large
+				small = GFX_prc_zhu_de_small
+			}
+		}
+		field_marshal = {
+			traits = { infantry_officer organizer trait_SPR_stalinist_loyalties }
+			skill = 9
+			attack_skill = 6
+			defense_skill = 4
+			planning_skill = 6
+			logistics_skill = 8
+		}
+	}
+	PRC_peng_dehuai = {
+		name = prc_dm_peng_dehuai
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_prc_peng_dehuai
+				large = GFX_prc_peng_dehuai_large
+			}			
+		}
+		field_marshal = {
+			traits = { infantry_officer trait_mountaineer trait_SPR_anti_stalinist_loyalties }
+			skill = 8
+			attack_skill = 5
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 6
+		}		
+	}
+	PRC_lin_biao = {
+		name = prc_dm_lin_biao
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_prc_lin_biao
+				large = GFX_prc_lin_biao_large
+			}
+		}
+		field_marshal = {
+			traits = { infantry_officer trait_mountaineer trait_SPR_anti_stalinist_loyalties }
+			skill = 7
+			attack_skill = 6
+			defense_skill = 4
+			planning_skill = 4
+			logistics_skill = 3
+		}		
+	}	
+	PRC_he_long = {
+		name = "He Long"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_prc_he_long_large
+				small = GFX_prc_he_long_small
+			}
+		}
+		corps_commander = {
+			traits = { trait_SPR_stalinist_loyalties }
+			skill = 5
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3			
+		}
+	}
+	PRC_liu_bocheng = {
+		name = "Liu Bocheng"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_prc_liu_bocheng_large
+				small = GFX_prc_liu_bocheng_small
+			}
+		}
+		corps_commander = {
+			traits = { trait_SPR_stalinist_loyalties }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3				
+		}
+	}
+	PRC_nie_rongzhen = {
+		name = "Nie Rongzhen"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_prc_nie_rongzhen_large
+				small = GFX_prc_nie_rongzhen_small
+			}
+		}
+		corps_commander = {
+			traits = { trait_SPR_stalinist_loyalties }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3				
+		}
+	}
+	PRC_su_yu = {
+		name = "Su Yu"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_prc_su_yu_large
+				small = GFX_prc_su_yu_small
+			}
+		}
+		corps_commander = {
+			traits = { trait_SPR_stalinist_loyalties }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	PRC_chen_geng = {
+		name = "Chen Geng"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_prc_chen_geng_large
+				small = GFX_prc_chen_geng_small
+			}
+		}
+		corps_commander = {
+			traits = { trait_SPR_stalinist_loyalties }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 3	
+		}
+	}
+	PRC_tan_zheng = {
+		name = "Tan Zheng"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_prc_tan_zheng_large
+				small = GFX_prc_tan_zheng_small
+			}
+		}
+		corps_commander = {
+			traits = { trait_SPR_stalinist_loyalties }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	PRC_yang_dezhi = {
+		name = "Yang Dezhi"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_prc_yang_dezhi_large
+				small = GFX_prc_yang_dezhi_small
+			}
+		}
+		corps_commander = {
+			traits = { trait_SPR_stalinist_loyalties }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 3	
+		}
+	}	
+}

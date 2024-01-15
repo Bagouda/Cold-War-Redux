@@ -1,0 +1,25 @@
+state = {
+	id=415
+	local_supplies=0.0 
+	name="STATE_415" # Herat
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 4893 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = AFG
+		add_core_of = AFG
+		victory_points = {
+			4893 1 
+		}
+	}
+	resources={
+		crops = 5
+	}	
+	manpower = 1632860
+	provinces={
+		1948 1995 2017 2062 2078 2101 4893 4949 5020 5064 8053 8090 10789 12788 12871 
+	}
+}

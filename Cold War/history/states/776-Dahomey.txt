@@ -1,0 +1,22 @@
+state = {
+	id=776
+	local_supplies=0.0 
+	name="STATE_776" # Benin/Dahomey
+	state_category = pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 10919 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = FRA
+		add_claim_by = BEN
+		victory_points = {
+			10919 1
+		}
+	}
+	manpower = 1615781
+	provinces={
+		10919 
+	}
+}

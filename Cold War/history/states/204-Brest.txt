@@ -1,0 +1,30 @@
+state = {
+	id=204
+	local_supplies=0.0 
+	name="STATE_204" # Bobruysk
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 3350 }
+ 	add_to_array = { list_victory_point = 11313 }
+ 	set_variable = { victory_point = 4 }
+		buildings = {
+			infrastructure = 2
+		}
+		owner = SOV
+		add_core_of = SOV		
+		add_core_of = BLR
+		victory_points = {
+			11313 1
+		}
+		victory_points = {
+			3350 3
+		}
+	}
+	resources={
+		crops = 3
+	}		
+	manpower = 1041084
+	provinces={
+		304 331 360 386 3350 3759 6373 11313 
+	}
+}

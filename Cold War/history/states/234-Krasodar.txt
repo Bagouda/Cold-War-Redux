@@ -1,0 +1,44 @@
+state = {
+	id=234
+	local_supplies=0.0 
+	name="STATE_234"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 3734 }
+ 	add_to_array = { list_victory_point = 3734 }
+ 	add_to_array = { list_victory_point = 719 }
+ 	add_to_array = { list_victory_point = 3720 }
+ 	set_variable = { victory_point = 14 }
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory   = 2
+		}
+		
+		victory_points = {
+			3734 5
+		}
+		victory_points = {
+			3734 5
+		}
+		victory_points = {
+			719 3
+		}
+		victory_points = {
+			3720 1 
+		}
+	}
+	resources={
+		tungsten=17 # was: 26
+		oil=12 # was: 18
+		crops = 1
+	}
+	manpower = 790337
+	provinces={
+		717 719 735 750 765 3717 3720 3734 3752 3760 3765 6736 6738 6741 6755 6768 6781 6783 9691 9694 9696 9709 9744 11668 11681 11729 
+	}
+}

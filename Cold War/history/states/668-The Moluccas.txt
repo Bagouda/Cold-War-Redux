@@ -1,0 +1,23 @@
+state = {
+	id=668
+	local_supplies=0.0 
+	name="STATE_668"
+	state_category = town
+	history = {
+		owner = EIN
+		add_core_of = INS
+		add_core_of = EIN
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			7557 = {
+				naval_base = 1
+			}			
+		}		
+	}
+	manpower = 579100
+	provinces={
+		1351 1419 1437 1574 7369 7413 7557 10141 10342 10409 
+	}
+}

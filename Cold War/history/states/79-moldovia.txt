@@ -1,0 +1,32 @@
+state = {
+	id=79
+	local_supplies=0.0 
+	name="STATE_79"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 9716 }
+ 	add_to_array = { list_victory_point = 6706 }
+ 	set_variable = { victory_point = 2 }
+		owner = ROM
+		add_core_of = ROM
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1	
+		}
+		
+		victory_points = {
+			6706 1 
+		}
+		victory_points = {
+			9716 1 
+		}
+	}
+	resources={
+		crops = 12
+	}	
+	manpower = 2806400
+	provinces=
+	{
+723 744 3728 3741 6584 6706 6729 6747 6761 9701 9716 11534 11652 11655 11672 11689 	}
+}

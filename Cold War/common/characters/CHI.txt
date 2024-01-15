@@ -1,0 +1,1057 @@
+characters={
+	####################################################################################################
+	######################################### Country Leader ###########################################
+	####################################################################################################
+	CHI_chiang_kai_shek = {
+		name = "Chiang Kai-shek"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_chiang_kai_shek_large
+				small = GFX_chiang_kai_shek_small
+			}
+		}
+		country_leader={
+			desc = POLITICS_CHIANG_KAI_SHEK_DESC
+			ideology = paternal_auto_idolg
+			expire = 1975.4.5
+			traits = { neutrality_right_drift_trait last_stand_fighter }
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = chi_chiang_kai_shek
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = unaligned_right
+			}
+			traits = { 
+				cw_political_strongman 
+			}
+			visible = {
+				date < 1975.4.5
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	####################################################################################################
+	######################################### Deputy Minister ##########################################
+	####################################################################################################
+	CHI_hog_song_ziwen = {
+		name = chi_hog_song_ziwen
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_song_ziwen
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = chi_hog_song_ziwen
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1971.4.26
+				NOT = { has_country_flag = soong_familiy_members_arrested }
+			}
+			traits = { 
+				corrupt_politician
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	CHI_hog_li_zongren = {
+		name = chi_hog_li_zongren
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_li_zongren
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = chi_hog_li_zongren
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1969.1.30
+			}
+			traits = {
+				cw_unreliable_skeptic
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	CHI_hog_chen_cheng = {
+		name = chi_hog_chen_cheng
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_chen_cheng
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = chi_hog_chen_cheng
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1965.3.5
+			}
+			traits = {
+				cw_reformer
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	CHI_hog_he_yingqin = {
+		name = chi_hog_he_yingqin
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_he_yingqin
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = chi_hog_he_yingqin
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1987.10.21
+			}
+			traits = {
+				cw_diplomatic_schemer
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = chi_chief_he_yingqin
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_army_training_specialist
+			}
+			visible = {
+				date < 1987.10.21
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}		
+	}
+	CHI_hog_sun_fo = {
+		name = chi_hog_sun_fo
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_sun_fo
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = chi_hog_sun_fo
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1973.9.13
+			}
+			traits = {
+				cw_man_of_the_people
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}		
+	####################################################################################################
+	######################################### Foreign Minister #########################################
+	####################################################################################################
+	CHI_fm_wang_shijie = {
+		name = chi_fm_wang_shijie
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_wang_shijie
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = chi_fm_wang_shijie
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+				is_recognized_regime = yes
+			}
+			traits  = {
+				cw_dialouge_proponent 
+			}
+			visible = {
+				date < 1981.4.21
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	CHI_fm_wellington_koo = {
+		name = chi_fm_wellington_koo
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_wellington_koo
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = chi_fm_wellington_koo
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+				is_recognized_regime = yes
+			}
+			traits  = {
+				cw_experienced_diplomat 
+			}
+			visible = {
+				date < 1985.11.14
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	CHI_fm_yeh_kung_chao = {
+		name = chi_fm_yeh_kung_chao
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_yeh_kung_chao
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = chi_fm_yeh_kung_chao
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+				is_recognized_regime = yes
+			}
+			traits  = {
+				cw_hawk_approach 
+			}
+			visible = {
+				date < 1981.11.14
+				NOT = { has_country_flag = kung_family_members_arrested }
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	CHI_fm_chen_lifu = {
+		name = chi_fm_yeh_kung_chao
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_chen_lifu
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = chi_fm_chen_lifu
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+				is_recognized_regime = yes
+			}
+			traits  = {
+				cw_fm_silent_workhorse 
+			}
+			visible = {
+				date < 2000.2.8
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	CHI_fm_shen_chang_huan = {
+		name = chi_fm_shen_chang_huan
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_shen_chang_huan
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = chi_fm_shen_chang_huan
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+				is_recognized_regime = yes
+			}
+			traits  = {
+				cw_ideological_crusader 
+			}
+			visible = {
+				date < 1998.7.2
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}	
+	####################################################################################################
+	######################################### Defense Minister #########################################
+	####################################################################################################
+	CHI_dm_bai_chongxi = {
+		name = chi_dm_bai_chongxi
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_bai_chongxi
+			}
+			army = {
+				large = GFX_chi_bai_chongxi_large
+			}
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = chi_dm_bai_chongxi
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_expirienced_veteran
+			}
+			visible = {
+				date < 1966.12.1
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		#navy_leader = {
+		#	skill = 4
+		#	attack_skill = 5
+		#	defense_skill = 4
+		#	maneuvering_skill = 3
+		#	coordination_skill = 4
+		#	traits = { old_guard_navy fleet_protector }
+		#}
+	}
+	CHI_dm_he_yingqin = {
+		name = chi_dm_he_yingqin
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_he_yingqin
+			}
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = chi_dm_he_yingqin
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_military_industrial_specialist
+			}
+			visible = {
+				date < 1987.10.21
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	CHI_dm_xu_yongchang = {
+		name = chi_dm_xu_yongchang
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_xu_yongchang
+			}
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = chi_dm_xu_yongchang
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_war_propaganda_specicalist
+			}
+			visible = {
+				date < 1959.7.12
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	CHI_dm_long_yun = {
+		name = chi_dm_long_yun
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_dm_long_yun_small
+			}
+			army = {
+				large = GFX_chi_long_yun
+			}			
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = chi_dm_long_yun
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				army_chief_reform_3
+			}
+			visible = {
+				date < 1962.6.17
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		corps_commander = {
+			skill = 3
+			attack_skill = 3
+			defense_skill = 4
+			logistics_skill = 3
+			traits = { trait_mountaineer politically_connected }
+		}		
+	}
+	CHI_dm_zhang_fakui = {
+		name = chi_dm_zhang_fakui
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_zhang_fakui
+			}
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = chi_dm_zhang_fakui
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_military_reorganizer
+			}
+			visible = {
+				date < 1980.3.10
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	####################################################################################################
+	######################################## Treasury Minister #########################################
+	####################################################################################################
+	CHI_tm_weng_wenhao = {
+		name = chi_tm_weng_wenhao
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_weng_wenhao
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = chi_tm_weng_wenhao
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_skilled_geologist
+			}
+			visible = {
+				date < 1971.1.27
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	CHI_tm_kung_hsiang_hsi = {
+		name = chi_tm_kung_hsiang_hsi
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_kung_hsiang_hsi
+			}
+		}		
+		advisor = {
+			slot = treasury_minister
+			idea_token = chi_tm_kung_hsiang_hsi
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				unreliable_businessman
+			}
+			visible = {
+				date < 1967.8.16
+				has_country_flag = negotiated_with_kung_family
+				NOT = { has_country_flag = kung_family_members_arrested }
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	CHI_tm_wang_yun_wu = {
+		name = chi_tm_wang_yun_wu
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_wang_yun_wu
+			}
+		}		
+		advisor = {
+			slot = treasury_minister
+			idea_token = chi_tm_wang_yun_wu
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_silent_workhorse
+			}
+			visible = {
+				date < 1979.8.14
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	CHI_tm_du_yuesheng = {
+		name = chi_tm_du_yuesheng
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_du_yuesheng
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = chi_tm_du_yuesheng
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_mafia_boss
+			}
+			visible = {
+				date < 1951.8.16
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	CHI_tm_yen_chia_kan = {
+		name = chi_tm_yen_chia_kan
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_yen_chia_kan
+			}
+		}		
+		advisor = {
+			slot = treasury_minister
+			idea_token = chi_tm_yen_chia_kan
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_efficient_administrator
+			}
+			visible = {
+				date < 1993.12.24
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	####################################################################################################
+	###################################### Head of Intelligence ########################################
+	####################################################################################################
+	CHI_spy_soong_mei_ling = {
+		name = chi_pa_soong_mei_ling
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_soong_mei_ling
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = chi_spy_soong_mei_ling
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_intelligence_decryption_specialist
+			}
+			visible = {
+				date < 2003.10.32
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	chi_spy_chiang_ching_kuo = {
+		name = chi_pa_chiang_ching_kuo
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_chi_chiang_ching_kuo
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = chi_spy_chiang_ching_kuo
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_efficient_administrator_intelligence
+			}
+			visible = {
+				date < 2003.10.32
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	####################################################################################################
+	######################################### Chief of Staff ###########################################
+	####################################################################################################
+	CHI_chief_claire_lee_chennault = {
+		name = chi_chief_claire_lee_chennault
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_chi_claire_lee_chennault
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = chi_chief_claire_lee_chennault
+			
+			allowed  = {
+				tag = CHI
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_war_with = PRC
+				has_completed_focus = CHI_return_flying_tigers			
+			}
+			traits  = {
+				air_chief_ground_support_3
+			}
+			visible = {
+				date < 1958.7.27
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	####################################################################################################
+	################################## Generals and Field Marshals #####################################
+	####################################################################################################
+	CHI_yan_shixan = {
+		name = chi_dm_yan_shixan
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_chi_yan_shixan
+				small = GFX_chi_yan_shixan_small
+			}			
+		}
+		field_marshal = {
+			skill = 9
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			traits = { organisational_leader skilled_staffer }
+		}
+	}	
+	CHI_du_yuming = {
+		name = "Du Yuming"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_chi_du_yuming
+				small = GFX_chi_du_yuming_small
+			}
+		}
+		field_marshal = {
+			skill = 8
+			attack_skill = 5
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 3
+			traits = { jungle_rat harsh_leader defensive_doctrine }
+		}
+	}
+	CHI_zhang_xueliang = {
+		name = "Zhang Xueliang"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_chi_zhang_xueliang
+				small = GFX_chi_zhang_xueliang_small
+			}
+		}
+		field_marshal = {
+			skill = 7
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+			traits = { offensive_doctrine urban_assault_specialist hill_fighter }
+		}
+	}	
+	CHI_sun_li_jen = {
+		name = "Sun Li-Jen"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_chi_sun_li_jen
+				small = GFX_chi_sun_li_jen_small
+			}
+		}
+		corps_commander = {
+			skill = 6
+			attack_skill = 6
+			defense_skill = 6
+			logistics_skill = 6
+			traits = { panzer_leader brilliant_strategist war_hero }
+		}
+	}
+	CHI_hsueh_yueh = {
+		name = "Hsueh Yueh"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_chi_hsueh_yueh
+				small = GFX_chi_hsueh_yueh_small
+			}
+		}
+		corps_commander = {
+			skill = 3
+			attack_skill = 4 
+			defense_skill = 4
+			logistics_skill = 3
+			traits = { trickster hill_fighter media_personality }
+		}
+	}
+	CHI_hu_zongnan = {
+		name = "Hu Zongnan"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_chi_hu_zongnan
+				small = GFX_chi_hu_zongnan_small
+			}
+		}
+		corps_commander = {
+			skill = 3
+			attack_skill = 3
+			defense_skill = 4
+			logistics_skill = 2
+			traits = { politically_connected infantry_officer old_guard }
+		}
+	}
+	CHI_feng_yuxiang = {
+		name = "Feng Yuxiang"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_chi_feng_yuxiang
+				small = GFX_chi_feng_yuxiang_small
+			}
+		}
+		corps_commander = {
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			logistics_skill = 2
+			traits = { media_personality infantry_leader }
+		}
+	}
+	CHI_chiang_wei_kuo = {
+		name = "Chiang Wei-Kuo"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_chi_chiang_wei_kuo
+				small = GFX_chi_chiang_wei_kuo_small
+			}
+		}
+		corps_commander = {
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			logistics_skill = 2
+			traits = { panzer_leader }
+		}
+	}
+	CHI_tang_enbo = {
+		name = "Tang Enbo"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_chi_tang_enbo
+				small = GFX_chi_tang_enbo_small
+			}
+		}
+		corps_commander = {
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			logistics_skill = 1
+			traits = { hill_fighter }
+		}
+	}
+	CHI_liu_zhi = {
+		name = "Liu Zhi"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_chi_liu_zhi
+				small = GFX_chi_liu_zhi_small
+			}
+		}
+		corps_commander = {
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			logistics_skill = 1
+			traits = { politically_connected old_guard }
+		}
+	}
+}

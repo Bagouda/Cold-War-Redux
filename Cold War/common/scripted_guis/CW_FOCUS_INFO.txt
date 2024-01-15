@@ -1,0 +1,205 @@
+scripted_gui = {
+  cw_focus_info = {
+    window_name = "cw_focus_information"
+    context_type = player_context
+    parent_window_token = national_focus
+	
+    visible = {
+      is_ai = no
+    }
+    triggers = {  
+      switch_focus_button_click_enabled = {
+        has_global_flag = loaded_1950_focuses
+        
+        if = {
+          limit = {
+            tag = PRC
+            date < 1959.1.1
+          }
+          has_completed_focus = PRC_proclaim_peoples_republic
+        }
+        if = {
+          limit = {
+            tag = USA
+            date < 1959.1.1
+          }
+
+        }
+        if = {
+          limit = {
+            tag = SOV
+            
+          }
+        }
+        if = {
+          limit = {
+            tag = CHI
+            date < 1959.1.1
+          }
+          has_completed_focus = CHI_taxation_system_reform
+        }
+        if = {
+          limit = {
+            tag = KOR
+            date < 1959.1.1
+          }
+          has_completed_focus = KOR_train_counter_insurgency
+          has_completed_focus = KOR_proclaim_south_korea          
+        }		
+        if = {
+          limit = {
+            tag = PRK
+            date < 1959.1.1
+          }
+          has_completed_focus = PRK_establish_DPRK
+        }
+        if = {
+          limit = {
+            tag = FRA
+            date < 1959.1.1
+          }
+          has_completed_focus = FRA_great_thirty
+          OR = {
+            has_completed_focus = FRA_vietnam_baoi_dai_solution
+          }          
+        }        
+        if = {
+          limit = {
+            NOT = {
+              is_in_array = {
+                array = global.countries_with_switchable_focuses
+                value = ROOT.id
+              }
+            }
+            date < 1959.1.1
+          }
+        }
+      }
+    }
+    effects = {
+      switch_focus_button_click = {
+        if = {
+          limit = {
+			OR = { tag = SOV tag = USA }
+          }
+          if = {
+            limit = {
+              is_ai = no
+            }
+          
+			  
+			  if = { limit = { has_country_flag = tree_50_loaded }
+				clr_country_flag = tree_50_loaded
+			  }
+			  else = {
+				set_country_flag = tree_50_loaded
+			  }
+			  
+			  mark_focus_tree_layout_dirty =  yes
+		  }
+        }
+      
+        if = {
+          limit = {
+            NOT = { has_country_flag = communist_manchuria }
+            tag = PRC
+          }
+          add_ideas = PRC_uneducated_rural_population_5
+          load_focus_tree = prc_1950_focus_tree
+        }
+        if = {
+          limit = {
+            NOT = { has_country_flag = lost_ccw }
+            tag = CHI
+          }
+          add_ideas = PRC_uneducated_rural_population_5
+          load_focus_tree = chi_1950_focus_tree
+          every_owned_state = {
+            limit = {
+              is_claimed_by = SIK
+            }
+            add_core_of = SIK
+            force_enable_resistance = {
+            occupier = CHI
+            occupied = SIK
+            }
+            start_resistance = SIK
+            add_state_modifier = {
+              modifier = {
+                resistance_target = 0.1
+                compliance_gain = -0.5
+              }
+            }
+          }
+          every_owned_state = {
+            limit = {
+              is_core_of = PRC
+            }
+            force_enable_resistance = {
+              occupier = CHI
+              occupied = PRC
+            }
+            start_resistance = PRC
+            add_state_modifier = {
+              modifier = {
+                resistance_target = 0.1
+                compliance_gain = -0.5
+              }
+            }
+          }
+        }
+        if = {
+          limit = {
+            tag = PRK
+          }
+          load_focus_tree = north_korea_1950_focus_tree
+        }
+        if = {
+          limit = {
+            tag = KOR
+          }
+          load_focus_tree = south_korean_1950_focus_tree
+        }
+        if = {
+          limit = {
+            tag = FRA
+          }
+          load_focus_tree = france_1950_focus_tree
+          every_owned_state = {
+            limit = {
+              is_claimed_by = ALG
+              impassable = no
+            }
+            start_resistance = yes
+            if = {
+              limit = {
+                is_claimed_by = ALG
+              }
+              remove_claim_by = ALG
+            }            
+            add_core_of = ALG
+            force_enable_resistance = {
+              occupier = FRA
+              occupied = ALG
+            }
+            start_resistance = ALG
+            add_state_modifier = {
+              modifier = {
+                resistance_growth = 0.5
+                required_garrison_factor = 1.5
+                compliance_gain = -0.5
+              }
+            }
+          }
+        }        
+        set_country_flag = loaded_1950_focuses_country
+      }
+    }
+    ai_enabled = {
+      always = no
+    }
+    ai_check = {
+      always = no
+    }
+  }
+}

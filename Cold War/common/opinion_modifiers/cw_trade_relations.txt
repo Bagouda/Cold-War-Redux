@@ -1,0 +1,31 @@
+opinion_modifiers = {
+	cw_embargo_trade = {
+		trade = yes
+		value = -100
+	}
+	cw_embargo_relations_initiator = {
+		value = -30	
+		min_trust = -10
+	}
+	cw_embargo_relations_target = {
+		value = -75
+		min_trust = -50
+	}
+	cw_embargo_lifter = {
+		value = 25
+		min_trust = 5
+	}
+	cw_trade_agreement = {
+		value = 20
+		months = 20
+		decay = 1
+	}
+	cw_trade_agreement_trade = {
+		trade = yes	
+		value = 50
+	}
+	cw_closed_trade = {
+		trade = yes	
+		value = -200
+	}	
+}	

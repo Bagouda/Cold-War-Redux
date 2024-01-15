@@ -1,0 +1,115 @@
+SOV_eastern_bloc_hungary = {
+	allowed = {
+		tag = SOV
+	}
+	
+	enable = {
+		tag = SOV
+		NOT = { HUN = { has_government = SOV } }
+	}
+	
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 100
+		mission_target = HUN
+	}
+	
+	ai_strategy = {
+		type = operative_operation
+		operation = sov_cc_arrest_country_leader
+		value = 1000
+		operation_target = HUN
+	}
+}
+SOV_eastern_bloc_romania = {
+	allowed = {
+		tag = SOV
+	}
+	
+	enable = {
+		tag = SOV
+		NOT = { ROM = { has_government = SOV } }
+	}
+	
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = operative_operation
+		operation = sov_cc_monarchy_referendum
+		value = 100
+		operation_target = ROM
+	}
+	
+	ai_strategy = {
+		type = operative_mission
+		mission = boost_ideology
+		value = 50
+		mission_target = ROM
+	}	
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 50
+		mission_target = ROM
+	}
+}
+SOV_eastern_bloc_bulgaria = {
+	allowed = {
+		tag = SOV
+	}
+	
+	enable = {
+		tag = SOV
+		NOT = { BUL = { has_government = SOV } }
+	}
+	
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = operative_operation
+		operation = sov_cc_monarchy_referendum
+		value = 100
+		operation_target = BUL
+	}
+
+	ai_strategy = {
+		type = operative_mission
+		mission = boost_ideology
+		value = 50
+		mission_target = BUL
+	}
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 75
+		mission_target = BUL
+	}
+}
+SOV_eastern_bloc_czechoslovakia = {
+	allowed = {
+		tag = SOV
+	}
+	
+	enable = {
+		tag = SOV
+		NOT = { CZE = { has_government = SOV } }
+	}
+	
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = operative_mission
+		mission = boost_ideology
+		value = 50
+		mission_target = CZE
+	}
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 50
+		mission_target = CZE
+	}
+}

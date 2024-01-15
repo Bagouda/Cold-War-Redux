@@ -1,0 +1,42 @@
+state={
+	id=527
+	local_supplies=0.0 
+	name="STATE_527"
+	resources={
+		crops = 5.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 4052 }
+ 	set_variable = { victory_point = 20 }
+		owner = SOV
+		add_core_of = PRK
+		add_claim_by = KOR
+		
+		1948.9.9 = {
+			owner = SOV
+		}		
+		
+		buildings = {
+			infrastructure = 3
+			air_base = 2
+			arms_factory = 3
+			industrial_complex = 1
+			dockyard = 1
+			4052 = {
+				naval_base = 3
+
+			}
+		}
+		victory_points = {
+			4052 20
+		}
+	}
+
+	provinces={
+		4052 9790 
+	}
+	manpower=2516000
+	buildings_max_level_factor=1.000
+	state_category=metropolis
+}

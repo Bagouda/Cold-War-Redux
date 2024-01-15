@@ -1,0 +1,13 @@
+cw_holding_referendum = {
+	custom_trigger_tooltip = {
+	tooltip = "Not Holding a Referendum"
+		OR = {
+			THIS = { has_country_flag = cs_ref_initiator }
+			THIS = { has_country_flag = state_ref_initiator }
+			THIS = { has_country_flag = mon_ref_initiator }
+			THIS = { has_country_flag = communist_power_struggle }
+			THIS = { has_country_flag = state_yes_no_referendum_iinitiator }
+			THIS = { has_country_flag = country_yes_no_ref_initiator }
+		}
+	}
+}

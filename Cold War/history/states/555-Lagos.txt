@@ -1,0 +1,19 @@
+state = {
+	id=555
+	local_supplies=0.0 
+	name="STATE_555" #Kuril Islands
+	state_category = tiny_island
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		add_claim_by = JAP
+	}
+	manpower = 15000 
+	provinces={
+		1399 1515 13037 
+	}
+}

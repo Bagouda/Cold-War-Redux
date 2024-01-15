@@ -1,0 +1,24 @@
+cw_ccw_invasion_preperation_dynamic_modifier = {
+	icon = "GFX_idea_jap_ichi_go"
+	enable = { always = yes } #optional, the modifier won't apply if not enabled
+	remove_trigger = {}
+
+	# list of modifiers
+	planning_speed = ROOT.ccw_planning_speed
+	max_planning = ROOT.ccw_max_planning
+	army_morale_factor = ROOT.ccw_army_morale
+	army_org_factor = ROOT.ccw_army_org
+	land_reinforce_rate = ROOT.ccw_reinforce_rate
+	heat_attrition_factor = ROOT.ccw_heat_attrition
+	supply_consumption_factor = ROOT.ccw_supply_consumption
+	out_of_supply_factor = ROOT.ccw_oosf
+	air_accidents_factor = ROOT.ccw_air_accidents
+	air_weather_penalty = ROOT.ccw_weather_penalty
+	experience_gain_air_factor = ROOT.ccw_air_experience_gain
+	consumer_goods_factor = ROOT.ccw_consumer_goods
+	industrial_capacity_factory = ROOT.ccw_industrial_capacity
+	production_factory_max_efficiency_factor = ROOT.ccw_factory_max_effiriency
+	conversion_cost_civ_to_mil_factor = ROOT.ccw_factory_conversion
+	#operative_slot = 
+	#intel_network_gain_factor = 
+}

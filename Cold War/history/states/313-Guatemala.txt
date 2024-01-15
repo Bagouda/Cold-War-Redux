@@ -1,0 +1,31 @@
+state = {
+	id=313
+	local_supplies=0.0 
+	name="STATE_313"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 10886 }
+ 	set_variable = { victory_point = 3 }
+		owner = GUA
+		add_core_of = GUA
+		
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2	
+			10886 = {	
+				naval_base = 2
+			}		
+		}		
+		victory_points = {
+			10886 3 
+		}
+	}
+	resources={
+		chromium=4 # was: 6
+		crops = 3
+	}
+	manpower = 1771000
+	provinces={
+		4991 10842 10886 13085 
+	}
+}

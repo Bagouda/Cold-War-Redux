@@ -1,0 +1,199 @@
+focus_tree = {
+	id = sweden_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SWE
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	focus = {
+		id = SWE_form_sdu
+		available = {
+			FIN = {
+				OR = { 
+					is_puppet_of = SOV
+					has_civil_war = yes
+					has_war_with = SOV
+				}
+			}
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 5
+		y = 1
+		cost = 2
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			create_faction = "Scandinavian Defence Union"
+			if = {
+				limit = {
+					unsc_in_session = no
+					unsc_implementing_resolution = no
+				}
+				SOV = { cw_unsc_generic_demand_sanctions_military_significant_five_years = yes }
+			}			
+			FIN = { cw_allow_non_unsc_volunteers = yes add_manpower = 200000 }
+			add_named_threat = { threat = 10 name = CW_THREAT_FORMED_MILITARY_FACTION }
+			
+			DEN = {
+				if = {
+					limit = {
+						cw_holding_referendum = no
+						exists = yes
+						NOT = { has_government = SOV }
+					}
+				}
+				cw_hold_faction_joining_referendum = yes
+			}
+			NOR = {
+				if = {
+					limit = {
+						cw_holding_referendum = no
+						exists = yes
+						NOT = { has_government = SOV }
+					}
+				}
+				cw_hold_faction_joining_referendum = yes
+			}
+			ICE = {
+				if = {
+					limit = {
+						cw_holding_referendum = no
+						exists = yes
+						NOT = { has_government = SOV }
+					}
+				}
+				cw_hold_faction_joining_referendum = yes
+			}
+			if = {
+				FIN = {
+					if = {
+						limit = {
+							cw_holding_referendum = no
+							exists = yes
+							NOT = { has_government = SOV }
+						}
+					}
+					cw_hold_faction_joining_referendum = yes
+				}
+			}
+			if = {
+				limit = {
+					FIN = { has_government = SOV }
+				}
+				random_list = {
+					50 = {
+						FIN = {
+							start_civil_war = {
+								ideology = ROOT
+								keep_political_leader = yes
+								size = 0.6
+								states_filter = { impassable = no }
+								compute_proxy_score = yes
+							}
+							compute_proxy_score = yes
+						}
+					}
+					50 = {
+					}
+				}
+			}
+			
+			news_event = cw_non_historic_news.18
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SWE_join_nato
+		available = {
+			OR = {
+				FIN = { is_puppet_of = SOV }
+				is_neighbor_of = SOV
+			}
+			USA = { is_faction_leader = yes }
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 5
+		y = 2
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		will_lead_to_war_with = ISR
+		
+		completion_reward = {
+			cw_country_yes_no_ref_initial_setup = yes 
+			set_variable = { requested_faction_leader = USA.id }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SWE_congo_police_action
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			COG = {
+				exists = yes
+				has_war_with = KAT
+				surrender_progress > 0.1
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_un_peacekeeping_mission
+		x = 0
+		y = 5
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+
+		select_effect = {
+			COG = { cw_unsc_resolution_police_action = yes }
+			USA = { cw_unsc_set_like_resolution = yes }
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				COG = { cw_unsc_resolution_police_action = yes }
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+}

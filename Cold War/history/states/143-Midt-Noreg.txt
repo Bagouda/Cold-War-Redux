@@ -1,0 +1,30 @@
+state = {
+	id=143
+	local_supplies=0.0 
+	name="STATE_143"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 3022 }
+ 	set_variable = { victory_point = 5 }
+		owner = NOR
+		add_core_of = NOR
+		
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 2
+			air_base = 1	
+			dockyard  = 1
+			3022 = {
+				naval_base = 2
+			}			
+		}			
+		victory_points = {
+			3022 5
+		}
+	}
+	manpower = 280271
+	provinces={
+		21 107 115 3018 3022 3098 3183 6038 6041 6116 6118 6173 9069 9132 9139 11118 11173 
+	}
+}

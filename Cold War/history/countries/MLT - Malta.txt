@@ -1,0 +1,156 @@
+﻿capital = 116
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	leave_faction = yes
+	set_country_flag = decolonization
+	add_ideas = {
+		eng_george_6
+	}		
+	set_politics = {
+		ruling_party = colonial
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 90
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 10
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Colonial Administration"				# Impossible to localize
+		desc = ""
+		picture = "gfx/leaders/generic_colonial_administration.dds"
+		ideology = colonial_government
+		expire = 2000.1.1
+		traits = {}
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+	create_country_leader = {
+		name = "Sir Francis Douglas"
+		desc = ""
+		picture = "MLTCG2.dds"
+		ideology = colonial_government
+		expire = 1949.9.16
+		traits = {}
+	}
+}
+1950.6.25 = {	#Korean War
+	create_country_leader = {
+		name = "Sir Gerald Creasy"
+		desc = ""
+		picture = "MLTCG3.dds"
+		ideology = colonial_government
+		expire = 1954.8.3
+		traits = {}
+	}
+}
+1956.10.29 = {	#Suez Crisis
+	create_country_leader = {
+		name = "Sir Robert Laycock"
+		desc = ""
+		picture = "MLTCG4.dds"
+		ideology = colonial_government
+		expire = 1959.2.13
+		traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	create_country_leader = {
+		name = "Giorgio Borġ Olivier"
+		desc = ""
+		picture = "MLTG1.dds"
+		ideology = social_cons_idolg
+		expire = 1976.9.17
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Sir Maurice Dorman"		#Continued as Governor-general
+		desc = ""
+		picture = "MLTCG6.dds"
+		ideology = colonial_government
+		expire = 1971.7.4
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Sir Guy Grantham"
+		desc = ""
+		picture = "MLTCG5.dds"
+		ideology = colonial_government
+		expire = 1962.7.2
+		traits = {}
+	}
+}
+1964.9.21 = {
+	drop_cosmetic_tag = yes
+	clr_country_flag = decolonization
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1976.9.17"
+		election_frequency = 48		
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 90
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 10
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Eddie Fenech Adami"
+		desc = ""
+		picture = "MLTG4.dds"
+		ideology = social_cons_idolg
+		expire = 1996.10.28
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Karmenu Mifsud Bonnici"
+		desc = ""
+		picture = "MLTG3.dds"
+		ideology = social_democrat_idolg
+		expire = 1984.12.22
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Dom Mintoff"
+		desc = ""
+		picture = "MLTG2.dds"
+		ideology = social_democrat_idolg
+		expire = 1984.12.22
+		traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1987.5.9"
+		election_frequency = 48		
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 90
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 10
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Eddie Fenech Adami"
+		desc = ""
+		picture = "MLTG4.dds"
+		ideology = social_cons_idolg
+		expire = 1996.10.28
+		traits = {}
+	}
+}
+#List of governers https://en.wikipedia.org/wiki/List_of_Governors_of_Malta

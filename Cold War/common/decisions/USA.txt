@@ -1,0 +1,91 @@
+cw_usa_red_scare = {
+	cw_usa_commitee_on_unamerican_activities = {
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = { always = no }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ""
+				always = no
+			}
+		}
+		cancel_trigger = {
+
+		}
+		activation = { always = no }
+		days_mission_timeout = 1500
+		is_good = yes
+		fire_only_once = yes
+
+		timeout_effect = {
+			custom_effect_tooltip = "The Red Scare will be removed."
+			hidden_effect = {
+				remove_dynamic_modifier = {
+					modifier = cw_red_scare_modifier
+				}
+			}
+		}
+	}
+	cw_usa_korea_police_action = {
+		icon = GFX_decision_eng_trade_unions_demand
+		
+		allowed = {
+			tag = USA
+		}
+		
+		visible = {
+			PRK = { has_war_with = KOR }
+			ROOT = { is_ai = yes }
+		}
+		
+		fire_only_once = yes
+
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			KOR = {
+				has_war_with = PRK
+				OR = {
+					surrender_progress > 0.30
+					NOT = { has_full_control_of_state = 828 }
+				}
+			}
+			NOT = {
+				KOR = {
+					has_volunteers_amount_from = {
+						tag = ROOT
+						count > 0
+					}
+				}
+			}			
+		}
+
+		complete_effect = {
+			KOR = { cw_unsc_resolution_police_action = yes }
+			if = {
+				limit = {
+					is_historical_focus_on = yes
+				}
+				SOV = { cw_unsc_set_abstain_resolution = yes }				
+			}
+			if = {
+				limit = {
+					KOR = { is_ai = yes }
+				}
+				KOR = {
+					capital_scope = {
+						create_unit = {
+							division = "division_template = \"Infantry division\" start_experience_factor = 0.4" 
+							owner = KOR
+							allow_spawning_on_enemy_provs = no
+							count = 6
+						}
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+	}	
+}

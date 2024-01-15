@@ -1,0 +1,49 @@
+state = {
+	id=524
+	local_supplies=0.0 
+	name="STATE_524"
+	state_category = large_town
+	history = {
+ 	add_to_array = { list_victory_point = 7186 }
+ 	add_to_array = { list_victory_point = 12068 }
+ 	set_variable = { victory_point = 11 }
+		owner = CHI
+		add_core_of = CHI
+		add_claim_by = PRC
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}		
+		
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			arms_factory = 1
+			air_base = 1
+			dockyard  = 1
+			7186 = {
+				naval_base = 3
+			}
+			12068 = {
+				naval_base = 1
+			}			
+		}		
+
+		victory_points = {
+			12068 1 
+		}
+		victory_points = {
+			7186 10		#Taipei
+		}
+	}
+	resources={
+		crops = 5
+	}		
+	manpower = 4592537
+	provinces={
+		1091 1175 4096 7186 7214 9955 11914 11959 12027 12068
+	}
+}

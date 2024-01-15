@@ -1,0 +1,28 @@
+﻿capital = 448
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_cosmetic_tag = LBA_MON
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 5
+		democratic_socialist = 5
+		neutrality = 20
+		communism_totalitarian = 5
+		communism = 5
+		unaligned_right = 60
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Idris I"
+		desc = ""
+		picture = "LBAH1.dds"
+		ideology = paternal_auto_idolg
+		expire = 1983.5.25
+		traits = { absolute_monarch }
+	}
+}

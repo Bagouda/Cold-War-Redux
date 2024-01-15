@@ -1,0 +1,126 @@
+scripted_gui = {
+  cw_candidate_selection_window = {
+    window_name = "cw_candidate_selection_interface"
+    context_type = player_context
+
+    visible = {
+		has_country_flag = open_candidate_selection_screen
+    }
+
+    effects = {
+		first_candidate_picture_click = {
+			effect_tooltip = {
+				create_country_leader = {
+					name = "Nikita Khrushchev"
+					desc = ""
+					picture = "SOVH3.dds"
+					ideology = revisionist_idolg
+					expire = 1971.9.11
+					traits = { man_of_the_people_khrushev }
+				}
+			}
+			hidden_effect = {
+				set_country_flag = back_fourth_candidate
+				clr_country_flag = open_candidate_selection_screen
+				# FOCUS EFFECTS
+				unlock_national_focus = SOV_stalin_succession
+				unlock_national_focus = SOV_anti_stalin_camp
+				unlock_national_focus = SOV_appoint_khrushev
+				load_focus_tree = sov_focus_1950
+				set_country_flag = loaded_1950_focuses
+			}
+		}
+		second_candidate_picture_click = {
+			effect_tooltip = {
+				if = {
+					limit = {
+						has_dlc = "La Resistance"
+					}
+					create_country_leader = {
+						name = "Lavrentiy Beria"
+						desc = ""
+						picture = "SOVH3_NH_3.dds"
+						ideology = revisionist_idolg
+						expire = 1989.3.17
+						traits = { schemer_beria_lar }
+					}
+					else = {
+						create_country_leader = {
+							name = "Lavrentiy Beria"
+							desc = ""
+							picture = "SOVH3_NH_3.dds"
+							ideology = revisionist_idolg
+							expire = 1989.3.17
+							traits = { schemer_beria_no_lar }
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				set_country_flag = back_second_candidate
+				clr_country_flag = open_candidate_selection_screen
+				# FOCUS EFFECTS
+				unlock_national_focus = SOV_stalin_succession
+				unlock_national_focus = SOV_anti_stalin_camp
+				unlock_national_focus = SOV_appoint_beria
+				load_focus_tree = sov_focus_1950
+				set_country_flag = loaded_1950_focuses
+			}
+		}
+		third_candidate_picture_click = {
+			effect_tooltip = {
+				create_country_leader = {
+					name = "Georgy Malenkov"
+					desc = ""
+					picture = "SOVH3_NH4.dds"
+					ideology = stalinism_idolg
+					expire = 1988.1.14
+					traits = { mild_reformer_malenkov }
+				}
+			}
+			hidden_effect = {
+				set_country_flag = back_first_candidate
+				clr_country_flag = open_candidate_selection_screen
+				# FOCUS EFFECTS
+				unlock_national_focus = SOV_stalin_succession
+				unlock_national_focus = SOV_the_old_guard
+				unlock_national_focus = SOV_appoint_malenkov
+				load_focus_tree = sov_focus_1950
+				set_country_flag = loaded_1950_focuses
+			}
+		}
+		fourth_candidate_picture_click = {
+			effect_tooltip = {
+				create_country_leader = {
+					name = "Vyacheslav Molotov"
+					desc = ""
+					picture = "SOVH3_NH2.dds"
+					ideology = stalinism_idolg
+					expire = 1986.11.8
+					traits = { experienced_diplomat_molotov }
+				}
+			}
+			hidden_effect = {
+				set_country_flag = back_third_candidate
+				clr_country_flag = open_candidate_selection_screen
+				# FOCUS EFFECTS
+				unlock_national_focus = SOV_stalin_succession
+				unlock_national_focus = SOV_the_old_guard
+				unlock_national_focus = SOV_appoint_molotov
+				load_focus_tree = sov_focus_1950
+				set_country_flag = loaded_1950_focuses
+			}
+		}		
+    }
+
+    triggers = {
+
+    }
+
+    properties = {
+    }
+    ai_enabled = {
+      always = no
+    }
+  }
+}

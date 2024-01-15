@@ -1,0 +1,37 @@
+state = {
+	id=412
+	local_supplies=0.0 
+	name="STATE_412"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 7982 }
+ 	add_to_array = { list_victory_point = 8117 }
+ 	set_variable = { victory_point = 8 }
+		owner = ENG
+		add_core_of = PER
+		1946.2.2 = {
+			owner = PER
+		}
+		buildings = {
+			infrastructure = 1
+			dockyard  = 1
+			7982 = {		#Bethlehem San Pedro Shipyard
+				naval_base = 2
+			}		
+		}
+		
+		victory_points = {
+			7982 5 
+		}
+		victory_points = {
+			8117 3 
+		}
+	}
+	resources={
+		oil=10 # was: 12
+	}
+	manpower = 918619
+	provinces={
+		4959 4966 7982 8117 10797 10881 12780 12832 12863 
+	}
+}

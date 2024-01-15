@@ -1,0 +1,6 @@
+### CW SOUNDS ##
+sound = {
+	name = "notification_phone"
+	file = "menu/phone_noti.wav"
+	always_load = no
+}

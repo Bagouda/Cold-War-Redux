@@ -1,0 +1,70 @@
+﻿capital = 760
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+set_country_flag = decolonization
+
+1946.1.1 = {
+	oob = "BEN_1946"	
+#	set_naval_oob = "BEN_1946_naval_mtg"
+	give_military_access = FRA
+	set_cosmetic_tag = BEN_CM
+	add_ideas = {
+	# Country ideas
+	}
+	set_politics = {
+		ruling_party = unaligned_right
+		last_election = "1942.11.19"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 20
+		communism_totalitarian = 10
+		unaligned_right = 70
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Hubert Maga"
+		desc = ""
+		picture = "hubert_maga1.dds"
+		ideology = nationalism_idolg
+		expire = 1985.4.11
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Hubert Maga"
+		desc = ""
+		picture = "hubert_maga2.dds"
+		ideology = democratic_nationalist_idolg
+		expire = 1985.4.11
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Hubert Maga"
+		desc = ""
+		picture = "hubert_maga1.dds"
+		ideology = social_cons_idolg
+		expire = 1969.4.28
+		traits = {}
+	}
+	create_country_leader = {		
+		name = "People's Council"
+		desc = ""
+		picture = "gfx/leaders/generic_communist_militia.dds"
+		ideology = stalinism_idolg
+		expire = 1983.9.7
+		traits = {}
+	}
+	create_country_leader = {		
+		name = "People's Council"
+		desc = ""
+		picture = "gfx/leaders/generic_communist_militia.dds"
+		ideology = revisionist_idolg
+		expire = 1983.9.7
+		traits = {}
+	}
+}	
+	

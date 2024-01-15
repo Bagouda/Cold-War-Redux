@@ -1,0 +1,23 @@
+
+state={
+	id=846
+	local_supplies=0.0 
+	name="STATE_846"
+	
+	history={
+		owner = ENG
+		add_claim_by = SUD
+		
+		buildings = {
+			infrastructure = 1
+
+		}
+	}
+	
+	provinces={
+		4033 10764 10857 10908 13259 13265 13266 13267 13268 13269 13270 
+	}
+	manpower=301000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

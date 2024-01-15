@@ -1,0 +1,33 @@
+defined_text = {
+	name = CW_SPLASH_GET_TEXT
+	text = {
+		trigger = {
+			has_country_flag = cw_splash_missing_critical_dlc
+		}
+		localization_key = "CW_CWM_MISSING_DLC"
+	}	
+	text = {
+		trigger = {
+			has_country_flag = cw_splash_show_features
+		}
+		localization_key = "CW_CWM_SPLASH_FEATURES"
+	}
+	text = {
+		trigger = {
+			has_country_flag = cw_splash_show_changelog
+		}
+		localization_key = "CW_CWM_SPLASH_CHANGELOG"
+	}
+	text = {
+		trigger = {
+			has_country_flag = cw_splash_show_roadmap
+		}
+		localization_key = "CW_CWM_SPLASH_ROADMAP"
+	}
+	text = {
+		trigger = {
+			has_country_flag = cw_splash_show_faq
+		}
+		localization_key = "CW_CWM_SPLASH_FAQ"
+	}	
+}

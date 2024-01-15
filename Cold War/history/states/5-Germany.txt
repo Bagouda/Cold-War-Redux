@@ -1,0 +1,41 @@
+state={
+	id=5
+	local_supplies=0.0 
+	name="STATE_5"
+	resources={
+		crops=5.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 362 }
+ 	add_to_array = { list_victory_point = 6375 }
+ 	set_variable = { victory_point = 23 }
+		owner = POL
+		add_core_of = GER
+		
+		1947.2.10 = {
+			remove_core_of = GER
+			add_core_of = POL
+		}
+		buildings = {
+			infrastructure = 1
+			362 = {		#Boston Shipyard
+				naval_base = 5
+			}
+		}		
+		victory_points = {
+			6375 3 
+		}
+		victory_points = {
+			362 20		#Danzig 
+		}		
+
+	}
+
+	provinces={
+		266 362 3351 3380 6375 6402 9327 9346 9372 9398 11245 11386 
+	}
+	manpower=1238108
+	buildings_max_level_factor=1.000
+	state_category=town
+}

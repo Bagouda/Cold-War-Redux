@@ -1,0 +1,348 @@
+ideas = {
+	country = {
+		CHI_homecoming_legion = {
+
+			picture = FRA_scw_intervention_nationalists_focus
+		
+			allowed = {
+				always = no
+			}
+			
+			available = {
+				has_war_with = PRC
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				resistance_growth_on_our_occupied_states = 0.25
+			}
+			
+			targeted_modifier = { tag = PRC attack_bonus_against = 0.1 } 			
+		}
+		CHI_new_yuan_dollar = {
+
+			picture = chi_hyper_inflation
+		
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = -0.10
+				consumer_goods_factor = 0.10
+			}
+		}
+		CHI_gold_standard = {
+
+			picture = chi_hyper_inflation
+		
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = -0.15
+				consumer_goods_factor = 0.15
+			}
+		}		
+		CHI_hyper_inflation_none = {
+
+			picture = chi_hyper_inflation
+		
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+
+			}
+		}
+
+		CHI_hyper_inflation_1 = {
+
+			picture = chi_hyper_inflation
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.05
+				industrial_capacity_factory = -0.05
+			}
+		}
+
+		
+		CHI_hyper_inflation_2 = {
+
+			picture = chi_hyper_inflation2
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.10
+				industrial_capacity_factory = -0.10
+			}
+		}
+		
+		CHI_hyper_inflation_3 = {
+
+			picture = chi_hyper_inflation3
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.15
+				industrial_capacity_factory = -0.15
+			}
+		}
+		
+		CHI_hyper_inflation_4 = {
+
+			picture = chi_hyper_inflation4
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.20
+				industrial_capacity_factory = -0.20
+			}
+		}
+
+		CHI_hyper_inflation_5 = {
+
+			picture = chi_hyper_inflation5
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.25
+				industrial_capacity_factory = -0.25
+			}
+		}
+		CHI_army_corruption_1 = {
+
+			picture = chi_army_corruption
+
+			name = CHI_army_corruption
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_attack_factor = -0.5
+				army_defence_factor = -0.5
+				mobilization_speed = -0.3
+			}
+
+		}
+
+		CHI_army_corruption_2 = {
+
+			picture = chi_army_corruption2
+		
+			name = CHI_army_corruption
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_attack_factor = -0.25
+				army_defence_factor = -0.25
+				mobilization_speed = -0.2
+			}
+
+		}
+		
+		CHI_army_corruption_3 = {
+
+			picture = chi_army_corruption3
+		
+			name = CHI_army_corruption
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_attack_factor = -0.10
+				army_defence_factor = -0.25
+				mobilization_speed = -0.10
+			}
+
+		}
+
+		CHI_cw_corrupt_bureaucracy_3 = {
+
+			picture = generic_disjointed_gov
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription_factor = -0.35
+				stability_factor = -0.25
+				disabled_ideas = 1
+			}
+
+		}
+		
+		CHI_cw_corrupt_bureaucracy_2 = {
+
+			picture = generic_disjointed_gov
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription_factor = -0.25
+				stability_factor = -0.15
+				disabled_ideas = 1
+			}
+
+		}
+		
+		CHI_cw_corrupt_bureaucracy_1 = {
+
+			picture = generic_disjointed_gov
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription_factor = -0.15
+				stability_factor = -0.10
+			}
+
+		}		
+
+		CHI_desertion_wave = {
+
+			picture = chi_incompetent_officers
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription_factor = -0.50
+				weekly_manpower = -10000
+				army_org_factor = -0.30
+				army_morale_factor = -0.20
+			}
+
+		}
+		CHI_desertion_light = {
+
+			picture = chi_incompetent_officers
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription_factor = -0.10
+				army_org_factor = -0.10
+			}
+
+		}		
+	}
+}

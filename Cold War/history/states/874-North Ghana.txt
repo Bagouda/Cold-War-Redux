@@ -1,0 +1,28 @@
+state={
+	id=874
+	local_supplies=0.0 
+	name="STATE_874"
+	state_category=rural
+	history = {
+		owner = ENG
+		add_core_of = ENG
+		add_claim_by = GHN
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+						
+		}		
+		
+	}
+	resources={
+		crops = 5
+	}	
+	buildings_max_level_factor=1.000
+	manpower=1581800
+
+	provinces={
+		8039 8096 12785 
+	}
+	buildings_max_level_factor=1.000
+}

@@ -1,0 +1,65 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Infantry Division"		# Infantry Division with AA capability
+	# Note: each regiment could also mobilize a 3rd battalion if called up
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		anti_air_brigade = { x = 2 y = 0 }
+		anti_air_brigade = { x = 2 y = 1 }
+		anti_air_brigade = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Light Infantry"		# light infantry formation
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+}
+units = {
+	division = {
+		name = "Lwow garrison"
+		location = 11479
+		division_template = "Infantry Division"	
+	}
+	division = {
+		name = "NKVD 1st Division"
+		location = 3562
+		division_template = "Infantry Division"
+	}
+	division = {
+		name = "NKVD 2nd Division"
+		location = 11550
+		division_template = "Infantry Division"
+	}
+	division = {
+		name = "NKVD 3rd Division"
+		location = 11411
+		division_template = "Infantry Division"
+	}
+	division = {
+		name = "NKVD 4th Division"
+		location = 6483
+		division_template = "Infantry Division"
+	}
+	division = {
+		name = "NKVD 5th Division"
+		location = 6483
+		division_template = "Infantry Division"
+	}
+	division = {
+		name = "NKVD 6th Division"
+		location = 6483
+		division_template = "Infantry Division"
+	}		
+}

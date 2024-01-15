@@ -1,0 +1,14 @@
+﻿capital = 405
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+
+1946.1.1 = {
+
+	set_politics = {
+	
+		ruling_party = communism_totalitarian		
+		election_frequency = 48
+		elections_allowed = no
+	}
+}

@@ -1,0 +1,29 @@
+﻿capital = 905
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+1946.1.1 = {
+	OOB = KAT_1960
+	add_ideas = {
+		cw_non_recognized_state
+	}
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 100
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Moïse Tshombe"
+		desc = ""
+		picture = "KATH1.dds"
+		ideology = nationalism_idolg
+		expire = 1962.9.1
+		traits = {}
+	}
+}

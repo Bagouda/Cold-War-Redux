@@ -1,0 +1,31 @@
+state = {
+	id=779
+	local_supplies=0.0 
+	name="STATE_779" # Ivory Coast
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 10803 }
+ 	set_variable = { victory_point = 15 }
+		owner = FRA
+		add_claim_by = CDI
+		
+		buildings = {
+			infrastructure = 3
+			air_base = 1
+			10803 = {
+				naval_base = 2
+			}			
+		}
+		
+		victory_points = {
+			10803 15
+		}
+	}
+	resources={
+		crops = 5
+	}	
+	manpower = 1925367
+	provinces={
+	 10762 10803
+	}
+}

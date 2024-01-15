@@ -1,0 +1,158 @@
+﻿capital = 277
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = unaligned_right
+		last_election = "1940.7.7"
+		election_frequency = 72		#Six year presidency
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 20
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 10
+		unaligned_right = 70
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Miguel Alemán Valdés"
+		desc = ""
+		picture = "MEXH2.dds"
+		ideology = military_conservative_idolg
+		expire = 1952.11.30
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Manuel Ávila Camacho"
+		desc = ""
+		picture = "MEXH1.dds"
+		ideology = military_conservative_idolg
+		expire = 1946.11.30
+		traits = {}
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1946.7.7"
+		election_frequency = 72		#Six year presidency
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Miguel Alemán Valdés"
+		desc = ""
+		picture = "MEXH2.dds"
+		ideology = neutrality_idolg
+		expire = 1952.11.30
+		traits = {}
+	}
+}
+1950.6.25 = {	#Korean War
+	create_country_leader = {
+		name = "Miguel Alemán Valdés"
+		desc = ""
+		picture = "MEXH2.dds"
+		ideology = neutrality_idolg
+		expire = 1952.11.30
+		traits = {}
+	}
+}
+1956.10.29 = {	#Suez Crisis
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1952.7.7"
+		election_frequency = 72		#Six year presidency
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Adolfo López Mateos"
+		desc = ""
+		picture = "MEXH3.dds"
+		ideology = neutrality_idolg
+		expire = 1964.11.30
+		traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1958.7.6"
+		election_frequency = 72		#Six year presidency
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Luis Echeverría"
+		desc = ""
+		picture = "MEXH5.dds"
+		ideology = neutrality_idolg
+		expire = 1976.11.30
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Gustavo Díaz Ordaz"
+		desc = ""
+		picture = "MEXH4.dds"
+		ideology = neutrality_idolg
+		expire = 1970.11.30
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Adolfo López Mateos"
+		desc = ""
+		picture = "MEXH3.dds"
+		ideology = neutrality_idolg
+		expire = 1964.11.30
+		traits = {}
+	}	
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {	
+		ruling_party = democratic		#Democratization of the ruling party
+		last_election = "1976.7.4"
+		election_frequency = 72		#Six year presidency
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 70
+		democratic_socialist = 0
+		neutrality = 20
+		communism_totalitarian = 10
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Miguel de la Madrid"
+		desc = ""
+		picture = "MEXH7.dds"
+		ideology = social_democrat_idolg
+		expire = 1988.11.30
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "José López Portillo"
+		desc = ""
+		picture = "MEXH6.dds"
+		ideology = social_democrat_idolg
+		expire = 1982.11.30
+		traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1988.6.6"
+		election_frequency = 72		#Six year presidency
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Carlos Salinas de Gortari"
+		desc = ""
+		picture = "MEXH8.dds"
+		ideology = social_cons_idolg
+		expire = 1994.11.30
+		traits = {}
+	}
+}

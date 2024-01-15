@@ -1,0 +1,133 @@
+ideas = {
+	hidden_ideas = {
+		usa_nsa_idea_lar = {
+			removal_cost = -1
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				propaganda_mission_factor = 0.5
+				boost_ideology_mission_factor = 0.5
+				enemy_operative_detection_chance_factor = 0.1
+			}
+		}		
+		usa_cia_idea = {
+			removal_cost = -1
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				subversive_activites_upkeep = -0.1
+				justify_war_goal_time = -0.1
+			}
+
+			picture = usa_dod_idea
+		}
+		usa_military_racial_integration = {
+			removal_cost = -1
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				conscription = 0.03
+			}
+		}		
+	}
+	country = {
+		usa_nsa_idea = {
+			removal_cost = -1
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				resistance_growth = -0.1
+				stability_factor = 0.1
+			}
+
+			picture = usa_nsa
+		}	
+		usa_defense_production_act = {
+			removal_cost = -1
+
+			allowed = {
+				always = no 
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				production_factory_max_efficiency_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
+			}
+
+			picture = generic_local_self_management
+		}	
+		usa_beacon_of_liberty = {
+			removal_cost = -1
+			picture = land_of_the_free
+			allowed = {
+				always = no 
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				hidden_modifier = { 
+					communism_drift = -0.5
+					communism_totalitarian_drift = -0.5
+					neutrality_drift = -0.5
+					unaligned_right_drift = -0.5
+					send_volunteer_factor = -1
+				}
+			}
+
+			
+		}
+		usa_department_of_defense = {
+			removal_cost = -1
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				command_power_gain = 0.1
+				mobilization_speed = 0.1
+			}
+
+			picture = usa_dod_idea
+		}
+	}
+}

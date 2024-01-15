@@ -1,0 +1,31 @@
+state = {
+	id=481
+	local_supplies=0.0 
+	name="STATE_481" # Durango
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 7921 }
+ 	set_variable = { victory_point = 10 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = MEX
+		add_core_of = MEX
+		#victory_points = {
+		#	10895 5
+		#}
+		#victory_points = {
+		#	10895 5
+		#}
+		#victory_points = {
+		#	8057 10
+		#}
+		victory_points = {
+			7921 10
+		}
+	}
+	manpower = 1255094
+	provinces={
+		1945 4946 7921 8003 8057 10853 10871 10895 12804 
+	}
+}

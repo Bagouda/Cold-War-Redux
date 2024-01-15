@@ -1,0 +1,30 @@
+
+state={
+	id=540
+	local_supplies=0.0 
+	name="STATE_540"
+	resources={
+		crops=10.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 8248 }
+ 	set_variable = { victory_point = 15 }
+		owner = POR
+		add_claim_by = ANG
+		
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			8248 15 
+		}
+	}
+
+	provinces={
+		4735 5158 8138 8202 10966 12391 12958 12985 
+	}
+	manpower=1612500
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

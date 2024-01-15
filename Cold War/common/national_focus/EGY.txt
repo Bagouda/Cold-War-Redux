@@ -1,0 +1,288 @@
+focus_tree = {
+	id = egypt_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = EGY
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	focus = {
+		id = EGY_form_anti_israel_coalition
+		available = {
+			PAL = { has_war_with = ISR }
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 3
+		y = 2
+		cost = 1
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		will_lead_to_war_with = ISR
+		
+		completion_reward = {
+			EGY = { give_guarantee = PAL }
+			JOR = { give_guarantee = PAL }
+			LEB = { give_guarantee = PAL }
+			SYR = { give_guarantee = PAL }
+			IRQ = { give_guarantee = PAL }
+			SAU = { give_guarantee = PAL }
+			YEM = { give_guarantee = PAL }
+			add_opinion_modifier = {
+				target = ISR
+				modifier = historic_grievances_permanent
+			}
+			every_country = {
+				limit = {
+					PAL = { is_guaranteed_by = PREV }
+				}
+				add_opinion_modifier = {
+					target = ISR
+					modifier = historic_grievances_permanent
+				}
+				add_to_war = {
+					targeted_alliance = PAL 
+					enemy = ISR 
+					hostility_reason = asked_to_join
+				}
+				give_military_access = PAL
+				PAL = { give_military_access = PREV }
+			}
+			SYR = {
+				every_neighbor_country = {
+					limit = {
+						PAL = { is_guaranteed_by = PREV }
+						has_war_with = ISR
+					}
+					SYR = { give_military_access = PREV }
+				}
+			}
+			LEB = {
+				every_neighbor_country = {
+					limit = {
+						PAL = { is_guaranteed_by = PREV }
+						has_war_with = ISR
+					}
+					LEB = { give_military_access = PREV }
+				}
+			}			
+			JOR = {
+				every_neighbor_country = {
+					limit = {
+						PAL = { is_guaranteed_by = PREV }
+						has_war_with = ISR
+					}
+					JOR = { give_military_access = PREV }
+				}
+			}
+			SAU = {
+				every_neighbor_country = {
+					limit = {
+						PAL = { is_guaranteed_by = PREV }
+						has_war_with = ISR
+					}
+					SAU = { give_military_access = PREV }
+				}
+			}
+			IRQ = {
+				every_neighbor_country = {
+					limit = {
+						PAL = { is_guaranteed_by = PREV }
+						has_war_with = ISR
+					}
+					IRQ = { give_military_access = PREV }
+				}
+			}
+			EGY = {
+				every_neighbor_country = {
+					limit = {
+						PAL = { is_guaranteed_by = PREV }
+						has_war_with = ISR
+					}
+					EGY = { give_military_access = PREV }
+				}
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = EGY_depose_farouk
+		available = {
+			date > 1952.7.23
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 3
+		y = 1
+		cost = 2
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			hidden_effect = {
+				IRQ = {
+					create_country_leader = {
+						name = "Faisal II"
+						desc = ""
+						picture = "IRQH1_2.dds"
+						ideology = regency_idolg
+						expire = 1992.5.18
+						traits = { absolute_monarch }
+					}
+				}
+			}
+			random_list = {
+				90 = {
+					ENG = { end_puppet = ROOT }
+					leave_faction = yes
+					drop_cosmetic_tag = yes
+					if = {
+						limit = {
+							is_in_array = {
+								array = global.unsc_non_permanent_members_array
+								value = THIS.id
+							}
+						}
+						cw_remove_from_unsc = yes
+					}					
+					cw_make_unrecognized = yes
+					set_politics = {
+						ruling_party = neutrality
+						elections_allowed = no
+					}
+					set_popularities = {	
+						democratic  = 0
+						democratic_socialist = 5
+						neutrality = 70
+						communism_totalitarian = 5
+						unaligned_right = 10
+						colonial =  0
+					}
+					news_event = cw_historic_events.25
+				}
+				10 = {
+					load_oob = EGY_civil_war
+					start_civil_war = {
+						ideology = neutrality
+						keep_political_leader = yes
+						size = 0.6
+						states_filter = { impassable = no }
+						compute_proxy_score = yes
+					}
+					compute_proxy_score = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = EGY_nassser_take_power
+		available = {
+			date > 1954.2.26
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 3
+		y = 3
+		cost = 2
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			retire_country_leader = yes
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}		
+	focus = {
+		id = EGY_suez_nationalization
+		available = {
+			date > 1956.7.30
+			NOT = { has_government = unaligned_right }
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 3
+		y = 4
+		cost = 2
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			news_event = cw_historic_events.30
+			transfer_state = 805
+			805 = { add_core_of = ROOT }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = EGY_arm_algerian_rebels
+		available = {
+			date > 1950.1.1
+			has_government = neutrality
+			ALG = { exists = no }
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 3
+		y = 6
+		cost = 5
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			FRA = { cw_unlock_insurgency_decisions = yes }
+			set_country_flag = buffed_insurgency
+			set_variable = { alternate_resistance_tag = ALG }
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				add_ideas = cw_insurgency_cp_bonus
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+}

@@ -1,0 +1,171 @@
+focus_tree = {
+	id = congo_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = COG
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	focus = {
+		id = cog_request_soviet_military_aid
+		available = {
+			has_war = yes
+			#date > 1960.1.1
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 5
+		y = 1
+		cost = 5
+
+		bypass = {
+		}
+		available_if_capitulated = no
+
+		select_effect = {
+			add_ai_strategy = {
+				type = befriend
+				id = SOV
+				value = 100
+			}
+		}
+		
+		completion_reward = {
+			SOV = { country_event = { id = generic_events.3 days = 3 } }
+			add_ai_strategy = {
+				type = consider_weak
+				id = KAT
+				value = 500
+			}				
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = cog_request_soviet_economic_aid
+		available = {
+			#date > 1960.1.1
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 6
+		y = 3
+		cost = 5
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			SOV = { country_event = { id = generic_events.10 days = 3 } }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = cog_expel_soviet_influence
+		available = {
+			OR = {
+				communism > 0.25
+				communism_totalitarian > 0.25
+			}
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 6
+		y = 6
+		cost = 5
+
+		bypass = {
+		}
+		available_if_capitulated = no
+
+		select_effect = {
+			add_ai_strategy = {
+				type = befriend
+				id = SOV
+				value = 100
+			}
+		}
+		
+		completion_reward = {
+			kill_country_leader = yes
+			SOV = { ROOT = { cw_suspend_military_aid_effect = yes } }
+			set_politics = {
+				ruling_party = unaligned_right
+				elections_allowed = no
+			}			
+			create_country_leader = {
+				name = "Joseph-Desiré Mobutu"
+				desc = ""
+				picture = "COGH2.dds"
+				ideology = paternal_auto_idolg
+				expire = 1997.9.1
+				traits = {}
+			}
+			add_country_leader_trait = stern_anti_communist
+			USA = {
+				country_event = { id = generic_events.3 days = 30 }
+				country_event = { id = generic_events.10 days = 60 } 
+			}
+			start_civil_war = {
+				ideology = communism_totalitarian
+				size = 0.1
+				capital = 895
+				states = { 
+					895 879 907 718 909 908
+				}
+				compute_proxy_score = yes
+				keep_political_leader = yes
+			}
+			compute_proxy_score = yes
+			random_country_with_original_tag = {
+				original_tag_to_check = COG
+				limit = {
+					has_war_with = COG
+				}
+				SOV = {
+					PREV = { save_event_target_as = alternative_event_target }
+					country_event = { id = generic_events.3 days = 30 }
+					country_event = { id = generic_events.10 days = 60 } 
+				}
+				PRC = {
+					PREV = { save_event_target_as = alternative_event_target }
+					country_event = { id = generic_events.3 days = 32 }
+					country_event = { id = generic_events.10 days = 62 } 
+				}
+				declare_war_on = {
+					target = KAT
+					type = annex_everything
+				}				
+			}
+			declare_war_on = {
+				target = KAT
+				type = annex_everything
+			}			
+
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+}

@@ -1,0 +1,29 @@
+state = {
+	id=147
+	local_supplies=0.0 
+	name="STATE_147"
+	state_category = enclave
+	history = {
+ 	add_to_array = { list_victory_point = 197 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		add_claim_by = FIN
+
+		1947.2.10 = {	#Treaty of Paris 1947
+			remove_claim_by = FIN
+		}
+		
+		victory_points = {
+			197 1
+		}
+	}
+	manpower = 4630
+	provinces={
+		197 9158 11085 	
+	}
+}

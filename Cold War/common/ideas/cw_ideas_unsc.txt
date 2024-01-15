@@ -1,0 +1,71 @@
+ideas = {
+	country = {
+		### SANCTION IDEAS ###
+		unsc_mild_mil_sanctions = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = un_permanent
+
+			
+			modifier = {
+				trade_opinion_factor = -0.1
+				production_factory_max_efficiency_factor = -0.1
+				industrial_capacity_factory = -0.1
+				industrial_capacity_dockyard = -0.1
+			}		
+		}
+		unsc_moderate_mil_sanctions = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = un_permanent
+
+			
+			modifier = {
+				trade_opinion_factor = -0.2
+				production_factory_max_efficiency_factor = -0.2
+				industrial_capacity_factory = -0.2
+				industrial_capacity_dockyard = -0.2
+				production_speed_arms_factory_factor = -0.1
+			}		
+		}
+		unsc_severe_mil_sanctions = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = un_permanent
+
+			
+			modifier = {
+				trade_opinion_factor = -0.3
+				production_factory_max_efficiency_factor = -0.3
+				industrial_capacity_factory = -0.3
+				industrial_capacity_dockyard = -0.3
+				production_speed_arms_factory_factor = -0.2
+				research_speed_factor = -0.5
+			}		
+		}		
+	}
+}

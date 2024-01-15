@@ -1,0 +1,36 @@
+state = {
+	id=431
+	local_supplies=0.0 
+	name="STATE_431"
+	state_category=city
+	history = {
+ 	add_to_array = { list_victory_point = 4245 }
+ 	set_variable = { victory_point = 25 }
+		owner = IND
+		add_core_of = IND
+		add_claim_by = PAK
+		
+		buildings = {
+			infrastructure = 2		
+			industrial_complex = 5
+			dockyard  = 1
+			4062 = {
+				naval_base = 1
+			}		
+		}
+		
+		victory_points = {
+			4245 25 
+		}		
+	}
+	resources={
+		steel=13.000
+		tungsten=11.000
+		crops = 15
+	}
+	buildings_max_level_factor=1.000
+	manpower=18778100
+	provinces={
+		1159 1609 1656 4062 4204 4245 4435 4644 7220 7475 7537 7565 7593 10077 12050 12338 
+	}
+}

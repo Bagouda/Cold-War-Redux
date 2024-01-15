@@ -1,0 +1,261 @@
+cw_request_lease_event_effect = {
+	custom_effect_tooltip = CW_PERMANENT_LEASE_WITH_PAYMENT_REQUEST_EVENT_TT
+	hidden_effect = {
+		101 = {
+			OWNER = { set_variable = { requested_state_lease = PREV.id } }
+			OWNER = { country_event = { id = state_events.1 days = 5 } }
+		}	
+	}
+}
+cw_grant_lease_international_non_canal = {		# FIRST SCOPE IS STATE, PREV IS COUNTRY WHO GETS THE LEASE
+	custom_effect_tooltip = "SCRIPTED_ACTION_GRANT_LEASE_PERPERTUAL_LOC"
+	hidden_effect = {
+		PREV = { save_event_target_as = lease_requester }
+		############### LEASE COST STUFF ###############
+		if = {
+			limit = {
+				PREV = { NOT = { has_dynamic_modifier = { modifier = cw_lease_dynamic_modifier } } }
+			}
+			PREV = { add_dynamic_modifier = { modifier = cw_lease_dynamic_modifier } }
+		}
+		UNN = { add_offsite_building = { type = industrial_complex level = 5 } }
+		############### TRANSFER OF STATE AND LEASE TIME ###############
+		OWNER = {
+			save_event_target_as = true_owner
+			add_to_variable = { leased_territory = 1 }
+		}
+		PREV = { remove_core_of = OWNER.id }
+		set_variable = { true_owner = event_target:true_owner.id }
+		add_to_array = { array = OWNER.leased_territories value = THIS.id }
+		PREV = { transfer_state = PREV }
+		########## LEASE TIME CALCULATIONS ##########
+		if = {
+			limit = {
+				PREV = { check_variable = { international_lease_years > 0 } }
+			}
+			set_temp_variable = { lease_time_calculator = event_target:lease_requester.international_lease_years }
+			set_variable = { lease_timer_display = event_target:lease_requester.international_lease_years } # Lease display for first figure to show to player
+		}
+		else = {
+			set_temp_variable = { lease_time_calculator = 5 }
+			set_variable = { lease_timer_display = 5 } # Lease display for first figure to show to player
+		}
+		multiply_temp_variable = { lease_time_calculator = 12 }
+		set_variable = { lease_timer = lease_time_calculator }				# Lease time calculated in months, change if need a shorter lease
+		round_variable = lease_timer
+		#
+		PREV = { add_to_variable = { leasing_territory_total = 1 }	}
+		set_state_flag = leased_territory
+	}
+}
+cw_grant_lease_international = {		# FIRST SCOPE IS STATE, PREV IS COUNTRY WHO GETS THE LEASE
+	custom_effect_tooltip = "SCRIPTED_ACTION_GRANT_LEASE_PERPERTUAL_LOC"
+	hidden_effect = {
+		PREV = { save_event_target_as = lease_requester }
+		############### LEASE COST STUFF ###############
+		if = {
+			limit = {
+				PREV = { NOT = { has_dynamic_modifier = { modifier = cw_lease_dynamic_modifier } } }
+			}
+			PREV = { add_dynamic_modifier = { modifier = cw_lease_dynamic_modifier } }
+		}
+		UNN = { add_offsite_building = { type = industrial_complex level = 5 } }
+		############### TRANSFER OF STATE AND LEASE TIME ###############
+		PREV = { remove_core_of = OWNER.id }
+		PREV = { transfer_state = PREV }
+		set_variable = { state_lease_cost = 5 }
+		set_variable = { true_owner = UNN.id }
+		add_core_of = event_target:lease_requester
+		set_state_flag = international_lease_allowed
+		add_to_array = { array = UNN.leased_territories value = THIS.id }			
+		########## LEASE TIME CALCULATIONS ##########
+		if = {
+			limit = {
+				PREV = { check_variable = { international_lease_years > 0 } }
+			}
+			set_temp_variable = { lease_time_calculator = event_target:lease_requester.international_lease_years }
+			set_variable = { lease_timer_display = event_target:lease_requester.international_lease_years } # Lease display for first figure to show to player
+		}
+		else = {
+			set_temp_variable = { lease_time_calculator = 5 }
+			set_variable = { lease_timer_display = 5 } # Lease display for first figure to show to player
+		}
+		multiply_temp_variable = { lease_time_calculator = 12 }
+		set_variable = { lease_timer = lease_time_calculator }				# Lease time calculated in months, change if need a shorter lease
+		round_variable = lease_timer
+		#
+		PREV = { add_to_variable = { leasing_territory_total = 1 }	}
+		set_state_flag = leased_territory
+	}
+}
+cw_grant_lease_five_years = {		# FIRST SCOPE IS STATE, PREV IS COUNTRY WHO GETS THE LEASE
+	custom_effect_tooltip = "SCRIPTED_ACTION_GRANT_LEASE_FIVE_YEARS_LOC"
+	hidden_effect = {
+		############### LEASE COST STUFF ###############
+		PREV = { add_to_variable = { lease_cost_var = 5 } }
+		if = {
+			limit = {
+				PREV = { NOT = { has_dynamic_modifier = { modifier = cw_lease_dynamic_modifier } } }
+			}
+			PREV = { add_dynamic_modifier = { modifier = cw_lease_dynamic_modifier } }
+		}
+		OWNER = { add_offsite_building = { type = industrial_complex level = 5 } }
+		############### TRANSFER OF STATE AND LEASE TIME ###############
+		OWNER = {
+			save_event_target_as = true_owner
+			add_to_variable = { leased_territory = 1 }
+			PREV = { remove_core_of = PREV }
+		}
+		PREV = { transfer_state = PREV }
+		remove_core_of = event_target:true_owner
+		set_variable = { state_lease_cost = 5 }
+		set_variable = { true_owner = event_target:true_owner.id }
+		add_to_array = { array = OWNER.leased_territories value = THIS.id }			
+		########## LEASE TIME CALCULATIONS ##########
+		set_variable = { lease_timer = 60 }		# In Months
+		set_variable = { lease_timer_display = 5 } # Lease display for first figure to show to player
+		PREV = { add_to_variable = { leasing_territory_total = 1 }	}
+		set_state_flag = leased_territory
+	}
+}
+cw_grant_lease_perpetual = {		# FIRST SCOPE IS STATE, PREV IS COUNTRY WHO GETS THE LEASE
+	custom_effect_tooltip = "SCRIPTED_ACTION_GRANT_LEASE_PERPERTUAL_LOC"
+	hidden_effect = {
+		############### TRANSFER OF STATE AND LEASE TIME ###############
+		OWNER = {
+			save_event_target_as = true_owner
+			add_to_variable = { leased_territory = 1 }
+			PREV = { remove_core_of = PREV }
+		}
+		PREV = { transfer_state = PREV }
+		remove_core_of = event_target:true_owner
+		set_variable = { state_lease_cost = 5 }
+		set_variable = { true_owner = event_target:true_owner.id }
+		set_state_flag = perpetual_lease
+		add_to_array = { array = OWNER.leased_territories value = THIS.id }			
+		########## LEASE TIME CALCULATIONS ##########
+		set_variable = { lease_timer = 9999 }		# In Months
+		set_variable = { lease_timer_display = 999 } # Lease display for first figure to show to player
+		PREV = { add_to_variable = { leasing_territory_total = 1 }	}
+		set_state_flag = leased_territory
+	}
+}
+cw_grant_lease_perpetual_with_payment = {		# FIRST SCOPE IS STATE, PREV IS COUNTRY WHO GETS THE LEASE
+	custom_effect_tooltip = "SCRIPTED_ACTION_GRANT_LEASE_PERPERTUAL_WITH_PAYMENT_LOC"
+	hidden_effect = {
+		############### LEASE COST STUFF ###############
+		PREV = { add_to_variable = { lease_cost_var = 5 } }
+		if = {
+			limit = {
+				NOT = { has_dynamic_modifier = { modifier = cw_lease_dynamic_modifier } }
+			}
+			add_dynamic_modifier = { modifier = cw_lease_dynamic_modifier }
+		}
+		OWNER = { add_offsite_building = { type = industrial_complex level = 5 } }
+		############### TRANSFER OF STATE AND LEASE TIME ###############
+		OWNER = {
+			save_event_target_as = true_owner
+			add_to_variable = { leased_territory = 1 }
+			PREV = { remove_core_of = PREV }
+		}
+		PREV = { transfer_state = PREV }
+		remove_core_of = event_target:true_owner
+		set_variable = { state_lease_cost = 5 }
+		set_variable = { true_owner = event_target:true_owner.id }
+		set_state_flag = perpetual_lease_with_payment
+		add_to_array = { array = OWNER.leased_territories value = THIS.id }			
+		########## LEASE TIME CALCULATIONS ##########
+		set_variable = { lease_timer = 9999 }		# In Months
+		set_variable = { lease_timer_display = 999 } # Lease display for first figure to show to player
+		PREV = { add_to_variable = { leasing_territory_total = 1 }	}
+		set_state_flag = leased_territory
+	}
+}
+cw_grant_lease_diplomatic_action = {		# FIRST SCOPE IS STATE, PREV IS COUNTRY WHO GETS THE LEASE
+	############### LEASE COST STUFF ###############
+	ROOT = { add_to_variable = { lease_cost_var = requested_lease_cost } }
+	if = {
+		limit = {
+			NOT = { has_dynamic_modifier = { modifier = cw_lease_dynamic_modifier } }
+		}
+		add_dynamic_modifier = { modifier = cw_lease_dynamic_modifier }
+	}
+	PREV = { add_offsite_building = { type = industrial_complex level = var:ROOT.requested_lease_cost } }
+	############### TRANSFER OF STATE AND LEASE TIME ###############
+	var:ROOT.requested_state_lease = {
+		hidden_effect = {
+			OWNER = {
+				save_event_target_as = true_owner
+				add_to_variable = { leased_territory = 1 }
+			}
+			remove_core_of = event_target:true_owner
+			set_variable = { state_lease_cost = ROOT.requested_lease_cost }
+			set_variable = { true_owner = event_target:true_owner.id }
+			add_to_array = { array = OWNER.leased_territories value = THIS.id }			
+			########## LEASE TIME CALCULATIONS ##########
+			set_temp_variable = { lease_time_calculator = ROOT.requested_lease_period }
+			multiply_temp_variable = { lease_time_calculator = 12 }
+			set_variable = { lease_timer = lease_time_calculator }				# Lease time calculated in months, change if need a shorter lease
+			round_variable = lease_timer
+			set_variable = { lease_timer_display = ROOT.requested_lease_period } # Lease display for first figure to show to player
+		}
+	}
+	transfer_state = var:ROOT.requested_state_lease
+	var:ROOT.requested_state_lease = { set_state_flag = leased_territory }
+	ROOT = { add_to_variable = { leased_territory = 1 }	}
+}
+
+cw_revoke_state_lease = {
+	OWNER = {
+		subtract_from_variable = { lease_cost_var = PREV.state_lease_cost } 
+		subtract_from_variable = { leased_territory = 1 }
+		phone_notification_lease_revoked = yes
+	}
+	if = {
+		limit = {
+			is_controlled_by = ROOT
+		}
+		var:true_owner = {
+			set_temp_variable = { lease_cost_return_value = PREV.state_lease_cost }
+			multiply_temp_variable = { lease_cost_return_value = -1 }
+			add_offsite_building = { type = industrial_complex level = lease_cost_return_value }
+		}
+		else = {
+			#### RETURNING COSTS OF LEASE ###
+			ROOT = {
+				set_temp_variable = { lease_cost_return_value = PREV.state_lease_cost }
+				multiply_temp_variable = { lease_cost_return_value = -1 }
+				add_offsite_building = { type = industrial_complex level = lease_cost_return_value }
+			}
+		}
+	}
+	#### OWNERSHIP TRANSFER ###
+	if = {
+		limit = {
+			NOT = { check_variable = { true_owner = UNN } }
+		}
+		add_core_of = var:true_owner
+	}
+	var:true_owner = { subtract_from_variable = { leased_territory = 1 } }
+	if = {
+		limit = {
+			var:true_owner = { exists = yes }
+		}
+		var:true_owner = { transfer_state = PREV }
+		else = {
+			every_country = {
+				limit = {
+					var:PREV.true_owner = { capital_scope = { is_controlled_by = PREV } }
+				}
+				transfer_state = PREV.PREV
+			}
+		}
+	}	
+	#### CLEAR VARIABLES AND SHIT ###
+	remove_from_array = { array = ROOT.leased_territories value = PREV.id }
+	clear_variable = state_lease_cost
+	clear_variable = lease_timer
+	clear_variable = lease_timer_display
+	clr_state_flag = leased_territory	
+	#clear_variable = true_owner
+}

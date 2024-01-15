@@ -1,0 +1,21 @@
+state = {
+	id=688
+	local_supplies=0.0 
+	name="STATE_688"
+	state_category = pastoral
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = PAR
+		add_core_of = PAR
+	}
+	resources={
+		tungsten=3 # was: 4
+		steel=2 # was: 2
+	}
+	manpower = 45900
+	provinces={
+		2195 2209 5165 8203 10973 
+	}
+}

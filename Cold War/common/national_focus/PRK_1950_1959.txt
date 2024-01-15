@@ -1,0 +1,1945 @@
+focus_tree = {
+	id = north_korea_1950_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = PRK
+			date > 1950.1.1
+			#always = no
+		}
+		modifier = {
+			add = -50
+			date > 1960.1.1
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	#army
+	focus = {
+		id = PRK_the_military_state
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_focus_PRK_military_state
+		x = 6
+		y = 0
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			add_ideas = cw_very_high_military_budget
+			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_found_the_KPAF
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_build_airforce
+		x = -3
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		prerequisite = { focus = PRK_the_military_state }
+		relative_position_id = PRK_the_military_state
+		
+		completion_reward = {
+			air_experience = 25
+			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_air_koryo
+		available = {
+			has_full_control_of_state = 527
+			has_full_control_of_state = 832
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_air_fighter
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRK_found_the_KPAF }
+		relative_position_id = PRK_found_the_KPAF
+		
+		completion_reward = {
+			527 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			832 = {
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_anti_air_defense
+		available = {
+			has_full_control_of_state = 527
+		}
+		bypass = {
+		}
+		icon = GFX_focus_generic_air_defense
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		prerequisite = { focus = PRK_air_koryo }
+		relative_position_id = PRK_air_koryo
+		
+		completion_reward = {
+			527 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_found_the_KPN
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_navy_battleship
+		x = -1
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		prerequisite = { focus = PRK_the_military_state }
+		relative_position_id = PRK_the_military_state
+		
+		completion_reward = {
+			navy_experience = 25
+			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_korean_ocean_shipping_agency
+		available = {
+			has_full_control_of_state = 527
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		prerequisite = { focus = PRK_found_the_KPN }
+		relative_position_id = PRK_found_the_KPN
+		
+		completion_reward = {
+			527 = {
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					instant_build = yes
+					province = 4052
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_expand_chongjin_dockyards
+		available = {
+			has_full_control_of_state = 829
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRK_korean_ocean_shipping_agency }
+		relative_position_id = PRK_korean_ocean_shipping_agency
+		
+		completion_reward = {
+			829 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_lessons_of_war
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_army_doctrines
+		x = 1
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		prerequisite = { focus = PRK_the_military_state }
+		relative_position_id = PRK_the_military_state
+		
+		completion_reward = {
+			army_experience = 50
+			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_tokchon_motor_company
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_army_motorized
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		prerequisite = { focus = PRK_lessons_of_war }
+		relative_position_id = PRK_lessons_of_war
+		
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 300
+				producer = PRK
+			}
+			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_unit_963
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_focus_secret_rearmament
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		prerequisite = { focus = PRK_tokchon_motor_company }
+		relative_position_id = PRK_tokchon_motor_company
+		
+		completion_reward = {
+		527 = {
+			create_unit = {
+				division = "name = \"Marine Brigade\" division_template = \"Marine Brigade\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = PRK
+			}
+		}	
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_obtain_foreign_licenses
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_improve_relations
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		prerequisite = { focus = PRK_expand_chongjin_dockyards }
+		prerequisite = { focus = PRK_anti_air_defense }
+		prerequisite = { focus = PRK_unit_963 }
+		relative_position_id = PRK_expand_chongjin_dockyards
+		
+		completion_reward = {
+			add_ideas = PRK_obtain_foreign_licenses
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_the_kanggye_redoubt
+		available = {
+			has_full_control_of_state = 832
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_position_armies
+		x = 3
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		prerequisite = { focus = PRK_the_military_state }
+		relative_position_id = PRK_the_military_state
+		
+		completion_reward = {
+			custom_effect_tooltip = forts_china_border_tt
+			hidden_effect = {
+				832 = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				829 = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_fortify_dmz
+		available = {
+			has_full_control_of_state = 830
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_fortify_city
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		prerequisite = { focus = PRK_the_kanggye_redoubt }
+		relative_position_id = PRK_the_kanggye_redoubt
+		
+		completion_reward = {
+			custom_effect_tooltip = forts_korea_border_tt
+			hidden_effect = {
+				830 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				831 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_protect_kaesong
+		available = {
+			has_war = no
+			has_completed_focus = PRK_attack_the_south_1950
+			has_full_control_of_state = 831
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_construct_military
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+		prerequisite = { focus = PRK_fortify_dmz }
+		relative_position_id = PRK_fortify_dmz
+		
+		completion_reward = {
+			831 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = 12040
+						
+					}
+				}
+			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	#Politics
+	focus = {
+		id = PRK_attack_the_south_1950
+		available = {
+			date > 1950.6.25
+			country_exists = KOR
+			KOR = { NOT = { is_subject_of = USA } }
+		}
+		icon = GFX_focus_PRK_attack_the_south
+		x = 13
+		y = 0
+		cost = 1
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_TENSION_FOCUSES }
+		will_lead_to_war_with = KOR
+		
+		completion_reward = {
+			leave_faction = yes
+			add_named_threat = { threat = 15 name = "CW_THREAT_STARTED_KOREAN_WAR" }
+			OVERLORD = { end_puppet = ROOT }
+			set_country_flag = cw_volunteers_blocked
+			add_ideas = cw_death_before_surrender
+			KOR = { add_ideas = cw_death_before_surrender }
+			declare_war_on = {
+				target = KOR
+				type = civil_war
+			}
+			set_global_flag = korean_war_activated
+			hidden_effect = {
+				USA = {
+					country_event = { id = us_events.8 days = 730 }
+				}
+			}
+		}
+		ai_will_do = {
+			base = 500
+		}
+	}
+	focus = {
+		id = PRK_implement_our_administration
+		available = {
+			
+		}
+		icon = GFX_goal_generic_national_unity
+		x = -2
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = PRK_attack_the_south_1950 }
+		relative_position_id = PRK_attack_the_south_1950
+		completion_reward = {
+			custom_effect_tooltip = PRK_implement_admin_tt
+			hidden_effect = {
+				add_ideas = PRK_implement_admin
+			}
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	focus = {
+		id = PRK_korea_united
+		available = {
+			NOT = {country_exists = KOR}
+			has_war = no
+			
+		}
+		icon = GFX_SOV_korean_flag_raised
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = PRK_implement_our_administration }
+		relative_position_id = PRK_implement_our_administration
+		completion_reward = {
+			add_state_core = 525
+			add_state_core = 825
+			add_state_core = 826
+			add_state_core = 827
+			add_state_core = 828
+			add_state_core = 833
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	focus = {
+		id = PRK_the_future_of_korea
+		available = {
+			has_war = no
+		}
+		icon = GFX_SOV_korean_question
+		x = 2
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = PRK_attack_the_south_1950 }
+		relative_position_id = PRK_attack_the_south_1950
+		completion_reward = {
+			
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	focus = {
+		id = PRK_promote_korean_nationalism
+		available = {
+			
+		}
+		icon = GFX_focus_PRK_proclaim_dprk
+		x = -1
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		mutually_exclusive = { focus = PRK_fraternal_cooperation }
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = PRK_the_future_of_korea }
+		relative_position_id = PRK_the_future_of_korea
+		completion_reward = {
+			add_political_power = 100
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_the_dear_leader
+		available = {
+			
+		}
+		icon = GFX_focus_PRK_dear_leader
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = PRK_promote_korean_nationalism }
+		relative_position_id = PRK_promote_korean_nationalism
+		completion_reward = {
+			add_ideas = cw_ni_personality_cult
+			add_country_leader_trait = communist_symbol
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_enact_the_songbun
+		available = {
+			
+		}
+		icon = GFX_goal_generic_national_unity
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = PRK_the_dear_leader }
+		relative_position_id = PRK_the_dear_leader
+		completion_reward = {
+			add_stability = 0.1
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_purge_the_factions
+		available = {
+			
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = PRK_enact_the_songbun }
+		relative_position_id = PRK_enact_the_songbun
+		completion_reward = {
+			country_event = {
+				id = prk_events.1
+				days = 1
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_juche
+		available = {
+			
+		}
+		icon = GFX_focus_PRK_juche
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = PRK_purge_the_factions }
+		relative_position_id = PRK_purge_the_factions
+		completion_reward = {
+			add_ideas = PRK_juche
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_fraternal_cooperation
+		available = {
+			
+		}
+		icon = GFX_goal_generic_major_alliance
+		x = 1
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		mutually_exclusive = { focus = PRK_promote_korean_nationalism }
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = PRK_the_future_of_korea }
+		relative_position_id = PRK_the_future_of_korea
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = revolutionary_brothers
+			}
+			reverse_add_opinion_modifier = {
+				target = SOV
+				modifier = revolutionary_brothers
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_secret_collective_leadership
+		available = {
+			
+		}
+		icon = GFX_goal_generic_propaganda
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = PRK_fraternal_cooperation }
+		relative_position_id = PRK_fraternal_cooperation
+		completion_reward = {
+			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_garner_soviet_support
+		available = {
+			
+		}
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		x = 2
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		prerequisite = { focus = PRK_secret_collective_leadership }
+		relative_position_id = PRK_secret_collective_leadership
+		completion_reward = {
+			SOV = {
+				country_event = {
+				id = prk_events.2
+				days = 1
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_depose_kim_il_song
+		available = {
+			
+		}
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 1
+		y = 2
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = PRK_secret_collective_leadership focus = PRK_garner_soviet_support }
+		relative_position_id = PRK_secret_collective_leadership
+		completion_reward = {
+			kill_country_leader = yes
+			create_country_leader = {
+						name = "Collective Leadership"
+						desc = ""
+						picture = "gfx/leaders/generic_communist_militia.dds"
+						expire = "1965.1.1"
+						ideology = stalinism_idolg
+						traits = {
+							communist_totalitarian
+						}
+				}
+			if = {
+				limit = {
+					has_country_flag = PRK_soviet_support_for_coup
+				}
+					add_timed_idea = {
+						idea = PRK_effects_of_the_coup
+						days = 365
+					}
+				
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = PRK_soviet_support_for_coup }
+				}
+
+					start_civil_war = {
+						ruling_party = ROOT
+						ideology = communism
+						keep_political_leader = yes
+						size = 0.1
+						states_filter = { impassable = no }
+						compute_proxy_score = yes
+						
+					}
+				compute_proxy_score = yes
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_support_yanan_faction
+		available = {
+			country_exists = PRC
+			PRC = { has_government = ROOT }
+		}
+		icon = GFX_invite_faction_prc
+		x = -1
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		mutually_exclusive = { focus = PRK_support_soviet_faction } 
+		prerequisite = { focus = PRK_depose_kim_il_song }
+		relative_position_id = PRK_depose_kim_il_song
+		completion_reward = {
+			add_opinion_modifier = {
+				target = PRC
+				modifier = revolutionary_brothers
+			}
+			reverse_add_opinion_modifier = {
+				target = PRC
+				modifier = revolutionary_brothers
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_embrace_maoism
+		available = {
+			country_exists = PRC
+			PRC = { has_government = ROOT }
+		}
+		icon = GFX_focus_prc_maoism
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = PRK_support_yanan_faction }
+		relative_position_id = PRK_support_yanan_faction
+		completion_reward = {
+			retire_country_leader = yes
+			create_country_leader = {
+						name = "Kim Tu-Bong"
+						desc = ""
+						picture = "kim tu bong leader.dds"
+						expire = "1965.1.1"
+						ideology = maoist_idolg
+						traits = {
+							communist_totalitarian
+							committed_maoist
+						}
+					}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_support_soviet_faction
+		available = {
+			
+		}
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		x = 1
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		mutually_exclusive = { focus = PRK_support_yanan_faction }
+		prerequisite = { focus = PRK_depose_kim_il_song }
+		relative_position_id = PRK_depose_kim_il_song
+		completion_reward = {
+			add_opinion_modifier = {
+				target = PRC
+				modifier = violated_treaty
+			}
+			reverse_add_opinion_modifier = {
+				target = PRC
+				modifier = violated_treaty
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = PRK_denounce_stalin
+		available = {
+			SOV = { has_government = communism }
+		}
+		icon = GFX_focus_dennounce_stalin
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = PRK_support_soviet_faction }
+		relative_position_id = PRK_support_soviet_faction
+		completion_reward = {
+			set_political_party = {
+				ideology = communism
+				popularity = 50
+			}
+			set_politics = {
+				ruling_party = communism
+			}
+			retire_country_leader = yes
+			create_country_leader = {
+						name = "Ho kai-i"
+						desc = ""
+						picture = "boom_ho_kai_leader.dds"
+						expire = "1965.1.1"
+						ideology = revisionist_idolg
+						traits = {
+							communist_reformist
+							committed_antistalinist
+						}
+					}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+#Industry
+	focus = {
+		id = PRK_korean_central_bank
+		available = {
+			
+		}
+		icon = GFX_goal_generic_consumer_goods
+		x = 25
+		y = 0
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = PRK_weak_economy
+				}
+				remove_ideas = PRK_weak_economy
+				
+			}
+			if = {
+				limit = {
+					has_idea = PRK_weak_economy_2
+				}
+				remove_ideas = PRK_weak_economy_2
+				
+			}
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_farm_collectivization
+		available = {
+			
+		}
+		icon = GFX_focus_communist_farming
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+		prerequisite = { focus = PRK_korean_central_bank }
+		relative_position_id = PRK_korean_central_bank
+		
+		completion_reward = {
+			add_resource = { type = crops amount = 15 state = 832 }
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_Kim_Chongtae_locomotive_works
+		available = {
+			
+		}
+		icon = GFX_goal_generic_construct_infrastructure
+		x = -2
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRK_korean_central_bank }
+		relative_position_id = PRK_korean_central_bank
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_expand_mines
+		available = {
+			has_full_control_of_state = 830
+		}
+		icon = GFX_focus_generic_tungsten
+		x = 2
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+		prerequisite = { focus = PRK_korean_central_bank }
+		relative_position_id = PRK_korean_central_bank
+		
+		completion_reward = {
+			add_resource = { type = tungsten amount = 15 state = 830 }
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_begin_3_year_plan
+		available = {
+			has_completed_focus = PRK_attack_the_south_1950
+			has_war = no
+		}
+		icon = GFX_focus_relocate_industry
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRK_farm_collectivization }
+		prerequisite = { focus = PRK_expand_mines }
+		prerequisite = { focus = PRK_Kim_Chongtae_locomotive_works }
+		relative_position_id = PRK_farm_collectivization
+		
+		completion_reward = {
+			add_timed_idea = {
+				idea = PRK_pyongyang_speed
+				days = 1095
+			}
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_repair_supung_dam
+		available = {
+			has_full_control_of_state = 829
+		}
+		icon = GFX_SOV_build_kakhovka_station
+		x = -2
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRK_begin_3_year_plan }
+		relative_position_id = PRK_begin_3_year_plan
+		
+		completion_reward = {
+			829 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_kim_chaek_steel_works
+		available = {
+			has_full_control_of_state = 527
+		}
+		icon = GFX_focus_generic_steel
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+		prerequisite = { focus = PRK_repair_supung_dam }
+		relative_position_id = PRK_repair_supung_dam
+		
+		completion_reward = {
+			add_resource = { type = steel amount = 20 state = 527 }
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_chollima_movement
+		available = {
+			
+		}
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRK_kim_chaek_steel_works }
+		relative_position_id = PRK_kim_chaek_steel_works
+		
+		completion_reward = {
+			add_ideas = PRK_chollima
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_kim_il_song_university
+		available = {
+			
+		}
+		icon = GFX_focus_research
+		x = -2
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+		prerequisite = { focus = PRK_chollima_movement }
+		relative_position_id = PRK_chollima_movement
+		
+		completion_reward = {
+			add_research_slot = 1
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_one_man_management_system
+		available = {
+			
+		}
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRK_chollima_movement }
+		relative_position_id = PRK_chollima_movement
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = PRK_chollima
+				add_idea = PRK_chollima_1
+			}
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_increase_textile_production
+		available = {
+			
+		}
+		icon = GFX_focus_generic_industry_3
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRK_begin_3_year_plan }
+		relative_position_id = PRK_begin_3_year_plan
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_increase_machine_tool_production
+		available = {
+			
+		}
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 2
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRK_begin_3_year_plan }
+		relative_position_id = PRK_begin_3_year_plan
+		
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_seek_help_from_USSR
+		available = {
+			SOV = {
+                custom_trigger_tooltip = {
+                    tooltip = "CW_STARTED_ECONOMIC_AID_TT"
+                    has_dynamic_modifier = {
+                        modifier = cw_aid_program_giver_dm
+                    }
+                }
+            }
+		}
+		icon = GFX_extend_comecon
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		mutually_exclusive = { focus = PRK_seek_help_from_china }
+		prerequisite = { focus = PRK_increase_machine_tool_production }
+		relative_position_id = PRK_increase_machine_tool_production
+		
+		completion_reward = {
+			SOV = { country_event = { days = 5 id = generic_events.10 } }
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_seek_help_from_china
+		available = {
+			country_exists = PRC
+			  PRC = {
+                custom_trigger_tooltip = {
+                    tooltip = "CW_STARTED_ECONOMIC_AID_TT"
+                    has_dynamic_modifier = {
+                        modifier = cw_aid_program_giver_dm
+                    }
+                }
+            }
+		}
+		icon = GFX_prc_shanghai_economic_program
+		x = 0
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		mutually_exclusive = { focus = PRK_seek_help_from_USSR }
+		prerequisite = { focus = PRK_increase_textile_production }
+		relative_position_id = PRK_increase_textile_production
+		
+		completion_reward = {
+			PRC = { country_event = { days = 5 id = generic_events.10 } }
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_reach_out_to_europe
+		available = {
+			
+		}
+		icon = GFX_SOV_establish_warsaw_pact
+		x = 1
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		prerequisite = { focus = PRK_seek_help_from_china focus = PRK_seek_help_from_USSR }
+		relative_position_id = PRK_seek_help_from_china
+		
+		completion_reward = {
+			custom_effect_tooltip = PRK_open_foreign_subsidized_factories_tt
+			hidden_effect = {
+				if = { 
+					limit = { 
+						country_exists = DDR
+						DDR = { has_opinion = { target = PRK value > 80 } } 
+					}
+					random_owned_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+					random_owned_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				if = { 
+					limit = { 
+						country_exists = POL
+						POL = { has_opinion = { target = PRK value > 80 } } 
+					}
+					random_owned_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+					random_owned_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				if = { 
+					limit = { 
+						country_exists = SOV
+						SOV = { has_opinion = { target = PRK value > 80 } } 
+					}
+					random_owned_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+					random_owned_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				if = { 
+					limit = { 
+						country_exists = ROM
+						ROM = { has_opinion = { target = PRK value > 80 } } 
+					}
+					random_owned_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+					random_owned_controlled_state = {
+						limit = {
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = yes
+							}
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_model_city_of_pyongyang
+		available = {
+			has_full_control_of_state = 527
+		}
+		icon = GFX_goal_generic_construct_civilian
+		x = -1
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRK_reach_out_to_europe }
+		relative_position_id = PRK_reach_out_to_europe
+		
+		completion_reward = {
+			527 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+	focus = {
+		id = PRK_model_city_of_hamhung
+		available = {
+			has_full_control_of_state = 830
+		}
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 1
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = PRK_reach_out_to_europe }
+		relative_position_id = PRK_reach_out_to_europe
+		
+		completion_reward = {
+			830 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+		}
+		ai_will_do = {
+			base = 1
+			
+		}
+	}
+}

@@ -1,0 +1,9 @@
+﻿l_english:
+ ### EMBARGO OPINION MODIFIERS ###
+ cw_embargo_trade:0 "Embargoing Us"
+ cw_embargo_relations_target:0 "Embargoing Us"
+ cw_embargo_relations_initiator:0 "Embargoing Them"
+ cw_embargo_lifter:0 "Lifted Embargo"
+ cw_trade_agreement:0 "Trade Agreement"
+ cw_trade_agreement_trade:0 "Trade Agreement"
+ cw_closed_trade:0 "$cw_closed_economy$"

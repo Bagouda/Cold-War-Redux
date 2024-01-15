@@ -1,0 +1,35 @@
+state = {
+	id=167
+	local_supplies=0.0 
+	name="STATE_167"
+	state_category = large_town
+	history = {
+ 	add_to_array = { list_victory_point = 6906 }
+ 	add_to_array = { list_victory_point = 4098 }
+ 	set_variable = { victory_point = 21 }
+		owner = SPR
+		add_core_of = SPR
+		
+		buildings = {
+			infrastructure = 4		
+			industrial_complex = 2
+			arms_factory = 1			
+			6906 = {
+				naval_base = 4	
+			}			
+		}			
+		victory_points = {
+			4098 1
+		}
+		victory_points = {
+			6906 20		#Valencia
+		}
+	}
+	resources={
+		crops = 10
+	}		
+	manpower = 1979294
+	provinces={
+		962 3799 3873 4098 6856 6906 6959 9889 9896 
+	}
+}

@@ -1,0 +1,127 @@
+characters={
+	####################################################################################################
+	######################################### Country Leader ###########################################
+	####################################################################################################
+	PER_mohammad_reza_shah = {
+		name = "Mohammad Reza Shah"
+		portraits = {
+			civilian = {
+				large = GFX_per_mohammadd_reza_shah_large
+			}
+		}
+		country_leader={
+			ideology = despotism
+			desc = ""
+			traits = { absolute_monarch cw_unrelenting_monarchist }
+			expire = 1975.4.5
+		}
+	}
+	PER_noureddin_alamouti = {
+		name = "Noureddin Alamouti"
+		portraits = {
+			civilian = {
+				large = GFX_per_noureddin_alamouti_large
+			}
+		}
+		country_leader={
+			ideology = stalinism_idolg
+			desc = ""
+			traits = {}
+			expire = 1965.3.5
+		}
+	}
+	PER_mohammad_mosaddegh = {
+		name = "Mohammad Mosaddegh"
+		portraits = {
+			civilian = {
+				large = GFX_per_mohammad_mosaddegh_large
+				small = GFX_per_mohammad_mosaddegh
+			}
+		}
+		country_leader={
+			ideology = democratic_neutrality_idolg
+			desc = ""
+			traits = {}
+			expire = 1965.3.5
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = per_hog_mohammad_mosaddegh
+			
+			allowed  = {
+				tag = PER
+			}
+			available = {	#Determines what player sees as requirments to use
+				unaligned_right < 0.5
+			}
+			traits  = {
+				cw_ideological_workaholic
+			}
+			visible = {
+				NOT = { has_country_flag = mossadegh_removed }			
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}		
+	}	
+	####################################################################################################
+	######################################### Deputy Minister ##########################################
+	####################################################################################################	
+	PER_hog_fazlollah_zahedi = {
+		name = per_hog_fazlollah_zahedi
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_per_fazlollah_zahedi
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = per_hog_fazlollah_zahedi
+			
+			allowed  = {
+				tag = PER
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = unaligned_right
+			}
+			traits  = {
+				monarchist 
+			}
+			visible = {
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	####################################################################################################
+	######################################### Foreign Minister #########################################
+	####################################################################################################
+	####################################################################################################
+	######################################### Defense Minister #########################################
+	####################################################################################################
+	####################################################################################################
+	######################################## Treasury Minister #########################################
+	####################################################################################################	
+	####################################################################################################
+	###################################### Head of Intelligence ########################################
+	####################################################################################################
+	####################################################################################################
+	######################################### Chief of Staff ###########################################
+	####################################################################################################
+	####################################################################################################
+	################################## Generals and Field Marshals #####################################
+	####################################################################################################	
+}

@@ -1,0 +1,27 @@
+state = {
+	id=228
+	local_supplies=0.0 
+	name="STATE_228" # Voroshilovgrad
+	state_category = devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 9461 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_core_of = UKR
+		
+		victory_points = {
+			9461 1
+		}
+	}
+	resources={
+		crops=3
+	}	
+	manpower = 1167411
+	provinces={
+		523 547 570 6505 6519 9446 9461 9476 11487 11513 
+	}
+}

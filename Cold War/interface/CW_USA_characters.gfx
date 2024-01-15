@@ -1,0 +1,289 @@
+spriteTypes = {
+	###############################################################################################
+	################################## USA Political Characters ###################################
+	###############################################################################################
+	spriteType = {
+		name = "GFX_usa_harry_truman"
+		texturefile = "gfx/leaders/USA/USAH1.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_dwight_d_eisenhower_civilian_large"
+		texturefile = "gfx/leaders/USA/usa_dwight_d_eisenhower_civilian_large.dds"
+	}	
+	###	
+	spriteType = {
+		name = "GFX_usa_fm_henry_kissinger"
+		texturefile = "gfx/interface/ministers/usa/usa_fm_henry_kissinger.dds"
+	}	
+	spriteType = {
+		name = "GFX_usa_tm_robert_bernard_anderson"
+		texturefile = "gfx/interface/ministers/usa/usa_tm_robert_bernard_anderson.dds"
+	}	
+	spriteType = {
+		name = "GFX_usa_tm_george_humphrey"
+		texturefile = "gfx/interface/ministers/usa/usa_tm_george_humphrey.dds"
+	}	
+	spriteType = {
+		name = "GFX_usa_tm_john_snyder"
+		texturefile = "gfx/interface/ministers/usa/usa_usa_tm_john_snyder.dds"
+	}		
+	spriteType = {
+		name = "GFX_usa_dm_thomas_gates_jr"
+		texturefile = "gfx/interface/ministers/usa/usa_dm_thomas_gates_jr.dds"
+	}		
+	spriteType = {
+		name = "GFX_usa_dm_neil_mcelroy"
+		texturefile = "gfx/interface/ministers/usa/usa_dm_neil_mcelroy.dds"
+	}		
+	spriteType = {
+		name = "GFX_usa_dm_charles_wilson"
+		texturefile = "gfx/interface/ministers/usa/usa_dm_charles_wilson.dds"
+	}		
+	spriteType = {
+		name = "GFX_usa_dm_robert_lovett"
+		texturefile = "gfx/interface/ministers/usa/usa_dm_robert_lovett.dds"
+	}	
+	spriteType = {
+		name = "GFX_usa_dm_louis_johnson"
+		texturefile = "gfx/interface/ministers/usa/usa_dm_louis_johnson.dds"
+	}	
+	spriteType = {
+		name = "GFX_usa_hog_alben_barkley"
+		texturefile = "gfx/interface/ministers/usa/usa_hog_alben_barkley.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_hog_richard_nixon"
+		texturefile = "gfx/interface/ministers/usa/usa_hog_richard_nixon.dds"
+	}
+	###
+	spriteType = {
+		name = "GFX_usa_fm_christian_herter"
+		texturefile = "gfx/interface/ministers/usa/usa_fm_christian_herter.dds"
+	}		
+	spriteType = {
+		name = "GFX_usa_fm_john_foster_dulles"
+		texturefile = "gfx/interface/ministers/usa/usa_fm_john_foster_dulles.dds"
+	}	
+	spriteType = {
+		name = "GFX_usa_fm_dean_acheson"
+		texturefile = "gfx/interface/ministers/usa/usa_fm_dean_acheson.dds"
+	}	
+	spriteType = {
+		name = "GFX_usa_fm_james_byrnes"
+		texturefile = "gfx/interface/ministers/usa/usa_fm_james_byrnes.dds"
+	}	
+	spriteType = {
+		name = "GFX_usa_fm_george_marshall"
+		texturefile = "gfx/interface/ministers/usa/usa_fm_george_marshall.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/ministers/usa/usa_fm_george_marshall.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 2.00				# in seconds
+			animationdelay = 30			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no		
+	}
+	spriteType = {
+		name = "GFX_usa_fm_arthur_vandenberg"
+		texturefile = "gfx/interface/ministers/usa/usa_fm_arthur_vandenberg.dds"
+	}	
+	spriteType = {
+		name = "GFX_usa_dm_james_forrestal"
+		texturefile = "gfx/interface/ministers/usa/usa_dm_james_forrestal.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_tm_fred_vinson"
+		texturefile = "gfx/interface/ministers/usa/usa_tm_fred_vinson.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_dwight_d_eisenhower_civilian_small"
+		texturefile = "gfx/interface/ministers/usa/usa_dwight_d_eisenhower_civilian_small.dds"
+	}	
+	#
+	spriteType = {
+		name = "GFX_usa_pa_john_steelman"
+		texturefile = "gfx/interface/ministers/usa/usa_pa_john_steelman.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_pa_alger_hiss"
+		texturefile = "gfx/interface/ministers/usa/usa_pa_alger_hiss.dds"
+	}	
+	spriteType = {
+		name = "GFX_usa_pa_sherman_adams"
+		texturefile = "gfx/interface/ministers/usa/usa_pa_sherman_adams.dds"
+	}
+	###############################################################################################
+	################################## USA Intelligence Heads #####################################
+	###############################################################################################
+	spriteType = {
+		name = "GFX_usa_roscoe_h_hillenkoetter"
+		texturefile = "gfx/interface/ministers/usa/usa_roscoe_h_hillenkoetter.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_walter_bedell_smith"
+		texturefile = "gfx/interface/ministers/usa/usa_walter_bedell_smith.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_allen_dulles"
+		texturefile = "gfx/interface/ministers/usa/usa_allen_dulles.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_john_a_mccone"
+		texturefile = "gfx/interface/ministers/usa/usa_john_a_mccone.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_hoyt_vandenberg"
+		texturefile = "gfx/interface/ministers/usa/usa_hoyt_vandenberg.dds"
+	}	
+	###############################################################################################
+	################################## USA Military Characters ####################################
+	###############################################################################################
+	spriteType = {
+		name = "GFX_usa_dwight_d_eisenhower_military_large"
+		texturefile = "gfx/leaders/USA/usa_dwight_d_eisenhower_military_large.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_dwight_d_eisenhower_military_small"
+		texturefile = "gfx/interface/ministers/usa/usa_dwight_d_eisenhower_military_small.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_douglas_macarthur_large"
+		texturefile = "gfx/leaders/USA/usa_douglas_macarthur_large.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_douglas_macarthur_small"
+		texturefile = "gfx/interface/ministers/usa/usa_douglas_macarthur_small.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_mark_w_clark_large"
+		texturefile = "gfx/leaders/USA/usa_mark_w_clark_large.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_mark_w_clark_small"
+		texturefile = "gfx/interface/ministers/usa/usa_mark_w_clark_small.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_chief_omar_bradley_large"
+		texturefile = "gfx/leaders/USA/USA_omar_bradley.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_chief_omar_bradley"
+		texturefile = "gfx/interface/ministers/usa/usa_chief_omar_bradley.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_chief_joseph_t_mcnarney"
+		texturefile = "gfx/interface/ministers/usa/usa_chief_joseph_t_mcnarney.dds"
+	}	
+	spriteType = {
+		name = "GFX_usa_chief_nathan_farragut_twining"
+		texturefile = "gfx/interface/ministers/usa/usa_chief_nathan_farragut_twining.dds"
+	}	
+	spriteType = {
+		name = "GFX_usa_chief_arthur_radford"
+		texturefile = "gfx/interface/ministers/usa/usa_chief_arthur_radford.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_chief_william_leahy"
+		texturefile = "gfx/interface/ministers/usa/usa_chief_william_leahy.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_admiral_arthur_radford_large"
+		texturefile = "gfx/leaders/USA/USA_admiral_arthur radford_large.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_mattew_ridgway_cc_large"
+		texturefile = "gfx/leaders/USA/USA_CC_767001.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_mattew_ridgway_cc_small"
+		texturefile = "gfx/interface/ministers/usa/USA_CC_767001_small.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_charles_w_ryder_cc_large"
+		texturefile = "gfx/leaders/USA/USA_CC_767002.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_charles_w_ryder_cc_small"
+		texturefile = "gfx/interface/ministers/usa/USA_CC_767002_small.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_lucian_truscott_cc_large"
+		texturefile = "gfx/leaders/USA/USA_CC_767004.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_lucian_truscott_cc_small"
+		texturefile = "gfx/interface/ministers/usa/USA_CC_767004_small.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_jacob_l_devers_cc_large"
+		texturefile = "gfx/leaders/USA/USA_CC_767007.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_jacob_l_devers_cc_small"
+		texturefile = "gfx/interface/ministers/usa/USA_CC_767007_small.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_leonard_t_gerow_cc_large"
+		texturefile = "gfx/leaders/USA/USA_CC_767009.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_leonard_t_gerow_cc_small"
+		texturefile = "gfx/interface/ministers/usa/USA_CC_767009_small.dds"
+	}
+	#### Admirals
+	spriteType = {
+		name = "GFX_usa_william_halsey_jr_large"
+		texturefile = "gfx/leaders/USA/usa_william_halsey_jr_large.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_william_halsey_jr_small"
+		texturefile = "gfx/interface/ministers/usa/usa_william_halsey_jr_small.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_chester_w_nimitz_large"
+		texturefile = "gfx/leaders/USA/USA_ADM_768001.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_chester_w_nimitz_small"
+		texturefile = "gfx/interface/ministers/usa/USA_ADM_768001_small.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_raymond_a_spruance_large"
+		texturefile = "gfx/leaders/USA/USA_ADM_768002.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_raymond_a_spruance_small"
+		texturefile = "gfx/interface/ministers/usa/USA_ADM_768002_small.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_jonas_h_ingram_large"
+		texturefile = "gfx/leaders/USA/USA_ADM_768004.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_jonas_h_ingram_small"
+		texturefile = "gfx/interface/ministers/usa/USA_ADM_768004_small.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_josepth_t_manarney_large"
+		texturefile = "gfx/leaders/USA/USAGER_1.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_josepth_t_manarney_small"
+		texturefile = "gfx/interface/ministers/usa/usa_chief_joseph_t_mcnarney.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_william_f_dean_large"
+		texturefile = "gfx/leaders/USA/USAKOR_2.dds"
+	}
+	spriteType = {
+		name = "GFX_usa_william_f_dean_small"
+		texturefile = "gfx/interface/ministers/usa/USAKOR_2_small.dds"
+	}	
+}

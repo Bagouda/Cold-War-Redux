@@ -1,0 +1,29 @@
+state = {
+	id=356
+	local_supplies=0.0 
+	name="STATE_356" # Kastamonu
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 6938 }
+ 	add_to_array = { list_victory_point = 6995 }
+ 	set_variable = { victory_point = 2 }
+		owner = TUR
+		add_core_of = TUR
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 3	
+		}	
+		
+		victory_points = {
+			6995 1 
+		}
+		victory_points = {
+			6938 1 
+		}
+	}
+	manpower = 860589
+	provinces={
+		979 3967 3982 6920 6938 6978 6995 9844 9871 11839 11897 
+	}
+}

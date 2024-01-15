@@ -1,0 +1,58 @@
+crisis_national = {
+	fra_military_takeover_mission = {
+
+		icon = GFX_decision_generic_police_action
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ""
+				always = no
+			}		
+		}
+
+		visible = {
+		}
+		
+		target_trigger = {
+			always = no
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				is_controlled_by = FROM
+				is_capital = yes
+			}
+		}		
+
+		fire_only_once = yes
+		selectable_mission = no
+		is_good = no
+		days_mission_timeout = 120
+		
+		activation = { always = no }
+
+		cancel_trigger = {}
+		
+		timeout_effect = {
+			start_civil_war = {
+				ideology = unaligned_right
+				keep_political_leader = yes
+				size = 0.05
+				states_filter = {
+					impassable = no
+				}
+				compute_proxy_score = yes
+				
+			}	
+				compute_proxy_score = yes			
+		}
+		
+		complete_effect = {
+			add_stability = 0.5
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

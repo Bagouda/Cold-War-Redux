@@ -1,0 +1,60 @@
+decolonization_redeployment_fra = {
+
+	enable = {
+		tag = FRA
+		has_global_flag = decolonization_started
+	}
+	abort_when_not_enabled = yes
+	
+
+	ai_strategy = {
+		type = area_priority
+		id = africa
+		value = 1000
+	}
+}
+decolonization_redeployment_eng = {
+
+	enable = {
+		tag = ENG
+		has_global_flag = decolonization_started
+	}
+	abort_when_not_enabled = yes
+	
+
+	ai_strategy = {
+		type = area_priority
+		id = africa
+		value = 1000
+	}
+}
+decolonization_redeployment_por = {
+
+	enable = {
+		tag = POR
+		has_global_flag = decolonization_started
+	}
+	abort_when_not_enabled = yes
+	
+
+	ai_strategy = {
+		type = area_priority
+		id = africa
+		value = 1000
+	}
+}
+decolonization_redeployment_spr = {
+
+	enable = {
+		tag = SPR
+		has_global_flag = decolonization_started
+	}
+	abort_when_not_enabled = yes
+	
+
+	ai_strategy = {
+		type = area_priority
+		id = africa
+		value = 1000
+	}
+}

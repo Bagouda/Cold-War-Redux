@@ -1,0 +1,22 @@
+state = {
+	id=557
+	local_supplies=0.0 
+	name="STATE_557" # Mauritania
+	state_category = pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 5034 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = FRA
+		add_claim_by = MRA
+		victory_points = {
+			5034 1
+		}
+	}
+	manpower = 112500
+	provinces={
+		5034 5077 7992  
+	}
+}

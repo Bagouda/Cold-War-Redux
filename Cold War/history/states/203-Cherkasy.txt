@@ -1,0 +1,29 @@
+state = {
+	id=203
+	local_supplies=0.0 
+	name="STATE_203"
+	state_category = large_town
+	history = {
+ 	add_to_array = { list_victory_point = 488 }
+ 	set_variable = { victory_point = 5 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = UKR
+		add_core_of = SOV
+		add_core_of = UKR
+		1950.6.25 = {
+			owner = SOV
+		}		
+		victory_points = {
+			488 5
+		}
+	}
+	resources={
+		crops = 3
+	}		
+	manpower = 2405190
+	provinces={
+		434 458 488 3452 3468 6451 6478 9451 9491 11409 11424 11438 11454 11530 
+	}
+}

@@ -1,0 +1,16 @@
+state = {
+	id=516
+	local_supplies=0.0 
+	name="STATE_516" # Northwestern Siberia
+	state_category = wasteland
+	impassable = yes	
+	history = {
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+	}
+	manpower = 43948
+	provinces={
+		96 1729 2900 2923 2972 3336 4692 4761 4812 4859 6085 7809 9224 10564 10607 10635 11122 11261 11328 12517 12545 12643 12687 13060 13064 13065 
+	}
+}

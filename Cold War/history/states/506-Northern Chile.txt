@@ -1,0 +1,30 @@
+state = {
+	id=506
+	local_supplies=0.0 
+	name="STATE_506" # Antofagasta
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 12994 }
+ 	set_variable = { victory_point = 5 }
+		owner = CHL
+		add_core_of = CHL
+		
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+			12994 = {
+				naval_base = 1
+			}			
+		}		
+		victory_points = {
+			12994 5
+		}
+	}
+	resources={
+		crops = 10
+	}	
+	manpower = 283605
+	provinces={
+		5131 5146 5171 5192 5228 8217 8231 11000 12914 12994 
+	}
+}

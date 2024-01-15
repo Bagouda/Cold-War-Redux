@@ -1,0 +1,120 @@
+﻿capital = 799
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	leave_faction = yes
+	set_country_flag = decolonization
+	set_cosmetic_tag = UK_COL # British Singapore
+	set_politics = {
+		ruling_party = colonial
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 50
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  50
+	}
+	create_country_leader = {
+		name = "Sir William Goode"
+		desc = ""
+		picture = SGPCG3.dds
+		ideology = colonial_government
+		expire = 1959.6.3
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Sir John Fearns Nicoll"
+		desc = ""
+		picture = SGPCG2.dds
+		ideology = colonial_government
+		expire = 1955.6.2
+		traits = {}
+	}		
+	create_country_leader = {
+		name = "Sir Franklin Gimson"
+		desc = ""
+		picture = SGPCG1.dds
+		ideology = colonial_government
+		expire = 1952.3.20
+		traits = {}
+	}	
+}
+
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+}
+1956.10.29 = {	#Suez Crisis
+	create_country_leader = {
+		name = "Sir Robert Black"
+		desc = ""
+		picture = SGPCG4.dds
+		ideology = colonial_government
+		expire = 1957.12.9
+		traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1959.7.5"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 54
+		democratic_socialist = 30
+		neutrality = 0
+		communism_totalitarian = 16
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Lee Kuan Yew"
+		desc = ""
+		picture = SGPH5.dds
+		ideology = social_cons_idolg
+		expire = 1957.12.9
+		traits = {}
+	}
+}
+1963.9.16 = {
+	drop_cosmetic_tag = yes
+	clr_country_flag = decolonization
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1976.12.23"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 100
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1988.9.3"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 65
+		democratic_socialist = 38
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}		
+}

@@ -1,0 +1,24 @@
+state={
+	id=791
+	local_supplies=0.0 
+	name="STATE_791"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 9874 }
+ 	set_variable = { victory_point = 5 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = YUG
+		add_core_of = YUG
+		add_claim_by = SER
+		victory_points = {
+			9874 5
+		}
+	}	
+	provinces={
+		6940 9849 9874 
+	}
+	manpower=100000
+	buildings_max_level_factor=1.000
+}

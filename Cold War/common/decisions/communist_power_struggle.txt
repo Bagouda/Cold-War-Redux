@@ -1,0 +1,1612 @@
+soviet_power_struggle = {
+	post_stalin_power_struggle = {
+		icon = GFX_broken_communist_star_decision_icon
+		priority = 10
+		allowed = { always = no }
+		available = {
+			if = {
+				limit = {
+					has_completed_focus = SOV_anti_stalin_camp
+				}
+				AND = {
+					communism > 0.60
+					custom_trigger_tooltip = {
+						tooltip = PSPS_UNLOCK_REFORM_FOCUSES_BOTH_TRIGGER_TT
+						OR = {
+							AND = {
+								has_country_flag = back_second_candidate
+								check_variable = { var = country_ref_second_option_votes_percent value = 70 compare = greater_than_or_equals }
+							}
+							AND = {
+								has_country_flag = back_fourth_candidate
+								check_variable = { var = country_ref_fourth_option_votes_percent value = 70 compare = greater_than_or_equals }
+							}
+						}
+					}					
+				}
+				else = {
+					communism_totalitarian > 0.60
+					custom_trigger_tooltip = {
+						tooltip = PSPS_UNLOCK_REFORM_FOCUSES_BOTH_TRIGGER_TT
+						OR = {
+							AND = {
+								has_country_flag = back_first_candidate
+								check_variable = { var = country_ref_first_option_votes_percent value = 70 compare = greater_than_or_equals }
+							}
+							AND = {
+								has_country_flag = back_third_candidate
+								check_variable = { var = country_ref_third_option_votes_percent value = 70 compare = greater_than_or_equals }
+							}
+						}
+					}					
+				}
+			}
+		}
+		cancel_trigger = {
+		}
+		activation = { always = no }
+		days_mission_timeout = 800
+		is_good = no
+		fire_only_once = yes
+
+		timeout_effect = {
+			add_named_threat = { threat = 20 name = "Soviet Civil War" }
+			set_global_flag = soviet_civil_war_enabled
+			set_country_flag = post_stalin_communist_power_finished
+			if = {
+				limit = {
+					PRC = { is_puppet_of = ROOT }
+				}
+				end_puppet = PRC
+			}
+			dismantle_faction = yes
+			if = {
+				limit = {
+					has_country_flag = back_first_candidate
+				}					
+				start_civil_war = {
+					ideology = communism
+					keep_political_leader = yes
+					size = var:party_popularity@communism
+					states_filter = { impassable = no }
+				}
+				every_country = { limit = { civilwar_target = ROOT has_war_with = ROOT } set_cosmetic_tag = SOV_REB }
+			}
+			if = {
+				limit = {
+					has_country_flag = back_second_candidate
+				}
+				set_politics = {
+					ruling_party = communism
+					last_election = "1930.11.9"		#Yeah whatever
+					election_frequency = 48
+					elections_allowed = no
+				}
+				hidden_effect = {
+					set_party_name = {
+						ideology = communism_totalitarian 
+						long_name = "Communist Party Stalinists"
+						name = "Anti Party Group"
+					}
+					set_party_name = {
+						ideology = communism 
+						long_name = "Communist Party of the Soviet Union"
+						name = "CPSU"
+					}
+				}
+				retire_country_leader = yes
+				add_country_leader_role = { character = SOV_dm_beria }
+				start_civil_war = {
+					ideology = communism_totalitarian
+					keep_political_leader = yes
+					size = var:party_popularity@communism_totalitarian
+					states_filter = { impassable = no }
+				}
+				every_country = { limit = { civilwar_target = ROOT has_war_with = ROOT } set_cosmetic_tag = SOV_REB }					
+			}
+			if = {
+				limit = {
+					has_country_flag = back_third_candidate
+				}
+				retire_country_leader = yes
+				add_country_leader_role = { character = SOV_fm_vyacheslav_molotov }				
+				start_civil_war = {
+					ideology = communism
+					keep_political_leader = yes
+					size = var:party_popularity@communism
+					states_filter = { impassable = no }
+				}
+				every_country = { limit = { civilwar_target = ROOT has_war_with = ROOT } set_cosmetic_tag = SOV_REB }
+			}
+			if = {
+				limit = {
+					has_country_flag = back_fourth_candidate
+				}
+				set_politics = {
+					ruling_party = communism
+					last_election = "1930.11.11"		#Yeah whatever
+					election_frequency = 48
+					elections_allowed = no
+				}
+				hidden_effect = {
+					set_party_name = {
+						ideology = communism_totalitarian 
+						long_name = "Communist Party Stalinists"
+						name = "Anti Party Group" 
+					}
+					set_party_name = {
+						ideology = communism 
+						long_name = "Communist Party of the Soviet Union"
+						name = "CPSU" 
+					}
+				}
+				retire_country_leader = yes
+				add_country_leader_role = { character = SOV_nikita_khrushchev }
+				start_civil_war = {
+					ideology = communism_totalitarian
+					keep_political_leader = yes
+					size = var:party_popularity@communism_totalitarian
+					states_filter = { impassable = no }
+				}
+				every_country = { limit = { civilwar_target = ROOT has_war_with = ROOT } set_cosmetic_tag = SOV_REB }					
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_government = communism
+					}
+					event_target:communist_reformist_leader = { clr_country_flag = communist_reformist_leader_flag }
+					event_target:communist_leader = { clr_country_flag = communist_leader_flag }
+					clear_global_event_target = communist_reformist_leader
+					clear_global_event_target = communist_leader
+					save_global_event_target_as = communist_reformist_leader				
+					set_country_flag = communist_reformist_leader_flag
+					set_global_flag = communist_reformist_aid_program_active
+					set_variable = { global.com_ref_aid_program_max_participants = 5 }
+					clear_variable = global.com_aid_program_max_participants
+					event_target:communist_leader = { clear_variable = economic_aid_program_participants }
+					clr_global_flag = communist_aid_program_active
+					if = {
+						limit = {
+							PRC = {
+								exists = yes
+								has_government = communism_totalitarian
+							}
+						}
+						PRC = {
+							save_global_event_target_as = communist_leader
+							set_country_flag = communist_leader_flag
+						}
+					}
+					every_country = {
+						limit = {
+							is_in_array = {
+								array = ROOT.aid_program_participants_array
+								value = THIS.id
+							}
+						}
+						clear_variable = communism_totalitarian_drift@ROOT
+						if = {
+							limit = {
+								check_variable = { economic_aid_level@ROOT = 1 }
+							}
+							set_variable = { communism_drift@ROOT = 0.05  }
+						}
+						if = {
+							limit = {
+								check_variable = { economic_aid_level@ROOT = 2 }
+							}
+							set_variable = { communism_drift@ROOT = 0.10  }
+						}
+						if = {
+							limit = {
+								check_variable = { economic_aid_level@ROOT = 3 }
+							}
+							set_variable = { communism_drift@ROOT = 0.15  }
+						}
+						if = {
+							limit = {
+								check_variable = { economic_aid_level@ROOT = 4 }
+							}
+							set_variable = { communism_drift@ROOT = 0.20  }
+						}
+					}
+				}
+				set_stability = 0.5
+				news_event = cw_non_historic_news.8
+				if = {
+					limit = {
+						NOT = { country_exists = EST }
+					}
+					########## EST DECLARING WAR ##########
+					random_owned_state = {
+						limit = {
+							is_core_of = EST
+						}
+						EST = { transfer_state = PREV }
+					}
+					random_country_with_original_tag = {
+						original_tag_to_check = SOV 
+						limit = {
+							has_civil_war = yes
+						}
+						save_event_target_as = cps_war_target
+					}
+					EST = {
+						add_ideas = cw_partially_recognized_state
+						set_politics = {
+							ruling_party = unaligned_right
+						}
+						set_political_party = {
+							ideology = unaligned_right
+							popularity = 50
+						}
+						declare_war_on = {
+							target = SOV
+							type = take_core_state
+							generator = { 13 }
+						}
+						declare_war_on = {
+							target = event_target:cps_war_target
+							type = take_core_state
+							generator = { 13 }
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { country_exists = LIT }
+					}				
+					########## LITHUANIA DECLARING WAR ##########
+					LIT = {
+						add_ideas = cw_partially_recognized_state
+						load_oob = LIT_1953
+						transfer_state = 188
+						transfer_state = 11
+						set_province_controller = 3288
+						set_province_controller = 9483
+						set_politics = {
+							ruling_party = unaligned_right
+						}
+						set_political_party = {
+							ideology = unaligned_right
+							popularity = 50
+						}
+						declare_war_on = {
+							target = SOV
+							type = take_core_state
+							generator = { 11 }
+						}
+						declare_war_on = {
+							target = event_target:cps_war_target
+							type = take_core_state
+							generator = { 11 }
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { country_exists = LAT }
+					}
+					########## LAT DECLARING WAR ##########
+					LAT = {
+						transfer_state = 190
+						add_ideas = cw_partially_recognized_state
+						load_oob = LAT_1953
+						set_politics = {
+							ruling_party = unaligned_right
+						}
+						set_political_party = {
+							ideology = unaligned_right
+							popularity = 50
+						}
+						declare_war_on = {
+							target = SOV
+							type = take_core_state
+							generator = { 12 }
+						}
+						declare_war_on = {
+							target = event_target:cps_war_target
+							type = take_core_state
+							generator = { 12 }
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { country_exists = UKR }
+					}				
+					########## UKRAINE DECLARING WAR ##########
+					UKR = {
+						add_timed_idea = { idea = cw_revolutionary_zeal days = 180 }
+						cw_make_unrecognized = yes
+						set_capital = { state = 91 }
+						transfer_state = 73
+						transfer_state = 89
+						transfer_state = 91
+						transfer_state = 199
+						transfer_state = 93
+						transfer_state = 201
+						transfer_state = 198
+						transfer_state = 192
+						set_province_controller = 3543
+						set_province_controller = 504
+						set_province_controller = 3494
+						load_oob = UKR_1953				
+						set_politics = {
+							ruling_party = unaligned_right
+						}
+						set_political_party = {
+							ideology = unaligned_right
+							popularity = 50
+						}
+						declare_war_on = {
+							target = SOV
+							type = take_core_state
+							generator = { 202 766 197 203 193 259 226 196 200 227 221 225 }
+						}
+						declare_war_on = {
+							target = event_target:cps_war_target
+							type = take_core_state
+							generator = { 202 766 197 203 193 259 226 196 200 227 221 225 }
+						}
+					}
+				}
+				random_list = {
+					25 = {
+						news_event = { id = cw_non_historic_news.11 days = 30 }
+						country_event = { id = sov_events.7 days = 30 }
+					}
+					25 = {
+						news_event = { id = cw_non_historic_news.11 days = 60 }
+						country_event = { id = sov_events.7 days = 60 }
+					}
+					25 = {
+						news_event = { id = cw_non_historic_news.11 days = 90 }
+						country_event = { id = sov_events.7 days = 90 }
+					}
+					25 = {
+						news_event = { id = cw_non_historic_news.11 days = 120 }
+						country_event = { id = sov_events.7 days = 120 }
+					}					
+				}
+				############## FLAGS AND VARS CLEARING ##############
+				remove_mission = post_stalin_power_struggle				
+				clr_country_flag = communist_power_struggle_initiator
+				clr_country_flag = post_stalin_communist_power_struggle
+				clear_array = communist_power_struggle_1_array
+				clr_country_flag = cps_favor_first_candiate
+				clr_country_flag = cps_favor_second_candiate
+				clr_country_flag = cps_favor_third_candiate
+				clr_country_flag = cps_favor_fourth_candiate				
+				clear_variable = exempted_city_name
+				clear_variable = ref_cs_first_option
+				clear_variable = ref_cs_second_option
+				clear_variable = ref_cs_third_option
+				clear_variable = ref_cs_fourth_option
+				clear_variable = country_ref_first_option_votes_percent
+				clear_variable = country_ref_second_option_votes_percent
+				clear_variable = country_ref_third_option_votes_percent
+				clear_variable = country_ref_fourth_option_votes_percent
+				clr_country_flag = communist_power_struggle
+				clr_country_flag = second_option_occupied
+				clr_country_flag = third_option_occupied
+				clr_country_flag = fourth_option_occupied
+				clr_country_flag = back_first_candidate
+				clr_country_flag = back_second_candidate
+				clr_country_flag = back_third_candidate
+				clr_country_flag = back_fourth_candidate				
+				cw_ref_clear_junk = yes
+			}
+		}
+		complete_effect = {
+			add_stability = 0.3
+			set_country_flag = post_stalin_communist_power_finished			
+			if = {
+				limit = {
+					has_country_flag = back_first_candidate
+				}
+				set_politics = {
+					ruling_party = communism_totalitarian
+					last_election = "1930.11.9"		#Yeah whatever
+					election_frequency = 48
+					elections_allowed = no
+				}
+				hidden_effect = {
+					set_party_name = {
+						ideology = communism_totalitarian 
+						long_name = "Communist Party of the Soviet Union"
+						name = "CPSU" 
+					}
+					set_party_name = {
+						ideology = communism 
+						long_name = "Communist Party Revisionists"
+						name = "Anti Party Group" 
+					}
+				}
+				create_country_leader = {
+					name = "Georgy Malenkov"
+					desc = ""
+					picture = "SOVH3_NH_4.dds"
+					ideology = stalinism_idolg
+					expire = 1988.1.14
+					traits = { mild_reformer_malenkov }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = back_second_candidate
+				}
+				set_politics = {
+					ruling_party = communism
+					last_election = "1930.11.9"		#Yeah whatever
+					election_frequency = 48
+					elections_allowed = no
+				}
+				hidden_effect = {
+					set_party_name = {
+						ideology = communism_totalitarian 
+						long_name = "Communist Party Stalinists"
+						name = "Anti Party Group" 
+					}
+					set_party_name = {
+						ideology = communism 
+						long_name = "Communist Party of the Soviet Union"
+						name = "CPSU" 
+					}
+				}
+				if = {
+					limit = {
+						has_dlc = "La Resistance"
+					}
+					create_country_leader = {
+						name = "Lavrentiy Beria"
+						desc = ""
+						picture = "SOVH3_NH_3.dds"
+						ideology = revisionist_idolg
+						expire = 1989.3.17
+						traits = { schemer_beria_lar }
+					}
+					else = {
+						create_country_leader = {
+							name = "Lavrentiy Beria"
+							desc = ""
+							picture = "SOVH3_NH_3.dds"
+							ideology = revisionist_idolg
+							expire = 1989.3.17
+							traits = { schemer_beria_no_lar }
+						}
+					}
+				}
+			}				
+			if = {
+				limit = {
+					has_country_flag = back_third_candidate
+				}
+				set_politics = {
+					ruling_party = communism_totalitarian
+					last_election = "1930.11.9"		#Yeah whatever
+					election_frequency = 48
+					elections_allowed = no
+				}
+				hidden_effect = {
+					set_party_name = {
+						ideology = communism_totalitarian 
+						long_name = "Communist Party of the Soviet Union"
+						name = "CPSU" 
+					}
+					set_party_name = {
+						ideology = communism 
+						long_name = "Communist Party Revisionists"
+						name = "Anti Party Group" 
+					}
+				}
+				create_country_leader = {
+					name = "Vyacheslav Molotov"
+					desc = ""
+					picture = "SOVH3_NH_2.dds"
+					ideology = stalinism_idolg
+					expire = 1986.11.8
+					traits = { experienced_diplomat_molotov }
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = back_fourth_candidate
+				}
+				set_politics = {
+					ruling_party = communism
+					last_election = "1930.11.11"		#Yeah whatever
+					election_frequency = 48
+					elections_allowed = no
+				}
+				hidden_effect = {
+					set_party_name = {
+						ideology = communism_totalitarian 
+						long_name = "Communist Party Stalinists"
+						name = "Anti Party Group" 
+					}
+					set_party_name = {
+						ideology = communism 
+						long_name = "Communist Party of the Soviet Union"
+						name = "CPSU" 
+					}
+				}					
+				create_country_leader = {
+					name = "Nikita Khrushchev"
+					desc = ""
+					picture = "SOVH3.dds"
+					ideology = revisionist_idolg
+					expire = 1971.9.11
+					traits = { man_of_the_people_khrushev }
+				}
+			}
+			if = {
+				limit = {
+					has_government = communism
+				}
+				remove_ideas = sov_power_struggle_total_opposition
+				add_timed_idea = { idea = sov_power_struggle_total_opposition_minor days = 500 }
+			}
+			if = {
+				limit = {
+					has_government = communism_totalitarian
+				}
+				remove_ideas = sov_power_struggle_reform_opposition
+				add_timed_idea = { idea = sov_power_struggle_reform_opposition_minor days = 500 }
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_government = communism
+					}
+					event_target:communist_reformist_leader = { clr_country_flag = communist_reformist_leader_flag }
+					event_target:communist_leader = { clr_country_flag = communist_leader_flag }
+					clear_global_event_target = communist_reformist_leader
+					clear_global_event_target = communist_leader
+					save_global_event_target_as = communist_reformist_leader				
+					set_country_flag = communist_reformist_leader_flag
+					set_global_flag = communist_reformist_aid_program_active
+					set_variable = { global.com_ref_aid_program_max_participants = 5 }
+					clear_variable = global.com_aid_program_max_participants
+					event_target:communist_leader = { clear_variable = economic_aid_program_participants }
+					clr_global_flag = communist_aid_program_active
+					if = {
+						limit = {
+							PRC = {
+								exists = yes
+								has_government = communism_totalitarian
+							}
+						}
+						PRC = {
+							save_global_event_target_as = communist_leader
+							set_country_flag = communist_leader_flag
+						}
+					}
+					every_country = {
+						limit = {
+							is_in_array = {
+								array = ROOT.aid_program_participants_array
+								value = THIS.id
+							}
+						}
+						clear_variable = communism_totalitarian_drift@ROOT
+						if = {
+							limit = {
+								check_variable = { economic_aid_level@ROOT = 1 }
+							}
+							set_variable = { communism_drift@ROOT = 0.05  }
+						}
+						if = {
+							limit = {
+								check_variable = { economic_aid_level@ROOT = 2 }
+							}
+							set_variable = { communism_drift@ROOT = 0.10  }
+						}
+						if = {
+							limit = {
+								check_variable = { economic_aid_level@ROOT = 3 }
+							}
+							set_variable = { communism_drift@ROOT = 0.15  }
+						}
+						if = {
+							limit = {
+								check_variable = { economic_aid_level@ROOT = 4 }
+							}
+							set_variable = { communism_drift@ROOT = 0.20  }
+						}
+					}
+				}			
+				news_event = cw_historic_events.23
+				############## FLAGS AND VARS CLEARING ##############
+				remove_mission = post_stalin_power_struggle
+				clear_variable = exempted_city_name
+				clear_variable = ref_cs_first_option
+				clear_variable = ref_cs_second_option
+				clear_variable = ref_cs_third_option
+				clear_variable = ref_cs_fourth_option
+				clear_variable = country_ref_first_option_votes_percent
+				clear_variable = country_ref_second_option_votes_percent
+				clear_variable = country_ref_third_option_votes_percent
+				clear_variable = country_ref_fourth_option_votes_percent
+				clr_country_flag = communist_power_struggle
+				clr_country_flag = post_stalin_communist_power_struggle
+				clr_country_flag = second_option_occupied
+				clr_country_flag = third_option_occupied
+				clr_country_flag = fourth_option_occupied
+				clr_country_flag = back_first_candidate
+				clr_country_flag = back_second_candidate
+				clr_country_flag = back_third_candidate
+				clr_country_flag = back_fourth_candidate
+				cw_ref_clear_junk = yes
+			}
+		}
+	}
+	psps_buy_off_politburo_members_ref = {
+
+		icon = GFX_decision_hol_attract_foreign_investors
+		priority = 9
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = PSPS_BUY_OFF_POLITBURO_MEMBERS_REF_TRIGGER_TT
+				NOT = {
+					OR = {
+						AND = {
+							has_country_flag = back_first_candidate
+							check_variable = { var = country_ref_first_option_votes_percent value > 75 compare = greater_than_or_equals }
+						}
+						AND = {
+							has_country_flag = back_second_candidate
+							check_variable = { var = country_ref_second_option_votes_percent value > 75 compare = greater_than_or_equals }
+						}
+						AND = {
+							has_country_flag = back_third_candidate
+							check_variable = { var = country_ref_third_option_votes_percent value = 75 compare = greater_than_or_equals }
+						}
+						AND = {
+							has_country_flag = back_fourth_candidate
+							check_variable = { var = country_ref_fourth_option_votes_percent value = 75 compare = greater_than_or_equals }
+						}
+					}
+				}
+			}
+		}
+
+		visible = {
+			OR = {
+				has_completed_focus = SOV_appoint_khrushev
+				has_completed_focus = SOV_appoint_beria
+			}
+		}
+
+		fire_only_once = no
+
+		modifier = {
+			communism_drift = 0.10
+			political_power_gain = -0.10
+		}
+
+		days_remove = 10
+		days_re_enable = 0
+		
+		cost = 10
+
+		complete_effect = {
+			custom_effect_tooltip = PSPS_BUY_OFF_POLITBURO_MEMBERS_EFFECT_TT
+			hidden_effect = {
+				if = {
+					limit = {
+						is_ai = yes
+						is_historical_focus_on = yes
+					}
+					set_country_flag = override_randomizer
+					set_variable = { randomizer_override_value = 5 }
+					add_popularity = { ideology = communism popularity = 0.05 }					
+				}
+				if = {
+					limit = {
+						has_country_flag = back_second_candidate
+					}
+					cw_country_ref_update_second_option = yes
+				}				
+				if = {
+					limit = {
+						has_country_flag = back_fourth_candidate
+					}				
+					cw_country_ref_update_fourth_option = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = -50
+				OR = {
+					AND = {
+						has_country_flag = back_first_candidate
+						check_variable = { var = country_ref_first_option_votes_percent value > 75 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_second_candidate
+						check_variable = { var = country_ref_second_option_votes_percent value > 75 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_third_candidate
+						check_variable = { var = country_ref_third_option_votes_percent value = 75 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_fourth_candidate
+						check_variable = { var = country_ref_fourth_option_votes_percent value = 75 compare = greater_than_or_equals }
+					}
+				}
+			}
+		}
+	}
+	
+	psps_buy_off_politburo_members_stalinists = {
+
+		icon = GFX_decision_hol_attract_foreign_investors
+		priority = 9
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = PSPS_BUY_OFF_POLITBURO_MEMBERS_REF_TRIGGER_TT
+				NOT = {
+					OR = {
+						AND = {
+							has_country_flag = back_first_candidate
+							check_variable = { var = country_ref_first_option_votes_percent value > 90 compare = greater_than_or_equals }
+						}
+						AND = {
+							has_country_flag = back_second_candidate
+							check_variable = { var = country_ref_second_option_votes_percent value > 90 compare = greater_than_or_equals }
+						}
+						AND = {
+							has_country_flag = back_third_candidate
+							check_variable = { var = country_ref_third_option_votes_percent value = 90 compare = greater_than_or_equals }
+						}
+						AND = {
+							has_country_flag = back_fourth_candidate
+							check_variable = { var = country_ref_fourth_option_votes_percent value = 90 compare = greater_than_or_equals }
+						}
+					}
+				}
+			}
+		}
+
+		visible = {
+			OR = {
+				has_completed_focus = SOV_appoint_molotov
+				has_completed_focus = SOV_appoint_malenkov
+			}
+		}
+
+		fire_only_once = no
+
+		modifier = {
+			communism_totalitarian_drift = 0.12
+			political_power_gain = -0.10
+		}
+
+		days_remove = 10
+		days_re_enable = 0
+		
+		cost = 10
+
+		complete_effect = {
+			custom_effect_tooltip = PSPS_BUY_OFF_POLITBURO_MEMBERS_EFFECT_TT
+			hidden_effect = {
+				if = {
+					limit = {
+						is_ai = yes
+						is_historical_focus_on = yes
+					}
+					set_country_flag = override_randomizer
+					set_variable = { randomizer_override_value = 5 }
+				}
+				if = {
+					limit = {
+						has_country_flag = back_first_candidate
+					}
+					cw_country_ref_update_first_option = yes
+				}				
+				if = {
+					limit = {
+						has_country_flag = back_third_candidate
+					}				
+					cw_country_ref_update_third_option = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = -50
+				OR = {
+					AND = {
+						has_country_flag = back_first_candidate
+						check_variable = { var = country_ref_first_option_votes_percent value > 75 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_second_candidate
+						check_variable = { var = country_ref_second_option_votes_percent value > 75 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_third_candidate
+						check_variable = { var = country_ref_third_option_votes_percent value = 75 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_fourth_candidate
+						check_variable = { var = country_ref_fourth_option_votes_percent value = 75 compare = greater_than_or_equals }
+					}
+				}
+			}			
+		}
+	}	
+	
+	psps_take_over_state_planning_commitee_both = {		#https://en.wikipedia.org/wiki/Gosplan#Directors_of_Gosplan
+
+		icon = GFX_decision_hol_draw_up_staff_plans
+		priority = 8
+		fire_only_once = yes
+		cost = 100		
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "PSPS_TAKE_OVER_STATE_PLANNING_COMMITEE_BOTH_TT"			
+				OR = {
+					AND = {
+						has_country_flag = back_first_candidate
+						check_variable = { var = country_ref_first_option_votes_percent value = 30 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_second_candidate
+						check_variable = { var = country_ref_second_option_votes_percent value = 30 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_third_candidate
+						check_variable = { var = country_ref_third_option_votes_percent value = 30 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_fourth_candidate
+						check_variable = { var = country_ref_fourth_option_votes_percent value = 30 compare = greater_than_or_equals }
+					}
+				}
+			}
+		}
+
+		visible = {
+			has_country_flag = post_stalin_communist_power_struggle
+			OR = {
+				has_completed_focus = SOV_appoint_khrushev
+				has_completed_focus = SOV_appoint_beria
+				has_completed_focus = SOV_appoint_molotov
+				has_completed_focus = SOV_appoint_malenkov
+			}
+		}
+
+		complete_effect = {
+			set_country_flag = took_over_gosplan
+			if = {
+				limit = {
+					has_completed_focus = SOV_anti_stalin_camp
+				}
+				remove_ideas = sov_tm_alexei_kosygin
+				add_ideas = sov_tm_anastas_mikoyan
+				else = {
+					remove_ideas = sov_tm_alexei_kosygin
+					add_ideas = sov_tm_sov_maksim_saburov
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	cps_exempt_region_quaotas_both = {
+
+		icon = GFX_decision_eng_trade_unions_demand
+		priority = 8
+		
+		fire_only_once = no
+		is_good = yes
+		selectable_mission = yes
+		days_mission_timeout = 30
+		days_re_enable = 30
+		days_remove = 90
+		
+		highlight_states = { highlight_state_targets = { state = var:ROOT.exempted_city_name } }
+		
+		cost = 50
+		
+		activation = {
+			has_country_flag = post_stalin_communist_power_struggle
+			has_country_flag = took_over_gosplan
+		}			
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "PSPS_TAKE_OVER_STATE_PLANNING_COMMITEE_BOTH_TT"			
+				OR = {
+					AND = {
+						has_country_flag = back_first_candidate
+						check_variable = { var = country_ref_first_option_votes_percent value = 30 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_second_candidate
+						check_variable = { var = country_ref_second_option_votes_percent value = 30 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_third_candidate
+						check_variable = { var = country_ref_third_option_votes_percent value = 30 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_fourth_candidate
+						check_variable = { var = country_ref_fourth_option_votes_percent value = 30 compare = greater_than_or_equals }
+					}
+				}
+			}
+		}
+
+		visible = {
+			has_country_flag = took_over_gosplan
+		}
+		
+		modifier = {
+			civilian_factory_use = 10
+		}		
+
+		remove_effect = {
+			hidden_effect = {
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+						OR = {
+							has_state_category = large_city
+							has_state_category = metropolis
+							has_state_category = megalopolis
+						}
+					}
+					set_variable = { ROOT.exempted_city_name = THIS.id }
+				}
+			}
+		}
+
+		timeout_effect = {
+			custom_effect_tooltip = POWER_STRUGGLE_INF_INCREASE_TT
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = back_first_candidate
+					}
+					random_list = {
+						25 = {
+							set_country_flag = { flag = cps_favor_second_candiate value = 1 days = 25 }
+						}
+						25 = {
+							set_country_flag = { flag = cps_favor_third_candiate value = 1 days = 25 }
+						}
+						25 = {
+							set_country_flag = { flag = cps_favor_fourth_candiate value = 1 days = 25 }
+						}
+						25 = {}
+					}
+				}
+				if = {
+					limit = {
+						has_country_flag = back_second_candidate
+					}
+					random_list = {
+						25 = {
+							set_country_flag = { flag = cps_favor_first_candiate value = 1 days = 25 }
+						}
+						25 = {
+							set_country_flag = { flag = cps_favor_third_candiate value = 1 days = 25 }
+						}
+						25 = {
+							set_country_flag = { flag = cps_favor_fourth_candiate value = 1 days = 25 }
+						}
+						25 = {}
+					}
+				}
+				if = {
+					limit = {
+						has_country_flag = back_third_candidate
+					}
+					random_list = {
+						25 = {
+							set_country_flag = { flag = cps_favor_first_candiate value = 1 days = 25 }
+						}
+						25 = {
+							set_country_flag = { flag = cps_favor_second_candiate value = 1 days = 25 }
+						}
+						25 = {
+							set_country_flag = { flag = cps_favor_fourth_candiate value = 1 days = 25 }
+						}
+						25 = {}
+					}
+				}
+				if = {
+					limit = {
+						has_country_flag = back_fourth_candidate
+					}
+					random_list = {
+						25 = {
+							set_country_flag = { flag = cps_favor_first_candiate value = 1 days = 25 }
+						}
+						25 = {
+							set_country_flag = { flag = cps_favor_second_candiate value = 1 days = 25 }
+						}
+						25 = {
+							set_country_flag = { flag = cps_favor_third_candiate value = 1 days = 25 }
+						}
+						25 = {}
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = PSPS_CLAIM_PREMIERESHIP_TITLE_EFFECT_TT
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = back_first_candidate
+					}
+					set_country_flag = { flag = cps_favor_first_candiate value = 1 days = 80 }
+				}				
+				if = {
+					limit = {
+						has_country_flag = back_second_candidate
+					}				
+					set_country_flag = { flag = cps_favor_second_candiate value = 1 days = 80 }
+				}
+				if = {
+					limit = {
+						has_country_flag = back_third_candidate
+					}				
+					set_country_flag = { flag = cps_favor_third_candiate value = 1 days = 80 }
+				}
+				if = {
+					limit = {
+						has_country_flag = back_fourth_candidate
+					}				
+					set_country_flag = { flag = cps_favor_fourth_candiate value = 1 days = 80 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = -50
+				OR = {
+					AND = {
+						has_country_flag = back_first_candidate
+						check_variable = { var = country_ref_first_option_votes_percent value > 70 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_second_candidate
+						check_variable = { var = country_ref_second_option_votes_percent value > 70 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_third_candidate
+						check_variable = { var = country_ref_third_option_votes_percent value = 70 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_fourth_candidate
+						check_variable = { var = country_ref_fourth_option_votes_percent value = 70 compare = greater_than_or_equals }
+					}
+				}
+			}			
+		}
+	}
+	
+	psps_take_over_capital_party_hq_ref = {
+
+		icon = GFX_decision_generic_political_rally
+		priority = 7
+		cost = 100
+		fire_only_once = yes		
+
+		days_remove = 90
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "PSPS_TAKE_OVER_CAPITAL_PARTY_HQ_TT"
+				OR = {
+					AND = {
+						has_country_flag = back_fourth_candidate
+						check_variable = { var = country_ref_fourth_option_votes_percent value = 40 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_second_candidate
+						check_variable = { var = country_ref_second_option_votes_percent value = 40 compare = greater_than_or_equals }
+					}
+				}
+			}
+		}
+
+		visible = {
+			has_country_flag = post_stalin_communist_power_struggle
+			OR = {
+				has_completed_focus = SOV_appoint_khrushev
+				has_completed_focus = SOV_appoint_beria
+			}
+			OR = {
+				AND = {
+					has_country_flag = back_fourth_candidate
+					check_variable = { var = country_ref_fourth_option_votes_percent value = 31 compare = greater_than_or_equals }
+				}
+				AND = {
+					has_country_flag = back_second_candidate
+					check_variable = { var = country_ref_second_option_votes_percent value = 31 compare = greater_than_or_equals }
+				}
+			}
+		}
+		
+		modifier = {
+			communism_drift = 0.15
+			political_power_gain = -0.10
+		}		
+		
+		complete_effect = {
+			custom_effect_tooltip = PSPS_TAKE_OVER_CAPITAL_PARTY_HQ_DESC_EFFECT_TT
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				add_political_power = 175
+			}			
+			hidden_effect = {
+				set_country_flag = override_randomizer
+				set_variable = { randomizer_override_value = 5 }
+				if = {
+					limit = {
+						has_country_flag = back_second_candidate
+					}
+					cw_country_ref_update_second_option = yes
+				}				
+				if = {
+					limit = {
+						has_country_flag = back_fourth_candidate
+					}				
+					cw_country_ref_update_fourth_option = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	psps_take_over_capital_party_hq_stalinists = {
+
+		icon = GFX_decision_generic_political_rally
+		priority = 7
+		cost = 100
+		fire_only_once = yes		
+
+		days_remove = 90
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "PSPS_TAKE_OVER_CAPITAL_PARTY_HQ_TT"			
+				OR = {
+					AND = {
+						has_country_flag = back_first_candidate
+						check_variable = { var = country_ref_first_option_votes_percent value = 40 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_third_candidate
+						check_variable = { var = country_ref_third_option_votes_percent value = 40 compare = greater_than_or_equals }
+					}
+				}
+			}
+		}
+
+		visible = {
+			has_country_flag = post_stalin_communist_power_struggle
+			OR = {
+				has_completed_focus = SOV_appoint_molotov
+				has_completed_focus = SOV_appoint_malenkov
+			}
+			OR = {
+				AND = {
+					has_country_flag = back_third_candidate
+					check_variable = { var = country_ref_third_option_votes_percent value = 31 compare = greater_than_or_equals }
+				}
+				AND = {
+					has_country_flag = back_first_candidate
+					check_variable = { var = country_ref_first_option_votes_percent value = 31 compare = greater_than_or_equals }
+				}
+			}
+		}
+		
+		modifier = {
+			communism_totalitarian_drift = 0.15
+			political_power_gain = -0.10
+		}		
+		
+		complete_effect = {
+			custom_effect_tooltip = PSPS_TAKE_OVER_CAPITAL_PARTY_HQ_DESC_EFFECT_TT
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				add_political_power = 175
+			}			
+			hidden_effect = {
+				set_country_flag = override_randomizer
+				set_variable = { randomizer_override_value = 5 }
+				if = {
+					limit = {
+						has_country_flag = back_first_candidate
+					}
+					cw_country_ref_update_first_option = yes
+				}				
+				if = {
+					limit = {
+						has_country_flag = back_third_candidate
+					}				
+					cw_country_ref_update_third_option = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+
+	psps_claim_premiereship_title_ref = {
+
+		icon = GFX_puppet_decision_icon
+		priority = 6
+		cost = 150
+		fire_only_once = yes		
+
+		days_remove = 30
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "PSPS_CLAIM_PREMIERESHIP_TITLE_TT"
+				OR = {
+					AND = {
+						has_country_flag = back_fourth_candidate
+						check_variable = { var = country_ref_fourth_option_votes_percent value = 50 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_second_candidate
+						check_variable = { var = country_ref_second_option_votes_percent value = 50 compare = greater_than_or_equals }
+					}
+				}
+			}
+		}
+
+		visible = {
+			has_country_flag = post_stalin_communist_power_struggle
+			OR = {
+				has_country_flag = back_second_candidate
+				has_country_flag = back_fourth_candidate
+			}
+			OR = {
+				AND = {
+					has_country_flag = back_fourth_candidate
+					check_variable = { var = country_ref_fourth_option_votes_percent value = 41 compare = greater_than_or_equals }
+				}
+				AND = {
+					has_country_flag = back_second_candidate
+					check_variable = { var = country_ref_second_option_votes_percent value = 41 compare = greater_than_or_equals }
+				}
+			}
+		}
+		
+		modifier = {
+			communism_drift = 0.30
+			political_power_gain = 0.05
+		}		
+		
+		complete_effect = {
+			custom_effect_tooltip = PSPS_CLAIM_PREMIERESHIP_TITLE_EFFECT_TT
+			remove_ideas = sov_hog_georgi_malenkov
+			add_ideas = sov_hog_nikolai_bulganin
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				add_political_power = 175
+				else = {
+					add_political_power = 175
+				}
+			}
+			hidden_effect = {
+				add_ideas = sov_dm_zhukov
+				if = {
+					limit = {
+						has_country_flag = back_second_candidate
+					}
+					set_country_flag = cps_favor_second_candiate
+				}
+				if = {
+					limit = {
+						has_country_flag = back_fourth_candidate
+					}
+					set_country_flag = cps_favor_fourth_candiate
+				}				
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	psps_take_over_kremlin_guard_both = {
+
+		icon = GFX_decision_generic_prepare_civil_war
+		priority = 7
+		cost = 150
+		fire_only_once = yes
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "PSPS_TAKE_OVER_KREMLIN_GUARD_BORTH_REF_TT"			
+				OR = {
+					AND = {
+						has_country_flag = back_first_candidate
+						check_variable = { var = country_ref_first_option_votes_percent value = 60 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_second_candidate
+						check_variable = { var = country_ref_second_option_votes_percent value = 60 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_third_candidate
+						check_variable = { var = country_ref_third_option_votes_percent value = 60 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_fourth_candidate
+						check_variable = { var = country_ref_fourth_option_votes_percent value = 60 compare = greater_than_or_equals }
+					}
+				}
+			}
+		}
+
+		visible = {
+			has_country_flag = post_stalin_communist_power_struggle
+			OR = {
+				AND = {
+					has_country_flag = back_first_candidate
+					check_variable = { var = country_ref_first_option_votes_percent value = 51 compare = greater_than_or_equals }
+				}
+				AND = {
+					has_country_flag = back_second_candidate
+					check_variable = { var = country_ref_second_option_votes_percent value = 51 compare = greater_than_or_equals }
+				}
+				AND = {
+					has_country_flag = back_third_candidate
+					check_variable = { var = country_ref_third_option_votes_percent value = 51 compare = greater_than_or_equals }
+				}
+				AND = {
+					has_country_flag = back_fourth_candidate
+					check_variable = { var = country_ref_fourth_option_votes_percent value = 51 compare = greater_than_or_equals }
+				}					
+			}
+		}	
+		
+		complete_effect = {
+			custom_effect_tooltip = POWER_STRUGGLE_DEMOTE_RIVAL_DECISION_UNLOCK_TT
+			add_political_power = 100
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	psps_demote_rival_candidate = {
+
+		icon = GFX_decision_generic_political_discourse
+		priority = 8
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "PSPS_ARREST_CANDIDATE_TRIGGER_TT"
+				OR = {
+					AND = {
+						has_country_flag = back_first_candidate
+						check_variable = { var = country_ref_first_option_votes_percent value = 70 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_second_candidate
+						check_variable = { var = country_ref_second_option_votes_percent value = 70 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_third_candidate
+						check_variable = { var = country_ref_third_option_votes_percent value = 70 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_fourth_candidate
+						check_variable = { var = country_ref_fourth_option_votes_percent value = 70 compare = greater_than_or_equals }
+					}					
+				}
+			}
+		}
+
+		visible = {
+			has_country_flag = post_stalin_communist_power_struggle
+			NOT = { check_variable = { demoted_candidates = 2 } }
+			OR = {
+				AND = {
+					has_country_flag = back_first_candidate
+					check_variable = { var = country_ref_first_option_votes_percent value = 61 compare = greater_than_or_equals }
+				}
+				AND = {
+					has_country_flag = back_second_candidate
+					check_variable = { var = country_ref_second_option_votes_percent value = 61 compare = greater_than_or_equals }
+				}
+				AND = {
+					has_country_flag = back_third_candidate
+					check_variable = { var = country_ref_third_option_votes_percent value = 61 compare = greater_than_or_equals }
+				}
+				AND = {
+					has_country_flag = back_fourth_candidate
+					check_variable = { var = country_ref_fourth_option_votes_percent value = 61 compare = greater_than_or_equals }
+				}					
+			}			
+			AND = {
+				has_country_flag = communist_power_struggle
+				OR = {
+					has_country_flag = back_fourth_candidate
+					has_country_flag = back_third_candidate
+					has_country_flag = back_second_candidate
+					has_country_flag = back_first_candidate
+				}
+				NOT = {
+					count_triggers = {
+						amount = 3
+						has_country_flag = cps_first_candidate_arrested
+						has_country_flag = cps_second_candidate_arrested
+						has_country_flag = cps_third_candidate_arrested
+						has_country_flag = cps_fourth_candidate_arrested
+					}					
+				}
+			}
+		}
+
+		fire_only_once =  no
+		days_re_enable = 50
+
+		cost = 200
+
+		complete_effect = {
+			custom_effect_tooltip = "PSPS_ARREST_CANDIDATE_EFFECT_TT"
+			hidden_effect = {
+				add_to_variable = { demoted_candidates = 1 }
+				add_days_mission_timeout = {  mission = post_stalin_power_struggle days = -100 }
+				if = {
+					limit = {
+						NOT = { has_country_flag = cps_second_candidate_arrested }
+						has_completed_focus = SOV_the_old_guard
+						NOT = { has_country_flag = back_second_candidate }
+					}
+					set_country_flag = cps_second_candidate_arrested	#Beria Arrested
+					set_country_flag = second_option_disabled
+				}
+				else_if = {
+					limit = {
+						NOT = { has_country_flag = cps_first_candidate_arrested }
+						has_completed_focus = SOV_anti_stalin_camp
+						NOT = { has_country_flag = back_first_candidate }
+					}
+					set_country_flag = cps_first_candidate_arrested		#Malenkov Arrested
+					set_country_flag = first_option_disabled
+					add_ideas = sov_hog_nikolai_bulganin
+					add_ideas = sov_dm_zhukov
+				}
+				else_if = {
+					limit = {
+						NOT = { has_country_flag = cps_third_candidate_arrested }
+						has_completed_focus = SOV_anti_stalin_camp
+						NOT = { has_country_flag = back_third_candidate }
+					}
+					set_country_flag = cps_third_candidate_arrested			#Molotov Arrested
+					set_country_flag = third_option_disabled
+				}
+				else_if = {
+					limit = {
+						NOT = { has_country_flag = cps_fourth_candidate_arrested }	#Khrushev Arrested
+						has_completed_focus = SOV_the_old_guard
+						NOT = { has_country_flag = back_fourth_candidate }
+					}
+					set_country_flag = cps_fourth_candidate_arrested
+					set_country_flag = fourth_option_disabled
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	psps_unlock_reform_focuses_both = {
+
+		icon = GFX_govvernment_decision_icon
+		priority = 9
+		cost = 150
+		fire_only_once = yes
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "PSPS_UNLOCK_REFORM_FOCUSES_BOTH_TRIGGER_TT"			
+				OR = {
+					AND = {
+						has_country_flag = back_first_candidate
+						check_variable = { var = country_ref_first_option_votes_percent value = 75 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_second_candidate
+						check_variable = { var = country_ref_second_option_votes_percent value = 75 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_third_candidate
+						check_variable = { var = country_ref_third_option_votes_percent value = 75 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_fourth_candidate
+						check_variable = { var = country_ref_fourth_option_votes_percent value = 75 compare = greater_than_or_equals }
+					}
+				}
+			}
+		}
+
+		visible = {
+			has_country_flag = post_stalin_communist_power_struggle
+			OR = {
+				AND = {
+					has_country_flag = back_first_candidate
+					check_variable = { var = country_ref_first_option_votes_percent value = 61 compare = greater_than_or_equals }
+				}
+				AND = {
+					has_country_flag = back_second_candidate
+					check_variable = { var = country_ref_second_option_votes_percent value = 61 compare = greater_than_or_equals }
+				}
+				AND = {
+					has_country_flag = back_third_candidate
+					check_variable = { var = country_ref_third_option_votes_percent value = 61 compare = greater_than_or_equals }
+				}
+				AND = {
+					has_country_flag = back_fourth_candidate
+					check_variable = { var = country_ref_fourth_option_votes_percent value = 61 compare = greater_than_or_equals }
+				}					
+			}
+		}	
+		
+		complete_effect = {
+			add_political_power = 100
+			custom_effect_tooltip = POWER_STRUGGLE_UNLOCK_FOCUS_TT
+			hidden_effect = {
+				if = {
+					limit = {
+						has_completed_focus = SOV_anti_stalin_camp
+					}
+					unlock_national_focus = SOV_reformist_candidate_reforms
+					else = {
+						unlock_national_focus = SOV_old_guard_candidate_reforms
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

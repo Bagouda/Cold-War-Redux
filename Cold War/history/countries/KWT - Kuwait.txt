@@ -1,0 +1,65 @@
+﻿capital = 656
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	leave_faction = yes
+	set_cosmetic_tag = UK_PUP  # Kuwait as a protectorate
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 5
+		communism_totalitarian = 15
+		unaligned_right = 80
+		colonial =  0
+	}	
+	create_country_leader = {
+			name = "Ahmad I"
+			desc = ""
+			picture = "KUWH1.dds"
+			ideology = despotism
+			expire = 1950.1.29
+			traits = {}
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+	create_country_leader = {
+			name = "Sabah III"
+			desc = ""
+			picture = "KUWH3.dds"
+			ideology = despotism
+			expire = 1977.12.31
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Abdullah III"
+			desc = ""
+			picture = "KUWH2.dds"
+			ideology = despotism
+			expire = 1965.11.24
+			traits = {}
+	}
+}
+1956.10.29 = {	#Suez Crisis
+}
+1961.6.1 = { drop_cosmetic_tag = yes  }  # Kuwait as a protectorate
+1961.12.11 = {	#Vietnam War
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	create_country_leader = {
+			name = "Jaber III"
+			desc = ""
+			picture = "KUWH4.dds"
+			ideology = despotism
+			expire = 2006.1.15
+			traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+}

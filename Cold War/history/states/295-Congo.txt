@@ -1,0 +1,45 @@
+
+state={
+	id=295
+	local_supplies=0.0 
+	name="STATE_295"
+	resources={
+		tungsten=2.000
+		crops=10.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 6523 }
+ 	set_variable = { victory_point = 5 }
+		owner = BEL
+		add_claim_by = COG
+
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+				
+		1960.6.30 = {
+			owner = COG
+			add_core_of = COG
+			remove_core_of = BEL
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			6523 5		#Kabinda
+		}			
+	}
+
+	provinces={
+		1731 3918 3920 10858 3563 7741 4733 6523
+	}
+	manpower=1540948
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

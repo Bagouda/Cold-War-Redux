@@ -1,0 +1,109 @@
+﻿capital = 271
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_cosmetic_tag = ETH_MON
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 20
+		communism_totalitarian = 10
+		unaligned_right = 70
+		colonial =  0
+	}		
+	create_country_leader = {
+			name = "Tafari Benti"
+			desc = ""
+			picture = "ETHH4.dds"
+			ideology = stalinism_idolg
+			expire = 1985.9.12
+			traits = {}
+	}	
+	create_country_leader = {
+			name = "Aman Mikael Andom"
+			desc = ""
+			picture = "ETHH3.dds"
+			ideology = stalinism_idolg
+			expire = 1985.9.12
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Asfaw Wossen"
+			desc = ""
+			picture = "ETHH2.dds"
+			ideology = despotism
+			expire = 2000.9.12
+			traits = {}
+	}
+	create_country_leader = {
+		name = "Haile Selassie I"
+		desc = ""
+		picture = "ETHH1.dds"
+		ideology = despotism
+		expire = 1974.9.12
+		traits = { absolute_monarch }
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+}
+1950.12.1 = {
+	if = {
+		limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = ERI
+		autonomous_state = autonomy_wtt_imperial_subject
+		freedom_level = 0.0
+	}
+	else = {
+		puppet = ERI			
+		}
+	}
+}
+1956.10.29 = {	#Suez Crisis
+}
+1961.9.1 = {
+	if = {
+		limit = {
+		has_dlc = "Together for Victory"
+	}
+		set_autonomy = {
+		target = ERI
+		autonomous_state = autonomy_free
+		}
+	}
+}
+1961.12.11 = {	#Vietnam War
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = communism_totalitarian
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 20
+		communism_totalitarian = 70
+		unaligned_right = 10
+		colonial =  0
+	}	
+	create_country_leader = {
+			name = "Mengistu Haile Mariam"
+			desc = ""
+			picture = "ETHH5.dds"
+			ideology = stalinism_idolg
+			expire = 1991.5.21
+			traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+}

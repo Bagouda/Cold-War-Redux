@@ -1,0 +1,26 @@
+state = {
+	id=510
+	local_supplies=0.0 
+	name="STATE_510"
+	state_category = large_town
+	history = {
+ 	add_to_array = { list_victory_point = 7500 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = ARG
+		add_core_of = ARG
+		victory_points = {
+			7500 1 
+		}
+	}
+	resources={
+		oil=8 # was: 12
+		crops = 20
+	}
+	manpower = 3497169
+	provinces={
+		1449 2172 5163 7500 8187 8208 8238 10515 10943 10975 10985 11007 12453 12964 13000 
+	}
+}

@@ -1,0 +1,38 @@
+state={
+	id=183
+	local_supplies=0.0 
+	name="STATE_183"
+	resources={
+		chromium=3.000
+	}
+	history={
+ 	add_to_array = { list_victory_point = 7193 }
+ 	set_variable = { victory_point = 5 }
+		owner = CYP
+		add_core_of = CYP
+		
+		buildings = {
+			infrastructure = 1
+			air_base = 1
+			industrial_complex = 2
+			arms_factory = 1
+			dockyard  = 1
+			7193 = {	#British Port
+				naval_base = 1
+			}		
+		}
+		
+		victory_points = {
+			7193 5
+		}
+	}
+	resources={
+		crops = 2
+	}	
+	provinces={
+		7193 
+	}
+	manpower=173979
+	buildings_max_level_factor=1.000
+	state_category=city
+}

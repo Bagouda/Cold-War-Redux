@@ -1,0 +1,36 @@
+state={
+	id=736
+	local_supplies=0.0 
+	name="STATE_736"
+	history={
+ 	add_to_array = { list_victory_point = 11564 }
+ 	add_to_array = { list_victory_point = 6626 }
+ 	set_variable = { victory_point = 6 }
+		owner = YUG
+		add_core_of = YUG
+		add_claim_by = CRO
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 3
+			11564 = {
+				naval_base = 1
+			}			
+		}		
+		
+		victory_points = {
+			6626 1 
+		}
+		victory_points = {
+			11564 5
+		}		
+
+	}
+
+	provinces={
+		3592 3596 3601 11564 11735 
+	}
+	manpower=1063159
+	buildings_max_level_factor=1.000
+	state_category=city
+}

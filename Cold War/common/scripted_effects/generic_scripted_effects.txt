@@ -1,0 +1,801 @@
+cw_appoint_character_to_cabinet_effect = {
+	set_character_flag = serving_on_country_cabinet
+}
+
+cw_appoint_as_hog_effect = {
+	cw_appoint_character_to_cabinet_effect = yes
+	set_character_flag = serving_as_hog
+}
+
+cw_appoint_as_foreign_minister_effect = {
+	cw_appoint_character_to_cabinet_effect = yes
+	set_character_flag = serving_as_foreign_minister
+}
+
+cw_appoint_as_defense_minister_effect = {
+	cw_appoint_character_to_cabinet_effect = yes
+	set_character_flag = serving_as_defense_minister
+}
+
+cw_appoint_as_treasury_minister_effect = {
+	cw_appoint_character_to_cabinet_effect = yes
+	set_character_flag = serving_as_treasury_minister
+}
+
+cw_appoint_as_head_of_intelligence_minister_effect = {
+	cw_appoint_character_to_cabinet_effect = yes
+	set_character_flag = serving_as_head_of_intelligence
+}
+
+cw_appoint_as_chief_of_staff_effect = {
+	cw_appoint_character_to_cabinet_effect = yes
+	set_character_flag = serving_as_chief_of_staff
+}
+
+cw_remove_character_from_cabinet_effect = {
+	clr_character_flag = serving_on_country_cabinet
+}
+
+cw_remove_character_as_hog = {
+}
+
+cw_remove_character_as_foreign_minister = {
+}
+
+cw_remove_character_as_defense_minister = {
+}
+
+cw_remove_character_as_treasury_minister = {
+}
+
+cw_remove_character_as_head_of_intelligence = {
+}
+
+cw_remove_character_as_chief_of_staff = {
+}
+
+cw_unlock_insurgency_decisions = {
+	custom_effect_tooltip = CW_UNLOCK_INSURGENCY_DECISIONS_EFFECT_TT
+	ROOT = { 
+		set_variable = { our_insurgency_target = PREV }
+		if = {
+			limit = {
+				is_ai = no
+			}
+			top_bar_decisions_notification_new_state_decisions_available = yes
+		}
+	}	
+}
+cw_unlock_pacification_decisions = {
+	custom_effect_tooltip = CW_UNLOCK_PACIFICATION_DECISIONS_EFFECT_TT
+	ROOT = { 
+		set_variable = { pacification_target = PREV }
+		if = {
+			limit = {
+				is_ai = no
+			}
+			top_bar_decisions_notification_new_state_decisions_available = yes
+		}
+	}
+}
+cw_make_police_action_free_one_year = {
+	custom_effect_tooltip = CW_MAKE_POLICE_ACTION_FREE_ONE_YEAR_EFFECT_TT
+	set_state_flag = { flag = free_police_action value = 1 days = 365 }
+}
+cw_remove_deputy_advisor = {
+	custom_effect_tooltip = CW_REMOVE_DEPUTY_ADVISOR_EFFECT_TT
+	hidden_effect = {
+		if = {
+			limit = {
+				has_idea_with_trait = deputy_minister_trait
+			}
+		}
+		remove_ideas_with_trait = deputy_minister_trait
+	}
+}
+cw_remove_defense_advisor = {
+	custom_effect_tooltip = CW_REMOVE_DEFENCE_ADVISOR_EFFECT_TT
+	hidden_effect = {
+		if = {
+			limit = {
+				has_idea_with_trait = defense_minister_trait
+			}
+		}
+		remove_ideas_with_trait = defense_minister_trait
+	}
+}
+cw_remove_army_chief_advisor = {
+	custom_effect_tooltip = CW_REMOVE_ARMY_CHIEF_ADVISOR_EFFECT_TT
+	hidden_effect = {
+		if = {
+			limit = {
+				has_idea_with_trait = chief_of_staff_minister_trait
+			}
+		}
+		remove_ideas_with_trait = chief_of_staff_minister_trait
+	}
+}
+cw_remove_treasury_advisor = {
+	custom_effect_tooltip = CW_REMOVE_TREASURY_ADVISOR_EFFECT_TT
+	hidden_effect = {
+		if = {
+			limit = {
+				has_idea_with_trait = finance_minister_trait
+			}
+		}
+		remove_ideas_with_trait = finance_minister_trait
+	}
+}
+cw_remove_foreign_advisor = {
+	custom_effect_tooltip = CW_REMOVE_FOREIGN_ADVISOR_EFFECT_TT
+	hidden_effect = {
+		if = {
+			limit = {
+				has_idea_with_trait = foreign_minister_trait
+			}
+		}
+		remove_ideas_with_trait = foreign_minister_trait
+	}
+}
+cw_restrict_military_budget_change_one_year = {
+	custom_effect_tooltip = "CW_MILITARY_BUDGET_CHANGE_RESTRICTED_ONE_YEAR"
+	set_country_flag = { flag = military_budget_laws_blocked value = 1 days = 365 }
+}
+cw_restrict_military_budget_change_three_years = {
+	custom_effect_tooltip = "CW_MILITARY_BUDGET_CHANGE_RESTRICTED_THREE_YEAR"
+	set_country_flag = { flag = military_budget_laws_blocked value = 1 days = 1095 }
+}
+cw_restrict_military_budget_change_five_years = {
+	custom_effect_tooltip = "CW_MILITARY_BUDGET_CHANGE_RESTRICTED_GIVE_YEAR"
+	set_country_flag = { flag = military_budget_laws_blocked value = 1 days = 1825 }
+}
+cw_make_unrecognized = {
+	if = {
+		limit = {
+			has_idea = cw_non_recognized_state
+		}
+		remove_ideas = cw_non_recognized_state
+		add_timed_idea = { idea = cw_partially_recognized_state days = 1825 }
+		cw_remove_from_unsc = yes
+		else = {
+			add_ideas = cw_non_recognized_state
+		}
+	}	
+}
+cw_make_recognized = {
+	if = {
+		limit = {
+			has_idea = cw_partially_recognized_state
+		}
+		remove_ideas = cw_partially_recognized_state
+	}		
+	if = {
+		limit = {
+			has_idea = cw_non_recognized_state
+		}
+		remove_ideas = cw_non_recognized_state
+		add_timed_idea = { idea = cw_partially_recognized_state days = 1825 }
+	}
+}
+cw_make_recognized_immediately = {
+	if = {
+		limit = {
+			has_idea = cw_partially_recognized_state
+		}
+		remove_ideas = cw_partially_recognized_state
+	}		
+	if = {
+		limit = {
+			has_idea = cw_non_recognized_state
+		}
+		remove_ideas = cw_non_recognized_state
+	}
+}
+cw_block_all_volunteers_to_country = {		#Blocks volunteers from all countries
+	custom_effect_tooltip = "We will not be able to send Peacekeeping Forces to [THIS.GetName] for 1 year."
+	hidden_effect = {
+		set_country_flag = { flag = cw_volunteers_blocked value = 1 days = 365 }
+	}
+}
+cw_block_country_volunteers = {		#Blocks volunteers from a specific country
+	custom_effect_tooltip = "We will not be able to send Peacekeeping Forces to [THIS.GetName] for 1 year."
+	hidden_effect = {
+		set_variable = { volunteers_blocked_from@ROOT = 365 }
+	}
+}
+unsc_increase_peacekeeping_force_amount = {
+	if = {
+		limit = {
+			has_idea = cw_police_action_level_2
+		}
+		swap_ideas = {
+			remove_idea = cw_police_action_level_2
+			add_idea = cw_police_action_level_3
+		}
+	}
+	if = {
+		limit = {
+			has_idea = cw_police_action_level_1
+		}
+		swap_ideas = {
+			remove_idea = cw_police_action_level_1
+			add_idea = cw_police_action_level_2
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				OR = {
+					has_idea = cw_police_action_level_1
+					has_idea = cw_police_action_level_2
+					has_idea = cw_police_action_level_3
+				}
+			}
+		}
+		add_ideas = cw_police_action_level_1
+	}	
+}
+cw_improve_relations_with_third_world = {
+	every_country = {
+		limit = {
+			OR = {
+				has_government = colonial
+				has_government = neutrality
+			}
+		}
+		add_opinion_modifier = { target = ROOT modifier = anti_colonial_protector }
+	}
+}
+
+cw_improve_relation_with_colonial_power = {
+	every_country = {
+		limit = { 
+			OR = {
+				tag = FRA
+				tag = ENG
+				tag = POR
+				tag = SPA
+				tag = HOL
+				tag = BEL
+			}
+		}
+		add_opinion_modifier = { target = ROOT modifier = charm_offensive}
+	}
+}
+cw_harm_relations_with_third_world = {
+	every_country = {
+		limit = {
+			OR = {
+				has_government = colonial
+				has_government = neutrality
+			}
+		}
+		add_opinion_modifier = { target = ROOT modifier = promoting_imperialism }
+	}
+}
+cw_harm_relations_with_communist_world = {
+	every_country = {
+		limit = {
+			OR = {
+				has_government = communism_totalitarian
+				has_government = communism
+			}
+		}
+		add_opinion_modifier = { target = ROOT modifier = promoting_imperialism }
+	}
+}
+
+cw_harm_relations_with_democratic_world = {
+	every_country = {
+		limit = {
+			OR = {
+				has_government = democratic
+				has_government = democratic_socialist
+			}
+		}
+		add_opinion_modifier = { target = ROOT modifier = promoting_imperialism }
+	}
+}
+cw_give_military_aid = {		#Use Example: KOR = { cw_give_military_aid = yes } will give military aid to korea from ROOT country.
+	custom_effect_tooltip = "CW_GIVE_MILITARY_AID_EFFECT_TT"
+	if = {
+		limit = {
+			PREV = { is_ai = no }
+		}
+		PREV = { top_bar_decisions_notification_new_state_decisions_available = yes }
+	}
+	if = {
+		limit = {
+			sanctioned_by_unsc = yes
+		}
+		PREV = { add_named_threat = { threat = 1 name = CW_GAVE_AID_TO_UN_SANCTIONED_COUNTRY } }
+		custom_effect_tooltip = "CW_GAVE_AID_TO_UN_SANCTIONED_COUNTRY"
+	}
+	if = {
+		limit = {
+			is_ai = no
+		}
+		phone_notification_military_aid_granted = yes
+	}
+	if = {
+		limit = {
+			is_neighbor_of = ROOT
+		}
+		ROOT = { give_military_access = PREV }
+	}
+	every_country = {
+		limit = { 
+			has_war_with = PREV 
+		}
+		add_opinion_modifier = { target = ROOT modifier = protest_action }
+	}
+	hidden_effect = {
+		if = {
+			limit = {
+				NOT = { has_dynamic_modifier = { modifier = cw_military_aid_target_modifier scope = ROOT } }
+			}
+			add_dynamic_modifier = {
+				modifier = cw_military_aid_target_modifier
+				scope = ROOT
+			}
+			set_country_flag = recieves_military_aid
+			add_to_array = { array = ROOT.military_aid_countries_array value = THIS.id }
+			ROOT = {
+				add_dynamic_modifier = {
+					modifier = cw_military_aid_giver_modifier
+				}
+				add_to_variable = { military_aid_recievers = 1 }
+				
+			}
+		}
+		if = {
+			limit = {
+				ROOT = {
+					is_ai = yes
+				}
+			}
+			THIS = {
+				add_to_variable = { military_aid_level@ROOT = 1 }
+				add_to_variable = { military_aid_cost_to_giver@ROOT = 5 }
+				add_to_variable = { military_aid_effect@ROOT = 0.02 }
+				add_offsite_building = { type = arms_factory level = 2 }				
+			}
+		}
+	}
+}
+cw_suspend_military_aid_effect = {		# PREV is military aid giver, THIS/Default tag is aid reciever
+	custom_effect_tooltip = "CW_SUSPEND_MILITARY_AID_EFFECT_TT"
+	hidden_effect = {
+		remove_from_array = {
+			array = PREV.military_aid_countries_array
+			value = THIS.id
+		}
+		if = {
+			limit = {
+				has_military_access_to = PREV
+			}
+			diplomatic_relation = {
+				country = PREV
+				relation = military_access
+				active = no
+			}			
+		}
+		if = {
+			limit = {
+				has_dynamic_modifier = { modifier = cw_military_aid_target_modifier scope = PREV }
+			}
+			remove_dynamic_modifier = {
+				modifier = cw_military_aid_target_modifier
+				scope = PREV
+			}
+			if = {
+				limit = {
+					check_variable = { military_aid_level@PREV = 1 }
+				}
+				add_offsite_building = { type = arms_factory level = -2 }
+				PREV = { 
+					subtract_from_variable = { military_aid_cost_factories = 5 }
+					add_to_variable = { military_aid_cost_fuel = 0.1 }
+					add_to_variable = { military_aid_cost_stability = 0.01 }
+					add_to_variable = { military_aid_cost_production = 0.01 }
+				}
+				else_if = {
+					limit = {
+						check_variable = { military_aid_level@PREV = 2 }
+					}
+					add_offsite_building = { type = arms_factory level = -4 }					
+					PREV = { 
+						subtract_from_variable = { military_aid_cost_factories = 10 }
+						add_to_variable = { military_aid_cost_fuel = 0.2 }
+						add_to_variable = { military_aid_cost_stability = 0.02 }
+						add_to_variable = { military_aid_cost_production = 0.02 }
+						add_offsite_building = { type = arms_factory level = -4 }
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = { military_aid_level@PREV = 3 }
+					}
+					add_offsite_building = { type = arms_factory level = -6 }					
+					ROOT = { 
+						subtract_from_variable = { military_aid_cost_factories = 15 }
+						add_to_variable = { military_aid_cost_fuel = 0.3 }
+						add_to_variable = { military_aid_cost_stability = 0.03 }
+						add_to_variable = { military_aid_cost_production = 0.03 }
+					}
+				}
+			}
+			clear_variable = military_aid_level@PREV
+			clear_variable = military_aid_effect@PREV
+			clear_variable = military_aid_cost_to_giver@PREV
+			PREV = { subtract_from_variable = { military_aid_recievers = 1 } }
+		}
+		if = {
+			limit = {
+				has_war = yes
+			}
+			add_opinion_modifier = { target = PREV modifier = suspended_military_aid_war }
+			else_if = {
+				add_opinion_modifier = { target = PREV modifier = suspended_military_aid }				
+			}
+		}		
+	}
+}
+cw_suspend_military_aid_diplomatic_action = {
+	custom_effect_tooltip = "CW_SUSPEND_MILITARY_AID_EFFECT_TT"
+	hidden_effect = {
+		remove_from_array = {
+			array = ROOT.military_aid_countries_array
+			value = THIS.id
+		}
+		if = {
+			limit = {
+				has_military_access_to = ROOT
+			}
+			diplomatic_relation = {
+				country = ROOT
+				relation = military_access
+				active = no
+			}			
+		}
+		if = {
+			limit = {
+				has_dynamic_modifier = { modifier = cw_military_aid_target_modifier scope = ROOT }
+			}
+			remove_dynamic_modifier = {
+				modifier = cw_military_aid_target_modifier
+				scope = ROOT
+			}
+			if = {
+				limit = {
+					check_variable = { military_aid_level@ROOT = 1 }
+				}
+				add_offsite_building = { type = arms_factory level = -2 }
+				ROOT = { 
+					subtract_from_variable = { military_aid_cost_factories = 5 }
+					add_to_variable = { military_aid_cost_fuel = 0.1 }
+					add_to_variable = { military_aid_cost_stability = 0.01 }
+					add_to_variable = { military_aid_cost_production = 0.01 }
+				}
+				else_if = {
+					limit = {
+						check_variable = { military_aid_level@ROOT = 2 }
+					}
+					add_offsite_building = { type = arms_factory level = -4 }					
+					ROOT = { 
+						subtract_from_variable = { military_aid_cost_factories = 10 }
+						add_to_variable = { military_aid_cost_fuel = 0.2 }
+						add_to_variable = { military_aid_cost_stability = 0.02 }
+						add_to_variable = { military_aid_cost_production = 0.02 }
+						add_offsite_building = { type = arms_factory level = -4 }
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = { military_aid_level@ROOT = 3 }
+					}
+					add_offsite_building = { type = arms_factory level = -6 }					
+					ROOT = { 
+						subtract_from_variable = { military_aid_cost_factories = 15 }
+						add_to_variable = { military_aid_cost_fuel = 0.3 }
+						add_to_variable = { military_aid_cost_stability = 0.03 }
+						add_to_variable = { military_aid_cost_production = 0.03 }
+					}
+				}
+			}
+			clear_variable = military_aid_level@ROOT
+			clear_variable = military_aid_effect@ROOT
+			clear_variable = military_aid_cost_to_giver@ROOT
+			ROOT = { subtract_from_variable = { military_aid_recievers = 1 } }
+		}
+		if = {
+			limit = {
+				has_war = yes
+			}
+			add_opinion_modifier = { target = ROOT modifier = suspended_military_aid_war }
+			else_if = {
+				add_opinion_modifier = { target = ROOT modifier = suspended_military_aid }				
+			}
+		}		
+	}
+}
+cw_apply_mild_famine = {
+	set_variable = { THIS.required_crops  = THIS.resource_produced@crops }
+	if = {
+		limit = {
+			is_ai = no
+		}
+		multiply_variable = { var = THIS.required_crops value = 2 }
+	}
+	add_ideas = cw_famine_mild
+	hidden_effect = { activate_mission = cw_generic_mild_famine_timer }
+}
+cw_apply_severe_famine = {
+	set_variable = { THIS.required_crops  = THIS.resource_produced@crops }
+	if = {
+		limit = {
+			is_ai = no
+		}
+		multiply_variable = { var = THIS.required_crops value = 3 }
+	}
+	add_ideas = cw_famine_severe
+	hidden_effect = { activate_mission = cw_generic_severe_famine_timer }
+}
+cw_calculate_manchuria_state_controll = {
+	if = {
+		limit = {
+			has_variable = manchuria_control_bonus_prc
+		}
+		subtract_from_variable = {
+			var = man_struggle_chi_control
+			value = manchuria_control_bonus_prc		
+		}
+		add_to_variable = {
+			var = man_struggle_prc_control
+			value = manchuria_control_bonus_prc
+		}
+	}
+	if = {
+		limit = {
+			has_variable = manchuria_control_bonus_chi
+		}
+		subtract_from_variable = {
+			var = man_struggle_prc_control
+			value = manchuria_control_bonus_chi		
+		}
+		add_to_variable = {
+			var = man_struggle_chi_control
+			value = manchuria_control_bonus_chi
+		}		
+	}	
+	clamp_variable = {
+		var = man_struggle_chi_control
+		min = 0
+		max = 100
+	}
+	clamp_variable = {
+		var = man_struggle_prc_control
+		min = 0
+		max = 100
+	}	
+}
+cw_calculate_manchuria_overall_control = {
+	hidden_effect = {
+		clear_variable = global.prc_manchuria_control
+		clear_variable = global.kmt_manchuria_control
+		######## PRC CALCULATIONS ########
+		add_to_variable = {
+			var = global.prc_manchuria_control
+			value = 715.man_struggle_prc_control
+		}		
+		add_to_variable = {
+			var = global.prc_manchuria_control
+			value = 610.man_struggle_prc_control
+		}
+		add_to_variable = {
+			var = global.prc_manchuria_control
+			value = 716.man_struggle_prc_control
+		}
+		add_to_variable = {
+			var = global.prc_manchuria_control
+			value = 328.man_struggle_prc_control
+		}
+		add_to_variable = {
+			var = global.prc_manchuria_control
+			value = 717.man_struggle_prc_control
+		}
+		add_to_variable = {
+			var = global.prc_manchuria_control
+			value = 714.man_struggle_prc_control
+		}
+		add_to_variable = {
+			var = global.prc_manchuria_control
+			value = 761.man_struggle_prc_control
+		}
+		divide_variable = { global.prc_manchuria_control = 7 }
+		round_variable = global.prc_manchuria_control
+		######## KMT CALCULATIONS ########
+		715 = {
+			add_to_variable = {
+				var = global.kmt_manchuria_control
+				value = man_struggle_chi_control
+			}		
+		}
+		610 = {
+			add_to_variable = {
+				var = global.kmt_manchuria_control
+				value = man_struggle_chi_control
+			}
+		}
+		716 = {
+			add_to_variable = {
+				var = global.kmt_manchuria_control
+				value = man_struggle_chi_control
+			}
+		}
+		
+		328 = {
+			add_to_variable = {
+				var = global.kmt_manchuria_control
+				value = man_struggle_chi_control
+			}
+		}
+		717 = {
+			add_to_variable = {
+				var = global.kmt_manchuria_control
+				value = man_struggle_chi_control
+			}
+		}
+		
+		714 = {
+			add_to_variable = {
+				var = global.kmt_manchuria_control
+				value = man_struggle_chi_control
+			}
+		}
+		761 = {
+			add_to_variable = {
+				var = global.kmt_manchuria_control
+				value = man_struggle_chi_control
+			}
+		}
+		divide_variable = { global.kmt_manchuria_control = 7 }
+		round_variable = global.kmt_manchuria_control
+	}
+}
+# duration_calculator_output_display numbers used in scripted localisation CW_TIMER_REMAINING_DISPLAY_UNIT
+cw_duration_calculator = {
+	if = {
+		limit = {
+			check_variable = { duration_calculator_output < 31 }
+		}
+		set_variable = { duration_calculator_output_display = 1 }
+		if = {
+			limit = {
+				check_variable = { duration_calculator_output > 1 }
+			}
+			set_variable = { duration_calculator_output_display = 2 }
+		}
+	}
+	if = {
+		limit = {
+			AND = {
+				check_variable = { duration_calculator_output < 366 }
+				check_variable = { var = duration_calculator_output value = 31 compare = greater_than_or_equals }
+			}
+		}
+		divide_variable = { duration_calculator_output = 30 }
+		set_variable = { duration_calculator_output_display = 3 }
+		round_variable = duration_calculator_output
+		if = {
+			limit = {
+				check_variable = { duration_calculator_output > 1 }
+			}
+			set_variable = { duration_calculator_output_display = 4 }
+		}		
+	}
+	if = {
+		limit = {
+			check_variable = { duration_calculator_output > 365 }
+		}
+		divide_variable = { duration_calculator_output = 365 }
+		set_variable = { duration_calculator_output_display = 5 }
+		round_variable = duration_calculator_output
+		if = {
+			limit = {
+				check_variable = { duration_calculator_output > 1 }
+			}
+			set_variable = { duration_calculator_output_display = 6 }
+		}		
+	}
+}
+
+cw_increase_state_category = {
+
+	if = {
+		limit = { OR = { has_state_category = small_island has_state_category = tiny_island }}
+		set_state_category = natural_harbour
+	}
+	else_if = {
+		limit = { OR = {  has_state_category = wasteland  has_state_category = devestated_wasteland has_state_category = pastoral  } }
+		set_state_category = rural
+	
+	}
+	else_if = {
+		limit = { has_state_category = rural }
+		set_state_category = town
+	
+	}
+	else_if = {
+		limit = { has_state_category = town }
+		set_state_category = large_town
+	
+	}
+	else_if = {
+		limit = { has_state_category = large_town }
+		set_state_category = city 
+	
+	}
+	else_if = {
+		limit = { has_state_category = city }
+		set_state_category = large_city
+	
+	}
+	else_if = {
+		limit = { has_state_category = large_city }
+		set_state_category = metropolis
+	
+	}
+	else_if = {
+		limit = { has_state_category = large_city }
+		set_state_category = megalopolis
+	
+	}
+
+}
+
+decrease_state_category = {
+
+	if = {
+		limit = { has_state_category = wasteland }
+		set_state_category = devestated_wasteland
+	}
+	else_if = {
+		limit = { OR = {   has_state_category = rural has_state_category = pastoral  } }
+		set_state_category = wasteland
+	
+	}
+	else_if = {
+		limit = { has_state_category =  town }
+		set_state_category = rural
+	
+	}
+	else_if = {
+		limit = { has_state_category =  large_town }
+		set_state_category = town
+	
+	}
+	else_if = {
+		limit = { has_state_category =  city}
+		set_state_category =  large_town
+	
+	}
+	else_if = {
+		limit = { has_state_category = large_city }
+		set_state_category = city
+	
+	}
+	else_if = {
+		limit = { has_state_category =  metropolis }
+		set_state_category = large_city
+	
+	}
+	else_if = {
+		limit = { has_state_category = megalopolis }
+		set_state_category = large_city
+	
+	}
+}
+
+
+

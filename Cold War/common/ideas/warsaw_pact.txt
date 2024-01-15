@@ -1,0 +1,22 @@
+ideas = {
+	country = {
+		transylvania_betrayal = {
+			removal_cost = -1
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				communism_drift = -0.01
+				communism_totalitarian_drift = -0.01
+			}
+
+			picture = GFX_angry_peasant
+		}
+	}
+}

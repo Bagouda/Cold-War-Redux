@@ -1,0 +1,33 @@
+state = {
+	id=117
+	local_supplies=0.0 
+	name="STATE_117" # Campania
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 819 }
+ 	set_variable = { victory_point = 20 }
+		owner = ITA
+		add_core_of = ITA
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 2
+			arms_factory = 1
+			819 = {
+				naval_base = 3
+			}			
+		}		
+		victory_points = {
+			819 20 
+		}
+	}
+	resources={
+		aluminium=10 # was: 16
+		steel = 15 # was: 24
+		crops = 5
+	}
+	manpower = 5333611
+	provinces={
+		819 851 883 955 3958 3968 6843 6939 6972 6980 9826 11803 
+	}
+}

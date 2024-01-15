@@ -1,0 +1,863 @@
+@CW_PACIFICTION_COMPLIANCE_GAIN = 5
+@CW_PACIFICTION_COMPLIANCE_REDUCTION = -5
+@CW_PACIFICTION_RESISTANCE_REDUCTION = -5
+@CW_PACIFICTION_RESISTANCE_GAIN = 5
+@CW_INSURGENCY_INFILTRATION_REDUCTION = -5
+@CW_INSURGENCY_INFILTRATION_GAIN = 12
+@CW_INSURGENCY_INFILTRATION_COST_CP = 15
+@CW_INSURGENCY_INFILTRATION_COST_CP_REMOVE = -15
+cw_we_insurgency_category = {
+	cw_infiltrate_state = {
+
+		icon = GFX_decision_eng_blackshirt_march
+		on_map_mode = map_only
+		
+		allowed = {
+			always = yes
+		}		
+
+		visible = {
+			FROM = { 
+				impassable = no
+				is_capital = no
+			}
+			if = {
+				limit = {
+					is_ai = no
+				}
+				NOT = { FROM = { ROOT = { divisions_in_state = { state = PREV size > 0 } } } }
+			}
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				OR = {
+					is_controlled_by = var:ROOT.our_insurgency_target
+					AND = {
+						is_owned_by = ROOT
+						CONTROLLER = {
+							has_war_together_with = var:ROOT.our_insurgency_target
+						}
+					}
+				}				
+				OR = {
+					OR = {
+						is_claimed_by = ROOT
+						is_core_of = ROOT
+					}
+					OR = {
+						is_claimed_by = var:ROOT.alternate_resistance_tag
+						is_core_of = var:ROOT.alternate_resistance_tag
+						AND = {
+							is_owned_by = ROOT
+							CONTROLLER = {
+								has_war_together_with = var:ROOT.our_insurgency_target
+							}
+						}						
+					}
+				}
+			}
+		}
+
+		available = {
+			FROM = { 
+				resistance < 100
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 29
+		}
+		custom_cost_text = CW_CP_ACTION_COST_30
+
+		days_re_enable = 0
+		days_remove = var:ROOT.our_insurgency_target:insurgency_resistance?10
+		
+		complete_effect = {
+			ROOT = { add_command_power = -30 }
+			if = {
+				limit = {
+					ROOT = { has_variable = alternate_resistance_tag }
+				}
+				FROM = { set_variable = { resistance_started_by = var:ROOT.alternate_resistance_tag } }
+				else = {
+					FROM = { set_variable = { resistance_started_by = ROOT } }
+				}
+			}
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					FROM = { has_resistance = no }
+				}
+				FROM = {
+					force_enable_resistance = {
+						occupier = FROM.OWNER
+						occupied = var:resistance_started_by
+					}
+					hidden_effect = {
+						if = {
+							limit = {
+								is_core_of = var:resistance_started_by
+							}
+							set_state_flag = dont_remove_existing_core
+							else = {
+								add_core_of = var:resistance_started_by
+							}
+						}
+					}
+					start_resistance = var:resistance_started_by
+					hidden_effect = {
+						if = {
+							limit = {
+								NOT = { has_state_flag = dont_remove_existing_core }
+							}
+							remove_core_of = var:resistance_started_by
+						}
+					}
+				}
+			}
+			FROM = {
+				if = {
+					limit = {
+						is_owned_by = ROOT
+					}
+					add_resistance = 50
+					else = {
+						add_resistance = @CW_INSURGENCY_INFILTRATION_GAIN
+						add_compliance = @CW_PACIFICTION_COMPLIANCE_REDUCTION
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 30
+				FROM = { OWNER = { divisions_in_state = { state = PREV size < 1 } } }
+			}			
+			modifier = {
+				add = -20
+				FROM.OWNER = {
+					core_resistance = {
+						occupied_country_tag = ROOT
+						value > 30
+					}
+				}
+			}
+			modifier = {
+				add = -100
+				NOT = { has_variable = alternate_resistance_tag }
+				num_divisions > 20
+			}
+			modifier = {
+				add = -100
+				has_variable = alternate_resistance_tag
+				var:alternate_resistance_tag = { num_divisions > 20 }
+			}			
+		}
+	}
+	cw_attack_in_all_infiltrated_states = {
+
+		icon = GFX_decision_revolt
+		
+		allowed = {
+			always = yes
+		}		
+
+		visible = {
+		}
+
+		target_trigger = {
+			FROM = { tag = var:ROOT.our_insurgency_target }
+		}
+
+		highlight_states = { 
+			highlight_states_trigger = {
+				resistance > 49
+				is_controlled_by = var:ROOT.our_insurgency_target
+				OR = {
+					is_claimed_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = CW_START_UPRISING_TRIGGER_TT
+				var:ROOT.our_insurgency_target = { 
+					check_variable = { insurgency_states^num > 2 }
+					any_of_scopes = {
+						array = insurgency_states
+						
+						is_controlled_by = var:ROOT.our_insurgency_target
+						resistance > 49
+						OR = {
+							is_claimed_by = ROOT
+							is_core_of = ROOT
+						}
+					}
+				}
+			}		
+		}
+
+		custom_cost_trigger = {
+			command_power > 49
+		}
+		custom_cost_text = CW_START_UPRISING_COST
+
+		complete_effect = {
+			ROOT = { add_command_power = -50 }
+			if = {
+				limit = {
+					ROOT = { has_variable = alternate_resistance_tag }
+				}				
+				if = {
+					limit = {
+						var:alternate_resistance_tag = { exists = no }
+					}
+					ROOT = {
+						var:ROOT.alternate_resistance_tag = { save_event_target_as = country_to_support }
+						add_opinion_modifier = {
+							target = event_target:country_to_support
+							modifier = investing_in_our_country
+						}
+						reverse_add_opinion_modifier = {
+							target = event_target:country_to_support
+							modifier = anti_colonial_protector
+						}						
+						add_ai_strategy = {
+							type = send_lend_lease_desire
+							id = event_target:country_to_support
+							value = 1000
+						}
+						add_ai_strategy = {
+							type = contain
+							id = ALG
+							value = 1000
+						}
+					}
+					270 = { OWNER = { save_event_target_as = real_owner } }
+					var:our_insurgency_target = {
+						random_owned_state = {
+							limit = {
+								has_resistance = yes
+								resistance > 49
+								check_variable = { resistance_started_by = ROOT.alternate_resistance_tag }
+							}
+							save_event_target_as = first_revolt_state
+						}
+					}					
+					var:ROOT.alternate_resistance_tag = {
+						# TODO add idea to blow division
+						set_stability = 0.90
+						set_variable = { volunteers_allowed_from@ROOT = 1 }
+						set_country_flag = cw_volunteers_blocked					
+						set_politics = {
+							ruling_party = ROOT
+							elections_allowed = no
+						}
+						transfer_state = 270
+						set_state_owner = event_target:first_revolt_state
+						if = {
+							limit = {
+								has_variable = twin_country
+								check_variable = { twin_country = ROOT.id }
+							}
+							ROOT = { puppet = PREV }
+						}
+						declare_war_on = {
+							target = var:ROOT.our_insurgency_target
+							type = take_claimed_state
+						}
+						add_manpower = 100000
+						if = {
+							limit = {
+								has_equipment = {
+									infantry_equipment_1 < 5000
+								}							
+							}
+							add_equipment_to_stockpile = {
+								type = infantry_equipment
+								amount = 10000
+								producer = ROOT
+							}							
+							add_equipment_to_stockpile = {
+								type = support_equipment_1
+								amount = 10000
+								producer = ROOT
+							}								
+						}					
+						add_ideas = {
+							cw_death_before_surrender
+							cw_revolutionary_zeal
+						}
+						if = {
+							limit = {
+								NOT = { has_template = "Guerilla Brigade" }
+							}
+							division_template = {
+								name = "Guerilla Brigade"
+								is_locked = yes
+								template_counter = 13
+								regiments = {
+									insurgency = { x = 0 y = 0 }
+									insurgency = { x = 1 y = 0 }
+									insurgency = { x = 2 y = 0 }
+									artillery_brigade = { x = 1 y = 1 }
+								}
+								support = {
+									anti_air = { x = 0 y = 0 }
+									anti_tank = { x = 0 y = 1 }
+									recon = { x = 0 y = 2 }
+								}	
+							}
+						}						
+					}
+					event_target:real_owner = {
+						set_variable = { state_to_return = 270 }
+						country_event = { id = setup_event.9 days = 1 } 
+					}
+				}
+			}
+			var:ROOT.our_insurgency_target = {
+				every_controlled_state = {
+					if = {
+						limit = {
+							resistance < 60
+						}
+						create_unit = {
+							division = "division_template = \"Guerilla Brigade\"start_equipment_factor = 1.0" 
+							owner = var:resistance_started_by
+							allow_spawning_on_enemy_provs = yes
+							count = 1
+						}
+						add_resistance = -60
+					}
+					if = {
+						limit = {
+							resistance > 59
+						}
+						create_unit = {
+							division = "division_template = \"Guerilla Brigade\"start_equipment_factor = 1.0" 
+							owner = var:resistance_started_by
+							allow_spawning_on_enemy_provs = yes
+							count = 2
+						}
+						add_resistance = -60
+					}				
+					if = {
+						limit = {
+							resistance > 90
+						}
+						create_unit = {
+							division = "division_template = \"Guerilla Brigade\"start_equipment_factor = 1.0" 
+							owner = var:resistance_started_by
+							allow_spawning_on_enemy_provs = yes
+							count = 3
+						}
+						add_resistance = -90
+					}
+					clear_variable = resistance_started_by										
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 0
+		}
+	}	
+	cw_attack_local_forces = {
+
+		icon = GFX_decision_generic_civil_support
+		on_map_mode = map_only
+		
+		allowed = {
+			always = yes
+		}		
+
+		visible = {
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				resistance > 49
+				OR = {
+					is_controlled_by = var:ROOT.our_insurgency_target
+					AND = {
+						is_owned_by = ROOT
+						CONTROLLER = {
+							has_war_together_with = var:ROOT.our_insurgency_target
+						}
+					}
+				}
+				OR = {
+					OR = {
+						is_claimed_by = ROOT
+						is_core_of = ROOT
+					}
+					OR = {
+						is_claimed_by = var:ROOT.alternate_resistance_tag
+						is_core_of = var:ROOT.alternate_resistance_tag
+					}
+				}
+			}
+		}
+
+		available = {
+			FROM = { resistance > 49 }
+		}
+
+		cost = 0
+		days_re_enable = 30
+		days_remove = 5
+
+		complete_effect = {
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					ROOT = { has_variable = alternate_resistance_tag }
+				}				
+				if = {
+					limit = {
+						var:FROM.resistance_started_by = { exists = no }
+					}
+					hidden_effect = {
+						ROOT = {
+							var:ROOT.alternate_resistance_tag = { save_event_target_as = country_to_support }
+							add_opinion_modifier = {
+								target = event_target:country_to_support
+								modifier = supporting_our_position
+							}
+							reverse_add_opinion_modifier = {
+								target = event_target:country_to_support
+								modifier = anti_colonial_protector
+							}
+							add_ai_strategy = {
+								type = send_lend_lease_desire
+								id = event_target:country_to_support
+								value = 1000
+							}
+							add_ai_strategy = {
+								type = contain
+								id = event_target:country_to_support
+								value = 1000
+							}
+						}
+						FROM = { OWNER = { save_event_target_as = OWNER_OF_THIS_SHIT } }
+						270 = { OWNER = { save_event_target_as = real_owner } }
+						var:FROM.resistance_started_by = {
+							# TODO add idea to blow division
+							set_variable = { volunteers_allowed_from@ROOT = 1 }
+							set_stability = 0.9
+							set_country_flag = cw_volunteers_blocked
+							set_politics = {
+								ruling_party = ROOT
+								elections_allowed = no
+							}						
+							set_state_owner = FROM
+							transfer_state = 270
+							declare_war_on = {
+								target = var:ROOT.our_insurgency_target
+								type = take_claimed_state
+							}
+							add_manpower = 100000
+							add_equipment_to_stockpile = {
+								type = infantry_equipment
+								amount = 10000
+								producer = ROOT
+							}
+							add_equipment_to_stockpile = {
+								type = support_equipment_1
+								amount = 10000
+								producer = ROOT
+							}
+							add_ideas = {
+								cw_death_before_surrender
+								cw_revolutionary_zeal
+							}
+							if = {
+								limit = {
+									NOT = { has_template = "Guerilla Brigade" }
+								}
+								division_template = {
+									name = "Guerilla Brigade"
+									is_locked = yes
+									template_counter = 13
+									regiments = {
+										insurgency = { x = 0 y = 0 }
+										insurgency = { x = 1 y = 0 }
+										insurgency = { x = 2 y = 0 }
+										artillery_brigade = { x = 1 y = 1 }
+									}
+									support = {
+										anti_air = { x = 0 y = 0 }
+										anti_tank = { x = 0 y = 1 }
+										recon = { x = 0 y = 2 }
+									}	
+								}
+							}
+						}
+						event_target:real_owner = {
+							set_variable = { state_to_return = 270 }
+							country_event = { id = setup_event.9 days = 1 } 
+						}
+					}
+				}
+			}
+			FROM = {
+				if = {
+					limit = {
+						FROM = { resistance < 60 }
+					}
+					create_unit = {
+						division = "division_template = \"Guerilla Brigade\"start_equipment_factor = 1.0" 
+						owner = var:resistance_started_by
+						allow_spawning_on_enemy_provs = yes
+						count = 1
+					}
+					add_resistance = -60
+				}
+				if = {
+					limit = {
+						FROM = { resistance > 59 }
+					}
+					create_unit = {
+						division = "division_template = \"Guerilla Brigade\"start_equipment_factor = 1.0" 
+						owner = var:resistance_started_by
+						allow_spawning_on_enemy_provs = yes
+						count = 2
+					}
+					add_resistance = -60
+				}				
+				if = {
+					limit = {
+						FROM = { resistance > 90 }
+					}
+					create_unit = {
+						division = "division_template = \"Guerilla Brigade\"start_equipment_factor = 1.0" 
+						owner = var:resistance_started_by
+						allow_spawning_on_enemy_provs = yes
+						count = 3
+					}
+					add_resistance = -90
+				}
+				if = {
+					limit = {
+						ROOT = { has_country_flag = buffed_insurgency }
+					}
+					create_unit = {
+						division = "division_template = \"Guerilla Brigade\"start_equipment_factor = 1.0" 
+						owner = var:resistance_started_by
+						allow_spawning_on_enemy_provs = yes
+						count = 3
+					}
+				}				
+				clear_variable = resistance_started_by
+			}
+		}
+		
+		ai_will_do = {
+			base = 100
+		}
+	}
+}
+cw_we_pacification_category = {	
+	cw_pacification_perform_vaccinations = {
+
+		icon = GFX_decision_icon_first_aid
+		on_map_mode = map_only
+		
+		allowed = {
+			always = yes
+		}		
+
+		visible = {
+			FROM = { is_capital = no }
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_controlled_by = var:ROOT.pacification_target
+			}
+		}
+
+		available = {
+			ROOT = { num_of_civilian_factories_available_for_projects > 4 }
+			FROM = {
+				has_resistance = yes
+			}
+		}
+
+		cost = 0
+		days_re_enable = 0
+		days_remove = 30
+		fire_only_once = yes
+
+		modifier = {
+		}		
+
+		complete_effect = {
+		}
+		remove_effect = {
+			FROM = {
+				add_compliance = 15
+				add_resistance = -5				
+			}
+			FROM = {
+				add_state_modifier = {
+					modifier = {
+						recruitable_population = 0.01
+					}
+				}				
+			}
+		}
+		
+		ai_will_do = {		
+		}
+	}	
+	cw_pacification_build_roads = {
+
+		icon = GFX_infra_decision_icon
+		on_map_mode = map_only
+		
+		allowed = {
+			always = yes
+		}		
+
+		visible = {
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_controlled_by = var:ROOT.pacification_target
+			}
+		}
+
+		available = {
+			FROM = {
+				has_resistance = yes
+				infrastructure < 6
+			}
+		}
+
+		custom_cost_trigger = {
+			ROOT = { num_of_civilian_factories_available_for_projects > 4 }
+		}
+		custom_cost_text = CW_PACIFICATION_FACTORY_COST_5
+		days_re_enable = 0
+		days_remove = 90
+
+		modifier = {
+			civilian_factory_use = 5
+		}		
+
+		complete_effect = {
+		}
+		remove_effect = {
+			FROM = {
+				add_compliance = 15
+				add_resistance = -5
+				if = {
+					limit = {
+						infrastructure < 6
+					}
+					FROM = { add_building_construction = { type = infrastructure level = 1 instant_build = yes } }
+				}				
+			}
+		}
+		
+		ai_will_do = {		
+		}
+	}	
+	cw_clear_insurgency_cell = {
+
+		icon = GFX_decision_oppression
+		on_map_mode = map_only
+		
+		allowed = {
+			always = yes
+		}		
+
+		visible = {
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_controlled_by = var:ROOT.pacification_target
+				has_resistance = yes
+			}
+		}
+
+		available = {
+			FROM = {
+				ROOT = { divisions_in_state = { state = PREV size > 0 } }
+				resistance > 10
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > @CW_INSURGENCY_INFILTRATION_COST_CP
+		}
+		custom_cost_text = CW_INFILTRATE_STATE_CP_COST_TT
+
+		days_remove = 15
+		days_re_enable = 0
+
+		complete_effect = {
+			ROOT = { add_command_power = @CW_INSURGENCY_INFILTRATION_COST_CP_REMOVE }
+			if = {
+				limit = {
+					FROM = {
+						resistance > 50						
+					}
+				}
+				custom_effect_tooltip = CW_CLEAR_INSURGENCY_CELL_EFFECT_TT
+				FROM = {
+					cancel_resistance = yes 
+					clear_variable = resistance_started_by
+				}
+				hidden_effect = {
+					FROM = {
+						create_unit = {
+							division = "division_template = \"Guerilla Brigade\" start_equipment_factor = 0.5" 
+							owner = var:resistance_started_by
+							allow_spawning_on_enemy_provs = yes
+							count = 1
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = CW_CLEAR_INSURGENCY_CELL_EFFECT_TT_2
+			ROOT = { add_war_support = 0.01 }
+			if = {
+				limit = {
+					FROM = { has_resistance = yes }
+				}
+			}
+			FROM = { add_resistance = @CW_INSURGENCY_INFILTRATION_REDUCTION }
+			if = {
+				limit = {
+					FROM = { 
+						has_resistance = yes
+						resistance < 5
+					}
+				}
+				FROM = { cancel_resistance = yes }
+			}			
+		}
+		
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				FROM = { has_resistance = yes }
+			}			
+		}
+	}
+	cw_pacification_connect_to_power_grid = {
+
+		icon = GFX_decision_icon_power_grid
+		on_map_mode = map_only
+		
+		allowed = {
+			always = yes
+		}		
+
+		visible = {
+			FROM = { is_capital = no }
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_controlled_by = var:ROOT.pacification_target
+			}
+		}
+
+		available = {
+			FROM = {
+				has_resistance = yes
+			}
+		}
+
+		custom_cost_trigger = {
+			ROOT = { num_of_civilian_factories_available_for_projects > 2 }
+		}
+		custom_cost_text = CW_PACIFICATION_FACTORY_COST_3
+		days_re_enable = 0
+		days_remove = 90
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 3
+		}		
+
+		complete_effect = {
+		}
+		remove_effect = {
+			FROM = {
+				add_compliance = 10
+				add_resistance = -15
+			}
+		}
+		
+		ai_will_do = {		
+		}
+	}
+	cw_pacification_build_schools = {
+
+		icon = GFX_house_decision_icon
+		on_map_mode = map_only
+		
+		allowed = {
+			always = yes
+		}		
+
+		visible = {
+			FROM = { is_controlled_by = ROOT }
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = { is_controlled_by = var:ROOT.pacification_target }
+		}
+
+		available = {
+			FROM = {
+				has_resistance = yes
+			}
+		}
+
+		cost = 0
+		days_re_enable = 0
+		days_remove = 90
+
+		modifier = {
+			research_speed_factor = 0.01
+		}		
+
+		complete_effect = {
+		}
+		remove_effect = {
+			FROM = {
+				add_compliance = @CW_PACIFICTION_COMPLIANCE_GAIN
+				add_resistance = @CW_PACIFICTION_RESISTANCE_REDUCTION
+			}
+		}
+		
+		ai_will_do = {		
+		}
+	}
+}

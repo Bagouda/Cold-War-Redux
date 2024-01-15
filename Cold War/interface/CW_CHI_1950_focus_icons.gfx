@@ -1,0 +1,22 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_chi_arm_manchuria_republic"
+		texturefile = "gfx/interface/cw_focuses/CHI/1950/chi_arm_manchuria_republic.dds"		
+	}
+	spriteType = {
+		name = "GFX_chi_xsm_autonomy"
+		texturefile = "gfx/interface/cw_focuses/CHI/1950/focus_xsm_autonomy.dds"		
+	}
+	spriteType = {
+		name = "GFX_chi_tibet_autonomy"
+		texturefile = "gfx/interface/cw_focuses/CHI/1950/focus_tibet_autonomy.dds"		
+	}
+	spriteType = {
+		name = "GFX_chi_negotiations_por_and_uk"
+		texturefile = "gfx/interface/cw_focuses/CHI/1950/chi_negotiations_portugal_uk.dds"		
+	}
+	spriteType = {
+		name = "GFX_chi_china_withdrawal_resolution"
+		texturefile = "gfx/interface/cw_focuses/CHI/1950/focus_chi_china_withdrawal.dds"		
+	}
+}

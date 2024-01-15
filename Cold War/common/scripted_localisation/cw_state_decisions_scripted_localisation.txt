@@ -1,0 +1,33 @@
+defined_text = {
+	name = CW_STATE_DECISIONS_MONOPOLY_EFFECT_NEW_RESOURCE_LOC
+	text = {
+		trigger = {
+			has_resources_amount = { resource = oil amount > 0 }
+		}
+		localization_key = "CW_STATE_MONOPOLY_EFFECT_MORE_FOSSIL_FUEL"
+	}
+	text = {
+		trigger = {
+			has_resources_amount = { resource = steel amount > 0 }
+		}
+		localization_key = "CW_STATE_MONOPOLY_EFFECT_MORE_FOSSIL_STEEL"
+	}
+	text = {
+		trigger = {
+			has_resources_amount = { resource = tungsten amount > 0 }
+		}
+		localization_key = "CW_STATE_MONOPOLY_EFFECT_MORE_FOSSIL_TUNGSTEN"
+	}
+	text = {
+		trigger = {
+			has_resources_amount = { resource = aluminium amount > 0 }
+		}
+		localization_key = "CW_STATE_MONOPOLY_EFFECT_MORE_FOSSIL_ALUMINIUM"
+	}
+	text = {
+		trigger = {
+			has_resources_amount = { resource = chromium amount > 0 }
+		}
+		localization_key = "CW_STATE_MONOPOLY_EFFECT_MORE_FOSSIL_CHROMIUM"
+	}	
+}

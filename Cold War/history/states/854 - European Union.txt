@@ -1,0 +1,25 @@
+state={
+	id=854
+	local_supplies=0.0 
+	name="STATE_854"
+	history={
+		owner = BEL
+		add_core_of = BEL
+
+		1955.1.1 = {
+			owner = EUU
+			add_core_of = EUU
+		}
+
+		buildings = {
+			infrastructure = 5
+			arms_factory = 5
+		}
+	}
+	provinces={
+		13283
+	}
+	manpower=29
+	buildings_max_level_factor=1.000
+	state_category=city
+}

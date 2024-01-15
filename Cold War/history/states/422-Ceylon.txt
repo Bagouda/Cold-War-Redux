@@ -1,0 +1,32 @@
+state = {
+	id=422
+	local_supplies=0.0 
+	name="STATE_422"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 7344 }
+ 	set_variable = { victory_point = 10 }
+		owner = SRL
+		add_core_of = SRL
+		
+		buildings = {
+			infrastructure = 3
+			air_base = 2
+			industrial_complex = 1
+			7344 = {
+				naval_base = 1
+			}		
+		}
+		
+		victory_points = {
+			7344 10 	#Colombo
+		}
+	}
+	resources={
+		crops=20
+	}
+	manpower = 5500000
+	provinces={
+		1213 4219 7260 7344 10201 10229 10287 12258 
+	}
+}

@@ -1,0 +1,102 @@
+﻿capital = 527
+set_variable = { twin_country = KOR.id }	#South Korea
+set_convoys = 50
+set_research_slots = 2
+set_variable = {proxy_point = 90 }
+####start tech####
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	early_fighter = 1
+	cv_early_fighter = 1
+	early_bomber = 1
+	CAS1 = 1
+	basic_train = 1
+	trench_warfare = 1
+	fleet_in_being = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+}
+####end tech####
+set_country_flag = guarantee_blocked
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+1946.1.1 = {
+	### Country Leaders
+	recruit_character = PRK_kim_il_sung
+	recruit_character = PRK_kim_tu_bong
+	recruit_character = PRK_ho_kai_i
+	recruit_character = PRK_terenty_shtykov
+	### Deputy Minister
+	recruit_character = prk_hog_kim_il
+	activate_advisor = prk_hog_kim_il
+	recruit_character = prk_hog_hong_myong_hui
+	recruit_character = prk_hog_pak_il_u
+	### Foreign Minister
+	recruit_character = prk_fm_pak_hong_yong
+	activate_advisor = prk_fm_pak_hong_yong
+	recruit_character = prk_fm_nam_il
+	recruit_character = prk_fm_pak_song_chol
+	recruit_character = prk_fm_ho_hon
+	### Defense Minister
+	recruit_character = prk_dm_kim_chol_man
+	activate_advisor = prk_dm_kim_chol_man
+	recruit_character = prk_dm_choe_yong_gon
+	recruit_character = prk_dm_lee_kwon_mu
+	### Treasure Minister
+	recruit_character = prk_tm_choe_chang_ik
+	activate_advisor = prk_tm_choe_chang_ik
+	recruit_character = prk_tm_kim_chaek
+	recruit_character = prk_tm_pak_chang_ok
+	recruit_character = prk_tm_pak_mun_gyu
+	recruit_character = prk_tm_chu_yong_ha
+	recruit_character = prk_tm_ho_song_thaek
+	### Chief of Staff
+	recruit_character = prk_chief_kang_kon
+	activate_advisor = prk_chief_kang_kon
+	recruit_character = prk_dm_mu_chong
+	recruit_character = prk_chief_kim_kwang_hyop
+	### Head of Intelligence
+	### Military Leaders
+	recruit_character = PRK_cho_yong_gon
+	recruit_character = PRK_nam_il
+	recruit_character = PRK_mu_chong
+	recruit_character = PRK_o_jin_u
+	add_ideas = {
+		PRK_weak_economy
+		#
+		cw_non_recognized_state
+		cw_closed_economy
+		cw_limited_conscription
+	}
+	set_politics = {
+		ruling_party = colonial
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 100
+		communism = 0
+		unaligned_right = 0
+		colonial =  0
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korea War
+}
+1956.10.29 = {	#Suez Crisis
+}
+1961.12.11 = {	#Vietnam War
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+}
+1989.1.9 = {	#Fall of Berlin Wall
+}

@@ -1,0 +1,15 @@
+state = {
+	id=767
+	local_supplies=0.0 
+	name="STATE_767" # North Darfur
+	state_category = wasteland
+	history = {
+		owner = ENG
+		add_claim_by = SUD
+	}
+	manpower = 8143
+	impassable = yes
+	provinces={
+		7987 8103 10900
+	}
+}

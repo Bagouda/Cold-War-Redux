@@ -1,0 +1,18 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_chi_focus_fight_inflation"
+		texturefile = "gfx/interface/cw_focuses/CHI/1946/CHI_focus_fight_inflation.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_focus_leonard_gerow"
+		texturefile = "gfx/interface/cw_focuses/CHI/1946/CHI_focus_leonard_gerow.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_focus_integrate_xsm"
+		texturefile = "gfx/interface/cw_focuses/CHI/1946/CHI_focus_integrate_xsm.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_focus_attack_communist"
+		texturefile = "gfx/interface/cw_focuses/CHI/1946/CHI_focus_attack_communists.dds"
+	}
+}

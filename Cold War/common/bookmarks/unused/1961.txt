@@ -1,0 +1,144 @@
+bookmarks = {
+	bookmark = {
+		name = "VIETNAM_WAR_NAME"
+		desc = "VIETNAM_WAR_DESC"
+		date = 1961.12.11
+		picture = "GFX_select_date_1939"
+		default_country = "USA"
+	
+		USA = {
+			history = USA_COLD_WAR_BEGINS_DESC
+			ideology = democratic
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		CHI = {
+			history = USA_COLD_WAR_BEGINS_DESC
+			ideology = democratic
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		KOR = {
+			history = USA_COLD_WAR_BEGINS_DESC
+			ideology = democratic
+			ideas = {
+			}
+			focuses = {
+			}
+		}		
+		SVI = {
+			history = SOV_COLD_WAR_BEGINS_DESC
+			ideology = democratic
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		VIN = {
+			history = SOV_COLD_WAR_BEGINS_DESC
+			ideology = neutrality
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		PRK = {
+			history = SOV_COLD_WAR_BEGINS_DESC
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}		
+		PRC = {
+			history = SOV_COLD_WAR_BEGINS_DESC
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}				
+		SOV = {
+			history = SOV_COLD_WAR_BEGINS_DESC
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}		
+		
+
+		"IND"={
+			minor = yes
+			history = "DEN_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		"GRE"={
+			minor = yes
+			history = "DEN_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+				devastated_nation			
+			}
+			focuses = {
+			}
+		}
+		"TUR"={
+			minor = yes
+			history = "DEN_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		"CZE"={
+			minor = yes
+			history = "DEN_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		"INS"={
+			minor = yes
+			history = "DEN_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		"HOL"={
+			minor = yes
+			history = "DEN_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		"POR"={
+			minor = yes
+			history = "DEN_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}		
+
+		effect = {
+			randomize_weather = 12345 # <- Obligatory in every bookmark !
+		}
+	}
+}

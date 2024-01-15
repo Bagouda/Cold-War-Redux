@@ -1,0 +1,21 @@
+state = {
+	id=702
+	local_supplies=0.0 
+	name="STATE_702"
+	state_category = small_island
+	history = {
+		owner = POR
+		add_core_of = POR
+		
+		buildings = {
+			infrastructure = 1
+			13014 = {
+				naval_base = 1
+			}
+		}		
+	}
+	manpower = 150600
+	provinces={
+		13014 
+	}
+}

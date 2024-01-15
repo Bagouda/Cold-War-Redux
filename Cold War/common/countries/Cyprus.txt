@@ -1,0 +1,3 @@
+graphical_culture = western_european_gfx
+graphical_culture_2d = european_2d
+color = { 237 128  0 }

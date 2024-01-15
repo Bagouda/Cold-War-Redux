@@ -1,0 +1,227 @@
+chi_attack_china_when_weak = {
+	enable = {
+		original_tag = CHI
+		PRC = { exists = yes has_idea = cw_famine_severe }
+		is_historical_focus_on = yes
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = declare_war
+		id = "PRC"
+		value = 500
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "PRC"			
+		value = 500
+	}
+}
+chi_dont_bother_prc_after_civil_war = {
+	enable = {
+		original_tag = CHI
+		CHI = { has_country_flag = lost_ccw }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = ignore_claim
+		id = "PRC"
+		value = 200
+	}
+	ai_strategy = {
+		type = ignore
+		id = "PRC"
+		value = 200
+	}	
+}
+chi_keep_nap_with_west_during_ccw = {
+	enable = {
+		tag = CHI
+		NOT = { has_war_with = PRC }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = { 
+		type = pp_spend_priority
+		id = relation
+		value = -500
+	}
+	ai_strategy = {
+		type = befriend
+		id = "USA"			
+		value = 600
+	}
+}
+chi_keep_nap_with_west_during_ccw = {
+	enable = {
+		tag = CHI
+		is_historical_focus_on = yes
+	}
+	abort = {
+		NOT = { has_war_with = PRC }
+		has_country_flag = lost_ccw
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "IND"			
+		value = 75
+	}	
+	ai_strategy = {
+		type = befriend
+		id = "FRA"			
+		value = 50
+	}
+	ai_strategy = {
+		type = befriend
+		id = "ENG"			
+		value = 50
+	}
+	ai_strategy = {
+		type = befriend
+		id = "USA"			
+		value = 200
+	}	
+}
+
+CHI_you_should_be_prepared_for_war = {
+
+	allowed = { tag = CHI }
+
+	enable = {
+		tag = CHI
+		PRC = { exists = yes }
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+        type = force_build_armies
+        value = 500
+    }
+}
+CHI_unit_production = {
+	enable = {
+		tag = CHI
+	}
+	abort = {
+		always = no
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = infantry
+		value = 35
+	}
+	
+	ai_strategy = {
+		type = ignore_army_incompetence
+		value = 200
+	}
+}
+CHI_intervene_in_manchuria_war = {
+	enable = {
+		tag = CHI
+		MAN = { has_war_with = PRC }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "MAN"
+		value = 500
+	}
+}
+CHI_intervene_in_indochina_war = {
+	enable = {
+		tag = CHI
+		VIN = { has_war_with = SVI }
+		SVI = { has_government = unaligned_right }
+		has_completed_focus = CHI_decolonization_of_indochina_initiate_uprising
+		
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "SVI"
+		value = 500
+	}
+}
+CHI_prepare_for_war_against_xsm = {
+	enable = {
+		tag = CHI
+		XSM = { exists = yes }
+		focus_progress = {
+			focus = CHI_conquer_xsm
+			progress > 0.1
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = XSM
+		value = 100
+	}
+}
+CHI_prepare_for_war_against_tib = {
+	enable = {
+		tag = CHI
+		TIB = { exists = yes }
+		focus_progress = {
+			focus = CHI_conquer_tibet
+			progress > 0.1
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = TIB
+		value = 100
+	}
+}
+CHI_prepare_for_war_against_manchuria = {
+	enable = {
+		tag = PRC
+		TIB = { exists = yes }
+		focus_progress = {
+			focus = CHI_conquer_manchuria
+			progress > 0.1
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = PRC
+		value = 100
+	}
+}
+CHI_prepare_for_war_against_korea = {
+	enable = {
+		tag = PRC
+		PRK = { exists = yes }
+		focus_progress = {
+			focus = CHI_intervene_in_korean_war
+			progress > 0.1
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = PRK
+		value = 100
+	}
+}

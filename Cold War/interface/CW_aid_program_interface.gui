@@ -1,0 +1,451 @@
+guiTypes = {
+	containerWindowType = {
+		name = "dem_aid_topbar_button"
+		position = { x = 1110 y = 3 }
+		buttonType = {
+			name = "aid_flag_button"
+			spriteType ="GFX_topbar_aid_button"
+			Orientation = "CENTER"
+			clicksound = click_close
+			oversound = ui_menu_over
+			pdx_tooltip = DEM_AID_PROGRAM_GET_PARTICIPANTS
+		}
+		iconType = {
+			name = "democratic_aid_giver_flag"
+			spriteType = "GFX_flag_round_small"
+			position = { x = 7 y = 8 }
+			pdx_tooltip = "TOP_BAR_DEM_FLAG_TT"
+		}
+		instantTextboxType = {
+			name = "aid_program_participants_number"
+			position = { x = 31 y = 8 }
+			textureFile = ""
+			font = "cw_terminal_font"
+			borderSize = {x = 0 y = 0}
+			text = "[?event_target:democratic_leader.economic_aid_program_participants|0H] / [?global.dem_aid_program_max_participants]"
+			maxWidth = 35
+			maxHeight = 20
+			format = left
+		}
+	}
+	containerWindowType = {
+		name = "com_aid_topbar_button"
+		position = { x = 1180 y = 3 }
+		buttonType = {
+			name = "aid_flag_button"
+			spriteType ="GFX_topbar_aid_button"
+			Orientation = "CENTER"
+			clicksound = click_close
+			oversound = ui_menu_over
+			pdx_tooltip = COM_AID_PROGRAM_GET_PARTICIPANTS
+		}
+		iconType = {
+			name = "communist_total_aid_giver_flag"
+			spriteType = "GFX_flag_round_small"
+			position = { x = 7 y = 8}
+			pdx_tooltip = "TOP_BAR_COM_TOTAL_FLAG_TT"
+		}
+		instantTextboxType = {
+			name = "aid_participants_number"
+			position = { x = 31 y = 8 }
+			textureFile = ""
+			font = "cw_terminal_font"
+			borderSize = {x = 0 y = 0}
+			text = "[?event_target:communist_leader.economic_aid_program_participants|0H] / [?global.com_aid_program_max_participants]"
+			maxWidth = 35
+			maxHeight = 20
+			format = left
+		}
+	}	
+	containerWindowType = {
+		name = "com_ref_aid_topbar_button"
+		position = { x = 1110 y = 3 }
+		buttonType = {
+			name = "aid_flag_button"
+			spriteType ="GFX_topbar_aid_button"
+			Orientation = "CENTER"
+			clicksound = click_close
+			oversound = ui_menu_over
+			pdx_tooltip = COM_REF_AID_PROGRAM_GET_PARTICIPANTS
+		}
+		iconType = {
+			name = "com_ref_aid_giver_flag"
+			spriteType = "GFX_flag_round_small"
+			position = { x = 7 y = 8 }
+			pdx_tooltip = "TOP_BAR_COM_REF_TOTAL_FLAG_TT"
+		}
+		instantTextboxType = {
+			name = "aid_participants_number"
+			position = { x = 31 y = 8 }
+			textureFile = ""
+			font = "cw_terminal_font"
+			borderSize = {x = 0 y = 0}
+			text = "[?event_target:communist_reformist_leader.economic_aid_program_participants|0H] / [?global.com_ref_aid_program_max_participants]"
+			maxWidth = 35
+			maxHeight = 20
+			format = left
+		}
+	}
+	containerWindowType = {
+		name = "neutral_aid_topbar_button"
+		position = { x = 1180 y = 3 }
+		buttonType = {
+			name = "aid_flag_button"
+			spriteType ="GFX_topbar_aid_button"
+			Orientation = "CENTER"
+			clicksound = click_close
+			oversound = ui_menu_over
+			pdx_tooltip = NEUTRAL_AID_PROGRAM_GET_PARTICIPANTS
+		}
+		iconType = {
+			name = "neutral_aid_giver_flag"
+			spriteType = "GFX_flag_round_small"
+			position = { x = 7 y = 8 }
+			pdx_tooltip = "TOP_BAR_NEUTRAL_TOTAL_FLAG_TT"
+		}
+		instantTextboxType = {
+			name = "aid_participants_number"
+			position = { x = 31 y = 8 }
+			textureFile = ""
+			font = "cw_terminal_font"
+			borderSize = {x = 0 y = 0}
+			text = "[?event_target:neutral_leader.economic_aid_program_participants|0H] / [?global.neutral_aid_program_max_participants]"
+			maxWidth = 35
+			maxHeight = 20
+			format = left
+		}
+	}
+	############### MAIN WINDOW ###############
+	containerWindowType = {
+		name = "aid_program_details_window"
+		position = { x = 0 y = 0}
+		size = { width =570 height=552 }
+		orientation = center
+		origo = center
+		moveable = yes
+		fade_time = 200
+		fade_type = linear
+		click_to_front = yes
+		clipping = no
+
+		background = {
+			name = "economic_aid_background_0"
+			spriteType  ="GFX_economic_aid_screen_bg"
+		}
+
+		iconType = {
+			name = "economic_aid_background"
+			spriteType  ="GFX_economic_aid_screen_bg"
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "economic_aid_background_with_scrollbar"
+			spriteType  ="GFX_economic_aid_screen_bg_with_scrollbar"
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "aid_program_title"
+			position = { x = 83 y = 45 }
+			font = "inba_subtitle_17"
+			text = "CW_ECONOMIC_AID_SCREEN_TITLE"
+			maxWidth = 400
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+		}
+		iconType = {
+			name = "economic_aid_title_glass_cover"
+			spriteType  ="GFX_aid_program_title_glass"
+			position = { x = 75 y = 28 }
+		}
+		instantTextboxType = {
+			name = "economic_aid_window_subtitle"
+			position = { x = 76 y = 99 }
+			font = "cw_digital_font"
+			text = "[CW_AID_PROGRAM_SUBTITLE_LOC]"
+			maxWidth = 420
+			maxHeight = 20
+			format = center
+			fixedsize = yes
+		}
+		iconType = {
+			name = "hint_icon"
+			spriteType = "GFX_hint_icon"
+			position = { x = 525 y = 25 }
+			#web_link = "https://en.wikipedia.org/wiki/Marshall_Plan"
+			pdx_tooltip = "HINT_ICON_TT"
+		}
+		containerWindowType = {
+			name = "top_filter_buttons"
+			position = { x = 0 y = -7 }
+			instantTextboxType = {
+				name = "country_name"
+				position = { x = 70 y = 150 }
+				font = "cg_16b"
+				text = "Country Name"
+				maxWidth = 100
+				maxHeight = 10
+				format = left
+				fixedsize = yes
+			}
+			instantTextboxType = {
+				name = "stability_indicator"
+				position = { x = 190 y = 148 }
+				font = "hoi_18mbs"
+				text = "mp_country_stability"
+				maxWidth = 20
+				maxHeight = 10
+				format = left
+				fixedsize = yes
+				pdx_tooltip = "STABILITY_INDICATOR_TT"
+				pdx_tooltip_delayed = "STABILITY_INDICATOR_TTL"
+			}
+			instantTextboxType = {
+				name = "government_indicator"
+				position = { x = 273 y = 147 }
+				font = "hoi_18mbs"
+				text = "mp_country_government"
+				maxWidth = 20
+				maxHeight = 10
+				format = left
+				fixedsize = yes
+				pdx_tooltip = "GOVERNMENT_INDICATOR_TT"
+				pdx_tooltip_delayed = "GOVERNMENT_INDICATOR_TTL"
+			}
+			instantTextboxType = {
+				name = "communist_indicator"
+				position = { x = 359 y = 147 }
+				font = "hoi_18mbs"
+				text = "mp_country_cummunist_support"
+				maxWidth = 20
+				maxHeight = 10
+				format = left
+				fixedsize = yes
+				pdx_tooltip = "COMMUNIST_INDICATOR_TT"
+				pdx_tooltip_delayed = "COMMUNIST_INDICATOR_TTL"
+			}
+			instantTextboxType = {
+				name = "aid_amount_indicator"
+				position = { x = 443 y = 147 }
+				font = "hoi_18mbs"
+				text = "mp_aid_level"
+				maxWidth = 20
+				maxHeight = 10
+				format = left
+				fixedsize = yes
+				pdx_tooltip = "AID_LEVEL_INDICATOR_TT"
+				pdx_tooltip_delayed = "AID_LEVEL_INDICATOR_TTL"
+			}
+		}
+
+		buttonType = {
+			name = "close_button"
+			position = { x = -65 y = 207 }
+			quadTextureSprite ="GFX_button_123x34"
+			buttonFont = "hoi_16mbs"
+			shortcut = "ESCAPE"
+			Orientation = "CENTER"
+			buttonText = "DIPLOMACY_CLOSE"
+			pdx_tooltip = "CLOSE"
+			clicksound = click_close
+		}
+
+		containerWindowType = {
+			name = "aid_program_paticipants_list"
+			position = { x = 8 y = 136 }
+			size = { width = 516 height = 370 }
+			margin = { top = 40 left = 4 bottom = 50 right = 4 }
+			verticalScrollbar = "right_vertical_slider"
+
+			background = {
+				name = "member_list_background"
+				spriteType = "GFX_member_countries_bg"
+				alwaystransparent = yes
+			}
+
+			gridboxtype = {
+				name = "aid_program_participants_list_gridbox"
+				position = { x = 10 y = 0 }
+				size = { width = 259 height = 1 }
+				slotsize = { width = 259 height = 58 }
+				max_slots_horizontal = 1
+				add_horizontal = no
+			}
+		}
+		iconType = {
+			name = "center_screen_glass"
+			spriteType  ="GFX_economic_aid_screen_glass"
+			position = { x = 29 y = 85 }
+			alwaystransparent = yes
+		}
+	}
+	############### GRIDBOX INFORMATION IN A LIST ###############
+	containerWindowType = {
+		name = "aid_program_participants_list_entry"		#Draws data from the gridbox above
+		position = { x = 25 y = 10 }
+		size = { width = 0 height = 50 }
+
+		iconType = {
+			name = "country_flag_glow"
+			quadTextureSprite = "GFX_unsc_major_resolution_effect"
+			position = { x = 5 y = 1 }
+			scale = 0.6
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "participant_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = 5 y = 5 }
+			pdx_tooltip = "CW_AID_PARTICIPANT_NAME"
+			pdx_tooltip_delayed = "CW_AID_PARTICIPANT_MORE_ACTIONS"
+		}
+
+		iconType = {
+			name = "participant_flag_border"
+			quadTextureSprite = "GFX_diplo_countrylist_flag_frame"
+			position = { x = 1 y = 0 }
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "aid_locked_icon"
+			quadTextureSprite = "GFX_locked_icon"
+			position = { x = -7 y = 10 }
+			scale = 0.9
+			pdx_tooltip = "CW_AID_LOCKED_TT"
+			pdx_tooltip_delayed = "CW_AID_LOCKED_TTL"			
+		}		
+
+		instantTextboxType = {
+			name = "country_name"
+			position = { x = 57 y = 8 }
+			font = "cw_terminal_font"
+			text = "[This.GetAdjective] Aid"
+			maxWidth = 80
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "stability"
+			position = { x = 140 y = 8 }
+			font = "cw_terminal_font"
+			text = "[?This.stability|%0]"
+			maxWidth = 38
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "ideology"
+			position = { x = 200 y = 8 }
+			font = "cw_terminal_font"
+			text = "[This.GetRulingParty]"
+			maxWidth = 95
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		instantTextboxType = {
+			name = "communist_support"
+			position = { x = 310 y = 8 }
+			font = "cw_terminal_font"
+			text = "[THIS.CW_COMMUNIST_ORG_LOC]"
+			maxWidth = 38
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		iconType = {
+			name = "multiple_aid_warning"
+			spriteType = "GFX_warning_texticon_animation"
+			position = { x = 352 y = 9 }
+			pdx_tooltip = "MULTIPLE_AID_WARNING"
+			scale = 0.8
+		}
+		iconType = {
+			name = "country_aid_level_1"
+			spriteType = "GFX_cw_aid_level"
+			position = { x = 380 y = 7 }
+			frame = 1
+		}
+		iconType = {
+			name = "country_aid_level_2"
+			spriteType = "GFX_cw_aid_level"
+			position = { x = 380 y = 7 }
+			frame = 2
+		}
+		iconType = {
+			name = "country_aid_level_3"
+			spriteType = "GFX_cw_aid_level"
+			position = { x = 380 y = 7 }
+			frame = 3
+		}
+		iconType = {
+			name = "country_aid_level_4"
+			spriteType = "GFX_cw_aid_level"
+			position = { x = 380 y = 7 }
+			frame = 4
+		}
+	}
+	############### MODIFY AID WINDOW ###############
+	containerWindowType = {
+		name = "aid_program_modify_window"
+		position = { x=-210 y=-150 }
+		size = { width =411 height=276 }
+		orientation= center
+		moveable = yes
+		fade_time = 1500
+		fade_type = linear
+		click_to_front = yes
+
+		iconType = {
+			name = "modify_mp_background"
+			quadTextureSprite ="GFX_modify_aid_background"
+			position = { x = 0 y = 50 }
+		}
+		instantTextboxType = {
+			name = "modify_aid_title"
+			position = { x = 30 y = 80 }
+			font = "hoi_24header"
+			text = "MODIFY_AID_TITLE"
+			maxWidth = 350
+			maxHeight = 50
+			format = center
+			fixedsize = yes
+		}
+		buttonType = {
+			name = "increase_aid_button"
+			quadTextureSprite ="GFX_increase_aid_button"
+			position = { x = 26 y = 120 }
+			pdx_tooltip = "INCREASE_AID_BUTTON_TT"
+			pdx_tooltip_delayed = "INCREASE_AID_BUTTON_TTL"
+		}
+		buttonType = {
+			name = "decrease_aid_button"
+			quadTextureSprite ="GFX_decrease_aid_button"
+			position = { x = 152 y = 120 }
+			pdx_tooltip = "DECREASE_AID_BUTTON_TT"
+			pdx_tooltip_delayed = "DECREASE_AID_BUTTON_TTL"
+		}
+		buttonType = {
+			name = "cancel_aid_button"
+			quadTextureSprite ="GFX_cancel_aid_button"
+			position = { x = 272 y = 120 }
+			pdx_tooltip = "CW_ECONOMIC_AID_CANCEL_TT"
+		}
+		buttonType = {
+			name = "modify_aid_close_button"
+			position = { x = 146 y = 258 }
+			quadTextureSprite ="GFX_button_123x34"
+			buttonFont = "hoi_16mbs"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_LEFT"
+			buttonText = "DIPLOMACY_CLOSE"
+			pdx_tooltip = "CLOSE"
+			clicksound = click_close
+		}
+	}
+}

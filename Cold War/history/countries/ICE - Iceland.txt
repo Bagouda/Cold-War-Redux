@@ -1,0 +1,237 @@
+﻿capital = 100 #Iceland
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1946.6.30"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 23
+		democratic_socialist = 18
+		neutrality = 40
+		communism_totalitarian = 19
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Stefán Jóhann Stefánsson"
+		desc = ""
+		picture = "ICEG2.dds"
+		ideology = social_democrat_idolg
+		expire = 1963.11.14
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Ólafur Thors"
+		desc = ""
+		picture = "ICEG1.dds"
+		ideology = democratic_neutrality_idolg
+		expire = 1963.11.14
+		traits = {}
+	}
+	add_ideas = cw_partially_recognized_state
+}
+1948.5.14 = {	#Arab Israeli War
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1946.9.28"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 23
+		democratic_socialist = 18
+		neutrality = 40
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Stefán Jóhann Stefánsson"
+		desc = ""
+		picture = "ICEG2.dds"
+		ideology = social_democrat_idolg
+		expire = 1963.11.14
+		traits = {}
+	}
+}
+1950.6.25 = {	#Korean War
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1949.10.24"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 35
+		democratic_socialist = 0
+		neutrality = 40
+		communism_totalitarian = 20
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Steingrímur Steinþórsson"
+		desc = ""
+		picture = "ICEG3.dds"
+		ideology = social_cons_idolg
+		expire = 1953.9.11
+		traits = {}
+	}
+}
+1956.10.29 = {	#Suez Crisis
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1956.6.24"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 24
+		democratic_socialist = 0
+		neutrality = 42
+		communism_totalitarian = 19
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Emil Jónsson"
+		desc = ""
+		picture = "ICEG5.dds"
+		ideology = social_democrat_idolg
+		expire = 1959.11.20
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Hermann Jónasson"
+		desc = ""
+		picture = "ICEG4.dds"
+		ideology = social_cons_idolg
+		expire = 1958.12.23
+		traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1959.10.26"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 29
+		democratic_socialist = 15
+		neutrality = 40
+		communism_totalitarian = 16
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Geir Hallgrímsson"
+		desc = ""
+		picture = "ICEG9.dds"
+		ideology = democratic_neutrality_idolg
+		expire = 1978.9.1
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Ólafur Jóhannesson"
+		desc = ""
+		picture = "ICEG8.dds"
+		ideology = democratic_neutrality_idolg
+		expire = 1979.10.15
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Jóhann Hafstein"
+		desc = ""
+		picture = "ICEG7.dds"
+		ideology = democratic_neutrality_idolg
+		expire = 1971.7.14
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Bjarni Benediktsson"
+		desc = ""
+		picture = "ICEG6.dds"
+		ideology = democratic_neutrality_idolg
+		expire = 1970.7.10
+		traits = {}
+	}
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1979.12.3"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 48
+		democratic_socialist = 0
+		neutrality = 35
+		communism_totalitarian = 17
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Þorsteinn Pálsson"
+		desc = ""
+		picture = "ICEG13.dds"
+		ideology = democratic_neutrality_idolg
+		expire = 1987.7.8
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Steingrímur Hermannsson"
+		desc = ""
+		picture = "ICEG12.dds"
+		ideology = social_cons_idolg
+		expire = 1991.4.30
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Gunnar Thoroddsen"
+		desc = ""
+		picture = "ICEG11.dds"
+		ideology = democratic_neutrality_idolg
+		expire = 1988.9.28
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Benedikt Gröndal"
+		desc = ""
+		picture = "ICEG10.dds"
+		ideology = social_democrat_idolg
+		expire = 1980.2.8
+		traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1987.4.25"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 27
+		democratic_socialist = 15
+		neutrality = 45
+		communism_totalitarian = 13
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Steingrímur Hermannsson"
+		desc = ""
+		picture = "ICEG12.dds"
+		ideology = social_cons_idolg
+		expire = 1991.4.30
+		traits = {}
+	}
+}

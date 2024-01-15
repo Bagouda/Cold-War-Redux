@@ -1,0 +1,29 @@
+state = {
+	id=489
+	local_supplies=0.0 
+	name="STATE_489" # Zulia
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 1944 }
+ 	set_variable = { victory_point = 5 }
+		owner = VEN
+		add_core_of = VEN
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+			1944 = {
+				naval_base = 2
+			}			
+		}		
+		victory_points = {
+			1944 5 
+		}
+	}
+	resources={
+		oil=35 # was: 126
+	}
+	manpower = 1576373
+	provinces={
+		1944 1997 2052 4526 5088 10855 12772 
+	}
+}

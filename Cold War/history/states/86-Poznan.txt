@@ -1,0 +1,36 @@
+
+state={
+	id=86
+	name="STATE_86"
+	resources={
+		crops=6.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 6558 }
+ 	set_variable = { victory_point = 10 }
+		buildings = {
+			infrastructure = 1
+
+		}
+		owner = POL
+		add_core_of = POL
+		add_claim_by = GER
+		1947.2.10 = {
+			add_core_of = POL
+
+		}
+		victory_points = {
+			6558 10 
+		}
+
+	}
+
+	provinces={
+		17 388 3283 3381 3460 3510 3532 6462 6558 9470 9532 11232 11558 
+	}
+	manpower=2106500
+	buildings_max_level_factor=1.000
+	state_category=devestated_wasteland
+	local_supplies=0.000
+}

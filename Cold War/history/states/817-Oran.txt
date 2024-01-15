@@ -1,0 +1,36 @@
+state = {
+	id=817
+	local_supplies=0.0 
+	name="STATE_817"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 7132 }
+ 	set_variable = { victory_point = 5 }
+		owner = FRA
+		add_core_of = FRA
+		add_claim_by = ALG
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}		
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+		}
+		victory_points = {
+			7132 5 
+		}
+	}
+	
+	resources={
+		steel=10 # was: 36
+	}
+	
+	manpower = 1560629
+	provinces={ 4116 7132 11923 10045 4150 3991 7008 
+	}
+}

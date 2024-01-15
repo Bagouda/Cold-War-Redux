@@ -1,0 +1,21 @@
+state = {
+	id=560
+	local_supplies=0.0 
+	name="STATE_560" # Nikolayevsk
+	state_category = rural
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+	}
+	resources={
+		steel=18 # was: 24
+	}
+	manpower = 97663
+	provinces={
+		1724 1772 1807 1842 3664 4290 4841 4844 7748 7871 9659 10571 10577 10590 12559 12569 12638 
+	}
+}

@@ -1,0 +1,27 @@
+state = {
+	id=260
+	local_supplies=0.0 
+	name="STATE_260" # Voronezh
+	state_category = devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 413 }
+ 	set_variable = { victory_point = 5 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		victory_points = {
+			413 5
+		}
+	}
+	resources={
+		oil=19 # was: 26
+		crops = 1
+	}	
+	manpower = 2567983
+	provinces={
+		413 437 510 3469 3504 3527 3566 3567 6428 6477 6494 6553 6587 6591 9448 9529 9552 11396 11412 11475 11540 
+	}
+}

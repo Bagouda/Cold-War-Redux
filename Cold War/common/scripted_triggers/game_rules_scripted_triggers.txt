@@ -1,0 +1,38 @@
+#### CW MOD CHANGES ####
+DIPLOMACY_GUARANTEE_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_guarantees
+				option = LIMITED
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = RULE_ALLOW_GUARANTEE_CW
+			ROOT = { is_recognized_regime = yes }
+			FROM = { similar_ideology_check = yes is_major = no NOT = { has_country_flag = guarantee_blocked } }
+			
+		}
+	}
+}
+DIPLOMACY_LEND_LEASE_ENABLE_TRIGGER = {
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = allow_lend_lease
+				option = FREE
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = "We are not allowed to provide lend lease to this country."	
+			FROM = {
+				NOT = {
+					is_in_array = {
+						array = ROOT.lend_lease_blocked_countries
+						value = THIS.id
+					}
+				}
+			}
+		}
+	}
+}

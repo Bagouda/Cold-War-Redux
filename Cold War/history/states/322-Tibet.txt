@@ -1,0 +1,26 @@
+state = {
+	id=322
+	local_supplies=0.0 
+	name="STATE_322"
+	state_category=pastoral
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = TIB
+		add_core_of = CHI
+		add_claim_by= PRC
+		
+		1951.5.23 = {
+		owner = PRC
+		}
+	}
+	resources={
+		tungsten=2.000
+	}
+	buildings_max_level_factor=1.000
+	manpower=1722000
+	provinces={
+		2010 2093 4994 5011 7926 8068 10755 10918 
+	}
+}

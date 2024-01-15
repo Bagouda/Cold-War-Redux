@@ -1,0 +1,172 @@
+defined_text = {
+	name = CW_CPS_SAME_IDEOLOGY_OTHER_CANDIDATE_NAME
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = back_second_candidate }
+		}
+		localization_key = "Nikita Khrushev"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = back_fourth_candidate }
+		}
+		localization_key = "Lavrentiy Beria"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = back_first_candidate }
+		}
+		localization_key = "Vyacheslav Molotov"
+	}
+	text = {
+		trigger = {
+			ROOT = { has_country_flag = back_third_candidate }
+		}
+		localization_key = "Georgy Malenkov"
+	}	
+}
+defined_text = {
+	name = CW_COMM_POWER_STRUGGLE_FIRST_CANDIDATE_IMAGES
+	text = {
+		trigger = {
+			has_country_flag = post_stalin_communist_power_struggle
+		}
+		localization_key = "GFX_sov_malenkov"
+	}
+}
+defined_text = {
+	name = CW_COMM_POWER_STRUGGLE_SECOND_CANDIDATE_IMAGES
+	text = {
+		trigger = {
+			has_country_flag = post_stalin_communist_power_struggle
+		}
+		localization_key = "GFX_sov_lavrentiy_beria"
+	}	
+}
+defined_text = {
+	name = CW_COMM_POWER_STRUGGLE_THIRD_CANDIDATE_IMAGES
+	text = {
+		trigger = {
+			has_country_flag = post_stalin_communist_power_struggle
+		}
+		localization_key = "GFX_sov_molotov_civilian_small"
+	}	
+}
+defined_text = {
+	name = CW_COMM_POWER_STRUGGLE_FOURTH_CANDIDATE_IMAGES
+	text = {
+		trigger = {
+			has_country_flag = post_stalin_communist_power_struggle
+		}
+		localization_key = "GFX_sov_nikita_khrushev_civilian_small"
+	}	
+}
+defined_text = {
+	name = CW_COMM_POWER_STRUGGLE_FIRST_CANDIDATE_NAME
+	text = {
+		trigger = {
+			#has_country_flag = post_stalin_communist_power_struggle
+		}
+		localization_key = "Georgy Malenkov"
+	}
+}
+defined_text = {
+	name = CW_COMM_POWER_STRUGGLE_SECOND_CANDIDATE_NAME
+	text = {
+		trigger = {
+			has_country_flag = post_stalin_communist_power_struggle
+		}
+		localization_key = "Lavrentiy Veria"
+	}	
+}
+defined_text = {
+	name = CW_COMM_POWER_STRUGGLE_THIRD_CANDIDATE_NAME
+	text = {
+		trigger = {
+			has_country_flag = post_stalin_communist_power_struggle
+		}
+		localization_key = "Vyacheslav Molotov"
+	}	
+}
+defined_text = {
+	name = CW_COMM_POWER_STRUGGLE_FOURTH_CANDIDATE_NAME
+	text = {
+		trigger = {
+			has_country_flag = post_stalin_communist_power_struggle
+		}
+		localization_key = "Nikita Khrushev"
+	}	
+}
+defined_text = {
+	name = CW_CPS_PLAYER_CANDIDATE_NAME
+	text = {
+		trigger = {
+			tag = SOV
+			has_country_flag = back_first_candidate
+		}
+		localization_key = "Malenkov"
+	}
+	text = {
+		trigger = {
+			tag = SOV
+			has_country_flag = back_second_candidate
+		}
+		localization_key = "Beria"
+	}	
+	text = {
+		trigger = {
+			tag = SOV
+			has_country_flag = back_third_candidate
+		}
+		localization_key = "Molotov"
+	}	
+	text = {
+		trigger = {
+			tag = SOV
+			has_country_flag = back_fourth_candidate		
+		}
+		localization_key = "Khrushev"
+	}
+	text = { localization_key = "" }
+}
+
+defined_text = {
+	name = CW_CPS_OTHER_CANDIDATE_NAME
+	text = {
+		trigger = {
+			tag = SOV
+			has_completed_focus = SOV_the_old_guard
+			NOT = { has_country_flag = back_second_candidate }
+			NOT = { has_country_flag = cps_second_candidate_arrested }
+		}
+		localization_key = "Beria"
+	}	
+	text = {
+		trigger = {
+			tag = SOV
+			NOT = { has_country_flag = back_first_candidate }
+			has_completed_focus = SOV_anti_stalin_camp
+			NOT = { has_country_flag = cps_first_candidate_arrested }
+		}
+		localization_key = "Malenkov"
+	}	
+	text = {
+		trigger = {
+			tag = SOV
+			NOT = { has_country_flag = back_third_candidate }
+			has_completed_focus = SOV_anti_stalin_camp
+			NOT = { has_country_flag = cps_third_candidate_arrested }
+		}
+		localization_key = "Molotov"
+	}	
+	text = {
+		trigger = {
+			tag = SOV
+			NOT = { has_country_flag = back_fourth_candidate }
+			has_completed_focus = SOV_the_old_guard
+			NOT = { has_country_flag = cps_fourth_candidate_arrested }
+		}
+		localization_key = "Khrushev"
+	}
+	text = { localization_key = "" }
+}

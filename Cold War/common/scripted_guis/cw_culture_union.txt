@@ -1,0 +1,326 @@
+scripted_gui = {
+	cw_euu_interface_window = {
+		window_name = "cw_culture_union_interface"
+		context_type = player_context
+
+		visible = {
+			has_country_flag = open_euu_window
+		}
+
+		effects = {
+			vote_button_yes_button_click = {
+				set_country_flag = cultural_union_voted_yes
+				add_to_variable = { global.euu_total_votes_yes = 1 }
+				add_to_variable = { global.euu_total_votes = 1 }
+			}
+			vote_button_no_button_click = {
+				set_country_flag = cultural_union_voted_no
+				add_to_variable = { global.euu_total_votes_no = 1 }
+				add_to_variable = { global.euu_total_votes = 1 }
+			}
+			vote_button_abstain_button_click = {
+				set_country_flag = cultural_union_voted_abstain
+				add_to_variable = { global.euu_total_votes_abstain = 1 }
+				add_to_variable = { global.euu_total_votes = 1 }
+			}
+			cultural_union_interface_close_button_click = {
+				clr_country_flag = open_euu_window
+			}
+		}
+
+		triggers = {
+			#### VOTING BUTTONS LIMITERS ####
+			country_flag_blocker_visible = {
+				has_global_flag = ACC_active
+			}
+			vote_button_yes_button_click_enabled = {
+				is_euu_member = yes
+				euu_in_session = yes
+				NOT = {
+					OR = {
+						has_country_flag = cultural_union_voted_yes
+						has_country_flag = cultural_union_voted_no
+						has_country_flag = cultural_union_voted_abstain
+					}
+				}
+			}
+			vote_button_no_button_click_enabled = {
+				is_euu_member = yes
+				euu_in_session = yes
+				NOT = {
+					OR = {
+						has_country_flag = cultural_union_voted_no
+						has_country_flag = cultural_union_voted_yes
+						has_country_flag = cultural_union_voted_abstain
+					}
+				}
+			}
+			vote_button_abstain_button_click_enabled = {
+				is_euu_member = yes
+				euu_in_session = yes
+				NOT = {
+					OR = {
+						has_country_flag = cultural_union_voted_yes
+						has_country_flag = cultural_union_voted_no
+						has_country_flag = cultural_union_voted_abstain
+					}
+				}
+			}
+			#### VOTING VOTING INDICATORS ####
+			cultural_union_vote_indicator_abstain_visible = {
+				has_country_flag = cultural_union_voted_abstain
+			}
+			cultural_union_vote_indicator_no_visible = {
+				has_country_flag = cultural_union_voted_no
+			}
+			cultural_union_vote_indicator_yes_visible = {
+				has_country_flag = cultural_union_voted_yes
+			}
+			### MOST VOTES LIGHTS ###
+			cw_resolution_most_votes_supporting_visible = {
+				check_variable = { global.euu_total_votes_yes > global.euu_total_votes_no }
+			}
+			cw_resolution_most_votes_rejecting_visible = {
+				check_variable = { global.euu_total_votes_no > global.euu_total_votes_yes }
+			}
+			#### RESOLUTION STATUS ICONS ####
+			resolution_absolute_majority_icon_visible = {
+				has_global_flag = euu_absolute_majority_required
+			}
+			puppet_indicator_visible = {
+				OR = {
+					is_puppet = yes
+					is_subject = yes
+				}
+			}
+		}
+
+		dynamic_lists = {
+			culture_union_members_list_gridbox = {
+				array = global.euu_members_array		#Array the list draws information from
+				entry_container = cultural_union_members_list_entry		#The contrainer window that displays the information draw by the list from the array
+				change_scope = yes
+				ai_weights = {}
+			}
+			culture_union_observers_list_gridbox = {
+				array = global.euu_observers_array		#Array the list draws information from
+				entry_container = cultural_union_observers_list_entry		#The contrainer window that displays the information draw by the list from the array
+				change_scope = yes
+				ai_weights = {}
+			}
+			culture_union_candidates_list_gridbox = {
+				array = global.euu_candidates_array		#Array the list draws information from
+				entry_container = cultural_union_observers_list_entry		#The contrainer window that displays the information draw by the list from the array
+				change_scope = yes
+				ai_weights = {}
+			}
+			allied_control_council_list_gridbox = {
+				array = global.euu_members_array_acc		#Array the list draws information from
+				entry_container = acc_members_list_entry		#The contrainer window that displays the information draw by the list from the array
+				change_scope = yes
+				ai_weights = {}
+			}			
+		}
+		properties = {
+		  cultural_union_member_flag = {
+			image = "[THIS.GetFlag]"
+		  }
+		  cultural_union_observer_flag = {
+			image = "[THIS.GetFlag]"
+		  }
+		  culture_union_president_flag = {
+			image = "[?global.euu_president.GetFlag]"
+		  }
+		  cultural_union_main_screen_image = {
+			image = "[CW_EUU_MAIN_SCREEN_IMAGE]"
+		  }
+		}
+		ai_enabled = {
+			is_euu_member = yes
+		}
+
+		ai_test_interval = 150  # The higher, the long it takes the ai to do actions
+		ai_test_variance = 0.5
+
+		ai_check = {
+		  has_country_flag = open_euu_window
+		}
+
+		ai_check_scope = {}
+
+		ai_weights = {
+			cultural_union_interface_close_button_click = {
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						OR = {
+							has_country_flag = cultural_union_voted_yes
+							has_country_flag = cultural_union_voted_no
+							has_country_flag = cultural_union_voted_abstain
+						}
+						add = 200
+					}
+				}				
+			}
+			##### SUPPORT RESOLUTION WEIGHTS #####
+			vote_button_yes_button_click = {
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						has_country_flag = like_cultural_union_resolution
+						add = 200
+					}
+				}
+			}
+			##### REJECT RESOLUTION WEIGHTS #####
+			vote_button_no_button_click = {
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						has_country_flag = hate_cultural_union_resolution
+						add = 200
+					}
+				}
+			}
+			##### ABSTAIN RESOLUTION WEIGHTS #####
+			vote_button_abstain_button_click = {
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						has_country_flag = abstain_cultural_union_resolution
+						add = 200
+					}
+				}
+			}
+		}
+	}
+	cw_cultural_union_resolution_entry = {
+		window_name = "cultural_union_resolution_entry"
+		context_type = player_context
+		parent_window_name = cw_culture_union_interface
+
+		visible = {
+		  always = yes
+		}
+
+		effects = {}
+
+		triggers = {
+		  cultural_union_major_resolution_effect_visible = {
+			has_global_flag = euu_major_historical_resolution
+		  }
+		  cultural_union_screen_noise_visible = {
+			has_country_flag = nuclear_disaster
+		  }
+		  no_voting_loc_visible = {
+			euu_in_session = no
+		  }
+		  cultural_union_resolution_desc_visible = {
+			euu_in_session = yes
+		  }
+		}
+
+		dynamic_lists = {}
+
+		properties = {
+		}
+
+		ai_enabled = {
+		  always = no
+		}
+
+		ai_check = {}
+
+		ai_check_scope = {}
+
+		ai_weights = {}
+	}
+	cw_euu_indicator_bottom_right = {
+		window_name = "euu_indicator_top_bar"
+		context_type = player_context
+		
+		visible = {
+			OR = {
+				is_in_array = {
+					array = global.euu_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.euu_observers_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.euu_candidates_array
+					value = THIS.id
+				}
+			}			
+		}
+		effects = {
+			cultural_union_bottom_indicator_click = {
+				if = {
+					limit = {
+						OR = {
+							is_in_array = {
+								array = global.euu_members_array
+								value = THIS.id
+							}
+							is_in_array = {
+								array = global.euu_observers_array
+								value = THIS.id
+							}
+							is_in_array = {
+								array = global.euu_candidates_array
+								value = THIS.id
+							}
+						}
+					}
+					set_country_flag = open_euu_window
+				}
+			}
+		}
+
+		triggers = {
+			cu_monitor_active_vote_animation_visible = {
+				euu_in_session = yes
+			}
+			#cultural_union_vote_timer_visible = {
+			#	euu_in_session = yes
+			#}
+			cultural_union_active_resolution_glow_visible = {
+				euu_in_session = yes
+			}
+		}
+		properties = {
+		  cultural_union_president_flag = {
+			image = "[CW_EUU_BOTTOM_INDICATOR_FLAG]"
+		  }		
+		}
+		ai_enabled = {
+			if = {
+				limit = {
+					euu_in_session = yes
+				}
+				always = yes
+			}
+		}
+
+		ai_test_interval = 100  # The higher, the long it takes the ai to do actions
+		ai_test_variance = 0.5
+
+		ai_check = {
+			euu_in_session = yes
+			is_euu_member = yes
+		}
+		ai_weights = {
+			cultural_union_bottom_indicator_click = {
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						add = 50
+						euu_in_session = yes
+					}
+				}
+			}
+		}
+	}
+}

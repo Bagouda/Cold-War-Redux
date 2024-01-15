@@ -1,0 +1,156 @@
+﻿capital = 315
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+set_variable = {proxy_point = 50 }
+1946.1.1 = {
+	OOB = CUB_1946
+	set_politics = {
+		ruling_party = democratic_socialist
+		last_election = "1944.6.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	
+	set_popularities = {	
+		democratic  = 40
+		democratic_socialist = 10
+		neutrality = 30
+		communism_totalitarian = 20
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Fidel Castro"
+		desc = ""
+		picture = "CUBH6.dds"
+		ideology = anti_imperialist
+		expire = 2008.2.24
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Fulgencio Batista"
+		desc = ""
+		picture = "CUBH3.dds"
+		ideology = paternal_auto_idolg
+		expire = 1965.3.10
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Ramón Grau"
+		desc = ""
+		picture = "CUBH1.dds"
+		ideology = social_liberal_idolg
+		expire = 1948.10.10
+		traits = {}
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+	create_country_leader = {
+		name = "Carlos Prío Socarrás"
+		desc = ""
+		picture = "CUBH2.dds"
+		ideology = social_liberal_idolg
+		expire = 1952.3.10
+		traits = {}
+	}
+}
+1956.10.29 = {	#Suez Crisis
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1952.6.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 40
+		democratic_socialist = 20
+		neutrality = 30
+		communism_totalitarian = 10
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Roberto Agramonte"
+		desc = ""
+		picture = "CUBHNH1.dds"
+		ideology = social_democrat_idolg
+		expire = 1965.3.10
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Fulgencio Batista"
+		desc = ""
+		picture = "CUBH3.dds"
+		ideology = paternal_auto_idolg
+		expire = 1965.3.10
+		traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1952.6.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 80
+		democratic_socialist = 0
+		neutrality = 10
+		communism_totalitarian = 10
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Osvaldo Dorticós Torrado"
+		desc = ""
+		picture = "CUBH5.dds"
+		ideology = social_democrat_idolg
+		expire = 1976.12.2
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Manuel Urrutia Lleó"
+		desc = ""
+		picture = "CUBH4.dds"
+		ideology = social_democrat_idolg
+		expire = 1976.12.2
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Fidel Castro"
+		desc = ""
+		picture = "CUBH6.dds"
+		ideology = anti_imperialist
+		expire = 2008.2.24
+		traits = {}
+	}	
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = communism_totalitarian
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 10
+		democratic_socialist = 10
+		neutrality = 10
+		communism_totalitarian = 70
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Fidel Castro"
+		desc = ""
+		picture = "CUBH6_1.dds"
+		ideology = stalinism_idolg
+		expire = 2008.2.24
+		traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+}

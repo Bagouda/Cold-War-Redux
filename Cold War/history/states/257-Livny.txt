@@ -1,0 +1,30 @@
+state = {
+	id=257
+	local_supplies=0.0 
+	name="STATE_257" # Tambov
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 11351 }
+ 	set_variable = { victory_point = 1 }
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+		}
+		
+		victory_points = {
+			11351 1
+		}
+	}
+	resources={
+		chromium=7 # was: 10
+		crops = 2
+	}
+	manpower = 1779583
+	provinces={
+		232 275 313 340 367 396 471 3332 3389 9245 9312 9367 9422 11227 11296 11323 11351 11381 11436 
+	}
+}

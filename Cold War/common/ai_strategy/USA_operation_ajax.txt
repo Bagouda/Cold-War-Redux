@@ -1,0 +1,26 @@
+USA_carry_out_operation_ajax = {
+	allowed = {
+		tag = USA
+	}
+	
+	enable = {
+		tag = USA
+		has_completed_focus = USA_operation_ajax
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = operative_operation
+		operation = cw_operation_ajax
+		value = 1200
+		operation_target = PER
+	}
+	
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = PER
+	}
+}

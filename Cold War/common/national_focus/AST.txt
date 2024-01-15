@@ -1,0 +1,43 @@
+focus_tree = {
+	id = australia_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = AST
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	focus = {
+		id = AST_send_forces_to_korea
+		available = {
+			is_guaranteed_by = USA
+			PRK = { has_war_with = UNN }
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 1
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			KOR = { cw_allow_non_unsc_volunteers = yes }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

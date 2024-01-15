@@ -1,0 +1,13 @@
+defined_text = {
+	name = CW_LEADER_PORTRAIT_TTL
+	text = {
+		trigger = {
+			has_country_leader = {
+				name = "Viceroy Louis Mountbatten"
+				ruling_only = yes
+			}
+		}
+		localization_key = "CW_LOUIS_MOUNTBATTEN"
+	}
+	text = { localization_key = "This leader has no description yet." }
+}

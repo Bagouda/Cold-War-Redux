@@ -1,0 +1,34 @@
+state = {
+	id=6
+	local_supplies=0.0 
+	name="STATE_6" # Flanders
+	state_category = devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 516 }
+ 	add_to_array = { list_victory_point = 6598 }
+ 	add_to_array = { list_victory_point = 6560 }
+ 	set_variable = { victory_point = 65 }
+		owner = BEL
+		add_core_of = BEL
+		
+		buildings = {
+			infrastructure = 4
+			air_base = 3
+			industrial_complex = 3
+			6560 = {
+				naval_base = 2
+			}			
+		}		
+		victory_points = { 6560 5 }
+		victory_points = { 6598 30 }
+		victory_points = { 516 30 }
+	}
+	resources={
+		steel=25 # was: 48
+		crops = 12
+	}
+	manpower = 4747700
+	provinces={
+		516 3576 6446 6560 6598 9574 11419 13068 
+	}
+}

@@ -1,0 +1,35 @@
+
+state={
+	id=546
+	local_supplies=0.0 
+	name="STATE_546"
+	resources={
+		crops=2.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 2196 }
+ 	set_variable = { victory_point = 5 }
+		owner = ENG
+		add_claim_by = TNZ
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			2196 = {
+				naval_base = 2
+
+			}
+		}
+		victory_points = {
+			2196 5 
+		}
+	}
+
+	provinces={
+		2196 2206 4171 5180 5224 8144 8183 8205 10932 11017 12911 
+	}
+	manpower=5299000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

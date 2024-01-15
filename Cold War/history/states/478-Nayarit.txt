@@ -1,0 +1,38 @@
+state = {
+	id=478
+	local_supplies=0.0 
+	name="STATE_478" # Jalisco
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 13089 }
+ 	add_to_array = { list_victory_point = 10172 }
+ 	add_to_array = { list_victory_point = 12746 }
+ 	add_to_array = { list_victory_point = 12746 }
+ 	set_variable = { victory_point = 17 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = MEX
+		add_core_of = MEX
+		victory_points = {
+			12746 1
+		}
+		victory_points = {
+			12746 1
+		}
+		victory_points = {
+			10172 5
+		}
+		victory_points = {
+			13089 10
+		}
+	}
+	resources={
+		tungsten=8 # was: 10
+		crops = 5
+	}
+	manpower = 2470875
+	provinces={
+		2051 5052 10172 12746 12873 13089 
+	}
+}

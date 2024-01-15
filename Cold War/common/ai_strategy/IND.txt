@@ -1,0 +1,15 @@
+IND_pp_spending = {
+	enable = {
+		original_tag = IND
+		is_puppet = yes
+	}
+	abort = {
+		is_puppet = no
+	}
+
+	ai_strategy = { #Don't improve relations before independence
+		type = pp_spend_priority
+		id = relation
+		value = -100
+	}
+}

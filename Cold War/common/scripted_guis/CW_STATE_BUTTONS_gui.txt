@@ -1,0 +1,754 @@
+@state_button_cooldown_short = 160
+@state_button_cooldown_medium = 180
+@state_button_cooldown_long = 320
+@state_raid_timer = 10
+scripted_gui = {
+  cw_claims_buttons = {
+    window_name = "cw_extra_state_buttons"
+    context_type = selected_state_context
+    parent_window_token = selected_state_view
+
+    visible = {
+      always = yes
+    }
+
+    properties = {
+      monopoly_flag = {
+        image = "[CW_MONOPOLY_GET_FLAG]"
+      }
+    }
+
+    effects = {
+      extend_revoke_lease_button_click = {
+        OWNER = {
+  				phone_notification_lease_revoked = yes
+  				set_variable = { phone_notification_state = FROM.FROM.id }
+        }
+        remove_core_of = OWNER
+        cw_revoke_state_lease = yes
+      }
+      move_capital_button_click = {
+        ROOT = { add_political_power = -100 }
+        THIS = { set_variable = { ROOT.designated_capital = THIS.id } }
+        ROOT = { set_country_flag = moving_capital }
+        ROOT = { activate_mission = cw_move_capital }
+      }
+      claim_state_button_click = {
+        if = {
+          limit = {
+            THIS = { NOT = { is_controlled_by = ROOT } }
+          }
+          ### NOTIFICATION ###
+          controller = { set_country_flag = { flag = notification_state_claimed value = 1 days = 5 } }
+          controller = { set_variable = { claimed_state = PREV.id } }
+          controller = { set_variable = { state_claimer = ROOT.id } }
+          ### NOTIFICATION ###
+        }
+        ROOT = { set_variable = { unsc_actions_cooldown = @state_button_cooldown_medium } }
+        ROOT = { add_to_variable = { claimed_states = 1 } }
+        add_claim_by = ROOT
+        ROOT = { add_named_threat = {  threat = 5 name = UNSC_CLAIMED_STATE } }
+        ROOT = { add_political_power = -50 }
+      }
+      remove_claim_button_click = {
+        remove_claim_by = ROOT
+        ROOT = { add_stability = -0.10 }
+      }
+      request_core_button_click = {
+        ROOT = { set_country_flag = like_resolution }
+        ROOT = { set_variable = { ROOT.unsc_actions_cooldown = @state_button_cooldown_long } }
+        ROOT = { add_political_power = -100 }
+        save_global_event_target_as = requested_core
+        if = {
+          limit = {
+          event_target:requested_core = { is_fully_controlled_by = ROOT }
+          }
+          for_each_scope_loop = {
+          array = THIS.core_countries
+          break = 1
+
+          PREV = { add_to_variable = { amount_of_other_cores = 1 } }
+          }
+          ROOT = {
+            save_global_event_target_as = unsc_initiator
+            save_global_event_target_as = unsc_target
+            cw_unsc_set_like_resolution = yes
+            set_country_flag = resolution_generic_request_core_controlled
+          }
+        }
+        if = {
+          limit = {
+            NOT = { event_target:requested_core = { is_fully_controlled_by = ROOT } }
+          }
+          ROOT = { save_global_event_target_as = unsc_initiator }
+          owner = {
+            set_country_flag = hate_resolution
+            cw_unsc_set_hate_resolution = yes
+            set_country_flag = resolution_generic_request_core_not_controlled
+            save_global_event_target_as = unsc_target
+            set_country_flag = unsc_target_flag
+          }
+        }
+        cw_unsc_start_resolution_effect = yes
+      }
+      abolish_core_button_click = {	    #Remove foreign core
+        ROOT = { set_variable = { ROOT.unsc_actions_cooldown = @state_button_cooldown_long } }
+        ROOT = { add_political_power = -300 }
+        save_global_event_target_as = requested_core
+        if = {
+          limit = {
+            event_target:requested_core = { is_fully_controlled_by = ROOT }
+          }
+          ROOT = {
+            save_global_event_target_as = unsc_target
+            cw_unsc_set_like_resolution = yes
+            set_country_flag = resolution_generic_abolish_core_controlled
+          }
+        }
+        if = {
+          limit = {
+            NOT = { event_target:requested_core = { is_fully_controlled_by = ROOT } }
+          }
+          ROOT = { save_global_event_target_as = unsc_initiator }
+          owner = {
+            cw_unsc_set_hate_resolution = yes
+            set_country_flag = resolution_generic_abolish_core_not_controlled
+            save_global_event_target_as = unsc_target
+            set_country_flag = unsc_target_flag
+          }
+        }
+        cw_unsc_start_resolution_effect = yes
+      }
+      demand_state_transfer_button_click = {
+        ROOT = { set_variable = { ROOT.unsc_actions_cooldown = @state_button_cooldown_long } }
+        ROOT = { add_political_power = -500 }
+        ROOT = { save_global_event_target_as = unsc_initiator }
+        save_global_event_target_as = requested_core
+        owner = {
+          cw_set_resolution_observer = yes
+          set_country_flag = unsc_target_flag
+          cw_unsc_set_hate_resolution = yes
+          set_country_flag = resolution_generic_transfer_core_state_un
+          save_global_event_target_as = unsc_target
+        }
+        cw_unsc_start_resolution_effect = yes
+      }
+      remove_core_button_click = {		#Remove own core
+        remove_core_of  = ROOT
+        ROOT = { add_stability = -0.1 }
+      }
+      develop_state_button_click = {
+        THIS = { set_state_flag = upgrade_state }
+        set_variable = { ROOT.upgrade_state = THIS.id }
+        if = {
+          limit = {
+            has_state_category = devestated_wasteland
+          }
+          set_variable = { ROOT.upgrade_state_cost = 20 }
+          set_variable = { ROOT.upgrade_state_time = 200 }
+        }
+        if = {
+          limit = {
+            has_state_category = town
+          }
+          set_variable = { ROOT.upgrade_state_cost = 10 }
+          set_variable = { ROOT.upgrade_state_time = 100 }
+        }
+        if = {
+          limit = {
+            has_state_category = large_town
+          }
+          set_variable = { ROOT.upgrade_state_cost = 20 }
+          set_variable = { ROOT.upgrade_state_time = 125 }
+        }
+        if = {
+          limit = {
+            has_state_category = city
+          }
+          set_variable = { ROOT.upgrade_state_cost = 25 }
+          set_variable = { ROOT.upgrade_state_time = 130 }
+        }
+        if = {
+          limit = {
+            has_state_category = large_city
+          }
+          set_variable = { ROOT.upgrade_state_cost = 30 }
+          set_variable = { ROOT.upgrade_state_time = 135 }
+        }
+        if = {
+          limit = {
+            has_state_category = metropolis
+          }
+          set_variable = { ROOT.upgrade_state_cost = 35 }
+          set_variable = { ROOT.upgrade_state_time = 140 }
+        }
+        ROOT = { activate_mission = cw_develop_state_decision }
+        ROOT = { add_dynamic_modifier = { modifier = cw_upgrade_state_dynamic_modifier scope = THIS } }
+      }
+      stop_develop_state_button_click = {
+        THIS = { clr_state_flag = upgrade_state }
+        clear_variable = ROOT.upgrade_state
+        ROOT = { remove_mission = cw_develop_state_decision }
+      }
+      revoke_monopoly_button_click = {
+        ROOT = { add_political_power = -50 }
+        cw_remove_state_monopoly = yes
+      }
+      border_incident_button_click = {
+        if = {
+          limit = {
+            ROOT = { has_country_flag = free_border_incidents }
+          }
+          else = {
+            ROOT = { add_command_power  = -50 }
+          }
+        }
+        random_neighbor_state = { limit = { is_owned_by = ROOT } save_event_target_as = attacking_state }
+        owner = { add_opinion_modifier = {  target = ROOT modifier = border_skirmish } }
+
+     
+		
+        if = {
+          limit = {
+            has_state_flag = territory_change_allowed
+          }
+          start_border_war = {
+            change_state_after_war = yes
+            attacker = {
+              state = event_target:attacking_state
+			  on_win = state_events.14
+            }
+            defender = {
+              state = THIS
+			  on_win = state_events.15
+            }
+          }
+          else = {
+            start_border_war = {
+              change_state_after_war = no
+              attacker = {
+                state = event_target:attacking_state
+				on_win = state_events.14
+              }
+              defender = {
+                state = THIS
+				on_win = state_events.15
+              }
+            }
+          }
+        }
+      }
+      stop_border_incident_button_click = {
+        ROOT = { add_command_power  = -25 }
+        random_neighbor_state = { limit = { is_owned_by = ROOT } save_event_target_as = attacking_state }
+        cancel_border_war = {
+          dont_fire_events = yes
+          defender = THIS
+          attacker = event_target:attacking_state
+        }
+      }
+      border_raid_button_click = {
+        if = {
+          limit = {
+            ROOT = { has_country_flag = free_border_raids }
+          }
+          else = {
+            ROOT = { add_command_power  = -20 }
+          }
+        }
+        ROOT = { set_country_flag = { flag = raiding_a_state value = 1 days = @state_raid_timer } }
+        set_state_flag = { flag = state_being_raided value = 1 days = @state_raid_timer }
+        set_variable = { border_raid_timer = @state_raid_timer }
+        ROOT = {
+          set_variable = { border_raid_raider_name = ROOT.id }
+          set_variable = { border_raid_target = PREV.id }
+        }
+        CONTROLLER = {
+          set_variable = { border_raid_raider_name = ROOT.id }
+          set_variable = { border_raid_target = PREV.id }
+        }
+        random_list = {
+          60 = {
+            custom_effect_tooltip = "Our forces have raided an enemy cache."
+            ROOT = { country_event = { id = state_events.6 days = @state_raid_timer } }
+            CONTROLLER = { country_event = { id = state_events.6 days = @state_raid_timer } }
+            save_event_target_as = raided_state
+            set_temp_variable = { state_raid_effect = 0 }
+            randomize_temp_variable = {
+              var = state_raid_effect
+              distribution = uniform
+              min = 500
+              max = 1000
+            }
+            ROOT = {
+              add_equipment_to_stockpile = {
+                type = infantry_equipment_3
+                amount = var:event_target:raided_state.state_raid_effect
+                producer = CONTROLLER
+              }
+            }
+            multiply_temp_variable = { var:event_target:raided_state.state_raid_effect =-1 }
+            CONTROLLER = {
+              add_equipment_to_stockpile = {
+                type = infantry_equipment_3
+                amount = var:event_target:raided_state.state_raid_effect
+                producer = CONTROLLER
+              }
+            }
+            if = {
+              limit = {
+                CONTROLLER = { has_fuel > 1000 }
+              }
+              ROOT = { add_fuel = var:event_target:raided_state.state_raid_effect }
+              CONTROLLER = { add_fuel = var:event_target:raided_state.state_raid_effect }
+            }
+          }
+          10 = {
+            modifier = {
+              factor = -100.0
+              has_built = {
+                type = infrastructure
+                value < 2
+              }
+            }
+            custom_effect_tooltip = "Our forces have damaged local infrastructure."
+            ROOT = { country_event = { id = state_events.7 days = @state_raid_timer } }
+            CONTROLLER = { country_event = { id = state_events.7 days = @state_raid_timer } }
+            damage_building = {
+              type = infrastructure
+              damage = 1
+            }
+          }
+          5 = {
+            custom_effect_tooltip = "A high ranking [THIS.CONTROLLER.GetAdjective] general is attacked."
+            CONTROLLER = {
+              add_stability = -0.01
+              random_unit_leader = {
+              	limit = {
+              	  is_leading_army = yes
+              	}
+                CONTROLLER = { set_variable = { border_raid_target_general = PREV.id } }
+              	add_timed_unit_leader_trait = {
+              		trait = wounded
+              		days = 90
+              	}
+              }
+            }
+            ROOT = { country_event = { id = state_events.7 days = @state_raid_timer } }
+            CONTROLLER = { country_event = { id = state_events.7 days = @state_raid_timer } }
+          }
+          15 = {
+            if = {
+              limit = {
+                has_resistance = yes
+              }
+              ROOT = { country_event = { id = state_events.9 days = @state_raid_timer } }
+              CONTROLLER = { country_event = { id = state_events.9 days = @state_raid_timer } }
+              custom_effect_tooltip = "Our soldiers incite the local population against the [THIS.CONTROLLER.GetAdjective] regime."
+              add_resistance_target = 5
+              else = {
+                custom_effect_tooltip = "Our soldiers kill [THIS.CONTROLLER.GetAdjective] forces."
+                ROOT = { country_event = { id = state_events.10 days = @state_raid_timer } }
+                CONTROLLER = { country_event = { id = state_events.9 days = @state_raid_timer } }
+                CONTROLLER = { add_manpower = -500 }
+              }
+            }
+          }
+          10 = {
+            custom_effect_tooltip = "Our raiding party is caputred and executed."
+            ROOT = { country_event = { id = state_events.11 days = @state_raid_timer } }
+            CONTROLLER = { country_event = { id = state_events.9 days = @state_raid_timer } }
+            ROOT = { add_manpower = -1000 }
+          }
+        }
+      }
+      police_action_button_click = {
+        if = {
+          limit = {
+            NOT = { has_state_flag = free_police_action }
+          }
+          ROOT = { army_experience = -20 }
+        }
+        set_state_flag = { flag = state_police_action_active value = 1 days = 30 }
+        set_variable = { state_police_action_timer = 30 }
+        random_list = {
+          85 = {
+            randomize_temp_variable = {
+              var = state_police_action_effect
+              distribution = uniform
+              min = 5
+              max = 10
+            }
+            multiply_temp_variable = { state_police_action_effect =-1 }
+            add_resistance = var:state_police_action_effect
+          }
+          10 = {
+            randomize_temp_variable = {
+              var = state_police_action_effect
+              distribution = uniform
+              min = 5
+              max = 10
+            }
+            add_resistance = var:state_police_action_effect
+          }
+          5 = {
+            randomize_temp_variable = {
+              var = state_police_action_effect
+              distribution = uniform
+              min = 5
+              max = 10
+            }
+            multiply_temp_variable = { state_police_action_effect =-1 }
+            add_resistance = var:state_police_action_effect
+            ROOT = { set_variable = { police_action_event_state = PREV.id } }
+            ROOT = { 
+              if = {
+                limit = {
+                  NOT = { has_country_flag = police_action_condemnation_active }
+                }
+                news_event = { id = state_events.5 days = 30 random = 40 random_days = 10 }
+                set_country_flag = police_action_condemnation_active
+              }
+            }
+          }
+        }
+      }
+    }
+
+    triggers = {
+      police_action_button_visible = {
+        OR = {
+          is_owned_by = ROOT
+          OWNER = { is_puppet_of = ROOT }
+          OWNER = { is_subject_of = ROOT }
+        }
+      }
+      police_action_button_active_visible = {
+        has_state_flag = state_police_action_active
+      }
+      police_action_button_click_enabled = {
+        ROOT = { has_army_experience > 19 }
+        resistance > 5
+      }
+      border_raid_button_visible = {
+        NOT = { is_owned_by = ROOT }
+      }
+      border_raid_button_click_enabled = {
+        NOT = { ROOT = { has_country_flag = raiding_a_state} }
+        ROOT = { OR = { has_idea = cw_non_recognized_state has_idea = cw_partially_recognized_state } }
+        ROOT = { NOT = { has_country_flag = border_raid_blocked } }
+        NOT = { has_state_flag = state_being_raided }
+        NOT = { controller = { is_in_faction_with = ROOT } }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = free_border_raids }
+          }
+          else = {
+            ROOT = { command_power > 19 }
+          }
+        }
+        NOT = { controller = { is_puppet_of = ROOT } }
+        NOT = { controller = { is_subject_of = ROOT } }
+        OR = {
+          is_claimed_by = ROOT
+          is_core_of = ROOT
+        }
+        controller = { has_full_control_of_state = PREV }
+        any_neighbor_state = { is_controlled_by = ROOT }
+      }
+      border_raid_button_active_visible = {
+        has_state_flag = state_being_raided
+      }
+      lease_indicator_icon_visible = {
+        has_state_flag = leased_territory
+      }
+      lease_timer_visible = {
+        check_variable = { lease_timer > 0 }
+      }
+      extend_revoke_lease_button_click_enabled = {
+        NOT = { has_state_flag = ref_state }
+        OR = {
+          is_owned_by = ROOT
+          NOT = { has_state_flag = perpetual_lease }
+        }
+      }
+      extend_revoke_lease_button_visible = {
+        OR = {
+          has_state_flag = leased_territory
+        }
+        OR = {
+          check_variable = { true_owner = ROOT.id }
+          is_fully_controlled_by = ROOT
+        }
+      }
+      extend_revoke_lease_button_unn_visible = {
+        ROOT = { original_tag = UNN }
+        OR = {
+          has_state_flag = leased_rec_territory
+          has_state_flag = leased_non_rec_territory
+          has_state_flag = unsc_international_territory_lease
+        }
+      }
+      move_capital_button_click_enabled = {
+        ROOT = { has_war = no }
+        is_owned_by = ROOT
+        is_core_of = ROOT
+        is_in_home_area = yes
+        ROOT = { has_political_power > 99 }
+        NOT = { is_capital = yes }
+        NOT = { ROOT = { has_active_mission = cw_move_capital } }
+        OR = {
+          has_state_category = city
+          has_state_category = large_city
+          has_state_category = large_town
+          has_state_category = megalopolis
+          has_state_category = metropolis
+          has_state_category = town
+        }
+      }
+      monopoly_flag_visible = {
+        has_state_flag = monopoly_state
+      }
+      monopoly_flag_frame_visible = {
+        has_state_flag = monopoly_state
+      }
+      monopoly_flag_frame_visible = {
+        has_state_flag = monopoly_state
+      }
+      monopoly_period_background_visible = {
+        has_state_flag = monopoly_state
+      }
+      monopoly_period_visible = {
+        has_state_flag = monopoly_state
+      }
+      revoke_monopoly_button_click_enabled = {
+        has_state_flag = monopoly_state
+        NOT = { has_state_flag = perpetual_monopoly }
+        NOT = { has_state_flag = binding_contract }
+        OR = {
+          is_controlled_by = ROOT
+          var:my_resource_state_owner = { tag = ROOT }
+        }
+      }
+      develop_state_button_visible = {
+        OR = {
+          is_owned_by = ROOT
+          owner = { is_puppet_of = ROOT }
+          owner = { is_subject_of = ROOT }
+          ROOT = { NOT = { has_active_mission = cw_develop_state_decision } }
+        }
+      }
+      develop_state_button_click_enabled = {
+        OR = {
+          is_owned_by = ROOT
+          owner = { is_puppet_of = ROOT }
+          owner = { is_subject_of = ROOT }
+        }
+        NOT = { has_state_category = wasteland }
+        NOT = { has_state_category = megalopolis }
+        NOT = { has_state_category = tiny_island }
+        NOT = { has_state_category = small_island }
+        NOT = { has_state_category = rural }
+        NOT = { has_state_category = pastoral }
+        NOT = { has_state_category = enclave }
+        ROOT = { NOT = { has_active_mission = cw_develop_state_decision } }
+      }
+      stop_develop_state_button_visible = {
+      OR = {
+      is_owned_by = ROOT
+      owner = { is_puppet_of = ROOT }
+      owner = { is_subject_of = ROOT }
+      }
+      has_state_flag = upgrade_state
+      ROOT = { has_active_mission = cw_develop_state_decision }
+      }
+      border_incident_button_visible= {
+        NOT = { is_owned_by = ROOT }
+      }
+      border_incident_button_click_enabled = {
+        NOT = { controller = { is_in_faction_with = ROOT } }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = free_border_incidents }
+          }
+          else = {
+            ROOT = { command_power  > 49 }
+          }
+        }
+        has_border_war = no
+        controller = { 
+          NOT = {
+            OR = {
+              is_puppet_of = ROOT
+              is_subject_of = ROOT
+            }
+          }
+          has_full_control_of_state = PREV
+          divisions_in_state = { state = PREV size > 0 }
+        }
+        any_neighbor_state = {
+          is_controlled_by = ROOT
+          ROOT = { divisions_in_state = { state = PREV size > 0 } } 
+        }
+      }
+      stop_border_incident_button_visible = {
+      NOT = { owner = { is_puppet_of = ROOT owner = { is_subject_of = ROOT } } }
+      THIS = { has_border_war = yes }
+      NOT = { is_owned_by = ROOT }
+      any_neighbor_state = { is_owned_by = ROOT }
+      }
+      stop_border_incident_button_click_enabled= {
+      ROOT = { command_power > 24 }
+      THIS = { has_border_war = yes }
+      NOT = { is_owned_by = ROOT }
+      any_neighbor_state = { has_border_war = yes is_owned_by = ROOT }
+      }
+      claim_state_button_click_enabled = {
+        ROOT = { has_political_power > 49 }
+        NOT = { is_owned_by = UNN }
+        NOT = { is_core_of = ROOT }
+        NOT = { has_state_flag = leased_territory }
+        ROOT = { check_variable = { ROOT.resoultion_failed_cooldown_timer = 0 } }
+        ROOT = { check_variable = { unsc_actions_cooldown = 0 } }
+        OR = {
+          is_controlled_by = ROOT
+          any_neighbor_state = {
+            is_owned_by = ROOT
+            is_core_of = ROOT
+          }
+        }
+      }
+      claim_state_button_visible = {
+        NOT = { is_claimed_by = ROOT }
+        NOT = { is_core_of = ROOT }
+      }
+      remove_claim_button_click_enabled= {
+        ROOT = { has_political_power > 24 }
+        is_claimed_by = ROOT
+      }
+      remove_claim_button_visible = {
+        is_claimed_by = ROOT
+      }
+      request_core_button_click_enabled = {
+        ROOT = { has_war = no }
+        ROOT = { has_political_power > 99 }
+        NOT = { ROOT = { OR = { has_idea = cw_non_recognized_state has_idea = cw_partially_recognized_state } } }
+        is_claimed_by = ROOT
+        NOT = { has_state_flag = leased_territory }
+        NOT = { is_core_of = ROOT }
+        unsc_in_session = no
+        unsc_implementing_resolution = no
+        ROOT = { check_variable = { ROOT.resoultion_failed_cooldown_timer = 0 } }
+        ROOT = { check_variable = { unsc_actions_cooldown = 0 } }
+        OR = {
+          is_capital = no
+          is_owned_by = ROOT
+        }
+      }
+      remove_core_button_visible = {
+        is_core_of = ROOT
+      }
+      remove_core_button_click_enabled = {
+        is_capital = no
+        ROOT = { has_war = no }
+      }
+      abolish_core_button_click_enabled = {
+        ROOT = { has_war = no }
+        ROOT = { has_political_power > 299 }
+        NOT = { ROOT = { OR = { has_idea = cw_non_recognized_state has_idea = cw_partially_recognized_state } } }
+        unsc_in_session = no
+        unsc_implementing_resolution = no
+        ROOT = { check_variable = { THIS.resoultion_failed_cooldown_timer = 0 } }
+        ROOT = { check_variable = { unsc_actions_cooldown = 0 } }
+        NOT = { is_core_of = ROOT }
+        is_core_of = controller
+        is_capital = no
+        any_neighbor_state = { is_owned_by = ROOT }
+        any_neighbor_state = { is_core_of = ROOT }
+      }
+      demand_state_transfer_button_visible = {
+        NOT = { is_owned_by = ROOT }
+        NOT = { owner = { is_puppet_of = ROOT } }
+        NOT = { owner = { is_subject_of = ROOT } }
+      }
+      demand_state_transfer_button_click_enabled = {
+        ROOT = { has_war = no }
+        ROOT = { has_political_power > 499 }
+        NOT = { ROOT = { OR = { has_idea = cw_non_recognized_state has_idea = cw_partially_recognized_state } } }
+        unsc_in_session = no
+        unsc_implementing_resolution = no
+        ROOT = { check_variable = { ROOT.resoultion_failed_cooldown_timer = 0 } }
+        ROOT = { check_variable = { unsc_actions_cooldown = 0 } }
+        NOT = { is_owned_by = ROOT }
+        NOT = { has_state_flag = ref_state }
+        is_core_of = ROOT
+        is_capital = no
+        any_neighbor_state = { is_owned_by = ROOT }
+      }
+    }
+
+    properties = {
+    }
+    ai_enabled = {
+      always = yes
+    }
+
+    ai_test_interval = 500  # The higher, the long it takes the ai to do actions
+		ai_test_variance = 0.5
+
+    ai_check = {
+      ROOT = {
+        OR = {
+          has_country_flag = initiate_border_skirmish
+          tag = PAN
+        }
+      }
+    }
+
+    ai_check_scope = {
+    }
+
+    ai_weights = {
+      border_incident_button_click = {
+        ai_will_do = {
+          factor = 0
+          modifier = {
+            add = 100
+            ROOT = { has_country_flag = initiate_border_skirmish }
+            has_state_flag = border_skirmish_target
+          }
+        }
+      }
+      border_raid_button_click = {
+        ai_will_do = {
+          factor = 0
+          modifier = {
+            add = 100
+            ROOT = { has_country_flag = initiate_border_raids }
+            has_state_flag = border_raid_target
+          }
+        }
+      }
+      #request_core_button_click = {
+      #  ai_will_do = {
+      #    factor = 0
+      #    modifier = {
+      #      add = 100
+      #      ROOT = { tag = PAN }
+      #      685 = { is_claimed_by = PAN is_controlled_by = USA  }
+      #    }
+      #  }
+      #}
+      #demand_state_transfer_button_click = {
+      #  ai_will_do = {
+      #    factor = 0
+      #    modifier = {
+      #      add = 100
+      #      ROOT = { tag = PAN }
+      #      685 = { is_core_of = PAN is_controlled_by = USA }
+      #    }
+      #  }
+      #}
+    }
+  }
+}

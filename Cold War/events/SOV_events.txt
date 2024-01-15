@@ -1,0 +1,625 @@
+﻿##########################
+# SOV EVENTS AND RELATED EVENTS #
+##########################
+add_namespace = sov_events
+country_event = {
+	id = sov_events.1		#Czechoslovakia Split SOV response event
+	title = sov_events.1.t
+	desc = sov_events.1.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = {
+		name = "It is not up to them"
+		ai_chance = {
+			modifier = {
+				factor = -50
+				is_guaranteed_by = USA
+			}
+			modifier = {
+				factor = 25
+				is_historical_focus_on = yes
+			}
+		}
+		create_wargoal = {
+			type = puppet_wargoal_focus
+			target = CZR
+		}
+	}
+	option = {
+		name = "Arm the Czech Communists"
+		ai_chance = {
+			modifier = {
+				factor = 10
+			}			
+		}
+		CZR = {
+			start_civil_war = {
+				ideology = communism_totalitarian
+				capital = 75
+				size = 0.3
+				states = { 75 }
+				compute_proxy_score = yes
+			}
+			compute_proxy_score = yes
+		}
+	}	
+	option = {
+		name = "Nothing we can do about this"
+		ai_chance = {
+			modifier = {
+				factor = 25
+				is_historical_focus_on = yes
+			}			
+		}
+	}
+}
+country_event = {
+	id = sov_events.2		#Iranian oil concessions event
+	title = sov_events.2.t
+	desc = sov_events.2.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = {
+		name = "Accept the deal"
+		ai_chance = {
+			modifier = {
+				factor = 10
+			}
+			modifier = {
+				factor = 50
+				is_historical_focus_on = yes
+			}			
+		}
+		transfer_state = 419
+		419 = { remove_claim_by = AZR }
+		add_stability = -0.1
+		add_popularity = { ideology = unaligned_right popularity = -0.1 }
+		reverse_add_opinion_modifier = { target = FROM modifier = accepted_offer }
+		add_opinion_modifier = { target = FROM modifier = eased_tensions }
+		SOV = { add_named_threat = { threat = -5 name = TENSION_ENTRY_SOV_RETURNED_AZERBAIJAN } }
+		custom_effect_tooltip = CW_INSERT_NEW_LINE
+		266 = { SOV = { cw_give_state_monopoly_perpetual_country = yes } }
+		420 = { SOV = { cw_give_state_monopoly_perpetual_country = yes } }
+	}
+	option = {
+		name = "This deal is insulting"
+		ai_chance = {
+			modifier = {
+				factor = 10
+			}
+			modifier = {
+				factor = 25
+				is_historical_focus_on = no
+			}			
+		}
+		add_stability = 0.1
+		add_popularity = { ideology = unaligned_right popularity = 0.15 }
+		add_opinion_modifier = { target = FROM modifier = refused_offer }
+		add_named_threat = { threat = 5 name = REFUSED_SOVIET_DEAL_AZERBAIJAN }
+	}
+}
+country_event = {
+	id = sov_events.3		#Death of Kalinin
+	title = sov_events.3.t
+	desc = sov_events.3.d
+	picture = GFX_mikhail_kalinin
+
+	trigger = {
+		original_tag = SOV
+		date > 1946.6.1
+	}
+
+	fire_only_once = yes
+
+
+	option = {
+		name = "A Socialist Legend"
+		763 = { set_state_name = "Kaliningrad" }
+		set_province_name = {
+			id = 6332
+			name = "Kaliningrad"
+		}
+		add_ideas = sov_nikolai_shvernik
+		SOV_mikhail_kalinin = { retire = yes }
+		activate_advisor = sov_nikolai_shvernik
+		set_country_flag = kalinin_dead
+	}
+}
+country_event = {
+	id = sov_events.4		#Soviet Request of Grain from USA
+	title = sov_events.4.t
+	desc = sov_events.4.d
+	picture = GFX_map_ukraine
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Deny their request"
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 70
+				is_historical_focus_on = yes
+			}			
+		}
+		FROM = { add_opinion_modifier = { target = ROOT modifier = refused_demand } }
+		add_popularity = { ideology = democratic_socialist popularity = -0.05 }
+		hidden_effect = { SOV = { country_event = { id = sov_events.5 days = 3 } } }		
+	}
+	
+	option = {
+		name = "We cannot ignore the plight of Ukraine"
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 25
+				is_historical_focus_on = no
+			}			
+		}		
+		FROM = { add_opinion_modifier = { target = ROOT modifier = provided_humanitarian_relief } }
+		SOV = { create_import = { resource = crops amount = 70 exporter = USA } }
+		hidden_effect = {
+		SOV = { country_event = { id = sov_events.6 days = 3 } }
+		remove_opinion_modifier = { target = FROM modifier = opposing_economic_outlooks }
+		}
+	}
+}
+country_event = {
+	id = sov_events.5		#United States Refuses Grain Export
+	title = sov_events.5.t
+	desc = sov_events.5.d
+	picture = GFX_map_ukraine
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Capitalism at its worst"
+	}
+}
+country_event = {
+	id = sov_events.6		#United States Provides Grain
+	title = sov_events.6.t
+	desc = sov_events.6.d
+	picture = GFX_map_ukraine
+
+	is_triggered_only = yes
+
+	option = {
+		name = "We thank our American Comrades"
+		add_timed_idea = { idea = cw_sov_foreign_dependence days = 365 }
+	}	
+}
+country_event = {
+	id = sov_events.7		#United States Provides Grain
+	title = "The Russian Republic"
+	desc = sov_events.7.d
+	picture = GFX_report_event_soviet_tanks
+
+	is_triggered_only = yes
+
+	option = {
+		name = "For Mother Russia!"
+		RUS = {
+			change_tag_from = ROOT
+		}
+		RUS = {
+			modify_timed_idea = {
+				idea = cw_revolutionary_zeal
+				days = 365
+			}		
+		}
+		every_state = {
+			limit = {
+				is_claimed_by = RUS
+			}
+			add_core_of = RUS
+			hidden_effect = {
+				remove_claim_by = RUS
+			}
+		}
+	}
+	option = {
+		name = "For the Union!"
+	}
+}
+
+## nuke
+
+
+country_event = {
+	id = sov_events.8		#successfull nuke
+	title = sov_events.8.d
+	desc = sov_events.8.d
+	picture = GFX_report_event_soviet_tanks
+
+	is_triggered_only = yes
+
+	option = {
+		name = sov_events.8.a
+	}
+
+}
+
+news_event = {
+
+	id = sov_events.9		#successfull nuke
+	title = sov_events.9.d
+	desc = sov_events.9.d
+	picture = GFX_news_event_nuke.dds	
+
+
+
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		trigger = { NOT = { original_tag  = SOV } }
+		name = sov_events.9.a
+	}
+
+	option = {
+		trigger = { original_tag  = SOV }
+		name = sov_events.9.b
+	}
+
+}
+
+
+### famine event
+
+
+news_event = {
+	id = sov_events.10		#Soviet famine
+	title = sov_events.10.t
+	desc = sov_events.10.d
+	picture = GFX_dead_crops_image_large
+
+	major = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+
+	}	
+	
+	option = {
+		name = sov_events.10.a
+	}
+}
+
+news_event = {
+	id = sov_events.11		#Soviet famine become severe
+	title = sov_events.11.t
+	desc = sov_events.11.d
+	picture = GFX_assassination_news_event	
+	fire_only_once = yes
+	major = yes
+	is_triggered_only = yes
+	
+	immediate = {
+
+	}	
+	
+	option = {
+		name = sov_events.11.a
+	}
+}
+
+news_event = {
+	id = sov_events.12		#Soviet famine goes into ukraine war 
+	title = sov_events.12.t
+	desc = sov_events.12.d
+	picture = GFX_psps_civil_war_event
+	fire_only_once = yes
+	major = yes
+	is_triggered_only = yes
+	
+	immediate = {
+
+	}	
+	
+	option = {
+		name = sov_events.12.a
+	}
+}
+
+news_event = {
+	id = sov_events.13		#Soviet famine is fixed
+	title = sov_events.13.t
+	desc = sov_events.13.d
+	picture = GFX_combine_image_large
+	fire_only_once = yes
+	major = yes
+	is_triggered_only = yes
+	
+	immediate = {
+
+	}	
+	
+	option = {
+		name = sov_events.13.a
+	}
+}
+
+country_event = {
+	id = sov_events.14		#Stalin want to kill tito
+	title = sov_events.14.t
+	desc = sov_events.14.d
+	picture = GFX_report_event_stalin_01	
+
+
+	fire_only_once = yes
+	major = yes
+	is_triggered_only = yes
+	
+	immediate = {
+
+	}	
+	
+	option = {
+		name = sov_events.14.a
+		custom_effect_tooltip = "Unlocks a mission to assassinate Josip Broz Tito."
+		YUG = { set_country_flag = assasinate_tito_allowed }
+	}
+}
+
+news_event = {
+
+	id = sov_events.15		#Tito dead
+	title = sov_events.15.t
+	desc = sov_events.15.d
+	picture = GFX_assassination_news_event	
+
+
+	fire_only_once = yes
+	major = yes
+	is_triggered_only = yes
+	
+	immediate = {
+
+	}	
+	
+	option = {
+		name = sov_events.15.a
+	}
+}
+news_event = {
+
+	id = sov_events.16		#Tito not dead
+	title = sov_events.16.t
+	desc = sov_events.16.d
+	picture = GFX_news_event_yugoslavian_split	
+
+
+	fire_only_once = yes
+	major = yes
+	is_triggered_only = yes
+	
+	immediate = {
+
+	}	
+	
+	option = {
+		name = sov_events.16.a
+	}
+}
+news_event = {
+
+	id = sov_events.18		# yugoslav civil war
+	title = sov_events.18.t
+	desc = sov_events.18.d
+	picture = GFX_news_event_yugoslavian_split
+
+
+	fire_only_once = yes
+	major = yes
+	is_triggered_only = yes
+	
+	immediate = {
+
+	}	
+	
+	option = {
+		name = sov_events.18.a
+	}
+}
+
+add_namespace = sov_prc
+
+# if XSM is communist, ask for annexation
+
+country_event = {  
+	id = sov_prc.1
+	title = sov_prc.1.t
+	desc = sov_prc.1.d
+
+	picture = GFX_report_event_soviet_tanks
+	
+	is_triggered_only = yes
+	
+	option = { # we agree
+		name = sov_prc.1.a
+		
+		PRC = {
+			annex_country = {
+				target = XSM
+				transfer_troops = yes
+			}
+		
+		}
+	
+	}
+	
+	option = { # we refuse
+		name = sov_prc.1.b
+		
+		
+		PRC = {
+			set_country_flag = sov_betrayal
+			
+		}
+	
+	}
+}
+
+
+# if turkestan is communist ask for annexation
+
+
+country_event = {  
+	id = sov_prc.2
+	title = sov_prc.2.t
+	desc = sov_prc.2.d
+
+	picture = GFX_report_event_soviet_tanks
+	
+	is_triggered_only = yes
+	
+	option = { # we agree
+		name = sov_prc.2.a
+		
+		PRC = {
+			annex_country = {
+				target = SIK
+				transfer_troops = yes
+			}
+		
+		}
+	
+	}
+	
+	option = { # we refuse
+		name = sov_prc.2.b
+		
+		
+		PRC = {
+			set_country_flag = sov_betrayal
+			
+		}
+	
+	}
+}
+# keep weapon or give to pcr ?
+
+country_event = {  
+	id = sov_prc.3
+	title = sov_prc.3.t
+	desc = sov_prc.3.d
+
+	picture = GFX_report_event_soviet_tanks
+	
+	is_triggered_only = yes
+	
+	option = { # we agree
+		name = sov_prc.3.a
+		
+		PRC = {
+
+			add_equipment_to_stockpile = { type = infantry_equipment_3 amount = 10000  }
+			add_equipment_to_stockpile = { type = support_equipment amount = 10000  }
+			add_equipment_to_stockpile = { type = mechanized_equipment_3 amount = 1000  }			
+		
+		
+		}
+	
+	}
+	
+	option = { # we refuse
+		name = sov_prc.3.b
+		
+		
+		SOV = {
+			add_equipment_to_stockpile = { type = infantry_equipment_3 amount = 10000  }
+			add_equipment_to_stockpile = { type = support_equipment amount = 10000  }
+			add_equipment_to_stockpile = { type = mechanized_equipment_3 amount = 1000  }
+			
+		}
+	
+	}
+}
+add_namespace = sov_manchuria
+
+country_event = {
+	id = sov_manchuria.1		#Seize manchuria industry
+	title = sov_manchuria.1.t
+	desc = sov_manchuria.1.d
+	picture = GFX_report_event_soviet_tanks
+
+	is_triggered_only = yes
+
+	option = {
+		328 = { 
+			remove_building = {
+				type = arms_factory
+				level = 4
+			}
+		}
+		
+		408 = {
+		
+			add_building_construction = {
+				type = arms_factory
+				level = 4
+				instant_build = yes
+			}
+		}
+		name = sov_manchuria.1.a
+		
+	}
+	option = {
+		328 = { 
+			remove_building = {
+				type = arms_factory
+				level = 4
+			}
+		}
+		
+		408 = {
+		
+			add_building_construction = {
+				type = arms_factory
+				level = 4
+				instant_build = yes
+			}
+		}
+		name = sov_manchuria.1.b
+	}
+}
+
+
+
+
+country_event = {
+	id = sov_manchuria.4		#Mongolia claim
+	title = sov_manchuria.4.t
+	desc = sov_manchuria.4.d
+	picture = GFX_report_event_soviet_tanks
+
+	is_triggered_only = yes
+
+	option = {
+		MON = { transfer_state = 761 }
+		
+		SOV = {
+			
+			330 = {
+				create_unit = {
+					division = "name = \"Mongole Division I\" division_template = \"Infantry Division\" start_experience_factor = 0.5"
+					division = "name = \"Mongole Division II\" division_template = \"Infantry Division\" start_experience_factor = 0.5"
+					division = "name = \"Mongole Division III\" division_template = \"Infantry Division\" start_experience_factor = 0.5"
+				}
+			}
+		}
+		name = sov_manchuria.4.a
+		
+	}
+	option = {
+		name = sov_manchuria.4.b
+	}
+}
+

@@ -1,0 +1,17 @@
+spriteTypes = {
+spriteType = {
+		name = "GFX_focus_KOR_national_defense"
+		texturefile = "gfx/interface/cw_focuses/KOR/1946/focus_KOR_national_defense.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_focus_KOR_support_rhee"
+		texturefile = "gfx/interface/cw_focuses/KOR/1946/focus_KOR_support_rhee.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_focus_KOR_military_manpower_association"
+		texturefile = "gfx/interface/cw_focuses/KOR/1946/focus_KOR_military_manpower_association.dds"
+		legacy_lazy_load = no
+	}
+}

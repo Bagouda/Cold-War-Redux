@@ -1,0 +1,6 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_trait_communist_sympathizer_total"
+		texturefile = "gfx/interface/traits/personal/trait_communist_sympathizer.dds"
+	}
+}

@@ -1,0 +1,34 @@
+
+state={
+	id=841
+	local_supplies=0.0 
+	name="STATE_841"
+	resources={
+		steel = 5.000
+	}
+	
+	history={
+ 	add_to_array = { list_victory_point = 5210 }
+ 	set_variable = { victory_point = 10 }
+		owner = ENG
+		add_claim_by = KEN
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			5210 = {
+				naval_base = 3
+
+			}
+		}
+		victory_points = {
+			5210 10 
+		}
+	}	
+	provinces={
+		5196 5210 10976 13245 
+	}
+	manpower=1300000
+	buildings_max_level_factor=1.000
+	state_category=town
+}

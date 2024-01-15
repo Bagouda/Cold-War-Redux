@@ -1,0 +1,22 @@
+state = {
+	id=467
+	local_supplies=0.0 
+	name="STATE_467"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 4872 }
+ 	set_variable = { victory_point = 5 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = CAN
+		add_core_of = CAN
+		victory_points = {
+			4872 5 
+		}
+	}
+	manpower = 651071
+	provinces={
+		1848 1873 3721 4218 4426 4790 4872 5119 12145 12636 12688 
+	}
+}

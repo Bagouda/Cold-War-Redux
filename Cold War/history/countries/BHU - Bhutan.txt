@@ -1,0 +1,37 @@
+﻿capital = 324
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = unaligned_right
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 100
+		colonial =  0
+	}	
+	create_country_leader = {
+			name = "Jigme Dorji"
+			desc = ""
+			picture = "BHUH1.dds"
+			ideology = despotism
+			expire = 1972.7.21
+			traits = {}
+	}
+}
+1979.12.24 = {
+	create_country_leader = {
+			name = "Jigme Singye"
+			desc = ""
+			picture = "BHUH2.dds"
+			ideology = despotism
+			expire = 2006.12.14
+			traits = {}
+	}
+}

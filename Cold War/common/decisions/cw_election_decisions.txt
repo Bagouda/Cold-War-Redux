@@ -1,0 +1,454 @@
+@PARTY_ORG_DRIFT_CHANGE = 0.10
+@PARTY_ORG_DRIFT_COST = 30
+political_actions = {
+	cw_elections_promote_dem_right = {
+	
+		icon = GFX_ideology_democratic_group
+		on_map_mode = map_only
+		
+		allowed = {}
+
+		state_target = yes
+		target_array = controlled_states
+
+		target_trigger = {
+			FROM = {
+				state_strategic_value > 50
+				is_in_home_area = yes
+				is_core_of = ROOT
+			}
+		}
+
+		available = {
+			democratic < 0.51
+		}
+
+		visible = {
+			has_active_mission = cw_national_elections_timer
+			ROOT = {
+				OR = {
+					democratic > 0.25
+					has_government = democratic
+				}
+			}			
+		}
+
+		cost = @PARTY_ORG_DRIFT_COST
+		days_re_enable = 0
+		days_remove = 30
+
+		modifier = {
+			democratic_drift = @PARTY_ORG_DRIFT_CHANGE
+		}
+		remove_effect = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_elections_promote_dem_left = {
+	
+		icon = GFX_ideology_democratic_socialist_group
+		on_map_mode = map_only
+		
+		allowed = {}
+
+		state_target = yes
+		target_array = controlled_states
+
+		target_trigger = {
+			FROM = {
+				state_strategic_value > 50
+				is_in_home_area = yes
+				is_core_of = ROOT
+			}
+		}
+
+		available = {
+			democratic_socialist < 0.51
+		}
+
+		visible = {
+			has_active_mission = cw_national_elections_timer
+			ROOT = {
+				OR = {
+					democratic_socialist > 0.25
+					has_government = democratic_socialist
+				}
+			}			
+		}
+
+		cost = @PARTY_ORG_DRIFT_COST
+		days_re_enable = 0
+		days_remove = 30
+
+		modifier = {
+			democratic_socialist_drift = @PARTY_ORG_DRIFT_CHANGE
+		}
+		remove_effect = {
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	cw_elections_promote_com_total = {
+	
+		icon = GFX_ideology_communism_totalitarian_group
+		on_map_mode = map_only
+		
+		allowed = {}
+
+		state_target = yes
+		target_array = controlled_states
+
+		target_trigger = {
+			FROM = {
+				state_strategic_value > 50
+				is_in_home_area = yes
+				is_core_of = ROOT
+			}
+		}
+
+		available = {
+			communism_totalitarian < 0.51
+		}
+
+		visible = {
+			has_active_mission = cw_national_elections_timer
+			ROOT = {
+				OR = {
+					communism_totalitarian > 0.25
+					has_government = communism_totalitarian
+				}
+			}
+		}
+
+		cost = @PARTY_ORG_DRIFT_COST
+		days_re_enable = 0
+		days_remove = 30
+
+		modifier = {
+			communism_totalitarian_drift = @PARTY_ORG_DRIFT_CHANGE
+		}
+		remove_effect = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_elections_promote_com_ref = {
+	
+		icon = GFX_ideology_communism_group
+		on_map_mode = map_only
+		
+		allowed = {}
+
+		state_target = yes
+		target_array = controlled_states
+
+		target_trigger = {
+			FROM = {
+				state_strategic_value > 50
+				is_in_home_area = yes
+				is_core_of = ROOT
+			}
+		}
+
+		available = {
+			communism < 0.51
+		}
+
+		visible = {
+			has_active_mission = cw_national_elections_timer
+			ROOT = {
+				OR = {
+					communism > 0.25
+					has_government = communism
+				}
+			}
+		}
+
+		cost = @PARTY_ORG_DRIFT_COST
+		days_re_enable = 0
+		days_remove = 30
+
+		modifier = {
+			communism_drift = @PARTY_ORG_DRIFT_CHANGE
+		}
+		remove_effect = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_elections_promote_neutrality_right = {
+	
+		icon = GFX_ideology_unaligned_right_group
+		on_map_mode = map_only
+		
+		allowed = {}
+
+		state_target = yes
+		target_array = controlled_states
+
+		target_trigger = {
+			FROM = {
+				state_strategic_value > 50
+				is_in_home_area = yes
+				is_core_of = ROOT
+			}
+		}
+
+		available = {
+			unaligned_right < 0.51
+		}
+
+		visible = {
+			has_active_mission = cw_national_elections_timer
+			ROOT = {
+				OR = {
+					unaligned_right > 0.25
+					has_government = unaligned_right
+				}
+			}
+		}
+
+		cost = @PARTY_ORG_DRIFT_COST
+		days_re_enable = 0
+		days_remove = 30
+
+		modifier = {
+			unaligned_right_drift = @PARTY_ORG_DRIFT_CHANGE
+		}
+		remove_effect = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_elections_promote_neutrality_left = {
+	
+		icon = GFX_ideology_neutrality_group
+		on_map_mode = map_only
+		
+		allowed = {}
+
+		state_target = yes
+		target_array = controlled_states
+
+		target_trigger = {
+			FROM = {
+				state_strategic_value > 50
+				is_in_home_area = yes
+				is_core_of = ROOT
+			}
+		}
+
+		available = {
+			neutrality < 0.51
+		}
+
+		visible = {
+			has_active_mission = cw_national_elections_timer
+			ROOT = {
+				OR = {
+					neutrality > 0.25
+					has_government = neutrality
+				}
+			}		
+		}
+
+		cost = @PARTY_ORG_DRIFT_COST
+		days_re_enable = 0
+		days_remove = 30
+
+		modifier = {
+			unaligned_right_drift = @PARTY_ORG_DRIFT_CHANGE
+		}
+		remove_effect = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+parliament_gui_decision_category = {
+	cw_national_elections_timer = {
+		icon = GFX_decision_generic_political_rally
+		
+		available = {
+			has_civil_war = yes
+		}
+
+		activation = { always = no }
+		days_mission_timeout = 183
+		is_good = yes
+		
+		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = { THIS.highest_party_popularity > 0.50 }
+				}
+				if = {
+					limit = {
+						is_ai = no
+					}
+					top_bar_decisions_notification_elections_ended = yes
+				}
+				set_political_party = { ideology = colonial popularity = 0 }
+				if = {
+					limit = {		# Dem Right
+						check_variable = { THIS.highest_party_ideology = 20053 }
+					}
+					if = {
+						limit = {
+							has_elections = yes
+						}
+						set_politics = {
+							ruling_party = democratic
+							elections_allowed = yes
+							election_frequency = 48
+						}
+						else_if = {
+							limit = {
+								has_elections = no
+							}
+							set_politics = {
+								ruling_party = democratic
+								elections_allowed = no
+							}
+						}
+					}
+				}
+				if = {
+					limit = {		# Dem Left
+						check_variable = { THIS.highest_party_ideology = 20061 }
+					}
+					if = {
+						limit = {
+							has_elections = yes
+						}
+						set_politics = {
+							ruling_party = democratic_socialist
+							elections_allowed = yes
+							election_frequency = 48
+						}
+						else_if = {
+							limit = {
+								has_elections = no
+							}
+							set_politics = {
+								ruling_party = democratic_socialist
+								elections_allowed = no
+							}
+						}
+					}						
+				}
+				if = {
+					limit = {		# Neutrality Right
+						check_variable = { THIS.highest_party_ideology = 20070 }
+					}
+					if = {
+						limit = {
+							has_elections = yes
+						}
+						set_politics = {
+							ruling_party = unaligned_right
+							elections_allowed = yes
+							election_frequency = 48
+						}
+						else_if = {
+							limit = {
+								has_elections = no
+							}
+							set_politics = {
+								ruling_party = unaligned_right
+								elections_allowed = no
+							}
+						}
+					}
+					add_named_threat = { threat = 0 name = CW_THREAT_ELECTION_NEUTRAL_RIGHT_ELECTED }
+				}				
+				if = {
+					limit = {		# Neutrality Left
+						check_variable = { THIS.highest_party_ideology = 20087 }
+					}
+					set_politics = {
+						ruling_party = neutrality
+					}
+					if = {
+						limit = {
+							has_elections = yes
+						}
+						set_politics = {
+							ruling_party = neutrality
+							elections_allowed = yes
+							election_frequency = 48
+						}
+						else_if = {
+							limit = {
+								has_elections = no
+							}
+							set_politics = {
+								ruling_party = neutrality
+								elections_allowed = no
+							}
+						}
+					}
+					add_named_threat = { threat = 0 name = CW_THREAT_ELECTION_NEUTRAL_LEFT_ELECTED }
+				}				
+				if = {
+					limit = {		# Com Reformist
+						check_variable = { THIS.highest_party_ideology = 20099 }
+					}
+					set_politics = {
+						ruling_party = communism
+					}
+					add_named_threat = { threat = 0 name = CW_THREAT_ELECTION_COMMUNIST_REF_ELECTED }
+				}				
+				if = {
+					limit = {		# Com Totalitarian
+						check_variable = { THIS.highest_party_ideology = 20104 }
+					}
+					set_politics = {
+						ruling_party = communism_totalitarian
+					}
+					add_named_threat = { threat = 0 name = CW_THREAT_ELECTION_COMMUNIST_TOTAL_ELECTED }
+				}
+				clear_variable = num_of_elections
+				remove_ideas = cw_holding_elections
+			}
+			else_if = {
+				limit = {
+					check_variable = { var = num_of_elections value = 5 compare = greater_than_or_equals }
+					OR = {
+						check_variable = { THIS.highest_party_ideology = 20053 }	#Dem Right
+						check_variable = { THIS.highest_party_ideology = 20061 }	#Dem Left
+						check_variable = { THIS.highest_party_ideology = 20099 }	#Com Reformist
+						check_variable = { THIS.highest_party_ideology = 20104 }	#Com total
+					}
+				}
+				start_civil_war = {
+					ideology = var:highest_party_ideology
+					keep_political_leader = yes
+					size = var:highest_party_popularity@exclude_ruling_party
+					states_filter = { impassable = no }
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+				remove_ideas = cw_holding_elections
+				clear_variable = num_of_elections
+			}			
+			else = {
+				if = {
+					limit = {
+						is_ai = no
+					}
+					top_bar_decisions_notification_new_elections_started = yes
+				}			
+				add_stability = -0.05
+				hold_election = ROOT
+			}			
+		}
+	}
+}

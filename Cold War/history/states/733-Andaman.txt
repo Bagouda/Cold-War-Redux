@@ -1,0 +1,21 @@
+state = {
+	id=733
+	local_supplies=0.0 
+	name="STATE_733"
+	state_category = small_island
+	history = {
+		owner = IND
+		add_core_of = IND
+		
+		buildings = {
+			infrastructure = 1
+			10321 = {
+				naval_base = 1
+			}			
+		}			
+	}
+	manpower=29500
+	provinces={
+		10321 12251 
+	}
+}

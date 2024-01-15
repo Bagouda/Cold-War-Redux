@@ -1,0 +1,14 @@
+idea_generation={
+    hog_minister = {
+    }
+    foreign_minister = {
+    }	
+    defense_minister = {
+    }
+    treasury_minister = {
+    }
+    theorist = {
+    }
+    high_command = {
+    }	
+}

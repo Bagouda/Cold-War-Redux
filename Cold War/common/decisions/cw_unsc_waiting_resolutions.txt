@@ -1,0 +1,133 @@
+cw_unsc_voting_category = {		#Resolutions that are waiting to be voted on when UNSC is in session/resolutions from focus trees/events
+	waiting_resolution_partition_of_china_sov = {
+
+		icon = GFX_un_recognition_decision_icon
+
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no			
+		}
+
+		visible = {
+			has_country_flag = focus_partition_of_china_waiting_resolution_sov
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+
+		complete_effect = {
+			SOV = { save_global_event_target_as = unsc_initiator }
+			CHI = { save_global_event_target_as = unsc_target }
+			CHI = { set_country_flag = unsc_partition_resolution_china }
+			PRC = { cw_set_resolution_observer = yes }
+			cw_unsc_start_resolution_effect = yes
+			####
+			clr_country_flag = focus_partition_of_china_waiting_resolution_sov
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}		
+	}
+	waiting_resolution_partition_of_china_usa = {
+
+		icon = GFX_un_recognition_decision_icon
+
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no			
+		}
+
+		visible = {
+			has_country_flag = focus_partition_of_china_waiting_resolution_usa
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+
+		complete_effect = {
+			USA = { save_global_event_target_as = unsc_initiator }
+			CHI = { save_global_event_target_as = unsc_target }
+			CHI = { cw_unsc_set_hate_resolution = yes }
+			CHI = { set_country_flag = unsc_partition_resolution_china }
+			PRC = { cw_set_resolution_observer = yes }
+			cw_unsc_start_resolution_effect = yes
+			####
+			clr_country_flag = focus_partition_of_china_waiting_resolution_usa
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}		
+	}	
+	waiting_resolution_unified_germany_stalin_note = {
+
+		icon = GFX_un_recognition_decision_icon
+
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+
+		visible = {
+			has_country_flag = focus_unified_germany_stalin_note_waiting_resolution
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+
+		complete_effect = {
+			UNN = { save_global_event_target_as = unsc_initiator }
+			GER = { save_global_event_target_as = unsc_target }		
+			GER = { set_country_flag = unsc_german_unification_stalin_note }
+			POL = { cw_set_resolution_observer = yes }
+			CZE = { cw_set_resolution_observer = yes }
+			USA = { cw_unsc_set_like_resolution = yes }
+			SOV = { cw_unsc_set_like_resolution = yes }
+			HOL = { cw_set_resolution_observer = yes }
+			BEL = { cw_set_resolution_observer = yes }
+			cw_unsc_start_resolution_effect = yes
+			####
+			clr_country_flag = focus_unified_germany_stalin_note_waiting_resolution
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}		
+	}
+	waiting_resolution_unified_korea = {
+
+		icon = GFX_un_recognition_decision_icon
+
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+
+		visible = {
+			has_country_flag = focus_unified_korea_waiting_resolution
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+
+		complete_effect = {
+			UNN = { save_global_event_target_as = unsc_initiator }
+			KOR = { save_global_event_target_as = unsc_target }
+			KOR = { set_country_flag = unsc_korea_reunification }
+			cw_unsc_start_resolution_effect = yes
+			SOV = { cw_unsc_set_like_resolution = yes }
+			USA = { cw_unsc_set_like_resolution = yes }
+			####
+			clr_country_flag = focus_unified_korea_waiting_resolution
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}		
+	}	
+}

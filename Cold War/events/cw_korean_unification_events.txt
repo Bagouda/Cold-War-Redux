@@ -1,0 +1,116 @@
+﻿add_namespace = korean_unification
+country_event = {
+	id = korean_unification.1		#Korean Unification Event
+	title = korean_unification.1.t
+	desc = korean_unification.1.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "korean_unification.a"		# Reject
+		ai_chance = {
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				factor = 25
+				is_historical_focus_on = no
+			}			
+		}
+		reverse_add_opinion_modifier = { target = FROM modifier = refused_offer }
+		FROM = { country_event = korean_unification.2 }
+	}
+	option = {
+		name = "korean_unification.b"			# Agree
+		ai_chance = {
+			modifier = {
+				factor = -50
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				factor = 25
+				is_historical_focus_on = no
+			}
+		}
+		if = {
+			limit = {
+				ROOT = { tag = USA }
+			}
+			if = {
+				limit = {
+					is_historical_focus_on = yes
+				}
+				KOR = { set_country_flag = { flag = ref_favor_first_option value = 1 days = 90 } }
+			}			
+			KOR = {
+				PRK = { save_event_target_as = state_ref_second_option_temp }	#Makes PRK the second option in the referendum
+				set_variable = { country_ref_second_option_votes_percent = 60 }	#Makes the second option more popular
+				cw_cs_ref_initial_setup = yes 
+			}
+		}
+		if = {
+			limit = {
+				ROOT = { tag = SOV }
+			}
+			if = {
+				limit = {
+					is_historical_focus_on = yes
+				}
+				PRK = { set_country_flag = { flag = ref_favor_first_option value = 1 days = 90 } }
+			}			
+			PRK = {
+				KOR = { save_event_target_as = state_ref_second_option_temp }	#Makes PRK the second option in the referendum
+				set_variable = { country_ref_first_option_votes_percent = 60 }	#Makes the second option more popular
+				cw_cs_ref_initial_setup = yes 
+			}
+		}		
+		
+	}	
+}
+country_event = {
+	id = korean_unification.2		#Korean unification rejected
+	title = korean_unification.2.t
+	desc = korean_unification.2.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = "Their decision is a great disappointment."
+		ai_chance = {
+			modifier = {
+				factor = 100
+			}
+		}
+		if = {
+			limit = {
+				FROM = { tag = SOV }			
+				USA = { NOT = { has_completed_focus = USA_democratic_korea } }
+			}
+			USA = { complete_national_focus = USA_democratic_korea }
+		}
+		if = {
+			limit = {
+				FROM = { tag = USA }			
+				SOV = { NOT = { has_completed_focus = SOV_establish_dprk } }
+			}
+			SOV = { complete_national_focus = SOV_establish_dprk }
+		}
+	}
+}
+news_event = {		#United Korea established
+	id = korean_unification.5
+	title = korean_unification.5.t
+	desc = korean_unification.5.d
+	picture = GFX_unified_korea_mon
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}

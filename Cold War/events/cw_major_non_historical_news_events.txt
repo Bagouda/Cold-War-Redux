@@ -1,0 +1,462 @@
+﻿####################################
+# MAJOR NON HISTORICAL NEWS EVENTS #
+####################################
+add_namespace = cw_non_historic_news
+news_event = {
+	id = cw_non_historic_news.1		#US Greenland purchase
+	title = cw_non_historic_news.1.t
+	desc = cw_non_historic_news.1.d
+	picture = GFX_us_greenland_purchase
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_non_historic_news.2		#Czechoslovakia Partitioned
+	title = cw_non_historic_news.2.t
+	desc = cw_non_historic_news.2.d
+	picture = GFX_czechoslovakia_dissolved
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_non_historic_news.3		#Berlin abandoned
+	title = cw_non_historic_news.3.t
+	desc = cw_non_historic_news.3.d
+	picture = GFX_stalin_truman
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_non_historic_news.4		#Paris treaty REJECTED by UNSC
+	title = cw_non_historic_news.4.t
+	desc = cw_non_historic_news.4.d
+	picture = GFX_paris_peace_treaties
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_non_historic_news.5		#Paris treaty STALLED by UNSC
+	title = cw_non_historic_news.5.t
+	desc = cw_non_historic_news.5.d
+	picture = GFX_paris_peace_treaties
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_non_historic_news.6		#Successful Steppe transformation
+	title = cw_non_historic_news.6.t
+	desc = cw_non_historic_news.6.d
+	picture = GFX_combine_image_large
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					tag = SOV
+				}
+				set_country_flag = succesful_steppe_transformation
+			}
+		}
+	}
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_non_historic_news.7		#Un-successful Steppe transformation
+	title = cw_non_historic_news.7.t
+	desc = cw_non_historic_news.7.d
+	picture = GFX_dead_crops_image_large
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_non_historic_news.8		#Post Stalin Great Soviet Civil War
+	title = cw_non_historic_news.8.t
+	desc = cw_non_historic_news.8.d
+	picture = GFX_psps_civil_war_event
+
+	major = yes
+	is_triggered_only = yes	
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_non_historic_news.9		#Leader Assassination Killed News Event
+	title = cw_non_historic_news.9.t
+	desc = cw_non_historic_news.9.d
+	picture = GFX_assassination_news_event
+
+	major = yes
+	is_triggered_only = yes	
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_non_historic_news.10		#Leader Assassination Wounded News Event
+	title = cw_non_historic_news.10.t
+	desc = cw_non_historic_news.10.d
+	picture = GFX_assassination_news_event_wounded
+
+	major = yes
+	is_triggered_only = yes	
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_non_historic_news.11		#Rise of the Russian Liberation Front
+	title = cw_non_historic_news.11.t
+	desc = cw_non_historic_news.11.d
+	picture = GFX_psps_moscow_coup_news_event
+
+	major = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					tag = SOV
+				}
+				########## RUS DECLARING WAR ##########
+				219 = { add_core_of = RUS }
+				SOV = {
+					every_owned_state = {
+						limit = { 
+							is_claimed_by = RUS 
+						}
+						add_core_of = RUS						
+					}
+				}
+				RUS = {
+					add_timed_idea = { idea = cw_revolutionary_zeal days = 180 }
+					add_ideas = cw_non_recognized_state
+					transfer_state = 247
+					remove_state_claim = 219
+					set_province_controller = 9378 
+					set_province_controller = 6283 
+					set_province_controller = 3259 
+					set_province_controller = 11282
+					set_province_controller = 3391
+					add_manpower = 100000
+					set_war_support = 0.5
+					set_politics = {
+						ruling_party = neutrality
+					}
+					set_political_party = {
+						ideology = neutrality
+						popularity = 50
+					}
+					create_country_leader = {
+						name = "Georgy Zhukov"
+						desc = ""
+						picture = "RUS_NHH1.dds"
+						ideology = democratic_nationalist_idolg
+						expire = 1977.10.16
+						traits = { cw_expirienced_veteran }
+					}
+					declare_war_on = {
+						target = SOV
+						type = civil_war
+					}
+					every_country = {
+						limit = {
+							has_war_with = SOV
+							original_tag = SOV
+						}
+						save_event_target_as = war_target
+					}
+					declare_war_on = {
+						target = SOV
+						type = civil_war
+					}
+					declare_war_on = {
+						target = event_target:war_target
+						type = annex_everything
+					}
+					load_oob = RUS_1953
+				}				
+			}
+		}
+	}
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_non_historic_news.12		#Great European Wall built
+	title = "The Great Eastern European Wall"
+	desc = cw_non_historic_news.12.d
+	picture = GFX_great_european_wall_news
+
+	major = yes
+	is_triggered_only = yes	
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_non_historic_news.13		#Soviet Union prepares to attack Turkey
+	title = "Soviet Union Moves to take over Turkish Straits"
+	desc = cw_non_historic_news.13.d
+	picture = GFX_turkish_straits_sov_attack
+
+	major = yes
+	is_triggered_only = yes	
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_non_historic_news.14		#USA takes control of Turkish Straits
+	title = "United States Seizes Turkish Straits"
+	desc = cw_non_historic_news.14.d
+	picture = GFX_usa_takes_turkish_straits
+
+	major = yes
+	is_triggered_only = yes	
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_non_historic_news.15		#USA nukes major Chinese cities
+	title = "United States Deploys Nuclear Arsenal"
+	desc = cw_non_historic_news.15.d
+	picture = GFX_nuclear_attack_news
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_non_historic_news.16		#Mosaddegh Becomes President of Iran
+	title = "Mosaddegh Appointed First President of Iran"
+	desc = cw_non_historic_news.16.d
+	picture = GFX_mosaddegh_president_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_non_historic_news.17		# Sino Soviet Treaty 1950 Rejected
+	title = "Sino-Soviet Treaty Negotiations Fail"
+	desc = cw_non_historic_news.17.d
+	picture = GFX_mao_train_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_non_historic_news.18		# Scandinavian defence union formed
+	title = "Scandinavian Defence Union Formed"
+	desc = cw_non_historic_news.18.d
+	picture = GFX_scandinavian_defense_union
+
+	major = yes
+	is_triggered_only = yes
+	#fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_non_historic_news.19		# Manchurian Soviet Republic Established
+	title = cw_non_historic_news.19.t
+	desc = cw_non_historic_news.19.d
+	picture = GFX_news_event_prc_declared
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_non_historic_news.20		# German civil war
+	title = cw_non_historic_news.20.t
+	desc = cw_non_historic_news.20.d
+	picture = GFX_news_event_german_reichstag_ruins_02
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_non_historic_news.21		# The division of Austria
+	title = cw_non_historic_news.21.t
+	desc = cw_non_historic_news.21.d
+	picture = GFX_news_event_generic_parliament
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_non_historic_news.22		# South Vietnam Uprising
+	title = cw_non_historic_news.22.t
+	desc = cw_non_historic_news.22.d
+	picture = GFX_generic_soldiers_fighting
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					tag = VIN
+				}
+				SVI = {
+					transfer_state = 804
+					804 = { add_core_of = SVI }
+					if = {
+						limit = {
+							is_subject = yes
+						}
+						OVERLORD = { end_puppet = SVI }
+					}
+					cw_make_unrecognized = yes
+					create_wargoal = {
+						type = civil_war
+						target = VIN
+					}					
+					set_politics = {
+						ruling_party = unaligned_right
+						elections_allowed = no
+					}
+					set_popularities = {
+						democratic  = 0
+						democratic_socialist = 0
+						neutrality = 0
+						communism_totalitarian = 30
+						unaligned_right = 70
+						colonial =  0
+					}					
+					create_country_leader = {
+						name = "Ngo Dinh Diem"
+						desc = ""
+						picture = "SVIH2.dds"
+						ideology = paternal_auto_idolg
+						expire = 1963.11.2
+						traits = { unpopular_leader cw_power_hungry_demagogue }
+					}
+					division_template = {
+						name = "Civil Militia"
+						is_locked = yes
+						template_counter = 13
+						regiments = {
+							insurgency = { x = 0 y = 0 }
+							insurgency = { x = 1 y = 0 }
+							insurgency = { x = 2 y = 0 }
+							artillery_brigade = { x = 1 y = 1 }
+						}
+						support = {
+							anti_air = { x = 0 y = 0 }
+							anti_tank = { x = 0 y = 1 }
+							recon = { x = 0 y = 2 }
+						}
+					}
+					capital_scope = {
+						create_unit = {
+							division = "division_template = \"Civil Militia\" start_experience_factor = 0.1" 
+							owner = SVI
+							allow_spawning_on_enemy_provs = yes
+							count = 10
+						}
+					}
+				}
+				VIN = {
+					every_owned_state = {
+						add_claim_by = SVI
+					}
+					create_wargoal = {
+						type = civil_war
+						target = SVI
+					}					
+				}						
+			}
+		}
+	}
+	
+	option = {
+		name = "OK"
+	}
+}

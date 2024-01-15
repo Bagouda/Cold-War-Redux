@@ -1,0 +1,27 @@
+
+state={
+	id=787
+	local_supplies=0.0 
+	name="STATE_787"
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = IND
+		add_core_of = KAS
+		add_claim_by = IND
+	    add_claim_by = PAK
+		1947.8.15 = {
+			owner = KAS
+		}
+		1947.10.22 = { #After first Kashmir War
+			owner = PAK
+		}	
+	}
+	provinces={
+		1910 2041 2084 
+	}
+	manpower=1415800
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

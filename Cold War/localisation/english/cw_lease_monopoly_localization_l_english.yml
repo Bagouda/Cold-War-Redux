@@ -1,0 +1,21 @@
+﻿l_english:
+ SCRIPTED_ACTION_GRANT_LEASE_PERPERTUAL_WITH_PAYMENT_LOC:0 "[PREV.GetNameWithFlag] will receive a permanent lease on [THIS.GetName].\n\n- [THIS.OWNER.GetName] will receive a payment of §Y£industrial_complex_plural£ 5 $industrial_complex_plural$§! as long as the lease continues.\n- [THIS.OWNER.GetName] will not be able to revoke the lease from [PREV.GetNameWithFlag].\n\n"
+ SCRIPTED_ACTION_GRANT_LEASE_PERPERTUAL_LOC:0 "[PREV.GetNameWithFlag] will receive a permanent lease on [THIS.GetName].\n\n[THIS.OWNER.GetName] will not receive any payment for leasing this territory.\n\n"
+ CW_PERMANENT_LEASE_WITH_PAYMENT_REQUEST_EVENT_TT:0 "A request to lease §Y[THIS.GetName]§! will be sent to [THIS.OWNER.GetNameWithFlag].\n  - If the lease request is granted, it will cost [PREV.GetNameWithFlag] §Y£industrial_complex_plural£ 5 $industrial_complex_plural$§! to maintain the lease.\n  - [?core_countries^0.GetFlag][?core_countries^0.GetName] will not be able to revoke the lease from [PREV.GetNameWithFlag]."
+ SCRIPTED_ACTION_GRANT_LEASE_FIVE_YEARS_LOC:0 "- [PREV.GetNameWithFlag] will receive a lease on [THIS.GetName] for a period of §Y5 years.§!\n\n[?core_countries^0.GetFlag][?core_countries^0.GetName] - Will receive a payment of §Y£industrial_complex_plural£ 5 $industrial_complex_plural$§! as long as the lease continues.\n\n"
+ #### TERRITORY LEASE INTERFACE ###
+ CW_LEASE_INTERFACE_STATE_NAME:0 "State Name"
+ CW_STATE_BACKGROUND_TT:0 "Click - to select this state and click on Send to request a lease.\nRight Click - To pan the camera to this state.\n\nIf our request is granted, it will cost us [?ROOT.requested_lease_cost] £industrial_complex_plural£ to maintain. The lease may be revoked at any time by either side.\n\n§YNote: You may only request a lease of one state at a time, only recognized states that are not the capital of the country can be leased.§!"
+ CW_FILTER_STATE_INFRA_TT:0 "Infrastructure Level"
+ CW_FILTER_STATE_DOCKYARD_TT:0 "Dockyard Level"
+ CW_FILTER_STATE_AIR_BASE_TT:0 "Air Base Level"
+ CW_FILTER_STATE_LEASE_PERIOD_TT:0 "Lease Period (in Years)"
+ CW_LEASE_INTERFACE_NO_SELECTION:0 "No Lease"
+ #### STATE MONOPOLY INTERFACE ###
+ CW_MONOPOLY_INTERFACE_NO_SELECTION:0 "No Monopoly"
+ CW_FILTER_STATE_MONOPOLY_PERIOD_TT:0 "Monopoly Period (in Years)"
+ CW_MONOPOLY_BINDING_CHECKBOX_TTL:0 "Click to make this monopoly binding, a binding monopoly cannot be abolished as easy as a regular monopoly agreement.\n\n§YNote:§! AI countries will be less willing to accept a binding monopoly."
+ CW_MONOPOLY_BINDING_CHECKBOX_CHECKED_TTL:0 "Click to make this monopoly a regular timed monopoly agreement."
+ CW_STATE_BACKGROUND_MONOPOLY_TT:0 "Click - to select this state and click on Send to request a monopoly.\nRight Click - To pan the camera to this state.\n\nThe monopoly may be revoked at any time by either side unless it is a binding monopoly.\n\n§YNote: You may only request one monopoly at a time, monopolies can only be requested on recognized states.§!"
+ CW_STATE_RESOURCE_POTENTIAL_TT:0 "This state has a high potential for the discovery of more resources."
+ REMOVE_MONOPOLY_STATE_EFFECT_TT:0 "- The §Y[?my_resource_state_owner.GetFlag]§! [?my_resource_state_owner.GetAdjective] monopoly will be abolished."

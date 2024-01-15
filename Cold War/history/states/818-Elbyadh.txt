@@ -1,0 +1,31 @@
+state = {
+	id=818
+	local_supplies=0.0 
+	name="STATE_818"
+	state_category = wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 12034 }
+ 	set_variable = { victory_point = 1 }
+		owner = FRA
+		add_core_of = FRA
+		add_claim_by = ALG
+
+		buildings = {
+			infrastructure = 1
+		}		
+
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}
+
+		victory_points = {
+			12034 1 
+		}
+	}
+	manpower = 73780
+	provinces={ 7149 9960 4018 13074 12018  
+	}
+}

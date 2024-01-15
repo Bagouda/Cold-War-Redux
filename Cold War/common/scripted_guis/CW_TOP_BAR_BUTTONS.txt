@@ -1,0 +1,519 @@
+scripted_gui = {
+	cw_top_button_unsc_extended = {
+		window_name = "top_button_unsc_extended"
+		context_type = player_context
+		parent_window_token = top_bar
+
+		visible = {
+			has_dlc = "La Resistance"
+		}
+
+		effects = {
+			un_expel_alert_icon_right_click = {
+				set_country_flag = { flag = close_unsc_kick_alert value = 1 days = 90 }
+			}
+			new_focus_tree_icon_right_click = {
+				ROOT = { clr_country_flag = new_focus_tree_alert }
+			}
+			ref_alert_icon_click = {
+				var:ref_notification_target = {
+				  capital_scope = {
+					ROOT = {
+						goto_state = PREV
+					}
+				  }
+				}
+			}
+		  ref_alert_icon_right_click = {
+				ROOT = { clr_country_flag = referendum_topbar_alert }
+		  }
+		  unsc_logo_button_click = {
+			set_country_flag = open_unsc_window
+		  }
+		  unsc_logo_2_button_click = {
+			set_country_flag = open_unsc_window
+		  }
+		  unsc_logo_3_button_click = {
+			set_country_flag = open_unsc_window
+		  }
+		  un_button_background_click = {
+			set_country_flag = open_unsc_window
+		  }
+		  un_button_background_implementing_click = {
+			set_country_flag = open_unsc_window
+		  }
+		  un_button_background_voting_click = {
+			set_country_flag = open_unsc_window
+		  }
+		  unsc_target_flag_click = {
+			set_country_flag = open_unsc_window
+		  }
+		  unsc_target_flag_right_click = {
+			event_target:unsc_target = {
+			  capital_scope = {
+				ROOT = {
+				goto_state = PREV
+				}
+			  }
+			}
+		  }
+		}
+
+		triggers = {
+			un_expel_alert_icon_visible = {
+				has_added_tension_amount > 40
+				is_unsc_member = yes
+				NOT = { has_country_flag = close_unsc_kick_alert }
+			}
+			new_focus_tree_icon_visible = {
+				ROOT = { has_country_flag = new_focus_tree_alert }
+			}
+			new_focus_tree_icon_glow_visible = {
+				ROOT = { has_country_flag = new_focus_tree_alert }
+			}
+			ref_alert_icon_visible = {
+				has_country_flag = referendum_topbar_alert
+			}
+			ref_alert_icon_glow_visible = {
+				has_country_flag = referendum_topbar_alert
+			}
+			unsc_target_flag_visible = {
+				unsc_in_session = yes
+			}
+			police_action_resolution_effect_visible = {
+				has_global_flag = unsc_military_resolution
+			}
+			major_resolution_effect_visible = {
+				has_global_flag = unsc_major_historical_resolution
+			}
+			major_resolution_effect_2_visible = {
+				has_global_flag = unsc_major_historical_resolution
+				has_global_flag = unsc_world_crisis
+			}
+			un_button_background_rejected_visible = {
+				unsc_in_session = yes
+				check_variable = {
+					global.unsc_total_votes_no > global.unsc_total_votes_yes
+				}
+				check_variable = {
+					global.unsc_total_votes_veto = 0
+				}
+			}
+			un_button_background_adopted_visible = {
+				unsc_in_session = yes
+				check_variable = {
+					global.unsc_total_votes_yes > global.unsc_total_votes_no
+				}
+				check_variable = {
+					global.unsc_total_votes_veto = 0
+				}
+			}
+			un_button_background_abstained_visible = {
+				unsc_in_session = yes
+				check_variable = {
+					global.unsc_total_votes_abstain > 8
+				}
+				check_variable = {
+					global.unsc_total_votes_yes = 0
+				}
+				check_variable = {
+					global.unsc_total_votes_no = 0
+				}
+				check_variable = {
+					global.unsc_total_votes_veto = 0
+				}
+			}
+			un_button_background_vetoed_visible = {
+				unsc_in_session = yes
+				check_variable = {
+					global.unsc_total_votes_veto > 0
+				}
+			}
+			unsc_logo_button_visible = {
+				unsc_implementing_resolution = no
+				unsc_majority_democratic = yes
+			}
+			unsc_logo_2_button_visible = {
+				unsc_implementing_resolution = no
+				unsc_majority_communist = yes
+			}
+			unsc_logo_3_button_visible = {
+				unsc_implementing_resolution = no
+				AND = {
+					unsc_majority_communist = no
+					unsc_majority_democratic = no
+				}
+			}
+			un_button_background_implementing_visible = {
+				unsc_in_session = no
+				unsc_implementing_resolution = yes
+			}
+		}
+
+		properties = {
+		  unsc_target_flag = {
+			image = "[unsc_target.GetFlag]"
+		  }
+		}
+
+		ai_enabled = {
+		  always = yes
+		}
+
+		ai_test_interval = 100  # The higher, the long it takes the ai to do actions
+			ai_test_variance = 0.5
+
+		ai_check = {
+			AND = {
+				unsc_in_session = yes
+				is_unsc_member = yes
+			}
+		}
+
+		ai_weights = {
+		  un_button_background_voting_click = {
+			ai_will_do = {
+			  factor = 0
+			  modifier = {
+				add = 50
+				unsc_in_session = yes
+				OR = {
+						ROOT = { has_idea = cw_un_permanent }
+						ROOT = { has_idea = cw_un_non_permanent }
+					}
+			  }
+			  modifier = {
+				add = -100
+				OR = {
+				  has_country_flag = unsc_voted_yes
+				  has_country_flag = unsc_voted_no
+				  has_country_flag = unsc_voted_veto
+				  has_country_flag = unsc_voted_abstain
+				}
+			  }
+			}
+		  }
+		}
+	}
+	cw_top_button_unsc = {
+		window_name = "top_button_unsc"
+		context_type = player_context
+		parent_window_token = top_bar
+
+		visible = {
+			NOT = { has_dlc = "La Resistance" }
+		}
+
+		effects = {
+			un_expel_alert_icon_right_click = {
+				set_country_flag = { flag = close_unsc_kick_alert value = 1 days = 90 }
+			}		
+			new_focus_tree_icon_right_click = {
+				ROOT = { clr_country_flag = new_focus_tree_alert }
+			}
+			ref_alert_icon_click = {
+				var:ref_notification_target = {
+				  capital_scope = {
+						ROOT = {
+							goto_state = PREV
+						}
+				  }
+				}
+			}
+		  ref_alert_icon_right_click = {
+				ROOT = { clr_country_flag = referendum_topbar_alert }
+		  }
+		  unsc_logo_button_click = {
+			set_country_flag = open_unsc_window
+		  }
+		  unsc_logo_button_2_click = {
+			set_country_flag = open_unsc_window
+		  }
+		  unsc_logo_button_3_click = {
+			set_country_flag = open_unsc_window
+		  }
+		  un_button_background_click = {
+			set_country_flag = open_unsc_window
+		  }
+		  un_button_background_implementing_click = {
+			set_country_flag = open_unsc_window
+		  }
+		  un_button_background_voting_click = {
+			set_country_flag = open_unsc_window
+		  }
+		  unsc_target_flag_click = {
+			set_country_flag = open_unsc_window
+		  }
+		  unsc_target_flag_right_click = {
+			event_target:unsc_target = {
+			  capital_scope = {
+				ROOT = {
+				goto_state = PREV
+				}
+			  }
+			}
+		  }
+		}
+
+		triggers = {
+			un_expel_alert_icon_visible = {
+				has_added_tension_amount > 40
+				is_unsc_member = yes
+				NOT = { has_country_flag = close_unsc_kick_alert }
+			}		
+			new_focus_tree_icon_visible = {
+				ROOT = { has_country_flag = new_focus_tree_alert }
+			}
+			new_focus_tree_icon_glow_visible = {
+				ROOT = { has_country_flag = new_focus_tree_alert }
+			}
+			ref_alert_icon_visible = {
+				has_country_flag = referendum_topbar_alert
+			}
+			ref_alert_icon_glow_visible = {
+				has_country_flag = referendum_topbar_alert
+			}
+			unsc_target_flag_visible = {
+				unsc_in_session = yes
+			}
+			police_action_resolution_effect_visible = {
+				has_global_flag = unsc_military_resolution
+			}
+			major_resolution_effect_visible = {
+				has_global_flag = unsc_major_historical_resolution
+			}
+			major_resolution_effect_2_visible = {
+				has_global_flag = unsc_major_historical_resolution
+			}
+			un_button_background_rejected_visible = {
+				unsc_in_session = yes
+				check_variable = {
+					global.unsc_total_votes_no > global.unsc_total_votes_yes
+				}
+				check_variable = {
+					global.unsc_total_votes_no > global.unsc_total_votes_abstain
+				}
+			}
+			un_button_background_adopted_visible = {
+				unsc_in_session = yes
+				check_variable = {
+					global.unsc_total_votes_yes > global.unsc_total_votes_no
+				}
+				check_variable = {
+					global.unsc_total_votes_yes > global.unsc_total_votes_abstain
+				}
+			}
+			un_button_background_abstained_visible = {
+				unsc_in_session = yes
+				check_variable = {
+					global.unsc_total_votes_abstain > 8
+				}
+				check_variable = {
+					global.unsc_total_votes_yes < global.unsc_total_votes_abstain
+				}
+				check_variable = {
+					global.unsc_total_votes_no < global.unsc_total_votes_abstain
+				}
+			}
+			un_button_background_vetoed_visible = {
+				unsc_in_session = yes
+				check_variable = {
+					global.unsc_total_votes_veto > 0
+				}
+			}
+			unsc_logo_button_visible = {
+				unsc_implementing_resolution = no
+				unsc_majority_democratic = yes
+			}
+			unsc_logo_2_button_visible = {
+				unsc_implementing_resolution = no
+				unsc_majority_communist = yes
+			}
+			unsc_logo_3_button_visible = {
+				unsc_implementing_resolution = no
+				AND = {
+					unsc_majority_communist = no
+					unsc_majority_democratic = no
+				}
+			}
+			un_button_background_implementing_visible = {
+				unsc_in_session = no
+				unsc_implementing_resolution = yes
+			}
+		}
+
+		properties = {
+		  unsc_target_flag = {
+			image = "[unsc_target.GetFlag]"
+		  }
+		}
+
+		ai_enabled = {
+			is_unsc_member = yes
+		}
+
+		ai_test_interval = 100  # The higher, the long it takes the ai to do actions
+		ai_test_variance = 0.5
+
+		ai_check = {
+		  unsc_in_session = yes
+		}
+
+		ai_weights = {
+		  un_button_background_voting_click = {
+			ai_will_do = {
+			  factor = 0
+			  modifier = {
+				add = 50
+				unsc_in_session = yes
+			  }
+			  modifier = {
+				add = 50
+				is_major = yes
+			  }
+			  modifier = {
+				add = 100
+				has_event_target = unsc_target
+				event_target:unsc_target = { has_country_flag = unsc_military_resolution }
+			  }				  
+			  modifier = {
+				add = -100
+				OR = {
+				  has_country_flag = unsc_voted_yes
+				  has_country_flag = unsc_voted_no
+				  has_country_flag = unsc_voted_veto
+				  has_country_flag = unsc_voted_abstain
+				}
+			  }
+			}
+		  }
+		}
+	}	
+	cw_cwm_splash = {
+		window_name = "cwm_splash"
+		context_type = player_context
+		parent_window_token = top_bar
+
+		visible = {
+			is_ai = no
+			NOT = { has_country_flag = close_splash_screen }
+		}
+
+		effects = {
+			cw_splash_close_button_click = {
+				if = {		# Forced to do it this way since doesn't work via a on_startup on action... Thanks Paradox
+					limit = {
+						NOT = { has_global_flag = did_splash_sanctions_enforcment }
+					}
+					unsc_force_unsc_trade_sanctions = yes
+					set_global_flag = did_splash_sanctions_enforcment
+				}
+				if = {
+					limit = {
+						ROOT = { has_country_flag = cw_splash_missing_critical_dlc }
+					}
+					ROOT = { add_research_slot = 9999999999999 }
+					else = {
+						set_country_flag = close_splash_screen
+					}
+				}
+				if = {
+					limit = {
+						is_ai = no
+						has_government = communism_totalitarian
+					}
+					every_country = {
+						limit = {
+							NOT = { OR = { has_government = communism_totalitarian has_government = communism } }
+						}
+						add_opinion_modifier = { target = ROOT modifier = cw_closed_trade }
+					}
+				}
+			}
+			cw_splash_features_click = {
+			set_country_flag = cw_splash_show_features
+			clr_country_flag = cw_splash_show_changelog
+			clr_country_flag = cw_splash_show_roadmap
+			clr_country_flag = cw_splash_show_faq
+			}
+			cw_splash_changelog_click = {
+			set_country_flag = cw_splash_show_changelog
+			clr_country_flag = cw_splash_show_features
+			clr_country_flag = cw_splash_show_roadmap
+			clr_country_flag = cw_splash_show_faq
+			}
+			cw_splash_roadmap_click = {
+			set_country_flag = cw_splash_show_roadmap
+			clr_country_flag = cw_splash_show_features
+			clr_country_flag = cw_splash_show_changelog
+			clr_country_flag = cw_splash_show_faq
+			}
+		}
+
+		ai_enabled = {
+			always = no
+		}
+
+		ai_check = {
+			always = no
+		}
+	}
+	cw_topbar_buttons_blocker = {
+		window_name = "cw_top_button_blockers"
+		context_type = player_context
+		parent_window_token = top_bar
+
+		visible = {
+			always = yes
+		}
+		triggers = {
+			trade_button_extended_topbar_blocker_visible = {
+				AND = {
+					has_dlc = "La Resistance"
+					has_idea = cw_restricted_trade_policy
+				}
+			}
+			trade_button_blocker_visible = {
+				AND = {
+					NOT = { has_dlc = "La Resistance" }
+					has_idea = cw_restricted_trade_policy
+				}
+			}
+			espionage_button_extended_topbar_blocker_visible = {
+				AND = {
+					has_dlc = "La Resistance"
+					cw_can_use_espionage = no
+				}
+			}
+		}
+		ai_enabled = {
+			always = no
+		}
+		ai_check = {
+			always = no
+		}
+	}
+	cw_production_trade_buttons_blocker = {
+		window_name = "cw_prod_trade_blockers"
+		context_type = player_context
+		parent_window_token = production_tab
+
+		visible = {
+			always = yes
+		}
+		triggers = {
+			prod_trade_buttons_blocker_visible = {
+				OR = {
+					has_idea = cw_closed_economy
+					has_idea = cw_restricted_trade_policy
+				}
+			}
+		}
+		ai_enabled = {
+			always = no
+		}
+		ai_check = {
+			always = no
+		}
+	}
+}

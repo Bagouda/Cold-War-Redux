@@ -1,0 +1,17 @@
+PRK_ignore_korea_until_manual_korea_war = {
+	enable = {
+		tag = PRK
+		date < 1950.1.1
+	}
+	ai_strategy = {
+		type = ignore_claim
+		id = "KOR"
+		value = 200
+	}
+	ai_strategy = {
+		type = ignore
+		id = "KOR"
+		value = 200
+	}
+	abort_when_not_enabled = yes
+}

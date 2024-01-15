@@ -1,0 +1,89 @@
+defined_text = {
+	name = FOCUS_LOADER_REQUIRED_FOCUSES
+	text = {
+		trigger = {
+			tag = USA
+			date < 1959.1.1
+			NOT = { has_country_flag = loaded_1950_focuses_country }
+			NOT = { has_completed_focus = USA_the_marshall_plan }
+		}
+		localization_key = "USA_1946_FOCUS_SWITCH_CONDITION"
+	}
+	text = {
+		trigger = {
+			tag = SOV
+			date < 1959.1.1
+			NOT = { has_country_flag = loaded_1950_focuses_country }
+			NOT = { has_completed_focus = SOV_comecon_aid }
+		}
+		localization_key = "SOV_1946_FOCUS_SWITCH_CONDITION"
+	}
+	text = {
+		trigger = {
+			tag = PRC
+			date < 1959.1.1
+			NOT = { has_completed_focus = PRC_proclaim_peoples_republic }
+			NOT = { has_country_flag = loaded_1950_focuses_country }
+			NOT = { has_country_flag = communist_manchuria }
+		}
+		localization_key = "PRC_1946_FOCUS_SWITCH_CONDITION"
+	}
+	text = {
+		trigger = {
+			tag = CHI
+			date < 1959.1.1
+			NOT = { has_completed_focus = CHI_taxation_system_reform }
+			NOT = { has_country_flag = loaded_1950_focuses_country }
+			NOT = { has_country_flag = lost_ccw }
+		}
+		localization_key = "CHI_1946_FOCUS_SWITCH_CONDITION"
+	}
+	text = {
+		trigger = {
+			tag = PRK
+			date < 1959.1.1
+			NOT = { has_country_flag = loaded_1950_focuses_country }
+			NOT = { has_completed_focus = PRK_establish_DPRK }
+		}
+		localization_key = "PRK_1946_FOCUS_SWITCH_CONDITION"
+	}
+	text = {
+		trigger = {
+			tag = KOR
+			date < 1959.1.1
+			NOT = { has_country_flag = loaded_1950_focuses_country }
+			NOT = {
+				has_completed_focus = KOR_train_counter_insurgency
+				has_completed_focus = KOR_proclaim_south_korea 
+			}
+		}
+		localization_key = "KOR_1946_FOCUS_SWITCH_CONDITION"
+	}
+	text = {
+		trigger = {
+			tag = FRA
+			date < 1959.1.1
+			NOT = { has_completed_focus = FRA_great_thirty }
+			OR = {
+				NOT = { has_completed_focus = FRA_vietnam_baoi_dai_solution }
+			}			
+		}
+		localization_key = "FRA_1946_FOCUS_SWITCH_CONDITION"
+	}
+}
+defined_text = {
+	name = NEW_FOCUS_INFO
+	text = {
+		trigger = {
+			date < 1959.1.1
+			date > 1946.1.1
+			NOT = { has_country_flag = loaded_1950_focuses_country }
+			is_in_array = {
+				array = global.countries_with_switchable_focuses
+				value = ROOT.id
+			}
+		}
+		localization_key = "CW_NATIONAL_FOCUS_EXPIRE_1946"
+	}
+	text = { localization_key = "No New Focus Tree Currently Available" }
+}

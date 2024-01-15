@@ -1,0 +1,90 @@
+﻿###################
+# GENERAL NEWS EVENTS #
+###################
+add_namespace = cw_temp_events
+
+
+news_event = {
+	id = cw_temp_events.12		#BURMA Emergency
+	title = cw_temp_events.12.t
+	desc = cw_temp_events.12.d
+	picture = GFX_soviet_psps_war_event
+
+
+	trigger = {
+		BUR = { has_civil_war = no } 
+		date > 1947.11.16
+		NOT = { has_global_flag = burma_insurection }
+	}	
+	is_triggered_only = no
+	
+	immediate = {
+		hidden_effect = {
+			ENG = {
+				end_puppet = BUR
+			}
+			BUR = {
+				start_civil_war = {
+					ideology = communism_totalitarian
+					size = 0.4
+					states = { 640 }
+					add_ideas = cw_non_recognized_state 
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+				
+			}
+			set_global_flag = burma_insurection
+		}
+	}
+	
+	major = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+
+
+news_event = {
+	id = cw_temp_events.13		#Malaya Emergency
+	title = cw_temp_events.13.t
+	desc = cw_temp_events.13.d
+	picture = GFX_malaya_emergency
+
+	trigger = {
+		MAL = { has_civil_war = no } 
+		date > 1948.6.16
+		NOT = { has_global_flag = malaya_emergency_done }
+	}	
+	is_triggered_only = no
+	immediate = {
+		hidden_effect = {
+			ENG = {
+				end_puppet = MAL
+				transfer_state = 333
+			}
+			MAL = {
+				start_civil_war = {
+					ideology = communism_totalitarian
+					keep_political_leader = yes
+					capital = 807
+					size = 0.4
+					states = { 807 333 }
+					compute_proxy_score = yes
+					add_ideas = cw_non_recognized_state 
+				
+				}
+				compute_proxy_score = yes
+				
+			}
+			set_global_flag = malaya_emergency_done
+		}
+	}
+	
+	major = yes
+	
+	option = {
+		name = "OK"
+	}
+}

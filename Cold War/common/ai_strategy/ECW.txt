@@ -1,0 +1,28 @@
+egypt_war_intervention_eng = {
+	enable = {
+		tag = ENG
+		EGY = { has_civil_war = yes }
+	}
+	
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "EGY"
+		value = 500
+	}
+}
+egypt_war_intervention_eng = {
+	enable = {
+		tag = ENG
+		EGY = { has_civil_war = yes }
+	}
+	
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "IRQ"
+		value = 500
+	}
+}

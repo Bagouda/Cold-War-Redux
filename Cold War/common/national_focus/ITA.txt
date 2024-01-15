@@ -1,0 +1,52 @@
+focus_tree = {
+	id = italian_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ITA
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	
+	focus = {
+		id = ITA_hold_referendum
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_self_management
+		x = 30
+		y = 1
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			remove_ideas = ita_victor_emmanuel_3
+			add_ideas = ita_umberto_2
+			set_variable = { country_ref_second_option_votes_percent = 45 }
+			set_variable = { country_ref_third_option_votes_percent = 55 }
+			cw_mon_ref_initial_setup = yes
+			if = {
+				limit = {
+					is_historical_focus_on = yes
+				}
+				set_country_flag = { flag = ref_favor_third_option value = 1 days = 90 }
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+}

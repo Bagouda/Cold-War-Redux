@@ -1,0 +1,25 @@
+state = {
+	id=164
+	local_supplies=0.0 
+	name="STATE_164"
+	state_category = small_island
+	history = {
+ 	add_to_array = { list_victory_point = 10007 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = USA
+		add_core_of = GRE
+		add_claim_by = CGR
+		add_claim_by = ITA
+		
+		victory_points = {
+			10007 1 
+		}
+	}
+	manpower = 120000
+	provinces=
+	{
+7003 10007 	}
+}

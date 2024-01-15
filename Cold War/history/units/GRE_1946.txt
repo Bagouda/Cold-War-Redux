@@ -1,0 +1,59 @@
+﻿division_template = {
+	name = "Infantry Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+	}
+	support = {
+        artillery = { x = 0 y = 0 }
+	}	
+}
+units = {
+    division = { 
+		name = "Royal Hellenic Army 1st division"
+		location = 9837
+		division_template = "Infantry Brigade"
+	}
+	division = { 
+		name = "Royal Hellenic Army  2nd division"
+		location = 4109
+		division_template = "Infantry Brigade"
+	}	
+	division = { 
+		name = "Royal Hellenic Army  3rd division"
+		location = 4078
+		division_template = "Infantry Brigade"
+	}
+	division = { 
+		name = "Royal Hellenic Army 4th division"
+		location = 3973
+		division_template = "Infantry Brigade"
+	}
+	division = { 
+		name = "Royal Hellenic Army 5th division"
+		location = 9837
+		division_template = "Infantry Brigade"
+	}
+}
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_3
+			creator = "GRE"
+		}
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "GRE"
+		}
+	}	
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_3
+			creator = "GRE"
+		}
+	}	
+}

@@ -1,0 +1,196 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Mountaineer division"
+
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		}
+}
+division_template = {
+	name = "Military police"
+
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		}
+	support = {
+        military_police = { x = 0 y = 0 }
+	          }
+}
+division_template = {
+	name = "Infantry Brigade"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		artillery_brigade = { x = 2 y = 0 }
+		artillery_brigade = { x = 2 y = 1 }
+		artillery_brigade = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Tank division"
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 1 y = 2 }
+		medium_sp_artillery_brigade = { x = 2 y = 0 }
+		medium_sp_artillery_brigade = { x = 2 y = 1 }
+		medium_sp_artillery_brigade = { x = 2 y = 2 }
+	}
+	support = {
+        engineer = { x = 0 y = 0 }
+	          }
+}
+division_template = {
+	name = "Mechanized infantry division"
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+	}
+}
+division_template = {
+	name = "Infantry division" 		# full size infantry division with less equipment need
+	# Note: Cavalry regiments included about 5 squadrons/companies
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+	}
+	support = {
+        engineer = { x = 0 y = 0 }
+	          }
+}
+division_template = {
+	name = "Mechanized infantry Regiment"
+	regiments = {
+		mechanized = { x = 0 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 0 y = 2 }
+		mechanized = { x = 1 y = 0 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+        engineer = { x = 0 y = 0 }
+	          }
+}
+division_template = {
+	name = "Anti tank division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		anti_tank_brigade = { x = 2 y = 0 }
+		anti_tank_brigade = { x = 2 y = 1 }
+		anti_tank_brigade = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Mechanized marine division"
+	regiments = {
+		amphibious_mechanized = { x = 0 y = 0 }
+		amphibious_mechanized = { x = 0 y = 1 }
+		amphibious_mechanized = { x = 0 y = 2 }
+		amphibious_mechanized = { x = 1 y = 0 }
+		amphibious_mechanized = { x = 1 y = 1 }
+		amphibious_mechanized = { x = 1 y = 2 }
+		amphibious_mechanized = { x = 2 y = 0 }
+		amphibious_mechanized = { x = 2 y = 1 }
+		amphibious_mechanized = { x = 2 y = 2 }
+	}
+	support = {
+        engineer = { x = 0 y = 0 }
+	          }
+}
+division_template = {
+	name = "infantry division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		artillery_brigade = { x = 2 y = 0 }
+		artillery_brigade = { x = 2 y = 1 }
+		artillery_brigade = { x = 2 y = 2 }
+	}
+}
+units = {
+	division = {
+		name = "21st Armoured division"
+		location = 3703
+		division_template = "Tank division"
+
+	}
+	### Mechanized infantry division ###
+	division = {
+		name = "9th Mechanized infantry division"
+		location = 9665
+		division_template = "Mechanized infantry division"
+
+	}
+	division = {
+		name = "44th Infantry Brigade"
+		location = 3684
+		division_template = "Infantry Brigade"
+
+	}
+	division = {
+		name = "8th Mountaineer division"
+		location = 11634
+		division_template = "Mountaineer division"
+
+	}
+	division = {
+		name = "22nd Infantry division"
+		location = 6673
+		division_template = "infantry division"
+
+	}
+	division = {
+		name = "23rd Infantry division"
+		location = 9679
+		division_template = "infantry division"
+
+	}	
+}

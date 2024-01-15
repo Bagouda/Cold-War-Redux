@@ -1,0 +1,25 @@
+state = {
+	id=62
+	local_supplies=0.0 
+	name="STATE_62"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 9388 }
+ 	set_variable = { victory_point = 1 }
+
+		owner = SOV
+		add_core_of = GER
+		
+		buildings = {
+			infrastructure = 1
+		}		
+		
+		victory_points = {
+			9388 1
+		}
+	}
+	manpower = 1006221
+	provinces={
+		349 3207 3258 3312 3340 9388 
+	}
+}

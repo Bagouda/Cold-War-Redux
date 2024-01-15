@@ -1,0 +1,80 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Armored division"		
+	#division_names_group = POR_INF_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		artillery_brigade = { x = 2 y = 0 }
+		artillery_brigade = { x = 2 y = 1 }
+		artillery_brigade = { x = 2 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Infantry division"		
+	#division_names_group = POR_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+	}
+}
+division_template = {
+	name = "Infantry regiment"		
+	#division_names_group = POR_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+}
+
+
+units = {
+	division = {
+		location = 4345
+		division_template = "Armored division"
+	}
+	division = {
+		location = 3778
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 1785
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 1262
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 1262
+		division_template = "Infantry division"
+	}	
+	division = {
+		name = "Royal Canadian Mountain Police"
+		location = 1356
+		division_template = "Infantry regiment"
+	}
+}
+
+
+
+### Starting Production ###

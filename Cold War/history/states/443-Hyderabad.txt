@@ -1,0 +1,33 @@
+state={
+	id=443
+	local_supplies=0.0 
+	name="STATE_443"
+	history={
+ 	add_to_array = { list_victory_point = 4110 }
+ 	set_variable = { victory_point = 20 }
+		owner = IND
+		add_core_of = IND
+		add_core_of = PAK
+		
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 6		
+		}		
+		1947.8.15 = {
+			owner = PAK
+			add_core_of = PAK
+		}		
+		victory_points = {
+			4110 20 #Hyderabad
+		}
+	}
+	resources={
+		crops = 18
+	}
+	provinces={
+		1147 1980 4003 4110 4382 7084 
+	}
+	manpower=3887000
+	buildings_max_level_factor=1.000
+	state_category=large_city
+}

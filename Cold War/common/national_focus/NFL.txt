@@ -1,0 +1,49 @@
+focus_tree = {
+	id = newfoundland_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = NFL
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	
+	focus = {
+		id = NFL_hold_referendum
+		available = {
+			date > 1948.7.22
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_self_management
+		x = 10
+		y = 1
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			if = {
+				limit = {
+					is_historical_focus_on = yes
+				}
+				set_country_flag = { flag = ref_favor_third_option value = 1 days = 90 }
+			}
+			cw_cs_ref_initial_setup = yes
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+}

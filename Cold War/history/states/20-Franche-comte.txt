@@ -1,0 +1,31 @@
+state = {
+	id=20
+	local_supplies=0.0 
+	name="STATE_20" # Rhone
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 6613 }
+ 	set_variable = { victory_point = 10 }
+		owner = FRA
+		add_core_of = FRA
+		
+		buildings = {
+			infrastructure = 4
+			air_base = 3
+			arms_factory = 1
+			air_base = 2			
+		}
+		
+		victory_points = {
+			6613 10
+		}
+	}
+	resources={
+		steel=30 # was: 128
+		aluminium=35 # was: 72
+	}
+	manpower = 2973200
+	provinces={
+		3770 6613 6639 6786 9590 9728 9732 11593 11794 
+	}
+}

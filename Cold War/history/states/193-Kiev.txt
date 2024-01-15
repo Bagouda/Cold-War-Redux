@@ -1,0 +1,27 @@
+state = {
+	id=193
+	local_supplies=0.0 
+	name="STATE_193" # Chernihiv
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 3568 }
+ 	set_variable = { victory_point = 3 }
+		buildings = {
+			infrastructure = 2
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_core_of = UKR
+	
+		victory_points = {
+			3568 3
+		}
+	}	
+	resources={
+		crops = 1
+	}	
+	manpower = 1373637
+	provinces={
+		238 546 3480 3542 3568 3584 6458 6508 6532 6589 9437 9506 11425 11489 
+	}
+}

@@ -1,0 +1,22 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_focus_arrest_de_gaulle"
+		texturefile = "gfx/interface/cw_focuses/FRA/1950/focus_arrest_de_gaulle.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_fra_algiers_coup"
+		texturefile = "gfx/interface/cw_focuses/FRA/1950/focus_fra_algiers_coup.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_fra_appoint_henri_navarre"
+		texturefile = "gfx/interface/cw_focuses/FRA/1950/focus_fra_appoint_henri_navarre.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_svi_military"
+		texturefile = "gfx/interface/cw_focuses/FRA/1950/focus_svi_military.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_svi_thu_duc_military_academy"
+		texturefile = "gfx/interface/cw_focuses/FRA/1950/svi_thu_duc_military_academy.dds"
+	}	
+}

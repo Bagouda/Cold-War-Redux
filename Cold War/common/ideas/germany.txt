@@ -1,0 +1,58 @@
+ideas = {
+	country = {
+		berlin_blockaded = {
+			removal_cost = -1
+			
+			allowed = {
+				always = no 
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				communism_totalitarian_drift = 0.05
+				stability_weekly = -0.1
+			}
+			
+			picture = under_blockade
+		}
+		supplied_by_airlift = {
+			removal_cost = -1
+			
+			allowed = {
+				always = no 
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				communism_totalitarian_drift = -0.10
+			}
+			
+			picture = air_supply
+		}
+		nuremberg_trials = {
+			removal_cost = -1
+			
+			allowed = {
+				always = no 
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				unaligned_right_drift = -0.50
+				democratic_drift = 0.50
+				democratic_socialist_drift = 0.20
+			}
+			
+			picture = gavel
+		}		
+	}
+}

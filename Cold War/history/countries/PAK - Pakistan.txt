@@ -1,0 +1,180 @@
+﻿capital = 444
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	OOB = PAK_1946
+	leave_faction = yes
+	set_country_flag = decolonization
+	add_ideas = {
+		# Country ideas
+		eng_george_6
+	}
+	set_politics = {
+		ruling_party = democratic
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 50
+		democratic_socialist = 0
+		neutrality = 30
+		communism_totalitarian = 20
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+			name = "Khawaja Nazimuddin"
+			desc = ""
+			picture = "PAKH2.dds"
+			ideology = social_cons_idolg
+			expire = 1951.10.17
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Muhammad Ali Jinnah"
+			desc = ""
+			picture = "PAKH1.dds"
+			ideology = social_cons_idolg
+			expire = 1948.9.1
+			traits = {}
+	}
+	create_country_leader = {
+		name = "Sajjad Zaheer"
+		desc = ""
+		picture = "sajjad_zaheer.dds"
+		ideology = stalinism_idolg
+		expire = 1992.10.16
+		traits = { }
+	}
+}
+1947.8.15 = {	#Independent Pakistan
+	drop_cosmetic_tag = yes
+	clr_country_flag = decolonization
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+	create_country_leader = {
+			name = "Iskander Mirza"
+			desc = ""
+			picture = "PAKH4.dds"
+			ideology = social_cons_idolg
+			expire = 1958.10.27
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Ghulam Muhammad"
+			desc = ""
+			picture = "PAKH3.dds"
+			ideology = social_cons_idolg
+			expire = 1955.8.7
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Khawaja Nazimuddin"
+			desc = ""
+			picture = "PAKH2.dds"
+			ideology = social_cons_idolg
+			expire = 1951.10.17
+			traits = {}
+	}
+}
+1956.10.29 = {	#Suez Crisis
+	create_country_leader = {
+			name = "Iskander Mirza"
+			desc = ""
+			picture = "PAKH4.dds"
+			ideology = social_cons_idolg
+			expire = 1958.10.27
+			traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	capital = 440
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+	set_politics = {
+		ruling_party = neutrality
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 20
+		democratic_socialist = 40
+		neutrality = 40
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+			name = "Fazal Ilahi Chaudhry"
+			desc = ""
+			picture = "PAKH8.dds"
+			ideology = social_democrat_idolg
+			expire = 1977.7.5
+			traits = {}
+	}	
+	create_country_leader = {
+			name = "Zulfikar Ali Bhutto"
+			desc = ""
+			picture = "PAKH7.dds"
+			ideology = social_democrat_idolg
+			expire = 1977.7.5
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Yahya Khan"
+			desc = ""
+			picture = "PAKH6.dds"
+			ideology = military_idolg
+			expire = 1971.12.20
+			traits = {}
+	}	
+	create_country_leader = {
+			name = "Ayub Khan"
+			desc = ""
+			picture = "PAKH5.dds"
+			ideology = military_idolg
+			expire = 1969.3.25
+			traits = {}
+	}
+}
+##########################################################################################
+#On 1973.4.19 Becomes a paramantiary republic so leader portraits switch to prime minister
+##########################################################################################
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	create_country_leader = {
+			name = "Muhammad Zia-ul-Haq"
+			desc = ""
+			picture = "PAKH9.dds"
+			ideology = military_idolg
+			expire = 1993.7.18
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Muhammad Zia-ul-Haq"
+			desc = ""
+			picture = "PAKH6.dds"
+			ideology = military_idolg
+			expire = 1988.8.17
+			traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	create_country_leader = {
+			name = "Benazir Bhutto"
+			desc = ""
+			picture = "PAKH10.dds"
+			ideology = social_democrat_idolg
+			expire = 1996.11.5
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Muhammad Zia-ul-Haq"
+			desc = ""
+			picture = "PAKH9.dds"
+			ideology = military_idolg
+			expire = 1993.7.18
+			traits = {}
+	}
+}

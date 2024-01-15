@@ -1,0 +1,30 @@
+state = {
+	id=296
+	local_supplies=0.0 
+	name="STATE_296" # Guinea-Bissau
+	state_category = enclave
+	history = {
+ 	add_to_array = { list_victory_point = 12891 }
+ 	set_variable = { victory_point = 1 }
+		owner = POR
+		add_claim_by = GUB
+		
+		buildings = {
+			infrastructure = 1
+			12891 = {
+				naval_base = 1
+			}			
+		}
+		
+		victory_points = {
+			12891 1
+		}
+	}
+	resources={
+		crops=1 # was: 1
+	}
+	manpower = 182450
+	provinces={
+		 12891 
+	}
+}

@@ -1,0 +1,235 @@
+﻿capital = 802 #Hanoi
+set_variable = { twin_country = VIN.id }	#South Vietnam
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+1946.1.1 = {
+	add_ideas = {
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_3
+		amount = 10000
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = support_equipment_1
+		amount = 10000
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = artillery_equipment_3
+		amount = 1000
+		producer = PRC
+	}
+	set_politics = {
+		ruling_party = communism
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 20
+		communism = 80
+		unaligned_right = 0
+		colonial =  0
+	}
+}
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons2 = 1
+	infantry_weapons1 = 1
+	improved_infantry_weapons = 1
+	improved_infantry_weapons_2 = 1
+	infantry_at = 1
+	infantry_at2 = 1
+	advanced_infantry_weapons = 1
+	advanced_infantry_weapons2 = 1
+	marines = 1
+	paratroopers = 1
+	tech_mountaineers = 1
+	tech_special_forces = 1
+	jungle_warfare = 1
+	mountain_warfare = 1
+	night_vision = 1
+	support_weapons = 1
+	support_weapons2 = 1
+	support_weapons3 = 1
+	support_weapons4 = 1
+	motorised_infantry = 1
+	motorized_rocket_unit = 1
+	armored_car1 = 1
+	armored_car2 = 1
+	armored_car3 = 1
+	armored_car_at_upgrade = 1
+	mechanised_infantry = 1
+	amphibious_mechanized_infantry = 1
+	amphibious_mechanized_infantry_2 = 1
+	mechanised_infantry2 = 1
+	mechanised_infantry3 = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	railway_gun = 1
+	wartime_train = 1
+	armored_train = 1
+	
+	gw_artillery = 1
+	interwar_artillery = 1
+	artillery1 = 1
+	artillery2 = 1
+	artillery3 = 1
+	artillery4 = 1
+	artillery5 = 1
+	mountain_gun = 1
+	rocket_artillery = 1
+	rocket_artillery2 = 1
+	rocket_artillery3 = 1
+	rocket_artillery4 = 1
+	interwar_antiair = 1
+	antiair1 = 1
+	antiair2 = 1
+	antiair3 = 1
+	interwar_antitank = 1
+	antitank1 = 1
+	antitank2 = 1
+	antitank3 = 1
+	
+	early_fighter = 1
+	cv_early_fighter = 1
+	fighter1 = 1
+	cv_fighter1 = 1
+	fighter2 = 1
+	cv_fighter2 = 1
+	fighter3 = 1
+	cv_fighter3 = 1
+	jet_fighter1 = 1
+	jet_fighter2 = 1
+	CAS1 = 1
+	cv_CAS1 = 1
+	CAS2 = 1
+	cv_CAS2 = 1
+	CAS3 = 1
+	cv_CAS3 = 1
+	naval_bomber1 = 1
+	cv_naval_bomber1 = 1
+	naval_bomber2 = 1
+	cv_naval_bomber2 = 1
+	naval_bomber3 = 1
+	cv_naval_bomber3 = 1
+	early_bomber = 1
+	heavy_fighter1 = 1
+	heavy_fighter2 = 1
+	heavy_fighter3 = 1
+	scout_plane1 = 1
+	scout_plane2 = 1
+	
+	gwtank = 1
+	basic_light_tank = 1
+	basic_light_td = 1
+	basic_light_art = 1
+	basic_light_spaa = 1
+	improved_light_tank = 1
+	improved_light_td = 1
+	improved_light_art = 1
+	improved_light_spaa = 1
+	amphibious_tank = 1
+	amphibious_tank_2 = 1
+	advanced_light_tank = 1
+	advanced_light_td = 1
+	advanced_light_art = 1
+	advanced_light_spaa = 1
+	basic_medium_tank = 1
+	basic_medium_td = 1
+	basic_medium_art = 1
+	basic_medium_spaa = 1
+	improved_medium_tank = 1
+	improved_medium_td = 1
+	improved_medium_art = 1
+	improved_medium_spaa = 1
+	advanced_medium_tank = 1
+	advanced_medium_td = 1
+	advanced_medium_art = 1
+	advanced_medium_spaa = 1
+	main_battle_tank = 1
+	modern_td = 1
+	modern_art = 1
+	modern_spaa = 1
+	basic_heavy_tank = 1
+	basic_heavy_td = 1
+	basic_heavy_art = 1
+	basic_heavy_spaa = 1
+	improved_heavy_tank = 1
+	improved_heavy_td = 1
+	improved_heavy_art = 1
+	improved_heavy_spaa = 1
+	advanced_heavy_tank = 1
+	advanced_heavy_td = 1
+	advanced_heavy_art = 1
+	advanced_heavy_spaa = 1
+}
+
+1946.1.1 = {
+	oob = "VIN_1946"
+	diplomatic_relation = { country = CHI relation = non_aggression_pact }
+	set_cosmetic_tag = VIN_MIN # Communist Vietnam before unification
+	set_country_flag = decolonization
+	set_country_flag = cw_volunteers_blocked
+	set_country_flag = police_action_blocked
+	add_ideas = {
+		cw_closed_economy
+		cw_non_recognized_state
+		cw_soviet_trade_unions
+		cw_popular_front
+		cw_hardline
+		cw_high_military_budget
+		cw_five_year_plan_military_industry_focus
+		cw_infantry_forces
+		cw_extensive_conscription
+	}
+	### Country Leaders
+	recruit_character = VIN_ho_chi_minh
+	recruit_character = VIN_vo_nguyen_giap
+	### Deputy Minister
+	recruit_character = vin_hog_vo_nguyen_giap
+	activate_advisor = vin_hog_vo_nguyen_giap
+	### Military Characters
+	recruit_character = VIN_vo_nguyen_giap_field_marshall
+	recruit_character = VIN_van_tien_dung_cc
+	recruit_character = VIN_hoang_van_thai_cc
+	recruit_character = VIN_nguyen_huu_an_cc
+	recruit_character = VIN_nguyen_son_cc
+	recruit_character = VIN_tran_van_tra_cc
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_3
+		amount = 10000
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = support_equipment_1
+		amount = 10000
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = artillery_equipment_3
+		amount = 1000
+		producer = PRC
+	}
+	set_politics = {
+		ruling_party = communism
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 40
+		communism = 50
+		unaligned_right = 10
+		colonial =  0
+	}	
+}

@@ -1,0 +1,522 @@
+crisis_national = {
+	cw_generic_mild_famine_timer = {
+		icon = GFX_handout_decision_icon
+		
+		allowed = {
+			tag = SOV
+		}
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = CW_FAMINE_REQ_CROPS_TT		
+				check_variable = { var = THIS.resource_produced@crops value = THIS.required_crops compare = greater_than }
+			}
+		}
+		
+		modifier = {
+			stability_factor = 0.03
+			political_power_gain = 0.3
+		}
+		
+		days_remove = 90
+		days_mission_timeout = 250
+		is_good = no
+		fire_only_once = yes
+		activation = { always = no }
+
+		complete_effect = {
+			add_political_power = 50
+			add_stability = 0.1
+			remove_ideas = cw_famine_mild
+		}
+		
+		timeout_effect = {
+			custom_effect_tooltip = CW_MILD_FAMINE_TIMEOUT_TT
+			hidden_effect = {
+				remove_ideas = cw_famine_mild
+				cw_apply_severe_famine = yes
+			}
+		}
+	}
+	cw_generic_severe_famine_timer = {
+		icon = GFX_skull_decision_icon
+		
+		allowed = {
+			tag = SOV
+		}
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = CW_FAMINE_REQ_CROPS_TT		
+				check_variable = { var = THIS.resource_produced@crops value = THIS.required_crops compare = greater_than }
+			}
+		}
+		
+		modifier = {
+			stability_factor = 0.05
+			political_power_gain = 0.5
+		}
+		
+		days_remove = 90
+		days_mission_timeout = 450
+		is_good = no
+		fire_only_once = yes
+		activation = { always = no }
+
+		complete_effect = {
+			add_political_power = 100
+			add_stability = 0.3
+		}
+		
+		timeout_effect = {
+			if = {
+				limit = {
+					has_country_flag = un_relief_event_fire
+				}
+				clr_country_flag = un_relief_event_fired
+			}
+			if = {
+				limit = {
+					has_government = unaligned_right
+				}
+				start_civil_war = {
+					ideology = neutrality
+					keep_political_leader = yes
+					size = 0.5
+					states_filter = { impassable = no }
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+			}
+			if = {
+				limit = {
+					has_government = neutrality
+				}
+				start_civil_war = {
+					ideology = unaligned_right
+					keep_political_leader = yes
+					size = 0.5
+					states_filter = { impassable = no }
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+			}
+			if = {
+				limit = {
+					has_government = communism
+				}
+				start_civil_war = {
+					ideology = communism_totalitarian
+					keep_political_leader = yes
+					size = 0.5
+					states_filter = { impassable = no }
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+			}
+			if = {
+				limit = {
+					has_government = communism_totalitarian
+				}
+				start_civil_war = {
+					ideology = communism
+					keep_political_leader = yes
+					size = 0.5
+					states_filter = { impassable = no }
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+			}
+			if = {
+				limit = {
+					OR = {
+						has_government = democratic_socialist
+						has_government = democratic					
+					}
+				}
+				start_civil_war = {
+					ideology = unaligned_right
+					keep_political_leader = yes
+					size = 0.5
+					states_filter = { impassable = no }
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+			}
+		}
+		remove_effect = {
+			remove_ideas = cw_famine_severe
+		}
+	}
+	cw_famine_confiscate_crops = {
+		
+		icon = GFX_decision_oppression
+		allowed = {}
+
+		available = {
+		}
+
+		visible = {
+			AND = {
+				OR = {
+					has_government = communism
+					has_government = communism_totalitarian
+					has_government = neutrality
+					has_government = unaligned_right
+				}
+				OR = {
+					has_idea = cw_famine_mild
+					has_idea = cw_famine_severe
+				}
+			}
+		}
+		
+		cost = 300
+		days_re_enable = 365
+		days_remove = 365
+
+		modifier = {
+			stability_weekly = -0.30
+			drift_defence_factor = -0.25
+			political_power_gain = -0.5
+		}
+		complete_effect = {
+			custom_effect_tooltip = CW_CONFISCATE_CROPS_EFFECT_TT
+			if = {
+				limit = {
+					has_active_mission = cw_generic_mild_famine_timer
+				}
+				add_days_mission_timeout = { mission = cw_generic_mild_famine_timer days = 50 }
+			}
+			if = {
+				limit = {
+					has_active_mission = cw_generic_severe_famine_timer
+				}
+				add_days_mission_timeout = { mission = cw_generic_severe_famine_timer days = 50 }
+			}			
+			every_owned_state = { limit = { has_resources_amount = { resource = crops amount > 0 } } add_state_modifier = { modifier = { local_resources = 2.0 } } }
+		}
+		remove_effect = {
+			hidden_effect = {
+				custom_effect_tooltip = CW_CONFISCATE_CROPS_REMOVE_TT
+				every_owned_state = { limit = { has_resources_amount = { resource = crops amount > 0 } } add_state_modifier = { modifier = { local_resources = -2.0 } } }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_famine_subsidise_farmers = {
+		
+		icon = GFX_bribe_decision_icon
+		allowed = {}
+
+		available = {
+		}
+
+		visible = {
+			AND = {
+				OR = {
+					has_government = democratic
+					has_government = democratic_socialist
+					has_government = neutrality
+					has_government = unaligned_right
+				}
+				OR = {
+					has_idea = cw_famine_mild
+					has_idea = cw_famine_severe
+				}
+			}
+		}
+		
+		cost = 200
+		days_re_enable = 365
+		days_remove = 365
+
+		modifier = {
+			consumer_goods_factor = 0.10
+		}
+		complete_effect = {
+			custom_effect_tooltip = CW_SUBSIDISE_FARMERS_EFFECT_TT
+			if = {
+				limit = {
+					has_active_mission = cw_generic_mild_famine_timer
+				}
+				add_days_mission_timeout = { mission = cw_generic_mild_famine_timer days = 50 }
+			}
+			if = {
+				limit = {
+					has_active_mission = cw_generic_severe_famine_timer
+				}
+				add_days_mission_timeout = { mission = cw_generic_severe_famine_timer days = 50 }
+			}			
+			every_owned_state = { limit = { has_resources_amount = { resource = crops amount > 0 } } add_state_modifier = { modifier = { local_resources = 1.0 } } }
+		}
+		remove_effect = {
+			hidden_effect = {
+				custom_effect_tooltip = CW_SUBSIDISE_FARMERS_REMOVE_TT
+				every_owned_state = { limit = { has_resources_amount = { resource = crops amount > 0 } } add_state_modifier = { modifier = { local_resources = -1.0 } } }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_famine_import_crops_from_abroad = {
+		
+		icon = GFX_bribe_decision_icon
+		allowed = {}
+
+		available = {
+		}
+
+		visible = {
+			OR = {
+				has_idea = cw_famine_mild
+				has_idea = cw_famine_severe
+			}
+		}
+		
+		target_trigger = {
+			FROM = {
+				is_major = yes
+				has_opinion = { target = ROOT value > 0 }
+				NOT = {
+					has_war_with = ROOT
+					is_in_array = {
+						array = ROOT.embargoed_countries
+						value = THIS.id
+					}
+					ROOT = {
+						is_in_array = {
+							array = FROM.embargoed_countries
+							value = THIS.id
+						}
+					}
+					OR = {
+						has_idea = cw_famine_mild
+						has_idea = cw_famine_severe
+					}
+				}
+				check_variable = { resource_produced@crops > 300 }
+			}
+		}
+		
+		cancel_trigger = {
+			custom_trigger_tooltip = {
+				tooltip = "[THIS.GetName] is embargoed by [FROM.GetName]"
+				ROOT = {
+					is_in_array = {
+						array = FROM.embargoed_countries
+						value = THIS.id
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			drift_defence_factor = -0.10
+			country_resource_crops = 75
+			country_resource_cost_crops = -100
+		}
+		
+		cost = 200
+		days_re_enable = 0
+		days_remove = 180
+
+		complete_effect = {
+			custom_effect_tooltip = CW_SUBSIDISE_FARMERS_EFFECT_TT
+			if = {
+				limit = {
+					has_active_mission = cw_generic_mild_famine_timer
+				}
+				add_days_mission_timeout = { mission = cw_generic_mild_famine_timer days = 100 }
+			}
+			if = {
+				limit = {
+					has_active_mission = cw_generic_severe_famine_timer
+				}
+				add_days_mission_timeout = { mission = cw_generic_severe_famine_timer days = 100 }
+			}
+			every_owned_state = { limit = { has_resources_amount = { resource = crops amount > 0 } } add_state_modifier = { modifier = { local_resources = 0.1 } } }
+			hidden_effect = {
+				### NOTIFICATION ###
+				FROM = {
+					set_country_flag = { flag = phone_notification_food_exports value = 1 days = 5 }
+					country_phone_alert = yes
+				}
+				### NOTIFICATION ###
+				add_to_variable = { crops_import_consumer_goods@FROM = 0.05 }
+				if = {
+					limit = {
+						FROM = { has_government = communism }
+					}
+					add_to_variable = { crops_import_communist_ref_influence@FROM = 0.1 }
+				}
+				if = {
+					limit = {
+						FROM = { has_government = communism_totalitarian }
+					}
+					add_to_variable = { crops_import_communist_total_influence@FROM = 0.1 }
+				}
+				if = {
+					limit = {
+						FROM = { has_government = democratic }
+					}
+					add_to_variable = { crops_import_dem_right_influence@FROM = 0.1 }
+				}
+				if = {
+					limit = {
+						FROM = { has_government = democratic_socialist }
+					}
+					add_to_variable = { crops_import_dem_left_influence@FROM = 0.1 }
+				}
+				if = {
+					limit = {
+						FROM = { has_government = unaligned_right }
+					}
+					add_to_variable = { crops_import_unaligned_right_influence@FROM = 0.1 }
+				}
+				if = {
+					limit = {
+						FROM = { has_government = neutrality }
+					}
+					add_to_variable = { crops_import_unaligned_left_influence@FROM = 0.1 }
+				}
+				ROOT = { add_dynamic_modifier = { modifier = cw_importing_food_from_abroad scope = FROM } }
+				set_temp_variable = { food_import_cost = crops_import_consumer_goods@FROM }
+				multiply_temp_variable = { food_import_cost = -1 }
+				FROM = {
+					add_to_variable = { food_export_cost@ROOT = food_import_cost }
+					add_dynamic_modifier = { modifier = cw_exporting_food scope = ROOT } 
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				custom_effect_tooltip = CW_SUBSIDISE_FARMERS_REMOVE_TT
+				every_owned_state = { limit = { has_resources_amount = { resource = crops amount > 0 } } add_state_modifier = { modifier = { local_resources = -0.1 } } }
+				remove_dynamic_modifier = {
+					modifier = cw_importing_food_from_abroad
+					scope = FROM
+				}
+				FROM = { remove_dynamic_modifier = { modifier = cw_exporting_food scope = ROOT } }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_famine_ask_for_international_aid = {
+		
+		icon = GFX_handout_decision_icon
+		allowed = {}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "United Nations Available Crops More Than 50"
+				FROM = { check_variable = { resource_produced@crops > 50 } }
+			}
+			ROOT = { is_recognized_regime = yes }
+		}
+
+		visible = {
+			OR = {
+				has_idea = cw_famine_severe
+				has_idea = cw_sov_1946_famine_severe
+			}
+		}
+		
+		target_trigger = {
+			FROM = {
+				tag = UNN
+				NOT = {
+					has_war_with = ROOT
+					is_in_array = {
+						array = ROOT.embargoed_countries
+						value = THIS.id
+					}
+					ROOT = {
+						is_in_array = {
+							array = FROM.embargoed_countries
+							value = THIS.id
+						}
+					}
+					OR = {
+						has_idea = cw_famine_mild
+						has_idea = cw_famine_severe
+					}
+				}
+			}
+		}
+		
+		cancel_trigger = {
+			custom_trigger_tooltip = {
+				tooltip = "[THIS.GetName] is embargoed by [FROM.GetName]"
+				ROOT = {
+					is_in_array = {
+						array = FROM.embargoed_countries
+						value = THIS.id
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			drift_defence_factor = -0.30
+			country_resource_crops = 50
+			country_resource_cost_crops = -50
+		}
+		
+		cost = 500
+		days_re_enable = 0
+		days_remove = 180
+
+		complete_effect = {
+			custom_effect_tooltip = "Our crop stocks will increase."
+			if = {
+				limit = {
+					has_active_mission = cw_generic_mild_famine_timer
+				}
+				add_days_mission_timeout = { mission = cw_generic_mild_famine_timer days = 100 }
+			}
+			if = {
+				limit = {
+					has_active_mission = cw_generic_severe_famine_timer
+				}
+				add_days_mission_timeout = { mission = cw_generic_severe_famine_timer days = 100 }
+			}
+			every_owned_state = { limit = { has_resources_amount = { resource = crops amount > 0 } } add_state_modifier = { modifier = { local_resources = 0.08 } } }
+			hidden_effect = {
+				add_to_variable = { crops_import_consumer_goods@FROM = 0.01 }
+				ROOT = { add_dynamic_modifier = { modifier = cw_importing_food_from_abroad scope = FROM } }
+				set_temp_variable = { food_import_cost = crops_import_consumer_goods@FROM }
+				multiply_temp_variable = { food_import_cost = -1 }
+				FROM = {
+					add_to_variable = { food_export_cost@ROOT = food_import_cost }
+					add_dynamic_modifier = { modifier = cw_exporting_food scope = ROOT } 
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = un_relief_event_fire }
+					}
+					news_event = unsc.resolution_news.9
+					set_country_flag = un_relief_event_fired
+				}
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				every_owned_state = { limit = { has_resources_amount = { resource = crops amount > 0 } } add_state_modifier = { modifier = { local_resources = -0.08 } } }
+				remove_dynamic_modifier = {
+					modifier = cw_importing_food_from_abroad
+					scope = FROM
+				}
+				FROM = { remove_dynamic_modifier = { modifier = cw_exporting_food scope = ROOT } }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

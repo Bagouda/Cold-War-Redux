@@ -1,0 +1,47 @@
+German_occupation_historical_focuses = {
+	name = "Future of Germany Shared Focuses 1950"
+	desc = ""
+
+	enable = {
+		OR = {
+			tag = USA
+			tag = ENG
+			tag = SOV
+			tag = FRA
+		}
+		is_historical_focus_on = yes
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		FOG_a_divided_germany
+		FOG_establish_east_germany
+		FOG_a_unify_german_occupation_zones
+		FOG_the_schuman_plan
+		FOG_the_schuman_plan_establish_saar_protectorate
+		FOG_the_schuman_plan_utilize_german_labour
+		FOG_the_schuman_plan_establish_ruhr_authority
+	}
+
+	research = {
+	}
+
+	ideas = {
+	}
+	traits = {
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

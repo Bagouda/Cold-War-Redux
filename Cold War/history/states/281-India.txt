@@ -1,0 +1,30 @@
+state = {
+	id=281
+	local_supplies=0.0 
+	name="STATE_281"
+	state_category = small_island
+	history = {
+ 	add_to_array = { list_victory_point = 4967 }
+ 	set_variable = { victory_point = 1 }
+		owner = ENG
+		
+		buildings = {
+			infrastructure = 1
+			4967 = {
+				naval_base = 1
+			}		
+		}
+	###
+		1965.7.26 = {
+			owner = MLD
+			add_core_of = MLD
+		}
+		victory_points = {
+			4967 1
+		}
+	}
+	manpower=79300
+	provinces={
+		4967 
+	}
+}

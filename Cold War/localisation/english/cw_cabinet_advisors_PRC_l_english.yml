@@ -1,0 +1,36 @@
+﻿l_english:
+ #################################
+ ###  PRC Historic Ministers   ###
+ ################################# 
+ ### Deputy Ministers
+ prc_hog_mao_zedong:0 "Mao Zedong"
+ prc_hog_zhou_enlai:0 "Zhou Enlai"
+ prc_hog_liu_shaoqi:0 "Liu Shaoqi"
+ prc_hog_prc_ren_bishi:0 "Ren Bishi"
+ ### Foreign Ministers
+ prc_fm_zhou_enlai:0 "Zhou Enlai" 
+ prc_fm_chen_yi:0 "Chen Yi"
+ prc_lin_boqu:0 "Lin Boqu"
+ prc_fm_zhang_wentian:0 "Zhang Wentian"
+ ### Defense Ministers
+ prc_dm_peng_dehuai:0 "Peng Dehuai"
+ prc_dm_lin_biao:0 "Lin Biao"
+ prc_dm_ye_jianying:0 "Ye Jianying"
+ prc_dm_xu_xiangqian:0 "Xu Xiangqian"
+ prc_dm_zhang_aiping:0 "Zhang Aiping"
+ prc_dm_lu_dingyi:0 "Lu Dingyi"
+ prc_dm_wu_yuzhang:0 "Wu Yuzhang"
+ ### Treasury Ministers
+ prc_tm_li_xiannian:0 "Li Xiannian"
+ prc_tm_deng_xiaoping:0 "Deng Xiaoping"
+ prc_tm_chen_yun:0 "Chen Yun"
+ prc_tm_gao_gang:0 "Gao Gang"
+ prc_tm_li_fuchun:0 "Li Fuchun"
+ ### Chiefs of Staff
+ prc_chief_hu_yaobang:0 "Hu Yaobang"
+ prc_dm_liu_yalou:0 "Liu Yalou"
+ prc_chief_peng_zhen:0 "Peng Zhen"
+ ### Personal Adivosrs
+ prc_pa_kang_sheng:0 "Kang Sheng"
+ prc_prc_cai_chang:0 "Cai Chang"
+ 

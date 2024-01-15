@@ -1,0 +1,27 @@
+state = {
+	id=200
+	local_supplies=0.0 
+	name="STATE_200" # Zaporozhe
+	state_category = devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 11405 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_core_of = UKR
+		
+		victory_points = {
+			11405 1
+		}
+	}
+	resources={
+		crops=2
+	}	
+	manpower = 1294082
+	provinces={
+		429 588 3399 3767 6596 9571 9729 11405 11700 
+	}
+}

@@ -1,0 +1,328 @@
+cw_debug_mode = {
+	cw_euu_add_yes_votes = {
+
+		icon = generic_industry
+
+		available = {
+			is_ai = no
+		}
+
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		fire_only_once = no
+
+		cost = 0
+
+		complete_effect = {
+			set_variable = { global.euu_resolution_vote_timer = 3 }
+			add_to_variable = { global.euu_total_votes_yes = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_debug_unsc_clear_votes = {
+
+		icon = generic_industry
+
+		available = {
+			is_ai = no
+		}
+
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		fire_only_once = no
+
+		cost = 0
+
+		complete_effect = {
+			cw_unsc_clear_junk = yes
+			cw_unsc_clear_votes = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}		
+	}
+	cw_unsc_add_yes_votes = {
+
+		icon = generic_industry
+
+		available = {
+			is_ai = no
+		}
+
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		fire_only_once = no
+
+		cost = 0
+
+		complete_effect = {
+			set_variable = { global.unsc_resolution_vote_timer = 3 }
+			add_to_variable = { global.unsc_total_votes_yes = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_unsc_add_no_votes = {
+
+		icon = generic_industry
+
+		available = {
+			is_ai = no
+		}
+
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		fire_only_once = no
+
+		cost = 0
+
+		complete_effect = {
+			set_variable = { global.unsc_resolution_vote_timer = 3 }
+			add_to_variable = { global.unsc_total_votes_no = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}		
+	}
+	cw_country_me_points_civ = {
+
+		icon = generic_industry
+
+		available = {
+			is_debug = yes
+		}
+
+		visible = {
+			always = yes
+			is_ai = no
+		}
+		target_trigger = {
+			FROM = { OR = { tag = CHI tag = PRC } }		
+		}
+		fire_only_once = no
+
+		cost = 0
+
+		complete_effect = {
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}		
+	}	
+	cw_country_pp_civ = {
+
+		icon = generic_industry
+
+		available = {
+			is_debug = yes
+		}
+
+		visible = {
+			always = yes
+			is_ai = no
+		}
+		target_trigger = {
+			FROM = { OR = { tag = USA tag = SOV } }		
+		}
+		fire_only_once = no
+
+		cost = 0
+
+		complete_effect = {
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}		
+	}
+	cw_country_pp_mil = {
+
+		icon = generic_industry
+
+		available = {
+			is_debug = yes
+		}
+
+		visible = {
+			always = yes
+			is_ai = no
+		}
+		target_trigger = {
+			FROM = { OR = { tag = USA tag = SOV } }		
+		}
+		fire_only_once = no
+
+		cost = 0
+
+		complete_effect = {
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}		
+	}	
+	cw_country_xp = {
+
+		icon = generic_industry
+
+		available = {
+			is_ai = no
+		}
+
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+		target_trigger = {
+			FROM = { OR = { tag = USA tag = SOV } }		
+		}
+		fire_only_once = no
+
+		cost = 0
+
+		complete_effect = {
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}		
+	}
+}
+cw_debug_mode_2 = {
+	cw_start_ref = {
+
+		icon = generic_industry
+
+		available = {
+			is_ai = no		
+		}
+
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		fire_only_once = no
+
+		cost = 0
+
+		complete_effect = {
+			create_faction = MY_FACTION_NAME
+			puppet = VTC
+			VTC = { add_ideas = cw_death_before_surrender }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}		
+	}
+	cw_add_refe = {
+
+		icon = generic_industry
+
+		available = {
+			is_ai = no
+		}
+
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		fire_only_once = no
+
+		cost = 0
+
+		complete_effect = {
+			SPR = {
+				every_enemy_country = {
+					limit = {
+						original_tag = SDR
+					}
+					ROOT = {
+						add_to_war = {
+							targeted_alliance = SPR
+							enemy = PREV
+							hostility_reason = asked_to_join
+						}
+					}
+				}
+			}
+
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}		
+	}	
+	cw_create_new_country = {
+
+		icon = generic_industry
+
+		available = {
+			is_ai = no
+		}
+
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		fire_only_once = no
+
+		cost = 0
+
+		complete_effect = {
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}		
+	}
+	cw_start_cs_referendum = {
+
+		icon = generic_industry
+
+		available = {
+			is_ai = no
+		}
+
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		fire_only_once = yes
+		fixed_random_seed = no
+
+		cost = 0
+
+		complete_effect = {
+			set_country_flag = buffed_insurgency
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}		
+	}
+}

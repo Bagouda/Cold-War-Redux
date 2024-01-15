@@ -1,0 +1,19 @@
+state = {
+	id=700
+	local_supplies=0.0 
+	name="STATE_700"
+	state_category = pastoral
+	history = {
+		owner = ENG
+		add_claim_by = SIE
+		
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	manpower = 884250
+
+	provinces={
+		 2038 
+	}
+}

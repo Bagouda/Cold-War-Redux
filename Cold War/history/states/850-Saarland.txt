@@ -1,0 +1,29 @@
+state={
+	id=850
+	local_supplies=0.0 
+	name="STATE_850"
+	resources={
+		steel=40.000
+		crops=10.000
+	}
+	history={
+ 	add_to_array = { list_victory_point = 11531 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 5
+			arms_factory = 5
+		}
+		owner = FRA
+		add_core_of = GER
+		victory_points = {
+			11531 1 
+		}
+
+	}
+	provinces={
+		9575 11531
+	}
+	manpower=909568
+	buildings_max_level_factor=1.000
+	state_category=city
+}

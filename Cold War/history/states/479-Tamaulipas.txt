@@ -1,0 +1,31 @@
+state = {
+	id=479
+	local_supplies=0.0 
+	name="STATE_479"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 4956 }
+ 	add_to_array = { list_victory_point = 5015 }
+ 	set_variable = { victory_point = 15 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = MEX
+		add_core_of = MEX
+		victory_points = {
+			5015 5
+		}
+		victory_points = {
+			4956 10
+		}
+	}
+	resources={
+		oil=9
+		#steel=2 moved to Guerrero
+		crops = 5
+	}
+	manpower = 1032988
+	provinces={
+		1952 2083 4956 5015 5021 12721 13088 
+	}
+}

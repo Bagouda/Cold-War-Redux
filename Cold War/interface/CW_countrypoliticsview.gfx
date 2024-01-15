@@ -1,0 +1,55 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_idea_slot_hog_minister"
+		textureFile = "gfx/interface/cw_country_laws_icons/idea_slot_cabinet.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_slot_foreign_minister"
+		textureFile = "gfx/interface/cw_country_laws_icons/idea_slot_cabinet.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_slot_defense_minister"
+		textureFile = "gfx/interface/cw_country_laws_icons/idea_slot_cabinet.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_slot_treasury_minister"
+		textureFile = "gfx/interface/cw_country_laws_icons/idea_slot_cabinet.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_slot_head_of_intelligence_minister"
+		textureFile = "gfx/interface/cw_country_laws_icons/idea_slot_cabinet.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_slot_chief_of_staff"
+		textureFile = "gfx/interface/cw_country_laws_icons/idea_slot_cabinet.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_slot_trade_unions"
+		textureFile = "gfx/interface/cw_country_laws_icons/idea_slot_trade_unions.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_slot_work_hours"
+		textureFile = "gfx/interface/cw_country_laws_icons/idea_slot_work_hours.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_slot_safety_regulation"
+		textureFile = "gfx/interface/cw_country_laws_icons/idea_slot_safety_regulation.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_slot_education_budget"
+		textureFile = "gfx/interface/cw_country_laws_icons/idea_slot_education_budget.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_slot_industry_focus"
+		textureFile = "gfx/interface/cw_country_laws_icons/idea_slot_industry_focus.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_slot_tariff_policy"
+		textureFile = "gfx/interface/cw_country_laws_icons/idea_slot_tariff_policy.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_slot_rocket_manufacturer"
+		textureFile = "gfx/interface/cw_country_laws_icons/idea_slot_rocket_manufacturer.dds"
+	}	
+}

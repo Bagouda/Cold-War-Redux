@@ -1,0 +1,117 @@
+﻿add_namespace = com_consolidation_events
+country_event = {
+	id = com_consolidation_events.1		#Monarchy Referendum event
+	title = com_consolidation_events.1.t
+	desc = com_consolidation_events.1.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = {
+		name = "Hold Referendum"
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				is_historical_focus_on = yes
+			}
+		}		
+		custom_effect_tooltip = "A date for a Monarchy Referendum will be set."
+		hidden_effect = {
+			ROOT = { set_country_flag = mon_ref_restrict_absolute_vote }
+			cw_mon_ref_initial_setup = yes
+			if = {
+				limit = {
+					has_country_flag = communist_consolidation_target_operations
+				}
+				set_temp_variable = { country_ref_third_option_votes_percent = 50 }
+				set_temp_variable = { country_ref_second_option_votes_percent = 50 }
+				set_temp_variable = { country_ref_first_option_votes_percent = 0 }
+			}
+			cw_ref_alert_superpowers_only = yes
+		}
+	}
+	option = {
+		name = "Reject Demand"
+		custom_effect_tooltip = "Rejecting the call to hold a referendum may lead to more protests, strikes and eventually a civil war."
+		hidden_effect = {
+			activate_mission = cw_mon_referendum_bill
+		}			
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				is_historical_focus_on = no
+			}
+		}		
+	}
+}
+country_event = {
+	id = com_consolidation_events.2
+	title = com_consolidation_events.2.t
+	desc = com_consolidation_events.2.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = no
+	is_triggered_only = yes
+
+	option = {
+		name = "Join The Warsaw Pact"
+		ai_chance = {
+			modifier = {
+				factor = 75
+				is_historical_focus_on = yes				
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 25
+				is_historical_focus_on = no				
+			}
+		}
+		FROM = { add_to_faction = ROOT }
+	}
+	option = {
+		name = "Refuse To Join"
+		ai_chance = {
+			modifier = {
+				factor = 50
+				is_historical_focus_on = no				
+			}
+		}
+		FROM = { country_event = com_consolidation_events.3 }
+	}
+}
+add_namespace = monarchy_abolished_events
+news_event = {		#Monarchy Abolished
+	id = monarchy_abolished_events.1
+	title = monarchy_abolished_events.1.t
+	desc = monarchy_abolished_events.1.d
+	picture = GFX_monarchy_referendum
+
+	fire_only_once = no
+	fire_for_sender = no
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+	name = "OK"
+	}
+}
+
+news_event = {		#Monarchy Exiled
+	id = monarchy_abolished_events.2
+	title = monarchy_abolished_events.2.t
+	desc = monarchy_abolished_events.2.d
+	picture = GFX_monarchy_exiled
+
+	fire_only_once = no
+	fire_for_sender = no
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+	name = "OK"
+	}
+}

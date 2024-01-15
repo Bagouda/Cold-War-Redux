@@ -1,0 +1,18 @@
+state={
+	id=823
+	local_supplies=0.0 
+	name="STATE_823"
+	resources={
+		crops=5.000
+	}		
+	history={
+		owner = CUB
+		add_core_of = CUB
+	}	
+	provinces={
+		13220 
+	}
+	manpower=10000
+	buildings_max_level_factor=1.000
+	state_category=small_island
+}

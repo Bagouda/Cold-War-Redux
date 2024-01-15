@@ -1,0 +1,175 @@
+﻿capital = 525 #South Korea - Seoul or Busan		
+set_variable = { twin_country = PRK.id }	#North Korea
+set_convoys = 50
+set_research_slots = 2
+set_variable = {proxy_point = 90 }
+####start tech####
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	early_fighter = 1
+	cv_early_fighter = 1
+	early_bomber = 1
+	CAS1 = 1
+	basic_train = 1
+	trench_warfare = 1
+	fleet_in_being = 1
+	electronic_mechanical_engineering = 1
+	radio = 1
+}
+####end tech####
+set_country_flag = guarantee_blocked
+add_ideas = cw_we_hate_factions	# Blocks country from joining factions
+1946.1.1 = {
+	### Country Leaders
+	recruit_character = KOR_archer_l_lerch
+	recruit_character = KOR_syngman_rhee
+	recruit_character = KOR_cho_bong_am
+	### Deputy Minister
+	recruit_character = kor_hog_yi_si_yeong
+	activate_advisor = kor_hog_yi_si_yeong
+	recruit_character = kor_hog_ham_tae_young
+	recruit_character = kor_kim_seong_su
+	recruit_character = kor_hog_yi_yun_yong
+	### Foreign Minister
+	recruit_character = kor_fm_chang_myon
+	activate_advisor = kor_fm_chang_myon
+	recruit_character = kor_fm_chang_taek_sang
+	recruit_character = kor_fm_pyun_yong_tae
+	recruit_character = kor_fm_yim_byeong_jik
+	recruit_character = kor_fm_jo_jeong_hwan
+	recruit_character = kor_fm_choi_kyu_hah
+	### Defense Minister
+	recruit_character = kor_dm_lee_beom_seok
+	activate_advisor = kor_dm_lee_beom_seok
+	recruit_character = kor_dm_shin_sung_mo
+	recruit_character = kor_dm_lee_ki_poong
+	recruit_character = kor_dm_shin_tae_young
+	recruit_character = kor_dm_sohn_won_yil
+	recruit_character = kor_dm_kim_chung_yul
+	### Treasure Minister
+	recruit_character = kor_tm_kim_do_yeon
+	activate_advisor = kor_tm_kim_do_yeon
+	recruit_character = kor_tm_choi_sun_ju
+	recruit_character = kor_tm_yun_posun
+	recruit_character = kor_tm_baek_du_jin
+	recruit_character = kor_tm_kim_hyeon_cheol
+	recruit_character = kor_tm_in_tae_sik
+	### Chief of Staff
+	recruit_character = kor_chief_park_chung_hee
+	activate_advisor = kor_chief_park_chung_hee
+	recruit_character = kor_chief_kim_yong_woo
+	recruit_character = kor_chief_chung_il_kwon
+	recruit_character = kor_chief_paik_sun_yup
+	recruit_character = kor_chief_lee_hyong_kon
+	recruit_character = kor_chief_yu_jae_hyung
+	### Military Leaders
+	recruit_character = KOR_kim_jong_oh
+	recruit_character = KOR_paik_sun_yup
+	recruit_character = KOR_shin_hyun_joon
+	recruit_character = KOR_sohn_won_yil
+	add_ideas = {
+		cw_non_recognized_state
+		strikes_2
+		KOR_usamgik
+		# Military
+		cw_minimal_training
+	}
+	diplomatic_relation = { country = USA relation = non_aggression_pact }
+	diplomatic_relation = { country = SOV relation = non_aggression_pact }
+	set_politics = {
+		ruling_party = colonial
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 10
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 30
+		unaligned_right = 60
+		colonial =  0
+	}
+}
+
+1948.5.14 = {
+}
+1950.6.25 = {
+}
+1956.10.29 = {
+}
+1961.12.11 = {
+	create_country_leader = {
+		name = "Park Chung-hee"
+		desc = ""
+		picture = "KORH3.dds"
+		ideology = autocracy
+		expire = 1979.10.26
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Yun Bo-seon"
+		desc = ""
+		picture = "KORH2.dds"
+		ideology = autocracy
+		expire = 1962.3.24
+		traits = {}
+	}
+}
+1979.12.24 = {
+	set_politics = {
+		ruling_party = neutrality
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 60
+		democratic_socialist = 0
+		neutrality = 10
+		communism_totalitarian = 30
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Chun Doo-hwan"
+		desc = ""
+		picture = "KORH4.dds"
+		ideology = social_cons_idolg
+		expire = 1988.2.24
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Choi Kyu-hah"
+		desc = ""
+		picture = "KORH5.dds"
+		ideology = autocracy
+		expire = 1980.8.16
+		traits = {}
+	}
+}
+1989.1.9 = {
+	set_politics = {
+		ruling_party = democratic
+		elections_allowed = no		
+	}
+	set_popularities = {	
+		democratic  = 30
+		democratic_socialist = 0
+		neutrality = 70
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Roh Tae-woo"
+		desc = ""
+		picture = "KORH6.dds"
+		ideology = social_cons_idolg
+		expire = 1962.3.24
+		traits = {}
+	}
+}

@@ -1,0 +1,206 @@
+guiTypes = {
+	containerWindowType = {
+		name = "cw_lease_territory_diplomacy_interface"
+		position = { x = 0 y = 0 }
+		size = { width = 0 height = 250 }
+		orientation = center
+		origo = center
+		moveable = yes
+		fade_time = 200
+		fade_type = linear
+		clipping = no
+
+			
+			
+		containerWindowType = {
+			name = "country_eligable_states_list"
+			position = { x = 30 y = 151 }
+			size = { width = 525 height = 250 }
+			margin = { top = 23 left = 0 bottom = 12 right = 0 }
+			verticalScrollbar = "right_vertical_slider"
+
+			background = {
+				name = "member_list_background"
+				spriteType = "GFX_member_countries_bg"
+				alwaystransparent = yes
+			}
+			
+			buttonType = {
+				name = "no_selection_background"
+				quadTextureSprite = "GFX_decision_item_bg"
+				position = { x = -10 y = 0 }
+				buttonFont = "hoi_20bs"
+				buttonText = "CW_LEASE_INTERFACE_NO_SELECTION"
+			}
+			
+			buttonType = {
+				name = "no_selection_background_selected"
+				quadTextureSprite = "GFX_decision_item_bg"
+				position = { x = -10 y = 0 }
+				buttonFont = "hoi_20bs"
+				buttonText = "CW_LEASE_INTERFACE_NO_SELECTION"
+				frame = 2
+			}
+			
+			
+
+			gridboxtype = {
+				name = "country_eligable_states_gridbox"
+				position = { x = 10 y = 45 }
+				size = { width = 0 height = 1 }
+				slotsize = { width = 0 height = 45 }
+				max_slots_horizontal = 1
+				add_horizontal = no
+			}
+		}
+		
+		iconType = {
+			name = "state_filter_titlebar"
+			spriteType  = "GFX_intel_header_bg"
+			position = { x = 25 y = 133 }
+		}
+		
+		containerWindowType = {
+			name = "state_stat_filters"
+			position = { x = 30 y = 129 }
+			
+			instantTextboxType = {
+				name = "state_name"
+				position = { x = 30 y = 14 }
+				font = "hoi_18mbs"
+				text = "CW_LEASE_INTERFACE_STATE_NAME"
+				maxWidth = 167
+				maxHeight = 10
+				format = left
+				fixedsize = yes
+			}
+			
+			iconType = {
+				name = "state_filter_icon_infra"
+				spriteType  = "GFX_infrastructure_texticon"
+				position = { x = 205 y = 12 }
+				pdx_tooltip = "CW_FILTER_STATE_INFRA_TT"
+			}
+			
+			iconType = {
+				name = "state_filter_icon_naval_base"
+				spriteType  = "GFX_mapicon_naval_base"
+				position = { x = 255 y = 8 }
+				pdx_tooltip = "CW_FILTER_STATE_DOCKYARD_TT"
+				frame = 2
+			}
+			
+			iconType = {
+				name = "state_filter_icon_air_base"
+				spriteType  = "GFX_mapicon_air_base"
+				position = { x = 315 y = 8 }
+				pdx_tooltip = "CW_FILTER_STATE_AIR_BASE_TT"
+				frame = 2
+			}
+			
+			iconType = {
+				name = "lease_period_icon"
+				spriteType  = "GFX_building_status_overlay"
+				position = { x = 400 y = 1 }
+				pdx_tooltip = "CW_FILTER_STATE_LEASE_PERIOD_TT"
+			}
+		}
+	}
+	############### GRIDBOX INFORMATION IN A LIST ###############
+	containerWindowType = {
+		name = "country_eligable_states_entry"		#Draws data from the gridbox above
+		position = { x = -20 y = 0 }
+		size = { width = 0 height = 0 }
+		
+		buttonType = {
+			name = "state_name_background"
+			quadTextureSprite = "GFX_decision_item_bg"
+			position = { x = 0 y = 0 }
+			pdx_tooltip = "CW_STATE_BACKGROUND_TT"
+		}
+		
+		buttonType = {
+			name = "state_name_background_selected"
+			quadTextureSprite = "GFX_decision_item_bg"
+			position = { x = 0 y = 0 }
+			frame = 2
+			pdx_tooltip = "CW_STATE_BACKGROUND_TT"
+		}	
+		
+		instantTextboxType = {
+			name = "state_name"
+			position = { x = 25 y = 10 }
+			font = "hoi_18mbs"
+			text = "[THIS.OWNER.GetFlag] [THIS.GetName]"
+			maxWidth = 175
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "infra_lvl"
+			position = { x = 220 y = 10 }
+			font = "hoi_18mbs"
+			text = "[?THIS.infrastructure_level]"
+			maxWidth = 30
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		
+		instantTextboxType = {
+			name = "state_naval_base_lvl"
+			position = { x = 275 y = 10 }
+			font = "hoi_18mbs"
+			text = "[?THIS.building_level@naval_base]"
+			maxWidth = 30
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		
+		instantTextboxType = {
+			name = "state_air_base_lvl"
+			position = { x = 335 y = 10 }
+			font = "hoi_18mbs"
+			text = "[?THIS.building_level@air_base]"
+			maxWidth = 30
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		
+		buttonType = {
+			name = "lease_period_increase_button"
+			quadTextureSprite ="GFX_naval_increase_amount"
+			position = { x = 450 y = 7 }
+			scale = 0.8
+		}
+
+		iconType = {
+			name = "requested_lease_period_background"
+			quadTextureSprite ="GFX_interface_button_hole"
+			position = { x = 415 y = 3 }
+			scale = 1.5
+		}
+		
+		instantTextboxType = {
+			name = "requested_lease_period"
+			position = { x = 428 y = 11 }
+			font = "cg_18b"
+			text = "[?requested_lease_period]"
+			maxWidth = 30
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}		
+		
+		buttonType = {
+			name = "lease_period_decrease_button"
+			quadTextureSprite ="GFX_naval_decrease_amount"
+			position = { x = 385 y = 7 }
+			scale = 0.8
+		}		
+	}	
+}

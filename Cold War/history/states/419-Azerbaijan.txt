@@ -1,0 +1,33 @@
+state = {
+	id=419
+	local_supplies=0.0 
+	name="STATE_419"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 1896 }
+ 	set_variable = { victory_point = 5 }
+		owner = SOV
+		add_claim_by = AZR
+		add_core_of = PER
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 2	
+		}
+		
+		1946.11.15 = {
+			owner = PER
+			remove_claim_by = AZR
+		}
+		victory_points = {
+			1896 5 
+		}
+	}
+	resources={
+		crops = 5
+	}	
+	manpower = 1431714
+	provinces={
+		1636 1822 1896 2071 4755 4825 7604 12793 12861 13120 
+	}
+}

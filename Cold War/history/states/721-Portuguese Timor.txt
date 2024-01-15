@@ -1,0 +1,27 @@
+state = {
+	id=721
+	local_supplies=0.0 
+	name="STATE_721"
+	state_category = pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 13001 }
+ 	set_variable = { victory_point = 10 }
+		owner = POR
+		add_core_of = POR
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			13001 = {
+				naval_base = 2
+			}			
+		}
+		victory_points = {
+			13001 10
+		}		
+	}
+	manpower = 455604
+	provinces={
+		1326 12178 12190 12206 13001 
+	}
+}

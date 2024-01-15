@@ -1,0 +1,37 @@
+state = {
+	id=350
+	local_supplies=0.0 
+	name="STATE_350"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 4512 }
+ 	add_to_array = { list_victory_point = 9823 }
+ 	add_to_array = { list_victory_point = 7620 }
+ 	add_to_array = { list_victory_point = 7620 }
+ 	set_variable = { victory_point = 4 }
+		owner = TUR
+		add_core_of = TUR
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1		
+		}			
+		victory_points = {
+			7620 1
+		}
+		victory_points = {
+			7620 1
+		}
+		victory_points = {
+			9823 1
+		}
+		victory_points = {
+			4512 1
+		}
+	}
+	manpower = 1047156
+	provinces={
+		4512 7620 9823 9912 11739 11759 11871 12387 12416 
+	}
+}

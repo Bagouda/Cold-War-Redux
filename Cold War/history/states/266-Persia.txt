@@ -1,0 +1,30 @@
+state = {
+	id=266
+	local_supplies=0.0 
+	name="STATE_266" # Tehran
+	state_category = large_city
+	history = {
+ 	add_to_array = { list_victory_point = 10837 }
+ 	set_variable = { victory_point = 30 }
+		owner = PER
+		add_core_of = PER
+		
+		buildings = {
+			infrastructure = 4
+			air_base = 3
+			industrial_complex = 5
+			arms_factory = 2
+		}		
+		victory_points = {
+			10837 30 
+		}
+	}
+	resources={
+		oil=5
+		crops = 5
+	}	
+	manpower = 3446250
+	provinces={
+		4580 7602 10385 10768 10837 
+	}
+}

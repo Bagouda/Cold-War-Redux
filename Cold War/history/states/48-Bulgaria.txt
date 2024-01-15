@@ -1,0 +1,26 @@
+state = {
+	id=48
+	local_supplies=0.0 
+	name="STATE_48"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 949 }
+ 	set_variable = { victory_point = 15 }
+		buildings = {
+			infrastructure = 3
+			air_base = 2
+		}
+		owner = BUL
+		add_core_of = BUL
+		victory_points = {
+			949 15 
+		}
+	}
+	resources={
+		aluminium=1 # was: 2
+	}
+	manpower = 1891500
+	provinces={
+		793 935 949 965 3908 3971 6857 9771 9818 11754 
+	}
+}

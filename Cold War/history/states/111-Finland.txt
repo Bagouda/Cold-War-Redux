@@ -1,0 +1,67 @@
+
+state={
+	id=111
+	name="STATE_111"
+	resources={
+		crops=10.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 11105 }
+ 	add_to_array = { list_victory_point = 3083 }
+ 	add_to_array = { list_victory_point = 3137 }
+ 	add_to_array = { list_victory_point = 3137 }
+ 	set_variable = { victory_point = 22 }
+		owner = FIN
+		add_core_of = FIN
+		buildings = {
+			infrastructure = 3
+			arms_factory = 5
+			industrial_complex = 2
+			air_base = 1
+			dockyard = 3
+			11105 = {
+				naval_base = 5
+
+			}
+			3083 = {
+				naval_base = 2
+
+			}
+			6082 = {
+				bunker = 5
+
+			}
+			6186 = {
+				bunker = 5
+
+			}
+			52 = {
+				bunker = 5
+
+			}
+
+		}
+		victory_points = {
+			3137 1 
+		}
+		victory_points = {
+			3137 1 
+		}
+		victory_points = {
+			3083 5 
+		}
+		victory_points = {
+			11105 15 
+		}
+
+	}
+
+	provinces={
+		32 52 67 169 204 3009 3025 3061 3083 3117 3137 3161 6009 6047 6066 6082 6108 6144 6163 6186 9073 9094 9129 9160 9167 9183 9194 11056 11066 11105 11138 11172 13100 13101 13102 13103 13105 13106 13107 
+	}
+	manpower=1670190
+	buildings_max_level_factor=1.000
+	state_category=large_city
+	local_supplies=0.000
+}

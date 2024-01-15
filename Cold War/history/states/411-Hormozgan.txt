@@ -1,0 +1,27 @@
+state = {
+	id=411
+	local_supplies=0.0 
+	name="STATE_411" # Isfahan
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 2026 }
+ 	set_variable = { victory_point = 20 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = PER
+		add_core_of = PER
+		
+		victory_points = {
+			2026 20		#Isfahan
+		}
+	}
+	resources={
+		oil=12 # was: 14
+		crops = 5
+	}
+	manpower = 885272
+	provinces={
+		1963 2026 4928 4983 5067 8031 8074 10828 12756 
+	}
+}

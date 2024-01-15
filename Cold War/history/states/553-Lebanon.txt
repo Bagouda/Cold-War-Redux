@@ -1,0 +1,39 @@
+state = {
+	id=553
+	local_supplies=0.0 
+	name="STATE_553"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 792 }
+ 	set_variable = { victory_point = 12 }
+		owner = LEB
+		add_core_of = LEB
+		add_claim_by = SYR
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}		
+		
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+			792 = {	#Beirut Port
+				naval_base = 3
+			}		
+		}
+		
+		victory_points = {
+			792 12 	#Beirut
+		}
+	}
+	resources={
+		crops = 2
+	}	
+	manpower = 1104000
+	provinces={
+		792 1108 11919 
+	}
+}

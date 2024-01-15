@@ -1,0 +1,2355 @@
+@CS_REF_INTERVENTION_INITIAL_INF_MIN = 15
+@CS_REF_INTERVENTION_INITIAL_INF_MAX = 25
+@REF_INF_MIN = 1
+@REF_INF_MAX = 3
+# _____       _     _   _    _             ___  ___          _  ______      __                        _
+#/  __ \     | |   | | | |  | |            |  \/  |         | | | ___ \    / _|                      | |
+#| /  \/ ___ | | __| | | |  | | __ _ _ __  | .  . | ___   __| | | |_/ /___| |_ ___ _ __ ___ _ __   __| |_   _ _ __ ___  ___
+#| |    / _ \| |/ _` | | |/\| |/ _` | '__| | |\/| |/ _ \ / _` | |    // _ \  _/ _ \ '__/ _ \ '_ \ / _` | | | | '_ ` _ \/ __|
+#| \__/\ (_) | | (_| | \  /\  / (_| | |    | |  | | (_) | (_| | | |\ \  __/ ||  __/ | |  __/ | | | (_| | |_| | | | | | \__ \
+# \____/\___/|_|\__,_|  \/  \/ \__,_|_|    \_|  |_/\___/ \__,_| \_| \_\___|_| \___|_|  \___|_| |_|\__,_|\__,_|_| |_| |_|___/
+#102 171  120 154 141 171 145 162 110 117 111
+########################################################################################
+########																		########
+########	INITIAL SETUP IS ENOUGH BUT INDIVIDUAL VARIABLES CAN BE SET. IF 	########
+########	THEY ARE NOT SET THE MOD WILL GENERATE A RANGE OF RANDOM VALUES		########
+########																		########
+########################################################################################
+cw_hold_faction_joining_referendum = {
+	custom_effect_tooltip = FACTION_REF_START_EFFECT_TT
+	hidden_effect = {
+		if = {
+			limit = {
+				is_ai = no
+			}
+			top_bar_decisions_notification_country_referendum_started = yes
+		}
+		set_country_flag = join_faction_referendum
+		set_variable = { requested_faction_leader = ROOT.id }
+		set_variable = { country_ref_first_option_votes_percent = 60 }
+		cw_country_yes_no_ref_initial_setup = yes
+	}
+}
+cw_cs_ref_initial_setup = {
+	custom_effect_tooltip = CW_START_SOVEREIGNTY_REFERENDUM_TT
+	hidden_effect = {
+		if = {
+			limit = {
+				is_ai = no
+			}
+			top_bar_decisions_notification_country_referendum_started = yes
+		}		
+		activate_mission = cw_cs_referendum_timer
+		set_country_flag = cs_ref_initiator
+		add_to_array = { THIS.country_yes_no_ref_1_array = THIS.id }
+		THIS = { save_event_target_as = cs_ref_target_country }
+		if = {
+			limit = {
+				THIS = { has_event_target = state_ref_first_option_temp }
+			}
+			set_variable = { ref_cs_first_option = event_target:state_ref_first_option_temp.id }
+			set_variable = { country_ref_first_option_votes_percent = 35 }
+			else = {
+				set_variable = { ref_cs_first_option = THIS.id }
+				set_variable = { country_ref_first_option_votes_percent = 35 }
+			}
+		}
+		if = {
+			limit = {
+				ROOT = {
+					OR = {
+						is_puppet = yes
+						is_subject = yes
+						THIS = { NOT = { has_event_target = state_ref_second_option_temp } }
+					}
+				}
+			}
+			OVERLORD = { save_event_target_as = CS_REF_OVERLORD }
+			set_variable = { ref_cs_second_option = CS_REF_OVERLORD.id }
+			set_variable = { country_ref_second_option_votes_percent = 20 }
+			else_if = {
+				limit = {
+					THIS = { has_event_target = state_ref_second_option_temp }
+				}
+				set_variable = { ref_cs_second_option = event_target:state_ref_second_option_temp.id }
+				else = {
+					every_neighbor_country = { limit = { event_target:cs_ref_target_country = { capital_scope = { is_claimed_by = PREV.PREV } } } save_event_target_as = cs_ref_second_country add_to_array = { ROOT.cs_ref_1_array = event_target:cs_ref_second_country.id } }
+					if = {
+						limit = {
+							has_event_target = cs_ref_second_country
+						}
+						ROOT = { set_variable = { ref_cs_second_option = event_target:cs_ref_second_country.id } }
+						else = {}
+					}
+				}
+			}
+
+		}
+		if = {
+			limit = {
+				THIS = { has_event_target = state_ref_third_option_temp }
+			}
+			set_variable = { ref_cs_third_option = event_target:state_ref_third_option_temp.id }
+			THIS = { set_country_flag = third_option_occupied }
+			else = {
+				every_other_country = {
+					limit = {
+						event_target:cs_ref_target_country = { capital_scope = { is_claimed_by = PREV.PREV } }
+						NOT = { tag = var:ref_cs_first_option }
+						NOT = { tag = var:ref_cs_second_option }						
+					}
+					save_event_target_as = cs_ref_third_country
+					add_to_array = { THIS.cs_ref_1_array = event_target:cs_ref_third_country.id }
+				}
+				if = {
+					limit = {
+						has_event_target = cs_ref_third_country
+					}
+					THIS = { 
+						set_variable = { ref_cs_third_option = event_target:cs_ref_third_country.id }
+						set_country_flag = third_option_occupied 
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				THIS = { has_event_target = state_ref_fourth_option_temp }
+			}
+			set_variable = { ref_cs_fourth_option = event_target:state_ref_fourth_option_temp.id }
+			THIS = { set_country_flag = fourth_option_occupied }
+			else_if = {
+				limit = {
+					any_other_country = {
+						event_target:cs_ref_target_country = { capital_scope = { is_claimed_by = PREV } }
+						NOT = {
+							OR = {
+								tag = var:ref_cs_first_option
+								tag = var:ref_cs_second_option
+								tag = var:ref_cs_first_option
+								tag = var:ref_cs_third_option
+							}
+						}
+					}
+				}
+				every_other_country = { limit = { event_target:cs_ref_target_country = { capital_scope = { is_claimed_by = PREV.PREV } } NOT = { tag = event_target:cs_ref_third_country } } save_event_target_as = cs_ref_fourth_country add_to_array = { ROOT.cs_ref_1_array = event_target:cs_ref_fourth_country.id } }
+				if = {
+					limit = {
+						has_event_target = cs_ref_fourth_country
+					}
+					ROOT = { set_variable = { ref_cs_fourth_option = event_target:cs_ref_fourth_country.id } }
+					THIS = { set_country_flag = fourth_option_occupied }
+					else = {}
+				}
+			}
+		}
+		cw_country_ref_distribute_votes = yes
+		cw_ref_alert_neighbours_and_superpowers = yes
+	}
+}
+########################################################################################
+cw_communist_power_struggle_initial_setup = {
+	hidden_effect = {
+		activate_mission = post_stalin_power_struggle
+		set_country_flag = communist_power_struggle_initiator
+		add_to_array = { THIS.communist_power_struggle_1_array = THIS.id }
+		cw_country_ref_distribute_votes = yes
+	}
+}
+########################################################################################
+cw_country_yes_no_ref_initial_setup = {
+	custom_effect_tooltip = "CS_REF_SETUP_TT"
+	hidden_effect = {
+		if = {
+			limit = {
+				is_ai = no
+			}
+			top_bar_decisions_notification_country_referendum_started = yes
+		}		
+		activate_mission = cw_country_yes_no_referendum_timer
+		set_country_flag = country_yes_no_referendum
+		set_country_flag = country_yes_no_ref_initiator
+		add_to_array = { country_yes_no_ref_1_array = THIS.id }
+		set_variable = { ref_cs_first_option = UNN.id }
+		set_variable = { ref_cs_second_option = UNN.id }
+
+		cw_country_ref_distribute_votes = yes
+		cw_ref_alert_neighbours_and_superpowers = yes
+	}
+}
+############################################################################################################################################################
+#	States that participate in the referendum can be set with "set_state_flag = ref_state"
+#	Put the setup effect in the last state participating
+# Example:
+# 375 = { set_state_flag = ref_state }
+# 376 = { cw_state_yes_no_ref_initial_setup = yes }
+############################################################################################################################################################
+cw_state_yes_no_ref_initial_setup = {
+  OWNER = {
+	if = {
+		limit = {
+			is_ai = no
+		}
+		top_bar_decisions_notification_state_referendum_started = yes
+	}	  
+    activate_mission = cw_state_yes_no_referendum_timer
+	set_country_flag = state_yes_no_referendum
+	set_country_flag = state_yes_no_referendum_iinitiator
+	add_to_array = { THIS.state_yes_no_ref_1_array = THIS.id }
+	set_variable = { amount_of_states_in_ref = 0 }
+	add_to_array = { THIS.state_ref_1_array = THIS.id }
+  }
+  set_state_flag = ref_state
+	OWNER = {
+		set_variable = { ref_state_ref_first_option = UNN.id }
+		set_variable = { ref_state_ref_second_option = UNN.id }
+		every_owned_state = {
+			limit = {
+				has_state_flag = ref_state
+			}
+			OWNER = { add_to_variable = { amount_of_states_in_ref = 1 } }
+			set_variable = { ref_state_ref_first_option = UNN.id }
+			set_variable = { ref_state_ref_second_option = UNN.id }
+			set_border_war = yes
+			cw_state_ref_distribute_votes = yes
+			cw_state_ref_total_calculator = yes
+			if = {
+				limit = {
+					OWNER = { check_variable = { amount_of_states_in_ref = 1 } }
+				}
+				OWNER = { set_variable = { one_state_ref_name = PREV.id } }
+			}
+		}
+		cw_state_ref_create_map_indicator = yes
+		state_ref_average_of_votes_calculator = yes
+	}
+	cw_ref_alert_neighbours_and_superpowers = yes
+}
+############################################################################################################################################################
+#	States that participate in the referendum can be set with "TAG = { save_event_target_as = state_ref_first/second/third/fourth_option_temp }"
+#	If state_ref_first is not set it will be assigned to the current owner of the states
+#	Possible referendums are determined by a flag: territory_demanding_autonomy / territory_demanding_independence / territory_demanding_outside_annexation / territory_demanding_outside_union
+############################################################################################################################################################
+cw_state_ref_initial_setup = {
+	set_state_flag = ref_state
+	save_event_target_as = desired_ref_state
+	OWNER = {
+		if = {
+			limit = {
+				is_ai = no
+			}
+			top_bar_decisions_notification_state_referendum_started = yes
+		}		
+		activate_mission = cw_state_referendum_timer
+		set_country_flag = state_ref_initiator
+		save_event_target_as = ref_state_owner
+	}
+	if = {
+		limit = {
+			OWNER = { has_event_target = state_ref_first_option_temp }
+		}
+		set_variable = { ref_state_ref_first_option = event_target:state_ref_first_option_temp.id }
+		OWNER = { set_variable = { ref_state_ref_first_option = event_target:state_ref_first_option_temp.id } }
+		event_target:state_ref_first_option_temp = {
+			add_to_array = {
+				array = event_target:ref_state_owner.state_ref_1_array
+				value = THIS.id
+			}
+		}
+
+		else = {
+			set_variable = { ref_state_ref_first_option = OWNER.id }
+			OWNER = { set_variable = { ref_state_ref_first_option = THIS.id } }
+			add_to_array = { state_ref_1_array = THIS.id }
+		}
+	}
+	if = {
+		limit = {
+			OWNER = { has_event_target = state_ref_second_option_temp }
+		}
+		set_variable = { ref_state_ref_second_option = event_target:state_ref_second_option_temp.id }
+		OWNER = { set_variable = { ref_state_ref_second_option = event_target:state_ref_second_option_temp.id } }
+		event_target:state_ref_second_option_temp = {
+			add_to_array = {
+				array = event_target:ref_state_owner.state_ref_1_array
+				value = THIS.id
+			}
+		}
+		else = {
+			for_each_scope_loop = {
+				array = THIS.core_countries
+
+				save_event_target_as = state_ref_second_country
+				add_to_array = { event_target:ref_state_owner.state_ref_1_array = event_target:state_ref_second_country.id }
+				OWNER = { add_to_temp_variable = { amount_of_countries_in_ref = 1 } }
+			}
+			OWNER = { set_variable = { ref_state_ref_second_option = event_target:state_ref_second_country.id } }
+			set_variable = { ref_state_ref_second_option = event_target:state_ref_second_country.id }
+			if = {
+				limit = {
+					OWNER = { check_variable = { amount_of_countries_in_ref = 0 } }
+				}
+				OWNER = { every_other_country = { limit = { event_target:desired_ref_state = { is_claimed_by = PREV } } save_event_target_as = state_ref_second_country add_to_array = { ROOT.cs_ref_1_array = event_target:state_ref_second_country.id } } }
+				OWNER = { set_variable = { ref_state_ref_second_option = event_target:state_ref_second_country.id } }
+				set_variable = { ref_state_ref_second_option = event_target:state_ref_second_country.id }
+				add_to_array = { event_target:ref_state_owner.state_ref_1_array = event_target:state_ref_second_country.id }
+			}
+		}
+	}
+	if = {
+		limit = {
+			OWNER = { has_event_target = state_ref_third_option_temp }
+		}
+		set_variable = { ref_state_ref_third_option = event_target:state_ref_third_option_temp.id }
+		OWNER = { set_variable = { ref_state_ref_third_option = event_target:state_ref_third_option_temp.id } }
+		event_target:state_ref_third_option_temp = {
+			add_to_array = {
+				array = event_target:ref_state_owner.state_ref_1_array
+				value = THIS.id
+			}
+		}
+		else = {
+			for_each_scope_loop = {
+				array = THIS.core_countries
+
+				save_event_target_as = state_ref_third_country
+				add_to_array = { event_target:ref_state_owner.state_ref_1_array = event_target:state_ref_third_country.id }
+				OWNER = { add_to_temp_variable = { amount_of_countries_in_ref = 1 } }
+			}
+			OWNER = { set_variable = { ref_state_ref_third_option = event_target:state_ref_third_country.id } }
+			set_variable = { ref_state_ref_third_option = event_target:state_ref_third_country.id }
+			if = {
+				limit = {
+					OWNER = { check_variable = { amount_of_countries_in_ref = 0 } }
+				}
+				OWNER = { every_other_country = { limit = { event_target:desired_ref_state = { is_claimed_by = PREV } } save_event_target_as = state_ref_third_country add_to_array = { ROOT.cs_ref_1_array = event_target:state_ref_third_country.id } } }
+				OWNER = { set_variable = { ref_state_ref_third_option = event_target:state_ref_third_country.id } }
+				set_variable = { ref_state_ref_third_option = event_target:state_ref_third_country.id }
+				add_to_array = { event_target:ref_state_owner.state_ref_1_array = event_target:state_ref_third_country.id }
+			}
+		}
+	}
+	OWNER = {
+		every_owned_state = {
+			limit = {
+				has_state_flag = ref_state
+			}
+			OWNER = { add_to_variable = { amount_of_states_in_ref = 1 } }
+			set_border_war = yes
+			cw_state_ref_distribute_votes = yes
+			cw_state_ref_total_calculator = yes
+			if = {
+				limit = {
+					OWNER = { check_variable = { amount_of_states_in_ref = 1 } }
+				}
+				OWNER = { set_variable = { one_state_ref_name = PREV.id } }
+			}
+		}
+		cw_state_ref_create_map_indicator = yes
+		state_ref_average_of_votes_calculator = yes
+	}
+	every_country = {
+		limit = {
+			#is_ai = no
+			OR = {
+				cw_is_a_major_power = yes
+				is_in_array = {
+					array = event_target:ref_state_owner.state_ref_1_array
+					value = THIS.id
+				}
+			}
+		}
+		cw_ref_alert_neighbours_and_superpowers_state_ref = yes
+	}
+}
+############################################################################################################################################################
+#	Territories that participate in the referendum can be set with "TAG = { save_event_target_as = state_ref_first/second/third/fourth_option_temp }"
+#	If state_ref_first is not set it will be assigned to the current owner of the states
+# Availble flags: territory_demanding_autonomy | territory_demanding_independence | territory_demanding_outside_annexation | territory_demanding_outside_union | ref_determine_cores
+# State vote percentage: set_variable = { state_ref_first/second/third/fourth_option_votes_percent }
+# Example: every_owned_state = { limit = { OR = { is_core_of = LIT is_claimed_by = LIT } } set_variable = { state_ref_second_option_votes_percent = 60 } }
+############################################################################################################################################################
+cw_territory_ref_initial_setup = {		#Must indicate which territory is voting
+	THIS = { 
+		activate_mission = cw_state_referendum_timer set_country_flag = state_ref_initiator 
+		if = {
+			limit = {
+				is_ai = no
+			}
+			top_bar_decisions_notification_state_referendum_started = yes
+		}		
+	}
+	THIS = { add_to_array = { THIS.state_ref_1_array = THIS.id } }
+	if = {
+		limit = {
+			THIS = { has_event_target = state_ref_second_option_temp }
+		}
+		every_owned_state = { limit = { OR = { is_claimed_by = event_target:state_ref_second_option_temp is_core_of = event_target:state_ref_second_option_temp } NOT = { OR = { has_state_flag = ref_exclude_cores has_state_flag = ref_exclude_claims } } } set_state_flag = ref_state set_state_flag = ref_state_1 }
+		every_owned_state = {
+			limit = {
+				has_state_flag = ref_state_1
+				NOT = { OR = { has_state_flag = ref_exclude_cores has_state_flag = ref_exclude_claims } }
+			}
+			OWNER = { set_country_flag = second_option_occupied }
+			set_variable = { ref_state_ref_second_option = event_target:state_ref_second_option_temp.id }
+			OWNER = { set_variable = { ref_state_ref_second_option = event_target:state_ref_second_option_temp.id } }
+		}
+	}
+	if = {
+		limit = {
+			THIS = { has_event_target = state_ref_third_option_temp }
+		}
+		every_owned_state = { limit = { OR = { is_claimed_by = event_target:state_ref_third_option_temp is_core_of = event_target:state_ref_third_option_temp } NOT = { OR = { has_state_flag = ref_exclude_cores has_state_flag = ref_exclude_claims } } } set_state_flag = ref_state set_state_flag = ref_state_2 }
+		every_owned_state = {
+			limit = {
+				has_state_flag = ref_state_2
+				NOT = { OR = { has_state_flag = ref_exclude_cores has_state_flag = ref_exclude_claims } }
+			}
+			OWNER = { set_country_flag = third_option_occupied }
+			set_variable = { ref_state_ref_third_option = event_target:state_ref_third_option_temp.id }
+			OWNER = { set_variable = { ref_state_ref_third_option = event_target:state_ref_third_option_temp.id } }
+		}
+	}
+	if = {
+		limit = {
+			THIS = { has_event_target = state_ref_fourth_option_temp }
+		}
+		every_owned_state = { limit = { OR = { is_claimed_by = event_target:state_ref_fourth_option_temp is_core_of = event_target:state_ref_fourth_option_temp } NOT = { OR = { has_state_flag = ref_exclude_cores has_state_flag = ref_exclude_claims } } } set_state_flag = ref_state set_state_flag = ref_state_3 }
+		every_owned_state = {
+			limit = {
+				has_state_flag = ref_state_3
+				NOT = { OR = { has_state_flag = ref_exclude_cores has_state_flag = ref_exclude_claims } }
+			}
+			OWNER = { set_country_flag = fourth_option_occupied }
+			set_variable = { ref_state_ref_fourth_option = event_target:state_ref_fourth_option_temp.id }
+			OWNER = { set_variable = { ref_state_ref_fourth_option = event_target:state_ref_fourth_option_temp.id } }
+		}
+	}
+	if = {
+		limit = {
+			THIS = { has_event_target = state_ref_first_option_temp }
+		}
+		every_owned_state = { limit = { OR = { is_claimed_by = event_target:state_ref_first_option_temp is_core_of = event_target:state_ref_first_option_temp } NOT = { OR = { has_state_flag = ref_exclude_cores has_state_flag = ref_exclude_claims } } } set_state_flag = ref_state set_state_flag = ref_state_0 }
+		every_owned_state = {
+			limit = {
+				has_state_flag = ref_state_0
+				NOT = { OR = { has_state_flag = ref_exclude_cores has_state_flag = ref_exclude_claims } }
+			}
+			OWNER = { set_country_flag = first_option_occupied }
+			set_variable = { ref_state_ref_first_option = event_target:state_ref_first_option_temp.id }
+			OWNER = { set_variable = { ref_state_ref_first_option = event_target:state_ref_first_option_temp.id } }
+		}
+		else = {
+			every_owned_state = {
+				limit = {
+					has_state_flag = ref_state
+				}
+				OWNER = { set_country_flag = first_option_occupied }
+				set_variable = { ref_state_ref_first_option = THIS.id }
+				OWNER = { set_variable = { ref_state_ref_first_option = THIS.id } }
+			}
+		}
+	}
+	every_controlled_state = {
+		limit = {
+			has_state_flag = ref_state
+		}
+		OWNER = { add_to_variable = { amount_of_states_in_ref = 1 } }
+		cw_state_ref_distribute_votes = yes
+		cw_state_ref_total_calculator = yes
+		if = {
+			limit = {
+				OWNER = { check_variable = { amount_of_states_in_ref = 1 } }
+			}
+			OWNER = { set_variable = { one_state_ref_name = PREV.id } }
+		}
+	}
+	state_ref_average_of_votes_calculator = yes
+	cw_state_ref_create_map_indicator = yes
+	cw_ref_alert_neighbours_and_superpowers = yes
+}
+cw_mon_ref_initial_setup = {
+	custom_effect_tooltip = "MON_REF_SETUP_CUSTOM_TT"
+	hidden_effect = {
+		if = {
+			limit = {
+				is_ai = no
+			}
+			top_bar_decisions_notification_country_referendum_started = yes
+		}		
+		activate_mission = cw_mon_referendum_timer
+		set_country_flag = mon_ref_initiator
+		set_country_flag = third_option_occupied
+		add_to_array = { THIS.mon_ref_1_array = THIS.id }
+		if = {
+			limit = {
+				AND = {
+					check_variable = { country_ref_first_option_votes_percent = 0 }
+					check_variable = { country_ref_second_option_votes_percent = 0 }
+					check_variable = { country_ref_third_option_votes_percent = 0 }
+				}
+			}
+			cw_ref_mon_setup_party_popularity = yes
+			else = {
+				cw_country_ref_distribute_votes = yes
+			}
+		}
+	}
+	cw_ref_alert_superpowers_only = yes
+}
+
+cw_ref_mon_setup_party_popularity = {
+	### SET UP REF FIRST OPTION ###
+	add_to_temp_variable = { mon_ref_absolute_votes_temp = party_popularity@unaligned_right }
+	round_variable = mon_ref_absolute_votes_temp
+	multiply_temp_variable = { mon_ref_absolute_votes_temp = 100 }
+	round_variable = mon_ref_absolute_votes_temp
+	set_variable = { country_ref_first_option_votes_percent = mon_ref_absolute_votes_temp }
+
+	### SET UP REF THIRD OPTION ###
+	add_to_temp_variable = { mon_ref_yes_votes_temp = party_popularity@democratic }
+	add_to_temp_variable = { mon_ref_yes_votes_temp = party_popularity@democratic_socialist }
+	round_variable = mon_ref_yes_votes_temp
+	multiply_temp_variable = { mon_ref_yes_votes_temp = 100 }
+	round_variable = mon_ref_yes_votes_temp
+	set_variable = { country_ref_second_option_votes_percent = mon_ref_yes_votes_temp }
+
+	### SET UP REF SECOND OPTION ###
+	add_to_temp_variable = { mon_ref_no_votes_temp = party_popularity@communism }
+	add_to_temp_variable = { mon_ref_no_votes_temp = party_popularity@communism_totalitarian }
+	add_to_temp_variable = { mon_ref_no_votes_temp = party_popularity@neutrality }
+	round_variable = mon_ref_no_votes_temp
+	multiply_temp_variable = { mon_ref_no_votes_temp = 100 }
+	round_variable = mon_ref_no_votes_temp
+	set_variable = { country_ref_third_option_votes_percent = mon_ref_no_votes_temp }
+	cw_country_ref_distribute_votes = yes
+}
+cw_mon_referendum_initiate_civil_war = {
+	set_temp_variable = { civil_war_size_calculator = 0 }
+	add_to_temp_variable = { civil_war_size_calculator = party_popularity@communism }
+	add_to_temp_variable = { civil_war_size_calculator = party_popularity@communism_totalitarian }
+	if = {
+		limit = {
+			var:mon_ref_initiator = { has_government = communism }
+		}
+		if = {
+			limit = { is_puppet = yes }
+			release  = THIS
+		
+		}
+		start_civil_war = {
+			ideology = communism
+			size = var:civil_war_size_calculator
+			states_filter = { impassable = no }
+			compute_proxy_score = yes
+		}
+		compute_proxy_score = yes
+	}
+	if = {
+		limit = {
+			var:mon_ref_initiator = { has_government = communism_totalitarian }
+		}
+		
+			if = {
+			limit = { is_puppet = yes }
+			release  = THIS
+		
+		}
+		
+		start_civil_war = {
+			ideology = communism_totalitarian
+			keep_political_leader = yes
+			size = var:civil_war_size_calculator
+			states_filter = { impassable = no }
+			compute_proxy_score = yes
+		}
+		compute_proxy_score = yes
+	}
+	clear_variable = mon_ref_initiator
+}
+cw_ref_percentage_loss_fix = {		#Calculation on effect, is used by ALL referendums for calculations DO NOT REMOVE!
+	set_temp_variable = { rounded = mon_ref_per_fix }
+	round_temp_variable = rounded
+	subtract_from_temp_variable = { rounded = mon_ref_per_fix }
+	if = {
+		limit = {
+			OR = {
+				AND = {
+					check_variable = { rounded > 0 }
+					check_variable = { var = rounded value = 0.05 compare = less_than_or_equals }
+				}
+				AND = {
+					check_variable = { rounded < 0 }
+					check_variable = { var = rounded value = 0.05 compare = greater_than_or_equals }
+				}
+			}
+		}
+		round_variable = mon_ref_per_fix
+	}
+}
+cw_ref_bar_frame_drawer = {		#Calculation on effect, is used by ALL referendums for calculations DO NOT REMOVE!
+	divide_variable = { frame_picker = 5 }
+	round_variable = frame_picker
+	add_to_variable = { frame_picker = 1 }
+}
+
+cw_add_referandum_option_vote = {		#Calculation on effect, is used by ALL referendums for calculations DO NOT REMOVE!
+	set_temp_variable = { inf_calculator = 100 }
+	subtract_from_temp_variable = { inf_calculator = ref_currently_changed_option }
+	set_temp_variable = { inf_calculator_2 = inf_calculator }
+	subtract_from_temp_variable = { inf_calculator_2 = ref_random_inf }
+	clear_temp_array = temp_array
+
+	for_each_loop = {
+		array = referendum_options_array
+		value = other_option
+
+		multiply_temp_variable = { other_option = inf_calculator_2 }
+		divide_temp_variable = { other_option = inf_calculator }
+		set_variable = { mon_ref_per_fix = other_option }
+		add_to_array = {
+			array = before
+			value = other_option
+		}
+		cw_ref_percentage_loss_fix = yes
+		set_temp_variable = { other_option = mon_ref_per_fix }
+		add_to_temp_array = {
+			array = temp_array
+			value = other_option
+		}
+
+	}
+
+	clear_array = referendum_options_array
+	for_each_loop = {
+		array = temp_array
+		value = result
+
+		add_to_array = {
+			array = referendum_options_array
+			value = result
+		}
+	}
+	add_to_variable = { ref_currently_changed_option  = ref_random_inf }
+	print_variables = {
+		file = log_file
+		text = "[referendum_scripted_effects.txt:68]"
+		append = yes
+		var_list = {
+			ref_currently_changed_option
+		}
+	}
+}
+
+cw_ref_clear_junk = {
+	hidden_effect = {
+		ROOT = {
+			clr_country_flag = mon_ref_initiator
+			remove_mission = cw_mon_referendum_timer
+			clear_variable = country_ref_first_option_votes_percent
+			clear_variable = country_ref_second_option_votes_percent
+			clear_variable = country_ref_third_option_votes_percent
+			clear_variable = mon_ref_no_votes_bar_frame
+			clear_variable = mon_ref_yes_votes_bar_frame
+			clear_variable = mon_ref_absolute_votes_bar_frame
+			clear_variable = first_option_average
+			clear_variable = second_option_average
+			clear_variable = third_option_average
+			clear_variable = fourth_option_average
+			clr_country_flag = third_option_occupied
+			clr_country_flag = fourth_option_occupied
+		}
+		for_each_scope_loop = {
+			array = ROOT.mon_ref_1_array
+
+			subtract_from_variable = { intervened_referendums = 1 }
+		}
+		clear_array = ROOT.mon_ref_1_array
+	}
+}
+
+cw_ref_cs_clear_junk = {
+	hidden_effect = {
+		THIS = {
+			clr_country_flag = cs_ref_initiator
+			clr_country_flag = second_option_occupied
+			clr_country_flag = third_option_occupied
+			clr_country_flag = fourth_option_occupied
+			remove_mission = cw_cs_referendum_timer
+			clear_variable = ref_cs_first_option
+			clear_variable = ref_cs_second_option
+			clear_variable = ref_cs_third_option
+			clear_variable = ref_cs_fourth_option
+			clear_variable = country_ref_first_option_votes_percent
+			clear_variable = country_ref_second_option_votes_percent
+			clear_variable = country_ref_third_option_votes_percent
+			clear_variable = country_ref_fourth_option_votes_percent
+		}
+		for_each_scope_loop = {
+			array = ROOT.cs_ref_1_array
+			subtract_from_variable = { intervened_referendums = 1 }
+		}
+		clear_array = ROOT.cs_ref_1_array
+	}
+}
+cw_state_ref_clear_variables_and_flags = {
+	every_owned_state = {
+		limit = {
+			has_state_flag = ref_state
+		}
+		set_border_war = no
+		clr_state_flag = ref_state_1
+		clr_state_flag = ref_state_2
+		clr_state_flag = ref_state_3
+		clr_state_flag = ref_exclude_cores
+		clr_state_flag = ref_exclude_claims
+		clr_state_flag = un_sponsored_referendum
+		clear_variable = state_ref_first_option_votes_percent
+		clear_variable = state_ref_second_option_votes_percent
+		clear_variable = state_ref_third_option_votes_percent
+		clear_variable = state_ref_fourth_option_votes_percent
+		clear_variable = ref_state_ref_first_option
+		clear_variable = ref_state_ref_second_option
+		clear_variable = ref_state_ref_third_option
+		clear_variable = ref_state_ref_fourth_option
+		clr_state_flag = ref_state
+	}
+}
+cw_state_ref_clear_junk = {
+	hidden_effect = {
+		clr_country_flag = ref_determine_cores
+		clr_country_flag = state_ref_initiator
+		clr_country_flag = state_yes_no_referendum_iinitiator
+		clr_country_flag = second_option_occupied
+		clr_country_flag = third_option_occupied
+		clr_country_flag = fourth_option_occupied
+		clr_country_flag = territory_demanding_autonomy
+		clr_country_flag = territory_demanding_independence
+		clr_country_flag = territory_demanding_outside_union
+		clr_country_flag = territory_demanding_outside_annexation
+		clear_variable = ref_state_ref_second_option
+		clear_variable = ref_state_ref_second_option
+		clear_variable = ref_state_third_second_option
+		clear_variable = ref_state_fourth_second_option
+		clear_variable = first_option_average
+		clear_variable = second_option_average
+		clear_variable = third_option_average
+		clear_variable = first_option_average
+		clear_variable = amount_of_states_in_ref
+		clear_variable = state_ref_first_option_votes_percent
+		clear_variable = state_ref_second_option_votes_percent
+		clear_variable = state_ref_third_option_votes_percent
+		clear_variable = state_ref_fourth_option_votes_percent
+		remove_mission = cw_state_referendum_timer
+		cw_state_ref_clear_variables_and_flags = yes
+		for_each_scope_loop = {
+			array = ROOT.state_ref_1_array
+			subtract_from_variable = { intervened_referendums = 1 }
+		}
+		clear_array = ROOT.state_ref_1_array
+	}
+}
+cw_abolish_cons_monarchy = {
+	if = {
+		limit = {
+			has_idea_with_trait = constitutional_monarch
+		}
+		remove_ideas_with_trait = constitutional_monarch
+	}
+	if = {
+		limit = {
+			has_idea_with_trait = constitutional_monarch_weak
+		}
+		remove_ideas_with_trait = constitutional_monarch_weak
+	}
+	if = {
+		limit = {
+			NOT = { has_country_flag = monarchy_exiled }
+		}
+		news_event = { id = monarchy_abolished_events.1 days = 3 }
+	}
+	remove_from_array = { global.countries_with_monarchies = THIS.id }
+	drop_cosmetic_tag = yes
+	add_popularity = { ideology = communism popularity = 0.05 }
+	add_popularity = { ideology = communism_totalitarian popularity = 0.05 }
+	add_popularity = { ideology = neutrality popularity = 0.05 }
+}
+cw_create_const_monarchy = {
+	set_country_flag = constitutional_monarchy
+	add_popularity = { ideology = unaligned_right popularity = 0.05 }
+	if = {
+		limit = {
+			original_tag = ROM
+		}
+		add_ideas = rom_michael_1
+	}
+}
+cw_create_absolute_monarchy = {
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	remove_ideas_with_trait = constitutional_monarch
+	clr_country_flag = constitutional_monarchy
+	add_popularity = { ideology = unaligned_right popularity = 0.10 }
+	if = {
+		limit = {
+			original_tag = ROM
+		}
+		create_country_leader = {
+			name = "Michael I"
+			desc = ""
+			picture = "ROMM1.dds"
+			ideology = paternal_auto_idolg
+			expire = 2017.6.2
+			traits = {}
+		}
+	}
+	if = {
+		limit = {
+			original_tag = GRE
+		}
+		create_country_leader = {
+			name = "George II"
+			desc = ""
+			picture = "GREM1.dds"
+			ideology = consitutional
+			expire = 1947.4.1
+			traits = {}
+		}
+	}
+}
+
+cw_ref_alert_neighbours_only = {
+	every_other_country = {
+		if = {
+			limit = {
+				is_ai = no
+				is_neighbor_of = PREV
+			}
+			hidden_effect = {
+				set_variable = { ref_notification_target = PREV.id }
+				set_country_flag = { flag = referendum_topbar_alert value = 1 days = 5 }
+				sound_effect = "alert_border_conflict_sound"
+			}
+		}
+	}
+}
+
+cw_ref_alert_neighbours_and_superpowers = {
+	every_other_country = {
+		if = {
+			limit = {
+				is_ai = no
+				NOT = { has_country_flag = refused_referendum_annexation_request }
+				OR = {
+					has_country_flag = communist_leader_flag
+					has_country_flag = democratic_leader_flag
+					is_neighbor_of = PREV
+				}
+			}
+			hidden_effect = {
+				set_variable = { ref_notification_target = PREV.id }
+				set_country_flag = { flag = referendum_topbar_alert value = 1 days = 5 }
+				sound_effect = "alert_border_conflict_sound"
+			}
+		}
+	}
+}
+
+cw_ref_alert_neighbours_and_superpowers_state_ref = {
+	hidden_effect = {
+		set_variable = { ref_notification_target = PREV.id }
+		set_country_flag = { flag = referendum_topbar_alert value = 1 days = 5 }
+		sound_effect = "alert_border_conflict_sound"
+	}
+}
+
+cw_ref_alert_superpowers_only = {
+	hidden_effect = {
+		every_other_country = {
+			if = {
+				limit = {
+					is_ai = no
+					OR = {
+						has_country_flag = communist_leader_flag
+						has_country_flag = democratic_leader_flag
+					}
+				}
+				hidden_effect = {
+					set_variable = { ref_notification_target = PREV.id }
+					set_country_flag = { flag = referendum_topbar_alert value = 1 days = 5 }
+					sound_effect = "alert_border_conflict_sound"
+				}
+			}
+		}
+	}
+}
+cw_ref_alert_superpowers_and_majors = {
+	every_other_country = {
+		if = {
+			limit = {
+				is_ai = no
+				OR = {
+					is_major = yes
+					has_country_flag = communist_leader_flag
+					has_country_flag = democratic_leader_flag
+				}
+			}
+			hidden_effect = {
+				set_variable = { ref_notification_target = PREV.id }
+				set_country_flag = { flag = referendum_topbar_alert value = 1 days = 5 }
+				sound_effect = "alert_border_conflict_sound"
+			}
+		}
+	}
+}
+
+cw_country_ref_reclaculate_votes_intervention = {
+	if = {
+		limit = {
+			has_country_flag = third_option_intervention
+		}
+		set_temp_variable = { third_option_intervention = country_ref_third_option_votes_percent }
+		divide_temp_variable = { third_option_intervention = 2 }
+		subtract_from_variable = { country_ref_first_option_votes_percent = third_option_intervention }
+		subtract_from_variable = { country_ref_second_option_votes_percent  = third_option_intervention }
+	}
+	if = {
+		limit = {
+			has_country_flag = fourth_option_intervention
+		}
+		set_temp_variable = { fourth_option_intervention = country_ref_fourth_option_votes_percent }
+		divide_temp_variable = { fourth_option_intervention = 3 }
+		subtract_from_variable = { country_ref_first_option_votes_percent = fourth_option_intervention }
+		subtract_from_variable = { country_ref_second_option_votes_percent  = fourth_option_intervention }
+		subtract_from_variable = { country_ref_third_option_votes_percent  = fourth_option_intervention }
+	}
+}
+
+cw_country_ref_distribute_votes = {
+	if = {
+		limit = {
+			THIS = {
+				NOT = {
+					has_country_flag = third_option_occupied
+					has_country_flag = fourth_option_occupied
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					check_variable = { country_ref_first_option_votes_percent = 0 }
+					check_variable = { country_ref_second_option_votes_percent = 0 }
+				}
+			}
+			random_list = {
+				25 = {
+					set_variable = { country_ref_first_option_votes_percent = 49 }
+					set_variable = { country_ref_second_option_votes_percent = 51 }
+				}
+				25 = {
+					set_variable = { country_ref_second_option_votes_percent = 51 }
+					set_variable = { country_ref_first_option_votes_percent = 49 }
+				}
+				25 = {
+					set_variable = { country_ref_first_option_votes_percent = 50 }
+					set_variable = { country_ref_second_option_votes_percent = 50 }
+				}
+				25 = {
+					set_variable = { country_ref_first_option_votes_percent = 45 }
+					set_variable = { country_ref_second_option_votes_percent = 55 }
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent > 0 }
+						check_variable = { country_ref_second_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_first_option_votes_percent }
+				set_variable = { country_ref_second_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent = 0 }
+						check_variable = { country_ref_second_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_second_option_votes_percent }
+				set_variable = { country_ref_first_option_votes_percent = ref_maximum_calculator }
+			}
+		}
+	}
+	if = {
+		limit = {
+			THIS = {
+				OR = { has_country_flag = third_option_occupied has_country_flag = mon_ref_initiator }
+				NOT = { has_country_flag = fourth_option_occupied }
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					check_variable = { country_ref_first_option_votes_percent = 0 }
+					check_variable = { country_ref_second_option_votes_percent = 0 }
+					check_variable = { country_ref_third_option_votes_percent = 0 }
+				}
+			}
+			random_list = {
+				25 = {
+					set_variable = { country_ref_first_option_votes_percent = 34 }
+					set_variable = { country_ref_second_option_votes_percent = 33 }
+					set_variable = { country_ref_third_option_votes_percent = 33 }
+				}
+				25 = {
+					set_variable = { country_ref_second_option_votes_percent = 33 }
+					set_variable = { country_ref_first_option_votes_percent = 34 }
+					set_variable = { country_ref_third_option_votes_percent = 33 }
+				}
+				25 = {
+					set_variable = { country_ref_first_option_votes_percent = 33 }
+					set_variable = { country_ref_second_option_votes_percent = 33 }
+					set_variable = { country_ref_third_option_votes_percent = 34 }
+				}
+				25 = {
+					set_variable = { country_ref_first_option_votes_percent = 35 }
+					set_variable = { country_ref_second_option_votes_percent = 35 }
+					set_variable = { country_ref_third_option_votes_percent = 30 }
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent > 0 }
+						check_variable = { country_ref_second_option_votes_percent = 0 }
+						check_variable = { country_ref_third_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_first_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { country_ref_second_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_third_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent = 0 }
+						check_variable = { country_ref_second_option_votes_percent > 0 }
+						check_variable = { country_ref_third_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_second_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { country_ref_second_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_third_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent = 0 }
+						check_variable = { country_ref_second_option_votes_percent = 0 }
+						check_variable = { country_ref_third_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_third_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { country_ref_first_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_second_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent > 0 }
+						check_variable = { country_ref_second_option_votes_percent > 0 }
+						check_variable = { country_ref_third_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_first_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_second_option_votes_percent }
+				set_variable = { country_ref_third_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent = 0 }
+						check_variable = { country_ref_second_option_votes_percent > 0 }
+						check_variable = { country_ref_third_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_second_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_third_option_votes_percent }
+				set_variable = { country_ref_first_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent > 0 }
+						check_variable = { country_ref_second_option_votes_percent = 0 }
+						check_variable = { country_ref_third_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_first_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_third_option_votes_percent }
+				set_variable = { country_ref_second_option_votes_percent = ref_maximum_calculator }
+			}
+		}
+	}
+	if = {
+		limit = {
+			THIS = {
+				has_country_flag = third_option_occupied
+				has_country_flag = fourth_option_occupied
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					check_variable = { country_ref_first_option_votes_percent = 0 }
+					check_variable = { country_ref_second_option_votes_percent = 0 }
+					check_variable = { country_ref_third_option_votes_percent = 0 }
+					check_variable = { country_ref_fourth_option_votes_percent = 0 }
+				}
+			}
+			random_list = {
+				25 = {
+					set_variable = { country_ref_first_option_votes_percent = 25 }
+					set_variable = { country_ref_second_option_votes_percent = 25 }
+					set_variable = { country_ref_third_option_votes_percent = 25 }
+					set_variable = { country_ref_fourth_option_votes_percent = 25 }
+				}
+				25 = {
+					set_variable = { country_ref_second_option_votes_percent = 25 }
+					set_variable = { country_ref_first_option_votes_percent = 27 }
+					set_variable = { country_ref_third_option_votes_percent = 24 }
+					set_variable = { country_ref_fourth_option_votes_percent = 25 }
+				}
+				25 = {
+					set_variable = { country_ref_second_option_votes_percent = 27 }
+					set_variable = { country_ref_first_option_votes_percent = 25 }
+					set_variable = { country_ref_third_option_votes_percent = 25 }
+					set_variable = { country_ref_fourth_option_votes_percent = 24 }
+				}
+				25 = {
+					set_variable = { country_ref_second_option_votes_percent = 24 }
+					set_variable = { country_ref_first_option_votes_percent = 25 }
+					set_variable = { country_ref_third_option_votes_percent = 27 }
+					set_variable = { country_ref_fourth_option_votes_percent = 25 }
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent > 0 }
+						check_variable = { country_ref_second_option_votes_percent = 0 }
+						check_variable = { country_ref_third_option_votes_percent = 0 }
+						check_variable = { country_ref_fourth_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_first_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 3 }
+				set_variable = { country_ref_second_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_third_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_fourth_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent = 0 }
+						check_variable = { country_ref_second_option_votes_percent > 0 }
+						check_variable = { country_ref_third_option_votes_percent = 0 }
+						check_variable = { country_ref_fourth_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_first_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 3 }
+				set_variable = { country_ref_first_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_third_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_fourth_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent = 0 }
+						check_variable = { country_ref_second_option_votes_percent = 0 }
+						check_variable = { country_ref_third_option_votes_percent > 0 }
+						check_variable = { country_ref_fourth_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_third_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 3 }
+				set_variable = { country_ref_first_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_second_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_fourth_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent = 0 }
+						check_variable = { country_ref_second_option_votes_percent = 0 }
+						check_variable = { country_ref_third_option_votes_percent = 0 }
+						check_variable = { country_ref_fourth_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_fourth_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 3 }
+				set_variable = { country_ref_first_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_second_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_third_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent > 0 }
+						check_variable = { country_ref_second_option_votes_percent > 0 }
+						check_variable = { country_ref_third_option_votes_percent = 0 }
+						check_variable = { country_ref_fourth_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_first_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_second_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { country_ref_third_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_fourth_option_votes_percent = ref_maximum_calculator }
+			}
+
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent = 0 }
+						check_variable = { country_ref_second_option_votes_percent > 0 }
+						check_variable = { country_ref_third_option_votes_percent > 0 }
+						check_variable = { country_ref_fourth_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_second_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_third_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { country_ref_first_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_fourth_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent = 0 }
+						check_variable = { country_ref_second_option_votes_percent = 0 }
+						check_variable = { country_ref_third_option_votes_percent > 0 }
+						check_variable = { country_ref_fourth_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_third_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_fourth_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { country_ref_first_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_second_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent > 0 }
+						check_variable = { country_ref_second_option_votes_percent = 0 }
+						check_variable = { country_ref_third_option_votes_percent = 0 }
+						check_variable = { country_ref_fourth_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_first_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_fourth_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { country_ref_second_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_third_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent = 0 }
+						check_variable = { country_ref_second_option_votes_percent > 0 }
+						check_variable = { country_ref_third_option_votes_percent = 0 }
+						check_variable = { country_ref_fourth_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_second_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_fourth_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { country_ref_first_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_fourth_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_first_option_votes_percent > 0 }
+						check_variable = { country_ref_second_option_votes_percent = 0 }
+						check_variable = { country_ref_third_option_votes_percent > 0 }
+						check_variable = { country_ref_fourth_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_first_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = country_ref_third_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { country_ref_second_option_votes_percent = ref_maximum_calculator }
+				set_variable = { country_ref_fourth_option_votes_percent = ref_maximum_calculator }
+			}
+		}
+	}
+	set_variable = { frame_picker = country_ref_first_option_votes_percent }
+	cw_ref_bar_frame_drawer = yes
+	set_variable = { country_ref_first_option_bar_frame = frame_picker }
+
+	set_variable = { frame_picker = country_ref_second_option_votes_percent }
+	cw_ref_bar_frame_drawer = yes
+	set_variable = { country_ref_second_option_bar_frame = frame_picker }
+
+	if = {
+		limit = {
+			THIS = { has_country_flag = third_option_occupied }
+		}
+		set_variable = { frame_picker = country_ref_third_option_votes_percent }
+		cw_ref_bar_frame_drawer = yes
+		set_variable = { country_ref_third_option_bar_frame = frame_picker }
+	}
+	if = {
+		limit = {
+			THIS = { has_country_flag = fourth_option_occupied }
+		}
+		set_variable = { frame_picker = country_ref_fourth_option_votes_percent }
+		cw_ref_bar_frame_drawer = yes
+		set_variable = { country_ref_fourth_option_bar_frame = frame_picker }
+	}
+}
+cw_state_ref_distribute_votes = {
+	if = {
+		limit = {
+			OWNER = {
+				NOT = {
+					has_event_target = state_ref_third_option_temp
+					has_event_target = state_ref_fourth_option_temp
+				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					check_variable = { state_ref_first_option_votes_percent = 0 }
+					check_variable = { state_ref_second_option_votes_percent = 0 }
+				}
+			}
+			random_list = {
+				25 = {
+					set_variable = { state_ref_first_option_votes_percent = 49 }
+					set_variable = { state_ref_second_option_votes_percent = 51 }
+				}
+				25 = {
+					set_variable = { state_ref_second_option_votes_percent = 51 }
+					set_variable = { state_ref_first_option_votes_percent = 49 }
+				}
+				25 = {
+					set_variable = { state_ref_first_option_votes_percent = 50 }
+					set_variable = { state_ref_second_option_votes_percent = 50 }
+				}
+				25 = {
+					set_variable = { state_ref_first_option_votes_percent = 45 }
+					set_variable = { state_ref_second_option_votes_percent = 55 }
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent > 0 }
+						check_variable = { state_ref_second_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_first_option_votes_percent }
+				set_variable = { state_ref_second_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent = 0 }
+						check_variable = { state_ref_second_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_second_option_votes_percent }
+				set_variable = { state_ref_first_option_votes_percent = ref_maximum_calculator }
+			}
+		}
+	}
+	if = {
+		limit = {
+			OWNER = {
+				has_event_target = state_ref_third_option_temp
+				NOT = { has_event_target = state_ref_fourth_option_temp }
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					check_variable = { state_ref_first_option_votes_percent = 0 }
+					check_variable = { state_ref_second_option_votes_percent = 0 }
+					check_variable = { state_ref_third_option_votes_percent = 0 }
+				}
+			}
+			random_list = {
+				25 = {
+					set_variable = { state_ref_first_option_votes_percent = 34 }
+					set_variable = { state_ref_second_option_votes_percent = 33 }
+					set_variable = { state_ref_third_option_votes_percent = 33 }
+				}
+				25 = {
+					set_variable = { state_ref_second_option_votes_percent = 33 }
+					set_variable = { state_ref_first_option_votes_percent = 34 }
+					set_variable = { state_ref_third_option_votes_percent = 33 }
+				}
+				25 = {
+					set_variable = { state_ref_first_option_votes_percent = 33 }
+					set_variable = { state_ref_second_option_votes_percent = 33 }
+					set_variable = { state_ref_third_option_votes_percent = 34 }
+				}
+				25 = {
+					set_variable = { state_ref_first_option_votes_percent = 35 }
+					set_variable = { state_ref_second_option_votes_percent = 35 }
+					set_variable = { state_ref_third_option_votes_percent = 30 }
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent > 0 }
+						check_variable = { state_ref_second_option_votes_percent = 0 }
+						check_variable = { state_ref_third_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_first_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { state_ref_second_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_third_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent = 0 }
+						check_variable = { state_ref_second_option_votes_percent > 0 }
+						check_variable = { state_ref_third_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_second_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { state_ref_second_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_third_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent = 0 }
+						check_variable = { state_ref_second_option_votes_percent = 0 }
+						check_variable = { state_ref_third_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_third_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { state_ref_first_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_second_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent > 0 }
+						check_variable = { state_ref_second_option_votes_percent > 0 }
+						check_variable = { state_ref_third_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_first_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_second_option_votes_percent }
+				set_variable = { state_ref_third_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent = 0 }
+						check_variable = { state_ref_second_option_votes_percent > 0 }
+						check_variable = { state_ref_third_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_second_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_third_option_votes_percent }
+				set_variable = { state_ref_first_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent > 0 }
+						check_variable = { state_ref_second_option_votes_percent = 0 }
+						check_variable = { state_ref_third_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_first_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_third_option_votes_percent }
+				set_variable = { state_ref_second_option_votes_percent = ref_maximum_calculator }
+			}
+		}
+	}
+	if = {
+		limit = {
+			OWNER = {
+				has_event_target = state_ref_third_option_temp
+				has_event_target = state_ref_fourth_option_temp
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					check_variable = { state_ref_first_option_votes_percent = 0 }
+					check_variable = { state_ref_second_option_votes_percent = 0 }
+					check_variable = { state_ref_third_option_votes_percent = 0 }
+					check_variable = { state_ref_fourth_option_votes_percent = 0 }
+				}
+			}
+			random_list = {
+				25 = {
+					set_variable = { state_ref_first_option_votes_percent = 25 }
+					set_variable = { state_ref_second_option_votes_percent = 25 }
+					set_variable = { state_ref_third_option_votes_percent = 25 }
+					set_variable = { state_ref_fourth_option_votes_percent = 25 }
+				}
+				25 = {
+					set_variable = { state_ref_second_option_votes_percent = 25 }
+					set_variable = { state_ref_first_option_votes_percent = 27 }
+					set_variable = { state_ref_third_option_votes_percent = 24 }
+					set_variable = { state_ref_fourth_option_votes_percent = 25 }
+				}
+				25 = {
+					set_variable = { state_ref_second_option_votes_percent = 27 }
+					set_variable = { state_ref_first_option_votes_percent = 25 }
+					set_variable = { state_ref_third_option_votes_percent = 25 }
+					set_variable = { state_ref_fourth_option_votes_percent = 24 }
+				}
+				25 = {
+					set_variable = { state_ref_second_option_votes_percent = 24 }
+					set_variable = { state_ref_first_option_votes_percent = 25 }
+					set_variable = { state_ref_third_option_votes_percent = 27 }
+					set_variable = { state_ref_fourth_option_votes_percent = 25 }
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent > 0 }
+						check_variable = { state_ref_second_option_votes_percent = 0 }
+						check_variable = { state_ref_third_option_votes_percent = 0 }
+						check_variable = { state_ref_fourth_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_first_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 3 }
+				set_variable = { state_ref_second_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_third_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_fourth_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent = 0 }
+						check_variable = { state_ref_second_option_votes_percent > 0 }
+						check_variable = { state_ref_third_option_votes_percent = 0 }
+						check_variable = { state_ref_fourth_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_first_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 3 }
+				set_variable = { state_ref_first_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_third_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_fourth_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent = 0 }
+						check_variable = { state_ref_second_option_votes_percent = 0 }
+						check_variable = { state_ref_third_option_votes_percent > 0 }
+						check_variable = { state_ref_fourth_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_third_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 3 }
+				set_variable = { state_ref_first_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_second_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_fourth_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent = 0 }
+						check_variable = { state_ref_second_option_votes_percent = 0 }
+						check_variable = { state_ref_third_option_votes_percent = 0 }
+						check_variable = { state_ref_fourth_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_fourth_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 3 }
+				set_variable = { state_ref_first_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_second_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_third_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent > 0 }
+						check_variable = { state_ref_second_option_votes_percent > 0 }
+						check_variable = { state_ref_third_option_votes_percent = 0 }
+						check_variable = { state_ref_fourth_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_first_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_second_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { state_ref_third_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_fourth_option_votes_percent = ref_maximum_calculator }
+			}
+
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent = 0 }
+						check_variable = { state_ref_second_option_votes_percent > 0 }
+						check_variable = { state_ref_third_option_votes_percent > 0 }
+						check_variable = { state_ref_fourth_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_second_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_third_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { state_ref_first_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_fourth_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent = 0 }
+						check_variable = { state_ref_second_option_votes_percent = 0 }
+						check_variable = { state_ref_third_option_votes_percent > 0 }
+						check_variable = { state_ref_fourth_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_third_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_fourth_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { state_ref_first_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_second_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent > 0 }
+						check_variable = { state_ref_second_option_votes_percent = 0 }
+						check_variable = { state_ref_third_option_votes_percent = 0 }
+						check_variable = { state_ref_fourth_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_first_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_fourth_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { state_ref_second_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_third_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent = 0 }
+						check_variable = { state_ref_second_option_votes_percent > 0 }
+						check_variable = { state_ref_third_option_votes_percent = 0 }
+						check_variable = { state_ref_fourth_option_votes_percent > 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_second_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_fourth_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { state_ref_first_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_fourth_option_votes_percent = ref_maximum_calculator }
+			}
+			else_if = {
+				limit = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent > 0 }
+						check_variable = { state_ref_second_option_votes_percent = 0 }
+						check_variable = { state_ref_third_option_votes_percent > 0 }
+						check_variable = { state_ref_fourth_option_votes_percent = 0 }
+					}
+				}
+				set_temp_variable = { ref_maximum_calculator = 100 }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_first_option_votes_percent }
+				subtract_from_temp_variable = { ref_maximum_calculator = state_ref_third_option_votes_percent }
+				divide_temp_variable = { ref_maximum_calculator = 2 }
+				set_variable = { state_ref_second_option_votes_percent = ref_maximum_calculator }
+				set_variable = { state_ref_fourth_option_votes_percent = ref_maximum_calculator }
+			}
+		}
+	}
+}
+cw_state_ref_total_calculator = {
+	if = {
+		limit = {
+			AND = {
+				check_variable = { state_ref_first_option_votes_percent > state_ref_second_option_votes_percent }
+				check_variable = { state_ref_first_option_votes_percent > state_ref_third_option_votes_percent }
+				check_variable = { state_ref_first_option_votes_percent > state_ref_fourth_option_votes_percent }
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_state_flag = has_majority_first_option }
+			}
+			OWNER = { add_to_variable = { state_ref_total_first_option = 1 } }
+			set_state_flag = has_majority_first_option
+			OWNER = { set_variable = { clickable_first_majority_state = PREV.id } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_second_option
+			}
+			clr_state_flag = has_majority_second_option
+			OWNER = { subtract_from_variable = { state_ref_total_second_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_third_option
+			}
+			clr_state_flag = has_majority_third_option
+			OWNER = { subtract_from_variable = { state_ref_total_third_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_fourth_option
+			}
+			clr_state_flag = has_majority_fourth_option
+			OWNER = { subtract_from_variable = { state_ref_total_fourth_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = undecided_state
+			}
+			clr_state_flag = undecided_state
+			OWNER = { subtract_from_variable = { state_ref_total_undecided_states = 1 } }
+		}
+	}
+	if = {
+		limit = {
+			AND = {
+				check_variable = { state_ref_second_option_votes_percent > state_ref_first_option_votes_percent }
+				check_variable = { state_ref_second_option_votes_percent > state_ref_third_option_votes_percent }
+				check_variable = { state_ref_second_option_votes_percent > state_ref_fourth_option_votes_percent }
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_state_flag = has_majority_second_option }
+			}
+			OWNER = { add_to_variable = { state_ref_total_second_option = 1 } }
+			set_state_flag = has_majority_second_option
+			OWNER = { set_variable = { clickable_second_majority_state = PREV.id } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_first_option
+			}
+			clr_state_flag = has_majority_first_option
+			OWNER = { subtract_from_variable = { state_ref_total_first_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_third_option
+			}
+			clr_state_flag = has_majority_third_option
+			OWNER = { subtract_from_variable = { state_ref_total_third_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_fourth_option
+			}
+			clr_state_flag = has_majority_fourth_option
+			OWNER = { subtract_from_variable = { state_ref_total_fourth_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = undecided_state
+			}
+			clr_state_flag = undecided_state
+			OWNER = { subtract_from_variable = { state_ref_total_undecided_states = 1 } }
+		}
+	}
+	if = {
+		limit = {
+			AND = {
+				check_variable = { state_ref_third_option_votes_percent > state_ref_first_option_votes_percent }
+				check_variable = { state_ref_third_option_votes_percent > state_ref_second_option_votes_percent }
+				check_variable = { state_ref_third_option_votes_percent > state_ref_fourth_option_votes_percent }
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_state_flag = has_majority_third_option }
+			}
+			OWNER = { add_to_variable = { state_ref_total_third_option = 1 } }
+			set_state_flag = has_majority_third_option
+			OWNER = { set_variable = { clickable_third_majority_state = PREV.id } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_first_option
+			}
+			clr_state_flag = has_majority_first_option
+			OWNER = { subtract_from_variable = { state_ref_total_first_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_second_option
+			}
+			clr_state_flag = has_majority_second_option
+			OWNER = { subtract_from_variable = { state_ref_total_second_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_fourth_option
+			}
+			clr_state_flag = has_majority_fourth_option
+			OWNER = { subtract_from_variable = { state_ref_total_fourth_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = undecided_state
+			}
+			clr_state_flag = undecided_state
+			OWNER = { subtract_from_variable = { state_ref_total_undecided_states = 1 } }
+		}
+	}
+	if = {
+		limit = {
+			AND = {
+				check_variable = { state_ref_fourth_option_votes_percent > state_ref_first_option_votes_percent }
+				check_variable = { state_ref_fourth_option_votes_percent > state_ref_second_option_votes_percent }
+				check_variable = { state_ref_fourth_option_votes_percent > state_ref_third_option_votes_percent }
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_state_flag = has_majority_fourth_option }
+			}
+			OWNER = { add_to_variable = { state_ref_total_fourth_option = 1 } }
+			set_state_flag = has_majority_fourth_option
+			OWNER = { set_variable = { clickable_fourth_majority_state = PREV.id } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_first_option
+			}
+			clr_state_flag = has_majority_first_option
+			OWNER = { subtract_from_variable = { state_ref_total_first_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_second_option
+			}
+			clr_state_flag = has_majority_second_option
+			OWNER = { subtract_from_variable = { state_ref_total_second_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_third_option
+			}
+			clr_state_flag = has_majority_third_option
+			OWNER = { subtract_from_variable = { state_ref_total_third_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = undecided_state
+			}
+			clr_state_flag = undecided_state
+			OWNER = { subtract_from_variable = { state_ref_total_undecided_states = 1 } }
+		}
+	}
+	############################################ UNDECIDED STATES CHECKER ############################################
+	if = {
+		limit = {
+			NOT = {
+				OR = {
+					AND = {
+						check_variable = { state_ref_first_option_votes_percent > state_ref_second_option_votes_percent }
+						check_variable = { state_ref_first_option_votes_percent > state_ref_third_option_votes_percent }
+						check_variable = { state_ref_first_option_votes_percent > state_ref_fourth_option_votes_percent }
+					}
+					AND = {
+						check_variable = { state_ref_second_option_votes_percent > state_ref_first_option_votes_percent }
+						check_variable = { state_ref_second_option_votes_percent > state_ref_third_option_votes_percent }
+						check_variable = { state_ref_second_option_votes_percent > state_ref_fourth_option_votes_percent }
+					}
+					AND = {
+						check_variable = { state_ref_third_option_votes_percent > state_ref_second_option_votes_percent }
+						check_variable = { state_ref_third_option_votes_percent > state_ref_first_option_votes_percent }
+						check_variable = { state_ref_third_option_votes_percent > state_ref_fourth_option_votes_percent }
+					}
+					AND = {
+						check_variable = { state_ref_fourth_option_votes_percent > state_ref_second_option_votes_percent }
+						check_variable = { state_ref_fourth_option_votes_percent > state_ref_third_option_votes_percent }
+						check_variable = { state_ref_fourth_option_votes_percent > state_ref_first_option_votes_percent }
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_first_option
+			}
+			clr_state_flag = has_majority_first_option
+			OWNER = { subtract_from_variable = { state_ref_total_first_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_second_option
+			}
+			clr_state_flag = has_majority_second_option
+			OWNER = { subtract_from_variable = { state_ref_total_second_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_third_option
+			}
+			clr_state_flag = has_majority_third_option
+			OWNER = { subtract_from_variable = { state_ref_total_third_option = 1 } }
+		}
+		if = {
+			limit = {
+				has_state_flag = has_majority_fourth_option
+			}
+			clr_state_flag = has_majority_fourth_option
+			OWNER = { subtract_from_variable = { state_ref_total_fourth_option = 1 } }
+		}
+		set_state_flag = undecided_state
+		OWNER = { add_to_variable = { state_ref_total_undecided_states = 1 } }
+	}
+	####################################################################################################################################
+	OWNER = {
+		clamp_variable = {
+			var = state_ref_total_first_option
+			min = 0
+			max = 1000
+		}
+		clamp_variable = {
+			var = state_ref_total_second_option
+			min = 0
+			max = 1000
+		}
+		if = {
+			limit = {
+				has_country_flag = third_option_occupied
+			}
+			clamp_variable = {
+				var = state_ref_total_third_option
+				min = 0
+				max = 1000
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = fourth_option_occupied
+			}
+			clamp_variable = {
+				var = state_ref_total_fourth_option
+				min = 0
+				max = 1000
+			}
+		}
+		clamp_variable = {
+			var = state_ref_total_undecided_states
+			min = 0
+			max = 1000
+		}
+	}
+}
+
+state_ref_average_of_votes_calculator = {
+	OWNER = {
+		clear_variable = first_option_average
+		every_owned_state = { add_to_temp_variable = { first_option_average_calculator = state_ref_first_option_votes_percent } }
+		divide_temp_variable = { first_option_average_calculator = amount_of_states_in_ref }
+		set_variable = { first_option_average = first_option_average_calculator }
+		round_variable = first_option_average
+
+		clear_variable = second_option_average
+		every_owned_state = { add_to_temp_variable = { second_option_average_calculator = state_ref_second_option_votes_percent } }
+		divide_temp_variable = { second_option_average_calculator = amount_of_states_in_ref }
+		set_variable = { second_option_average = second_option_average_calculator }
+		round_variable = second_option_average
+
+		if = {
+			limit = {
+				has_country_flag = third_option_occupied
+			}
+			clear_variable = third_option_average
+			every_owned_state = { add_to_temp_variable = { third_option_average_calculator = state_ref_third_option_votes_percent } }
+			divide_temp_variable = { third_option_average_calculator = amount_of_states_in_ref }
+			set_variable = { third_option_average = third_option_average_calculator }
+			round_variable = third_option_average
+		}
+
+		if = {
+			limit = {
+				has_country_flag = fourth_option_occupied
+			}
+			clear_variable = fourth_option_average
+			every_owned_state = { add_to_temp_variable = { fourth_option_average_calculator = state_ref_fourth_option_votes_percent } }
+			divide_temp_variable = { fourth_option_average_calculator = amount_of_states_in_ref }
+			set_variable = { fourth_option_average = fourth_option_average_calculator }
+			round_variable = fourth_option_average
+		}
+	}
+	####################################
+	#### GRAPHIC BAR FRAME UPDATE	####
+	####################################
+	set_variable = { frame_picker = first_option_average }
+	cw_ref_bar_frame_drawer = yes
+	set_variable = { state_ref_first_option_votes_bar_frame = frame_picker }
+
+	set_variable = { frame_picker = second_option_average }
+	cw_ref_bar_frame_drawer = yes
+	set_variable = { state_ref_second_option_votes_bar_frame = frame_picker }
+
+	if = {
+		limit = {
+			OWNER = { has_country_flag = third_option_occupied }
+		}
+		set_variable = { frame_picker = third_option_average }
+		cw_ref_bar_frame_drawer = yes
+		set_variable = { state_ref_third_option_votes_bar_frame = frame_picker }
+	}
+	if = {
+		limit = {
+			OWNER = { has_country_flag = fourth_option_occupied }
+		}
+		set_variable = { frame_picker = fourth_option_average }
+		cw_ref_bar_frame_drawer = yes
+		set_variable = { state_ref_fourth_option_votes_bar_frame = frame_picker }
+	}
+}
+
+cw_country_ref_update_first_option = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = override_randomizer }
+		}
+		randomize_temp_variable = {
+			var = random_generator
+			distribution = uniform
+			min = @REF_INF_MIN
+			max = @REF_INF_MAX
+		}
+		set_variable = { ref_random_inf = random_generator }
+		round_variable = ref_random_inf
+		else_if = {
+			limit = {
+				has_country_flag = override_randomizer
+			}
+			set_variable = { ref_random_inf = randomizer_override_value }
+			clr_country_flag = override_randomizer
+		}
+	}
+	set_variable = { ref_currently_changed_option = country_ref_first_option_votes_percent }			#Current option
+	add_to_array = {
+		array = referendum_options_array
+		value = country_ref_second_option_votes_percent			#Other option
+	}
+	if = {
+		limit = {
+			has_country_flag = third_option_occupied
+		}
+		add_to_array = {
+			array = referendum_options_array
+			value = country_ref_third_option_votes_percent			#Other option
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = fourth_option_occupied
+		}
+		add_to_array = {
+			array = referendum_options_array
+			value = country_ref_fourth_option_votes_percent			#Other option
+		}
+	}
+	cw_add_referandum_option_vote = yes
+	set_variable = { country_ref_first_option_votes_percent = ref_currently_changed_option }			#Current option
+	set_variable = { country_ref_second_option_votes_percent = referendum_options_array^0 }			#Other option
+	if = {
+		limit = {
+			has_country_flag = third_option_occupied
+		}
+		set_variable = { country_ref_third_option_votes_percent = referendum_options_array^1 }		#Other option
+	}
+	if = {
+		limit = {
+			has_country_flag = fourth_option_occupied
+		}
+		set_variable = { country_ref_fourth_option_votes_percent = referendum_options_array^2 }		#Other option
+	}
+	clear_array = referendum_options_array
+}
+cw_country_ref_update_second_option = {
+	if = {
+		limit = {
+			NOT = { has_country_flag = override_randomizer }
+		}
+		randomize_temp_variable = {
+			var = random_generator
+			distribution = uniform
+			min = @REF_INF_MIN
+			max = @REF_INF_MAX
+		}
+		set_variable = { ref_random_inf = random_generator }
+		round_variable = ref_random_inf
+		else_if = {
+			limit = {
+				has_country_flag = override_randomizer
+			}
+			set_variable = { ref_random_inf = randomizer_override_value }
+			clr_country_flag = override_randomizer
+		}
+	}
+	set_variable = { ref_currently_changed_option = country_ref_second_option_votes_percent }			#Current option
+	add_to_array = {
+		array = referendum_options_array
+		value = country_ref_first_option_votes_percent			#Other option
+	}
+	if = {
+		limit = {
+			has_country_flag = third_option_occupied
+		}
+		add_to_array = {
+			array = referendum_options_array
+			value = country_ref_third_option_votes_percent			#Other option
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = fourth_option_occupied
+		}
+		add_to_array = {
+			array = referendum_options_array
+			value = country_ref_fourth_option_votes_percent			#Other option
+		}
+	}
+	cw_add_referandum_option_vote = yes
+	set_variable = { country_ref_second_option_votes_percent = ref_currently_changed_option }			#Current option
+	set_variable = { country_ref_first_option_votes_percent = referendum_options_array^0 }		#Other option
+	if = {
+		limit = {
+			has_country_flag = third_option_occupied
+		}
+		set_variable = { country_ref_third_option_votes_percent = referendum_options_array^1 }		#Other option
+	}
+	if = {
+		limit = {
+			has_country_flag = fourth_option_occupied
+		}
+		set_variable = { country_ref_fourth_option_votes_percent = referendum_options_array^2 }		#Other option
+	}
+	clear_array = referendum_options_array
+}
+cw_country_ref_update_third_option = {
+	if = {
+		limit = {
+			has_country_flag = third_option_occupied
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = override_randomizer }
+			}
+			randomize_temp_variable = {
+				var = random_generator
+				distribution = uniform
+				min = @REF_INF_MIN
+				max = @REF_INF_MAX
+			}
+			set_variable = { ref_random_inf = random_generator }
+			round_variable = ref_random_inf
+			else_if = {
+				limit = {
+					has_country_flag = override_randomizer
+				}
+				set_variable = { ref_random_inf = randomizer_override_value }
+				clr_country_flag = override_randomizer
+			}
+		}
+		set_variable = { ref_currently_changed_option = country_ref_third_option_votes_percent }			#Current option
+		add_to_array = {
+			array = referendum_options_array
+			value = country_ref_first_option_votes_percent			#Other option
+		}
+		add_to_array = {
+			array = referendum_options_array
+			value = country_ref_second_option_votes_percent			#Other option
+		}
+		if = {
+			limit = {
+				has_country_flag = fourth_option_occupied
+			}
+			add_to_array = {
+				array = referendum_options_array
+				value = country_ref_fourth_option_votes_percent			#Other option
+			}
+		}
+		cw_add_referandum_option_vote = yes
+		set_variable = { country_ref_third_option_votes_percent = ref_currently_changed_option }			#Current option
+		set_variable = { country_ref_first_option_votes_percent = referendum_options_array^0 }		#Other option
+		set_variable = { country_ref_second_option_votes_percent = referendum_options_array^1 }			#Other option
+		if = {
+			limit = {
+				has_country_flag = fourth_option_occupied
+			}
+			set_variable = { country_ref_fourth_option_votes_percent = referendum_options_array^2 }		#Other option
+		}
+		clear_array = referendum_options_array
+	}
+}
+cw_country_ref_update_fourth_option = {
+	if = {
+		limit = {
+			has_country_flag = fourth_option_occupied
+		}
+		if = {
+			limit = {
+				NOT = { has_country_flag = override_randomizer }
+			}
+			randomize_temp_variable = {
+				var = random_generator
+				distribution = uniform
+				min = @REF_INF_MIN
+				max = @REF_INF_MAX
+			}
+			set_variable = { ref_random_inf = random_generator }
+			round_variable = ref_random_inf
+			else_if = {
+				limit = {
+					has_country_flag = override_randomizer
+				}
+				set_variable = { ref_random_inf = randomizer_override_value }
+				clr_country_flag = override_randomizer
+			}
+		}
+		set_variable = { ref_currently_changed_option = country_ref_fourth_option_votes_percent }			#Current option
+		add_to_array = {
+			array = referendum_options_array
+			value = country_ref_first_option_votes_percent			#Other option
+		}
+		add_to_array = {
+			array = referendum_options_array
+			value = country_ref_second_option_votes_percent			#Other option
+		}
+		add_to_array = {
+			array = referendum_options_array
+			value = country_ref_third_option_votes_percent			#Other option
+		}
+		cw_add_referandum_option_vote = yes
+		set_variable = { country_ref_fourth_option_votes_percent = ref_currently_changed_option }			#Current option
+		set_variable = { country_ref_first_option_votes_percent = referendum_options_array^0 }			#Other option
+		set_variable = { country_ref_second_option_votes_percent = referendum_options_array^1 }			#Other option
+		set_variable = { country_ref_third_option_votes_percent = referendum_options_array^2 }			#Other option
+		clear_array = referendum_options_array
+	}
+}
+cw_country_ref_update_bars = {
+	set_variable = { frame_picker = country_ref_first_option_votes_percent }
+	cw_ref_bar_frame_drawer = yes
+	set_variable = { country_ref_first_option_bar_frame = frame_picker }
+
+	set_variable = { frame_picker = country_ref_second_option_votes_percent }
+	cw_ref_bar_frame_drawer = yes
+	set_variable = { country_ref_second_option_bar_frame = frame_picker }
+	if = {
+		limit = {
+			has_country_flag = third_option_occupied
+		}
+		set_variable = { frame_picker = country_ref_third_option_votes_percent }
+		cw_ref_bar_frame_drawer = yes
+		set_variable = { country_ref_third_option_bar_frame = frame_picker }
+	}
+	if = {
+		limit = {
+			has_country_flag = fourth_option_occupied
+		}
+		set_variable = { frame_picker = country_ref_fourth_option_votes_percent }
+		cw_ref_bar_frame_drawer = yes
+		set_variable = { country_ref_fourth_option_bar_frame = frame_picker }
+	}
+	clamp_variable = { var = country_ref_first_option_votes_percent min = 0 max = 100 }
+	clamp_variable = { var = country_ref_second_option_votes_percent min = 0 max = 100 }
+	clamp_variable = { var = country_ref_third_option_votes_percent min = 0 max = 100 }
+	clamp_variable = { var = country_ref_fourth_option_votes_percent min = 0 max = 100 }
+}
+cw_state_ref_update_bars = {
+	OWNER = { set_variable = { frame_picker = first_option_average } }
+	OWNER = { cw_ref_bar_frame_drawer = yes }
+	OWNER = { set_variable = { state_ref_first_option_votes_bar_frame = frame_picker } }
+
+	OWNER = { set_variable = { frame_picker = second_option_average } }
+	OWNER = { cw_ref_bar_frame_drawer = yes }
+	OWNER = { set_variable = { state_ref_second_option_votes_bar_frame = frame_picker } }
+	if = {
+		limit = {
+			OWNER = { has_country_flag = third_option_occupied }
+		}
+		OWNER = { set_variable = { frame_picker = third_option_average } }
+		OWNER = { cw_ref_bar_frame_drawer = yes }
+		OWNER = { set_variable = { state_ref_third_option_votes_bar_frame = frame_picker } }
+	}
+	if = {
+		limit = {
+			OWNER = { has_country_flag = fourth_option_occupied }
+		}
+		OWNER = { set_variable = { frame_picker = fourth_option_average } }
+		OWNER = { cw_ref_bar_frame_drawer = yes }
+		OWNER = { set_variable = { state_ref_fourth_option_votes_bar_frame = frame_picker } }
+	}
+	cw_state_ref_total_calculator = yes
+	state_ref_average_of_votes_calculator = yes
+	clamp_variable = { var = first_option_average min = 0 max = 100 }
+	clamp_variable = { var = second_option_average min = 0 max = 100 }
+	clamp_variable = { var = third_option_occupied min = 0 max = 100 }
+	clamp_variable = { var = fourth_option_average min = 0 max = 100 }
+}
+cw_state_ref_create_map_indicator = {
+	ROOT = { country_event = { id = setup_event.2 days = 3 } }
+}

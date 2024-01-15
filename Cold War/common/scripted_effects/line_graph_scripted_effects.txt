@@ -1,0 +1,211 @@
+update_cw_score_graph = {
+	# This count is displayed as an x-axis label, increment it
+	add_to_variable = { SAMPLE_count = 1 }
+	
+	
+	
+	
+	# update y_position to current score
+	set_variable = { SAMPLE_y_position = cw_score }
+	#multiply_variable = { SAMPLE_y_position = 80 }
+	add_to_variable = { SAMPLE_y_position = 10 }
+	round_variable = SAMPLE_y_position
+	
+	
+	add_to_array = {
+		array = cw_score_array_raw
+		value = SAMPLE_y_position
+	}
+	
+	# find highest
+	find_highest_in_array = {
+		array = USA.cw_score_array_raw 
+		value = temp_largest_score_usa
+	}
+	
+	find_highest_in_array = {
+		array = SOV.cw_score_array_raw 
+		value = temp_largest_score_sov
+	}
+	
+	if = { limit = { check_variable = { temp_largest_score_usa > temp_largest_score_sov }}
+		set_temp_variable = { temp_largest_score = temp_largest_score_usa }
+	}
+	else = {
+		set_temp_variable = { temp_largest_score = temp_largest_score_sov }
+	}
+	# find lowest
+	find_lowest_in_array = {
+		array = USA.cw_score_array_raw 
+		value = temp_lowest_score_usa
+	}
+	
+	find_lowest_in_array = {
+		array = SOV.cw_score_array_raw 
+		value = temp_lowest_score_sov
+	}
+	
+	if = { limit = { check_variable = { temp_lowest_score_usa < temp_lowest_score_sov} }
+			set_temp_variable = { temp_lowest_score = temp_lowest_score_usa}
+	}
+	else = {
+		set_temp_variable = { temp_lowest_score = temp_lowest_score_sov}
+	}
+	
+	if = {
+		limit = { check_variable = { temp_largest_score < 190 }}
+		set_temp_variable = { temp_largest_score = 190 }
+	}
+	
+	
+	set_variable = { global.cw_score_highest = temp_largest_score }
+	set_variable = { global.cw_score_lowest =  temp_lowest_score}
+	
+	
+	# this is useful for scaling later
+	subtract_from_temp_variable = { temp_largest_score = temp_lowest_score }
+	
+	# we compute the y label
+	set_temp_variable = { percent =  temp_largest_score }
+	divide_temp_variable = { percent =  100 }
+	
+	# 20% of score
+	set_variable = { global.20_score = temp_lowest_score }
+	set_temp_variable = { tpercent = percent }
+	multiply_temp_variable = { tpercent = 20 }
+	add_to_variable = { global.20_score = tpercent }
+	
+	# 40% of score
+	set_variable = { global.40_score = temp_lowest_score }
+	set_temp_variable = { tpercent = percent }
+	multiply_temp_variable = { tpercent = 40 }
+	add_to_variable = { global.40_score = tpercent }
+	
+	
+	# 60% of score
+	set_variable = { global.60_score = temp_lowest_score }
+	set_temp_variable = { tpercent = percent }
+	multiply_temp_variable = { tpercent = 60 }
+	add_to_variable = { global.60_score = tpercent }
+	
+	
+	# 80% of score
+	set_variable = { global.80_score = temp_lowest_score }
+	set_temp_variable = { tpercent = percent }
+	multiply_temp_variable = { tpercent = 80 }
+	add_to_variable = { global.80_score = tpercent }
+	
+	
+	# clear array to compute it again
+	clear_array = cw_score_array 
+	clear_array = SAMPLE_graph_offsets 
+	clear_array = SAMPLE_graph_slopes 
+	
+	
+	# compute scaled score
+	for_each_loop = {
+		array =  cw_score_array_raw
+		value = va 
+		
+		set_temp_variable = { v = va}
+		subtract_from_temp_variable = { v = temp_lowest_score }
+		divide_temp_variable = { v = temp_largest_score }
+		round_variable  = v
+		multiply_temp_variable = { v = 190 }
+		
+		# scaled score
+		add_to_array = { cw_score_array = v }
+			
+	}
+	
+	
+	
+	# compute slope
+	set_temp_variable = { SAMPLE_last_y_position = cw_score_array^0}
+	
+	for_each_loop = {
+		array =  cw_score_array
+		value = v 
+
+		# The 'slope' here is simply the difference between the current y value and the last one, divided by 2 plus 50
+		# These last two changes are needed for the shader
+		set_temp_variable = { diff = v }
+		subtract_from_temp_variable = { diff = SAMPLE_last_y_position }
+		divide_temp_variable = { diff = 2 }
+		set_temp_variable = { off = 50 }
+		
+		add_to_temp_variable = { diff = off }
+		add_to_array = { SAMPLE_graph_slopes = diff }
+		
+		# compute offset
+		# The y position offset is the inverse of the y position
+		set_temp_variable = { offset = SAMPLE_last_y_position }
+		multiply_temp_variable = { offset = -1 }
+		add_to_array = { SAMPLE_graph_offsets = offset }
+		
+		
+		set_temp_variable = { SAMPLE_last_y_position = v }
+			
+		
+		
+	}
+	
+	
+	#move to after the computation
+	# Prune arrays so they hold at most 30 elements
+	if = {
+		limit = {
+			check_variable = { SAMPLE_count > 20 }
+		}
+		remove_from_array = { array = cw_score_array_raw index = 0 }
+		remove_from_array = { array = SAMPLE_numbers index = 0 }
+	}
+	
+	remove_from_array = { array = SAMPLE_graph_slopes index = 0 }
+	remove_from_array = { array = SAMPLE_graph_offsets index = 0 }
+	
+	add_to_array = { SAMPLE_numbers = SAMPLE_count }
+	
+
+}
+
+SAMPLE_add_random_point_to_line = {
+	# Adds a random point to the line graph
+
+	# This count is displayed as an x-axis label, increment it
+	add_to_variable = { SAMPLE_count = 1 }
+
+	# We keep track of the last y position so we can calculate the slope
+	set_variable = { SAMPLE_last_y_position = SAMPLE_y_position }
+	
+	# Random new y position, 10-90
+	set_variable = { SAMPLE_y_position = random }
+	multiply_variable = { SAMPLE_y_position = 80 }
+	add_to_variable = { SAMPLE_y_position = 10 }
+	round_variable = SAMPLE_y_position
+
+	# Prune arrays so they hold at most 20 elements
+	if = {
+		limit = {
+			check_variable = { SAMPLE_count > 20 }
+		}
+		remove_from_array = { array = SAMPLE_graph_offsets index = 0 }
+		remove_from_array = { array = SAMPLE_graph_slopes index = 0 }
+		remove_from_array = { array = SAMPLE_numbers index = 0 }
+	}
+
+	# The y position offset is the inverse of the y position
+	set_temp_variable = { offset = SAMPLE_last_y_position }
+	multiply_temp_variable = { offset = -1 }
+	add_to_array = { SAMPLE_graph_offsets = offset }
+
+	# The 'slope' here is simply the difference between the current y value and the last one, divided by 2 plus 50
+	# These last two changes are needed for the shader
+	set_temp_variable = { diff = SAMPLE_y_position }
+	subtract_from_temp_variable = { diff = SAMPLE_last_y_position }
+	divide_temp_variable = { diff = 2 }
+	add_to_temp_variable = { diff = 50 }
+	add_to_array = { SAMPLE_graph_slopes = diff }
+	
+	add_to_array = { SAMPLE_numbers = SAMPLE_count }
+}

@@ -1,0 +1,26 @@
+state = {
+	id=573
+	local_supplies=0.0 
+	name="STATE_573" # Zlatoust
+	state_category = pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 10329 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		victory_points = {
+			10329 1
+		}
+	}
+	resources={
+		chromium=23 # was: 32
+	}
+	manpower = 556677
+	provinces={
+		237 278 361 3280 4758 7320 10136 10142 10329 11223 11307 12117 
+	}
+}

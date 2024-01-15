@@ -1,0 +1,298 @@
+scripted_gui = {
+  cw_un_sanctions_diplomacy = {
+    window_name = "cw_un_sanctions_diplomacy_interface"
+    context_type = diplomatic_action
+
+    visible = {}
+
+    triggers = {
+      ### BLOCKING SANCTION TYPE BUTTONS IF SANCTION COOLDOWN IS ACTIVE
+      civ_sanctions_button_click_enabled = {
+        FROM = { check_variable = { unsc_sanctions_cooldown = 0 } }
+      }
+      mil_sanctions_button_click_enabled = {
+        FROM = { check_variable = { unsc_sanctions_cooldown = 0 } }
+      }
+      trade_sanctions_button_click_enabled = {
+        FROM = { check_variable = { unsc_sanctions_cooldown = 0 } }
+      }
+      country_leader_sanctions_button_click_enabled = {
+        FROM = { check_variable = { unsc_sanctions_cooldown = 0 } }
+      }
+      nuclear_programm_sanctions_button_click_enabled = {
+        always = no
+      }
+      ### SACNTION TYPE_SELECTION
+      civ_sanctions_button_selected_visible = {
+        ROOT = { has_country_flag = unsc_sanctions_civilian_sanctions }
+      }
+      mil_sanctions_button_selected_visible = {
+        ROOT = { has_country_flag = unsc_sanctions_military_sanctions }
+      }
+      trade_sanctions_button_selected_visible = {
+        ROOT = { has_country_flag = unsc_sanctions_trade_sanctions }
+      }
+      country_leader_sanctions_button_selected_visible = {
+        ROOT = { has_country_flag = unsc_sanctions_leader_sanctions }
+      }
+      nuclear_programm_sanctions_button_selected_visible = {
+        ROOT = { has_country_flag = unsc_sanctions_nuclear_sanctions }
+      }
+      ### DURATION SWITCH ###
+      sanction_duration_switch_one_year_visible = {
+        ROOT = { has_country_flag = sanctions_gui_period_one_year }
+      }
+      sanction_duration_switch_five_year_visible = {
+        ROOT = { has_country_flag = sanctions_gui_period_five_year }
+      }
+      sanction_duration_switch_ten_year_visible = {
+        ROOT = { has_country_flag = sanctions_gui_period_ten_year }
+      }
+      ### DURATION LIGHTS ###
+      one_year_switch_light_visible = {
+        ROOT = { has_country_flag = sanctions_gui_period_one_year }
+      }
+      five_year_switch_light_visible = {
+        ROOT = { has_country_flag = sanctions_gui_period_five_year }
+      }
+      ten_year_switch_light_visible = {
+        ROOT = { has_country_flag = sanctions_gui_period_ten_year }
+      }
+    }
+
+    effects = {
+      ### SANCTIONS TYPES CLICK
+      civ_sanctions_button_click = {
+        ROOT = {
+          set_country_flag = unsc_sanctions_civilian_sanctions
+          if = {
+            limit = {
+              has_country_flag = no_sanctions_selected
+            }
+            clr_country_flag = no_sanctions_selected
+          }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_military_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_military_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_trade_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_trade_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_leader_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_leader_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_nuclear_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_nuclear_sanctions }
+        }
+      }
+      civ_sanctions_button_selected_right_click = {
+        ROOT = {
+          clr_country_flag = unsc_sanctions_civilian_sanctions
+          set_country_flag = no_sanctions_selected
+        }
+      }
+      mil_sanctions_button_click = {
+        ROOT = {
+          set_country_flag = unsc_sanctions_military_sanctions
+          if = {
+            limit = {
+              has_country_flag = no_sanctions_selected
+            }
+            clr_country_flag = no_sanctions_selected
+          }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_civilian_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_civilian_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_trade_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_trade_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_leader_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_leader_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_nuclear_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_nuclear_sanctions }
+        }
+      }
+      mil_sanctions_button_selected_right_click = {
+        ROOT = {
+          clr_country_flag = unsc_sanctions_military_sanctions
+          set_country_flag = no_sanctions_selected
+        }
+      }
+      trade_sanctions_button_click = {
+        ROOT = {
+          set_country_flag = unsc_sanctions_trade_sanctions
+          if = {
+            limit = {
+              has_country_flag = no_sanctions_selected
+            }
+            clr_country_flag = no_sanctions_selected
+          }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_civilian_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_civilian_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_military_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_military_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_leader_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_leader_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_nuclear_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_nuclear_sanctions }
+        }
+      }
+      trade_sanctions_button_selected_right_click = {
+        ROOT = {
+          clr_country_flag = unsc_sanctions_trade_sanctions
+          set_country_flag = no_sanctions_selected
+        }
+      }
+      country_leader_sanctions_button_click = {
+        ROOT = {
+          set_country_flag = unsc_sanctions_leader_sanctions
+          if = {
+            limit = {
+              has_country_flag = no_sanctions_selected
+            }
+            clr_country_flag = no_sanctions_selected
+          }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_civilian_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_civilian_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_military_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_military_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_trade_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_trade_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_nuclear_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_nuclear_sanctions }
+        }
+      }
+      country_leader_sanctions_button_selected_right_click = {
+        ROOT = {
+          clr_country_flag = unsc_sanctions_leader_sanctions
+          set_country_flag = no_sanctions_selected
+        }
+      }
+      nuclear_programm_sanctions_button_click = {
+        ROOT = {
+          set_country_flag = unsc_sanctions_nuclear_sanctions
+          if = {
+            limit = {
+              has_country_flag = no_sanctions_selected
+            }
+            clr_country_flag = no_sanctions_selected
+          }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_civilian_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_civilian_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_military_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_military_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_trade_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_trade_sanctions }
+        }
+        if = {
+          limit = {
+            ROOT = { has_country_flag = unsc_sanctions_leader_sanctions }
+          }
+          ROOT = { clr_country_flag = unsc_sanctions_leader_sanctions }
+        }
+      }
+      nuclear_programm_sanctions_button_selected_right_click = {
+        ROOT = {
+          clr_country_flag = unsc_sanctions_nuclear_sanctions
+          set_country_flag = no_sanctions_selected
+        }
+      }
+      ### SANCTIONS DURATIONS CLICK
+      sanction_duration_switch_one_year_click = {
+        ROOT = {
+          clr_country_flag = sanctions_gui_period_one_year
+          set_country_flag = sanctions_gui_period_five_year
+        }
+      }
+      sanction_duration_switch_five_year_click = {
+        ROOT = {
+          clr_country_flag = sanctions_gui_period_five_year
+          set_country_flag = sanctions_gui_period_ten_year
+        }
+      }
+      sanction_duration_switch_ten_year_click = {
+        ROOT = {
+          clr_country_flag = sanctions_gui_period_ten_year
+          set_country_flag = sanctions_gui_period_one_year
+        }
+      }
+    }
+
+    dynamic_lists = {}
+    properties = {}
+
+    ai_enabled = {
+      always = no
+    }
+  }
+}

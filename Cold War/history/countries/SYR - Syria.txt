@@ -1,0 +1,126 @@
+﻿capital = 554
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	OOB = SYR_1946
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1944.4.18"		
+		election_frequency = 48		
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 40
+		democratic_socialist = 30
+		neutrality = 10
+		communism_totalitarian = 20
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+			name = "Husni al-Za'im"
+			desc = ""
+			picture = "SYRH2.dds"
+			ideology = fascistic_idolg
+			expire = 1949.8.14
+			traits = {}
+	}	
+	create_country_leader = {
+			name = "Shukri al-Quwatli"
+			desc = ""
+			picture = "SYRH1.dds"
+			ideology = social_cons_idolg
+			expire = 1949.3.29
+			traits = {}
+	}
+	create_country_leader = {
+		name = "Khalid Bakdash"
+		desc = ""
+		picture = "syriacomsov.dds"
+		ideology = revisionist_idolg
+		expire = 1988.10.14
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Khalid Bakdash"
+		desc = ""
+		picture = "syriacomchi.dds"
+		ideology = stalinism_idolg
+		expire = 1982.10.16
+		traits = { }
+	}
+}
+
+1948.5.14 = {
+}
+1950.6.25 = {
+	set_politics = {
+		ruling_party = neutrality
+		elections_allowed = no
+	}
+	create_country_leader = {
+			name = "Adib Shishakli"
+			desc = ""
+			picture = "SYRH4.dds"
+			ideology = military_idolg
+			expire = 1951.12.2
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Shukri al-Quwatli"
+			desc = ""
+			picture = "SYRH1.dds"
+			ideology = social_cons_idolg
+			expire = 1958.2.22
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Husni al-Za'im"
+			desc = ""
+			picture = "SYRH3.dds"
+			ideology = social_cons_idolg
+			expire = 1955.9.6
+			traits = {}
+	}
+}
+1958.2.22 = { set_cosmetic_tag = SYR_UAR } #Pre full Independence Canada
+1961.9.29 = { drop_cosmetic_tag = yes }
+1961.12.11 = {
+	set_politics = {
+		ruling_party = democratic
+		elections_allowed = yes
+	}
+	create_country_leader = {
+			name = "Amin al-Hafiz"
+			desc = ""
+			picture = "SYRH6.dds"
+			ideology = military_idolg
+			expire = 1966.2.23
+			traits = {}
+	}	
+	create_country_leader = {
+			name = "Nazim al-Kudsi"
+			desc = ""
+			picture = "SYRH5.dds"
+			ideology = social_democrat_idolg
+			expire = 1963.3.8
+			traits = {}
+	}
+}
+1979.12.24 = {
+	set_politics = {
+		ruling_party = neutrality
+		elections_allowed = no
+	}
+	create_country_leader = {
+			name = "Hafez al-Assad"
+			desc = ""
+			picture = "SYRH8.dds"
+			ideology = military_idolg
+			expire = 2000.12.2
+			traits = {}
+	}
+}
+1989.1.9 = {
+}

@@ -1,0 +1,27 @@
+﻿capital = 274
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 20
+		democratic_socialist = 0
+		neutrality = 10
+		communism = 10
+		communism_totalitarian = 10
+		unaligned_right = 50
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Kwame Nkrumah"
+		desc = ""
+		picture = "GHNH1.dds"
+		ideology = nationalism_idolg
+		expire = 1966.2.24
+		traits = {}
+	}	
+}

@@ -1,0 +1,89 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Infantry division"		
+	#division_names_group = POR_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Rifle division"		
+	#division_names_group = POR_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 3 y = 2 }
+	}
+}
+
+
+units = {
+	
+	division = {
+		name = "1st Infantry division"
+		location = 10201
+		division_template = "Infantry division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "2nd Infantry division"
+		location = 10201
+		division_template = "Infantry division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "3rd Infantry division"
+		location = 7344
+		division_template = "Infantry division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "4th Rifle division"
+		location = 10201
+		division_template = "Rifle division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "5th Rifle division"
+		location = 12258
+		division_template = "Rifle division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	
+	
+}
+
+
+
+### Starting Production ###

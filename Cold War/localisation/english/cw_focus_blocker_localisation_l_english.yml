@@ -1,0 +1,12 @@
+﻿l_english:
+ ### CW FOCUS BLOCKER LOCALISTION ###
+ RULE_FOCUS_VISABILITY:0 "National Focus Visibility" 
+ RULE_GROUP_FOCUS:0 "National Focus Settings"
+ FOCUS_DEFAULT_LOC:0 "Default focus settings"
+ FOCUS_DEFAULT_LOC_DESC:0 "Focuses will not be hidden and will work like in the vanilla game."
+ FOCUS_HIDE_AI_ONLY_LOC:0 "Hide only for AI countries"
+ FOCUS_HIDE_AI_ONLY_LOC_DESC:0 "Only AI controlled nations will have their national focuses hidden."
+ FOCUS_HIDE_PLAYER_ONLY_LOC:0 "Hide only for human countries"
+ FOCUS_HIDE_PLAYER_ONLY_LOC_DESC:0 "Only player controlled nations will have their national focuses hidden."
+ FOCUS_HIDE_ALL_LOC:0 "Hide for all countries"
+ FOCUS_HIDE_ALL_LOC_DESC:0 "National focuses will be hidden for all countries, including player controlled countries."

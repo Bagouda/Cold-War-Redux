@@ -1,0 +1,83 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Revolutionary Force"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+		artillery_brigade = { x = 0 y = 2 }
+		artillery_brigade = { x = 1 y = 2 }
+	}
+}
+units = {
+	division = {
+		name = "1st Russian Patriotic Division"
+		location = 6414
+		division_template = "Revolutionary Force"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "2nd Russian Patriotic Division"
+		location = 3391
+		division_template = "Revolutionary Force"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "3rd Russian Patriotic Division"
+		location = 11282
+		division_template = "Revolutionary Force"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "4th Russian Patriotic Division"
+		location = 3259
+		division_template = "Revolutionary Force"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "5th Russian Patriotic Division"
+		location = 6283
+		division_template = "Revolutionary Force"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "6th Russian Patriotic Division"
+		location = 9378
+		division_template = "Revolutionary Force"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "7th Russian Patriotic Division"
+		location = 301
+		division_template = "Revolutionary Force"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "8th Russian Patriotic Division"
+		location = 6414
+		division_template = "Revolutionary Force"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "9th Russian Patriotic Division"
+		location = 401
+		division_template = "Revolutionary Force"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "9th Russian Patriotic Division"
+		location = 11236
+		division_template = "Revolutionary Force"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}	
+}

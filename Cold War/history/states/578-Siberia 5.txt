@@ -1,0 +1,23 @@
+state = {
+	id=578
+	local_supplies=0.0 
+	name="STATE_578" # Tomsk
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 7789 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		victory_points = {
+			7789 1
+		}
+	}
+	manpower = 609304
+	provinces={
+		1674 1718 1765 1824 4681 4767 4827 7655 7789 7793 7849 7861 10529 10613 10617 10673 10686 12174 12510 12536 12599 
+	}
+}

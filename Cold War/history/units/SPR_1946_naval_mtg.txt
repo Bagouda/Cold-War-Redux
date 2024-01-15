@@ -1,0 +1,38 @@
+﻿
+units= {
+
+	####### NAVAL UNITS #######
+	
+	fleet = {
+	          name = "Spanish Armada"
+			  naval_base = 6906
+			  task_force = {
+			  name = "1st Squadron"
+			  location = 6906 
+			  
+			  ship = { name = "Navarra" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = SPR version_name = "Canarias Class" } } }
+			  ship = { name = "Mendez Nunez" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = SPR version_name = "Canarias Class" } } }
+			  ship = { name = "Churruca" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = SPR version_name = "Churruca Class" } } }
+			  }
+			  task_force = {
+			  name = "2nd Squadron"
+			  location = 6906 
+			  
+			  ship = { name = "Galicia" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = SPR version_name = "Canarias Class" } } }
+			  ship = { name = "Almirante Cervera" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = SPR version_name = "Canarias Class" } } }
+			  ship = { name = "Alcalá Galiano" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = SPR version_name = "Churruca Class" } } }
+			  }
+			  task_force = {
+			  name = "3rd Squadron"
+			  location = 6906 
+			  
+			  ship = { name = "Miguel De Servantes" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = SPR version_name = "Canarias Class" } } }
+			  ship = { name = "Canarias" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = SPR version_name = "Canarias Class" } } }
+			  ship = { name = "Sánchez Barcáiztegui" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = SPR version_name = "Churruca Class" } } }
+			  }
+			task_force = {
+			  name = "Sub squadron"
+			  location = 6906 
+			  ship = { name = "General Sanjuro" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = SPR version_name = "General Sanjuro Class" } } }
+			}
+}

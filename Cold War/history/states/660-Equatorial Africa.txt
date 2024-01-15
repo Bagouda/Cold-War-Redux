@@ -1,0 +1,21 @@
+state = {
+	id=660
+	local_supplies=0.0 
+	name="STATE_660"
+	state_category = pastoral
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = FRA
+		add_claim_by = CAR
+		
+	}
+	resources={
+		crops=3 # was: 4
+	}
+	manpower = 568460
+	provinces={
+		 3165 5084  12719  
+	}
+}

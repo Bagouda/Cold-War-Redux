@@ -1,0 +1,25 @@
+state = {
+	id=8
+	local_supplies=0.0 
+	name="STATE_8"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 6583 }
+ 	set_variable = { victory_point = 5 }
+		owner = LUX
+		add_core_of = LUX
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1			
+		}		
+		victory_points = { 6583 5 }
+	}
+	resources={
+		steel=5 # was: 8
+	}
+	manpower = 294748
+	provinces=
+	{
+6583 	}
+}

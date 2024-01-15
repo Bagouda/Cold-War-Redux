@@ -1,0 +1,36 @@
+state = {
+	id=669
+	local_supplies=0.0 
+	name="STATE_669"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 12371 }
+ 	set_variable = { victory_point = 1 }
+		owner = HOL
+		add_core_of = HOL
+		add_claim_by = INS
+		add_claim_by = EIN
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			4524 = {
+				naval_base = 3
+			}
+			7627 = {
+				naval_base = 1
+			}				
+		}
+		
+		victory_points = {
+			12371 1 
+		}
+	}
+	resources={
+		crops = 5
+	}	
+	manpower = 314300
+	provinces={
+		1546 1602 1617 1629 4468 4509 4524 4552 4593 7269 7487 7512 7529 7542 7570 7585 7627 8235 8250 10369 10396 10436 10505 10990 12315 12371 12386 12457 
+	}
+}

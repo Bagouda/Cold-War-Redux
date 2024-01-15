@@ -1,0 +1,106 @@
+wargoal_types = {
+	intervene_in_civil_war = {
+		# PREV = original target country
+		# ROOT = goal owner country
+
+		allowed = {
+			always = no
+		}
+		
+		available = {
+			PREV = { has_civil_war = yes }		
+		}
+		
+		take_states = {
+			
+		}
+		
+		generate_base_cost = 200
+		
+		expire = 90
+		
+		threat = 2
+	}
+	colonial_independence_war = {
+		# PREV = original target country
+		# ROOT = goal owner country
+		
+		allowed = {
+			has_country_flag = decolonization
+		}
+		
+		available = {
+		}	
+		
+		war_name = COLONIAL_INDEPENDENCE_WAR
+
+		take_states = {
+			is_claimed_by = ROOT
+			is_core_of = ROOT
+			is_owned_by = PREV
+			is_controlled_by = PREV
+		}
+		
+		generate_base_cost = 125
+		generate_per_state_cost = 10	
+		
+		take_states_limit = 5
+		take_states_cost = -50
+		
+		
+		threat = 0.15
+	}
+	
+	un_police_action = {
+		# PREV = original target country
+		# ROOT = goal owner country
+		
+		allowed = {
+			ROOT = { has_country_flag = unsc_authorized_police_action }
+			PREV = { has_civil_war = yes }
+		}
+		
+		available = {
+			NOT = { tag = UNN }
+		}
+		
+		war_name = UNSC_POLICE_ACTION
+		
+		take_states_limit = -1
+		
+		take_states = {
+			is_core_of = ROOT
+		}
+		
+		threat = 0.01
+		force_government_cost = 5000
+		puppet_cost = 5000
+		take_states_cost = 5000
+	}
+	cw_status_quo = {
+		# PREV = original target country
+		# ROOT = goal owner country
+		
+		allowed = {
+			always = no
+		}
+		
+		available = {
+			NOT = { tag = UNN }
+		}
+		
+		war_name = CW_STATUS_QUO_WARGOAL
+		
+		take_states_limit = -1
+		
+		take_states = {
+			is_claimed_by = ROOT
+			is_core_of = ROOT
+		}
+		
+		threat = 0.01
+		force_government_cost = 5000
+		puppet_cost = 5000
+		take_states_cost = 5000
+	}	
+}

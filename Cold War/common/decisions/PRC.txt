@@ -1,0 +1,214 @@
+crisis_national = {
+	#cw_prc_abandon_korea = {
+	#	icon = GFX_broken_communist_star_decision_icon
+	#	
+	#	allowed = { OR = { tag = PRK tag = KOR tag = PRC tag = event_target:democratic_leader } }
+	#	
+	#	available = {
+	#		has_war = yes
+	#	}
+	#	
+	#	activation = { PRC = { has_war_together_with = PRK has_war_with = UNN casualties > 1000000 } }
+	#	days_mission_timeout = 362
+	#	is_good = no
+	#	fire_only_once = yes
+	#	selectable_mission = yes
+	#
+	#	timeout_effect = {
+	#		if = {
+	#			limit = {
+	#				tag = PRC
+	#			}
+	#			dismantle_faction = yes
+	#			white_peace = UNN
+	#			white_peace = KOR
+	#			if = {
+	#				limit = {
+	#					has_government = communism_totalitarian
+	#				}
+	#				start_civil_war = {
+	#					ideology = communism
+	#					keep_political_leader = yes
+	#					size = 0.6
+	#					states_filter = { impassable = no }
+	#				}
+	#			}
+	#			if = {
+	#				limit = {
+	#					has_government = communism
+	#				}
+	#				start_civil_war = {
+	#					ideology = communism_totalitarian
+	#					keep_political_leader = yes
+	#					size = 0.6
+	#					states_filter = { impassable = no }
+	#				}
+	#			}
+	#		}			
+	#	}
+	#	complete_effect = {
+	#		if = {
+	#			limit = {
+	#				tag = PRC
+	#			}		
+	#			dismantle_faction = yes
+	#			white_peace = UNN
+	#			white_peace = KOR
+	#			set_truce = { target = KOR days = 365 }
+	#			set_truce = { target = UNN days = 365 }
+	#			PRK = { cw_block_country_volunteers = yes }
+	#		}
+	#	}
+	#	ai_will_do = {
+	#		factor = 100
+	#	}		
+	#}
+	cw_prc_great_leap_forward = {
+		icon = GFX_broken_communist_star_decision_icon
+		
+		allowed = { tag = PRC }
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ""
+				always = no
+			}
+		}
+		
+		cancel_trigger = {
+			AND = {
+				has_idea = cw_famine_severe
+				NOT = { has_completed_focus = PRC_lushan_confrence }
+			}
+			
+		}
+		
+		activation = { always = no }
+		days_mission_timeout = 1460
+		is_good = yes
+		fire_only_once = yes
+
+		timeout_effect = {
+			if = {
+				limit = {
+					has_idea = PRC_uneducated_rural_population_5
+				}
+				remove_ideas = PRC_uneducated_rural_population_5
+			}
+			if = {
+				limit = {
+					has_idea = PRC_uneducated_rural_population_4
+				}
+				remove_ideas = PRC_uneducated_rural_population_4
+			}
+			remove_dynamic_modifier = { modifier = PRC_great_leap_forward_modifier }
+		}
+	}
+}
+political_actions = {
+	cw_prc_intervene_in_korea = {
+		icon = GFX_decision_eng_trade_unions_demand
+		
+		allowed = {
+			tag = PRC
+		}
+		
+		visible = {
+			ROOT = { is_ai = yes }
+		}
+		
+		fire_only_once = yes
+
+		available = {
+			PRK = { has_war_with = KOR }
+			NOT = { has_war_with = CHI }
+			KOR = { has_full_control_of_state = 527 }
+			has_full_control_of_state = 328
+			PRK = { is_neighbor_of = ROOT }
+		}
+
+		complete_effect = {
+			add_named_threat = { threat = 15 name = "Escalated War in Korea" }
+			create_faction = "Korean Front"
+			PRC = { add_to_faction = PRK }
+			add_to_war = { 
+				targeted_alliance = PRK 
+				enemy = KOR
+				hostility_reason = asked_to_join
+			}
+			hidden_effect = { news_event = { id = cw_historic_events.40 days = 3 } }
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				716 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 5
+						instant_build = yes
+					}
+				}
+				328 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 5
+						instant_build = yes
+					}
+				}
+				610 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 5
+						instant_build = yes
+					}
+				}
+				609 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 5
+						instant_build = yes
+					}
+				}
+				608 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 5
+						instant_build = yes
+					}
+				}
+				add_timed_idea = {
+					idea = cw_annihilate_kill_kill
+					days = 360
+				}
+				751 = {		#To make sure PRC has enough troops for garrisons and doesn't recall troops from Korea
+					create_unit = {
+						division = "name = \"\" division_template = \"Motorized Infantry\" start_experience_factor = 0.3 start_equipment_factor = 1"
+						owner = ROOT
+						allow_spawning_on_enemy_provs = no
+						count = 20
+					}
+				}
+				608 = {		#To make sure PRC has enough troops for garrisons and doesn't recall troops from Korea
+					create_unit = {
+						division = "name = \"\" division_template = \"Motorized Infantry\" start_experience_factor = 0.3 start_equipment_factor = 1"
+						owner = ROOT
+						allow_spawning_on_enemy_provs = no
+						count = 20
+					}
+				}				
+				608 = {		#To make sure PRC has enough troops for garrisons and doesn't recall troops from Korea
+					create_unit = {
+						division = "name = \"\" division_template = \"Light Armour division\" start_experience_factor = 0.3 start_equipment_factor = 1"
+						owner = ROOT
+						allow_spawning_on_enemy_provs = no
+						count = 20
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+	}	
+}

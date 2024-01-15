@@ -1,0 +1,342 @@
+scripted_diplomatic_actions = {
+	cw_embargo = {
+		icon = 25
+		allowed = {		#The country making the diplomatic request
+			always = yes
+		}
+		visible = {		#The target country
+			NOT = { ROOT = { is_puppet_of = PREV } }
+			NOT = { is_puppet_of = ROOT }
+			NOT = { tag = UNN }
+			NOT = { ROOT = { tag = UNN } }
+			NOT = { ROOT = { is_puppet_of = FROM } }
+			NOT = {
+				is_in_array = {
+					array = ROOT.embargoed_countries
+					value = FROM.id
+				}			
+			}
+		}
+		selectable = {
+			NOT = { is_puppet_of = ROOT }
+			NOT = { is_in_faction_with = ROOT }
+			hidden_trigger = {
+				ROOT = { NOT = { has_country_flag = did_diplomatic_action } }		#Used to suspend request spam by AI
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		can_be_sent = {
+			always = yes
+		}
+
+		send_description = CW_EMBARGO_LOC
+		accept_title = CW_EMBARGO_INITIATED_TITLE
+		accept_description = CW_EMBARGO_INITIATED_DESC
+		
+		cost = 50
+
+		requires_acceptance = no
+
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action_embargo value = 1 days = 45 } }
+			}		
+		}
+		complete_effect = {
+			cw_impose_embargo_diplomacy = yes
+			########## COLD WAR MOD ACTIONS ##########
+			if = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = cw_importing_food_from_abroad
+						scope = ROOT
+					}
+				}
+				remove_dynamic_modifier = {
+					modifier = cw_importing_food_from_abroad
+					scope = ROOT
+				}
+			}
+		}
+		ai_desire = {
+			modifier = {
+				ROOT = { has_country_flag = did_diplomatic_action_embargo }
+				add = -500
+			}
+			modifier = {
+				is_major = yes
+				add = -900
+			}			
+			modifier = {
+				ROOT = { has_opinion = { target = PREV value < -50 } }
+				add = 100
+			}			
+			modifier = {		#We dont trade with our enemies
+				has_war_with = ROOT
+				add = 1000
+			}
+			modifier = {
+				any_enemy_country = {
+					has_volunteers_amount_from = {
+						tag = ROOT
+						count > 0
+					}
+				}
+				add = 500
+			}			
+			modifier = {		#Retaliate with a counter embargo
+				ROOT = { is_in_array = { array = FROM.embargoed_countries value = ROOT.id } }
+				add = 50
+			}
+			modifier = {		#Under embargo of overlord so we embargo too
+				var:ROOT.overlord = { OR = { has_government = communism_totalitarian has_government = communism } }
+				var:ROOT.overlord = {
+					PREV = {
+						is_in_array = {
+							array = PREV.embargoed_countries
+							value = THIS.id
+						}
+					}
+				}
+				add = 1000
+			}
+			########## COLD WAR MOD CHECKS ####
+			modifier = {		#They are sanctioned by the UNSC and we are members so we must as well
+				AND = {
+					ROOT = {
+						OR = {
+							is_in_array = {
+								array = global.unsc_non_permanent_members_array
+								value = THIS.id
+							}
+							is_in_array = {
+								array = global.unsc_permanent_members_array
+								value = THIS.id
+							}
+						}
+					}
+					ROOT = { has_opinion = { target = FROM value < 0 } }
+					sanctioned_by_unsc = yes
+				}
+				add = 50
+			}
+			modifier = {		#We are helping them in a war, no sense in embargo against them
+				sanctioned_by_unsc = yes
+				has_volunteers_amount_from = {
+					tag = ROOT
+					count > 0
+				}
+				add = -100
+			}
+			modifier = {		#They are sanctioned but we really like them
+				sanctioned_by_unsc = yes
+				ROOT = { has_opinion = { target = FROM value < 0 } }
+				add = -50
+			}
+			modifier = {		#They are sanctioned but we friends
+				AND = {
+					ROOT = {
+						OR = {
+							is_in_array = {
+								array = global.unsc_non_permanent_members_array
+								value = THIS.id
+							}
+							is_in_array = {
+								array = global.unsc_permanent_members_array
+								value = THIS.id
+							}
+						}
+					}
+					FROM = { sanctioned_by_unsc = yes }
+					ROOT = { is_in_faction_with = FROM }
+				}
+				add = -60
+			}			
+			modifier = {		#They are sanctioned but we need them for protection
+				AND = {
+					ROOT = {
+						OR = {
+							is_in_array = {
+								array = global.unsc_non_permanent_members_array
+								value = THIS.id
+							}
+							is_in_array = {
+								array = global.unsc_permanent_members_array
+								value = THIS.id
+							}
+						}
+					}
+					ROOT = { is_guaranteed_by = FROM }
+					num_divisions < 10
+					threat > 0.25
+				}
+				add = -60
+			}
+			modifier = {		#They are sanctioned but they are too close and too powerful
+				AND = {
+					ROOT = {
+						OR = {
+							is_in_array = {
+								array = global.unsc_non_permanent_members_array
+								value = THIS.id
+							}
+							is_in_array = {
+								array = global.unsc_permanent_members_array
+								value = THIS.id
+							}
+						}
+					}
+					ROOT = { is_neighbor_of = FROM }
+					ROOT = { strength_ratio = { tag = FROM ratio > 1 } }
+				}
+				add = -60
+			}			
+		}
+	}
+	cw_cancel_embargo = {
+		icon = 25
+		allowed = {		#The country making the diplomatic request
+			always = yes
+		}
+		visible = {		#The target country
+			is_in_array = {
+				array = ROOT.embargoed_countries
+				value = FROM.id
+			}
+		}
+		selectable = {
+			custom_trigger_tooltip = {
+				tooltip = "CW_CHECK_IS_EMBARGOED_BY_US"
+			}			
+			hidden_trigger = {
+				OR = {
+					is_ai = no
+					always = yes
+					AND = {
+						is_ai = yes
+						NOT = {  ROOT = { has_opinion = { target = FROM value > 0 } } }
+					}
+				}
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		can_be_sent = {
+			always = yes
+		}
+
+		send_description = CW_CANCEL_EMBARGO_LOC
+		accept_title = CW_CANCEL_EMBARGO_INITIATED_TITLE
+		accept_description = CW_CANCEL_EMBARGO_INITIATED_DESC
+		
+		cost = 50
+
+		requires_acceptance = no
+
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action value = 1 days = 45 } }
+			}		
+		}
+		complete_effect = {
+			cw_remove_embargo_diplomacy = yes
+			########## COLD WAR MOD ACTIONS ##########
+			if = {
+				limit = {
+					AND = {
+						sanctioned_by_unsc = yes
+						ROOT = {
+							OR = {
+								is_in_array = {
+									array = global.unsc_non_permanent_members_array
+									value = THIS.id
+								}
+								is_in_array = {
+									array = global.unsc_permanent_members_array
+									value = THIS.id
+								}
+							}
+						}
+					}
+				}
+				ROOT = { add_named_threat = { threat = 1 name = "Bypassed international sanctions." } }
+				every_country = {
+					limit = {
+						OR = {
+							is_in_array = {
+								array = global.unsc_non_permanent_members_array
+								value = THIS.id
+							}
+							is_in_array = {
+								array = global.unsc_permanent_members_array
+								value = THIS.id
+							}
+						}
+					}
+					add_opinion_modifier = { target = ROOT modifier = disregarded_unsc_sanctions }
+				}
+			}
+		}
+		ai_desire = {
+			modifier = {
+				ROOT = {
+					has_country_flag = did_diplomatic_action
+				}
+				add = -1000
+			}		
+			modifier = {
+				ROOT = { has_opinion = { target = PREV value > 10 } }
+				add = 100
+			}
+			modifier = {		#We dont trade with our enemies
+				ROOT = { has_war_with = PREV }
+				add = -1000
+			}
+			modifier = {		#Under embargo of overlord so we embargo too
+				var:ROOT.overlord = { OR = { has_government = communism_totalitarian has_government = communism } }
+				var:ROOT.overlord = {
+					PREV = {
+						is_in_array = {
+							array = PREV.embargoed_countries
+							value = THIS.id
+						}
+					}
+				}
+				add = -1000
+			}
+			########## COLD WAR MOD CHECKS ##########			
+			modifier = {		#They are sanctioned by the UNSC and we are members so we must as well
+				AND = {
+					ROOT = {
+						OR = {
+							is_in_array = {
+								array = global.unsc_non_permanent_members_array
+								value = THIS.id
+							}
+							is_in_array = {
+								array = global.unsc_permanent_members_array
+								value = THIS.id
+							}
+						}
+					}
+					sanctioned_by_unsc = yes
+				}
+				add = -500
+			}
+			modifier = {		#They are sanctioned but we really like them
+				sanctioned_by_unsc = yes
+				ROOT = { has_opinion = { target = PREV value > 50 } }
+				add = 700
+			}			
+		}
+	}	
+}

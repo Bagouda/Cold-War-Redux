@@ -1,0 +1,106 @@
+eng_protect_west_german_border = {
+	enable = {
+		tag = ENG
+		GER = { num_divisions < 10 }
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = put_unit_buffers
+		
+		order_id = 2
+		
+		states = { 
+			55
+			59
+			58
+		}
+		
+		ratio = 0.2
+		area = europe
+		
+		subtract_invasions_from_need = no
+	}		
+}
+eng_protect_suez_light = {
+	enable = {
+		tag = ENG
+		ENG = { controls_state = 805 }
+	}
+	
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = suez
+		value = 1000
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		
+		order_id = 2
+		
+		states = { 
+			805
+		}
+		
+		ratio = 0.1
+		area = africa
+		
+		subtract_invasions_from_need = no
+	}	
+}
+
+eng_interveene_colony = {
+	enable = {
+		tag = ENG
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = MAL
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = EIN
+		value = 100
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = BUR
+		value = 100
+	}
+}
+eng_protect_suez_harsh = {		#Increase troop levels after Farouk is deposed
+	enable = {
+		tag = ENG
+		ENG = { controls_state = 805 }
+		EGY = { NOT = { OR = { is_puppet_of = ENG is_subject_of = ENG  } } }
+	}
+	
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = area_priority
+		id = suez
+		value = 1000
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		
+		order_id = 2
+		
+		states = { 
+			805
+		}
+		
+		ratio = 0.2
+		area = africa
+		
+		subtract_invasions_from_need = no
+	}	
+}

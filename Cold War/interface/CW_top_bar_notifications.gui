@@ -1,0 +1,51 @@
+guiTypes = {
+	containerWindowType = {
+		name = "cw_top_bar_notifications_popup"
+		position = { x = -370 y = -480 }
+		moveable = no
+		Orientation = center_up
+		origo = center
+		show_position = { x = -390 y = 120 }
+		fade_time = 300
+		fade_type = linear
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 1000
+
+		iconType = {
+			name ="notification_background"
+			spriteType = "GFX_top_bar_notification_background"
+			position = { x = 0 y = 0 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name ="notification_country_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = 30 y = 20 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "unsc_member_flag_border"
+			quadTextureSprite = "GFX_diplo_countrylist_flag_frame"
+			position = { x = 26 y = 17 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name ="notification_unsc"
+			quadTextureSprite = "GFX_unn_resolution_imeplentation"
+			position = { x = 30 y = 9 }
+			alwaystransparent = yes
+			scale = 0.9
+		}		
+		instantTextboxType = {
+			name = "notification_text"
+			position = { x = 100 y = 28 }
+			font = "inba_subtitle_17"
+			text = "[CW_TOP_BAR_NOTIFICATIONS_TRIGGERS]"
+			format = left
+			maxWidth = 700
+			maxHeight = 100
+			fixedsize = yes
+		}
+	}
+}

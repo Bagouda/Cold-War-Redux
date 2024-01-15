@@ -1,0 +1,205 @@
+﻿capital = 289
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1946.1.6"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 5
+		democratic_socialist = 25
+		neutrality = 0
+		communism_totalitarian = 10
+		unaligned_right = 40
+		colonial =  20
+	}
+	create_country_leader = {
+		name = "Phayom Chulanont"
+		desc = ""
+		picture = "thaichi.dds"
+		ideology = stalinism_idolg
+		expire = 1992.10.16
+		traits = { }
+	}	
+	create_country_leader = {
+		name = "Plaek Phibunsongkhram"
+		desc = ""
+		picture = "SIAG4.dds"
+		ideology = military_idolg
+		expire = 1957.9.16
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Khuang Aphaiwong"
+		desc = ""
+		picture = "SIAG4.dds"
+		ideology = consitutional
+		expire = 1948.4.8
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Thawan Thamrongnawasawat"
+		desc = ""
+		picture = "SIAG2.dds"
+		ideology = consitutional
+		expire = 1947.11.8
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Kukrit Pramoj"
+		desc = ""
+		picture = "SIAG9.dds"
+		ideology = social_liberal_idolg
+		expire = 1975.4.20
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Pridi Banomyong"
+		desc = ""
+		picture = "SIAG1.dds"
+		ideology = social_democrat_idolg
+		expire = 1983.5.2	#In exile
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Seni Pramoj"
+		desc = ""
+		picture = "SIAG1.dds"
+		ideology = social_cons_idolg
+		expire = 1976.10.6
+		traits = {}
+	}		
+}
+1948.5.14 = {	#Arab Israeli War
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1948.1.29"
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 20
+		democratic_socialist = 0
+		neutrality = 30
+		communism_totalitarian = 10
+		unaligned_right = 40
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Sarit Thanarat"
+		desc = ""
+		picture = "SIAG7.dds"
+		ideology = military_idolg
+		expire = 1958.10.20
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Thanom Kittikachorn"
+		desc = ""
+		picture = "SIAG6.dds"
+		ideology = military_idolg
+		expire = 1958.10.20
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Pote Sarasin"
+		desc = ""
+		picture = "SIAG5.dds"
+		ideology = military_idolg
+		expire = 1958.1.1
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Plaek Phibunsongkhram"
+		desc = ""
+		picture = "SIAG4.dds"
+		ideology = military_idolg
+		expire = 1957.9.16
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Phayom Chulanont"
+		desc = ""
+		picture = "thaichi.dds"
+		ideology = stalinism_idolg
+		expire = 1992.10.16
+		traits = { }
+	}
+}
+1950.6.25 = {	#Korean War
+}
+1956.10.29 = {	#Suez Crisis
+}
+1961.12.11 = {	#Vietnam War
+	create_country_leader = {
+		name = "Kriangsak Chamanan"
+		desc = ""
+		picture = "SIAG12.dds"
+		ideology = military_idolg
+		expire = 1980.3.3
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Thanin Kraivichien"
+		desc = ""
+		picture = "SIAG11.dds"
+		ideology = military_idolg
+		expire = 1977.10.20
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Sanya Dharmasakti"
+		desc = ""
+		picture = "SIAG8.dds"
+		ideology = consitutional
+		expire = 1975.2.15
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Thanom Kittikachorn"
+		desc = ""
+		picture = "SIAG6.dds"
+		ideology = military_idolg
+		expire = 1973.10.14
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Sarit Thanarat"
+		desc = ""
+		picture = "SIAG7.dds"
+		ideology = military_idolg
+		expire = 1958.10.20
+		traits = {}
+	}
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	create_country_leader = {
+		name = "Prem Tinsulanonda"
+		desc = ""
+		picture = "SIAG13.dds"
+		ideology = military_idolg
+		expire = 1988.8.4
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Kriangsak Chamanan"
+		desc = ""
+		picture = "SIAG12.dds"
+		ideology = military_idolg
+		expire = 1980.3.3
+		traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	create_country_leader = {
+		name = "Chatichai Choonhavan"
+		desc = ""
+		picture = "SIAG14.dds"
+		ideology = military_idolg
+		expire = 1988.8.4
+		traits = {}
+	}
+}

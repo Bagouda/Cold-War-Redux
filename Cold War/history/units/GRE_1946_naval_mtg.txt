@@ -1,0 +1,15 @@
+﻿
+units= {
+
+	####### NAVAL UNITS #######
+	
+	fleet = {
+	          name = "Helenic Navy"
+			  naval_base = 12058
+			task_force = {
+			  name = "Sub squadron"
+			  location = 12058 
+			  ship = { name = "Ypobrychio Naftiko" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = GRE version_name = "Amphion Class" } } }
+			}
+}
+}

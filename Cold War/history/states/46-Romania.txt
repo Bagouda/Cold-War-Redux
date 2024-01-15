@@ -1,0 +1,35 @@
+state = {
+	id=46
+	local_supplies=0.0 
+	name="STATE_46" # Muntenia
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 9617 }
+ 	add_to_array = { list_victory_point = 3663 }
+ 	add_to_array = { list_victory_point = 657 }
+ 	set_variable = { victory_point = 28 }
+		owner = ROM
+		add_core_of = ROM
+		
+		buildings = {
+			infrastructure = 4
+			air_base = 4
+			industrial_complex = 5
+			657 = {
+				naval_base = 3
+			}			
+		}
+		
+		victory_points = { 657 3 }
+		victory_points = { 3663 5 }
+		victory_points = { 9617 20 }
+	}
+	resources={
+		oil=22 # was: 70
+		crops = 20
+	}
+	manpower = 4461400
+	provinces={
+		657 660 674 687 818 3076 3636 3639 3663 6658 6677 6695 9617 9635 9651 11603 11619 11636 
+	}
+}

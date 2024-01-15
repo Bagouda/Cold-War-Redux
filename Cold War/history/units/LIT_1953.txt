@@ -1,0 +1,47 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Lithuanian Liberation Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		motorized = { x = 2 y = 0 }
+		artillery_brigade = { x = 1 y = 2 }
+	}
+}
+units = {
+	division = {
+		name = "1st Lithuanian Patriotic Army"
+		location = 3288
+		division_template = "Lithuanian Liberation Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "2nd Lithuanian Patriotic Army"
+		location = 9483
+		division_template = "Lithuanian Liberation Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "3rd Lithuanian Patriotic Army"
+		location = 6296
+		division_template = "Lithuanian Liberation Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "4th Lithuanian Patriotic Army"
+		location = 6296
+		division_template = "Lithuanian Liberation Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "5th Lithuanian Patriotic Army"
+		location = 6296
+		division_template = "Lithuanian Liberation Division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}	
+}

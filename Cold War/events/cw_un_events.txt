@@ -1,0 +1,701 @@
+﻿add_namespace = unsc.resolution
+country_event = {
+	id = unsc.resolution.1		#EVENT FOR AI ONLY TO DECIDE ON GIVING UP CORE TO ANOTHER COUNTRY
+	title = unsc.resolution.1.t
+	desc = unsc.resolution.1.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {		#Give up land
+		name = unsc.resolution.1.a
+		ai_chance = {
+			modifier = {
+				AND = {
+					unsc_sanctions_allowed = yes
+					event_target:unsc_initiator = { check_variable = { claimed_states < 3 } }
+				}
+				factor = 150
+			}
+			modifier = {
+				AND = {
+					unsc_sanctions_allowed = yes
+					event_target:unsc_initiator = { check_variable = { claimed_states > 3 } }
+				}
+				factor = -150
+			}
+			modifier = {
+				has_country_flag = like_resolution
+				factor = 500
+			}			
+		}	
+		event_target:requested_core = { remove_core_of = event_target:unsc_target }
+		event_target:unsc_initiator = { transfer_state = event_target:requested_core }
+		cw_unsc_clear_junk = yes
+		add_stability = -0.1
+		add_named_threat = { threat = -5 name = UNSC_ACCEPTED_DEMAND_TRANSFER_STATE }
+	}
+	option = {		#Don't give up land
+		name = unsc.resolution.1.b
+		ai_chance = {
+			modifier = {
+				factor = 100
+			}
+			modifier = {
+				factor = -500
+				event_target:requested_core = { is_capital = yes }
+			}			
+		}
+		hidden_effect = {
+			custom_effect_tooltip = UNSC_ELIGABLE_FOR_SANCTIONS_US
+			unsc_mark_for_sanctions = yes
+			add_named_threat = { threat = 3 name = UNSC_REFUSED_TRANSFER_CORE }
+			add_named_threat = { threat = 1 name = UNSC_MARKED_FOR_SANCTIONS }
+			cw_unsc_clear_junk = yes
+			clr_global_flag = unsc_implementing_resolution_flag			
+		}
+	}	
+}
+country_event = {
+	id = unsc.resolution.2		#Police Action Resolution Event
+	title = unsc.resolution.2.t
+	desc = unsc.resolution.2.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {		#Stop civil war
+		name = "We will abide by the resolution"
+		ai_chance = {
+			modifier = {
+				factor = 0
+			}
+		}
+		add_war_support = -0.1
+		add_named_threat = { threat = -5 name = UNSC_ACCEPTED_REQUEST_TRUCE }
+		every_country = { limit = { has_defensive_war_with = ROOT has_civil_war_cwtrigger = yes } white_peace = { tag = ROOT } }
+		hidden_effect = {
+			subtract_from_variable = { UNN.multiple_participant_resolution_members = 1 }
+			ROOT = {
+				remove_from_array = {
+					array = UNN.multiple_participant_resolution
+					value = THIS.id
+				}
+			}		
+			if = {
+				limit = {
+					check_variable = { UNN.multiple_participant_resolution_members < 1 }
+				}
+				cw_unsc_clear_junk = yes
+				clear_array = UNN.multiple_participant_resolution
+				clear_variable = UNN.multiple_participant_resolution_members
+				clr_global_flag = unsc_implementing_resolution_flag
+			}
+		}
+	}
+	option = {	#Dont stop civil war
+		name = "We cannot allow this"
+		ai_chance = {
+			modifier = {
+				factor = 100
+			}
+		}
+		add_named_threat = { threat = 5 name = UNSC_REFUSED_REQUEST_TRUCE }
+		custom_effect_tooltip = "CEASEFIRE_DEMAND_EVENT_TT"
+		hidden_effect = {
+			event_target:unsc_target = {
+				set_country_flag = { flag = can_recieve_volunteers value = 1 days = 320 }
+				add_opinion_modifier = { target = event_target:unsc_initiator modifier = took_stand_for_us }				
+				set_variable = { police_action_days_remaining = 320 }
+				set_country_flag = { flag = un_police_action_granted value = 1 days = 320 }
+				if = {
+					limit = {
+						date < 1960.1.1
+						KOR = { has_war_with = PRK }
+						tag = KOR
+					}
+					set_variable = { police_action_days_remaining = 730 }
+					set_country_flag = { flag = un_police_action_granted value = 1 days = 730 }
+				}
+				add_timed_idea = { idea = cw_international_protection days = 180 }
+				give_military_access = UNN
+				add_to_array = {
+					array = event_target:unsc_initiator.police_action_targets
+					value = THIS.id
+				}
+				every_enemy_country = {
+					limit = {
+						event_target:unsc_target = {
+							OR = { 
+								civilwar_target = PREV
+								has_civil_war_cwtrigger = yes
+							}
+						}
+					}
+					activate_targeted_decision = {  target = PREV decision = police_action_timer_police_target }
+					add_opinion_modifier = { target = event_target:unsc_initiator modifier = protest_action_strong }
+					UNN = {
+						declare_war_on = {
+							target = PREV
+							type = un_police_action
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							is_in_faction = yes
+						}
+					}
+					UNN = {
+						add_to_faction = PREV
+						add_timed_idea = { idea = cw_annihilate_kill_kill days = 180 }						
+					}
+				}
+			}
+			800 = {
+				create_unit = {
+					division = "division_template = \"UN Peacekeeping Forces\" start_experience_factor = 0.4" 
+					owner = UNN
+					allow_spawning_on_enemy_provs = no
+					count = 5
+					id = 200
+				}
+			}
+			event_target:unsc_initiator = {
+				top_bar_decisions_notification_new_decisions_available = yes
+				add_to_array = {
+					array = THIS.police_action_targets
+					value = event_target:unsc_target
+				}				
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = event_target:unsc_target
+					value = 200
+				}
+				add_ai_strategy = {
+					type = send_lend_lease_desire
+					id = event_target:unsc_target
+					value = 200
+				}
+				give_military_access = UNN
+				if = {
+					limit = {
+						is_ai = no
+					}
+					create_wargoal = {
+						type = un_police_action
+						target = var:event_target:unsc_target.enemies^0
+						expire = 320
+					}
+				}			
+				clr_country_flag = can_ask_for_police_action
+				if = {
+					limit = {
+						has_global_flag = korean_war_activated
+						event_target:unsc_target = { tag = KOR }
+					}
+					set_variable = { police_action_days_remaining = 730 }
+					set_country_flag = { flag = un_police_action_allowed value = 1 days = 730 }
+				}
+				else = {
+					set_variable = { police_action_days_remaining = 320 }
+					set_country_flag = { flag = un_police_action_allowed value = 1 days = 320 }
+				}
+				activate_targeted_decision = { target = event_target:unsc_target decision = police_action_timer }
+				if = {
+					limit = {
+						NOT = { has_variable = police_action_target }
+					}
+					set_variable = { police_action_target = event_target:unsc_target.id }
+				}
+				if = {
+					limit = {
+						has_variable = police_action_target
+					}
+					set_variable = { police_action_target_2 = event_target:unsc_target.id }
+				}				
+			}
+			subtract_from_variable = { UNN.multiple_participant_resolution_members = 1 }
+			ROOT = {
+				unsc_mark_for_sanctions = yes
+				remove_from_array = {
+					array = UNN.multiple_participant_resolution
+					value = THIS.id
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { UNN.multiple_participant_resolution_members < 1 }
+				}
+				news_event = unsc.resolution_news.1
+				cw_unsc_clear_junk = yes
+				clear_array = UNN.multiple_participant_resolution
+				clear_variable = UNN.multiple_participant_resolution_members
+				clr_global_flag = unsc_implementing_resolution_flag
+			}			
+		}
+	}
+}
+country_event = {
+	id = unsc.resolution.3		#EVENT DEMANDING TO HOLD AUTONOMY REFERENDUM
+	title = unsc.resolution.3.t
+	desc = unsc.resolution.3.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {		#Hold Referendum
+		name = "Hold the Referendum"
+		ai_chance = {
+			modifier = {
+				factor = 70
+			}
+		}
+		hidden_effect = {
+			GRL = { save_event_target_as = state_ref_second_option_temp }
+			101 = { cw_state_ref_initial_setup = yes }
+			clr_global_flag = unsc_implementing_resolution_flag		
+			clr_country_flag = generic_recognition_offmap_country
+			cw_unsc_clear_junk = yes
+			cw_ref_alert_neighbours_and_superpowers = yes
+			set_country_flag = territory_demanding_autonomy
+			add_named_threat = { threat = -1 name = "Agreed to Security Council demand to hold referendum." }
+		}
+	}
+	option = {
+		name = "Grant them Autonomy"
+		ai_chance = {
+			modifier = {
+				factor = 15
+			}
+		}
+		every_state = { limit = { is_claimed_by = event_target:unsc_initiator } add_core_of = event_target:unsc_initiator }
+		release_puppet = event_target:unsc_initiator
+		hidden_effect = {
+			clr_global_flag = unsc_implementing_resolution_flag		
+			clr_country_flag = generic_recognition_offmap_country
+			cw_unsc_clear_junk = yes
+			add_named_threat = { threat = -1 name = UNSC_ACCEPTED_REQUEST_OFFMAP_AUTONOMY }
+		}
+	}
+	option = {
+		name = "Refuse this outrageous demand"
+		ai_chance = {
+			modifier = {
+				factor = 15
+			}
+		}
+		custom_effect_tooltip = "UNSC_ELIGABLE_FOR_SANCTIONS_US"
+		hidden_effect = {
+			clr_global_flag = unsc_implementing_resolution_flag
+			unsc_mark_for_sanctions = yes
+			clr_country_flag = generic_recognition_offmap_country
+			add_named_threat = { threat = 1 name = UNSC_MARKED_FOR_SANCTIONS }
+			add_named_threat = { threat = 1 name = UNSC_REFUSED_REQUEST_OFFMAP_AUTONOMY }
+			cw_unsc_clear_junk = yes
+		}
+	}	
+}
+country_event = {
+	id = unsc.resolution.4		#EVENT DEMANDING TO WITHDRAW OCCUPATION
+	title = unsc.resolution.4.t
+	desc = unsc.resolution.4.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {		#Withdraw from occupied areas
+		name = "Withdraw our forces"	
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 75
+			}
+			modifier = {
+				tag = SOV
+				is_historical_focus_on = yes
+				event_target:unsc_target = { tag = PER }
+				factor = 800
+			}
+			modifier = {
+				NOT = { event_target:unsc_target = { is_neighbor_of = ROOT } }
+				factor = 200
+			}
+			modifier = {
+				factor = -75
+				OR = {
+					event_target:unsc_target = { is_puppet_of = ROOT }
+					event_target:unsc_target = { is_subject_of = ROOT }
+				}
+			}			
+		}
+		if = {
+			limit = {
+				event_target:unsc_target = { exists = no }
+			}
+			event_target:unsc_target = { cw_new_country_notification = yes }
+		}
+		if = {
+			limit = {
+				has_global_flag = colonial_withdrawal_demand
+			}
+			hidden_effect = {
+				every_state = { limit = { is_controlled_by = ROOT OR = { is_claimed_by = event_target:unsc_target is_core_of = event_target:unsc_target } } remove_core_of = event_target:unsc_target remove_claim_by = event_target:unsc_target add_core_of = event_target:unsc_target }
+				every_state = { limit = { is_controlled_by = ROOT OR = { is_claimed_by = event_target:unsc_target is_core_of = event_target:unsc_target } } remove_core_of = ROOT }
+				event_target:unsc_target = {
+					add_ideas = cw_partially_recognized_state
+					set_popularities = {
+						democratic = 20
+						democratic_socialist = 20
+						unaligned_right = 20
+						neutrality = 20
+						communism = 0
+						communism_totalitarian = 20
+					}					
+					if = {
+						limit = {
+							SOV = { has_government = communism }
+						}
+						set_popularities = {
+							democratic = 15
+							democratic_socialist = 15
+							unaligned_right = 15
+							neutrality = 15
+							communism = 20
+							communism_totalitarian = 20
+						}
+					}
+				}
+				set_country_flag = { flag = has_occupation_event_active value = 1 days = 5 }
+				clr_global_flag = colonial_withdrawal_demand
+			}
+		}		
+		every_controlled_state = { limit = { is_core_of = event_target:unsc_target } event_target:unsc_target = { transfer_state = PREV } }
+		if = {		#Effect for if resolution target is puppet of ROOT
+			limit = {
+				OR = {
+					event_target:unsc_target = { is_puppet_of = ROOT }
+					event_target:unsc_target = { is_subject_of = ROOT }
+				}
+			}
+			custom_effect_tooltip = "- [unsc_target.GetName] will no longer be our puppet."
+			custom_effect_tooltip = "- [unsc_target.GetName] will hold elections to elect a new government."
+			custom_effect_tooltip = "- We will sign a white peace with every country that is at war with [unsc_target.GetName]."
+			hidden_effect = {
+				end_puppet = event_target:unsc_target
+				event_target:unsc_target = {
+					hold_election = THIS
+					every_enemy_country = {
+						white_peace = ROOT
+						set_truce = { target = ROOT days = 365 }
+					} 
+				}
+			}
+		}
+		if = {		#Effect for war
+			limit = {
+				has_war_with = event_target:unsc_target
+			}
+			white_peace = event_target:unsc_target
+			set_truce = { target = event_target:unsc_target days = 365 }
+		}
+		if = {		#Effect for volunteers
+			limit = {
+				event_target:unsc_target = { any_enemy_country = { has_volunteers_amount_from = { tag = ROOT count > 0 } } }
+			}
+			custom_effect_tooltip = WITHDRAWAL_DEMAND_VOLUNTEERS_DESC
+			set_truce = { target = event_target:unsc_target days = 365 }
+			event_target:unsc_target = {
+				every_enemy_country = {
+					limit = {
+						has_volunteers_amount_from = { tag = ROOT count > 0 }
+					}
+					ROOT = { recall_volunteers_from = PREV }
+					set_variable = { volunteers_blocked_from@ROOT = 1 }
+				}
+			}
+		}		
+		hidden_effect = {
+			add_named_threat = { threat = -1 name = UNSC_ACCEPTED_REQUEST_FOREIGN_WITHDRAWAL }
+			add_to_variable = { UNN.withdrawal_demand_agreed_total = 1 }
+			add_to_array = {
+				array = UNN.withdrawal_demand_agreed
+				value = THIS.id
+			}
+			subtract_from_variable = { UNN.multiple_participant_resolution_members = 1 }
+			ROOT = {
+				remove_from_array = {
+					array = UNN.multiple_participant_resolution
+					value = THIS.id
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { UNN.multiple_participant_resolution_members < 1 }
+				}
+				if = {
+					limit = {
+						check_variable = { UNN.withdrawal_demand_agreed_total > 0 }
+					}
+					if = {
+						limit = {	# To prevent event from firing twice, Yemeni troops occupying China is not funny!
+							NOT = { has_global_flag = withdrawal_resolution_event_fired }
+						}
+						news_event = unsc.resolution_news.8
+						set_global_flag = { flag = withdrawal_resolution_event_fired value = 1 days = 3 }
+					}
+				}
+				cw_unsc_clear_junk = yes
+				clear_array = UNN.multiple_participant_resolution
+				clear_array = UNN.withdrawal_demand_agreed
+				clear_array = UNN.withdrawal_demand_refused
+				clear_variable = UNN.withdrawal_demand_agreed_total
+				clear_variable = UNN.withdrawal_demand_refused_total
+				clear_variable = UNN.multiple_participant_resolution_members
+				clr_global_flag = unsc_implementing_resolution_flag
+			}
+		}
+	}
+	option = {		#Refuse to withdraw
+		name = "We will not give up an inch of land"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 10
+			}
+			modifier = {
+				factor = 200
+				is_major = yes
+			}
+			modifier = {
+				factor = -75
+				OR = { NOT = { has_government = democratic has_government = democratic_socialist } }
+			}
+			modifier = {
+				factor = 75
+				OR = {
+					event_target:unsc_target = { is_puppet_of = ROOT }
+					event_target:unsc_target = { is_subject_of = ROOT }
+				}
+			}
+		}
+		add_war_support = -0.20
+		add_stability = -0.10
+		unsc_mark_for_sanctions = yes
+		add_named_threat = { threat = 10 name = UNSC_REFUSED_REQUEST_FOREIGN_WITHDRAWAL }
+		if = {
+			limit = {
+				has_global_flag = colonial_withdrawal_demand
+			}
+			hidden_effect = {
+				news_event = unsc.resolution_news.8
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_core_of = event_target:unsc_target
+							is_claimed_by = event_target:unsc_target
+						} 
+					}
+					hidden_effect = {
+						add_state_modifier = {
+							modifier = {
+								resistance_growth = 0.1
+								resistance_damage_to_garrison = 0.3
+								required_garrison_factor = 0.5
+							}
+						}
+					}
+				}
+			}
+			set_country_flag = { flag = has_occupation_event_active value = 1 days = 5 }
+			clr_global_flag = colonial_withdrawal_demand
+		}		
+		hidden_effect = {
+			add_to_variable = { UNN.withdrawal_demand_refused_total = 1 }			
+			add_to_array = {
+				array = UNN.withdrawal_demand_refused
+				value = THIS.id
+			}
+			subtract_from_variable = { UNN.multiple_participant_resolution_members = 1 }
+			ROOT = {
+				remove_from_array = {
+					array = UNN.multiple_participant_resolution
+					value = THIS.id
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { UNN.multiple_participant_resolution_members < 1 }
+				}
+				if = {
+					limit = {
+						check_variable = { UNN.withdrawal_demand_agreed_total > 0 }
+					}
+					if = {
+						limit = {		# To prevent event from firing twice, Yemeni troops occupying China is not funny!
+							NOT = { has_global_flag = withdrawal_resolution_event_fired }
+						}
+						news_event = unsc.resolution_news.8
+						set_global_flag = { flag = withdrawal_resolution_event_fired value = 1 days = 3 }
+					}
+				}
+				cw_unsc_clear_junk = yes
+				clear_array = UNN.multiple_participant_resolution
+				clear_array = UNN.withdrawal_demand_agreed
+				clear_array = UNN.withdrawal_demand_refused
+				clear_variable = UNN.multiple_participant_resolution_members
+				clear_variable = UNN.withdrawal_demand_agreed_total
+				clear_variable = UNN.withdrawal_demand_refused_total
+				clr_global_flag = unsc_implementing_resolution_flag
+			}
+		}
+	}
+}
+country_event = {
+	id = unsc.resolution.5		#EVENT DEMANDING TO MAKE TERRITORY INTERNATIONAL LEASE ZONE
+	title = unsc.resolution.5.t
+	desc = unsc.resolution.5.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Hand over the territory"
+		ai_chance = {
+			modifier = {
+				factor = 50
+			}		
+		}
+		event_target:unsc_initiator = { transfer_state = event_target:requested_int_zone }
+		add_named_threat = { threat = -1 name = UNSC_ACCEPTED_REQUEST_INT_LEASE }
+		hidden_effect = {
+			event_target:unsc_initiator = { event_target:requested_int_zone = { cw_grant_lease_international = yes } }
+			cw_unsc_clear_junk = yes
+			clr_global_flag = unsc_implementing_resolution_flag
+		}
+	}
+	option = {		#Refuse to withdraw
+		name = "This is an outrage!"
+		ai_chance = {
+			modifier = {
+				factor = 0
+			}
+		}
+		custom_effect_tooltip = "UNSC_ELIGABLE_FOR_SANCTIONS_US"
+		hidden_effect = {
+			unsc_mark_for_sanctions = yes
+			add_named_threat = { threat = 1 name = UNSC_MARKED_FOR_SANCTIONS }
+			add_named_threat = { threat = 1 name = UNSC_REFUSED_REQUEST_INT_ZONE_WITHDRAWAL }
+			cw_unsc_clear_junk = yes
+			clr_global_flag = unsc_implementing_resolution_flag
+		}
+	}
+}
+
+country_event = {
+	id = unsc.resolution.6		#EVENT DEMANDING TO MAKE TERRITORY INTERNATIONAL ZONE + PROVDE MONOPOLY ON RESOURCES
+	title = unsc.resolution.6.t
+	desc = unsc.resolution.6.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Hand over the territory"
+		ai_chance = {
+			modifier = {
+				factor = 50
+			}		
+		}
+		every_state = {
+			limit = {
+				is_in_array = {
+					array = UNN.international_region_non_canal
+					value = THIS.id
+				}
+			}
+			custom_effect_tooltip = "INTERNATIONAL_ZONE_NO_CANAL_EVEN_EFFECT_TT"
+			hidden_effect = {
+				UNN = { PREV = { cw_grant_lease_international_non_canal = yes } }
+				UNN = { set_temp_variable = { international_lease_years = 50 } }
+				event_target:unsc_initiator = { cw_give_state_monopoly_perpetual_country = yes }
+				set_demilitarized_zone = yes
+			}
+		}
+		hidden_effect = {
+			add_named_threat = { threat = -1 name = UNSC_ACCEPTED_REQUEST_INT_LEASE }
+			cw_unsc_clear_junk = yes
+			clear_array = UNN.international_region_non_canal
+			clr_global_flag = unsc_implementing_resolution_flag
+		}
+	}
+	option = {		#Refuse to withdraw
+		name = "This is an outrage!"
+		ai_chance = {
+			modifier = {
+				factor = 0
+			}
+		}
+		custom_effect_tooltip = "UNSC_ELIGABLE_FOR_SANCTIONS_US"
+		hidden_effect = {
+			unsc_mark_for_sanctions = yes
+			clear_array = UNN.international_region_non_canal
+			add_named_threat = { threat = 1 name = UNSC_MARKED_FOR_SANCTIONS }
+			add_named_threat = { threat = 1 name = UNSC_REFUSED_REQUEST_INT_ZONE_WITHDRAWAL }
+			cw_unsc_clear_junk = yes
+			clr_global_flag = unsc_implementing_resolution_flag
+		}
+	}
+}
+
+country_event = { # resolution rejected
+	id = unsc.resolution.7		#EVENT DEMANDING TO MAKE TERRITORY INTERNATIONAL ZONE + PROVDE MONOPOLY ON RESOURCES
+	title = unsc.resolution.7.t
+	desc = unsc.resolution.7.d
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+		
+		
+	option = {		#Refuse to withdraw
+		name = "We lose 5 £cw_score"
+		ai_chance = {
+			modifier = {
+				factor = 0
+			}
+		}
+		
+		hidden_effect = {
+			subtract_from_variable = { cw_score = 5 }
+			
+		}
+	}
+	
+}
+
+
+country_event = { # resolution rejected
+	id = unsc.resolution.8		#EVENT DEMANDING TO MAKE TERRITORY INTERNATIONAL ZONE + PROVDE MONOPOLY ON RESOURCES
+	title = unsc.resolution.8.t
+	desc = unsc.resolution.8.d
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+		
+		
+	option = {		#Refuse to withdraw
+		name = "We win 10 £cw_score"
+		ai_chance = {
+			modifier = {
+				factor = 0
+			}
+		}
+		
+		hidden_effect = {
+			add_to_variable = { cw_score = 5 }
+			
+		}
+	}
+	
+}

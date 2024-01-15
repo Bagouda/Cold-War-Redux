@@ -1,0 +1,22 @@
+state = {
+	id=699
+	local_supplies=0.0 
+	name="STATE_699"
+	state_category = wasteland
+	history = {
+		owner = SDR
+		add_claim_by = MOR
+		
+		buildings = {
+			infrastructure = 1
+		}
+		
+		1975.11.14 = {
+			owner = MOR
+		}
+	}
+	manpower = 21056
+	provinces={
+		5012 7979 10875
+	}
+}

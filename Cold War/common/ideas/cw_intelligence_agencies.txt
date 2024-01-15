@@ -1,0 +1,50 @@
+ideas = {
+ hidden_ideas = {
+	usa_intelligence_cia_lar = {
+		name = "Central Intelligence Agency"
+		allowed = {
+			always = no
+		}
+
+		allowed_civil_war = {
+			OR = {
+				has_government = democratic
+				has_government = democratic_socialist
+			}
+		}
+
+		removal_cost = -1			
+
+		modifier = {
+			own_operative_detection_chance_factor = -0.25
+			intel_network_gain = 0.10
+			operative_slot = 1
+		}
+	}
+ }
+ country = {
+	usa_intelligence_cia = {
+		name = "Central Intelligence Agency"
+		picture = usa_intelligence_cia
+		allowed = {
+			always = no
+		}
+
+		allowed_civil_war = {
+			OR = {
+				has_government = democratic
+				has_government = democratic_socialist
+			}
+		}
+
+		removal_cost = -1			
+
+		modifier = {
+			foreign_subversive_activites = -0.10
+			subversive_activites_upkeep = -0.25
+		}
+	}
+ }
+ 
+
+}

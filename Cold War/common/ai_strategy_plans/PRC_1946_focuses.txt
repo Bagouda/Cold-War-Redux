@@ -1,0 +1,51 @@
+PRC_historical_plan_1946 = {
+	name = "PRC 1946 Focuses"
+	desc = ""
+
+	enable = {
+		tag = PRC
+		is_historical_focus_on = yes
+		has_focus_tree = prc_1946_focus_tree
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		PRC_support_xinxiang_rebellion
+		PRC_a_new_china
+		PRC_land_reform
+		PRC_land_redestribution
+		PRC_allow_show_trials
+		PRC_new_land_law
+		PRC_crush_the_kuomintang
+		PRC_recruit_soviet_advisors
+		PRC_central_military_commision
+		PRC_civil_war_operations
+		PRC_conduct_kuomintang_raids
+		PRC_attack_the_kuomintang
+		PRC_proclaim_peoples_republic
+		PRC_support_vietnam_communists
+		PRC_civil_war_operations_yellow_river_crossing
+		PRC_civil_war_operations_west_china
+	}
+
+	research = {
+	}
+	ideas = {
+	}
+	traits = {
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

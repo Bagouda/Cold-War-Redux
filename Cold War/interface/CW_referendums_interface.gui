@@ -1,0 +1,866 @@
+guiTypes = {
+	################## MONARCHY REFERENDUMS ##################
+	containerWindowType = {
+		name = "cw_mon_referendum_diplomacy_view"
+		position = { x=0 y=-125}
+
+		iconType = {
+			name ="ref_state_background"
+			spriteType = "GFX_mon_ref_diplomacy_background"
+			position = { x = 16 y = 405 }
+		}
+		instantTextBoxType = {
+			name ="ref_date_loc"
+			position = { x = 15 y = 408 }
+			font = "cw_terminal_font"
+			text = "MON_REF_DIP_TIMER_LOC"
+			maxWidth = 180
+			maxHeight = 20
+			format = center
+		}
+		iconType = {
+			name ="referendum_hint_diplomacy"
+			spriteType = "GFX_hint_icon"
+			position = { x=512 y=413}
+			pdx_tooltip = "CW_REFERENDUM_HINT_DIPLOMACY_TTL"
+		}
+		instantTextBoxType = {
+			name ="ref_state_instructions"
+			position = { x = 38 y = 433 }
+			font = "cw_terminal_font"
+			text = "[CW_REF_INF_TIMEOUT_LOC]"
+			maxWidth = 150
+			maxHeight = 20
+			format = center
+		}
+		#### ABSOLUTE MONARCHY OPTION ####
+		containerWindowType = {
+			name = "cw_mon_ref_absolute_option"
+			position = { x=261 y=412}
+
+			instantTextBoxType = {
+				name ="absolute_option_status"
+				position = { x = -78 y = 40 }
+				font = "cw_terminal_font"
+				text = "[?THIS.country_ref_first_option_votes_percent|.0]%"
+				format = center
+			}
+			buttonType = {
+				name = "absolute_option_icon"
+				spriteType = "GFX_mon_referendum_choice_a_monarchy"
+				position = { x = 0 y = 0 }
+				pdx_tooltip = "ABSOLUTE_MON_OPTION_ICON_TT"
+				pdx_tooltip_delayed = "CW_MON_REF_A_MON_BUTTON_EFFECT_TTD"
+				scale = 0.8
+			}
+			iconType = {
+				name ="option_blocker_absolute"
+				spriteType = "GFX_accept_decline_icon"
+				position = { x = 0 y = 20 }
+				pdx_tooltip = "REF_OPTION_BLOCKER_TT"
+				scale = 0.9
+				frame = 1
+			}
+		}
+		#### CONSTITUTIONAL MONARCHY OPTION ####
+		containerWindowType = {
+			name = "cw_mon_ref_constitutional_option"
+			position = { x=342 y=412}
+
+			instantTextBoxType = {
+				name ="constitutional_option_status"
+				position = { x = -78 y = 40 }
+				font = "cw_terminal_font"
+				text = "[?THIS.country_ref_second_option_votes_percent|.0]%"
+				format = center
+			}
+			buttonType = {
+				name = "constitutional_option_icon"
+				spriteType = "GFX_mon_referendum_choice_c_monarchy"
+				position = { x = 0 y = 0 }
+				pdx_tooltip = "CONSTITUTIONAL_MON_OPTION_ICON_TT"
+				pdx_tooltip_delayed = "CW_MON_REF_C_MON_BUTTON_EFFECT_TTD"
+				scale = 0.8
+			}
+			iconType = {
+				name ="option_blocker_constitutional"
+				spriteType = "GFX_accept_decline_icon"
+				position = { x = 0 y = 20 }
+				pdx_tooltip = "REF_OPTION_BLOCKER_TT"
+				scale = 0.9
+				frame = 1
+			}
+		}
+		#### REPUBLIC OPTION ####
+		containerWindowType = {
+			name = "cw_mon_ref_republic_option"
+			position = { x=423 y=412}
+
+			instantTextBoxType = {
+				name ="republic_option_status"
+				position = { x = -78 y = 40 }
+				font = "cw_terminal_font"
+				text = "[?THIS.country_ref_third_option_votes_percent|.0]%"
+				format = center
+			}
+			buttonType = {
+				name = "republic_option_icon"
+				spriteType = "GFX_mon_referendum_choice_republic"
+				position = { x = 0 y = 0 }
+				pdx_tooltip = "REPUBLIC_OPTION_ICON_TT"
+				pdx_tooltip_delayed = "CW_MON_REF_REPUBLIC_BUTTON_EFFECT_TTD"
+				scale = 0.8
+			}
+			iconType = {
+				name ="option_blocker_republic"
+				spriteType = "GFX_accept_decline_icon"
+				position = { x = 0 y = 20 }
+				pdx_tooltip = "REF_OPTION_BLOCKER_TT"
+				scale = 0.9
+				frame = 1
+			}
+		}
+	}
+	containerWindowType = {
+		name = "cw_mon_referendum_decision_view"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 10 }
+		iconType = {
+			name = "GFX_referendum_back"
+			spriteType  ="GFX_referendum_background"
+			position = { x = 108 y = -230 }
+		}
+		iconType = {
+			name ="referendum_hint"
+			spriteType = "GFX_hint_icon"
+			position = { x = 10 y = -250 }
+			pdx_tooltip = "CW_REFERENDUM_HINT_TTL"
+		}
+		containerWindowType = {
+			#### ABSOLUTE MONARCHY OPTION ####
+			name = "cw_referendums_mon_absolute_option"
+			position = { x = -21 y = 15 }
+			iconType = {
+				name ="first_option"
+				spriteType = "GFX_referendum_votes_indicator_3"
+				position = { x = 190 y = -200 }
+			}
+			instantTextBoxType = {
+				name ="mon_absolute_status"
+				position = { x = 95 y = -29 }
+				font = "cw_terminal_font"
+				text = "[?THIS.country_ref_first_option_votes_percent|.0]%"
+				format = center
+			}
+			buttonType = {
+				name = "absolute_option_icon"
+				spriteType = "GFX_mon_referendum_choice_a_monarchy"
+				position = { x = 173 y = -70 }
+				pdx_tooltip = "ABSOLUTE_MON_OPTION_ICON_SELF_TT"
+				pdx_tooltip_delayed = "CW_MON_REF_A_MONARCHY_BUTTON_EFFECT_SELF_TTD"
+				scale = 0.9
+			}
+			iconType = {
+				name ="option_blocker_absolute"
+				spriteType = "GFX_accept_decline_icon"
+				position = { x = 173 y = -50 }
+				pdx_tooltip = "REF_OPTION_BLOCKER_TT"
+				scale = 0.9
+				frame = 1
+			}
+		}
+		containerWindowType = {
+			#### CONSTITUTIONAL MONARCHY OPTION ####
+			name = "cw_referendums_mon_yes_option"
+			position = { x = 106 y = 15 }
+			iconType = {
+				name ="second_option"
+				spriteType = "GFX_referendum_votes_indicator_1"
+				position = { x = 190 y = -200 }
+			}
+			instantTextBoxType = {
+				name ="first_option_status"
+				position = { x = 95 y = -29 }
+				font = "cw_terminal_font"
+				text = "[?THIS.country_ref_second_option_votes_percent|.0]%"
+				format = center
+			}
+			buttonType = {
+				name = "constitutional_option_icon"
+				spriteType = "GFX_mon_referendum_choice_c_monarchy"
+				position = { x = 173 y = -70 }
+				pdx_tooltip = "CONSTITUTIONAL_MON_OPTION_ICON_SELF_TT"
+				pdx_tooltip_delayed = "CW_MON_REF_C_MONARCHY_BUTTON_EFFECT_SELF_TTD"
+				scale = 0.9
+			}
+			iconType = {
+				name ="option_blocker_constitutional"
+				spriteType = "GFX_accept_decline_icon"
+				position = { x = 173 y = -50 }
+				pdx_tooltip = "REF_OPTION_BLOCKER_TT"
+				scale = 0.9
+				frame = 1
+			}
+		}
+		containerWindowType = {
+			### REPUBLIC OPTION ####
+			name = "cw_referendums_mon_no_option"
+			position = { x = 135 y = 15 }
+			iconType = {
+				name ="third_option"
+				spriteType = "GFX_referendum_votes_indicator_2"
+				position = { x = 290 y = -200 }
+			}
+			instantTextBoxType = {
+				name ="second_option_status"
+				position = { x = 195 y = -29 }
+				font = "cw_terminal_font"
+				text = "[?THIS.country_ref_third_option_votes_percent|.0]%"
+				format = center
+			}
+			buttonType = {
+				name = "republic_option_icon"
+				spriteType = "GFX_mon_referendum_choice_republic"
+				position = { x = 273 y = -70 }
+				pdx_tooltip = "REPUBLIC_OPTION_ICON_SELF_TT"
+				pdx_tooltip_delayed = "CW_MON_REF_REPUBLIC_BUTTON_EFFECT_SELF_TTD"
+				scale = 0.9
+			}
+			iconType = {
+				name ="option_blocker_republic"
+				spriteType = "GFX_accept_decline_icon"
+				position = { x = 273 y = -50 }
+				pdx_tooltip = "REF_OPTION_BLOCKER_TT"
+				scale = 0.9
+				frame = 1
+			}
+		}
+	}
+	################## NATIONAL SOVERNITY REFERENDUMS ##################
+	containerWindowType = {
+		name = "cw_cs_referendum_diplomacy_view"
+		position = { x=0 y=-125}
+
+		iconType = {
+			name ="ref_state_background"
+			spriteType = "GFX_ref_diplomacy_background"
+			position = { x = 16 y = 405 }
+		}
+		instantTextBoxType = {
+			name ="ref_date_loc"
+			position = { x = 15 y = 409 }
+			font = "cw_terminal_font"
+			text = "[CW_COUNTRY_REFERENDUM_TIMER_LOC]"
+			maxWidth = 180
+			maxHeight = 20
+			format = center
+		}
+		iconType = {
+			name ="referendum_hint_diplomacy"
+			spriteType = "GFX_hint_icon"
+			position = { x=512 y=413}
+			pdx_tooltip = "CW_REFERENDUM_HINT_DIPLOMACY_TTL"
+		}
+		instantTextBoxType = {
+			name ="ref_state_instructions"
+			position = { x = 38 y = 434 }
+			font = "cw_terminal_font"
+			text = "[CW_REF_INF_TIMEOUT_LOC]"
+			maxWidth = 150
+			maxHeight = 20
+			format = center
+		}
+		#### FIRST OPTION ####
+		containerWindowType = {
+			name = "cw_cs_ref_first_option"
+			position = { x=260 y=411}
+
+			buttonType = {
+				name ="first_option_flag"
+				spriteType = "GFX_minishield"
+				position = { x = 0 y = 0 }
+				pdx_tooltip = "CS_REF_FIRST_OPTION_FLAG_TT"
+				pdx_tooltip_delayed = "CW_REF_OPTION_BUTTON_EFFECT_TTD"
+			}
+			buttonType = {
+				name ="yes_no_referendum_yes_option"
+				spriteType = "GFX_yes_no_referendum_choice_yes"
+				position = { x = -3 y = 1 }
+				scale = 0.8
+				pdx_tooltip = ""
+				pdx_tooltip_delayed = ""
+			}
+			instantTextBoxType = {
+				name ="first_option_status"
+				position = { x = 8 y = 41 }
+				font = "cw_terminal_font"
+				text = "[?THIS.country_ref_first_option_votes_percent|.0]%"
+				format = left
+			}
+		}
+		#### SECOND OPTION ####
+		containerWindowType = {
+			name = "cw_cs_ref_second_option"
+			position = { x=325 y=411}
+
+			buttonType = {
+				name ="second_option_flag"
+				spriteType = "GFX_minishield"
+				position = { x = 0 y = 0 }
+				pdx_tooltip = "CS_REF_SECOND_OPTION_FLAG_TT"
+				pdx_tooltip_delayed = "CW_REF_OPTION_BUTTON_EFFECT_TTD"
+			}
+			buttonType = {
+				name ="yes_no_referendum_no_option"
+				spriteType = "GFX_yes_no_referendum_choice_no"
+				position = { x = -3 y = 1 }
+				scale = 0.8
+				pdx_tooltip = ""
+				pdx_tooltip_delayed = ""
+			}
+			instantTextBoxType = {
+				name ="second_option_status"
+				position = { x = 8 y = 41 }
+				font = "cw_terminal_font"
+				text = "[?THIS.country_ref_second_option_votes_percent|.0]%"
+				format = left
+			}
+		}
+		#### THIRD OPTION ####
+		containerWindowType = {
+			name = "cw_cs_ref_third_option"
+			position = { x=389 y=411}
+			buttonType = {
+				name ="third_option_flag"
+				spriteType = "GFX_minishield"
+				position = { x = 0 y = 0 }
+				pdx_tooltip = "CS_REF_THIRD_OPTION_FLAG_TT"
+				pdx_tooltip_delayed = "CW_REF_OPTION_BUTTON_EFFECT_TTD"
+			}
+			instantTextBoxType = {
+				name ="third_option_status"
+				position = { x = 8 y = 41 }
+				font = "cw_terminal_font"
+				text = "[?THIS.country_ref_third_option_votes_percent|.0]%"
+				format = left
+			}
+		}
+		#### FOURTH OPTION ####
+		containerWindowType = {
+			name = "cw_cs_ref_fourth_option"
+			position = { x=454 y=411}
+			buttonType = {
+				name ="fourth_option_flag"
+				spriteType = "GFX_minishield"
+				position = { x = 0 y = 0 }
+				pdx_tooltip = "CS_REF_FOURTH_OPTION_FLAG_TT"
+				pdx_tooltip_delayed = "CW_REF_OPTION_BUTTON_EFFECT_TTD"
+			}
+			instantTextBoxType = {
+				name ="fourth_option_status"
+				position = { x = 8 y = 41 }
+				font = "cw_terminal_font"
+				text = "[?THIS.country_ref_fourth_option_votes_percent|.0]%"
+				format = left
+			}
+		}
+	}
+	containerWindowType = {
+		name = "cw_referendums_cs_decision_ui_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 10 }
+		iconType = {
+			name = "GFX_referendum_back"
+			spriteType  ="GFX_referendum_background"
+			position = { x = 108 y = -230 }
+		}
+		iconType = {
+			name ="referendum_hint"
+			spriteType = "GFX_hint_icon"
+			position = { x = 10 y = -250 }
+			pdx_tooltip_delayed = "CW_REFERENDUM_HINT_TTL"
+		}
+		containerWindowType = {
+			name = "cw_referendums_cs_container"
+			position = { x = 50 y = 0 }
+
+			containerWindowType = {		#Remain independent option
+				name = "cw_referendums_cs_first"
+				position = { x = 30 y = 15 }
+
+				iconType = {
+					name ="first_option"
+					spriteType = "GFX_referendum_votes_indicator_3"
+					position = { x = 187 y = -200 }
+				}
+
+				instantTextBoxType = {
+					name ="first_option_status"
+					position = { x = 95 y = -29 }
+					font = "cw_terminal_font"
+					text = "[?THIS.country_ref_first_option_votes_percent|.0]%"
+					format = center
+				}
+				buttonType = {
+					name ="first_option_flag"
+					spriteType = "GFX_minishield"
+					position = { x = 175 y = -70 }
+					pdx_tooltip = "CS_REF_FIRST_OPTION_FLAG_SELF_TT"
+					pdx_tooltip_delayed = "CW_REF_OPTION_BUTTON_EFFECT_TTD"
+				}
+				buttonType = {
+					name ="yes_no_referendum_yes_option"
+					spriteType = "GFX_yes_no_referendum_choice_yes"
+					position = { x = 173 y = -70 }
+					scale = 0.8
+					pdx_tooltip = ""
+					pdx_tooltip_delayed = ""
+				}
+			}
+			containerWindowType = {
+				name = "cw_referendums_cs_second"
+				position = { x = 90 y = 15 }
+
+				iconType = {
+					name ="second_option"
+					spriteType = "GFX_referendum_votes_indicator_3"
+					position = { x = 187 y = -200 }
+				}
+
+				instantTextBoxType = {
+					name ="second_option_status"
+					position = { x = 95 y = -29 }
+					font = "cw_terminal_font"
+					text = "[?THIS.country_ref_second_option_votes_percent|.0]%"
+					format = center
+				}
+				buttonType = {
+					name ="second_option_flag"
+					spriteType = "GFX_minishield"
+					position = { x = 175 y = -70 }
+					pdx_tooltip = "CS_REF_SECOND_OPTION_FLAG_SELF_TT"
+					pdx_tooltip_delayed = "CW_REF_OPTION_BUTTON_EFFECT_TTD"
+				}
+				buttonType = {
+					name ="yes_no_referendum_no_option"
+					spriteType = "GFX_yes_no_referendum_choice_no"
+						position = { x = 173 y = -70 }
+						scale = 0.8
+						pdx_tooltip = "CS_REF_SECOND_OPTION_FLAG_SELF_TT"
+						pdx_tooltip_delayed = "CW_REF_OPTION_BUTTON_EFFECT_TTD"
+				}
+			}
+			containerWindowType = {
+				name = "cw_referendums_cs_third"
+				position = { x = -30 y = 15 }
+
+				iconType = {
+					name ="third_option"
+					spriteType = "GFX_referendum_votes_indicator_3"
+					position = { x = 187 y = -200 }
+				}
+
+				instantTextBoxType = {
+					name ="third_option_status"
+					position = { x = 95 y = -29 }
+					font = "cw_terminal_font"
+					text = "[?THIS.country_ref_third_option_votes_percent|.0]%"
+					format = center
+				}
+				buttonType = {
+					name ="third_option_flag"
+					spriteType = "GFX_minishield"
+					position = { x = 175 y = -70 }
+					pdx_tooltip = "CS_REF_THIRD_OPTION_FLAG_SELF_TT"
+				}
+			}
+			containerWindowType = {
+				name = "cw_referendums_cs_fourth"
+				position = { x = 150 y = 15 }
+
+				iconType = {
+					name ="fourth_option"
+					spriteType = "GFX_referendum_votes_indicator_3"
+					position = { x = 187 y = -200 }
+				}
+
+				instantTextBoxType = {
+					name ="fourth_option_status"
+					position = { x = 95 y = -29 }
+					font = "cw_terminal_font"
+					text = "[?THIS.country_ref_fourth_option_votes_percent|.0]%"
+					format = center
+				}
+				buttonType = {
+					name ="fourth_option_flag"
+					spriteType = "GFX_minishield"
+					position = { x = 175 y = -70 }
+					pdx_tooltip = "CS_REF_FOURTH_OPTION_FLAG_SELF_TT"
+					pdx_tooltip_delayed = "CW_REF_OPTION_BUTTON_EFFECT_TTD"
+				}
+			}
+		}
+	}
+	############# STATE REFERENDUM
+	containerWindowType = {
+		name = "cw_territory_referendum_state_view"
+		position = { x=14 y=0}
+
+		iconType = {
+			name ="ref_state_background"
+			spriteType = "GFX_ref_state_background"
+			position = { x = 16 y = 405 }
+		}
+		iconType = {
+			name ="state_referendum_hint_diplomacy"
+			spriteType = "GFX_hint_icon"
+			position = { x=410 y=413}
+			pdx_tooltip = "CW_REFERENDUM_HINT_DIPLOMACY_TTL"
+		}
+		instantTextBoxType = {
+			name ="ref_date_loc"
+			position = { x = 15 y = 408 }
+			font = "cw_terminal_font"
+			text = "[CW_STATE_REF_NAME_LOCALISATION]"
+			maxWidth = 180
+			maxHeight = 20
+			format = center
+		}
+		instantTextBoxType = {
+			name ="ref_state_instructions"
+			position = { x = 32 y = 436 }
+			font = "cw_terminal_font"
+			text = "[CW_REF_INF_TIMEOUT_LOC]"
+			maxWidth = 150
+			maxHeight = 20
+			format = center
+		}
+		buttonType = {
+			name ="first_option_flag"
+			spriteType = "GFX_minishield"
+			position = { x = 224 y = 413 }
+			pdx_tooltip = "CS_STATE_REF_FIRST_OPTION_FLAG_TT"
+			pdx_tooltip_delayed = "CW_REF_STATE_OPTION_BUTTON_EFFECT_TTD"
+		}
+		buttonType = {
+			name ="yes_no_referendum_yes_option"
+			spriteType = "GFX_yes_no_referendum_choice_yes"
+			position = { x = 221 y = 415 }
+				scale = 0.8
+				pdx_tooltip = ""
+				pdx_tooltip_delayed = ""
+		}
+		instantTextBoxType = {
+			name ="first_option_status"
+			position = { x = 142 y = 454 }
+			font = "cw_terminal_font"
+			text = "[?THIS.state_ref_first_option_votes_percent|.0]%"
+			format = center
+		}
+		buttonType = {
+			name ="second_option_flag"
+			spriteType = "GFX_minishield"
+			position = { x = 274 y = 413 }
+			pdx_tooltip = "CS_STATE_REF_SECOND_OPTION_FLAG_TT"
+			pdx_tooltip_delayed = "CW_REF_STATE_OPTION_BUTTON_EFFECT_TTD"
+		}
+		buttonType = {
+			name ="yes_no_referendum_no_option"
+			spriteType = "GFX_yes_no_referendum_choice_no"
+			position = { x = 271 y = 415 }
+				scale = 0.8
+				pdx_tooltip = ""
+				pdx_tooltip_delayed = ""
+		}
+		instantTextBoxType = {
+			name ="second_option_status"
+			position = { x = 191 y = 454 }
+			font = "cw_terminal_font"
+			text = "[?THIS.state_ref_second_option_votes_percent|.0]%"
+			format = center
+		}
+		buttonType = {
+			name ="third_option_flag"
+			spriteType = "GFX_minishield"
+			position = { x = 324 y = 413 }
+			pdx_tooltip = "CS_STATE_REF_THIRD_OPTION_FLAG_TT"
+			pdx_tooltip_delayed = "CW_REF_STATE_OPTION_BUTTON_EFFECT_TTD"
+		}
+		instantTextBoxType = {
+			name ="third_option_status"
+			position = { x = 241 y = 454 }
+			font = "cw_terminal_font"
+			text = "[?THIS.state_ref_third_option_votes_percent|.0]%"
+			format = center
+		}
+		buttonType = {
+			name ="fourth_option_flag"
+			spriteType = "GFX_minishield"
+			position = { x = 374 y = 413 }
+			pdx_tooltip = "CS_STATE_REF_FOURTH_OPTION_FLAG_TT"
+			pdx_tooltip_delayed = "CW_REF_STATE_OPTION_BUTTON_EFFECT_TTD"
+		}
+		instantTextBoxType = {
+			name ="fourth_option_status"
+			position = { x = 290 y = 454 }
+			font = "cw_terminal_font"
+			text = "[?THIS.state_ref_fourth_option_votes_percent|.0]%"
+			format = center
+		}
+	}
+	containerWindowType = {
+		name = "cw_territory_referendum_decision_ui_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 10 }
+		iconType = {
+			name = "GFX_referendum_back"
+			spriteType  ="GFX_referendum_background"
+			position = { x = 115 y = -230 }
+		}
+		iconType = {
+			name ="referendum_hint"
+			spriteType = "GFX_hint_icon"
+			position = { x = 10 y = -250 }
+			pdx_tooltip = "CW_REFERENDUM_HINT_TTL"
+		}
+		containerWindowType = {
+			name = "cw_referendums_cs_container"
+			position = { x = 50 y = 0 }
+
+			containerWindowType = {
+				name = "cw_referendums_cs_first"
+				position = { x = 30 y = 15 }
+
+				iconType = {
+					name ="first_option"
+					spriteType = "GFX_referendum_votes_indicator_3"
+					position = { x = 187 y = -200 }
+				}
+
+				instantTextBoxType = {
+					name ="first_option_status"
+					position = { x = 95 y = -29 }
+					font = "cw_terminal_font"
+					text = "[?first_option_average|.0]%"
+					format = center
+				}
+				buttonType = {
+					name ="first_option_flag"
+					spriteType = "GFX_minishield"
+					position = { x = 175 y = -70 }
+					pdx_tooltip = "CS_STATE_REF_FIRST_OPTION_FLAG_SELF_TT"
+					pdx_tooltip_delayed = "REF_STATE_DECISIONS_CLICK_TTD"
+				}
+				buttonType = {
+					name ="yes_no_referendum_yes_option"
+					spriteType = "GFX_yes_no_referendum_choice_yes"
+					position = { x = 173 y = -70 }
+					scale = 0.8
+					pdx_tooltip = ""
+					pdx_tooltip_delayed = ""
+				}
+			}
+			containerWindowType = {
+				name = "cw_referendums_cs_second"
+				position = { x = 90 y = 15 }
+
+				iconType = {
+					name ="second_option"
+					spriteType = "GFX_referendum_votes_indicator_3"
+					position = { x = 187 y = -200 }
+				}
+
+				instantTextBoxType = {
+					name ="second_option_status"
+					position = { x = 95 y = -29 }
+					font = "cw_terminal_font"
+					text = "[?second_option_average|.0]%"
+					format = center
+				}
+				buttonType = {
+					name ="second_option_flag"
+					spriteType = "GFX_minishield"
+					position = { x = 175 y = -70 }
+					pdx_tooltip = "CS_STATE_REF_SECOND_OPTION_FLAG_SELF_TT"
+					pdx_tooltip_delayed = "REF_STATE_DECISIONS_CLICK_TTD"
+				}
+				buttonType = {
+					name ="yes_no_referendum_no_option"
+					spriteType = "GFX_yes_no_referendum_choice_no"
+						position = { x = 173 y = -70 }
+						scale = 0.8
+						pdx_tooltip = ""
+						pdx_tooltip_delayed = ""
+				}
+			}
+			containerWindowType = {
+				name = "cw_referendums_cs_third"
+				position = { x = -30 y = 15 }
+
+				iconType = {
+					name ="third_option"
+					spriteType = "GFX_referendum_votes_indicator_3"
+					position = { x = 187 y = -200 }
+				}
+
+				instantTextBoxType = {
+					name ="third_option_status"
+					position = { x = 95 y = -29 }
+					font = "cw_terminal_font"
+					text = "[?third_option_average|.0]%"
+					format = center
+				}
+				buttonType = {
+					name ="third_option_flag"
+					spriteType = "GFX_minishield"
+					position = { x = 175 y = -70 }
+					pdx_tooltip = "CS_STATE_REF_THIRD_OPTION_FLAG_SELF_TT"
+					pdx_tooltip_delayed = "REF_STATE_DECISIONS_CLICK_TTD"
+				}
+			}
+			containerWindowType = {
+				name = "cw_referendums_cs_fourth"
+				position = { x = 150 y = 15 }
+
+				iconType = {
+					name ="fourth_option"
+					spriteType = "GFX_referendum_votes_indicator_3"
+					position = { x = 187 y = -200 }
+				}
+
+				instantTextBoxType = {
+					name ="fourth_option_status"
+					position = { x = 95 y = -29 }
+					font = "cw_terminal_font"
+					text = "[?fourth_option_average|.0]%"
+					format = center
+				}
+				buttonType = {
+					name ="fourth_option_flag"
+					spriteType = "GFX_minishield"
+					position = { x = 175 y = -70 }
+					pdx_tooltip = "CS_STATE_REF_FOURTH_OPTION_FLAG_SELF_TT"
+					pdx_tooltip_delayed = "REF_STATE_DECISIONS_CLICK_TTD"
+				}
+			}
+		}
+	}
+	################## COMMUNIST POWER STRUGGLES ##################
+	containerWindowType = {
+		name = "cw_comm_power_struggle_decision_ui_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 10 }
+		iconType = {
+			name = "GFX_referendum_back"
+			spriteType  ="GFX_elections_background_communist"
+			position = { x = 108 y = -230 }
+		}
+		iconType = {
+			name ="referendum_hint"
+			spriteType = "GFX_hint_icon"
+			position = { x = 10 y = -250 }
+			pdx_tooltip = "COMMUNIST_POWER_STRUGGLE_HINT"
+		}
+		containerWindowType = {
+			name = "cw_cps_candidates_container"
+			position = { x = 50 y = 0 }
+
+			containerWindowType = {
+				name = "cw_comm_power_struggle_first_candidate_container"
+				position = { x = 20 y = 15 }
+
+				iconType = {
+					name ="first_option"
+					spriteType = "GFX_referendum_votes_indicator_3"
+					position = { x = 187 y = -200 }
+				}
+
+				instantTextBoxType = {
+					name ="first_option_status"
+					position = { x = 95 y = -29 }
+					font = "cw_terminal_font"
+					text = "[?THIS.country_ref_first_option_votes_percent|.0]%"
+					format = center
+				}
+				iconType = {
+					name ="first_candidate_picture"
+					spriteType = ""
+					position = { x = 165 y = -100 }
+					pdx_tooltip = "[CW_COMM_POWER_STRUGGLE_FIRST_CANDIDATE_NAME]"
+				}
+			}
+			containerWindowType = {
+				name = "cw_cps_second_candiate_container"
+				position = { x = 100 y = 15 }
+
+				iconType = {
+					name ="second_option"
+					spriteType = "GFX_referendum_votes_indicator_3"
+					position = { x = 187 y = -200 }
+				}
+
+				instantTextBoxType = {
+					name ="second_option_status"
+					position = { x = 95 y = -29 }
+					font = "cw_terminal_font"
+					text = "[?THIS.country_ref_second_option_votes_percent|.0]%"
+					format = center
+				}
+				iconType = {
+					name ="second_candidate_picture"
+					spriteType = ""
+					position = { x = 165 y = -100 }
+					pdx_tooltip = "[CW_COMM_POWER_STRUGGLE_SECOND_CANDIDATE_NAME]"
+				}
+			}
+			containerWindowType = {
+				name = "cw_cps_third_candiate_container"
+				position = { x = -70 y = 15 }
+
+				iconType = {
+					name ="third_option"
+					spriteType = "GFX_referendum_votes_indicator_3"
+					position = { x = 187 y = -200 }
+				}
+
+				instantTextBoxType = {
+					name ="third_option_status"
+					position = { x = 95 y = -29 }
+					font = "cw_terminal_font"
+					text = "[?THIS.country_ref_third_option_votes_percent|.0]%"
+					format = center
+				}
+				iconType = {
+					name ="third_candidate_picture"
+					spriteType = ""
+					position = { x = 165 y = -100 }
+					pdx_tooltip = "[CW_COMM_POWER_STRUGGLE_THIRD_CANDIDATE_NAME]"
+				}
+			}
+			containerWindowType = {
+				name = "cw_cps_fourth_candiate_container"
+				position = { x = 190 y = 15 }
+
+				iconType = {
+					name ="fourth_option"
+					spriteType = "GFX_referendum_votes_indicator_3"
+					position = { x = 187 y = -200 }
+				}
+
+				instantTextBoxType = {
+					name ="fourth_option_status"
+					position = { x = 95 y = -29 }
+					font = "cw_terminal_font"
+					text = "[?THIS.country_ref_fourth_option_votes_percent|.0]%"
+					format = center
+				}
+				iconType = {
+					name ="fourth_candidate_picture"
+					spriteType = ""
+					position = { x = 165 y = -100 }
+					pdx_tooltip = [CW_COMM_POWER_STRUGGLE_FOURTH_CANDIDATE_NAME]
+				}
+			}
+		}
+	}
+}

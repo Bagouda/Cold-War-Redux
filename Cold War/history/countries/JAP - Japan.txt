@@ -1,0 +1,260 @@
+﻿capital = 282
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	OOB = JAP_1946
+	add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 100000
+		producer = JAP
+	}
+	add_equipment_to_stockpile = {
+		type = support_equipment
+		amount = 100000
+		producer = JAP
+	}
+	add_equipment_to_stockpile = {
+		type = artillery_equipment_3
+		amount = 100000
+		producer = JAP
+	}
+	add_equipment_to_stockpile = {
+		type = mechanized_equipment_3
+		amount = 100000
+		producer = JAP
+	}
+	add_equipment_to_stockpile = {
+		type = light_tank_equipment_3
+		amount = 100000
+		producer = JAP
+	}
+	set_politics = {
+		ruling_party = colonial
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 50
+		democratic_socialist = 0
+		neutrality = 30
+		communism_totalitarian = 10
+		unaligned_right = 10
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Kyuichi Tokuda"
+		desc = ""
+		picture = "JAPG3.dds"
+		ideology = stalinism_idolg
+		expire = 1953.10.14
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Tetsu Katayama"
+		desc = ""
+		picture = "JAPG3.dds"
+		ideology = social_democrat_idolg
+		expire = 1948.3.10
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Shigeru Yoshida"
+		desc = ""
+		picture = "JAPG2.dds"
+		ideology = social_liberal_idolg
+		expire = 1947.12.10
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Kijūrō Shidehara"
+		desc = ""
+		picture = "JAPG1.dds"
+		ideology = social_liberal_idolg
+		expire = 1946.5.22
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Douglas MacArthur"
+		desc = ""
+		picture = "gfx/leaders/usa/USA_FM_766000.dds"
+		ideology = military_occupation_government
+		expire = 1951.1.1
+		traits = {}
+	}	
+}
+1948.5.14 = {	#Arab Israeli War
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1947.4.25"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Shigeru Yoshida"
+		desc = ""
+		picture = "JAPG2.dds"
+		ideology = social_liberal_idolg
+		expire = 1954.12.10
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Hitoshi Ashida"
+		desc = ""
+		picture = "JAPG4.dds"
+		ideology = social_liberal_idolg
+		expire = 1948.10.15
+		traits = {}
+	}
+}
+1950.6.25 = {	#Korean War
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1949.1.23"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Shigeru Yoshida"
+		desc = ""
+		picture = "JAPG2.dds"
+		ideology = social_liberal_idolg
+		expire = 1954.12.10
+		traits = {}
+	}
+}
+1956.10.29 = {	#Suez Crisis
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1955.2.27"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Nobusuke Kishi"
+		desc = ""
+		picture = "JAPG7.dds"
+		ideology = social_cons_idolg
+		expire = 1960.7.19
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Tanzan Ishibashi"
+		desc = ""
+		picture = "JAPG6.dds"
+		ideology = social_cons_idolg
+		expire = 1957.2.25
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Ichirō Hatoyama"
+		desc = ""
+		picture = "JAPG5.dds"
+		ideology = social_cons_idolg
+		expire = 1956.12.23
+		traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1960.11.20"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 70
+		democratic_socialist = 0
+		neutrality = 30
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Takeo Fukuda"
+		desc = ""
+		picture = "JAPG12.dds"
+		ideology = social_cons_idolg
+		expire = 1978.12.7
+		traits = {}
+	}		
+	create_country_leader = {
+		name = "Takeo Miki"
+		desc = ""
+		picture = "JAPG11.dds"
+		ideology = social_cons_idolg
+		expire = 1976.12.24
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Kakuei Tanaka"
+		desc = ""
+		picture = "JAPG10.dds"
+		ideology = social_cons_idolg
+		expire = 1974.12.9
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Eisaku Satō"
+		desc = ""
+		picture = "JAPG9.dds"
+		ideology = social_cons_idolg
+		expire = 1972.7.7
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Hayato Ikeda"
+		desc = ""
+		picture = "JAPG8.dds"
+		ideology = social_cons_idolg
+		expire = 1960.7.19
+		traits = {}
+	}
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1979.10.7"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Yasuhiro Nakasone"
+		desc = ""
+		picture = "JAPG15.dds"
+		ideology = social_cons_idolg
+		expire = 1987.11.6
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Zenkō Suzuki"
+		desc = ""
+		picture = "JAPG14.dds"
+		ideology = social_cons_idolg
+		expire = 1982.11.27
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Masayoshi Ōhira"
+		desc = ""
+		picture = "JAPG13.dds"
+		ideology = social_cons_idolg
+		expire = 1980.6.12
+		traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1976.7.6"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Noboru Takeshita"
+		desc = ""
+		picture = "JAPG16.dds"
+		ideology = social_cons_idolg
+		expire = 1989.6.3
+		traits = {}
+	}
+}

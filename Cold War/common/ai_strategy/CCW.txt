@@ -1,0 +1,192 @@
+korea_send_help_to_prc = {
+	enable = {
+		tag = PRK
+		PRC = { has_war_with = CHI }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "PRC"
+		value = 500
+	}
+}
+prc_finish_off_chi = {
+	enable = {
+		tag = PRC
+		PRC = { has_war_with = CHI }
+	}
+	
+	abort = {
+		NOT = { has_war_with = CHI }
+	}
+	
+	ai_strategy = {
+		type = consider_weak
+		id = "CHI"
+		value = 500
+	}	
+	ai_strategy = {
+		type = invade
+		id = "CHI"
+		value = 500
+	}
+	ai_strategy = {
+		type = conquer
+		id = "CHI"
+		value = 500
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		
+		tag = CHI
+
+		value = -500
+	}	
+}
+chi_finish_off_prc = {
+	enable = {
+		tag = CHI
+		CHI = { has_war_with = CHI }
+	}
+	abort = {
+		NOT = { has_war_with = CHI }
+	}
+	
+	ai_strategy = {
+		type = consider_weak
+		id = "PRC"
+		value = 5000
+	}	
+	ai_strategy = {
+		type = invade
+		id = "PRC"
+		value = 5000
+	}
+	ai_strategy = {
+		type = ignore
+		id = "MON"
+		value = 200
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = CHI
+		value = -500
+	}
+}
+usa_support_chi = {
+	enable = {
+		tag = USA
+		country_exists = CHI		
+	}
+	abort = {
+		PRC = { owns_state = 613 }
+	}
+	
+	ai_strategy = {
+		type = befriend
+		id = "CHI"			
+		value = 200
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "PRC"
+		value = -1000
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "CHI"
+		value = 1000
+	}
+}
+usa_support_chi_losing = {
+	enable = {
+		tag = USA
+		country_exists = CHI
+		CHI = { surrender_progress > 70 }
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "CHI"
+		value = 100
+	}	
+}
+sov_support_prc = {
+	enable = {
+		tag = SOV
+		country_exists = PRC		
+	}
+	abort = {
+		PRC = { owns_state = 613 }
+	}
+	ai_strategy = {
+		type = protect
+		id = "PRC"			
+		value = 500
+	}	
+	ai_strategy = {
+		type = befriend
+		id = "PRC"			
+		value = 100
+	}
+	ai_strategy = {
+		type = alliance
+		id = "PRC"			
+		value = 100
+	}
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = PRC
+		target_country = CHI
+		value = 500
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "PRC"
+		value = -200
+	}
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = SIK
+		target_country = CHI
+		value = 500
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "SIK"
+		value = -200
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "PRC"
+		value = 500
+	}	
+	ai_strategy = {
+		type = contain
+		id = "CHI"
+		value = 200
+	}	
+}
+sov_support_prc_losing = {	#Help them but do not declare war
+	enable = {
+		tag = SOV
+		country_exists = PRC	
+		PRC = { any_war_score < -20 }
+	}
+	abort = {
+		PRC = { owns_state = 613 }
+	}
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = PRC
+		target_country = CHI
+		value = 500
+	}	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "PRC"
+		value = 200
+	}
+}

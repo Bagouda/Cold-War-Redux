@@ -1,0 +1,1047 @@
+@RECOSTRUCTION_MANPOWER = 100
+@RECOSTRUCTION_INFRA = 1
+cw_china_coastal_cities_reconstruction = {
+	cw_beijing_rebuild_state_housing = {
+		
+		icon = GFX_house_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 608 }
+
+		available = {
+			608 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				608 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 0
+		days_re_enable = 10		
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {		
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			608 = { add_manpower = @RECOSTRUCTION_MANPOWER }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_beijing_repair_infrastructure = {
+		
+		icon = GFX_infra_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 608 }
+
+		available = {
+			608 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				608 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+		
+		cost = 0
+		days_re_enable = 10
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {	
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			608 = { add_building_construction = { type = infrastructure level = @RECOSTRUCTION_INFRA instant_build = yes } }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_beijing_expand_local_administration = {
+		
+		icon = GFX_decision_generic_political_discourse
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 608 }
+
+		available = {
+			608 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+		}
+
+		visible = {
+			AND = {
+				608 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 120
+		days_re_enable = 30
+		days_remove = 90
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+		remove_effect = {			
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			608 = { add_extra_state_shared_building_slots = 1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_shanghai_rebuild_state_housing = {
+		
+		icon = GFX_house_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 613 }
+
+		available = {
+			613 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				613 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 0
+		days_re_enable = 10		
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {		
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			613 = { add_manpower = @RECOSTRUCTION_MANPOWER }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_shanghai_repair_infrastructure = {
+		
+		icon = GFX_infra_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 613 }
+
+		available = {
+			613 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				613 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+		
+		cost = 0
+		days_re_enable = 10
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {	
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			613 = { add_building_construction = { type = infrastructure level = @RECOSTRUCTION_INFRA instant_build = yes } }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_shanghai_expand_local_administration = {
+		
+		icon = GFX_decision_generic_political_discourse
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 613 }
+
+		available = {
+			613 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+		}
+
+		visible = {
+			AND = {
+				613 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 120
+		days_re_enable = 30
+		days_remove = 90
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+		remove_effect = {			
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			613 = { add_extra_state_shared_building_slots = 1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_fujian_rebuild_state_housing = {
+		
+		icon = GFX_house_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 595 }
+
+		available = {
+			595 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				595 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 0
+		days_re_enable = 10		
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {		
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			595 = { add_manpower = @RECOSTRUCTION_MANPOWER }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_fujian_repair_infrastructure = {
+		
+		icon = GFX_infra_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 595 }
+
+		available = {
+			595 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				595 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+		
+		cost = 0
+		days_re_enable = 10
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {	
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			595 = { add_building_construction = { type = infrastructure level = @RECOSTRUCTION_INFRA instant_build = yes } }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_fujian_expand_local_administration = {
+		
+		icon = GFX_decision_generic_political_discourse
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 595 }
+
+		available = {
+			595 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+		}
+
+		visible = {
+			AND = {
+				595 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 120
+		days_re_enable = 30
+		days_remove = 90
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+		remove_effect = {			
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			595 = { add_extra_state_shared_building_slots = 1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_guangzou_rebuild_state_housing = {
+		
+		icon = GFX_house_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 592 }
+
+		available = {
+			592 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				592 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 0
+		days_re_enable = 10		
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {		
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			592 = { add_manpower = @RECOSTRUCTION_MANPOWER }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_guangzou_repair_infrastructure = {
+		
+		icon = GFX_infra_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 592 }
+
+		available = {
+			592 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				592 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+		
+		cost = 0
+		days_re_enable = 10
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {	
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			592 = { add_building_construction = { type = infrastructure level = @RECOSTRUCTION_INFRA instant_build = yes } }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_guangzou_expand_local_administration = {
+		
+		icon = GFX_decision_generic_political_discourse
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 592 }
+
+		available = {
+			592 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+		}
+
+		visible = {
+			AND = {
+				592 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 120
+		days_re_enable = 30
+		days_remove = 90
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+		remove_effect = {			
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			592 = { add_extra_state_shared_building_slots = 1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_qingdao_rebuild_state_housing = {
+		
+		icon = GFX_house_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 743 }
+
+		available = {
+			743 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				743 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 0
+		days_re_enable = 10		
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {		
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			743 = { add_manpower = @RECOSTRUCTION_MANPOWER }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_qingdao_repair_infrastructure = {
+		
+		icon = GFX_infra_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 743 }
+
+		available = {
+			743 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				743 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+		
+		cost = 0
+		days_re_enable = 10
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {	
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			743 = { add_building_construction = { type = infrastructure level = @RECOSTRUCTION_INFRA instant_build = yes } }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_qingdao_expand_local_administration = {
+		
+		icon = GFX_decision_generic_political_discourse
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 743 }
+
+		available = {
+			743 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+		}
+
+		visible = {
+			AND = {
+				743 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 120
+		days_re_enable = 30
+		days_remove = 90
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+		remove_effect = {			
+			add_to_variable = { ROOT.coast_reconstruction_progress = 5 }
+			743 = { add_extra_state_shared_building_slots = 1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#####################################################
+	################ INTERIOR DECISIONS #################
+	#####################################################
+	cw_shaanxi_rebuild_state_housing = {
+		
+		icon = GFX_house_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 622 }
+
+		available = {
+			622 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				622 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 0
+		days_re_enable = 10		
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {		
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			622 = { add_manpower = @RECOSTRUCTION_MANPOWER }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_shaanxi_repair_infrastructure = {
+		
+		icon = GFX_infra_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 622 }
+
+		available = {
+			622 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				622 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+		
+		cost = 0
+		days_re_enable = 10
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {	
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			622 = { add_building_construction = { type = infrastructure level = @RECOSTRUCTION_INFRA instant_build = yes } }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_shaanxi_expand_local_administration = {
+		
+		icon = GFX_decision_generic_political_discourse
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 622 }
+
+		available = {
+			622 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+		}
+
+		visible = {
+			AND = {
+				622 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 120
+		days_re_enable = 30
+		days_remove = 90
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+		remove_effect = {			
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			622 = { add_extra_state_shared_building_slots = 1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_sichuan_rebuild_state_housing = {
+		
+		icon = GFX_house_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 605 }
+
+		available = {
+			605 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				605 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 0
+		days_re_enable = 10		
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {		
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			605 = { add_manpower = @RECOSTRUCTION_MANPOWER }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_sichuan_repair_infrastructure = {
+		
+		icon = GFX_infra_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 605 }
+
+		available = {
+			605 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				605 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+		
+		cost = 0
+		days_re_enable = 10
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {	
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			605 = { add_building_construction = { type = infrastructure level = @RECOSTRUCTION_INFRA instant_build = yes } }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_sichuan_expand_local_administration = {
+		
+		icon = GFX_decision_generic_political_discourse
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 605 }
+
+		available = {
+			605 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+		}
+
+		visible = {
+			AND = {
+				605 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 120
+		days_re_enable = 30
+		days_remove = 90
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+		remove_effect = {			
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			605 = { add_extra_state_shared_building_slots = 1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_changde_rebuild_state_housing = {
+		
+		icon = GFX_house_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 750 }
+
+		available = {
+			750 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				750 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 0
+		days_re_enable = 10		
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {		
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			750 = { add_manpower = @RECOSTRUCTION_MANPOWER }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_changde_repair_infrastructure = {
+		
+		icon = GFX_infra_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 750 }
+
+		available = {
+			750 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				750 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+		
+		cost = 0
+		days_re_enable = 10
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {	
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			750 = { add_building_construction = { type = infrastructure level = @RECOSTRUCTION_INFRA instant_build = yes } }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_changde_expand_local_administration = {
+		
+		icon = GFX_decision_generic_political_discourse
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 750 }
+
+		available = {
+			750 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+		}
+
+		visible = {
+			AND = {
+				750 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 120
+		days_re_enable = 30
+		days_remove = 90
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+		remove_effect = {			
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			750 = { add_extra_state_shared_building_slots = 1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_hunan_rebuild_state_housing = {
+		
+		icon = GFX_house_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 602 }
+
+		available = {
+			602 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				602 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 0
+		days_re_enable = 10		
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {		
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			602 = { add_manpower = @RECOSTRUCTION_MANPOWER }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_hunan_repair_infrastructure = {
+		
+		icon = GFX_infra_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 602 }
+
+		available = {
+			602 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				602 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+		
+		cost = 0
+		days_re_enable = 10
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {	
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			602 = { add_building_construction = { type = infrastructure level = @RECOSTRUCTION_INFRA instant_build = yes } }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_hunan_expand_local_administration = {
+		
+		icon = GFX_decision_generic_political_discourse
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 602 }
+
+		available = {
+			602 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+		}
+
+		visible = {
+			AND = {
+				602 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 120
+		days_re_enable = 30
+		days_remove = 90
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+		remove_effect = {			
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			602 = { add_extra_state_shared_building_slots = 1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_jiangxi_rebuild_state_housing = {
+		
+		icon = GFX_house_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 600 }
+
+		available = {
+			600 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				600 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 0
+		days_re_enable = 10		
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {		
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			600 = { add_manpower = @RECOSTRUCTION_MANPOWER }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_jiangxi_repair_infrastructure = {
+		
+		icon = GFX_infra_decision_icon
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 600 }
+
+		available = {
+			600 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+			num_of_civilian_factories_available_for_projects > 4
+		}
+
+		visible = {
+			AND = {
+				600 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+		
+		cost = 0
+		days_re_enable = 10
+		days_remove = var:ROOT.china_coastal_reconstruction_cost_time
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+		remove_effect = {	
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			600 = { add_building_construction = { type = infrastructure level = @RECOSTRUCTION_INFRA instant_build = yes } }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_jiangxi_expand_local_administration = {
+		
+		icon = GFX_decision_generic_political_discourse
+		on_map_mode = map_only
+		allowed = {}
+
+		highlight_states = { state = 600 }
+
+		available = {
+			600 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+		}
+
+		visible = {
+			AND = {
+				600 = { OR = { is_controlled_by = ROOT controller = { is_puppet_of = ROOT } } }
+				has_country_flag = china_reconstruction_started
+			}
+		}
+
+		cost = 120
+		days_re_enable = 30
+		days_remove = 90
+
+		modifier = {
+			political_power_gain = -0.10
+		}
+		remove_effect = {			
+			add_to_variable = { ROOT.interior_reconstruction_progress = 5 }
+			600 = { add_extra_state_shared_building_slots = 1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+}

@@ -1,0 +1,32 @@
+state={
+	id=901
+	local_supplies=0.0 
+	name="STATE_901"
+	resources={
+		crops=5.000
+		steel = 5
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 1605 }
+ 	set_variable = { victory_point = 10 }
+		owner = VIN
+		add_core_of = VIN
+		add_core_of = VTC
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}
+		victory_points = { 1605 10 }	#Bahn Me Thuot
+	}
+
+	provinces={
+		7347 12176 12150 7271 1605 1400 12109
+	}
+	manpower=5245000
+	buildings_max_level_factor=1.000
+	state_category = rural
+}

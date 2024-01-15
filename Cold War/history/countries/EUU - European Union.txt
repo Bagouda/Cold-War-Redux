@@ -1,0 +1,12 @@
+﻿capital = 854
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_research_slots = 0
+### NEW TECHS START ####
+set_technology = {
+	support_weapons = 1
+}
+add_ideas = {
+	cw_closed_economy
+	neutrality_policy
+	cw_annihilate_kill_kill
+}

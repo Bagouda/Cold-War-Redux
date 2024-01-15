@@ -1,0 +1,444 @@
+guiTypes = {
+	containerWindowType = {
+		name = "top_button_unsc_extended"
+		position = { x = 785 y = 40 }
+		buttonType = {
+			name = "new_focus_tree_icon"
+			spriteType ="GFX_cw_alert_new_focus_tree"
+			position = { x = 30 y = 1 }
+			Orientation = "CENTER"
+			oversound = ui_menu_over
+			pdx_tooltip = "CW_NEW_FOCUS_NOTIFICATION_TT"
+			pdx_tooltip_delayed = "CW_NEW_FOCUS_NOTIFICATION_TTL"
+		}
+		iconType = {
+			name ="new_focus_tree_icon_glow"
+			spriteType = "GFX_yellow_alert_glow"	
+			position = { x = 27 y = 0 }
+			alwaystransparent = yes
+		}
+		######################################
+		buttonType = {
+			name = "un_expel_alert_icon"
+			spriteType ="GFX_unsc_removal_warning"
+			position = { x = 20 y = 3 }
+			Orientation = "CENTER"
+			pdx_tooltip = "CW_UN_KICK_NOTIFICATION_TT"
+			pdx_tooltip_delayed = "CW_UN_KICK_NOTIFICATION_TTL"			
+		}		
+		#######################################
+		buttonType = {
+			name = "ref_alert_icon"
+			spriteType ="GFX_cw_alert_icons"
+			position = { x = 30 y = 0 }
+			Orientation = "CENTER"
+			oversound = ui_menu_over
+			pdx_tooltip = "CW_REF_NOTIFICATION_TT"
+			pdx_tooltip_delayed = "CW_REF_NOTIFICATION_TTL"			
+		}
+		iconType = {
+			name ="ref_alert_icon_glow"
+			spriteType = "GFX_yellow_alert_glow"	
+			position = { x = 30 y = 0 }
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "un_button_background_0"
+			spriteType ="GFX_un_button_back_laresistance"
+			position = { x = -113 y = -1 }
+			Orientation = "CENTER"
+		}			
+		iconType = {
+			name = "un_button_background"
+			spriteType ="GFX_un_button_bg"
+			position = { x = -111 y = 0 }
+			Orientation = "CENTER"
+		}
+###############
+		iconType = {
+			name = "un_button_background_rejected"
+			spriteType ="GFX_unn_voting_animation"
+			position = { x = -111 y = 0 }
+			Orientation = "CENTER"
+			frame = 2
+		}
+		iconType = {
+			name = "un_button_background_adopted"
+			spriteType ="GFX_unn_voting_animation"
+			position = { x = -111 y = 0 }
+			Orientation = "CENTER"
+			frame = 3
+		}
+		iconType = {
+			name = "un_button_background_vetoed"
+			spriteType ="GFX_unn_voting_animation"
+			position = { x = -111 y = 0 }
+			Orientation = "CENTER"
+			frame = 4
+		}
+		iconType = {
+			name = "un_button_background_abstained"
+			spriteType ="GFX_unn_voting_animation"
+			position = { x = -111 y = 0 }
+			Orientation = "CENTER"
+			frame = 5
+		}		
+###############	
+		iconType = {
+			name = "major_resolution_effect_2"
+			spriteType ="GFX_unsc_major_resolution_effect"
+			position = { x = -90 y = -5 }
+			Orientation = "CENTER"
+			scale = 0.8
+		}
+		iconType = {
+			name = "major_resolution_effect"
+			spriteType ="GFX_ongoing_generic_glow_yellow"
+			position = { x = -98 y = -10 }
+			Orientation = "CENTER"
+			scale = 0.5
+		}		
+		buttonType = {
+			name = "unsc_logo_button"
+			spriteType = "GFX_idea_un_non_permanent"
+			position = { x = -84 y = 1 }
+			pdx_tooltip = ""
+			scale = 0.7
+			clicksound = click_close
+			oversound = ui_menu_over			
+		}
+		buttonType = {
+			name = "unsc_logo_2_button"
+			spriteType = "GFX_un_communist"
+			position = { x = -84 y = 1 }
+			pdx_tooltip = ""
+			scale = 0.7
+			clicksound = click_close
+			oversound = ui_menu_over			
+		}
+		buttonType = {
+			name = "unsc_logo_3_button"
+			spriteType = "GFX_idea_un_permanent"
+			position = { x = -84 y = 1 }
+			pdx_tooltip = ""
+			scale = 0.7
+			clicksound = click_close
+			oversound = ui_menu_over			
+		}
+		buttonType = {
+			name = "unsc_target_flag"
+			spriteType = "GFX_minishield"
+			position = { x = -79 y = 1 }
+			pdx_tooltip = "CW_UNSC_FLAG_TT"
+			clicksound = click_close
+			oversound = ui_menu_over
+		}
+		buttonType = {
+			name = "un_button_background_implementing"
+			spriteType ="GFX_unn_resolution_imeplentation"
+			position = { x = -86 y = -1 }
+			#Orientation = "CENTER"
+			scale = 0.7
+		}
+		iconType = {
+			name = "police_action_resolution_effect"
+			spriteType ="GFX_WT_anim_strip_cw"
+			position = { x = -95 y = -12 }
+			Orientation = "CENTER"
+			scale = 0.8
+		}		
+		### VOTE COUNTS ####
+		instantTextboxType = {
+			name = "unsc_button_votes_veto"
+			position = { x = -110 y = 22 }
+			font = "garamond_12"
+			text = "[CW_UNSC_VETO_VOTES_LOC]"
+			maxWidth = 20
+			maxHeight = 20
+			format = center
+		}	
+		instantTextboxType = {
+			name = "unsc_button_votes_no"
+			position = { x = -110 y = 4 }
+			font = "garamond_12"
+			text = "[CW_UNSC_NO_VOTES_LOC]"
+			maxWidth = 20
+			maxHeight = 20
+			format = center
+		}		
+		instantTextboxType = {
+			name = "unsc_button_votes_yes"
+			position = { x = -35 y = 4 }
+			font = "garamond_12"
+			text = "[CW_UNSC_YES_VOTES_LOC]"
+			maxWidth = 20
+			maxHeight = 20
+			format = center
+		}		
+		instantTextboxType = {
+			name = "unsc_button_votes_abstain"
+			position = { x = -35 y = 22 }
+			font = "garamond_12"
+			text = "[CW_UNSC_ABSTAIN_VOTES_LOC]"
+			maxWidth = 20
+			maxHeight = 20
+			format = center
+		}			
+	}
+	containerWindowType = {
+		name = "top_button_unsc"
+		position = { x = 660 y = 40 }
+		buttonType = {
+			name = "new_focus_tree_icon"
+			spriteType ="GFX_cw_alert_new_focus_tree"
+			position = { x = 97 y = 1 }
+			Orientation = "CENTER"
+			oversound = ui_menu_over
+			pdx_tooltip = "CW_NEW_FOCUS_NOTIFICATION_TT"
+			pdx_tooltip_delayed = "CW_NEW_FOCUS_NOTIFICATION_TTL"
+		}
+		iconType = {
+			name ="new_focus_tree_icon_glow"
+			spriteType = "GFX_yellow_alert_glow"	
+			position = { x = 97 y = 3 }
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "ref_alert_icon"
+			spriteType ="GFX_cw_alert_icons"
+			position = { x = 97 y = 1 }
+			Orientation = "CENTER"
+			oversound = ui_menu_over
+			pdx_tooltip = "CW_REF_NOTIFICATION_TT"
+			pdx_tooltip_delayed = "CW_REF_NOTIFICATION_TTL"			
+		}
+		iconType = {
+			name ="ref_alert_icon_glow"
+			spriteType = "GFX_yellow_alert_glow"	
+			position = { x = 97 y = 1 }
+			alwaystransparent = yes
+		}		
+		iconType = {
+			name = "un_button_background_0"
+			spriteType ="GFX_un_button_back_laresistance"
+			position = { x = -113 y = -1 }
+			Orientation = "CENTER"
+		}			
+		iconType = {
+			name = "un_button_background"
+			spriteType ="GFX_un_button_bg"
+			position = { x = -111 y = 0 }
+			Orientation = "CENTER"
+		}
+		buttonType = {
+			name = "un_button_background_implementing"
+			spriteType ="GFX_unn_resolution_imeplentation"
+			position = { x = -86 y = -1 }
+			#Orientation = "CENTER"
+			scale = 0.7
+		}
+		buttonType = {
+			name = "unsc_logo_button"
+			spriteType = "GFX_idea_un_non_permanent"
+			position = { x = -84 y = 1 }
+			pdx_tooltip = ""
+			scale = 0.7
+			clicksound = click_close
+			oversound = ui_menu_over			
+		}
+		buttonType = {
+			name = "unsc_logo_2_button"
+			spriteType = "GFX_idea_un_permanent"
+			position = { x = -84 y = 1 }
+			pdx_tooltip = ""
+			scale = 0.7
+			clicksound = click_close
+			oversound = ui_menu_over			
+		}
+		buttonType = {
+			name = "unsc_logo_3_button"
+			spriteType = "GFX_idea_un_permanent"
+			position = { x = -84 y = 1 }
+			pdx_tooltip = ""
+			scale = 0.7
+			clicksound = click_close
+			oversound = ui_menu_over			
+		}		
+		buttonType = {
+			name = "unsc_target_flag"
+			spriteType = "GFX_minishield"
+			position = { x = -79 y = 1 }
+			pdx_tooltip = "CW_UNSC_FLAG_TT"
+			clicksound = click_close
+			oversound = ui_menu_over			
+		}		
+		### VOTE COUNTS ####
+		instantTextboxType = {
+			name = "unsc_button_votes_veto"
+			position = { x = -110 y = 22 }
+			font = "garamond_12"
+			text = "[CW_UNSC_VETO_VOTES_LOC]"
+			maxWidth = 20
+			maxHeight = 20
+			format = center
+		}	
+		instantTextboxType = {
+			name = "unsc_button_votes_no"
+			position = { x = -110 y = 4 }
+			font = "garamond_12"
+			text = "[CW_UNSC_NO_VOTES_LOC]"
+			maxWidth = 20
+			maxHeight = 20
+			format = center
+		}		
+		instantTextboxType = {
+			name = "unsc_button_votes_yes"
+			position = { x = -35 y = 4 }
+			font = "garamond_12"
+			text = "[CW_UNSC_YES_VOTES_LOC]"
+			maxWidth = 20
+			maxHeight = 20
+			format = center
+		}		
+		instantTextboxType = {
+			name = "unsc_button_votes_abstain"
+			position = { x = -35 y = 22 }
+			font = "garamond_12"
+			text = "[CW_UNSC_ABSTAIN_VOTES_LOC]"
+			maxWidth = 20
+			maxHeight = 20
+			format = center
+		}
+	}
+	containerWindowType = {
+		name = "cwm_splash"
+		position = { x= 0 y= 0 }
+		size = { width = 800 height= 517 }
+		orientation = center
+		origo = center
+		fade_time = 100
+		moveable = no
+		fade_type = linear
+		click_to_front = no
+		clipping = no
+
+
+		background = {
+			name = "splash_background"
+			spriteType  ="GFX_splash_bg"
+		}
+		iconType = {
+			name = "splash_background_2"
+			spriteType  ="GFX_splash_bg"
+			alwaystransparent = yes
+		}		
+		instantTextboxType = {
+			name = "cw_splash_title"
+			position = { x = 124	 y = 88 }
+			font = "cw_inba_title_20"
+			text = "Welcome to the Cold War Mod"
+			maxWidth = 550
+			maxHeight = 100
+			fixedsize = yes
+			format = center
+		}
+		instantTextboxType = {
+			name = "splash_screen_localisation"
+			position = { x = 105 y = 165 }
+			font = "hoi_20b"
+			text = "[CW_SPLASH_GET_TEXT]"
+			maxWidth = 580
+			maxHeight = 180
+			format = left
+			borderSize = {x = 0 y = 0 }
+			scrollbartype = "standardtext_slider"
+		}		
+		iconType = {
+			name = "splash_screen_overlay"
+			quadTextureSprite = "GFX_splash_screen_overlay"
+			position = { x = 81 y = 153 }
+			alwaystransparent = yes
+			scale = 1.01
+		}
+		buttonType = {
+			name = "cw_splash_features"
+			position = { x = 118 y = 391 }
+			quadTextureSprite ="GFX_unsc_vote_button_yes"
+			buttonFont = "cg_18b"
+			Orientation = "UPPER_LEFT"
+			buttonText = "Features"
+		}
+		buttonType = {
+			name = "cw_splash_changelog"
+			position = { x = 278 y = 391 }
+			quadTextureSprite ="GFX_unsc_vote_button_yes"
+			buttonFont = "cg_18b"
+			Orientation = "UPPER_LEFT"
+			buttonText = "Updates"
+		}
+		buttonType = {
+			name = "cw_splash_roadmap"
+			position = { x = 437 y = 391 }
+			quadTextureSprite ="GFX_unsc_vote_button_yes"
+			buttonFont = "cg_18b"
+			Orientation = "UPPER_LEFT"
+			buttonText = "Roadmap"
+		}
+		buttonType = {
+			name = "cw_splash_faq"
+			position = { x = 598 y = 391 }
+			quadTextureSprite ="GFX_unsc_vote_button_yes"
+			buttonFont = "cg_18b"
+			Orientation = "UPPER_LEFT"
+			buttonText = "FAQ"
+			web_link = "https://hoi4-cold-war-mod.fandom.com/wiki/FAQ"
+		}
+		buttonType = {
+			name = "cw_splash_close_button"
+			position = { x = 340 y = 459 }
+			quadTextureSprite ="GFX_button_123x34"
+			buttonFont = "hoi_16mbs"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_LEFT"
+			buttonText = "DIPLOMACY_CLOSE"
+			pdx_tooltip = "CLOSE"
+			clicksound = click_close
+		}		
+	}
+	containerWindowType = {
+		name = "cw_top_button_blockers"
+		position = { x = 0 y = 0 }
+		Orientation = UPPER_LEFT
+		
+		iconType = {
+			name = "espionage_button_extended_topbar_blocker"
+			quadTextureSprite = "GFX_topbar_button_blocker"
+			position = { x = 155 y = 35 }
+			pdx_tooltip = "CW_ESPIONAGE_BLOCKER_TT"
+		}
+		iconType = {
+			name = "trade_button_extended_topbar_blocker"
+			quadTextureSprite = "GFX_topbar_button_blocker"
+			position = { x = 322 y = 35 }
+			pdx_tooltip = "CW_TRADE_BLOCKER_TT"
+		}
+		iconType = {
+			name = "trade_button_blocker"
+			quadTextureSprite = "GFX_topbar_button_blocker"
+			position = { x = 265 y = 35 }
+			pdx_tooltip = "CW_TRADE_BLOCKER_TT"
+		}		
+	}
+	containerWindowType = {
+		name = "cw_prod_trade_blockers"
+		position = { x = -195 y = 24 }
+		Orientation = UPPER_LEFT
+		
+		iconType = {
+			name = "prod_trade_buttons_blocker"
+			quadTextureSprite = "GFX_prod_trade_blocker"
+			position = { x = 265 y = 35 }
+			pdx_tooltip = "CW_TRADE_BLOCKER_TT"
+		}		
+	}
+}

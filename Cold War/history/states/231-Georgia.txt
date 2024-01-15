@@ -1,0 +1,32 @@
+state={
+	id=231
+	local_supplies=0.0 
+	name="STATE_231"
+
+	history={
+ 	add_to_array = { list_victory_point = 1599 }
+ 	add_to_array = { list_victory_point = 3653 }
+ 	set_variable = { victory_point = 18 }
+		buildings = {
+			air_base = 5
+			infrastructure = 3
+		}
+		owner = SOV
+		add_claim_by = GEO
+		
+		victory_points = {
+			3653 3 
+		}
+		victory_points = {
+			1599 15		#Tbilisi 
+		}
+
+	}
+
+	provinces={
+		654 672 772 1530 1599 3653 3656 3658 4534 4605 6436 6669 6671 6674 9626 9632 9702 11599 11609 11617 11647 12309 
+	}
+	manpower=2949413
+	buildings_max_level_factor=1.000
+	state_category=town
+}

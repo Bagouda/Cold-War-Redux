@@ -1,0 +1,46 @@
+﻿l_english:
+ #################################
+ ###  USA Historic Ministers   ###
+ ################################# 
+ ### Deputy Ministers
+ usa_hog_alben_barkley:0 "Alben Barkley"
+ usa_hog_richard_nixon:0 "Richard Nixon"
+ usa_hog_lyndon_johnson:0 "Lyndon Johnson"
+ usa_hog_hubert_humphrey:0 "Hubert Humphrey"
+ usa_hog_spiro_agnew:0 "Spiro Agnew"
+ usa_hog_gerald_ford:0 "Geald Ford"
+ usa_hog_nelson_rockefeller:0 "Nelson Rockefeller"
+ usa_hog_walter_mondale:0 "Walter Mondale"
+ usa_hog_george_bush:0 "George H. W. Bush"
+ usa_hog_dan_quayle:0 "Dan Quayle" 
+ ### Foreign Ministers
+ usa_fm_james_byrnes:0 "James F. Byrnes"
+ usa_fm_george_marshall:0 "George Marshall" 
+ usa_fm_george_marshall_desc:0 "$CW_VETO_POWER_TENSION_50_TTL$"
+ usa_fm_dean_acheson:0 "Dean Acheson"
+ usa_fm_john_foster_dulles:0 "John Foster Dulles"
+ usa_fm_christian_herter:0 "Christian Herter"
+ usa_fm_arthur_vandenberg:0 "Arthur Vandenberg"
+ usa_fm_henry_kissinger:0 "Henry Kissinger"
+ ### Defense Ministers
+ usa_dm_james_forrestal:0 "James V. Forrestal"
+ usa_dm_george_marshall:0 "George Marshall"
+ usa_dm_louis_johnson:0 "Louis A. Johnson"
+ usa_dm_robert_lovett:0 "Robert Lovett"
+ usa_dm_charles_wilson:0 "Charles Wilson"
+ usa_dm_thomas_gates_jr:0 "Thomas S. Gates Jr."
+ ### Treasury Ministers
+ usa_tm_fred_vinson:0 "Fred M. Vinson"
+ usa_tm_john_snyder:0 "John Snyder"
+ usa_tm_george_humphrey:0 "George Humphrey"
+ usa_tm_robert_bernard_anderson:0 "Robert B. Anderson"
+ ### Chiefs of Staff
+ usa_chief_william_leahy:0 "William D. Leahy"
+ usa_chief_omar_bradley:0 "Omar Bradley"
+ usa_chief_arthur_radford:0 "Arthur W. Radford"
+ usa_chief_nathan_farragut_twining:0 "Nathan Farragut Twining"
+ ### Personal Adivosrs
+ usa_pa_john_steelman:0 "John Steelman" 
+ usa_pa_alger_hiss:0 "Alger Hiss"
+ usa_pa_eleanor_roosevelt:0 "Eleanor Roosevelt"
+ 

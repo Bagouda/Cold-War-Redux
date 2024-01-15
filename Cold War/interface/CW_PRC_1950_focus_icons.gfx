@@ -1,0 +1,71 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_prc_focus_great_leap_forward"
+		texturefile = "gfx/interface/cw_focuses/PRC/1950/prc_great_leap_forward.dds"		
+	}
+	spriteType = {
+		name = "GFX_prc_four_pests_campaign"
+		texturefile = "gfx/interface/cw_focuses/PRC/1950/prc_four_pests_campaign.dds"		
+	}
+	spriteType = {
+		name = "GFX_PRC_water_conservation"
+		texturefile = "gfx/interface/cw_focuses/PRC/1950/prc_water_conservation.dds"		
+	}
+	spriteType = {
+		name = "GFX_PRC_korean_policy"
+		texturefile = "gfx/interface/cw_focuses/PRC/1950/prc_korean_policy.dds"		
+	}
+	spriteType = {
+		name = "GFX_PRC_korean_policy"
+		texturefile = "gfx/interface/cw_focuses/PRC/1950/prc_korean_policy.dds"		
+	}
+	spriteType = {
+		name = "GFX_PRC_claim_hong_kong"
+		texturefile = "gfx/interface/cw_focuses/PRC/1950/prc_claim_hong_kong.dds"		
+	}
+	spriteType = {
+		name = "GFX_PRC_claim_macau"
+		texturefile = "gfx/interface/cw_focuses/PRC/1950/prc_claim_macau.dds"		
+	}
+	spriteType = {
+		name = "GFX_PRC_claim_territorial_leases"
+		texturefile = "gfx/interface/cw_focuses/PRC/1950/prc_claim_leases.dds"		
+	}
+	spriteType = {
+		name = "GFX_PRC_conquer_sik"
+		texturefile = "gfx/interface/cw_focuses/PRC/1950/prc_conquer_sik.dds"		
+	}
+	spriteType = {
+		name = "GFX_PRC_conquer_tibet"
+		texturefile = "gfx/interface/cw_focuses/PRC/1950/prc_conquer_tib.dds"		
+	}
+	spriteType = {
+		name = "GFX_PRC_xinjiang_autonomy"
+		texturefile = "gfx/interface/cw_focuses/PRC/1950/prc_xinxiang_autonoums_region.dds"		
+	}
+	spriteType = {
+		name = "GFX_PRC_simplified_chinese"
+		texturefile = "gfx/interface/cw_focuses/PRC/1950/PRC_simplified_chinese.dds"		
+	}
+	spriteType = {
+		name = "GFX_PRC_claim_unsc_seat"
+		texturefile = "gfx/interface/cw_focuses/PRC/1950/PRC_claim_unsc_seat.dds"		
+	}
+	spriteType = {
+		name = "GFX_prc_shanghai_economic_program"
+		texturefile = "gfx/interface/cw_focuses/PRC/1950/PRC_shanghai_economic_program.dds"
+		animation = {
+			animationmaskfile = "gfx/interface/cw_focuses/PRC/1950/PRC_shanghai_economic_program.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 5.00				# in seconds
+			animationdelay = 5			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no		
+	}
+}

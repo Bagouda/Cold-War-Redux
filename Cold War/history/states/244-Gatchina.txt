@@ -1,0 +1,23 @@
+state = {
+	id=244
+	local_supplies=0.0 
+	name="STATE_244" # Volkhov
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 9197 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		victory_points = {
+			9197 1
+		}
+	}
+	manpower = 195325
+	provinces={
+		70 3072 3110 6035 6095 9164 9197 11174 
+	}
+}

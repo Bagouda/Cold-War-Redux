@@ -1,0 +1,1133 @@
+characters={
+	####################################################################################################
+	######################################### Country Leader ###########################################
+	####################################################################################################
+	SOV_joseph_stalin = {
+		name = "Joseph Stalin"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_sov_stalin_civilian_large
+				small = GFX_sov_stalin_civilian_small
+			}
+		}
+		country_leader={
+			desc = POLITICAL_STALIN_DESC
+			ideology = stalinism_idolg
+			expire = 1952.10.16
+			traits = { careful_diplomacy iron_fisted_brute communist_totalitarian_drift_trait }
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = sov_joseph_stalin
+			
+			allowed  = {
+				original_tag = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = communism_totalitarian
+			}
+			traits = { 
+				cw_military_reformer 
+			}
+			visible = {
+				date < 1952.10.16
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}		
+	}
+	SOV_nikolai_voznesensky = {
+		name = "Nikolai Voznesensky"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_sov_nikolai_voznesensky_civilian_large
+				small = GFX_sov_nikolai_voznesensky_civilian_small
+			}
+		}
+		country_leader={
+			desc = ""
+			ideology = revisionist_idolg
+			expire = 1988.10.14
+			traits = {}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = sov_nikolai_voznesensky
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = SOV
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+
+			visible = {
+				date < 1980.12.18
+			}
+
+			traits = {
+				cw_ideological_workaholic 
+			}
+
+			do_effect = {
+			}
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	SOV_georgy_malenkov = {
+		name = "Georgy Malenkov"
+		allowed_civil_war = {}		
+		portraits = {
+			civilian = {
+				large = GFX_sov_malenkov_large
+				small = GFX_sov_malenkov
+			}
+		}
+		country_leader={
+			desc = ""
+			ideology = stalinism_idolg
+			expire = 1986.6.6
+			traits = { mild_reformer_malenkov communist_totalitarian_drift_trait }
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = sov_georgy_malenkov
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = SOV
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+
+			visible = {
+				NOT = { has_country_flag = cps_first_candidate_arrested }
+				date < 1986.6.6
+			}
+
+			removal_cost = -1
+			traits = { 
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	SOV_nikita_khrushchev = {
+		name = "Nikita Khrushchev"
+		allowed_civil_war = {}		
+		portraits = {
+			civilian = {
+				large = GFX_sov_nikita_khrushchev_civilian_large
+				small = GFX_sov_nikita_khrushev_civilian_small
+			}
+		}
+		country_leader={
+			desc = ""
+			ideology = revisionist_idolg
+			expire = 1971.9.11
+			traits = { man_of_the_people_khrushev communist_reformist_drift_trait }
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = sov_nikita_khrushchev
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				always = no
+				tag = SOV
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+
+			visible = {
+				NOT = { has_country_flag = cps_fourth_candidate_arrested }
+				date < 1964.10.14
+				NOT = { has_country_flag = second_great_soviet_purge }
+			}
+
+			removal_cost = -1
+			traits = { 
+				cw_man_of_the_people 
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	SOV_vladimir_kirillovich = {
+		name = "Vladimir I" #Vladimir Kirillovich
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_sov_vladimir_kirillovich_civilian_large
+			}
+		}
+		country_leader={
+			desc = ""
+			ideology = autocracy
+			expire = 1992.4.21
+			traits = {}
+		}
+	}	
+	####################################################################################################
+	######################################### Deputy Minister ##########################################
+	####################################################################################################
+	SOV_mikhail_kalinin = {
+		name = "Mikhail Kalinin"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_mikhail_kalinin
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = sov_mikhail_kalinin
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = SOV
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				NOT = { has_country_flag = kalinin_dead }
+				date < 1950.6.18
+			}
+			traits = { 
+				cw_infamous_bolshevik
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	SOV_nikolai_shvernik = {
+		name = "Nikolai Shvernik"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_nikolai_shvernik
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = sov_nikolai_shvernik
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = SOV
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1970.12.24
+				sov_mikhail_kalinin = { is_advisor = no }
+			}
+			traits = {
+				cw_military_industrial_specialist
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	####################################################################################################
+	######################################### Foreign Minister #########################################
+	####################################################################################################
+	SOV_fm_vyacheslav_molotov = {
+		name = "Vyacheslav Molotov"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_sov_molotov_civilian_large
+				small = GFX_sov_molotov_civilian_small
+			}
+		}
+		country_leader={
+			desc = ""
+			ideology = stalinism_idolg
+			expire = 1952.10.16
+			traits = { experienced_diplomat_molotov communist_totalitarian_drift_trait }
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = sov_fm_vyacheslav_molotov
+			
+			allowed  = {
+				original_tag = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = communism_totalitarian
+			}
+			traits  = {
+				cw_experienced_diplomat 
+			}
+			visible = {
+				date < 1986.11.8
+				NOT = { has_country_flag = cps_third_candidate_arrested }				
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	SOV_fm_andrey_vyshinsky = {
+		name = "Andrey Vyshinsky"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_andrey_vyshinsky
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = sov_fm_andrey_vyshinsky
+			
+			allowed  = {
+				original_tag = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_fm_silent_workhorse
+			}
+			visible = {
+				date < 1954.11.22
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	SOV_fm_andrei_gromyko = {
+		name = "Andrei Gromyko"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_andrei_gromyko
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = sov_fm_andrei_gromyko
+			
+			allowed  = {
+				original_tag = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_fm_mr_no
+				communist_reformist_drift_trait
+			}
+			visible = {
+				date < 1989.7.2
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	SOV_fm_boris_ponomare = {
+		name = "Boris Ponomarev"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_boris_ponomare
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = sov_fm_boris_ponomare
+			
+			allowed  = {
+				original_tag = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_hawk_approach
+			}
+			visible = {
+				date < 1989.7.2
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}		
+	}	
+	####################################################################################################
+	######################################### Defense Minister #########################################
+	####################################################################################################
+	sov_dm_bulganin = {
+		name = "Nikolai Bulganin"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_bulganin
+			}
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = sov_dm_bulganin
+			
+			allowed  = {
+				original_tag  = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_air_power_proponent
+			}
+			visible = {
+				date < 1975.2.24
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	SOV_dm_zhukov = {
+		name = "Georgy Zhukov"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_zhukov
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = sov_dm_zhukov
+			
+			allowed  = {
+				original_tag  = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				army_chief_organizational_3
+				communist_reformist_drift_trait
+			}
+			visible = {
+				date < 1974.6.18
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}	
+	}
+	SOV_dm_beria = {
+		name = "Lavrentiy Beria"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_sov_lavrentiy_beria_large
+				small = GFX_sov_lavrentiy_beria
+			}
+		}
+		country_leader={
+			desc = POLITICAL_STALIN_DESC
+			ideology = revisionist_idolg
+			expire = 1989.3.17
+			traits = { schemer_beria_lar }
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = sov_dm_beria
+			
+			allowed  = {
+				original_tag  = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_military_reorganizer
+				communist_reformist_drift_trait
+			}
+			visible = {
+				NOT = { has_country_flag = cps_second_candidate_arrested }
+				date < 1985.6.18
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		advisor = {
+			slot = theorist
+			idea_token = sov_spy_beria 
+			
+			allowed  = {
+				original_tag  = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cloak_and_dagger_schemer_beria
+				communist_reformist_drift_trait
+			}
+			visible = {
+				date < 1985.6.18
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}		
+	}
+	SOV_dm_aleksandr_vasilevsky = {
+		name = "Aleksandr Vasilevsky"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_aleksandr_vasilevsky
+			}
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = sov_dm_aleksandr_vasilevsky
+			
+			allowed  = {
+				original_tag  = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				army_artillery_1
+			}
+			visible = {
+				date < 1977.12.5
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}		
+	}	
+	####################################################################################################
+	######################################## Treasury Minister #########################################
+	####################################################################################################
+	SOV_tm_sov_maksim_saburov = {
+		name = "Maksim Saburov"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_maksim_saburov
+			}
+		}		
+		advisor = {
+			slot = treasury_minister
+			idea_token = sov_tm_sov_maksim_saburov
+			
+			allowed  = {
+				original_tag  = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_well_connected_bureaucrat
+			}
+			visible = {
+				date < 1977.03.24
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	SOV_tm_arseny_zverev = {
+		name = "Arseny Zverev"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_arseny_zverev
+			}
+		}		
+		advisor = {
+			slot = treasury_minister
+			idea_token = sov_tm_arseny_zverev
+			
+			allowed  = {
+				original_tag  = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_silent_workhorse
+			}
+			visible = {
+				date < 1969.7.27
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	SOV_tm_alexei_kosygin = {
+		name = "Alexei Kosygin"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_alexei_kosygin
+			}
+		}		
+		advisor = {
+			slot = treasury_minister
+			idea_token = sov_tm_alexei_kosygin
+			
+			allowed  = {
+				original_tag  = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_efficient_administrator
+			}
+			visible = {
+				date < 1980.12.18
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	SOV_tm_anastas_mikoyan = {
+		name = "Anastas Mikoyan"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_anastas_mikoyan
+			}
+		}		
+		advisor = {
+			slot = treasury_minister
+			idea_token = sov_tm_anastas_mikoyan
+			
+			allowed  = {
+				original_tag  = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_briliant_economist
+				communist_reformist_drift_trait
+			}
+			visible = {
+				date < 1978.10.21
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	####################################################################################################
+	###################################### Head of Intelligence ########################################
+	####################################################################################################
+	SOV_spy_viktor_abakumov = {
+		name = "Victor Abakumov"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_viktor_abakumov
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = sov_spy_viktor_abakumov
+			
+			allowed  = {
+				original_tag  = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_intelligence_decryption_specialist
+			}
+			visible = {
+				date < 1980.12.23
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	SOV_spy_sergei_kruglov = {
+		name = "Sergei Kruglov"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_sergei_kruglov
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = sov_pa_sergei_kruglov
+			
+			allowed  = {
+				original_tag  = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_naval_intelligence_speciality
+			}
+			visible = {
+				date < 1977.6.6
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	SOV_spy_nikolay_dudorov = {
+		name = "Nikolay Dudorov"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_sov_nikolay_dudorov
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = sov_pa_nikolay_dudorov
+			
+			allowed  = {
+				original_tag  = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_efficient_administrator_intelligence
+			}
+			visible = {
+				date < 1977.3.9
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	####################################################################################################
+	######################################### Chief of Staff ###########################################
+	####################################################################################################
+	#https://en.wikipedia.org/wiki/Chief_of_the_General_Staff_(Russia)#Soviet_Armed_Forces_(1946%E2%80%931991)
+	SOV_aleksei_antonov = {
+		name = "Aleksei Antonov"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_sov_chief_aleksei_antonov_small
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = sov_chief_aleksei_antonov
+			
+			allowed  = {
+				original_tag  = SOV
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				army_chief_reform_3
+			}
+			visible = {
+				date < 1962.6.16
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	
+	####################################################################################################
+	################################## Generals and Field Marshals #####################################
+	####################################################################################################
+	SOV_georgy_zhukov_field_marshall = {
+		name = "Georgy Zhukov"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_sov_georgy_zhukov_large_military
+				small = GFX_sov_zhukov
+			}
+		}
+		field_marshal = {
+			traits = { organisational_leader inflexible_strategist panzer_leader war_hero }
+			skill = 9
+			attack_skill = 6
+			defense_skill = 5
+			planning_skill = 6
+			logistics_skill = 4
+			visible = {
+				DDR = { exists = yes }
+			}
+		}		
+	}
+	SOV_aleksandr_vasilevsky_field_marshall = {
+		name = "Aleksandr Vasilevsky"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = "gfx/leaders/sov/portrait_SOV_aleksandr_vasilevsky.dds"
+				small = GFX_sov_aleksandr_vasilevsky
+			}
+		}	
+		field_marshal = {
+			traits = { trait_engineer armor_officer infantry_leader war_hero }
+			skill = 9
+			attack_skill = 6
+			defense_skill = 4
+			planning_skill = 6
+			logistics_skill = 8
+		}
+	}
+	SOV_vasily_sokolovsky_field_marshall = {
+		name = "Vasily Sokolovsky"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_sov_vasily_sokolovsky_large
+				small = GFX_sov_vasily_sokolovsky
+			}
+		}
+		field_marshal = {
+			traits = { trait_engineer armor_officer infantry_leader war_hero }
+			skill = 7
+			attack_skill = 6
+			defense_skill = 4
+			planning_skill = 6
+			logistics_skill = 8
+		}
+	}	
+	SOV_matvei_zakharov_cc = {
+		name = "Matvei Zakharov"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_sov_matvei_zakharov_cc_large
+				small = GFX_sov_matvei_zakharov_cc_small
+			}
+		}
+		corps_commander = {
+			traits = { urban_assault_specialist adaptable war_hero }
+			skill = 5
+			attack_skill = 6
+			defense_skill = 4
+			planning_skill = 6
+			logistics_skill = 5
+		}
+	}
+	SOV_andrey_yeryomenko = {
+		name = "Andrey Yeryomenko"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_sov_andrey_yeryomenko_large
+				small = GFX_sov_andrey_yeryomenko_small
+			}
+		}
+		corps_commander = {
+			traits = { trait_engineer organizer }
+			skill = 5
+			attack_skill = 4 
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	SOV_radion_malinovsky = {
+		name = "Radion Malinovsky"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_sov_radion_malinovsky_large
+				small = GFX_sov_radion_malinovsky_small
+			}
+		}
+		corps_commander = {
+			traits = { media_personality hill_fighter trickster }
+			skill = 4
+			attack_skill = 3 
+			defense_skill = 5
+			planning_skill = 5
+			logistics_skill = 5
+		}
+	}
+	SOV_ivan_yefimovich_petrov = {
+		name = "Ivan Yefimovich Petrov"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_sov_ivan_yefimovich_petrov_large
+				small = GFX_sov_ivan_yefimovich_petrov_small
+			}
+		}
+		corps_commander = {
+			traits = { invader_ii scavenger ranger }
+			skill = 4
+			attack_skill = 4 
+			defense_skill = 3
+			planning_skill = 5
+			logistics_skill = 4
+		}
+	}
+	SOV_vasily_chuikov = {
+		name = "Vasily Chuikov"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_sov_vasily_chuikov_large
+				small = GFX_sov_vasily_chuikov_small
+			}
+		}
+		corps_commander = {
+			traits = { fortress_buster trait_engineer desert_fox }
+			skill = 3
+			attack_skill = 4 
+			defense_skill = 6
+			planning_skill = 4
+			logistics_skill = 3
+		}
+	}
+	SOV_konstantin_rokossovsky = {
+		name = "Konstantin Rokossovsky"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_sov_konstantin_rokossovsky_small
+				large = GFX_sov_konstantin_rokossovsky_large
+			}
+		}
+		corps_commander = {
+			traits = { urban_assault_specialist adaptable jungle_rat }
+			skill = 5
+			attack_skill = 5 
+			defense_skill = 5
+			planning_skill = 4
+			logistics_skill = 3
+		}
+	}
+	SOV_ivan_konev = {
+		name = "Ivan Konev"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_sov_ivan_konev_small
+				large = GFX_sov_ivan_konev_large
+			}
+		}
+		corps_commander = {
+			traits = { trickster winter_specialist }
+			skill = 4	
+			attack_skill = 5 
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 3
+		}
+	}
+	SOV_fyodor_tolbukhin = {
+		name = "Fyodor Tolbukhin"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_sov_fyodor_tolbukhin_large
+				small = GFX_sov_fyodor_tolbukhin_small
+			}
+		}
+		corps_commander = {
+			traits = { winter_specialist trait_mountaineer urban_assault_specialist }
+			skill = 3
+			attack_skill = 4 
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+		}
+	}
+	SOV_ivan_bagramyan = {
+		name = "Ivan Bagramyan"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_sov_ivan_bagramyan_cc_large
+				small = GFX_sov_ivan_bagramyan_cc_small
+			}
+		}
+		corps_commander = {
+			traits = { urban_assault_specialist politically_connected career_officer  }
+			skill = 4
+			attack_skill = 5 
+			defense_skill = 5
+			planning_skill = 4
+			logistics_skill = 4
+		}
+	}
+	####################################################################################################
+	################################## Admirals #####################################
+	####################################################################################################
+	SOV_admiral_arseniy_golovko = {
+		name = "Arseniy Golovko"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_sov_arseniy_golovko_large
+				small = GFX_sov_arseniy_golovko_small
+			}
+		}
+		navy_leader = {
+			traits = { mine_layer spotter air_controller }
+			skill = 7
+			attack_skill = 5
+			defense_skill = 4
+			maneuvering_skill = 3
+			coordination_skill = 4
+		}
+	}
+	SOV_admiral_filipp_oktyabrsky = {
+		name = "Filipp Oktyabrsky"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_sov_filipp_oktyabrsky_large
+				small = GFX_sov_filipp_oktyabrsky_small
+			}
+		}
+		navy_leader = {
+			traits = { cruiser_captain fly_swatter destroyer_leader }
+			skill = 4
+			attack_skill = 4
+			defense_skill = 4
+			maneuvering_skill = 6
+			coordination_skill = 3
+		}
+	}
+	SOV_admiral_nikolai_yegipko = {
+		name = "Nikolai Yegipko"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_sov_nikolai_yegipko_large
+				small = GFX_sov_nikolai_yegipko_small
+			}
+		}
+		navy_leader = {
+			traits = { seawolf superior_tactician ground_pounder }
+			skill = 4
+			attack_skill = 5
+			defense_skill = 4
+			maneuvering_skill = 5
+			coordination_skill = 4
+		}
+	}
+}

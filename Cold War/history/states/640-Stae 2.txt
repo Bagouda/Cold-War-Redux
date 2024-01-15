@@ -1,0 +1,32 @@
+state = {
+	id=640
+	local_supplies=0.0 
+	name="STATE_640" # Mandalay
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 1492 }
+ 	add_to_array = { list_victory_point = 4425 }
+ 	set_variable = { victory_point = 2 }
+		owner = BUR
+		add_core_of = BUR
+		
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 2
+		}		
+		
+		victory_points = {
+			4425 5 
+		}
+		victory_points = {
+			1492 5 
+		}
+	}
+	resources={
+		crops = 10
+	}	
+	manpower = 4944600
+	provinces={
+		1082 1170 1197 1492 1566 1607 1934 2061 4087 4175 4210 4318 4425 4585 4588 4654 4996 7400 7469 7562 7603 7647 7909 7974 8063 10386 10486 10920 12317 12335 12363 12404 12464 12492 
+	}
+}

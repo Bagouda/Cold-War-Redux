@@ -1,0 +1,23 @@
+state = {
+	id=241
+	local_supplies=0.0 
+	name="STATE_241" # Gomel
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 9288 }
+ 	set_variable = { victory_point = 10 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV		
+		add_core_of = BLR
+		victory_points = {
+			9288 10 
+		}
+	}
+	manpower = 443422
+	provinces={
+		289 6233 6344 6354 9247 9288 9342 9371 9396 11230 11271 11355 11383 
+	}
+}

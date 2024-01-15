@@ -1,0 +1,37 @@
+focus_tree = {
+	id = pakistan_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = PAK
+			#always = no
+		}
+	}
+	
+	default = no
+	
+	focus = {
+		id = PAK_take_kashmir
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 8
+		y = 10
+		cost = 10
+		available = {
+		}
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_state_claim = 787
+			declare_war_on = {
+				target = KAS
+				type = take_state_focus
+				generator = { 787 } 
+			}
+		}
+	}
+
+	continuous_focus_position = { x = 43 y = 155 }
+}

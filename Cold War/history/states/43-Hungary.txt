@@ -1,0 +1,28 @@
+state = {
+	id=43
+	local_supplies=0.0 
+	name="STATE_43" # Northern Hungary
+	state_category = devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 9660 }
+ 	set_variable = { victory_point = 20 }
+		owner = HUN
+		add_core_of = HUN
+		buildings = {
+			infrastructure = 2
+			air_base = 3
+			industrial_complex = 1
+		}		
+		victory_points = {
+			9660 20 
+		}
+	}
+	resources={
+		steel=3 # was: 4
+		aluminium=100 # was: 194
+	}
+	manpower = 3750752
+	provinces={
+		684 716 3713 3731 6716 6751 9660 9690 11520 
+	}
+}

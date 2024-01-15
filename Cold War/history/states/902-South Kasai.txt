@@ -1,0 +1,45 @@
+
+state={
+	id=902
+	local_supplies=0.0 
+	name="STATE_902"
+
+	history={
+ 	add_to_array = { list_victory_point = 6817 }
+ 	add_to_array = { list_victory_point = 6246 }
+ 	set_variable = { victory_point = 15 }
+		owner = BEL
+		add_claim_by = COG
+
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+				
+		1960.6.30 = {
+			owner = COG
+			add_core_of = COG
+			remove_core_of = BEL
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			6817 10		#Bakwanga
+		}
+		victory_points = {
+			6246 5		#Bakwanga
+		}
+	}
+
+	provinces={
+		1929 6246 667 6817 11812
+	}
+	manpower=2005473
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

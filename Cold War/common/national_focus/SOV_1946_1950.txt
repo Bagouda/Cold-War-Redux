@@ -1,0 +1,5930 @@
+focus_tree = {
+	id = sov_focus_1946
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SOV			
+			NOT = { has_country_flag = show_non_historical_focuses }
+		}		
+		modifier = {
+			add = -50
+			date > 1950.1.1
+		}		
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	
+	
+	
+	###################################################	
+	############# FAMINE AND REBUILDING OF INDUSTRIAL CENTERS #############
+	
+	
+	
+
+
+	
+	#########Industry##############
+	focus = {
+		id = SOV_post_war_five_year_plan
+		
+		allow_branch = { NOT = { has_country_flag = important_matter }}
+		available = {
+		}
+		bypass = {
+		}
+		
+		
+		
+		
+		
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 9
+		y = 0
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_stability = 0.05
+			set_variable = { ROOT.sov_reconstruction_cost_time = 120 }
+			custom_effect_tooltip = "Will allow us to choose a new Industrial Focus."
+			hidden_effect = {
+				if = {
+					limit = {
+						is_ai = yes
+					}
+					unlock_national_focus = SOV_post_war_reconstruction 
+					unlock_national_focus = SOV_1946_famine
+					unlock_national_focus = SOV_reintegrate_western_republics
+					else = {
+						unlock_national_focus = SOV_reintegrate_western_republics					
+					}
+				}
+				clr_country_flag = recent_five_year_plan_change
+			}
+		}
+		ai_will_do = {
+			base = 20
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_post_war_reconstruction
+		available = {
+		}
+		bypass = {
+		}
+		
+		
+		
+		
+		
+		icon = GFX_goal_generic_construct_infrastructure
+		x = -5
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+
+		select_effect = {}
+
+		prerequisite = { focus = SOV_post_war_five_year_plan }
+		relative_position_id = SOV_post_war_five_year_plan
+
+		completion_reward = {
+			add_political_power = 100
+			set_country_flag = sov_rebuilding_effort_initiated
+			set_country_flag = reconstruction_effort_initiated
+			219 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SOV_rebuild_western_cities
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_join_comintern
+		x = 1
+		y = 1
+		cost = 4
+
+		prerequisite = { focus = SOV_post_war_reconstruction }
+		relative_position_id = SOV_post_war_reconstruction
+
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }		
+
+		select_effect = {}
+
+		completion_reward = {	
+			custom_effect_tooltip = "Will reduce the time required to complete reconstruction actions by 50 days."
+			subtract_from_variable = { ROOT.sov_reconstruction_cost_time = 50 }
+		}
+	}
+	focus = {
+		id = SOV_relocate_industry_west
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_relocate_industry
+		x = -1
+		y = 1
+		cost = 5
+
+		prerequisite = { focus = SOV_post_war_reconstruction }
+		relative_position_id = SOV_post_war_reconstruction
+
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_INDUSTRY }		
+
+		select_effect = {}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = sov_dispersed_industry_4
+				add_idea = sov_dispersed_industry_1
+			}		
+			571 = {
+				remove_building = {
+					type = industrial_complex
+					level = 4
+				}
+			}
+			217 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
+			570 = {
+				remove_building = {
+					type = industrial_complex
+					level = 5
+				}
+			}
+			206 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}
+			}
+			653 = {
+				remove_building = {
+					type = industrial_complex
+					level = 4
+				}
+			}
+			195 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
+			568 = {
+				remove_building = {
+					type = industrial_complex
+					level = 4
+				}
+			}
+			202 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SOV_rebuild_russian_cities
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_repair_infra_russia
+		x = 0
+		y = 2
+		cost = 2
+
+		prerequisite = { focus = SOV_relocate_industry_west focus = SOV_rebuild_western_cities }
+		relative_position_id = SOV_post_war_reconstruction
+
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_INDUSTRY }
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				217 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 5
+						instant_build = yes
+					}
+				}
+				195 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 5
+						instant_build = yes
+					}
+				}
+				224 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+				}				
+				242 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+				}
+				263 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+				}
+				220 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 5
+						instant_build = yes
+					}
+				}
+				234 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+				}
+				else = {
+					custom_effect_tooltip = "Unlocks decisions to rebuild cities in Russia."
+					top_bar_decisions_notification_new_state_decisions_available = yes
+					set_country_flag = sov_rebuilding_russian_cities
+				}
+			}
+		}
+	}
+	focus = {
+		id = SOV_rebuild_belarus_cities
+		available = {		
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_repair_infra_belarus
+		x = -1
+		y = 1
+		cost = 2
+
+		prerequisite = { focus = SOV_relocate_industry_west focus = SOV_rebuild_western_cities }
+		relative_position_id = SOV_rebuild_russian_cities
+
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_INDUSTRY }
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				206 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 5
+						instant_build = yes
+					}
+				}
+				207 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+				}
+				241 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+				}
+				else = {
+					custom_effect_tooltip = "Unlocks decisions to rebuild cities in Belarus"
+					top_bar_decisions_notification_new_state_decisions_available = yes
+					set_country_flag = sov_rebuilding_belarusian_cities
+				}				
+			}
+		}
+	}
+	focus = {
+		id = SOV_rebuild_ukraine_cities
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_repair_infra_ukraine
+		x = 1
+		y = 1
+		cost = 2
+
+		prerequisite = { focus = SOV_relocate_industry_west focus = SOV_rebuild_western_cities }
+		relative_position_id = SOV_rebuild_russian_cities
+
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_INDUSTRY }
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				202 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 5
+						instant_build = yes
+					}
+				}
+				91 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+				}
+				221 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+				}	
+				227 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+				}
+				192 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+				}
+				else = {
+					custom_effect_tooltip = "Unlocks decisions to rebuild cities in Ukraine"
+					top_bar_decisions_notification_new_state_decisions_available = yes
+					set_country_flag = sov_rebuilding_ukranian_cities
+				}			
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_rebuild_baltic_cities
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_repair_infra_ukraine
+		x = 0
+		y = 2
+		cost = 2
+
+		prerequisite = { focus = SOV_rebuild_russian_cities }
+		relative_position_id = SOV_rebuild_russian_cities
+
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_INDUSTRY }
+
+		select_effect = {}
+
+		completion_reward = {
+
+	
+			custom_effect_tooltip = "Unlocks decisions to rebuild cities in the Baltic"
+			top_bar_decisions_notification_new_state_decisions_available = yes
+			set_country_flag = sov_rebuilding_baltic_cities
+					
+			
+		}
+	}
+	focus = {
+		id = SOV_finalize_reconstruction_efforts
+		available = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+				custom_trigger_tooltip = {
+					tooltip = "The result of reconstruction will depend on how much you rebuilt"
+					AND = {
+						check_variable = { ROOT.rus_reconstruction_progress > 70 }
+						check_variable = { ROOT.blr_reconstruction_progress > 70 }
+						check_variable = { ROOT.ukr_reconstruction_progress > 70 }
+						check_variable = { ROOT.blt_reconstruction_progress > 70 }
+					}
+				}
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_ger_great_red_menace
+		x = 0
+		y = 1
+		cost = 10
+
+		prerequisite = { focus = SOV_rebuild_russian_cities }
+		prerequisite = { focus = SOV_rebuild_ukraine_cities }
+		prerequisite = { focus = SOV_rebuild_belarus_cities }
+		prerequisite = { focus = SOV_rebuild_baltic_cities }
+		relative_position_id = SOV_rebuild_baltic_cities
+
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_INDUSTRY }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_stability = 0.50
+			clear_variable = ROOT.sov_reconstruction_cost_time
+			clr_country_flag = reconstruction_effort_initiated
+			custom_effect_tooltip = CW_RECONSTRUCTION_END_EFFECT_TT
+			add_timed_idea = { idea = cw_sov_post_reconstruction_boom days = 1825 }
+			219 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}
+			}
+			202 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			206 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}			
+			221 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			217 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}			
+			195 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}			
+			hidden_effect = {
+				news_event = cw_historic_events.4
+				#UKR
+				202 = {
+					set_state_category = metropolis
+				}
+				91 = {
+					set_state_category = large_city
+				}
+				221 = {
+					set_state_category = large_city
+				}	
+				227 = {
+					set_state_category = large_city
+				}
+				192 = {
+					set_state_category = large_city
+				}
+				#BLR
+				206 = {
+					set_state_category = metropolis
+				}
+				207 = {
+					set_state_category = large_city
+				}
+				241 = {
+					set_state_category = large_city
+				}
+				#RUS
+				217 = {
+					set_state_category = metropolis
+				}
+				195 = {
+					set_state_category = metropolis
+				}
+				224 = {
+					set_state_category = large_city
+				}				
+				242 = {
+					set_state_category = large_city
+				}
+				263 = {
+					set_state_category = large_city
+				}
+				220 = {
+					set_state_category = large_city
+				}
+				234 = {
+					set_state_category = large_city
+				}
+			}
+		}
+	}	
+############### FAMINE FOCUSES ############	
+	focus = {
+		id = SOV_1946_famine
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_icon_famine
+		x = 6
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_RESOURCES_FOCUSES }
+
+		select_effect = {}		
+
+		prerequisite = { focus = SOV_post_war_five_year_plan }
+		available_if_capitulated = no
+		relative_position_id = SOV_post_war_five_year_plan
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_active_mission = sov_1946_famine
+				}
+				add_days_mission_timeout = { mission = sov_1946_famine days = 30 }
+			}
+			if = {
+				limit = {
+					has_active_mission = sov_1946_famine_severe
+				}
+				add_days_mission_timeout = { mission = sov_1946_famine_severe days = 30 }
+			}			
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}	
+	focus = {
+		id = SOV_transofrmation_of_nature
+		available = {
+			AND = {
+				controls_state = 402
+				controls_state = 404
+				controls_state = 589
+				num_of_civilian_factories > 10
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_terraform_steppe
+		x = 2
+		y = 1
+		cost = 7
+		
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES FOCUS_FILTER_DECISIONS_FOCUSES }
+
+		select_effect = {}
+
+		prerequisite = { focus = SOV_1946_famine }
+		available_if_capitulated = no
+		relative_position_id = SOV_1946_famine
+		mutually_exclusive = { focus = SOV_rebuild_west_agriculture }
+
+		completion_reward = {
+			add_political_power = 50
+			activate_mission = sov_steppe_transformation
+			if = {
+				limit = {
+					has_active_mission = sov_1946_famine
+				}
+				add_days_mission_timeout = { mission = sov_1946_famine days = 120 }
+			}
+			if = {
+				limit = {
+					has_active_mission = sov_1946_famine_severe
+				}
+				add_days_mission_timeout = { mission = sov_1946_famine_severe days = 120 }
+			}
+			custom_effect_tooltip = "TRANSFORMATION_OF_NATURE_TT"
+			hidden_effect = {
+				add_to_variable = { ROOT.steppe_transormation_success = 5 }
+			}
+		}
+	}
+	focus = {
+		id = SOV_divert_the_syrdarya
+		available = {
+			AND = {
+				controls_state = 402
+				controls_state = 404
+			}		
+		}
+		bypass = {}
+		
+		icon = GFX_focus_sov_river_divert_propoganda
+		x = 0
+		y = 1
+		cost = 7
+
+		prerequisite = { focus = SOV_transofrmation_of_nature }
+		relative_position_id = SOV_transofrmation_of_nature
+		
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES FOCUS_FILTER_DECISIONS_FOCUSES }		
+
+		select_effect = {}
+		
+		completion_reward = {
+			custom_effect_tooltip = "TRANSFORMATION_OF_NATURE_CHANCE_TT"
+			if = {
+				limit = {
+					has_active_mission = sov_1946_famine
+				}
+				add_days_mission_timeout = { mission = sov_1946_famine days = 30 }
+			}
+			if = {
+				limit = {
+					has_active_mission = sov_1946_famine_severe
+				}
+				add_days_mission_timeout = { mission = sov_1946_famine_severe days = 30 }
+			}
+			add_resource = { type = crops amount = 3 state = 404 }
+			hidden_effect = {
+				add_to_variable = { ROOT.steppe_transormation_success = 15 }
+			}
+		}
+		ai_will_do = {
+		}
+	}	
+	focus = {
+		id = SOV_plant_asian_winds_wall
+		available = {
+			AND = {
+				controls_state = 402
+				controls_state = 404
+				controls_state = 589
+			}		
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_seeding_tree
+		x = 1
+		y = 2
+		cost = 7
+
+		prerequisite = { focus = SOV_transofrmation_of_nature }
+		relative_position_id = SOV_transofrmation_of_nature
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES FOCUS_FILTER_DECISIONS_FOCUSES }		
+
+		select_effect = {}
+		
+		completion_reward = {
+			custom_effect_tooltip = "TRANSFORMATION_OF_NATURE_CHANCE_TT"
+			if = {
+				limit = {
+					has_active_mission = sov_1946_famine
+				}
+				add_days_mission_timeout = { mission = sov_1946_famine days = 30 }
+			}
+			if = {
+				limit = {
+					has_active_mission = sov_1946_famine_severe
+				}
+				add_days_mission_timeout = { mission = sov_1946_famine_severe days = 30 }
+			}
+			add_resource = { type = crops amount = 3 state = 402 }
+			hidden_effect = {
+				add_to_variable = { ROOT.steppe_transormation_success = 15 }
+			}
+		}
+	}
+	focus = {
+		id = SOV_extend_steppe_reservoirs
+		available = {
+			AND = {
+				controls_state = 402
+				controls_state = 404
+				controls_state = 589
+			}		
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_treaty
+		x = -1
+		y = 2
+		cost = 7
+
+		prerequisite = { focus = SOV_transofrmation_of_nature }
+		relative_position_id = SOV_transofrmation_of_nature
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES FOCUS_FILTER_DECISIONS_FOCUSES }		
+
+		select_effect = {}
+		
+		completion_reward = {
+			custom_effect_tooltip = "TRANSFORMATION_OF_NATURE_CHANCE_TT"
+			if = {
+				limit = {
+					has_active_mission = sov_1946_famine
+				}
+				add_days_mission_timeout = { mission = sov_1946_famine days = 30 }
+			}
+			if = {
+				limit = {
+					has_active_mission = sov_1946_famine_severe
+				}
+				add_days_mission_timeout = { mission = sov_1946_famine_severe days = 30 }
+			}
+			add_resource = { type = crops amount = 3 state = 589 }
+			hidden_effect = {
+				add_to_variable = { ROOT.steppe_transormation_success = 15 }
+			}
+		}
+	}	
+	focus = {
+		id = SOV_rebuild_west_agriculture
+		available = {
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_communist_agriculture
+		x = -2
+		y = 1
+		cost = 5
+
+		prerequisite = { focus = SOV_1946_famine }
+		relative_position_id = SOV_1946_famine
+		mutually_exclusive = { focus = SOV_transofrmation_of_nature }
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_RESOURCES_FOCUSES FOCUS_FILTER_DECISIONS_FOCUSES }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_political_power = 50
+			if = {
+				limit = {
+					has_active_mission = sov_1946_famine
+				}
+				add_days_mission_timeout = { mission = sov_1946_famine days = 50 }
+			}			
+			if = {
+				limit = {
+					has_active_mission = sov_1946_famine_severe
+				}
+				add_days_mission_timeout = { mission = sov_1946_famine_severe days = 50 }
+			}
+		}
+		ai_will_do = {
+			base = 200
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_rebuild_ukrainian_agriculture
+		available = {
+			OR = {
+				AND = {
+					controls_state = 192
+					controls_state = 197
+					controls_state = 766
+					controls_state = 200
+					controls_state = 221
+				}
+				AND = {
+					UKR = {
+						is_puppet_of = SOV
+						controls_state = 192
+						controls_state = 197
+						controls_state = 766
+					}
+				}
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_ukraine_wheat
+		x = 0
+		y = 1
+		cost = 5
+
+		prerequisite = { focus = SOV_rebuild_west_agriculture }
+		relative_position_id = SOV_rebuild_west_agriculture
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_RESOURCES_FOCUSES FOCUS_FILTER_DECISIONS_FOCUSES }		
+
+		select_effect = {}
+
+		completion_reward = {
+			add_resource = { type = crops amount = 50 state = 35 }
+			add_resource = { type = crops amount = 40 state = 197 }
+			add_resource = { type = crops amount = 50 state = 192 }
+			add_resource = { type = crops amount = 20 state = 766 }
+			add_resource = { type = crops amount = 50 state = 200 }
+			add_resource = { type = crops amount = 20 state = 221 }
+			add_resource = { type = crops amount = 20 state = 240 }
+		}
+		ai_will_do = {
+			base = 200
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}	
+	focus = {
+		id = SOV_rebuild_russian_agriculture
+		available = {
+			AND = {
+				controls_state = 260
+				controls_state = 240
+				controls_state = 220
+				controls_state = 258
+				controls_state = 257
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_communist_farming
+		x = -1
+		y = 2
+		cost = 5
+
+		prerequisite = { focus = SOV_rebuild_west_agriculture }
+		relative_position_id = SOV_rebuild_west_agriculture
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_RESOURCES_FOCUSES FOCUS_FILTER_DECISIONS_FOCUSES }		
+
+		select_effect = {}
+
+		completion_reward = {
+			add_resource = { type = crops amount = 10 state = 260 }
+			add_resource = { type = crops amount = 10 state = 240 }
+			add_resource = { type = crops amount = 10 state = 220 }
+			add_resource = { type = crops amount = 10 state = 258 }
+			add_resource = { type = crops amount = 10 state = 257 }
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_rebuild_moldova_agriculture
+		available = {
+			OR = {
+				controls_state = 78
+				AND = {
+					MOL = {
+						is_puppet_of = SOV					
+						controls_state = 78
+					}
+				}
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_gov_grain
+		x = 1
+		y = 2
+		cost = 5
+
+		prerequisite = { focus = SOV_rebuild_west_agriculture }
+		relative_position_id = SOV_rebuild_west_agriculture
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_RESOURCES_FOCUSES }		
+
+		select_effect = {}
+
+		completion_reward = {
+			add_resource = { type = crops amount = 12 state = 78 }
+		}
+	}
+	focus = {
+		id = SOV_import_grain
+		available = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				always = no
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 0
+		y = 4
+		cost = 2
+
+		prerequisite = { focus = SOV_1946_famine }
+		relative_position_id = SOV_1946_famine
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SOV_take_grain_manchuria
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "MANCHURIA_CROP_TRIGGER_TT"
+				controls_state = 219
+				AND = {
+					controls_state = 761
+					controls_state = 714
+					controls_state = 717
+					controls_state = 328
+					controls_state = 715
+					controls_state = 716
+					controls_state = 610
+				}
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_stabbing_manchuria
+		x = -1
+		y = 1
+		cost = 5
+
+		prerequisite = { focus = SOV_import_grain }
+		relative_position_id = SOV_import_grain
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES FOCUS_FILTER_TFV_AUTONOMY }		
+
+		select_effect = {}
+
+		completion_reward = {
+			PRC = { 
+				country_event = prc_events.1 
+				add_ideas = soviet_hatred
+				add_opinion_modifier = {
+					target = THIS
+					modifier = soviet_betrayal
+				}
+			}
+			
+			custom_effect_tooltip = "MANCHURIA_CROP_EFFECT_TT"
+			random_list = {
+				70 = {
+					PRC = { cw_apply_severe_famine = yes }
+				}
+				30 = {
+					PRC = { cw_apply_mild_famine = yes }
+				}
+			}
+			hidden_effect = {
+				761 = { add_resource = { type = crops amount = -5 } }
+				714 = { add_resource = { type = crops amount = -10 } }
+				717 = { add_resource = { type = crops amount = -5 } }
+				328 = { add_resource = { type = crops amount = -5 } }
+				715 = { add_resource = { type = crops amount = -10 } }
+				716 = { add_resource = { type = crops amount = -5 } }
+				610 = { add_resource = { type = crops amount = -10 } }
+				219 = { add_resource = { type = crops amount = 100 } }
+			}
+			
+		}
+	}
+	focus = {
+		id = SOV_import_grain_usa
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "A famine is plauging the country"
+				OR = {
+					has_active_mission = sov_1946_famine
+					has_active_mission = sov_1946_famine_severe
+					has_active_mission = cw_generic_mild_famine_timer
+					has_active_mission = cw_generic_severe_famine_timer
+				}
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_chi_mission_to_the_us
+		x = 1
+		y = 1
+		cost = 5
+
+		prerequisite = { focus = SOV_import_grain }
+		relative_position_id = SOV_import_grain		
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+
+		select_effect = {}
+
+		completion_reward = {
+			USA = { country_event = { id = sov_events.4 days = 3 } }
+		}
+	}
+	############# REINTEGRATION OF SOVIET REPUBLICS #############
+	focus = {
+		id = SOV_reintegrate_western_republics
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_reincorporate_eastern_republics
+		x = 0
+		y = 1
+		cost = 2
+
+		prerequisite = { focus = SOV_post_war_five_year_plan }
+		relative_position_id = SOV_post_war_five_year_plan
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+
+		completion_reward = {		
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_reintegrate_est
+		available = {
+			NOT = { country_exists =  EST }
+		}
+		prerequisite = { focus = SOV_reintegrate_western_republics }
+		icon = GFX_focus_sov_integrate_est
+		x = 2
+		y = 2
+		relative_position_id = SOV_reintegrate_western_republics
+		cost = 5
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+
+		select_effect = {}
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = EST 
+				}
+				add_claim_by = SOV
+				add_state_modifier = {
+					modifier = {
+						resistance_target = -0.5
+						compliance_gain = 0.5
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}	
+	focus = {
+		id = SOV_reintegrate_lit
+		available = {
+			NOT = { country_exists =  LIT }
+		}
+		prerequisite = { focus = SOV_reintegrate_western_republics }
+		icon = GFX_focus_sov_integrate_lit
+		x = 0
+		y = 2
+		relative_position_id = SOV_reintegrate_western_republics
+		cost = 5
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+
+		select_effect = {}
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = LIT 
+				}
+				add_claim_by = SOV
+				add_state_modifier = {
+					modifier = {
+						resistance_target = -0.5
+						compliance_gain = 0.5
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_reintegrate_lat
+		available = {
+			NOT = { country_exists =  LAT }
+		}
+		prerequisite = { focus = SOV_reintegrate_western_republics }	
+		icon = GFX_focus_sov_integrate_lat
+		x = -2
+		y = 2
+		relative_position_id = SOV_reintegrate_western_republics
+		cost = 5
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+
+		select_effect = {}
+
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_core_of = LAT 
+				}
+				add_claim_by = SOV
+				add_state_modifier = {
+					modifier = {
+						resistance_target = -0.5
+						compliance_gain = 0.5
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_legitimize_baltics
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			NOT = { country_exists =  LAT }
+			NOT = { country_exists =  LIT }
+			NOT = { country_exists =  EST }
+			custom_trigger_tooltip = {
+				tooltip = SOV_LEGITIMIZE_BALTICS_TRIGGER_TT
+				OR = {
+					NOT = { 11 = { is_core_of = ROOT } }
+					NOT = { 784 = { is_core_of = ROOT } }
+					NOT = { 189 = { is_core_of = ROOT } }
+					NOT = { 188 = { is_core_of = ROOT } }
+					NOT = { 190 = { is_core_of = ROOT } }
+					NOT = { 12 = { is_core_of = ROOT } }
+					NOT = { 13 = { is_core_of = ROOT } }
+					NOT = { 191 = { is_core_of = ROOT } }
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SOV_LEGITIMIZE_BALTICS_TRIGGER_2_TT
+				AND = {
+					11 = { is_controlled_by = ROOT }
+					784 = { is_controlled_by = ROOT }
+					189 = { is_controlled_by = ROOT }
+					188 = { is_controlled_by = ROOT }
+					190 = { is_controlled_by = ROOT }
+					12 = { is_controlled_by = ROOT }
+					13 = { is_controlled_by = ROOT }
+					191 = { is_controlled_by = ROOT }
+				}
+			}
+			core_compliance = { occupied_country_tag = LAT value > 50 }
+			core_compliance = { occupied_country_tag = LIT value > 50 }
+			core_compliance = { occupied_country_tag = EST value > 50 }
+		}
+		prerequisite = { focus = SOV_reintegrate_lat }
+		prerequisite = { focus = SOV_reintegrate_lit }
+		prerequisite = { focus = SOV_reintegrate_est }
+		
+		icon = GFX_focus_sov_legitemize_baltics
+		x = 0
+		y = 3
+		relative_position_id = SOV_reintegrate_western_republics
+		cost = 2
+
+		dynamic = no
+		cancelable = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+
+		select_effect = {
+			LIT = { cw_unsc_generic_recognize_region_resolution = yes }
+			LAT = { cw_unsc_generic_recognize_region_resolution = yes }
+			EST = { cw_unsc_generic_recognize_region_resolution = yes }
+			USA = { cw_unsc_set_hate_resolution = yes set_country_flag = wants_unsc_support }
+			cw_unsc_start_resolution_effect = yes
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = "SOV_LEGITIMIZE_BALTICS_EFFECT_TT"
+		}
+		
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}		
+	}
+	focus = {
+		id = SOV_reintegrate_ukr
+		available = {
+			country_exists =  UKR
+			UKR = { is_puppet_of = SOV }			
+		}
+		prerequisite = { focus = SOV_reintegrate_western_republics }	
+		icon = GFX_focus_ukr_symbol
+		x = 0
+		y = 1
+		relative_position_id = SOV_reintegrate_western_republics
+		cost = 5
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_TFV_AUTONOMY }
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				annex_country = {
+					target = UKR
+				}
+			}
+			UKR = { add_timed_idea = { idea = integrating_soviet_republic days = 665 } }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}	
+############# CONSOLIDATE COMMUNIST POWER IN THE WEST #############
+	focus = {
+		id = SOV_west_communism
+		
+		allow_branch = { NOT = { has_country_flag = important_matter }}
+		available = {
+		}	
+
+				
+		
+
+		icon = GFX_focus_SWE_the_threat_of_the_iron_curtain
+
+
+		x = 32
+		y = 0
+		cost = 2
+
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES }
+
+		completion_reward = {
+			add_political_power = 100
+			
+			hidden_effect = {
+				set_country_flag = consolidating_communism
+				unlock_national_focus = SOV_communism_BUL
+				unlock_national_focus = SOV_communism_ROM
+				unlock_national_focus = SOV_communism_HUN
+				unlock_national_focus = SOV_communism_CZE
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	
+	
+	
+	
+	focus = {
+		id = SOV_communism_BUL
+		available = {
+			country_exists = BUL
+		}
+		
+		prerequisite = { focus = SOV_west_communism }				
+		icon = GFX_focus_communism_bulgaria
+		x = -8
+		y = 1
+		cost = 2
+		
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		relative_position_id = SOV_west_communism
+		available_if_capitulated = no
+
+		bypass = { BUL = { has_government = communism_totalitarian } }		
+		
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_install_communism_BUL
+		available = {
+			BUL = {
+				exists = yes
+				NOT = { is_puppet_of = ROOT }
+			}
+		}
+
+		mutually_exclusive = { focus = SOV_consolidate_communism_BUL }
+		prerequisite = { focus = SOV_communism_BUL }				
+		icon = GFX_focus_stomp_bulgaria
+		x = -1
+		y = 1
+		cost = 5
+		
+		relative_position_id = SOV_communism_BUL
+		bypass = { BUL = { is_puppet_of = ROOT } }
+		
+		search_filters = { FOCUS_TENSION_FOCUSES }
+		
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		will_lead_to_war_with = BUL
+
+		select_effect = {}
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = BUL
+			}
+			custom_effect_tooltip = "INSTALL_COMMUNISM_WARNING"			
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_consolidate_communism_BUL
+		available = {
+			BUL = {
+				exists = yes
+				NOT = { is_puppet_of = ROOT }
+			}
+		}
+
+		mutually_exclusive = { focus = SOV_install_communism_BUL }		
+		prerequisite = { focus = SOV_communism_BUL }				
+		icon = GFX_offer_communism
+		x = 1
+		y = 1
+		cost = 2
+		
+		relative_position_id = SOV_communism_BUL
+		bypass = { BUL = { is_puppet_of = ROOT } }
+		
+		
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_SPY_MISSIONS_FOCUSES }		
+
+		select_effect = {}		
+		
+		completion_reward = {
+			top_bar_decisions_notification_new_spy_missions_available = yes
+			BUL = { custom_effect_tooltip = "SOV_CONSOLIDATE_COMMUNISM_OPERATIONS_TT" }
+			BUL = { set_country_flag = communist_consolidation_target_operations }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_communism_ROM
+		available = {
+		}
+		
+		prerequisite = { focus = SOV_west_communism }				
+		icon = GFX_focus_communism_romania
+		x = 2
+		y = 1		
+		cost = 2
+		
+		relative_position_id = SOV_west_communism
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		
+		bypass = { ROM = { is_puppet_of = SOV } }
+		
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}	
+	focus = {
+		id = SOV_consolidate_communism_ROM
+		available = {
+			ROM = {
+				exists = yes
+				NOT = { is_puppet_of = ROOT }
+			}
+		}
+
+		mutually_exclusive = { focus = SOV_install_communism_ROM }
+		prerequisite = { focus = SOV_communism_ROM }				
+		icon = GFX_offer_communism
+		x = 1
+		y = 1
+		cost = 2
+		
+		relative_position_id = SOV_communism_ROM
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_SPY_MISSIONS_FOCUSES }		
+
+		select_effect = {}
+
+		completion_reward = {
+			top_bar_decisions_notification_new_spy_missions_available = yes
+			ROM = { custom_effect_tooltip = "SOV_CONSOLIDATE_COMMUNISM_OPERATIONS_TT" }
+			ROM = { set_country_flag = communist_consolidation_target_operations }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}	
+	focus = {
+		id = SOV_install_communism_ROM
+		available = {
+			ROM = {
+				exists = yes
+				NOT = { is_puppet_of = ROOT }
+			}	
+		}
+
+		mutually_exclusive = { focus = SOV_consolidate_communism_ROM }		
+		prerequisite = { focus = SOV_communism_ROM }				
+		icon = GFX_focus_stomp_romania
+		x = -1
+		y = 1
+		cost = 5
+		
+		relative_position_id = SOV_communism_ROM
+		search_filters = { FOCUS_TENSION_FOCUSES }
+		bypass = { ROM = { is_puppet_of = ROOT } }
+		
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		will_lead_to_war_with = ROM
+
+		select_effect = {}
+		
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ROM
+			}
+			custom_effect_tooltip = "INSTALL_COMMUNISM_WARNING"	
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_communism_HUN
+		available = {	
+		}
+		
+		prerequisite = { focus = SOV_west_communism }				
+		icon = GFX_focus_communism_hungary
+		x = -2
+		y = 1
+		cost = 2
+		
+		
+		relative_position_id = SOV_west_communism
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES }		
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_install_communism_HUN
+		available = {
+			HUN = {
+				exists = yes
+				NOT = { is_puppet_of = ROOT }
+			}		
+		}
+
+		mutually_exclusive = { focus = SOV_consolidate_communism_HUN }
+		prerequisite = { focus = SOV_communism_HUN }				
+		icon = GFX_focus_stomp_hungary
+		x = -1
+		y = 1
+		cost = 5
+		
+		relative_position_id = SOV_communism_HUN
+		search_filters = { FOCUS_TENSION_FOCUSES }
+		bypass = { HUN = { is_puppet_of = ROOT } }
+		
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		will_lead_to_war_with = HUN
+
+		select_effect = {}
+
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = HUN
+			}
+			custom_effect_tooltip = "INSTALL_COMMUNISM_WARNING"	
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_consolidate_communism_HUN
+		available = {
+			HUN = {
+				exists = yes
+				NOT = { is_puppet_of = ROOT }
+			}
+		}
+
+		mutually_exclusive = { focus = SOV_install_communism_HUN }		
+		prerequisite = { focus = SOV_communism_HUN }
+		icon = GFX_offer_communism
+		x = 1
+		y = 1
+		cost = 2
+		
+		relative_position_id = SOV_communism_HUN
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_SPY_MISSIONS_FOCUSES }		
+
+		select_effect = {}
+		
+		bypass = { HUN = { has_government = communism_totalitarian } }
+		completion_reward = {
+			top_bar_decisions_notification_new_spy_missions_available = yes
+			HUN = { custom_effect_tooltip = "SOV_CONSOLIDATE_COMMUNISM_OPERATIONS_TT" }
+			HUN = { set_country_flag = communist_consolidation_target_operations }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	
+	focus = {
+		id = SOV_communism_CZE
+		available = {	
+		}
+		
+		prerequisite = { focus = SOV_west_communism }				
+		icon = GFX_focus_communism_czechia
+		x = 8
+		y = 1
+		cost = 2
+		
+		relative_position_id = SOV_west_communism
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES }		
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_consolidate_communism_CZE
+		available = {
+			CZE = {
+				exists = yes
+				NOT = { is_puppet_of = ROOT }
+			}
+		}
+
+		mutually_exclusive = { focus = SOV_install_communism_CZE }
+		prerequisite = { focus = SOV_communism_CZE }				
+		icon = GFX_offer_communism
+		x = 1
+		y = 1
+		cost = 2
+		
+		relative_position_id = SOV_communism_CZE
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_SPY_MISSIONS_FOCUSES }		
+
+		select_effect = {}
+
+		completion_reward = {
+			top_bar_decisions_notification_new_spy_missions_available = yes
+			CZE = { custom_effect_tooltip = "SOV_CONSOLIDATE_COMMUNISM_OPERATIONS_TT" }
+			CZE = { set_country_flag = communist_consolidation_target_operations }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}	
+	focus = {
+		id = SOV_install_communism_CZE
+		available = {
+			CZE = {
+				exists = yes
+				NOT = { is_puppet_of = ROOT }
+			}
+		}
+
+		mutually_exclusive = { focus = SOV_consolidate_communism_CZE }		
+		prerequisite = { focus = SOV_communism_CZE }				
+		icon = GFX_focus_stomp_czechia
+		x = -1
+		y = 1
+		cost = 5
+		
+		relative_position_id = SOV_communism_CZE
+		search_filters = { FOCUS_TENSION_FOCUSES }
+		bypass = { CZE = { is_puppet_of = ROOT } }
+		
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		will_lead_to_war_with = CZE
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					CZE = { exists = yes }
+				}
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = CZE
+				}
+			}
+			if = {
+				limit = {
+					CZR = { exists = yes }
+				}
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = CZR
+				}
+			}			
+			custom_effect_tooltip = "INSTALL_COMMUNISM_WARNING"	
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+		}		
+	}	
+	focus = {
+		id = SOV_communism_FIN
+		
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = GERMAN_QUESTION_REQ_TT
+				OR = {
+					has_global_flag = paris_treaty_ratified_by_unsc 
+					has_global_flag = paris_treaty_rejected_by_unsc 
+					has_global_flag = paris_treaty_stalled_by_unsc
+				}
+			}		
+		}
+		
+		
+		
+		prerequisite = { focus = SOV_west_communism }				
+		icon = GFX_focus_communism_finland
+		x = -5
+		y = 3
+		cost = 2
+		
+		relative_position_id = SOV_west_communism
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES }		
+
+		completion_reward = {
+			add_named_threat = { threat = 10 name = CW_THREAT_SOV_FIN_NEUTRALITY }
+			every_country = {
+				limit = {
+					is_in_array = {
+						array = global.scandinavian_union
+						value = THIS.id
+					}
+				}
+				add_opinion_modifier = { target = ROOT modifier = protest_action_strong }
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_consolidate_communism_FIN
+		available = {
+			FIN = {
+				exists = yes
+				NOT = { is_puppet_of = ROOT }
+			}
+		}
+		
+		
+
+		mutually_exclusive = { focus = SOV_install_communism_FIN }
+		prerequisite = { focus = SOV_communism_FIN }				
+		icon = GFX_offer_communism
+		x = 1
+		y = 1
+		cost = 2
+		
+		relative_position_id = SOV_communism_FIN
+
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_SPY_MISSIONS_FOCUSES }
+
+		select_effect = {}
+
+		completion_reward = {
+			top_bar_decisions_notification_new_spy_missions_available = yes
+			FIN = { custom_effect_tooltip = "SOV_CONSOLIDATE_COMMUNISM_OPERATIONS_TT" }
+			FIN = { set_country_flag = communist_consolidation_target_operations }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+		}		
+	}	
+	focus = {
+		id = SOV_install_communism_FIN
+		available = {
+			FIN = {
+				exists = yes
+				NOT = { is_puppet_of = ROOT }
+			}
+		}
+
+		mutually_exclusive = { focus = SOV_consolidate_communism_FIN }
+		prerequisite = { focus = SOV_communism_FIN }				
+		icon = GFX_focus_stomp_finland
+		x = -1
+		y = 1
+		cost = 5
+		
+		relative_position_id = SOV_communism_FIN
+		bypass = { FIN = { is_puppet_of = ROOT } }
+		search_filters = { FOCUS_TENSION_FOCUSES }
+		
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		will_lead_to_war_with = FIN
+
+		select_effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						OR = {
+							FIN = { is_puppet_of = ROOT }
+							FIN = { is_subject_of = ROOT }
+						}
+					}
+					ROOT = { end_puppet = FIN }
+					diplomatic_relation = {
+						country = FIN
+						relation = non_aggression_pact
+						active = no
+					}
+				}
+			}		
+		}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					has_global_flag = paris_treaty_ratified_by_unsc
+				}
+				every_country = { limit = { is_unsc_member = yes } add_opinion_modifier = { target = ROOT modifier = protest_action_strong } }
+				add_named_threat = { threat = 20 name = PEACE_TREATY_VIOLATION_LOC }
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = FIN
+			}
+			if = {
+				limit = {
+					FIN = { has_idea  = idea_finlandization }
+				}
+				FIN = { remove_ideas = idea_finlandization }
+			}
+			custom_effect_tooltip = "INSTALL_COMMUNISM_WARNING"				
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_communism_GRE
+		available = {
+		
+		}
+		
+		prerequisite = { focus = SOV_west_communism }		
+
+			
+		icon = GFX_focus_generic_communist_greece
+		x = 5
+		y = 3
+		cost = 2
+		
+		relative_position_id = SOV_west_communism
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES }		
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_intervene_in_greece
+		icon = GFX_sov_focus_crush_greece
+		x = -1
+		y = 1
+		cost = 3
+		available = {
+			CGR = { 
+				exists = yes
+				has_war_with = GRE
+			}
+		}
+		available_if_capitulated = yes
+
+		prerequisite = { focus = SOV_communism_GRE }
+		relative_position_id = SOV_communism_GRE
+		search_filters = { FOCUS_TENSION_FOCUSES }
+		
+		completion_reward = {
+			add_named_threat = { threat = 5 name = "Violated the The percentages agreement" }
+			ENG = { add_opinion_modifier = { target = SOV modifier = violated_treaty } }
+			CGR = { cw_give_military_aid = yes }
+			custom_effect_tooltip = "[CW_INSERT_NEW_SPACE_LOC]Will allow us to call for UN Police Action against the Kingdom of Greece."
+			CGR = { clr_country_flag = police_action_blocked }
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_sanction_royalist_greece
+		icon = GFX_focus_generic_sanctions
+		x = 1
+		y = 1
+		cost = 2
+		available = {
+			GRE = { exists = yes }
+			unsc_in_session = no
+			unsc_implementing_resolution = no			
+		}
+		available_if_capitulated = yes
+
+		continue_if_invalid = yes
+		cancel_if_invalid = no
+		prerequisite = { focus = SOV_communism_GRE }
+		relative_position_id = SOV_communism_GRE
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		
+		select_effect = {
+			GRE = { cw_unsc_generic_demand_sanctions_military_significant_five_years = yes }
+		}
+		
+		completion_reward = {
+			add_political_power = 50
+			effect_tooltip = {
+				GRE = { cw_unsc_generic_demand_sanctions_military_significant_five_years = yes }
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}		
+	}	
+	
+	
+	###################################################
+	
+	
+	#### Germany ####
+	
+	
+	focus = {
+		id = SOV_future_of_gemany
+		icon = GFX_SOV_german_question
+		
+		allow_branch = { NOT = { has_country_flag = important_matter } }
+		relative_position_id = SOV_west_communism
+		prerequisite = { focus =  SOV_west_communism}
+		
+		x = 0
+		y = 3
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		prerequisite = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		
+		
+		
+		select_effect = {}
+
+		completion_reward = {
+			add_political_power = 50
+			custom_effect_tooltip = GER_FORMATION_FAILURE_WARNING
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = 500
+				date > 1947.6.1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_establish_east_germany
+
+		bypass = {
+		}
+		
+		icon = GFX_ddr_flag_raised
+		
+		x = 0
+		y = 1
+		
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		
+		prerequisite = { focus = SOV_future_of_gemany }
+		relative_position_id = SOV_future_of_gemany
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_ANNEXATION }
+
+		select_effect = {
+			every_owned_state = {
+				limit = {
+					is_core_of = GER
+				}
+				add_core_of = DDR
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = ESTABLISH_DDR_EFFECT_TT
+			hidden_effect = {
+				release_puppet = DDR
+				DDR = {
+					cw_make_unrecognized = yes
+					cw_new_country_notification = yes
+					add_to_array = { array = SOV.countries_who_pay_us_reparations value = THIS.id }
+					set_variable = { amount_of_reperations_remaining@SOV = 10 }			
+				}
+			}
+			top_bar_decisions_notification_new_decisions_available = yes
+			cw_remove_from_european_union = yes
+			cw_add_to_european_union_observers = yes
+			new_military_char_notification = yes
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = 200
+				date > 1948.1.1
+				is_historical_focus_on = yes
+			}		
+		}
+	}
+	
+	
+	focus = {
+	
+		id = SOV_blockus_berlin
+
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_annex_country
+
+
+
+
+		
+		x = 1
+		y = 1
+		
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		
+		available = {
+			GER = { exists = yes }
+			801 = { is_owned_and_controlled_by = BRL }
+		}
+			
+		prerequisite = { focus = SOV_establish_east_germany }
+		relative_position_id = SOV_establish_east_germany
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_ANNEXATION }
+		
+		
+		completion_reward = {
+			set_global_flag = berlin_blockaded
+			
+			BRL = { 
+				add_ideas = berlin_blockaded
+			}
+			
+			activate_mission = cw_berlin_blockade_timer
+			USA = {
+				country_event = us_events.6 
+			}
+				
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = 200
+				date > 1948.1.1
+				is_historical_focus_on = yes
+			}		
+		}
+	
+	
+	}
+	
+	focus = {
+	
+		id = SOV_rebuild_germany
+
+		bypass = {
+		}
+		
+		icon = GFX_focus_DEN_no_regulations	
+
+
+
+
+		
+		x = -1
+		y = 1
+		
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		
+		available = {
+		}
+			
+		prerequisite = { focus = SOV_establish_east_germany }
+		relative_position_id = SOV_establish_east_germany
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_ANNEXATION }
+		
+		
+		completion_reward = {
+			set_country_flag = germany_rebuilding
+				
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = 200
+				date > 1948.1.1
+				is_historical_focus_on = yes
+			}		
+		}
+	
+	
+	}
+############# CHINESE CIVIL WAR INTERVENTION #############
+	focus = {
+		id = SOV_chinese_civil_war_intervention
+		allow_branch = { NOT = { has_country_flag = important_matter }}
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_chi_one_china_policy
+		x = 22
+		y = 8
+		cost = 2
+		
+		dynamic = no
+		cancelable = yes
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_TFV_AUTONOMY FOCUS_TENSION_FOCUSES }
+
+		select_effect = {}		
+		
+		completion_reward = {
+			add_named_threat = { threat = 5 name = CW_INTERVENED_IN_MAJOR_CONFLICT_WITHOUT_UNSC_APPROVAL }
+			hidden_effect = { unlock_national_focus = SOV_future_of_korea unlock_national_focus = SOV_manchuria_question }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+		
+	focus = {
+		id = SOV_manchuria_question
+
+		prerequisite = { focus = SOV_chinese_civil_war_intervention }
+		icon = GFX_focus_give_manchuria_communists
+		x = -3
+		y = 1
+		relative_position_id = SOV_chinese_civil_war_intervention
+		cost = 2
+
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		
+		completion_reward = {
+
+		}
+		ai_will_do = {
+			base = 10
+
+		}		
+	}
+	focus = {
+		id = SOV_ccw_give_manchuria_communists
+		available = {
+			country_exists =  PRC
+			custom_trigger_tooltip = {
+				tooltip = "The Manchuria handover has begun."
+				has_global_flag = manchuria_struggle_started
+			}			
+			custom_trigger_tooltip = {
+				tooltip = "Control any part of Manchuria."
+				AND = {
+					controls_state = 761
+					controls_state = 714
+					controls_state = 717
+					controls_state = 328
+					controls_state = 715
+					controls_state = 716
+					controls_state = 610
+				}
+			}
+		}
+		
+		mutually_exclusive = { focus =   SOV_ccw_manchurian_communist_republic }
+		prerequisite = { focus = SOV_manchuria_question }
+		icon = GFX_focus_chi_cooperation_with_the_communists
+		x = 1
+		y = 1
+		relative_position_id = SOV_manchuria_question
+		cost = 5
+
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+
+		completion_reward = {
+			add_named_threat = { threat = 1 name = CCW_HANDED_MANCHURIA_COMMUNISTS }
+			custom_effect_tooltip = "The Communist forces will recieve a significant boost to their control of Manchuria."
+			hidden_effect = {		
+				610 = { set_temp_variable = { manchuria_control_bonus_prc = 10 } cw_calculate_manchuria_state_controll = yes }
+				716 = { set_temp_variable = { manchuria_control_bonus_prc = 15 } cw_calculate_manchuria_state_controll = yes }
+				328 = { set_temp_variable = { manchuria_control_bonus_prc = 10 } cw_calculate_manchuria_state_controll = yes }
+				717 = { set_temp_variable = { manchuria_control_bonus_prc = 10 } cw_calculate_manchuria_state_controll = yes }
+				714 = { set_temp_variable = { manchuria_control_bonus_prc = 5 } cw_calculate_manchuria_state_controll = yes }
+				761 = { set_temp_variable = { manchuria_control_bonus_prc = 5 } cw_calculate_manchuria_state_controll = yes }
+				cw_calculate_manchuria_overall_control = yes
+			}
+			CHI = { add_opinion_modifier = { target = SOV modifier = violated_treaty } }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_ccw_manchurian_communist_republic
+		
+		available = {
+
+			custom_trigger_tooltip = {
+
+				SOV = {
+					OR = {
+						controls_state = 328
+						controls_state = 717
+						controls_state = 714
+						controls_state = 715
+						controls_state = 761
+						controls_state = 716
+						controls_state = 610
+					}
+				}
+			}			
+		}	
+		prerequisite = { focus = SOV_manchuria_question }
+		icon = GFX_focus_manchuria_republic
+		x = -1
+		y = 1
+		relative_position_id = SOV_manchuria_question
+		
+		mutually_exclusive = { focus =   SOV_ccw_give_manchuria_communists }
+		
+		bypass = {
+			 MAN = { is_puppet_of = ROOT } 
+		}
+		cost = 5
+
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		search_filters = { FOCUS_FILTER_TFV_AUTONOMY }
+
+		completion_reward = {
+		
+			PRC = {
+			add_ideas = soviet_hatred
+				add_opinion_modifier = {
+					target = THIS
+					modifier = soviet_betrayal
+				}
+			}
+			MAN = {
+				add_state_core = 328
+				add_state_core = 717
+				add_state_core = 714
+				add_state_core = 715
+				add_state_core = 761
+				add_state_core = 716
+				add_state_core = 610  
+			
+			}
+			release_puppet = MAN
+		}
+		ai_will_do = {
+			base = 10
+
+		}	
+	}	
+	
+	
+	focus = {
+		id = SOV_MAN_industry
+		available = {
+			country_exists =  MAN
+			MAN = { is_puppet_of  = SOV }
+		}
+		prerequisite = { focus = SOV_ccw_manchurian_communist_republic }
+		icon = GFX_goal_generic_soviet_construction
+		x = 1
+		y = 1
+		relative_position_id = SOV_ccw_manchurian_communist_republic
+		cost = 5
+
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+
+		completion_reward = {
+			add_offsite_building = { type = arms_factory level = 5 }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}	
+	
+	
+	}
+	
+	
+	focus = {
+		id = SOV_MAN_reconstruction
+		available = {
+			country_exists =  MAN
+			MAN = { is_puppet_of  = SOV }
+		}
+		prerequisite = { focus = SOV_ccw_manchurian_communist_republic }
+		icon = GFX_focus_YUG_pan_slavic_congress
+		x = -1
+		y = 1
+		relative_position_id = SOV_ccw_manchurian_communist_republic
+		cost = 5
+
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+
+		completion_reward = {
+		
+			subtract_from_variable = { ROOT.sov_reconstruction_cost_time = 15 }
+			add_timed_idea = {
+				idea = cw_sov_man_reconstruction
+				days = 300
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}	
+	}
+	
+	focus = {
+		id = SOV_MAN_uranium
+		available = {
+			country_exists =  MAN
+			MAN = { is_puppet_of  = SOV }
+		}
+		prerequisite = { focus = SOV_ccw_manchurian_communist_republic }
+		icon = GFX_goal_generic_construction2
+		x = 0
+		y = 2
+		relative_position_id = SOV_ccw_manchurian_communist_republic
+		cost = 5
+
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+
+		completion_reward = {
+			328 = {
+				add_resource = {
+					type = uranium
+					amount = 5
+				}
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}	
+	
+	
+	}
+	focus = {
+		id = SOV_lease_dalian
+		available = {
+			controls_state =  745
+		}
+		prerequisite = { focus = SOV_chinese_civil_war_intervention }
+		icon = GFX_focus_generic_navy_battleship2
+		x = -1
+		y = 1
+		relative_position_id = SOV_chinese_civil_war_intervention
+		cost = 5
+
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+
+		completion_reward = {
+			745 = { cw_grant_lease_five_years = yes }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	
+	focus = {
+		id = SOV_ccw_give_japanese_weapons
+		available = {
+			country_exists =  PRC
+		}
+		prerequisite = { focus = SOV_chinese_civil_war_intervention }
+		icon = GFX_focus_give_japenese_weapons
+		x = 1
+		y = 1
+		relative_position_id = SOV_chinese_civil_war_intervention
+		cost = 5
+
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+
+		completion_reward = {
+			custom_effect_tooltip = "CCW_HAND_JAPANESE_WEAPONS_COMMUNISTS"
+			SOV = { country_event = sov_prc.3 }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_boost_communist_forces
+		available = {
+			country_exists =  PRC
+			PRC = { has_war_with = CHI }		
+		}
+		prerequisite = { focus = SOV_ccw_give_manchuria_communists }		
+		icon = GFX_focus_secret_rearmament
+		x = 1
+		y = 1
+		relative_position_id = SOV_ccw_give_manchuria_communists
+		cost = 5
+
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+
+		completion_reward = {
+			PRC = { cw_give_military_aid = yes }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = 25
+				PRC = { surrender_progress > 0.10 }
+			}			
+		}		
+	}
+	focus = {
+		id = SOV_future_of_korea
+		
+		available = {		
+		}
+
+		bypass = {
+		}
+		
+		icon = GFX_SOV_korean_question
+		x = 3
+		y = 1
+		cost = 5
+		
+		prerequisite = { focus = SOV_chinese_civil_war_intervention }
+		relative_position_id = SOV_chinese_civil_war_intervention
+		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SOV_establish_dprk
+		
+		available = {
+			PRK = { exists =  no }
+		}
+
+		prerequisite = { focus = SOV_future_of_korea }				
+		icon = GFX_SOV_korean_flag_raised
+		x = -1
+		y = 1
+		cost = 5	
+
+		bypass = {
+			 PRK = { is_puppet_of = ROOT } 
+		}
+		
+		relative_position_id = SOV_future_of_korea
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		mutually_exclusive = { focus = SOV_unified_korea }		
+		
+			
+
+		completion_reward = {
+			add_political_power = 100
+			release_puppet = PRK
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	
+	focus = {
+		id = SOV_test_south_korea_border
+		
+		available = {
+			KOR = { exists =  yes has_army_size = { size > 8 } 	 } 
+			PRK = { has_army_size = { size > 8 } }
+			 
+		}
+
+		prerequisite = { focus = SOV_establish_dprk }				
+		icon = GFX_focus_generic_provoke_border_clashes	
+
+
+		x = 1
+		y = 1
+		cost = 5	
+
+		bypass = {
+			 
+		}
+		
+		relative_position_id = SOV_establish_dprk
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+			
+		
+		completion_reward = {
+
+			
+			
+			start_border_war = {
+				change_state_after_war = yes
+				attacker = {
+					state = 830
+					num_provinces = 2
+				}	
+				defender = {
+					state = 525
+					num_provinces = 2
+				}
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	
+	
+	focus = {
+		id = SOV_prk_support
+		
+		available = {
+			PRC = {  has_war_with = CHI }
+		}
+
+		prerequisite = { focus = SOV_establish_dprk }	
+		prerequisite = { focus = SOV_ccw_give_manchuria_communists }			
+		
+		icon = GFX_focus_PRK_military_state
+		x = -1
+		y = 1
+		cost = 5	
+
+		bypass = {
+
+		}
+		
+		relative_position_id = SOV_establish_dprk
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }	
+
+		completion_reward = {
+			PRC = {
+				add_manpower = 100000
+				add_equipment_to_stockpile = { type = infantry_equipment_3 amount = 5000 }
+				add_equipment_to_stockpile = { type = support_equipment amount = 500  }
+				add_equipment_to_stockpile = { type = mechanized_equipment_3 amount = 500  }	
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_unified_korea
+		
+		available = {
+		}
+		
+		mutually_exclusive = { focus = SOV_establish_dprk }		
+		
+		bypass = {
+			OR = {
+				KOR = { cw_holding_referendum = yes }
+				PRK = { cw_holding_referendum = yes }
+			}
+		}
+		
+		prerequisite = { focus = SOV_future_of_korea }				
+		icon = GFX_SOV_korea_deal
+		x = 1
+		y = 1
+		cost = 5	
+		
+		relative_position_id = SOV_future_of_korea
+		available_if_capitulated = no
+		mutually_exclusive = { focus = SOV_establish_dprk }
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+
+		completion_reward = {
+			USA = { country_event = { id = korean_unification.1 days = 1 } }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	
+############# SOUTH EAST ASIA POLICY #########
+		focus = {
+			id = SOV_east_asia_policy
+			available = {
+			}
+			bypass = {
+			}
+			allow_branch = { NOT = { has_country_flag = important_matter }}
+			icon = GFX_USA_secure_asia
+			x = 9
+			y = 8
+			cost = 2
+
+			available_if_capitulated = no
+
+			completion_reward = {
+			
+				unlock_national_focus = SOV_kick_hollande
+				unlock_national_focus = SOV_kick_english
+				unlock_national_focus = SOV_kick_france
+			
+			}
+			ai_will_do = {
+				base = 10
+				modifier = {
+					add = 10
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		
+		focus = {
+			id = SOV_kick_hollande
+			
+			bypass = {
+			}
+			prerequisite = { focus = SOV_east_asia_policy }
+			relative_position_id = SOV_east_asia_policy
+			icon = GFX_focus_generic_military_support_netherlands
+			x = 0
+			y = 1
+			cost = 2
+
+			available_if_capitulated = no
+
+			completion_reward = {
+			
+				add_political_power = 50
+			}
+			ai_will_do = {
+				base = 10
+				modifier = {
+					add = 10
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		
+		focus = {
+			id = SOV_indonesia_dutch_withdrawal
+			available = {
+				unsc_in_session = no
+				unsc_implementing_resolution = no		
+			}
+			bypass = {
+				INS =  { NOT  = { has_war_with = HOL } }
+			}
+			
+			cancel_if_invalid = no
+			prerequisite = { focus = SOV_kick_hollande }
+			relative_position_id = SOV_kick_hollande
+			icon = GFX_focus_usa_dutch_withdrawal
+			x = 1
+			y = 1
+			cost = 5
+
+			available_if_capitulated = no
+
+			select_effect = {
+				INS = { cw_unsc_resolution_foreign_withdrawal = yes }
+			}
+
+			completion_reward = {
+				effect_tooltip = {
+					INS = { cw_unsc_resolution_foreign_withdrawal = yes }
+				}
+			}
+			ai_will_do = {
+				base = 10
+				modifier = {
+					add = 10
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		
+		focus = {
+			id = SOV_indonesia_military_support
+			available = {
+			}
+			bypass = {
+				INS =  { NOT  = { has_war_with = HOL } }
+			}
+			prerequisite = { focus = SOV_kick_hollande }
+			relative_position_id = SOV_kick_hollande
+			icon = GFX_focus_generic_combined_arms
+			x = -1
+			y = 1
+			cost = 5
+
+			available_if_capitulated = no
+
+			completion_reward = {
+			
+				INS = { cw_give_military_aid = yes }
+			}
+			ai_will_do = {
+				base = 10
+				modifier = {
+					add = 10
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		
+		focus = {
+			id = SOV_indonesia_papua_operation  
+			available = {
+				INS = { NOT  =  { has_war_with = EIN }  }
+			}
+			bypass = {
+				NOT = { HOL = { controls_state = 669 } }
+			}
+			prerequisite = { focus = SOV_indonesia_military_support }
+			prerequisite = { focus = SOV_indonesia_dutch_withdrawal }
+			relative_position_id = SOV_indonesia_military_support
+			icon = GFX_goal_generic_territory_or_war
+			x = 1
+			y = 1
+			cost = 5
+
+			available_if_capitulated = no
+
+			completion_reward = {
+			
+				 set_country_flag  = operation_trikora_enabled 
+			
+			}
+			ai_will_do = {
+				base = 10
+				modifier = {
+					add = 10
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		
+		
+		
+		
+	
+		
+		
+		focus = {
+			id = SOV_kick_france
+			available = {
+				
+			}
+			bypass = {
+			}
+			prerequisite = { focus = SOV_east_asia_policy }
+			relative_position_id = SOV_east_asia_policy
+			icon = GFX_focus_attack_france
+			x = -4
+			y = 1
+			cost = 2
+
+			available_if_capitulated = no
+
+			completion_reward = {
+			add_political_power = 50
+			}
+			ai_will_do = {
+				base = 10
+				modifier = {
+					add = 10
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		
+		focus = {
+			id = SOV_indochina_military_aid
+			available = {
+			}
+			bypass = {
+			}
+			prerequisite = { focus = SOV_kick_france }
+			relative_position_id = SOV_kick_france
+			icon = GFX_focus_generic_combined_arms
+			x = -1
+			y = 1
+			cost = 5
+
+			available_if_capitulated = no
+
+			completion_reward = {
+				VTC = { cw_give_military_aid = yes }
+			}
+			ai_will_do = {
+				base = 10
+				modifier = {
+					add = 10
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		
+		focus = {
+			id = SOV_indochina_chinese_volunteers
+			available = {
+			}
+			bypass = {
+			}
+			prerequisite = { focus = SOV_indochina_military_aid focus = SOV_indochina_french_withdrawal }
+			relative_position_id = SOV_indochina_military_aid
+			icon = GFX_focus_PRK_military_state
+			x = 1
+			y = 1
+			cost = 5
+
+			available_if_capitulated = no
+
+			completion_reward = {
+				PRC = { 
+				
+					add_ai_strategy = {
+						type = send_volunteers_desire
+						id = VTC   
+						value = 400
+					}
+						
+				}
+			}
+			ai_will_do = {
+				base = 10
+				modifier = {
+					add = 10
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		
+		
+		
+		focus = {
+			id = SOV_indochina_french_withdrawal
+			available = {
+				unsc_in_session = no
+				unsc_implementing_resolution = no		
+			}
+			bypass = {
+			
+				OR = { 
+					VTC = { exists = no }
+					VIN = { exists = no  }
+				}
+			}
+			
+			cancel_if_invalid = no 
+			
+			
+			prerequisite = { focus = SOV_kick_france }
+			relative_position_id = SOV_kick_france
+			icon = GFX_prc_vietnam_withdrawal
+			x = 1
+			y = 1
+			cost = 5
+
+			available_if_capitulated = no
+
+			select_effect = {
+				VTC = { cw_unsc_resolution_foreign_withdrawal = yes }
+			}
+
+			completion_reward = {
+				effect_tooltip = {
+					VTC = { cw_unsc_resolution_foreign_withdrawal = yes }
+				}
+			}
+			ai_will_do = {
+				base = 10
+				modifier = {
+					add = 10
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		
+		focus = {
+			id = SOV_kick_english
+			available = {
+				
+			}
+			bypass = {
+			}
+			prerequisite = { focus = SOV_east_asia_policy }
+			relative_position_id = SOV_east_asia_policy
+			icon = GFX_kick_flag_british
+			x = 4
+			y = 1
+			cost = 2
+
+			available_if_capitulated = no
+
+			completion_reward = {
+			
+				add_political_power = 50
+			}
+			ai_will_do = {
+				base = 10
+				modifier = {
+					add = 10
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		
+		
+		focus = {
+			id = SOV_uk_burma
+			cancel_if_invalid = no
+			
+			available = {
+				unsc_in_session = no
+				unsc_implementing_resolution = no		
+			}
+			bypass = {
+				BUR = { has_war = no is_puppet = no }
+			}
+			prerequisite = { focus = SOV_kick_english }
+			relative_position_id = SOV_kick_english
+			icon = GFX_prc_burma_withdrawal
+			x = -1
+			y = 1
+			cost = 5
+
+			available_if_capitulated = no
+
+			select_effect = {
+				BUR = { cw_unsc_resolution_foreign_withdrawal = yes }
+			}
+
+			completion_reward = {
+				effect_tooltip = {
+					BUR = { cw_unsc_resolution_foreign_withdrawal = yes }
+				}
+			}
+			ai_will_do = {
+				base = 10
+				modifier = {
+					add = 10
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		
+		focus = {
+			id = SOV_uk_malaysia
+			cancel_if_invalid = no
+			
+			available = {
+				unsc_in_session = no
+				unsc_implementing_resolution = no		
+			}
+			bypass = {
+				MAL = { has_war = no is_puppet = no }
+			}
+			prerequisite = { focus = SOV_kick_english }
+			relative_position_id = SOV_kick_english
+			icon = GFX_prc_burma_withdrawal
+			x = 1
+			y = 1
+			cost = 5
+
+			available_if_capitulated = no
+
+			select_effect = {
+				MAL = { cw_unsc_resolution_foreign_withdrawal = yes }
+			}
+
+			completion_reward = {
+				effect_tooltip = {
+					MAL = { cw_unsc_resolution_foreign_withdrawal = yes }
+				}
+			}
+			ai_will_do = {
+				base = 10
+				modifier = {
+					add = 10
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		
+		focus = {
+			id = SOV_uk_resistance
+			available = {
+			}
+			bypass = {
+			}
+			prerequisite = { focus = SOV_uk_malaysia focus = SOV_uk_burma }
+			relative_position_id = SOV_uk_malaysia
+			icon = GFX_focus_stomp_british_flag
+			x = -1
+			y = 1
+			cost = 5
+
+			available_if_capitulated = no
+
+
+			completion_reward = {
+				BUR = { cw_give_military_aid = yes }
+				MAL = { cw_give_military_aid = yes }
+				
+					
+		
+			}
+			ai_will_do = {
+				base = 10
+				modifier = {
+					add = 10
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		
+		focus = {
+			id = SOV_anti_imperialism_champion
+			available = {
+				
+				custom_trigger_tooltip = {
+					tooltip = "SOUTH_EAST_ASIA_LIBERATED"
+					EIN = { NOT = { has_war_with = INS  is_puppet_of  = EIN} }
+					BUR = { NOT = { has_war_with = ENG  is_puppet_of  = ENG} }
+					VTC = { exists = no }
+					MAL = { NOT = { has_war_with = ENG  is_puppet_of  = ENG} }
+				}
+			}
+			bypass = {
+			}
+			prerequisite = { focus = SOV_uk_resistance }
+			prerequisite = { focus = SOV_indochina_chinese_volunteers }
+			prerequisite = { focus = SOV_indonesia_papua_operation }
+			relative_position_id = SOV_indonesia_papua_operation
+			icon = GFX_focus_generic_un_charm_offensive
+			x = 0
+			y = 1
+			cost = 5
+
+			available_if_capitulated = no
+
+
+			completion_reward = {
+				custom_effect_tooltip =  SOUTH_EAST_ASIA_PRESERVED_TT 
+				cw_improve_relations_with_third_world = yes
+				add_to_variable = { cw_score = 150 }
+		
+			}
+			ai_will_do = {
+				base = 10
+				modifier = {
+					add = 10
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		
+		
+
+
+
+############# MIDDLE EAST POLICY #############	
+	focus = {
+		id = SOV_middle_east_policy
+		available = {
+		}
+		bypass = {
+		}
+		allow_branch = { NOT = { has_country_flag = important_matter }}
+		icon = GFX_SOV_middle_east
+		x = 43
+		y = 8
+		cost = 2
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			unlock_national_focus = SOV_settle_iran_dispute
+			unlock_national_focus = SOV_settle_turkey_dispute
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_middle_east_intervene_arab_israeli_war
+		available = {
+			ISR = { exists = yes }
+			ISR = { has_war_with = PAL }
+		}
+		bypass = {
+			ISR = { exists = yes }
+			ISR = { has_war_with = PAL }
+		}
+		
+		icon = GFX_focus_star_of_david_burning
+		x = 0
+		y = 3
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		prerequisite = { focus = SOV_middle_east_policy }
+		relative_position_id = SOV_middle_east_policy
+
+		select_effect = {
+		}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_middle_east_support_israel
+		available = {
+			ISR = { exists = yes }
+		}
+		bypass = {		
+		}
+		
+		icon = GFX_focus_support_israel
+		x = -1
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_HISTORICAL_FOCUSES }
+		relative_position_id = SOV_middle_east_intervene_arab_israeli_war
+		prerequisite = { focus = SOV_middle_east_intervene_arab_israeli_war }
+		mutually_exclusive = { focus = SOV_middle_east_support_arab_nations }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			ISR = { cw_give_military_aid = yes  }
+			every_other_country = {
+				limit = {
+					is_in_array = {
+						array = global.arab_league_members
+						value = THIS.id
+					}
+					has_war_with = ISR
+				}
+				add_opinion_modifier = { target = ROOT modifier = protest_action }
+				add_popularity = {
+					ideology = communism_totalitarian
+					popularity = -0.3
+				}
+			}			
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	focus = {
+		id = SOV_middle_east_support_arab_nations
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_support_arab_leauge
+		x = 1
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES }
+		relative_position_id = SOV_middle_east_intervene_arab_israeli_war
+		prerequisite = { focus = SOV_middle_east_intervene_arab_israeli_war }
+		mutually_exclusive = { focus = SOV_middle_east_support_israel }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					is_in_array = {
+						array = global.arab_league_members
+						value = THIS.id
+					}
+					has_war_with = ISR
+				}
+				cw_give_military_aid = yes
+			}		
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_arab_israeli_war_demand_truce
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			ISR = { has_war = yes }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_arab_israel_un_explosion
+		x = 0
+		y = 2
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES }
+		relative_position_id = SOV_middle_east_intervene_arab_israeli_war
+		prerequisite = { focus = SOV_middle_east_support_israel focus = SOV_middle_east_support_arab_nations }
+
+		select_effect = {
+			ISR = { cw_unsc_resolution_foreign_withdrawal = yes }
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				ISR = { cw_unsc_resolution_foreign_withdrawal = yes }
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}	
+	focus = {
+		id = SOV_settle_iran_dispute
+		available = {
+		}
+		prerequisite = { focus = SOV_middle_east_policy }
+		icon = GFX_persia_flag_hands
+		x = -3
+		y = 1
+		relative_position_id = SOV_middle_east_policy
+		cost = 8
+
+		available_if_capitulated = no
+
+		completion_reward = {			
+		}
+		ai_will_do = {
+			base = -10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_azerbaijan_for_oil
+		available = {
+			controls_state = 419
+		}
+		prerequisite = { focus = SOV_settle_iran_dispute }
+		icon = GFX_iran_oil_contract
+		x = -1
+		y = 1
+		relative_position_id = SOV_settle_iran_dispute
+		cost = 8
+
+		mutually_exclusive = { focus = SOV_legitimize_soviet_azerbaijan }
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+
+		completion_reward = {
+			custom_effect_tooltip = AZERBAIJAN_FOR_OIL_EFFECT_TT
+			PER = { country_event = { id = sov_events.2 days = 5 } }
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_legitimize_soviet_azerbaijan
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no		
+			controls_state = 419		
+		}
+		prerequisite = { focus = SOV_settle_iran_dispute }
+		icon = GFX_SOV_un_azerbaijan
+		x = 1
+		y = 1
+		relative_position_id = SOV_settle_iran_dispute
+		cost = 2
+
+		mutually_exclusive = { focus = SOV_azerbaijan_for_oil }
+		available_if_capitulated = no
+		continue_if_invalid = yes
+		cancel_if_invalid = no
+		
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+		
+		select_effect = {
+			hidden_effect = {
+				419 = { save_global_event_target_as = requested_core }
+				if = {
+					limit = {
+						event_target:requested_core = { is_fully_controlled_by = ROOT }
+					}
+					ROOT = {
+						save_global_event_target_as = unsc_initiator
+						save_global_event_target_as = unsc_target
+						set_country_flag = wants_unsc_support 
+						set_country_flag = resolution_generic_request_core_controlled
+					}
+				}
+				if = {
+					limit = {
+						NOT = { event_target:requested_core = { is_fully_controlled_by = ROOT } }
+					}
+					ROOT = { save_global_event_target_as = unsc_initiator }
+					ROOT = { set_country_flag = wants_unsc_support }
+					event_target:requested_core = {
+						owner = {
+							cw_set_resolution_observer = yes
+							cw_unsc_set_hate_resolution = yes
+							set_country_flag = resolution_generic_request_core_not_controlled
+							save_global_event_target_as = unsc_target
+							set_country_flag = unsc_target_flag
+						}
+					}
+				}
+				cw_unsc_start_resolution_effect = yes
+			}
+		}
+
+		completion_reward = {
+  			419 = { add_claim_by = ROOT }			
+  			ROOT = { add_named_threat = {  threat = 5 name = UNSC_CLAIMED_STATE } }
+			custom_effect_tooltip = LEGITIMIE_AZERBAIJAN_EFFECT_TT
+		}
+		ai_will_do = {
+			base = -10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_fund_tudeh_party_iran
+		available = {
+		}
+		prerequisite = { focus = SOV_settle_iran_dispute }
+		icon = GFX_iran_tudeh_party
+		x = 0
+		y = 2
+		relative_position_id = SOV_settle_iran_dispute
+		cost = 7
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			PER = { add_timed_idea = { idea = foreign_support_for_com_total days = 180 } }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = SOV_settle_turkey_dispute
+		available = {
+			NOT = { controls_state = 806 }
+		}
+		prerequisite = { focus = SOV_middle_east_policy }
+		icon = GFX_SOV_turkey
+		x = 3
+		y = 1
+		relative_position_id = SOV_middle_east_policy
+		cost = 8
+
+		available_if_capitulated = no
+
+		bypass = {
+			controls_state = 806
+		}
+		
+		completion_reward = {			
+		}
+		ai_will_do = {
+			base = -10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = -100
+				TUR = { OR = { has_government = communism has_government = communism_totalitarian } }
+			}
+		}	
+	}
+	
+	
+	focus = {
+		id = SOV_push_claim
+		available = {
+			TUR = { controls_state = 806 }
+		}
+		prerequisite = { focus = SOV_settle_turkey_dispute }
+		icon = GFX_turkish_straits
+		x = 1
+		y = 1
+		relative_position_id = SOV_settle_turkey_dispute
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		cost = 3
+		
+		bypass = {
+			controls_state = 806
+		}
+		
+		mutually_exclusive = { focus = SOV_make_tur_straits_international }
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+		select_effect = {
+			news_event = cw_non_historic_news.13
+		}
+
+		completion_reward = {
+			806 = { add_claim_by = ROOT }
+			354 = { add_claim_by = ROOT }
+			354 = { add_claim_by = GEO }
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = -100
+				TUR = { OR = { has_government = communism has_government = communism_totalitarian } }
+			}			
+		}	
+	}
+	
+	
+	focus = {
+		id = SOV_strait_or_war
+		available = {
+			TUR = { controls_state = 806 }
+		}
+		prerequisite = { focus = SOV_push_claim }
+		icon = GFX_focus_sov_bosphorus
+		x = 1
+		y = 1
+		relative_position_id = SOV_push_claim
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		cost = 1
+		
+		bypass = {
+			controls_state = 806
+		}
+		
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		will_lead_to_war_with = TUR
+
+		select_effect = {
+			news_event = cw_non_historic_news.13
+		}
+
+		completion_reward = {
+			SOV = {
+				declare_war_on = {
+					target = TUR
+					type = annex_everything
+				}
+
+			}
+			set_global_flag = turkey_war
+			
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = -100
+				TUR = { OR = { has_government = communism has_government = communism_totalitarian } }
+			}			
+		}	
+	}
+	
+	
+	
+	
+	focus = {
+		id = SOV_regime_change_turkey
+		available = {
+		}
+		prerequisite = { focus = SOV_settle_turkey_dispute }
+		icon = GFX_turkish_communist_party
+		x = 0
+		y = 2		
+		relative_position_id = SOV_settle_turkey_dispute
+		cost = 7
+
+		available_if_capitulated = no
+		completion_reward = {
+			TUR = { add_timed_idea = { idea = foreign_support_for_com_total days = 180 } }
+		}
+		ai_will_do = {
+			base = -10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+		}	
+	}
+	
+	
+	
+	focus = {
+		id = SOV_give_turkey_comecon
+		available = {
+			has_completed_focus = SOV_comecon_aid
+		}
+		prerequisite = { focus = SOV_regime_change_turkey }
+		icon = GFX_extend_comecon
+		x = 0
+		y = 1
+		relative_position_id = SOV_regime_change_turkey
+		cost = 5
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = "Will allow us to provide Comecon aid to Turkey."
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+		}	
+	}	
+	focus = {
+		id = SOV_make_tur_straits_international
+		available = {
+			TUR = { owns_state = 806 }
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+		prerequisite = { focus = SOV_settle_turkey_dispute }
+		icon = GFX_turkish_straits_un
+		x = -1
+		y = 1
+		relative_position_id = SOV_settle_turkey_dispute
+		cost = 2
+
+		mutually_exclusive = { focus = SOV_push_claim }
+		continue_if_invalid = yes
+		cancel_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+
+		select_effect = {
+			hidden_effect = {
+				806 = { save_global_event_target_as = requested_int_zone }
+				806 = { owner = { save_global_event_target_as = unsc_target } }
+				806 = { owner = { cw_unsc_set_hate_resolution = yes } }
+				806 = { owner = { set_country_flag = unsc_resolution_generic_international_lease } }
+				save_global_event_target_as = unsc_initiator
+				set_country_flag = wants_unsc_support
+				USA = { set_country_flag = wants_unsc_support }
+				cw_unsc_start_resolution_effect = yes
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = "SOV_INTERNATIONAL_TURKISH_STRAITS_TT"
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 50
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = -50
+				country_has_majority_support = no
+			}			
+		}	
+	}
+	
+	
+	##########################
+	#        MILITARY        #
+	##########################
+	focus = {
+	
+		id = SOV_army_focus
+		
+		relative_position_id = SOV_post_war_five_year_plan
+		allow_branch = { NOT = { has_country_flag = important_matter }}
+		available = {
+		}
+		bypass = {
+		}
+		x =  41
+		y = 0
+		cost = 5
+		
+		icon = GFX_focus_SOV_organization_centralization_discipline	
+
+
+
+
+		completion_reward = {
+			
+			add_dynamic_modifier = {
+				modifier = red_army
+				scope = SOV
+			}
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	
+	focus = {
+	
+		id = SOV_soviet_tank
+		
+		relative_position_id = SOV_army_focus
+		prerequisite = { focus = SOV_army_focus }
+		available = {
+		}
+		bypass = {
+		}
+		x =  0
+		y = 3
+		cost = 5
+		
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_communism	
+
+
+
+
+		completion_reward = {
+			add_ideas = tank_industry
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	
+	focus = {
+	
+		id = SOV_proxy_war
+		
+		relative_position_id = SOV_army_focus
+		prerequisite = { focus = SOV_army_focus }
+		mutually_exclusive = { focus = SOV_total_war }
+		available = {
+		}
+		bypass = {
+		}
+		x =  -3
+		y = 1
+		cost = 5
+		
+		icon = GFX_focus_SOV_mobilization_plan	
+
+
+
+
+		completion_reward = {
+			news_event = cw_historic_events.55
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	focus = {
+	
+		id = SOV_expeditionary_force
+		
+		relative_position_id = SOV_proxy_war
+		prerequisite = { focus = SOV_proxy_war }
+		available = {
+		}
+		bypass = {
+		}
+		x =  0
+		y = 1
+		cost = 5
+		
+		icon = GFX_focus_SOV_support_spanish_poum	
+
+
+
+
+		completion_reward = { 
+			set_variable = { army_hot_bonus = 0.1 }
+			set_variable = { army_cold_bonus = 0.1 }
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	focus = {
+	
+		id = SOV_air_support
+		
+		relative_position_id = SOV_proxy_war
+		prerequisite = { focus = SOV_proxy_war }
+		available = {
+		}
+		bypass = {
+		}
+		x =  2
+		y = 1
+		cost = 5
+		
+		icon = GFX_goal_generic_air_fighter2
+
+
+
+
+		completion_reward = { # search CAS
+			add_ideas = cas_industry_com
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	focus = {
+	
+		id = SOV_special_division
+		
+		relative_position_id = SOV_proxy_war
+		prerequisite = { focus = SOV_proxy_war }
+		available = {
+		}
+		bypass = {
+		}
+		x =  -2
+		y = 1
+		cost = 5
+		
+		icon = GFX_goal_generic_special_forces	
+
+		completion_reward = { # more special template
+			set_variable = { army_special_bonus = 0.3 }
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	focus = {
+	
+		id = SOV_superior_artillery
+		
+		relative_position_id = SOV_special_division
+		prerequisite = { focus = SOV_special_division }
+		available = {
+		}
+		bypass = {
+		}
+		x =  0
+		y = 1
+		cost = 5
+		
+		icon = GFX_goal_generic_army_artillery2	
+
+		completion_reward = { # more reduce cost of superior artillery
+			add_ideas = artillery_industry
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	
+	focus = {
+	
+		id = SOV_supply
+		
+		relative_position_id = SOV_expeditionary_force
+		prerequisite = { focus = SOV_expeditionary_force }
+		available = {
+		}
+		bypass = {
+		}
+		x =  0
+		y = 1
+		cost = 5
+		
+		icon = GFX_focus_SOV_the_road_of_life	
+
+		completion_reward = { # supply bonus 
+			set_variable = { army_org_bonus = 0.05 }
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	focus = {
+	
+		id = SOV_expeditionary_power
+		
+		relative_position_id = SOV_supply
+		prerequisite = { focus = SOV_supply }
+		prerequisite = { focus = SOV_superior_artillery }
+		available = {
+		}
+		bypass = {
+		}
+		x =  -1
+		y = 1
+		cost = 5
+		
+		icon = GFX_focus_SOV_proclaim_soviet_hegemony
+
+
+
+
+		completion_reward = { # increase number of volunteer, decrease cost to create a military base
+			set_variable = { army_volunteer_bonus = 3 }
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	
+	focus = {
+	
+		id = SOV_total_war
+		
+		relative_position_id = SOV_army_focus
+		prerequisite = { focus = SOV_army_focus }
+		
+		mutually_exclusive = { focus = SOV_proxy_war }
+		
+		available = {
+		}
+		bypass = {
+		}
+		x =  3
+		y = 1
+		cost = 5
+		
+		icon = GFX_focus_SOV_international_union_of_soviet_republics	
+
+
+
+
+		completion_reward = {
+			news_event = cw_historic_events.54
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	focus = {
+	
+		id = SOV_total_war_doctrine
+		
+		relative_position_id = SOV_total_war
+		prerequisite = { focus = SOV_total_war }
+		
+		available = {
+		}
+		bypass = {
+		}
+		x =  0
+		y = 1
+		cost = 5
+		
+		icon = GFX_focus_PRK_military_state	
+
+
+
+
+		completion_reward = {
+			set_variable = { army_training_bonus = -0.15 }
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	focus = {
+	
+		id = SOV_rebuild_military_complex
+		
+		relative_position_id = SOV_total_war
+		prerequisite = { focus = SOV_total_war }
+		
+		available = {
+		}
+		bypass = {
+		}
+		x =  2
+		y = 1
+		cost = 5
+		
+		icon = GFX_focus_SOV_merge_plants	
+
+		completion_reward = {
+			set_variable = { army_mil_bonus = 0.1 }
+			set_variable = { army_civ_bonus = -0.1 }
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	
+	focus = {
+	
+		id = SOV_mass_production
+		
+		relative_position_id = SOV_rebuild_military_complex
+		prerequisite = { focus = SOV_rebuild_military_complex }
+		
+		available = {
+		}
+		bypass = {
+		}
+		x =  0
+		y = 1
+		cost = 5
+		
+		icon = GFX_focus_SOV_organize_wreckers	
+
+		completion_reward = {
+			set_variable = { army_efficiency_bonus = 0.1 }
+			set_variable = { army_change_bonus = -0.2 }
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	
+	focus = {
+	
+		id = SOV_army_of_the_people
+		
+		relative_position_id = SOV_total_war_doctrine
+		prerequisite = { focus = SOV_total_war_doctrine }
+		
+		available = {
+		}
+		bypass = {
+		}
+		x =  0
+		y = 1
+		cost = 5
+		
+		icon = GFX_focus_SOV_builder_of_the_red_army
+
+		completion_reward = {
+		set_variable = { army_manpower_bonus = 0.05 }
+			set_variable = { army_consumer_goods_bonus = 0.05 }
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	
+	focus = {
+	
+		id = SOV_brinks_of_war
+		
+		relative_position_id = SOV_mass_production
+		prerequisite = { focus = SOV_mass_production }
+		prerequisite = { focus = SOV_army_of_the_people }
+		
+		available = {
+		}
+		bypass = {
+		}
+		x =  -1
+		y = 1
+		cost = 5
+		
+		icon = GFX_focus_SOV_restore_cossack_units	
+
+
+
+		completion_reward = {
+		
+		set_variable = { army_wargoal_bonus = 0.8 }
+			every_country = {
+				limit = { capital_scope = { is_on_continent = europe } NOT = { OR = { has_government = communism has_government = communism_totalitarian } } }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = THIS
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	focus = {
+	
+		id = SOV_mass_bomber
+		
+		relative_position_id = SOV_total_war
+		prerequisite = { focus = SOV_total_war }
+		
+		available = {
+		}
+		bypass = {
+		}
+		x =  -2
+		y = 1
+		cost = 5
+		
+		icon = GFX_focus_SWE_marauder_bombers	
+
+
+
+
+		completion_reward = {
+			add_ideas = bomber_industry
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	
+	
+	### NUKE ###
+	
+	focus = {
+	
+		id = SOV_start_nuclear_program
+		
+		relative_position_id = SOV_army_focus
+		allow_branch = { NOT = { has_country_flag = important_matter }}
+		available = {
+		}
+		bypass = {
+		}
+		x =  0
+		
+		y = 5
+		cost = 5
+		
+		icon = GFX_focus_wonderweapons
+
+
+		completion_reward = {
+			set_technology = {
+				nuclear_reactor = 1
+			}
+			set_country_flag = building_nuclear_prototype
+			custom_effect_tooltip = sov_nuclear_program
+			404 = {
+				add_building_construction = {
+					type = nuclear_reactor
+					level = 1
+					instant_build = yes
+				}
+			}
+			
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	focus = {
+	
+		id = SOV_kazakh_nuclear_plant
+		
+		relative_position_id = SOV_start_nuclear_program
+		prerequisite = { focus = SOV_start_nuclear_program }
+		allow_branch = { NOT = { has_country_flag = important_matter }}
+		available = {
+		}
+		bypass = {
+		}
+		x =  0
+		y = 2
+		cost = 5
+		
+		icon = GFX_generic_nuclear_power
+
+
+
+
+		completion_reward = {
+			588 = {
+				add_building_construction = {
+					type = nuclear_reactor
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	
+	
+	focus = {
+	
+		id = SOV_kazakh_uranium
+		
+		relative_position_id = SOV_start_nuclear_program
+		prerequisite = { focus = SOV_start_nuclear_program }
+		allow_branch = { NOT = { has_country_flag = important_matter }}
+		available = {
+		}
+		bypass = {
+		}
+		x =  1
+		y = 1
+		cost = 5
+		
+		icon = GFX_goal_generic_construction2
+
+
+
+
+		completion_reward = {
+			404 = {
+				add_resource = {
+					type = uranium
+					amount = 8
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	focus = {
+	
+		id = SOV_karelia_uranium
+		
+		relative_position_id = SOV_start_nuclear_program
+		prerequisite = { focus = SOV_start_nuclear_program }
+		allow_branch = { NOT = { has_country_flag = important_matter }}
+		available = {
+		}
+		bypass = {
+		}
+		x =  -1
+		y = 1
+		cost = 5
+		
+		icon = GFX_goal_generic_construction2
+
+
+		completion_reward = {
+			215 = {
+				add_resource = {
+					type = uranium
+					amount = 8
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
+	
+	####Upgrade diplomacy######
+	
+	
+	
+	
+	
+	
+	focus = {
+		id = SOV_zhdanov_doctrine
+		
+		
+	
+		available = {
+		}
+		bypass = {
+		}
+		x = 0
+		y = 8
+		cost = 5
+		allow_branch = { NOT = { has_country_flag = important_matter }}
+		icon = GFX_focus_SOV_stalins_cult_of_personality	
+
+
+		relative_position_id =  SOV_west_communism 
+
+		completion_reward = {
+			add_political_power = 200
+				
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+		
+	}
+	
+	
+	
+	
+	
+	focus = {
+		id = SOV_create_nkvd
+		
+		prerequisite = { focus = SOV_zhdanov_doctrine }
+		relative_position_id = SOV_zhdanov_doctrine
+	
+		available = {
+		}
+		bypass = {
+		}
+		x = 2
+		y = 1
+		cost = 5
+		
+		icon = GFX_idea_nkvd_2
+		completion_reward = {
+			add_dynamic_modifier = {modifier = SOV_nkvd }
+			create_intelligence_agency = yes
+			upgrade_intelligence_agency = upgrade_psycho_warfare
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+		
+	}
+	
+	focus = {
+		id = SOV_ideology_uniformity
+		
+		prerequisite = { focus = SOV_create_nkvd }
+		relative_position_id = SOV_create_nkvd
+	
+		available = {
+		}
+		bypass = {
+		}
+		x = 0
+		y = 2
+		cost = 5
+		
+		icon = GFX_focus_SOV_the_supreme_soviet
+
+	
+
+
+		completion_reward = {
+			add_to_variable = { SOV.cw_ideology_operative = 0.15 }
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+		
+	}
+	
+	
+	focus = {
+		id = SOV_create_KGB
+		
+		prerequisite = { focus = SOV_create_nkvd }
+		relative_position_id = SOV_create_nkvd
+	
+		available = {
+		}
+		bypass = {
+		}
+		x = -1
+		y = 1
+		cost = 5
+		
+		icon = GFX_SOV_form_mgb
+		completion_reward = {
+			add_to_variable = { SOV.cw_slot_operative = 1 }
+			
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	}
+	
+	
+	
+	
+	
+	focus = {
+		id = SOV_create_MGB
+		
+		prerequisite = { focus = SOV_create_nkvd }
+		relative_position_id = SOV_create_nkvd
+	
+		available = {
+		}
+		bypass = {
+		}
+		x = 1
+		y = 1
+		cost = 5
+		
+		icon = GFX_SOV_form_mgb
+		completion_reward = {
+			add_to_variable = { SOV.cw_slot_operative = 1 }
+			
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	}
+	
+	
+	focus = {
+		id = SOV_create_cominform
+		
+		
+	
+		available = {
+		}
+		bypass = {
+		}
+		x = -2
+		y = 1
+		cost = 5
+		
+		icon = GFX_focus_ger_great_red_menace	
+		relative_position_id =  SOV_zhdanov_doctrine 
+		prerequisite = { focus = SOV_zhdanov_doctrine }
+		completion_reward = {
+			set_country_flag = cominform_created
+			custom_effect_tooltip = "Allow us to demand submition to other communist leader"
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+		
+	}
+	
+	focus = {
+		id = SOV_propaganda_offensive_europe
+		
+		prerequisite = { focus = SOV_create_cominform }
+		relative_position_id = SOV_create_cominform
+	
+		available = {
+		}
+		bypass = {
+		}
+		x = 0
+		y = 2
+		cost = 5
+		
+		icon = GFX_focus_focus_fra_revolution_utmost	
+
+
+		completion_reward = {
+			custom_effect_tooltip = "Propaganda offensive will be launch in every european country in which we are already supporting communist movement"
+			every_country = {
+				limit = { has_country_flag = communist_consolidation_target_operations }
+				
+				add_timed_idea = {
+					idea = communist_propaganda
+					days = 360
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+		
+	}
+	
+	
+	
+	focus = {
+		id = SOV_establish_warsaw_pact
+		available = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				USA = { is_faction_leader = yes }
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_construct_civ_factory
+		x = -1
+		y = 1
+		cost = 5
+		
+		prerequisite = { focus = SOV_create_cominform }
+		relative_position_id = SOV_create_cominform
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_TENSION_FOCUSES FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			create_faction = "Warsaw Pact"
+			add_named_threat = { threat = 5 name = "Established Warsaw Pact" }
+			hidden_effect = {
+				every_other_country = { limit = { capital_scope = { is_on_continent = asia } OR = { is_subject_of = ROOT is_puppet_of = SOV } } leave_faction = yes }
+				news_event = cw_historic_events.32
+			}
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_comecon_aid
+		icon = GFX_focus_SOV_the_comecon
+		x = 1
+		y = 1
+		cost = 10
+		
+		
+		
+		available = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = "SOV_comecon_aid_req_TT_block"
+					AND = {
+						BUL = { has_government = ROOT }
+						ROM = { has_government = ROOT }
+						HUN = { has_government = ROOT }
+						CZE = { has_government = ROOT }
+						POL = { has_government = ROOT }
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = "SOV_COMECON_AID_REQ_TT_MP_AID"
+					has_global_flag = democratic_aid_program_active
+				}
+			}
+		}
+		available_if_capitulated = yes
+
+		prerequisite = { focus = SOV_create_cominform }
+		relative_position_id = SOV_create_cominform
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		
+		completion_reward = {
+			custom_effect_tooltip = "The Comecon Economic Aid program will be launched, allowing us to provide economic aid to countries in Europe."
+			hidden_effect = {
+				set_global_flag = communist_aid_program_active
+				set_variable = { global.com_aid_program_max_participants = 5 }
+				news_event = cw_aid_program_events.1
+				if = {
+					limit = {
+						is_historical_focus_on = yes
+					}
+					add_to_array = {
+						array = ROOT.priority_countries
+						value = ROM.id
+					}
+					add_to_array = {
+						array = ROOT.priority_countries
+						value = BUL.id
+					}
+					add_to_array = {
+						array = ROOT.priority_countries
+						value = CZE.id
+					}
+					add_to_array = {
+						array = ROOT.priority_countries
+						value = HUN.id
+					}
+					add_to_array = {
+						array = ROOT.priority_countries
+						value = POL.id
+					}
+					add_to_array = {
+						array = ROOT.priority_countries
+						value = DDR.id
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	
+	######### PARIS peace treaty ############
+	focus = {
+		id = SOV_write_paris_treaty
+		
+		available = {}
+		
+		bypass = {}
+		icon = GFX_USA_intervene_france
+		
+		x = 0
+		y = 1
+		cost = 1
+		
+		allow_branch = { OR = { NOT = { has_country_flag = important_matter}  has_country_flag = write_paris_treaty}}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		
+		available_if_capitulated = no
+		relative_position_id = SOV_zhdanov_doctrine
+		
+
+		select_effect = {
+			# faire event sur sov qui commence à regarder paris
+		}
+
+		completion_reward = {
+		
+			set_country_flag = write_paris_treaty
+			set_country_flag = important_matter
+			mark_focus_tree_layout_dirty = yes
+			unlock_national_focus = SOV_paris_baltic
+			unlock_national_focus = SOV_paris_silesia
+			unlock_national_focus = SOV_paris_italy
+			unlock_national_focus = SOV_fate_of_transylvania
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 100
+				USA = { has_completed_focus = USA_write_paris_treaty }
+			}			
+		}	
+	
+	}
+	
+	
+	focus = {
+		id = SOV_paris_italy
+		
+		allow_branch = { has_country_flag = write_paris_treaty }
+		available = {}
+		
+		
+		relative_position_id = SOV_write_paris_treaty
+		bypass = {}
+		
+		icon = GFX_focus_generic_italy_first
+		
+		x = -5
+		y = 2
+		cost = 1
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		
+		available_if_capitulated = no
+
+		select_effect = {
+			# faire event sur sov qui commence à regarder paris
+		}
+
+		completion_reward = {
+
+		}
+		ai_will_do = {
+			base = 10		
+		}	
+	
+	}
+	
+	focus = {
+		id = SOV_paris_italy_colony
+		
+		available = {}
+		
+		prerequisite = { focus = SOV_paris_italy }
+		relative_position_id = SOV_paris_italy
+		bypass = {}
+		
+		icon = GFX_focus_ITA_ministry_of_italian_africa
+		
+		mutually_exclusive = { focus  = SOV_paris_italy_reparation }
+		
+		x = 2
+		y = 1
+		cost = 1
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		
+		available_if_capitulated = no
+
+		select_effect = {
+			# faire event sur sov qui commence à regarder paris
+		}
+
+		completion_reward = {
+
+		}
+		ai_will_do = {
+			base = 10		
+		}	
+	
+	}
+	
+	focus = {
+		id = SOV_paris_somalia
+		
+		available = {}
+		
+		prerequisite = { focus = SOV_paris_italy_colony }
+		relative_position_id = SOV_paris_italy_colony
+		bypass = {}
+		mutually_exclusive = { focus = SOV_paris_cyrenaica }
+		icon = GFX_focus_generic_develop_somaliland
+		
+		x = 1
+		y = 1
+		cost = 1
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		
+		available_if_capitulated = no
+
+		select_effect = {
+
+		}
+
+		completion_reward = {
+			set_global_flag = sov_claim_somalia
+		}
+		ai_will_do = {
+			base = 10		
+		}	
+	
+	}
+	
+	
+	focus = {
+		id = SOV_paris_cyrenaica
+		
+		available = {}
+		
+		prerequisite = { focus = SOV_paris_italy_colony }
+		relative_position_id = SOV_paris_italy_colony
+		mutually_exclusive = { focus = SOV_paris_somalia }
+		bypass = {}
+		
+		icon = GFX_focus_generic_develop_libya
+		
+		x = -1
+		y = 1
+		cost = 1
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		
+		available_if_capitulated = no
+
+		select_effect = {
+
+		}
+
+		completion_reward = {
+			set_global_flag = sov_claim_cyrenaica
+		}
+		ai_will_do = {
+			base = 10		
+		}	
+	
+	}
+	
+	
+	
+	
+	focus = {
+		id = SOV_paris_italy_reparation
+		
+		allow_branch = { has_country_flag = write_paris_treaty }
+		available = {}
+		
+		prerequisite = { focus = SOV_paris_italy }
+		relative_position_id = SOV_paris_italy
+		mutually_exclusive = { focus  = SOV_paris_italy_colony }
+		bypass = {}
+		
+		icon = GFX_focus_ITA_northern_industry
+		
+		x = -2
+		y = 1
+		cost = 1
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		
+		available_if_capitulated = no
+
+		select_effect = {
+			# faire event sur sov qui commence à regarder paris
+		}
+
+		completion_reward = {
+
+		}
+		ai_will_do = {
+			base = 10		
+		}	
+	
+	}
+	
+	
+	
+	
+	focus = {
+		id = SOV_paris_silesia
+		
+		allow_branch = { has_country_flag = write_paris_treaty }
+		
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_POL_reassert_silesian_claims
+		x = 0
+		y = 1
+		cost = 1
+		relative_position_id = SOV_write_paris_treaty
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+			
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	
+	
+		focus = {
+		id = SOV_paris_polish_silesia
+		
+		allow_branch = { has_country_flag = write_paris_treaty }
+		
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_communism_poland
+		x = 1
+		y = 1
+		cost = 1
+		relative_position_id = SOV_paris_silesia
+		prerequisite = { focus = SOV_paris_silesia }
+		
+		mutually_exclusive = {
+			focus = SOV_paris_german_silesia
+		}
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+				set_global_flag = sov_claim_polish_silesia
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	
+	focus = {
+		id = SOV_paris_german_silesia
+		
+		allow_branch = { has_country_flag = write_paris_treaty }
+		
+		mutually_exclusive = {
+			focus = SOV_paris_polish_silesia
+		}
+		
+		
+		bypass = {
+		}
+		
+		icon = GFX_GER_german_flag_raised
+		x = -1
+		y = 1
+		cost = 1
+		relative_position_id = SOV_paris_silesia
+		prerequisite = { focus = SOV_paris_silesia }
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+			set_global_flag = sov_claim_german_silesia
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	
+	
+	
+	
+	focus = {
+		id = SOV_paris_baltic
+		
+		allow_branch = { has_country_flag = write_paris_treaty }
+		
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_SOV_reinforce_western_naval_bases
+		x = 5
+		y = 2
+		cost = 1
+		relative_position_id = SOV_write_paris_treaty
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+			
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	
+	focus = {
+		id = SOV_paris_finland
+		
+		allow_branch = { has_country_flag = write_paris_treaty }
+		
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_support_fin
+		x = 2
+		y = 1
+		cost = 1
+		relative_position_id = SOV_paris_baltic
+		prerequisite = { focus = SOV_paris_baltic }
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+			
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	focus = {
+		id = SOV_paris_finland_guarantee
+		
+		allow_branch = { has_country_flag = write_paris_treaty }
+		
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_invite_finland
+		x = -1
+		y = 1
+		cost = 1
+		relative_position_id = SOV_paris_finland
+		prerequisite = { focus = SOV_paris_finland }
+		
+		mutually_exclusive = { focus = SOV_paris_finland_puppet}
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+			set_global_flag = sov_claim_finland_guarantee
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	focus = {
+		id = SOV_paris_finland_puppet
+		
+		allow_branch = { has_country_flag = write_paris_treaty }
+		
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_stomp_finland
+		x = 1
+		y = 1
+		cost = 1
+		relative_position_id = SOV_paris_finland
+		prerequisite = { focus = SOV_paris_finland }
+		
+		mutually_exclusive = { focus = SOV_paris_finland_guarantee }
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+			set_global_flag = sov_claim_finland
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	
+
+	
+	focus = {
+		id = SOV_paris_danemark
+		
+		allow_branch = { has_country_flag = write_paris_treaty }
+		
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_attack_denmark
+		x = -2
+		y = 1
+		cost = 1
+		relative_position_id = SOV_paris_baltic
+		prerequisite = { focus = SOV_paris_baltic }
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	
+	
+	focus = {
+		id = SOV_paris_bornmol_against_guarantee
+		
+		allow_branch = { has_country_flag = write_paris_treaty }
+		
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_treaty
+		x = -1
+		y = 1
+		cost = 1
+		relative_position_id = SOV_paris_danemark
+		prerequisite = { focus = SOV_paris_danemark }
+		mutually_exclusive = { focus = SOV_paris_keep_bornmol}
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+			set_global_flag = sov_claim_danemark_guarantee
+			
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	
+	focus = {
+		id = SOV_paris_keep_bornmol
+		
+		allow_branch = { has_country_flag = write_paris_treaty }
+		
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_soviet_navy
+		x = 1
+		y = 1
+		cost = 1
+		relative_position_id = SOV_paris_danemark
+		prerequisite = { focus = SOV_paris_danemark }
+		mutually_exclusive = { focus = SOV_paris_bornmol_against_guarantee}
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+
+		completion_reward = {
+		set_global_flag = sov_claim_bornmol
+			
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_fate_of_transylvania
+		
+		allow_branch = { has_country_flag = write_paris_treaty }
+		
+		
+		available = {
+			76 = { is_controlled_by = ROOT }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_future_of_transylvania
+		x = 0
+		y = 5
+		cost = 1
+		relative_position_id = SOV_write_paris_treaty
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = SOV_FATE_OF_TRANSYLVANIA_EFFECT_DESC
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	focus = {
+		id = SOV_hungarian_transylvania
+		available = {
+			76 = { is_controlled_by = ROOT }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_sov_integrate_mol
+		x = -2
+		y = 1
+		cost = 1
+		relative_position_id = SOV_fate_of_transylvania
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = SOV_fate_of_transylvania }
+		mutually_exclusive = { focus = SOV_romanian_transylvania focus = SOV_transylvania_referendum }
+
+		select_effect = {}
+
+		completion_reward = {
+			set_global_flag = sov_claim_transylvania_romania
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	focus = {
+		id = SOV_transylvania_referendum
+		available = {
+			76 = { is_controlled_by = ROOT }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_transilvaniya_referendum
+		x = 0
+		y = 1
+		cost = 1
+		relative_position_id = SOV_fate_of_transylvania
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = SOV_fate_of_transylvania }
+		mutually_exclusive = { focus = SOV_romanian_transylvania focus = SOV_hungarian_transylvania }
+
+		select_effect = {}
+
+		completion_reward = {
+
+				set_global_flag = sov_claim_transylvania_independent
+	
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}	
+	focus = {
+		id = SOV_romanian_transylvania
+		available = {
+			76 = { is_controlled_by = ROOT }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_kick_hungary
+		x = 2
+		y = 1
+		cost = 1
+		relative_position_id = SOV_fate_of_transylvania
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = SOV_fate_of_transylvania }
+		mutually_exclusive = { focus = SOV_hungarian_transylvania focus = SOV_transylvania_referendum }
+
+		select_effect = {}
+
+		completion_reward = {
+		
+			set_global_flag = sov_claim_transylvania_romania
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_paris_finish
+		
+		allow_branch = { OR = {
+			has_country_flag = write_paris_treaty
+			has_country_flag = ready_paris_treaty
+		}}
+		available = {
+			AND = {
+				# Finland
+				
+				OR = { 
+					has_completed_focus = SOV_paris_finland_guarantee
+					has_completed_focus = SOV_paris_finland_puppet
+				}
+				
+				# Transylvania
+				
+				OR = { 
+					has_completed_focus = SOV_transylvania_referendum
+					has_completed_focus = SOV_hungarian_transylvania
+					has_completed_focus = SOV_romanian_transylvania
+				}
+				
+				
+				# Italia
+				OR = {
+					has_completed_focus = SOV_paris_italy_reparation
+					has_completed_focus = SOV_paris_cyrenaica
+					has_completed_focus = SOV_paris_somalia
+				}
+				
+				# Danemark
+				OR = {
+					has_completed_focus = SOV_paris_bornmol_against_guarantee
+					has_completed_focus = SOV_paris_keep_bornmol
+				}
+				
+				# Silesia
+				OR = {
+					has_completed_focus = SOV_paris_polish_silesia
+					has_completed_focus = SOV_paris_german_silesia
+				}
+				
+				
+				
+			}
+		}
+		
+		bypass = {}
+		
+		icon = GFX_focus_fra_great_thirty
+		relative_position_id = SOV_write_paris_treaty
+		x = 0
+		y = 8
+		
+		offset = {
+			y = -6
+			trigger = {
+				has_country_flag = ready_paris_treaty
+			}
+		}
+		cost = 1
+		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		
+		available_if_capitulated = no
+
+		select_effect = {
+			# faire event sur sov qui commence à regarder paris
+		}
+
+		completion_reward = {
+			clr_country_flag = write_paris_treaty
+			clr_country_flag = important_matter
+			set_country_flag = ready_paris_treaty
+			mark_focus_tree_layout_dirty =  yes
+			
+			
+		}
+		ai_will_do = {
+			base = 10		
+		}	
+	
+	}
+}

@@ -1,0 +1,41 @@
+
+state={
+	id=906
+	local_supplies=0.0 
+	name="STATE_906"
+
+	history={
+ 	add_to_array = { list_victory_point = 9043 }
+ 	set_variable = { victory_point = 5 }
+		owner = BEL
+		add_claim_by = COG
+
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+				
+		1960.6.30 = {
+			owner = COG
+			add_core_of = COG
+			remove_core_of = BEL
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			9043 5		#Baudouinville
+		}
+	}
+
+	provinces={
+		3835 9043 11843 12907 
+	}
+	manpower=300000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

@@ -1,0 +1,121 @@
+focus_tree = {
+	id = berlin_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = BRL
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	
+
+	focus = {
+		id = GER_start_civil_war
+		available = {
+			GER = {
+				exists = no
+				date > 1949.1.1
+			}		
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_oil_refinery
+		x = 5
+		y = 3
+		cost = 5
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		
+		select_effect = {
+			news_event = cw_non_historic_news.20
+			every_state = {
+				limit = {
+					is_core_of = GER
+				}
+				add_resistance = 50
+			}
+		}
+
+		completion_reward = {
+			every_country = {
+				limit = {
+					is_in_array = {
+						array = global.acc_members
+						value = THIS.id
+					}
+				}
+				unlock_national_focus = FOG_unified_germany_establissh_neutral_germany
+				unlock_national_focus = FOG_unified_germany_demilitirize_rhineland
+				unlock_national_focus = FOG_unified_germany_prussian_question
+			}
+			every_state = { limit = { is_core_of = GER NOT = { is_controlled_by = DDR } } GER = { transfer_state = PREV } }
+			GER = {
+				set_politics = {
+					ruling_party = unaligned_right
+					election_frequency = 48
+					elections_allowed = no
+				}
+				set_popularities = {
+					democratic = 0
+					democratic_socialist = 20
+					communism = 0
+					communism_totalitarian = 20
+					neutrality = 0
+					unaligned_right = 60
+					colonial = 0
+				}
+				set_party_name = {
+				    ideology = unaligned_right
+				    long_name = "House of Hohenzollern"
+				    name = "Hohenzollern"
+				}
+				create_country_leader = {	#Wilhelm, German Crown Prince
+					name = "Wilhelm III"
+					desc = ""
+					picture = "GERM1.dds"
+					ideology = despotism
+					expire = 1951.7.20
+					traits = { absolute_monarch }
+				}
+				create_country_leader = {
+					name = "Wilhelm Pieck"
+					desc = ""
+					picture = "DDRH1.dds"
+					ideology = stalinism_idolg
+					expire = 1960.9.7
+					traits = {}
+				}
+				clr_country_flag = establish_monarchy
+				clr_country_flag = establish_neutrality
+				start_civil_war = {
+					ideology = communism_totalitarian
+					keep_political_leader = yes
+					size = 0.5
+					states_filter = { impassable = no }
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+			}
+			801 = { set_state_name = "Berlin" }
+			set_province_name = {
+				id = 6521
+				name = "Berlin"
+			}
+			set_province_name = {
+				id = 11505
+				name = "Eberswalde"
+			}
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+}

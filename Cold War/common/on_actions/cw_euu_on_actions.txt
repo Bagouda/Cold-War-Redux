@@ -1,0 +1,86 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			set_variable = { global.euu_president = GER.id }
+		}
+	}
+	on_daily = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = { global.euu_resolution_vote_timer > 0 }
+				}
+				subtract_from_variable = { global.euu_resolution_vote_timer = 0.02 }
+			}
+			if = {
+				limit = {
+					check_variable = { global.euu_resolution_vote_timer > 5 }
+					check_variable = { var = global.euu_total_votes value = global.euu_members_array^num compare = equals }
+					NOT = { has_global_flag = euu_days_reset }
+				}
+				set_variable = { global.euu_resolution_vote_timer = 6 }
+				set_global_flag = euu_days_reset
+			}
+			if = {		# For resolutions requiring everyone to vote yes
+				limit = {
+					check_variable = { global.euu_resolution_vote_timer = 1 }
+					any_of_scopes = {
+						array = global.euu_members_array
+						has_country_flag = cultural_union_voted_no
+					}
+					has_global_flag = euu_absolute_majority_required
+				}
+				clear_variable = global.euu_resolution_vote_timer
+				cw_euu_abstain_resolution = yes
+				cw_euu_clear_votes = yes	#Always put this
+			}			
+			if = {
+				limit = {
+					check_variable = { global.euu_resolution_vote_timer = 1 }
+					check_variable = { global.euu_total_votes_yes > global.euu_total_votes_no }
+				}
+				clear_variable = global.euu_resolution_vote_timer
+				cw_euu_adopt_resolution = yes
+				cw_euu_clear_votes = yes	#Always put this, DO NOT put clear junk since it will cancel implementation of resolutions. Clear junk must be put in the resolution finishing code itself
+			}
+			else_if = {
+				limit = {
+					check_variable = { global.euu_resolution_vote_timer = 1 }
+					check_variable = { global.euu_total_votes_no > global.euu_total_votes_yes }
+				}
+				clear_variable = global.euu_resolution_vote_timer
+				cw_euu_reject_resolution = yes
+				cw_euu_clear_votes = yes	#Always put this
+			}
+			else_if = {
+				limit = {
+					check_variable = { global.euu_resolution_vote_timer = 1 }
+					NOT = {
+						OR = {
+							check_variable = { global.euu_total_votes_yes > global.euu_total_votes_no }
+							check_variable = { global.euu_total_votes_no > global.euu_total_votes_yes }
+						} 
+					}
+				}
+				clear_variable = global.euu_resolution_vote_timer
+				cw_euu_clear_votes = yes	#Always put this
+				cw_euu_abstain_resolution = yes
+			}
+		}
+	}
+	on_annex = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						is_in_array = {
+							array = global.euu_members_array
+							value = THIS.id
+						}
+					}
+				}
+				FROM = { cw_remove_from_european_union = yes }
+			}			
+		}
+	}
+}

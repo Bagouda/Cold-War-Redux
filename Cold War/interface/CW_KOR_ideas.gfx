@@ -1,0 +1,7 @@
+spriteTypes = {
+	#### KOR IDEAS ####
+	spriteType = {
+		name = "GFX_idea_KOR_usamgik_1"
+		texturefile = "gfx/interface/ideas/KOR_usamgik_1.dds"
+	}
+}

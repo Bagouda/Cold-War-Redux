@@ -1,0 +1,171 @@
+﻿division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 1 }
+		artillery_brigade = { x = 1 y = 2 }
+		artillery_brigade = { x = 2 y = 2 }
+	}
+	support = {
+        signal_company = { x = 0 y = 0 }
+		mot_recon = { x = 0 y = 2 }
+		field_hospital = { x = 0 y = 3 }
+	}
+}
+division_template = {
+	name = "Motorized Infantry"
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 3 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 1 y = 1 }
+	}
+	support = {
+		mot_recon = { x = 0 y = 0 }
+		field_hospital = { x = 0 y = 1 }
+	}	
+}
+division_template = {
+	name = "Border Division"
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 1 y = 0 }
+	}
+	support = {
+		mot_recon = { x = 0 y = 0 }
+	}	
+}
+division_template = {
+	name = "Light Armour division"
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 2 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 2 y = 1 }		
+	}
+}
+units = {
+    division = {
+		location = 6345
+		division_template = "Motorized Infantry"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 9279
+		division_template = "Motorized Infantry"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 9362
+		division_template = "Motorized Infantry"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}	
+	############### FINLAND BORDER TROOPS ###############
+    division = {
+		location = 9147
+		division_template = "Motorized Infantry"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 9147
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 9147
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}	
+    division = {
+		location = 201
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 201
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 201
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}	
+    division = {
+		location = 6168
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 6168
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 6168
+		division_template = "Infantry Division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}	
+    division = {
+		location = 61
+		division_template = "Light Armour division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+    division = {
+		location = 6208
+		division_template = "Light Armour division"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+}
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_3
+			creator = "SWE"
+		}
+		requested_factories = 5
+		progress = 0.66
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "SWE"
+		}
+		requested_factories = 5
+		progress = 0.64
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = motorized_equipment_1
+			creator = "SWE"
+		}
+		requested_factories = 2
+		progress = 0.66
+		efficiency = 20
+	}
+}

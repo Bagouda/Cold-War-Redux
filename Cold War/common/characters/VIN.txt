@@ -1,0 +1,185 @@
+characters={
+	####################################################################################################
+	######################################### Country Leader ###########################################
+	####################################################################################################
+	VIN_ho_chi_minh = {
+		name = "Ho Chi Minh"
+		allowed_civil_war = {}		
+		portraits = {
+			civilian = {
+				large = GFX_vin_ho_chi_minh_civilian_large
+			}
+		}
+		country_leader={
+			ideology = revisionist_idolg
+			traits = { 
+				stern_anti_imperialist_vin_fra 
+				fiercely_independent
+				last_stand_fighter
+			}
+			expire = 1969.9.2
+		}
+	}
+	VIN_vo_nguyen_giap = {
+		name = "Võ Nguyên Giáp"
+		allowed_civil_war = {}		
+		portraits = {
+			civilian = {
+				large = GFX_vin_vo_nguyen_giap_large
+				small = GFX_vin_vo_nguyen_giap_small
+			}
+		}
+		country_leader={
+			ideology = revisionist_idolg
+			traits = {}
+			expire = 1991.1.1
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = vin_hog_vo_nguyen_giap
+			
+			allowed  = {
+				tag = VIN
+				date < 1991.1.1
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_efficient_delegator
+			}
+			visible = {
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}		
+	}
+	####################################################################################################
+	######################################### Deputy Minister ##########################################
+	####################################################################################################	
+	####################################################################################################
+	######################################### Foreign Minister #########################################
+	####################################################################################################
+	####################################################################################################
+	######################################### Defense Minister #########################################
+	####################################################################################################
+	####################################################################################################
+	######################################## Treasury Minister #########################################
+	####################################################################################################	
+	####################################################################################################
+	###################################### Head of Intelligence ########################################
+	####################################################################################################
+	####################################################################################################
+	######################################### Chief of Staff ###########################################
+	####################################################################################################
+	####################################################################################################
+	################################## Generals and Field Marshals #####################################
+	####################################################################################################	
+	VIN_vo_nguyen_giap_field_marshall = {
+		name = "Võ Nguyên Giáp"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_vin_vo_nguyen_giap_large
+			}
+		}
+		field_marshal = {
+			traits = { trickster brilliant_strategist urban_assault_specialist }
+			skill = 5
+			attack_skill = 5
+			defense_skill = 5
+			planning_skill = 5
+			logistics_skill = 5
+		}		
+	}
+	VIN_hoang_van_thai_cc = {
+		name = "Hoàng Văn Thái"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_vin_hoang_van_thai_cc
+			}
+		}
+		corps_commander = {
+			traits = { ranger infantry_expert }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}	
+	}
+	VIN_van_tien_dung_cc = {
+		name = "Văn Tiến Dũng"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_vin_van_tien_dung_cc
+			}
+		}
+		corps_commander = {
+			traits = { ranger scavenger skirmisher }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 4
+		}	
+	}
+	VIN_nguyen_huu_an_cc = {
+		name = "Nguyen Huu An"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_vin_nguyen_huu_an_cc
+			}
+		}
+		corps_commander = {
+			traits = { adaptable organizer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 4
+		}	
+	}
+	VIN_nguyen_son_cc = {
+		name = "Nguyễn Sơn"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_vin_nguyen_son_cc
+			}
+		}
+		corps_commander = {
+			traits = { trait_cautious politically_connected }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+		}
+	}
+	VIN_tran_van_tra_cc = {
+		name = "Trần Văn Trà"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_vin_tran_van_tra_cc
+			}
+		}
+		corps_commander = {
+			traits = { jungle_rat trait_mountaineer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}	
+	}	
+}

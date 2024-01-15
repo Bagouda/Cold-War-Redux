@@ -1,0 +1,154 @@
+cw_score = {
+
+	toggle_sphere = {
+		
+		cost = 0 
+		complete_effect  = {
+		
+			if = {
+				limit = { has_country_flag = show_sphere }
+				clr_country_flag = show_sphere
+			}
+			else = {
+				set_country_flag = show_sphere
+			}
+		}
+	
+	}
+	sphere_list = {
+		visible = {
+			has_country_flag = show_sphere
+		}
+		target_trigger = {
+			FROM = {
+				OR = { is_puppet_of = ROOT  is_in_faction_with = ROOT }
+			}
+			
+			
+		}
+		
+		
+		cost = 0
+		complete_effect = {
+
+		}
+	
+	}
+	
+	toggle_base = {
+		
+		cost = 0 
+		complete_effect  = {
+		
+			if = {
+				limit = { has_country_flag = show_base }
+				clr_country_flag = show_base
+			}
+			else = {
+				set_country_flag = show_base
+			}
+		}
+	
+	}
+	
+	
+	base_list = {
+	
+		visible = { has_country_flag =  show_base }
+		state_target = yes
+		target_array = owned_states
+		
+		target_trigger = {
+			FROM = { has_state_flag = military_base}
+		}
+		
+		cost = 0
+		complete_effect = {
+			goto_state = FROM
+		}
+	
+	}
+	
+	turn_lease_into_base = {
+	
+		state_target = yes
+		target_array = owned_states
+		icon = GFX_decision_generic_military
+		target_trigger = {
+			FROM = { AND = {  has_state_flag = leased_territory NOT = { has_state_flag = military_base} } }
+		}
+		
+		cost = 150
+		available = {
+					
+			FROM = {
+				OR = {
+					any_province_building_level = {
+			
+						building = naval_base
+						level > 4
+					}
+					air_base > 4
+				}
+		
+			}
+			
+		}
+		complete_effect = {
+			FROM = {
+				set_state_flag = military_base
+			}
+		}
+	
+	
+		
+	}
+	
+	
+	proxy_list = {
+		allowed = {
+			OR = { original_tag = USA original_tag = SOV}
+		}
+		
+		target_trigger = {
+			FROM = {
+				has_war = yes
+				OR = {
+					AND = {
+
+						PREV = { original_tag = SOV}
+						any_enemy_country = {
+							OR  = {
+								has_country_flag = sov_volunteers
+								has_country_flag = sov_retreat
+							}
+						}
+						
+					}
+					
+					AND = {
+
+						PREV = { original_tag = USA}
+						any_enemy_country = {
+							OR  = {
+								has_country_flag = usa_volunteers
+								has_country_flag = usa_retreat
+							}
+						}
+					}
+					
+				}
+				
+			}
+		}
+		
+		cost = 0
+		 complete_effect = {
+
+			}
+		
+		
+	
+	}
+
+}

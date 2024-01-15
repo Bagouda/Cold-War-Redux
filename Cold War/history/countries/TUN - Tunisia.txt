@@ -1,0 +1,51 @@
+﻿capital = 458
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_country_flag = decolonization
+	set_politics = {
+		ruling_party = democratic
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 60
+		democratic_socialist = 0
+		neutrality = 20
+		communism_totalitarian = 0
+		unaligned_right = 20
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Habib Bourguiba"
+		desc = ""
+		picture = "TUNG1.dds"
+		ideology = social_cons_idolg
+		expire = 1987.11.7
+		traits = {}
+	}
+	create_country_leader = {		
+		name = "Roger Seydoux"
+		desc = ""
+		picture = "roger_seydoux.dds"
+		ideology = military_occupation_government
+		expire = 1963.9.7
+		traits = {}
+	}
+	create_country_leader = {		
+		name = "People's Council"
+		desc = ""
+		picture = "gfx/leaders/generic_communist_militia.dds"
+		ideology = stalinism_idolg
+		expire = 1983.9.7
+		traits = {}
+	}
+	create_country_leader = {		
+		name = "People's Council"
+		desc = ""
+		picture = "gfx/leaders/generic_communist_militia.dds"
+		ideology = revisionist_idolg
+		expire = 1983.9.7
+		traits = {}
+	}
+}

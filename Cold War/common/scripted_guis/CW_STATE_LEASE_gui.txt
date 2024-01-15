@@ -1,0 +1,111 @@
+scripted_gui = {
+  cw_lease_territory_diplomacy = {
+    window_name = "cw_lease_territory_diplomacy_interface"
+	context_type = diplomatic_action
+
+    visible = {
+    }
+
+    triggers = {
+      lease_binding_checkbox_ticked_visible = {
+        has_state_flag = requested_binding_lease
+      }
+      no_selection_background_selected_visible = {
+        ROOT = { has_country_flag = diplo_gui_no_selection }
+      }
+      lease_period_increase_button_click_enabled = {
+        ROOT = { NOT = { has_country_flag = diplo_gui_no_selection } }
+        ROOT = { check_variable = { requested_state_lease = PREV.id } }
+        check_variable = { requested_lease_period < 5 }
+      }
+      lease_period_decrease_button_click_enabled = {
+        ROOT = { NOT = { has_country_flag = diplo_gui_no_selection } }
+        ROOT = { check_variable = { requested_state_lease = PREV.id } }
+        check_variable = { requested_lease_period > 0 }
+      }
+      state_name_background_selected_visible = {
+        has_state_flag = lease_requested_state
+      }
+    }
+
+    effects = {
+      no_selection_background_click = {
+        ROOT = {
+          clear_variable = requested_leases
+          clear_variable = requested_lease_cost
+          clear_variable = requested_state_lease
+          set_country_flag = diplo_gui_no_selection
+        }
+        every_state = {
+          limit = {
+            is_in_array = {
+            	array = PREV.lease_eligable_states
+            	value = THIS.id
+            }
+          }
+          clr_state_flag = lease_requested_state
+          clr_state_flag = binding_lease
+          clear_variable = requested_lease_period
+        }
+      }
+      lease_period_increase_button_click = {
+        add_to_variable = { requested_lease_period = 1 }
+        ROOT = { add_to_variable = { requested_lease_period = 1 } }
+        ROOT = { add_to_variable = { requested_lease_cost = 5 } }
+      }
+      lease_period_decrease_button_click = {
+        subtract_from_variable = { requested_lease_period = 1 }
+        ROOT = { subtract_from_variable = { requested_lease_period = 1 } }
+        ROOT = { subtract_from_variable = { requested_lease_cost = 5 } }
+      }
+	  
+
+
+      state_name_background_click = {
+        every_state = {
+          limit = {
+            is_in_array = {
+            	array = FROM.lease_eligable_states
+            	value = THIS.id
+            }
+          }
+          clr_state_flag = lease_requested_state
+          clr_state_flag = binding_lease
+          clear_variable = requested_lease_period
+        }
+        set_state_flag = lease_requested_state
+        ROOT = {
+          clear_variable = requested_lease_cost
+          clear_variable = requested_lease_period
+          clr_country_flag = diplo_gui_no_selection
+          set_variable = { requested_state_lease = PREV.id }
+          set_variable = { requested_leases = 1 }
+        }
+      }
+      state_name_background_selected_click = {
+        clr_state_flag = lease_requested_state
+        ROOT = { set_variable = { requested_leases = 0 } }
+      }
+      state_name_background_right_click = {
+        ROOT = { goto_state = PREV }
+      }
+      state_name_background_selected_right_click = {
+        ROOT = { goto_state = PREV }
+      }
+    }
+
+    dynamic_lists = {
+      country_eligable_states_gridbox = {
+        array = FROM.lease_eligable_states
+        entry_container = country_eligable_states_entry
+        change_scope = yes
+      }
+    }
+    properties = {
+    }
+
+    ai_enabled = {
+      always = no
+    }
+  }
+}

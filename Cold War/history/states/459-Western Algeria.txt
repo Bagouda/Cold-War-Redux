@@ -1,0 +1,40 @@
+state = {
+	id=459
+	local_supplies=0.0 
+	name="STATE_459" # Algiers
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 1145 }
+ 	set_variable = { victory_point = 5 }
+		owner = FRA
+		add_core_of = FRA
+		add_claim_by = ALG
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 2
+			arms_factory = 1
+			1145 = {
+				naval_base = 7
+			}
+		}
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}		
+		
+		victory_points = {
+			1145 5 
+		}
+	}
+	resources={
+		steel=16 # was: 36
+	}
+	manpower = 1760629
+	provinces={
+		1013 1128 1145 4131 4146 7033 7040 7166 9964 11939 12020 12760 
+	}
+}

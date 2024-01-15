@@ -1,0 +1,28 @@
+﻿capital = 313
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1942.11.19"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 10
+		neutrality = 60
+		communism_totalitarian = 20
+		unaligned_right = 10
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Juan José Arévalo"
+		desc = ""
+		picture = "GUANL1.dds"
+		ideology = agrarianism
+		expire = 1990.10.8
+		traits = { }
+	}
+}

@@ -1,0 +1,31 @@
+
+state={
+	id=890
+	local_supplies=0.0 
+	name="STATE_890"
+
+	history={
+ 	add_to_array = { list_victory_point = 3650 }
+ 	set_variable = { victory_point = 10 }
+		owner = BEL
+		add_claim_by = COG
+		1960.6.30 = {
+			owner = COG
+			add_core_of = COG
+			remove_core_of = BEL
+		}
+		buildings = {
+			infrastructure = 5
+		}
+		victory_points = {
+			3650 10 
+		}
+	}
+
+	provinces={
+		228 1560 1880 3650 3872 4128 5205 6668 9727 11716 12896 12945 
+	}
+	manpower=1324700
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+}

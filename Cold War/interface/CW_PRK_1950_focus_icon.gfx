@@ -1,0 +1,23 @@
+spriteTypes = {
+spriteType = {
+		name = "GFX_focus_PRK_attack_the_south"
+		texturefile = "gfx/interface/cw_focuses/PRK/1950/focus_PRK_attack_the_south.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_focus_PRK_juche"
+		texturefile = "gfx/interface/cw_focuses/PRK/1950/focus_PRK_juche.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_focus_PRK_dear_leader"
+		texturefile = "gfx/interface/cw_focuses/PRK/1950/focus_PRK_dear_leader.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_focus_PRK_military_state"
+		texturefile = "gfx/interface/cw_focuses/PRK/1950/focus_PRK_military_state.dds"
+		legacy_lazy_load = no
+	}
+	
+}

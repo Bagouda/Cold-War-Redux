@@ -1,0 +1,22 @@
+state = {
+	id=434
+	local_supplies=0.0 
+	name="STATE_434"
+	state_category = wasteland
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = IND
+		add_core_of = IND
+		add_claim_by = TIB
+	}
+	resources={
+		tungsten=49 # was: 54
+		crops = 10
+	}
+	manpower = 200000
+	provinces={
+		1116 1996 10810 12322 12730 
+	}
+}

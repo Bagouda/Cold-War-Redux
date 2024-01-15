@@ -1,0 +1,56 @@
+﻿capital = 304
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = democratic_socialist
+		last_election = "1942.11.19"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 20
+		democratic_socialist = 60
+		neutrality = 10
+		communism_totalitarian = 5
+		unaligned_right = 5
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Domingo Díaz Arosemena"
+		desc = ""
+		picture = "PANDL1.dds"
+		ideology = social_liberal_idolg
+		expire = 1949.8.23
+		traits = { }
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+	create_country_leader = {
+		name = "Roberto Chiari"
+		desc = ""
+		picture = "PANH3.dds"
+		ideology = social_liberal_idolg
+		expire = 1949.11.24
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Domingo Díaz Arosemena"
+		desc = ""
+		picture = "PANH2.dds"
+		ideology = social_liberal_idolg
+		expire = 1949.7.28
+		traits = {}
+	}
+}
+1950.6.25 = {	#Korean War
+}
+1956.10.29 = {	#Suez Crisis
+}
+1961.12.11 = {	#Vietnam War
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+}
+1989.1.9 = {	#Fall of Berlin Wall
+}

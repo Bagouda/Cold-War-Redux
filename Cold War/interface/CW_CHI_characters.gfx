@@ -1,0 +1,225 @@
+spriteTypes = {
+	###############################################################################################
+	################################## CHI Political Characters ###################################
+	###############################################################################################
+	### Country Leaders
+	spriteType = {
+		name = "GFX_chiang_kai_shek_small"
+		texturefile = "gfx/interface/ministers/CHI/chi_chiang_kai_shek.dds"
+	}
+	spriteType = {
+		name = "GFX_chiang_kai_shek_large"
+		texturefile = "gfx/leaders/CHI/CHIH1.dds"
+	}
+	###
+	spriteType = {
+		name = "GFX_chi_chiang_ching_kuo"
+		texturefile = "gfx/interface/ministers/CHI/chi_chiang_ching_kuo.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_soong_mei_ling"
+		texturefile = "gfx/interface/ministers/CHI/chi_soong_mei_ling.dds"
+	}
+	#
+	spriteType = {
+		name = "GFX_chi_claire_lee_chennault"
+		texturefile = "gfx/interface/ministers/CHI/chi_claire_lee_chennault.dds"
+	}		
+	spriteType = {
+		name = "GFX_chi_xue_yue_small"
+		texturefile = "gfx/interface/ministers/CHI/chi_xue_yue.dds"
+	}
+	#
+	spriteType = {
+		name = "GFX_chi_yen_chia_kan"
+		texturefile = "gfx/interface/ministers/CHI/chi_yen_chia_kan.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_du_yuesheng"
+		texturefile = "gfx/interface/ministers/CHI/chi_du_yuesheng.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_wang_yun_wu"
+		texturefile = "gfx/interface/ministers/CHI/chi_wang_yun_wu.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_kung_hsiang_hsi"
+		texturefile = "gfx/interface/ministers/CHI/chi_kung_hsiang_hsi.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_weng_wenhao"
+		texturefile = "gfx/interface/ministers/CHI/chi_weng_wenhao.dds"
+	}
+	#
+	spriteType = {
+		name = "GFX_chi_zhang_fakui"
+		texturefile = "gfx/interface/ministers/CHI/chi_zhang_fakui.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_dm_long_yun_small"
+		texturefile = "gfx/interface/ministers/CHI/chi_dm_long_yun.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_yan_shixan_small"
+		texturefile = "gfx/interface/ministers/CHI/chi_yan_shixan.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_xu_yongchang"
+		texturefile = "gfx/interface/ministers/CHI/chi_xu_yongchang.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_bai_chongxi"
+		texturefile = "gfx/interface/ministers/CHI/chi_bai_chongxi.dds"
+	}
+	#
+	spriteType = {
+		name = "GFX_chi_shen_chang_huan"
+		texturefile = "gfx/interface/ministers/CHI/chi_shen_chang_huan.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_chen_lifu"
+		texturefile = "gfx/interface/ministers/CHI/chi_chen_lifu.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_yeh_kung_chao"
+		texturefile = "gfx/interface/ministers/CHI/chi_yeh_kung_chao.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_wellington_koo"
+		texturefile = "gfx/interface/ministers/CHI/chi_wellington_koo.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_wang_shijie"
+		texturefile = "gfx/interface/ministers/CHI/chi_wang_shijie.dds"
+	}
+	#
+	spriteType = {
+		name = "GFX_chi_chiang_kai_shek"
+		texturefile = "gfx/interface/ministers/CHI/chi_chiang_kai_shek.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_song_ziwen"
+		texturefile = "gfx/interface/ministers/CHI/chi_song_ziwen.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_li_zongren"
+		texturefile = "gfx/interface/ministers/CHI/chi_li_zongren.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_chen_cheng"
+		texturefile = "gfx/interface/ministers/CHI/chi_chen_cheng.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_he_yingqin"
+		texturefile = "gfx/interface/ministers/CHI/chi_he_yingqin.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_sun_fo"
+		texturefile = "gfx/interface/ministers/CHI/chi_sun_fo.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/ministers/CHI/chi_sun_fo.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 2.00				# in seconds
+			animationdelay = 30			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}	
+	###############################################################################################
+	################################## CHI Intelligence Heads #####################################
+	###############################################################################################
+
+	###############################################################################################
+	################################## CHI Military Characters ####################################
+	###############################################################################################
+	spriteType = {
+		name = "GFX_chi_du_yuming"
+		texturefile = "gfx/leaders/CHI/CHI_FM_136000.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_du_yuming_small"
+		texturefile = "gfx/leaders/CHI/CHI_FM_136000_small.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_yan_shixan"
+		texturefile = "gfx/leaders/CHI/CHI_FM_136001.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_zhang_xueliang"
+		texturefile = "gfx/leaders/CHI/CHI_FM_136002.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_zhang_xueliang_small"
+		texturefile = "gfx/leaders/CHI/CHI_FM_136002_small.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_sun_li_jen"
+		texturefile = "gfx/leaders/CHI/CHI_CC_137000.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_sun_li_jen_small"
+		texturefile = "gfx/interface/ministers/CHI/chi_sun_li_jen.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_hsueh_yueh"
+		texturefile = "gfx/leaders/CHI/CHI_CC_137001.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_hsueh_yueh_small"
+		texturefile = "gfx/leaders/CHI/CHI_CC_137001_small.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_hu_zongnan"
+		texturefile = "gfx/leaders/CHI/CHI_CC_137002.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_hu_zongnan_small"
+		texturefile = "gfx/interface/ministers/CHI/chi_hu_zongnan.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_long_yun"
+		texturefile = "gfx/leaders/CHI/CHI_CC_137004.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_feng_yuxiang"
+		texturefile = "gfx/leaders/CHI/CHI_CC_137005.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_feng_yuxiang_small"
+		texturefile = "gfx/leaders/CHI/CHI_CC_137005_small.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_chiang_wei_kuo"
+		texturefile = "gfx/leaders/CHI/CHI_CC_137007.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_chiang_wei_kuo_small"
+		texturefile = "gfx/leaders/CHI/CHI_CC_137007_small.dds"
+	}	
+	spriteType = {
+		name = "GFX_chi_tang_enbo"
+		texturefile = "gfx/leaders/CHI/CHI_CC_137008.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_tang_enbo_small"
+		texturefile = "gfx/leaders/CHI/CHI_CC_137008_small.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_liu_zhi"
+		texturefile = "gfx/leaders/CHI/CHI_CC_137009.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_liu_zhi_small"
+		texturefile = "gfx/leaders/CHI/CHI_CC_137009_small.dds"
+	}
+	spriteType = {
+		name = "GFX_chi_bai_chongxi_large"
+		texturefile = "gfx/leaders/CHI/CHI_ADM_138000.dds"
+	}
+}

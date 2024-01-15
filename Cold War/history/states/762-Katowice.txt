@@ -1,0 +1,28 @@
+state = {
+	id=762
+	local_supplies=0.0 
+	name="STATE_762"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 6464 }
+ 	set_variable = { victory_point = 5 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = POL
+		add_core_of = POL
+		add_core_of = GER
+		
+		victory_points = {
+			6464 5
+		}
+	}
+	resources={
+		steel=19 # was: 60
+		aluminium=7 # was: 20
+	}
+	manpower=1000000
+	provinces={
+		506 6464
+	}
+}

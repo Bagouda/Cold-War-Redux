@@ -1,0 +1,17 @@
+defined_text = {
+	name = NUKE_PROGRAM_DESC
+	text = {
+		trigger = {
+
+			has_country_flag = building_nuclear_prototype 
+		}
+		localization_key = nuke_program_prototype
+	}
+	text = {
+		trigger = {
+			has_country_flag = nuclear_program
+		}
+		localization_key = nuke_program_regular
+	}
+	
+}

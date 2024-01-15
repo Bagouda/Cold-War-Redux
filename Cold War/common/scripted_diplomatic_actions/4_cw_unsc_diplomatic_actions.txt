@@ -1,0 +1,1526 @@
+scripted_diplomatic_actions = {
+	cw_unsc_demand_truce = {
+		icon = 26
+		allowed = {		#The country making the diplomatic request
+			ROOT = { tag = UNN }
+		}
+		visible = {		#The target country
+			is_ai = no
+			ROOT = { tag = UNN }
+			OR = {
+				AND = {
+					has_offensive_war = yes
+					NOT = { has_country_flag = un_police_action_allowed }
+					any_enemy_country = {
+						has_war_with = FROM
+						has_defensive_war = yes
+						is_recognized_regime = yes
+					}
+				}
+				AND = {
+					NOT = { has_country_flag = un_police_action_allowed }
+					any_other_country = {
+						has_volunteers_amount_from = {
+							tag = FROM
+							count > 0
+						}
+						NOT = { has_country_flag = un_police_action_granted }
+					}
+				}
+			}
+		}
+		selectable = {
+			is_recognized_regime = yes
+			OR = {
+				AND = {
+					has_offensive_war = yes
+					NOT = { has_country_flag = un_police_action_allowed }
+					NOT = {
+						is_in_array = {
+							array = global.unsc_permanent_members_array
+							value = PREV.id
+						}
+					}
+				}
+				#AND = {
+				#	NOT = { has_country_flag = un_police_action_allowed }
+				#	any_other_country = {
+				#		has_volunteers_amount_from = {
+				#			tag = FROM
+				#			count > 0
+				#		}
+				#		NOT = { has_country_flag = un_police_action_granted }
+				#	}
+				#}
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		can_be_sent = {
+			always = yes
+		}
+	
+		send_description = CW_UNSC_TRUCE_DEMAND_LOC
+		receive_description = CW_UNSC_TRUCE_DEMAND_RECIEVER_LOC
+		accept_title = CW_UNSC_TRUCE_DEMAND_ACCEPTED_TITLE
+		accept_description = CW_UNSC_TRUCE_DEMAND_ACCEPTED_DESC
+		reject_title = CW_UNSC_TRUCE_DEMAND_REJECTED_TITLE
+		reject_description = CW_UNSC_TRUCE_DEMAND_REJECTED_DESC
+		cost = 0
+	
+		requires_acceptance = yes
+		show_acceptance_on_action_button = yes
+	
+		on_sent_effect = {
+			sound_effect = "alert_paused_diplomatic_actions_sound"
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action_rquest_truce value = 1 days = 365 } }
+			}			
+			if = {
+				limit = {
+					is_ai = no
+				}
+				add_to_variable = { var = FROM.unn_requests value = 1 }
+			}
+			if = {		# In case player ignores requests
+				limit = {
+					check_variable = { FROM.unn_requests > 2 }
+				}
+				add_named_threat = { threat = 1 name = UNSC_MARKED_FOR_SANCTIONS }
+				unsc_mark_for_sanctions = yes
+				if = {
+					limit = {
+						FROM = { is_ai = no }
+					}
+					clear_variable = FROM.unn_requests
+				}
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					has_war = yes
+				}
+				every_country = { limit = { has_defensive_war_with = FROM } white_peace = { tag = FROM } }
+				else = {
+					random_country = {
+						limit = {
+							has_volunteers_amount_from = {
+								tag = FROM
+								count > 0
+							}
+						}
+						FROM = { recall_volunteers_from = PREV }
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = { is_ai = no }
+				}
+				clear_variable = FROM.unn_requests
+			}
+		}
+		reject_effect = {	
+			unsc_mark_for_sanctions = yes
+		}
+		ai_desire = {
+			modifier = {
+				ROOT = {
+					has_country_flag = did_diplomatic_action_rquest_truce
+				}
+				add = -1000
+			}
+			modifier = {
+				ROOT = {
+					tag = UNN
+				}
+				add = 100
+			}
+		}
+		ai_acceptance = {
+			base_desire = {
+				modifier = {
+					factor = -100
+				}
+			}			
+		}
+	}
+	cw_unsc_expel_from_un = {
+		allowed = {		#The country making the diplomatic request
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+		visible = {		#The target country
+			ROOT = { is_ai = no}
+			NOT = { tag = UNN }
+			ROOT = {
+				is_major = yes 
+				OR = {
+					is_ai = no
+					has_country_flag = demand_remove_of_unsc_member
+				}
+				NOT = {
+					OR = {
+						has_idea = cw_non_recognized_state
+						is_puppet = yes
+						is_subject = yes
+					}
+				}
+			}
+			NOT = { has_government = colonial }
+			has_added_tension_amount > 50
+			NOT = {
+				OR = {
+					has_idea = cw_non_recognized_state
+					has_idea = cw_partially_recognized_state
+					is_puppet = yes
+					is_subject = yes
+				}
+			}
+		}
+		selectable = {
+			custom_trigger_tooltip = {
+				tooltip = "Has generated at least 15 world tension."
+				has_added_tension_amount > 14
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		can_be_sent = {
+			always = yes
+		}
+
+		send_description = CW_UNSC_EXPEL_FROM_UN_LOC
+		accept_title = CW_UNSC_EXPEL_FROM_UN_ACCEPT_TITLE
+		accept_description = CW_UNSC_EXPEL_FROM_UN_ACCEPT_DESC		
+		cost = 400
+
+		requires_acceptance = no
+		show_acceptance_on_action_button = no
+
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action value = 1 days = 30 } }
+			}		
+		}
+		complete_effect = {
+			cw_unsc_generic_expel_from_un = yes
+		}
+		ai_desire = {
+			base = 1
+			modifier = {
+				ROOT = { has_country_flag = demand_remove_of_unsc_member }
+				similar_ideology_check = no
+				add = 100
+			}
+			modifier = {
+				ROOT = { has_country_flag = did_diplomatic_action }
+				add = -1000
+			}
+			modifier = {
+				has_country_flag = used_nuclear_arsenal
+				add = 1000
+			}
+			
+		}
+	}
+	cw_unsc_condemn_violence = {
+		allowed = {
+		}
+		visible = {		#The target country
+			has_country_flag = condemn_violance_allowed
+		}
+		selectable = {	
+			unsc_in_session = no
+			unsc_implementing_resolution = no		
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		can_be_sent = {
+			always = yes
+		}
+	
+		send_description = CW_UNSC_CONDEMN_VIOLENCE_LOC
+		accept_title = CW_UNSC_CONDEMN_VIOLENCE_ACCEPT_TITLE
+		accept_description = CW_UNSC_CONDEMN_VIOLENCE_ACCEPT_DESC
+		cost = 100
+	
+		requires_acceptance = no
+		show_acceptance_on_action_button = no
+	
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action value = 1 days = 30 } }
+			}			
+		}
+		complete_effect = {
+			cw_unsc_generic_condemn_violence = yes
+		}
+		ai_desire = {
+			base = 0
+			modifier = {
+				tag = UNN
+				add = 20
+			}
+			modifier = {
+				ROOT = {
+					has_country_flag = did_diplomatic_action
+				}
+				add = -1000
+			}			
+		}
+	}
+	cw_unsc_police_action = {
+		allowed = {		#The country making the diplomatic request
+			ROOT = { check_variable = { ROOT.resoultion_failed_cooldown_timer = 0 } }
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			ROOT = {
+				NOT = {
+					OR = {
+						has_idea = cw_non_recognized_state
+						has_idea = cw_partially_recognized_state
+					}
+				}
+			}
+		}
+		visible = {		#The target country
+			OR = {
+				has_civil_war_cwtrigger = yes
+				has_country_flag = special_police_action_flag
+			}
+			ROOT = { is_major = yes }
+			PREV = { similar_ideology_check = yes }
+			NOT = { OR = { has_country_flag = un_police_action_granted has_country_flag = police_action_blocked } }
+			NOT = { 
+				OR = {
+					has_war_with = ROOT
+					has_war_with = UNN
+				}
+			} 
+			NOT = { original_tag = UNN }
+			NOT = { has_country_flag = unsc_police_action_target }
+			NOT = { OR = { is_puppet_of = ROOT  is_subject_of = ROOT } }
+		}
+		selectable = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			is_recognized_regime = yes
+			custom_trigger_tooltip = {
+				tooltip = CW_UNSC_POLICE_ACTION_CONFLICT_OF_INTREST_TT
+				any_enemy_country = { NOT = { is_in_faction_with = UNN } }
+			}
+			ROOT = { has_political_power > 100 }
+			custom_trigger_tooltip = {
+				tooltip = "POLICE_ACTION_REQ_SURRENDER_PROGRESS"
+				OR = {
+					hidden_trigger = {
+						has_country_flag = special_police_action_flag
+					}
+					surrender_progress > 0.1
+				}
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		can_be_sent = {
+			always = yes
+		}
+
+		send_description = CW_UNSC_POLICE_ACTION_LOC
+		accept_title = CW_UNSC_POLICE_ACTION_ACCEPT_TITLE
+		accept_description = CW_UNSC_POLICE_ACTION_ACCEPT_DESC
+		
+		cost = 100
+
+		requires_acceptance = no
+		show_acceptance_on_action_button = no
+
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action value = 1 days = 30 } }
+			}		
+		}
+		complete_effect = {
+			cw_unsc_resolution_police_action = yes
+		}
+		ai_desire = {
+			base = 0
+			modifier = {
+				ROOT = {
+					has_country_flag = did_diplomatic_action
+				}
+				add = -1000
+			}			
+			modifier = {
+				AND = {
+					is_neighbor_of = ROOT
+					ROOT = { country_has_majority_support = yes }
+				}
+				add = 5
+			}
+			modifier = {
+				AND = {
+					ROOT = { has_country_flag = special_police_action_flag }
+					surrender_progress > 0.10
+					is_guaranteed_by = ROOT
+				}
+				add = 50
+			}
+			modifier = {
+				AND = {
+					surrender_progress > 0.30
+					is_guaranteed_by = ROOT
+				}
+				add = 50
+			}
+			modifier = {
+				add = 200
+				FROM = {
+					is_in_array = {
+						array = ROOT.priority_countries
+						value = THIS.id
+					}
+				}
+			}			
+		}
+	}
+	cw_police_action_increase_participation = {
+		allowed = {		#The country making the diplomatic request
+			ROOT = { check_variable = { ROOT.resoultion_failed_cooldown_timer = 0 } }
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			ROOT = {
+				NOT = {
+					OR = {
+						has_idea = cw_non_recognized_state
+						has_idea = cw_partially_recognized_state
+					}
+				}
+			}
+		}
+		visible = {		#The target country
+			ROOT = { has_country_flag = un_police_action_allowed }
+			has_volunteers_amount_from = {
+				tag = ROOT
+				count > 1
+			}
+			has_war = yes
+			ROOT = { NOT = { has_idea = cw_police_action_level_3 } }
+			NOT = { has_war_with = ROOT }
+			NOT = { original_tag = UNN }
+		}
+		selectable = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			custom_trigger_tooltip = {
+				tooltip = "We must wait 90 days before we can ask for another increase."
+				ROOT = { NOT = { has_country_flag = troop_level_request_cooldown } }
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		can_be_sent = {
+			always = yes
+		}
+
+		send_description = CW_INCREASE_TROOPS_LOC
+		accept_title = CW_INCREASE_TROOPS_ACCEPT_TITLE
+		accept_description = CW_INCREASE_TROOPS_ACCEPT_DESC
+
+		requires_acceptance = no
+		show_acceptance_on_action_button = no
+
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action value = 1 days = 30 } }
+			}		
+		}
+		complete_effect = {
+				ROOT = {
+					save_global_event_target_as = unsc_initiator
+					set_country_flag = wants_unsc_support
+				}
+				THIS = {
+					save_global_event_target_as = unsc_target
+					set_country_flag = unsc_generic_increase_police_participation
+					cw_unsc_set_like_resolution = yes
+				}
+				every_country = {
+					limit = {
+						has_war_with = PREV
+					}
+					cw_unsc_set_hate_resolution = yes
+				}
+				every_country = {
+					limit = {
+						has_relation_modifier = {
+							target = PREV
+							modifier = sided_with_enemy_modifier
+						}
+					}
+					cw_unsc_set_hate_resolution = yes
+				}
+				set_global_flag = resolution_veto_disabled
+				cw_unsc_start_resolution_effect = yes		
+		}
+		ai_desire = {
+			base = 0
+			modifier = {
+				ROOT = {
+					has_country_flag = did_diplomatic_action
+				}
+				add = -1000
+			}			
+			modifier = {
+				AND = {
+					is_neighbor_of = ROOT
+					ROOT = { country_has_majority_support = yes }
+				}
+				add = 10
+			}
+			modifier = {
+				surrender_progress > 10
+				has_volunteers_amount_from = {
+					tag = ROOT
+					count > 5
+				}
+				add = 10
+			}
+			modifier = {
+				surrender_progress > 50
+				has_volunteers_amount_from = {
+					tag = ROOT
+					count < 10
+				}
+				add = 50
+			}			
+		}
+	}	
+	cw_unsc_bribe_vote = {
+		icon = 27
+		allowed = {		#The country making the diplomatic request
+			ROOT = { has_political_power > var:PREV.unsc_bribe_cost_pp }
+		}
+		visible = {		#The target country
+			NOT = {
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}				
+			}
+			ROOT = {
+				NOT = { tag = UNN }
+				OR = {
+					is_major = yes
+					if = {
+						limit = {
+							unsc_in_session = yes
+						}
+						event_target:unsc_target = { tag = ROOT }
+						event_target:unsc_initiator = { tag = ROOT }						
+					}
+				}
+			}
+			NOT = { has_war_with = ROOT }
+			NOT = { OR = { has_country_flag = unsc_target_flag has_country_flag = unsc_initiator_flag } }
+			is_in_array = {
+				array = global.unsc_non_permanent_members_array
+				value = THIS.id
+			}
+			NOT = {
+				is_in_array = {
+					array = FROM.bribing_countries
+					value = ROOT.id
+				}
+			}
+		}
+		
+		selectable = {
+			custom_trigger_tooltip = {
+				tooltip = "Is not a puppet."		
+				NOT = {
+					OR = {
+						is_puppet = yes
+						is_subject = yes
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = "Is not expected or has voted the same as we did."
+				NOT = {
+					OR = {
+						AND = {
+							has_country_flag = bribed_to_vote_on_unsc
+							has_variable = unsc_bribed_by
+							ROOT = { 
+								OR = {
+									has_country_flag = unsc_voted_yes
+									has_country_flag = like_resolution
+								}
+							}
+							var:PREV.unsc_bribed_by = { 
+								OR = {
+									has_country_flag = unsc_voted_yes
+									has_country_flag = unsc_like_resolution
+								}
+							}
+						}
+						AND = {
+							has_country_flag = bribed_to_vote_on_unsc
+							has_variable = unsc_bribed_by
+							ROOT = { 
+								OR = {
+									has_country_flag = unsc_voted_no
+									has_country_flag = hate_resolution
+								}
+							}
+							var:PREV.unsc_bribed_by = { 
+								OR = {
+									has_country_flag = unsc_voted_no
+									has_country_flag = unsc_hate_resolution
+								}
+							}
+						}
+					}
+				}				
+			}
+			custom_trigger_tooltip = {
+				tooltip = "Did not already vote on the current resolution."
+				NOT = {
+					OR = {
+					  has_country_flag = unsc_voted_yes
+					  has_country_flag = unsc_voted_no
+					  has_country_flag = unsc_voted_veto
+					  has_country_flag = unsc_voted_abstain
+					}
+				}
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		can_be_sent = {
+			always = yes
+		}
+
+		send_description = CW_UNSC_BRIBE_LOC
+		receive_description = CW_UNSC_BRIBE_RECIEVER_LOC
+		accept_title = CW_UNSC_BRIBE_ACCEPTED_TITLE
+		accept_description = CW_UNSC_BRIBE_ACCEPTED_DESC
+		reject_title = CW_UNSC_BRIBE_REJECTED_TITLE
+		reject_description = CW_UNSC_BRIBE_REJECTED_DESC
+
+		requires_acceptance = yes
+		show_acceptance_on_action_button = yes
+
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action_bribe value = 1 days = 6 } }
+			}
+		}
+		complete_effect = {
+			if = {
+				limit = {
+					has_country_flag = bribed_to_vote_on_unsc
+				}
+				clr_country_flag = bribed_to_vote_on_unsc
+				clear_array = FROM.bribing_countries
+				var:unsc_bribed_by = {
+					add_to_variable = { THIS.unsc_bribe_cost_pp = 0.10 }
+					subtract_from_variable = { THIS.unsc_bribed_countries = 1 }
+				}
+				set_country_flag = bribed_to_vote_on_unsc
+				### NOTIFICATION ###
+				var:unsc_bribed_by = {
+					set_country_flag = { flag = unsc_support_stopped value = 1 days = 5 }
+					set_variable = { unsc_support_dropped_by = FROM.id }
+					add_to_variable = { THIS.unsc_bribe_cost = 0.10 }
+					subtract_from_variable = { ROOT.unsc_bribed_countries = 1 }
+					country_phone_alert = yes
+				}
+				### NOTIFICATION ###
+				clear_variable = unsc_bribed_by
+			}
+			if = {
+				limit = {
+					has_country_flag = bribed_to_vote_on_unsc
+				}
+				FROM = { remove_from_unsc_balance_bribe = yes }
+				else = {
+					FROM = { remove_from_unsc_balance = yes }
+				}
+			}
+			set_variable = { THIS.unsc_bribed_by = ROOT.id }
+			add_to_array = { array = THIS.bribing_countries value = ROOT.id }
+			ROOT = { clr_country_flag = offered_bribe_initiator }
+			clr_country_flag = offered_bribe_target
+			set_country_flag = bribed_to_vote_on_unsc
+			add_to_variable = { FROM.unsc_bribe_cost_pp = 10 }
+			if = {
+				limit = {
+					ROOT = { is_ai = no }
+				}
+				FROM = { set_temp_variable = { global.unsc_bribe_pp_calculator_temp = FROM.unsc_bribe_cost_pp } }
+				multiply_temp_variable = { global.unsc_bribe_pp_calculator_temp = -1 }
+				ROOT = { add_political_power = global.unsc_bribe_pp_calculator_temp }				
+			}
+			FROM = { add_political_power = FROM.unsc_bribe_cost_pp }
+			ROOT = { subtract_from_variable = { ROOT.unsc_bribe_cost = 0.10 } }
+			ROOT = { add_to_variable = { ROOT.unsc_bribed_countries = 1 } }
+			if = {
+				limit = {
+					ROOT = { check_variable = { ROOT.unsc_bribed_countries = 1 } }
+				}
+				ROOT = { add_dynamic_modifier = { modifier = cw_unsc_bribe_dynamic_modifier scope = THIS } }
+			}
+			FROM = { add_to_unsc_balance_bribe = yes }
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				FROM = { set_country_flag = initiate_bribe_vote }
+			}
+		}
+		reject_effect = {
+			clr_country_flag = offered_bribe_target
+			ROOT = { clr_country_flag = offered_bribe_initiator }
+		}
+		ai_desire = {
+			base = 1
+			modifier = {
+				ROOT = {
+					has_country_flag = did_diplomatic_action_bribe
+				}
+				add = -1500
+			}
+			modifier = {
+				add = 1200
+				AND = {
+					unsc_in_session = yes
+					ROOT = { has_country_flag = wants_unsc_support }
+				}
+			}			
+			modifier = {
+				add = -5000
+				ROOT = { is_major = no }
+			}
+			modifier = {
+				add = 300
+				AND = {
+					unsc_in_session = yes
+					ROOT = { is_major = yes }
+					ROOT = { has_country_flag = request_recognition }
+				}
+			}			
+			modifier = {
+				add = 50
+				unsc_in_session = yes
+				check_variable = { global.unsc_resolution_vote_timer > 5 }
+				AND = {
+					ROOT = { country_has_majority_support = no }
+					OR = { has_government = neutrality has_government = unaligned_right }
+					ROOT = { OR = { has_country_flag = communist_leader_flag has_country_flag = democratic_leader_flag has_country_flag = neutral_leader } }
+				}
+			}
+			modifier = {
+				add = 100
+				unsc_in_session = yes
+				check_variable = { global.unsc_resolution_vote_timer > 5 }
+				AND = {
+					ROOT = { country_has_majority_support = no }
+					OR = { has_government = neutrality has_government = unaligned_right }
+					ROOT = { has_country_flag = unsc_target_flag }
+				}
+			}				
+			modifier = {
+				add = -100
+				ROOT = { country_has_majority_support = yes }
+			}
+			modifier = {		#No point in asking for a bribe if they voted already
+				add = -1000
+				OR = {
+					has_country_flag = unsc_voted_yes
+					has_country_flag = unsc_voted_no
+					has_country_flag = unsc_voted_abstain
+					has_country_flag = unsc_voted_veto
+				}
+			}
+			modifier = {		#No point in asking for a bribe the resolution is vetoed
+				add = -500
+				check_variable = { global.unsc_total_votes_veto > 0 }
+			}					
+		}
+		ai_acceptance = {
+			base_desire = {
+				modifier = {
+					add = -5
+				}
+				modifier = {
+					add = -25
+					AND = {
+						ROOT = {
+							OR = {
+								has_government = communism
+								has_government = communism_totalitarian
+							}
+						}
+						OR = {
+							has_country_leader_with_trait = absolute_monarch
+							has_country_leader_with_trait = stern_anti_communist
+						}
+					}
+				}
+				modifier = {
+					AND = {
+						has_country_flag = hate_resolution
+						ROOT = {
+							OR = {
+								has_country_flag = like_resolution
+								has_country_flag = unsc_voted_yes
+							}
+						}
+					}
+					add = -1000
+				}
+				modifier = {
+					AND = {
+						has_country_flag = like_resolution
+						ROOT = {
+							OR = {
+								has_country_flag = hate_resolution
+								has_country_flag = unsc_voted_no
+							}
+						}
+					}
+					add = -1000
+				}				
+			}
+			relation_checks = {
+				modifier = {
+					has_opinion = { target = ROOT value < 5 }
+					add = -10
+				}
+				modifier = {
+					has_opinion = { target = ROOT value < -50 }
+					add = -50
+				}				
+				modifier = {
+					has_opinion = { target = ROOT value > 9 }
+					add = 5
+				}
+				modifier = {
+					has_opinion = { target = ROOT value > 20 }
+					add = 10
+				}				
+				modifier = {
+					has_opinion = { target = ROOT value > 50 }
+					add = 20
+				}
+				modifier = {
+					has_war_with = ROOT
+					add = -100
+				}
+				modifier = {
+					ROOT = { any_owned_state = { is_core_of = PREV.PREV } }
+					add = -120
+				}
+				modifier = {
+					any_owned_state = { is_claimed_by = ROOT }
+					add = -75
+				}					
+				modifier = {
+					has_volunteers_amount_from = {
+						tag = ROOT
+						count > 1
+					}
+					add = 20					
+				}				
+				modifier = {
+					is_in_array = {
+						array = ROOT.embargoed_countries
+						value = FROM.id
+					}
+					add = -100
+				}				
+			}
+			aggressives_checks = {
+				modifier = {
+					ROOT = { is_ai = no }
+					OR = {
+						has_government = neutrality
+						has_government = unaligned_right
+					}
+					ROOT = { has_added_tension_amount > 5 }
+					add = -5
+				}
+				modifier = {
+					ROOT = { is_ai = no }
+					OR = {
+						has_government = neutrality
+						has_government = unaligned_right
+					}
+					ROOT = { has_added_tension_amount > 50 }
+					add = -10
+				}				
+			}			
+			ideology_checks = {
+				modifier = {
+					PREV = { similar_ideology_check = no }
+					NOT = { OR = { has_government = neutrality has_government = unaligned_right } }
+					add = -50
+				}	
+				modifier = {
+					PREV = { similar_ideology_check = yes }
+					NOT = { OR = { has_government = neutrality has_government = unaligned_right } }						
+					add = 20
+				}
+				modifier = {
+					same_ideology_check = yes
+					NOT = { OR = { has_government = neutrality has_government = unaligned_right } }					
+					add = 20
+				}
+				modifier = {
+					same_ideology_check = no
+					NOT = { OR = { has_government = neutrality has_government = unaligned_right } }					
+					add = -50
+				}					
+				modifier = {
+					PREV = { similar_ideology_check = no }
+					ROOT = { is_ai = yes }
+					add = 200
+				}				
+			}
+			diplomatic_checks = {
+				modifier = {
+					ROOT = { OR = { has_country_flag = democratic_leader has_country_flag = communist_leader has_country_flag = neutral_leader } }
+					add = 10
+				}				
+				modifier = {
+					ROOT = {
+						is_in_array = {
+							array = global.unsc_permanent_members_array
+							value = THIS.id
+						}
+					}
+					add = 15
+				}				
+				modifier = {
+					ROOT = {
+						is_in_array = {
+							array = global.unsc_non_permanent_members_array
+							value = THIS.id
+						}
+					}
+					add = 10
+				}				
+			}
+			military_checks = {
+				modifier = {
+					is_neighbor_of = ROOT
+					strength_ratio = { tag = ROOT ratio < 1 }
+					add = 75
+				}
+				modifier = {
+					is_neighbor_of = ROOT
+					ROOT = { is_major = yes }
+					add = 20
+				}				
+				modifier = {
+					NOT = { is_neighbor_of = ROOT }
+					strength_ratio = { tag = ROOT ratio < 1 }
+					add = -1
+				}				
+			}
+		}
+	}
+	cw_unsc_stop_bribe = {	#Country asking to suspend their bribe
+		icon = 26
+		allowed = {		#The country making the diplomatic request
+		}
+		visible = {		#The target country
+			is_in_array = {
+				array = FROM.bribing_countries
+				value = ROOT.id
+			}
+		}
+		selectable = {
+			hidden_trigger = {
+				ROOT = { NOT = { has_country_flag = did_diplomatic_action } }		#Used to suspend request spam by AI	
+			}			
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		can_be_sent = {
+			always = yes
+		}
+
+		send_description = CW_UNSC_STOP_BRIBE_LOC
+		accept_title = CW_UNSC_STOP_BRIBE_TITLE_LOC
+		accept_description = CW_UNSC_STOP_BRIBE_DESC
+
+		requires_acceptance = no
+		show_acceptance_on_action_button = no
+
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action value = 1 days = 30 } }
+			}
+		}
+		complete_effect = {
+			FROM = { remove_from_unsc_balance_bribe = yes }
+			FROM = { add_to_unsc_balance = yes }		
+			clear_variable = unsc_bribed_by
+			ROOT = { add_to_variable = { THIS.unsc_bribe_cost = 0.10 } }
+			clr_country_flag = bribed_to_vote_on_unsc
+			clr_country_flag = initiate_bribe_vote
+			ROOT = { subtract_from_variable = { THIS.unsc_bribed_countries = 1 } }
+			clear_array = FROM.bribing_countries
+		}
+		ai_desire = {
+		}
+	}
+	cw_unsc_withdraw_support = {	#Country that currently is bribed to vote
+		icon = 26
+		allowed = {		#The country making the diplomatic request
+		}
+		visible = {		#The target country
+			is_in_array = {
+				array = ROOT.bribing_countries
+				value = FROM.id
+			}
+		}
+		selectable = {
+			hidden_trigger = {
+				ROOT = { NOT = { has_country_flag = did_diplomatic_action } }		#Used to suspend request spam by AI	
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		can_be_sent = {
+			always = yes
+		}
+
+		send_description = CW_UNSC_WITHDRAW_SUPPORT_LOC
+		accept_title = CW_UNSC_WITHDRAW_SUPPORT_TITLE_LOC
+		accept_description = CW_UNSC_WITHDRAW_SUPPORT_DESC
+
+		requires_acceptance = no
+		show_acceptance_on_action_button = no
+
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action value = 1 days = 30 } }
+			}
+		}
+		complete_effect = {
+			ROOT = { remove_from_unsc_balance_bribe = yes }
+			ROOT = { add_to_unsc_balance = yes }			
+			ROOT = { clear_variable = unsc_bribed_by }
+			ROOT = { clr_country_flag = bribed_to_vote_on_unsc }
+			ROOT = { clr_country_flag = initiate_bribe_vote }
+			ROOT = { clear_array = ROOT.bribing_countries }
+			add_to_variable = { THIS.unsc_bribe_cost = 0.10 }
+			subtract_from_variable = { THIS.unsc_bribed_countries = 1 }
+			add_opinion_modifier = { target = ROOT modifier = stopped_unsc_support }			
+		}
+		ai_desire = {
+			base = 0
+			modifier = {	#If relations are really low cancel our support
+				ROOT = { NOT = { has_opinion = { target = PREV value > -50 } } }
+				add = 10
+			}
+			modifier = {
+				FROM = { political_power_daily < 0.1 }
+				add = 100
+			}
+			modifier = {
+				ROOT = { has_war_with = FROM }
+				add = 100
+			}
+			modifier = {
+				ROOT = { has_country_flag = bribed_to_vote_on_unsc }
+				add = -20
+			}			
+			modifier = {
+				PREV = {
+					is_in_array = {
+						array = FROM.embargoed_countries
+						value = PREV.id
+					}
+				}
+				add = 100
+			}			
+		}
+	}
+	cw_unsc_promote_recognition = {
+		allowed = {
+		}
+		visible = {
+			ROOT = {
+				is_major = yes
+				OR = {
+					has_country_flag = democratic_leader_flag
+					has_country_flag = communist_leader_flag
+					has_country_flag = neutral_leader_flag
+					has_country_flag = communist_reformist_leader
+				}
+			}
+			has_idea = cw_partially_recognized_state
+			similar_ideology_check = yes
+			NOT = { has_country_flag = has_recognition_backing }
+			is_ai = yes
+		}
+		selectable = {
+			has_war = no
+			custom_trigger_tooltip = {
+				tooltip = CW_COUNTRY_HAS_MAJORITY_TO_PROMOTE_RECOGNITION
+				# ROOT = { country_has_majority_support = yes } TODO
+			}
+	
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				has_political_power > 100
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		can_be_sent = {
+			always = yes
+		}
+		
+		cost = 0
+		
+		send_description = CW_UNSC_PROMOTE_RECOGNITION_LOC
+		
+		requires_acceptance = no
+		show_acceptance_on_action_button = no
+
+		on_sent_effect = {
+		}
+		complete_effect = {
+			set_country_flag = { flag = has_recognition_backing value = 1 days = 30 }
+			ROOT = { set_country_flag = { flag = encoureged_recognition value = 1 days = 320 } }
+		}
+		ai_desire = {
+			base = 10
+			modifier = {
+				add = -100
+				ROOT = { has_country_flag = encoureged_recognition }
+			}
+			modifier = {
+				add = -200
+				has_global_flag = korean_war_activated
+			}
+			modifier = {
+				add = 200
+				FROM = {
+					is_in_array = {
+						array = ROOT.priority_countries
+						value = THIS.id
+					}
+				}
+			}			
+		}
+	}
+	cw_foreign_withdrawal = {
+		allowed = {
+		}
+		visible = {
+			has_global_flag = decolonization_started
+			ROOT = {
+				is_major = yes
+				OR = {
+					has_country_flag = democratic_leader_flag
+					has_country_flag = communist_leader_flag
+					has_country_flag = neutral_leader_flag
+					has_country_flag = communist_reformist_leader
+				}
+			}
+			has_war = yes
+			NOT = { has_war_with = UNN }
+			OR = {
+				any_country = {
+					FROM = {
+						has_volunteers_amount_from = {
+							tag = PREV
+							count > 0
+						}
+					}
+				}
+				any_country = {
+					FROM = {
+						any_enemy_country = {
+							has_volunteers_amount_from = {
+								tag = PREV.PREV
+								count > 0
+							}
+						}
+					}
+				}
+			}
+			capital_scope = { is_on_continent = africa }
+			PREV = { similar_ideology_check = yes }
+		}
+		selectable = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		can_be_sent = {
+			always = yes
+		}
+		
+		cost = 100
+		
+		send_description = CW_FOREIGN_WITHDRAWAL_ACTION_LOC
+		
+		requires_acceptance = no
+		show_acceptance_on_action_button = no
+
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action value = 1 days = 25 } }
+			}		
+		}
+		complete_effect = {
+			cw_unsc_resolution_foreign_withdrawal = yes
+		}
+		ai_desire = {
+			modifier = {
+				ROOT = {
+					has_country_flag = did_diplomatic_action
+				}
+				add = -1000
+			}
+		}
+	}
+	cw_un_sanctions_new = {		# Anti Putin Device
+		icon = 32
+		allowed = {		
+		}
+		visible = {
+			ROOT = { 
+				is_major = yes
+				is_recognized_regime = yes
+			}
+			NOT = {
+				OR = {
+					is_subject_of = ROOT
+					is_puppet_of = ROOT
+					tag = UNN
+					tag = EUU
+					tag = AFU
+					tag = ARL
+				}
+			}
+			OR = {
+				has_offensive_war = yes
+				unsc_sanctions_allowed = yes
+				sanctioned_by_unsc = yes
+			}
+		}
+		
+		cost = 0
+		
+		accept_title = CW_UN_SANCTIONS_NEW_ACCEPTED_TITLE
+		accept_description = CW_UN_SANCTIONS_NEW_ACCEPTED_DESC		
+		
+		selectable = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no			
+			OR = {
+				has_offensive_war = yes
+				unsc_sanctions_allowed = yes
+				sanctioned_by_unsc = yes
+			}
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				check_variable = { unsc_sanctions_cooldown = 0 }
+			}
+		}
+		can_be_accepted = {
+			always = yes
+		}
+		can_be_sent = {
+			OR = {
+				ROOT = { has_country_flag = no_sanctions_selected }
+				AND = {
+					unsc_in_session = no
+					unsc_implementing_resolution = no
+					ROOT = {
+						OR = {
+							has_country_flag = unsc_sanctions_civilian_sanctions
+							has_country_flag = unsc_sanctions_military_sanctions
+							has_country_flag = unsc_sanctions_trade_sanctions
+							has_country_flag = unsc_sanctions_leader_sanctions
+							has_country_flag = unsc_sanctions_nuclear_sanctions
+						}
+					}
+				}
+			}
+		}
+
+		reset_send_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = no }
+				}
+				FROM = {
+					#### UPDATING SANCTION TYPE TIMERS
+					set_variable = { duration_calculator_output = unsc_civ_sanctions_duration }
+					cw_duration_calculator = yes
+					set_variable = { unsc_civ_sanctions_duration_display = duration_calculator_output }
+					#
+					set_variable = { duration_calculator_output = unsc_mil_sanctions_duration }
+					cw_duration_calculator = yes
+					set_variable = { unsc_mil_sanctions_duration_display = duration_calculator_output }
+					#
+					set_variable = { duration_calculator_output = unsc_trade_sanctions_duration }
+					cw_duration_calculator = yes
+					set_variable = { unsc_trade_sanctions_duration_display = duration_calculator_output }
+					#
+					set_variable = { duration_calculator_output = unsc_leader_sanctions_duration }
+					cw_duration_calculator = yes
+					set_variable = { unsc_leader_sanctions_duration_display = duration_calculator_output }
+					#
+					set_variable = { duration_calculator_output = unsc_nuclear_sanctions_duration }
+					cw_duration_calculator = yes
+					set_variable = { unsc_nuclear_sanctions_duration_display = duration_calculator_output }
+					#### UPDATING SANCTION TIMEOUT TIMERS
+					if = {
+						limit = {
+							sanctioned_by_unsc = yes
+						}			
+						#### UPDARING SANCTION COOLDOWN TIMER
+						set_variable = { duration_calculator_output = unsc_sanctions_cooldown }
+						cw_duration_calculator = yes
+						clamp_variable = { var = unsc_sanctions_cooldown min = 0 max = 9999 }
+					}				
+				}
+				ROOT = {
+					unsc_sanctions_remove_junk = yes
+					set_country_flag = sanctions_gui_period_one_year
+					if = {
+						limit = {
+							is_ai = no
+						}
+						set_country_flag = no_sanctions_selected
+					}
+				}				
+			}
+		}
+		send_scripted_gui = cw_un_sanctions_diplomacy
+
+		requires_acceptance = no
+
+		on_sent_effect = {}
+		
+		complete_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action_request_sanctions value = 1 days = 265 } }
+			}		
+			if = {
+				limit = {
+					ROOT = { has_country_flag = no_sanctions_selected }
+				}
+			}
+			else_if = {
+				limit = {
+					ROOT = { is_ai = no }
+				}
+				cw_unsc_generic_demand_sanctions = yes
+			}
+			if = {				# Forced to do it this way since when scripted GUI is used AI just ignores can_be_sent... Thanks Paradox
+				limit = {
+					ROOT = { is_ai = yes }
+					unsc_in_session = no
+					unsc_implementing_resolution = no
+				}
+				ROOT = {
+					### DURATION OF SANCTIONS
+					random_list = {
+						15 = {
+							set_country_flag = sanctions_gui_period_one_year
+						}
+						70 = {
+							set_country_flag = sanctions_gui_period_five_year
+						}
+						15 = {
+							set_country_flag = sanctions_gui_period_ten_year
+						}
+					}				
+					### TYPE OF SANCTIONS
+					random_list = {
+						20 = {		# Economic Sanctions
+							set_country_flag = unsc_sanctions_civilian_sanctions
+							modifier = {
+								factor = 0.5
+								check_variable = { THIS.ai_strategy_contain@FROM > 0  }
+							}							
+						}
+						30 = {		# Military Sanctions
+							set_country_flag = unsc_sanctions_military_sanctions
+							modifier = {
+								factor = 0.5
+								check_variable = { THIS.ai_strategy_contain@FROM > 0  }
+							}
+							modifier = {
+								factor = 0.5
+								PREV = {
+									any_enemy_country = {
+										has_volunteers_amount_from = {
+											tag = ROOT
+											count > 0
+										}
+									}
+								}
+							}
+							modifier = {
+								factor = 0.5
+								PREV = { has_offensive_war = yes }
+							}
+							modifier = {
+								factor = 5.0
+								PREV = { has_war_with = ROOT }
+							}							
+							modifier = {
+								factor = 1.0
+								check_variable = { THIS.ai_attitude_wants_weaken@FROM > 0 }
+							}
+							modifier = {
+								factor = 1.0
+								check_variable = { THIS.ai_attitude_threatened_weight@FROM > 0 }
+							}							
+						}
+						25 = {		# Trade Sanctions
+							modifier = {
+								factor = 1.0
+								check_variable = { THIS.ai_attitude_wants_weaken@FROM > 0 }
+								PREV = {
+									check_variable = { resource_imported@oil > 10 }
+									check_variable = { resource_imported@steel > 10 }
+									check_variable = { resource_imported@crops > 10 }
+								}
+							}
+							modifier = {
+								factor = -0.75
+								PREV = {
+									OR = {
+										has_government = communism
+										has_government = communism_totalitarian
+									}
+								}
+							}
+							set_country_flag = unsc_sanctions_trade_sanctions
+						}
+						25 = {		# Political Sanctions
+							modifier = {
+								factor = 1.00
+								check_variable = { THIS.ai_strategy_antagonize@FROM > 0  }
+							}
+							set_country_flag = unsc_sanctions_leader_sanctions
+						}
+					}
+				}
+				cw_unsc_generic_demand_sanctions = yes
+			}
+		}
+		
+		reject_effect = {}
+		
+		ai_desire = {
+			base = 0
+			modifier = {
+				ROOT = {
+					has_country_flag = did_diplomatic_action_request_sanctions
+				}
+				add = -1000
+			}
+			modifier = {
+				ROOT = { is_ideology_leader = no }
+				add = -75
+			}
+			modifier = {
+				surrender_progress > 0.85
+				add = -1000
+			}			
+			modifier = {
+				has_war_with = ROOT
+				add = 300
+			}
+			modifier = {
+				any_enemy_country = {
+					has_volunteers_amount_from = {
+						tag = ROOT
+						count > 0
+					}
+				}
+				add = 200
+			}
+			modifier = {
+				any_enemy_country = {
+					is_guaranteed_by = ROOT
+				}
+				add = 50
+			}			
+			modifier = {
+				check_variable = { ROOT.ai_strategy_contain@FROM > 100  }
+				add = 200
+			}
+			modifier = {
+				has_country_flag = used_nuclear_arsenal
+				add = 1000
+			}
+			modifier = {
+				ROOT = { has_country_flag = lets_sanction_their_ass }
+				add = 5000
+			}			
+		}
+	}	
+}

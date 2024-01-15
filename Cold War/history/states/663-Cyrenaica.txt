@@ -1,0 +1,23 @@
+state = {
+	id=663
+	local_supplies=0.0 
+	name="STATE_663"
+	state_category = wasteland
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = ENG
+		add_claim_by = LBA
+		add_claim_by = ITA
+
+		1947.2.10 = {	#Treaty of Paris 1947
+			remove_claim_by = ITA
+		}
+		
+	}
+	manpower = 8808
+	provinces={
+		1062 1186 4060 4063 4133 7063 7139 7206 9977 10049 12025 12079 13078 
+	}
+}

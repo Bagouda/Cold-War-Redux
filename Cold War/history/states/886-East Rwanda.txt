@@ -1,0 +1,28 @@
+state={
+	id=886
+	local_supplies=0.0 
+	name="STATE_886"
+	resources={
+		tungsten = 25
+	}
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = BEL
+		add_claim_by = RWD
+
+		1962.7.1 = {
+			owner = RWD
+			add_core_of = RWD
+			remove_core_of = BEL
+		}
+	}
+
+	provinces={
+		903 
+	}
+	manpower = 1093000
+	buildings_max_level_factor = 1.000
+	state_category = pastoral
+}

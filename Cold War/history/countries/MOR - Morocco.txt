@@ -1,0 +1,74 @@
+﻿capital = 461
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_country_flag = decolonization
+	set_politics = {
+		ruling_party = colonial
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 30
+		communism_totalitarian = 20
+		unaligned_right = 50
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Mohammed Ben Aarafa"
+		desc = ""
+		picture = "MORH2.dds"
+		ideology = despotism
+		expire = 1955.10.30
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Mohammed V"
+		desc = ""
+		picture = "MORH1.dds"
+		ideology = colonial_government
+		expire = 1961.2.26
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Ali Yata"
+		desc = ""
+		picture = "ali_yata_sov.dds"
+		ideology = revisionist_idolg
+		expire = 1994.10.14
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Ali Yata"
+		desc = ""
+		picture = "ali_yata_chi.dds"
+		ideology = stalinism_idolg
+		expire = 1992.10.16
+		traits = { }
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+}
+1956.4.7 = {
+	clr_country_flag = decolonization
+}
+1956.10.29 = {	#Suez Crisis
+}
+1961.12.11 = {	#Vietnam War
+	create_country_leader = {
+		name = "Hassan II"
+		desc = ""
+		picture = "MORH3.dds"
+		ideology = despotism
+		expire = 1999.4.23
+		traits = {}
+	}
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+}
+1989.1.9 = {	#Fall of Berlin Wall
+}

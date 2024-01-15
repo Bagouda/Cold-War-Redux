@@ -1,0 +1,19 @@
+﻿l_english:
+ ###############################################
+ ### French Ideas Localisation ###
+ ###############################################
+ FRA_foreign_legion:0 "French Foreign Legion"
+ FRA_foreign_legion_desc:0 "Our nation relies on men across our colonial possesions to fill the ranks of the military."
+ FRA_foreign_legion_1:0 "French Foreign Legion"
+ FRA_foreign_legion_1_desc:0 "Our nation relies on men across our colonial possesions to fill the ranks of the military."
+ FRA_foreign_legion_2:0 "French Foreign Legion"
+ FRA_foreign_legion_2_desc:0 "Our relience on foreigners to fill the ranks of the military allows us to spare [THIS.GetAdjective] lives but also increases discontent in thos regions we conscript from."
+ FRA_foreign_legion_3:0 "French Foreign Legion"
+ FRA_the_parties_regime:0 "The Parties Regime"
+ FRA_utilize_german_labor:0 "German Labour Force"
+ FRA_moroccan_goumier:0 "Moroccan Goumier"
+ FRA_moroccan_goumier_desc:0 "The Moroccan Goumiers were indigenous Moroccan soldiers who served in auxiliary units attached to the French Army of Africa. While nominally in the service of the Sultan of Morocco, they served under French officers.\n§RThis idea will be removed if Morocco is independent.§!" 
+ cw_svi_binh_xuyen:0 "Bình Xuyen"
+ cw_svi_binh_xuyen_desc:0 "Binh Xuyen Force was an independent military force within the Vietnamese National Army. During its heyday, Bình Xuyên funded itself with organized crime activities in Saigon while effectively battling Communist forces." 
+ cw_svi_nlf:0 "National Liberation Front (Viet Cong)"
+ cw_svi_nlf_desc:0 "The Viet Cong officially known as the National Liberation Front of South Vietnam , was an armed communist political revolutionary organization in South Vietnam and Cambodia."

@@ -1,0 +1,25 @@
+state = {
+	id=272
+	local_supplies=0.0 
+	name="STATE_272"
+	state_category = pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 4948 }
+ 	set_variable = { victory_point = 5 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = FRA
+		add_claim_by = SEN
+		victory_points = {
+			4948 5 
+		}
+	}
+	resources={
+		steel=3 # was: 4
+	}
+	manpower = 1638000
+	provinces={
+		 4948  8015 12710  
+	}
+}

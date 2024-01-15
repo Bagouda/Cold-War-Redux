@@ -1,0 +1,41 @@
+spriteTypes = {
+	###############################################################################################
+	################################## CHI Political Characters ###################################
+	###############################################################################################
+	### Country Leaders
+	spriteType = {
+		name = "GFX_vin_ho_chi_minh_civilian_large"
+		texturefile = "gfx/leaders/VIN/VINH1.dds"
+	}
+	spriteType = {
+		name = "GFX_vin_vo_nguyen_giap_large"
+		texturefile = "gfx/leaders/VIN/Vo_Nguyen_Giap.dds"
+	}
+	spriteType = {
+		name = "GFX_vin_vo_nguyen_giap_small"
+		texturefile = "gfx/interface/ministers/VIN/vin_vo_nguyen_giap.dds"
+	}	
+	############# MILITARY Leaders
+	spriteType = {
+		name = "GFX_vin_hoang_van_thai_cc"
+		texturefile = "gfx/leaders/VIN/hoang_van_thai.dds"
+	}
+	spriteType = {
+		name = "GFX_vin_van_tien_dung_cc"
+		texturefile = "gfx/leaders/VIN/van_tien_dung.dds"
+	}
+	spriteType = {
+		name = "GFX_vin_nguyen_huu_an_cc"
+		texturefile = "gfx/leaders/VIN/nguyen_huu_an.dds"
+	}
+	spriteType = {
+		name = "GFX_vin_nguyen_son_cc"
+		texturefile = "gfx/leaders/VIN/nguyen_sơn.dds"
+	}
+	spriteType = {
+		name = "GFX_vin_tran_van_tra_cc"
+		texturefile = "gfx/leaders/VIN/tran_van_tra.dds"
+	}
+	
+	
+}

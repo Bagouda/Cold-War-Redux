@@ -1,0 +1,35 @@
+state={
+	id=847
+	local_supplies=0.0 
+	name="STATE_847"
+	resources={
+		crops= 5.0
+	}	
+	history={
+ 	add_to_array = { list_victory_point = 1563 }
+ 	set_variable = { victory_point = 5 }
+		owner = VIN
+		add_claim_by = LAO
+		
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+		1953.10.22 = {
+			owner = LAO
+			add_core_of = LAO
+			remove_core_of = FRA
+		}
+		victory_points = { 1563 5 }	#Saravane
+	}
+	provinces={
+		1374 1563 1577 1592 4554 7426 10453 12210 
+	}
+	manpower=250000
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+}

@@ -1,0 +1,30 @@
+﻿capital = 594
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	oob = GXC_1946
+	add_ideas = {
+		cw_non_recognized_state
+	}
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 30
+		unaligned_right = 70
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Li Zongren"
+		desc = ""
+		picture = "GXCH1.dds"
+		ideology = paternal_auto_idolg
+		expire = 1969.9.2
+		traits = {}
+	}
+}

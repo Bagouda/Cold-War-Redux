@@ -1,0 +1,227 @@
+on_actions = {
+	on_weekly = {
+		effect = {
+			if = {
+				limit = {
+					any_owned_state = {
+						has_variable = resistance_started_by
+					}
+				}
+				every_controlled_state = {
+					limit = {
+						has_variable = resistance_started_by
+						resistance > 49
+						NOT = { is_in_array = { array = ROOT.insurgency_states value = THIS.id }
+						}						
+					}
+					add_to_array = { array = ROOT.insurgency_states value = THIS.id }
+				}				
+			}
+			if = {
+				limit = {
+					check_variable = { ROOT.insurgency_states^num > 0 }
+				}
+				every_controlled_state = {
+					limit = {
+						resistance < 50
+						is_in_array = { array = ROOT.insurgency_states value = THIS.id }
+					}
+					remove_from_array = { array = ROOT.insurgency_states value = THIS.id }
+				}				
+			}
+		}
+	}
+	on_peaceconference_ended = {
+		effect = {
+			if = {
+				limit = {
+					FROM = { num_of_controlled_states > 5 }
+				}
+				ROOT = {
+					clear_variable = war_exaustion_effect
+					clear_variable = our_casualties
+				}
+				FROM = {
+					clear_variable = war_exaustion_effect
+					clear_variable = our_casualties
+				}				
+			}
+		}
+	}
+	on_war = {
+		effect = {
+			ROOT = { 
+				add_war_support = 0.50
+				#set_variable = { date_war_started_with@FROM = year }
+			}
+			FROM = { add_war_support = 0.50 }		
+		}
+	}
+	on_send_volunteers = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { NOT = { has_idea = country_sent_volunteers } }
+				}
+				ROOT = {
+					add_ideas = country_sent_volunteers
+				}
+			}			
+		}
+	}
+	on_border_war_lost = {
+		effect = {
+			ROOT = { add_war_support = -0.01 }
+		}		
+	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							has_war = yes
+							has_capitulated = no
+							casualties > var:our_casualties
+						}
+						any_unit_leader = { is_leading_volunteer_group_with_original_country = THIS }
+					}
+				}
+				if = {		#Anti war Protest
+					limit = {
+						has_war_support < 0.50
+						has_war_support > 0.40
+					}
+					add_to_variable = { war_exaustion_effect = 0.30 }
+					add_dynamic_modifier = { modifier = cw_war_exhaustion_dynamic_modifier }
+					country_event = cw_war_exaustion_events.1
+				}
+				if = {
+					limit = {
+						has_war_support < 0.40
+						has_war_support > 0.25
+						NOT = { has_idea = strikes_2 }
+					}
+					subtract_from_variable = { war_exaustion_effect = 0.01 }
+					add_dynamic_modifier = { modifier = cw_war_exhaustion_dynamic_modifier }
+					country_event = cw_war_exaustion_events.2
+				}				
+				if = {
+					limit = {
+						has_war_support < 0.30
+						has_war_support > 0.25
+						NOT = { has_idea = strikes_2 }
+					}
+					subtract_from_variable = { war_exaustion_effect = 0.01 }
+					add_dynamic_modifier = { modifier = cw_war_exhaustion_dynamic_modifier }
+					country_event = cw_war_exaustion_events.3
+				}
+				if = {
+					limit = {
+						has_war_support < 0.10
+						NOT = { has_active_mission = cw_government_demands_war_end}
+					}
+					subtract_from_variable = { war_exaustion_effect = 0.01 }
+					add_dynamic_modifier = { modifier = cw_war_exhaustion_dynamic_modifier }
+					country_event = cw_war_exaustion_events.5
+				}
+				############## WAR SUPPORT REDUCTION DUE TO CASUALTIES ##############
+				if = {
+					limit = {
+						casualties > 1000000
+						OR = {
+							casualties > 1000000
+							any_other_country = {
+								has_volunteers_amount_from = { tag = ROOT count > 0 }
+								casualties > 1000000
+							}
+						}						
+						NOT = { has_country_flag = increased_war_exhaustion }
+					}
+					if = {
+						limit = {
+							NOT = { has_dynamic_modifier = { modifier = cw_war_exhaustion_dynamic_modifier } }
+						}
+						add_dynamic_modifier = { modifier = cw_war_exhaustion_dynamic_modifier }
+					}					
+					if = {
+						limit = {
+							OR = {
+								has_government = democratic
+								has_government = democratic_socialist
+							}
+						}
+						subtract_from_variable = { war_exaustion_effect = 0.04 }
+						else = {
+							subtract_from_variable = { war_exaustion_effect = 0.04 }
+						}
+					}
+					set_country_flag = { flag = increased_war_exhaustion value = 1 days = 5 }
+				}				
+				if = {
+					limit = {
+						OR = {
+							casualties > 100000
+							any_other_country = {
+								has_volunteers_amount_from = { tag = ROOT count > 0 }
+								casualties > 100000
+							}
+						}
+						NOT = { has_country_flag = increased_war_exhaustion }
+					}
+					if = {
+						limit = {
+							NOT = { has_dynamic_modifier = { modifier = cw_war_exhaustion_dynamic_modifier } }
+						}
+						add_dynamic_modifier = { modifier = cw_war_exhaustion_dynamic_modifier }
+					}					
+					if = {
+						limit = {
+							OR = {
+								has_government = democratic
+								has_government = democratic_socialist
+							}
+						}
+						subtract_from_variable = { war_exaustion_effect = 0.02 }
+						else = {
+							subtract_from_variable = { war_exaustion_effect = 0.04 }
+						}
+					}
+					set_country_flag = { flag = increased_war_exhaustion value = 1 days = 5 }
+				}
+				if = {
+					limit = {
+						OR = {
+							casualties > 10000
+							any_other_country = {
+								has_volunteers_amount_from = { tag = ROOT count > 0 }
+								casualties > 10000
+							}
+						}
+						NOT = { has_country_flag = increased_war_exhaustion }
+					}
+					if = {
+						limit = {
+							NOT = { has_dynamic_modifier = { modifier = cw_war_exhaustion_dynamic_modifier } }
+						}
+						add_dynamic_modifier = { modifier = cw_war_exhaustion_dynamic_modifier }
+					}
+					if = {
+						limit = {
+							OR = {
+								has_government = democratic
+								has_government = democratic_socialist
+							}
+						}
+						subtract_from_variable = { war_exaustion_effect = 0.01 }
+						else = {
+							subtract_from_variable = { war_exaustion_effect = 0.01 }
+						}
+					}
+					set_country_flag = { flag = increased_war_exhaustion value = 1 days = 5 }
+				}
+			}
+			set_variable = { our_casualties = ROOT.casualties }
+		}
+	}
+}

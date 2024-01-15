@@ -1,0 +1,29 @@
+state = {
+	id=1
+	local_supplies=0.0 
+	name="STATE_1" # Corsica
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 3838 }
+ 	set_variable = { victory_point = 1 }
+		owner = FRA
+		add_core_of = FRA
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			3838 = {
+				naval_base = 1
+			}			
+		}
+		
+		victory_points = { 3838 1 }
+	}
+	resources={
+		crops = 3
+	}	
+	manpower = 322900
+	provinces={
+		3838 9851 11804 
+	}
+}

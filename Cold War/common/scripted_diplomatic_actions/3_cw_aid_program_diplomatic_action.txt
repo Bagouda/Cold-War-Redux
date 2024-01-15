@@ -1,0 +1,1114 @@
+@AID_DRIFT_EFFECT = 0.05
+@AID_PUPPET_EFFECT = 0.1
+scripted_diplomatic_actions = {
+	cw_offer_economic_aid = {
+		icon = 20
+		allowed = {
+			ROOT = { num_of_civilian_factories_available_for_projects > 5 }
+		}
+		visible = {
+			NOT = {
+				OR = {
+					has_country_flag = democratic_leader_flag
+					has_country_flag = communist_leader_flag
+					has_country_flag = neutral_leader_flag
+					has_country_flag = communist_reformist_leader_flag
+				}
+			}
+			OR = {
+				has_country_flag = special_aid_permission
+				capital_scope = { is_on_continent = europe }
+				AND = {
+					OR = {
+						capital_scope = { is_on_continent = asia }
+						capital_scope = { is_on_continent = australia }
+					}
+					ROOT = { has_country_flag = economic_aid_asia_allowed }
+				}
+				AND = {
+					capital_scope = { is_on_continent = africa }
+					ROOT = { has_country_flag = economic_aid_africa_allowed }
+				}
+				AND = {
+					capital_scope = { is_on_continent = middle_east }
+					ROOT = { has_country_flag = economic_aid_middle_east_allowed }
+				}
+				AND = {
+					OR = {
+						capital_scope = { is_on_continent = south_america }
+						capital_scope = { is_on_continent = north_america }
+					}
+					ROOT = { has_country_flag = economic_aid_americas_allowed }
+				}
+			}
+			OR = {
+				AND = {
+					ROOT = { has_country_flag = democratic_leader_flag }
+					has_global_flag = democratic_aid_program_active
+				}
+				AND = {
+					ROOT = { has_country_flag = communist_leader_flag }
+					has_global_flag = communist_aid_program_active
+				}
+				AND = {
+					ROOT = { has_country_flag = communist_reformist_leader_flag }
+					has_global_flag = communist_reformist_aid_program_active
+				}				
+				AND = {
+					ROOT = { has_country_flag = neutral_leader_flag }
+					has_global_flag = neutral_aid_program_active
+				}				
+			}
+			NOT = {
+				has_dynamic_modifier = {
+					modifier = cw_aid_program_target_dm
+					scope = ROOT
+				}
+			}
+		}
+		selectable = {
+			ROOT = { num_of_civilian_factories_available_for_projects > 5 }
+			custom_trigger_tooltip = {
+				tooltip = "Aid program participants limit not reached."
+				OR = {
+					AND = {
+						ROOT = { 
+							has_country_flag = democratic_leader_flag
+							check_variable = { economic_aid_program_participants < global.dem_aid_program_max_participants }
+						}
+					}
+					AND = {
+						ROOT = { 
+							has_country_flag = communist_leader_flag
+							check_variable = { economic_aid_program_participants < global.com_aid_program_max_participants }
+						}
+					}
+					AND = {
+						ROOT = { 
+							has_country_flag = communist_reformist_leader_flag
+							check_variable = { economic_aid_program_participants < global.com_ref_aid_program_max_participants }
+						}
+					}					
+					AND = {
+						ROOT = { 
+							has_country_flag = neutral_leader_flag
+							check_variable = { economic_aid_program_participants < global.neutral_aid_program_max_participants }
+						}
+					}					
+				}
+			}
+		}
+
+		send_description = CW_OFFER_ECONOMIC_AID_LOC
+		receive_description = CW_OFFER_ECONOMIC_AID_RECIEVER_LOC
+		accept_title = CW_OFFER_ECONOMIC_AID_ACCEPTED_TITLE
+		accept_description = CW_OFFER_ECONOMIC_AID_ACCEPTED_DESC
+		reject_title = CW_OFFER_ECONOMIC_AID_REJECTED_TITLE
+		reject_description = CW_OFFER_ECONOMIC_AID_REJECTED_DESC
+		cost = 0
+
+		requires_acceptance = yes
+		show_acceptance_on_action_button = yes
+
+		on_sent_effect = {
+			sound_effect = "alert_paused_diplomatic_actions_sound"
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action_aid value = 1 days = 25 } }
+			}		
+		}
+		complete_effect = {
+			ROOT = {
+				add_to_variable = { economic_aid_program_participants = 1 }
+				if = {
+					limit = {
+						PREV = { has_idea_with_trait = cw_briliant_negotiator }
+					}
+					else = {
+						add_to_variable = { aid_program_cost = 5 }
+					}
+				}
+			}
+			add_offsite_building = { type = industrial_complex level = 4 }
+			set_variable = { aid_program_effect@ROOT = 0.10 }
+			set_variable = { economic_aid_level@ROOT = 1 }
+			if = {
+				limit = {
+					OR = {
+						is_puppet_of = ROOT
+						is_subject_of = ROOT
+					}
+				}
+				subtract_from_variable = { aid_program_puppet_effect@ROOT = @AID_PUPPET_EFFECT }
+				else_if = {
+					limit = {
+						OR = {
+							is_puppet = yes
+							is_subject = yes
+						}
+					}
+					subtract_from_variable = { aid_program_puppet_effect@ROOT = @AID_PUPPET_EFFECT }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							has_government = democratic
+							has_government = democratic_socialist
+						}
+					}
+				}
+				subtract_from_variable = {
+					aid_program_drift_communism_ref_effect@ROOT = @AID_DRIFT_EFFECT 
+				}
+				subtract_from_variable = {
+					aid_program_drift_communism_total_effect@ROOT = @AID_DRIFT_EFFECT 
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						has_government = communism
+					}
+				}
+				add_to_variable = {
+					aid_program_drift_communism_ref_effect@ROOT = @AID_DRIFT_EFFECT 
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						has_government = communism_totalitarian
+					}
+				}
+				add_to_variable = {
+					aid_program_drift_communism_total_effect@ROOT = @AID_DRIFT_EFFECT 
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							has_government = unaligned_right
+							has_government = neutrality
+						}
+					}
+				}
+				add_to_variable = {
+					aid_program_drift_neutrality_effect@ROOT = @AID_DRIFT_EFFECT 
+				}
+			}
+			add_to_array = {
+				array = ROOT.aid_program_participants_array
+				value = THIS.id
+			}
+			add_dynamic_modifier = {
+				modifier = cw_aid_program_target_dm
+				scope = ROOT
+			}
+			set_country_flag = recieving_economic_aid
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = enrolled_us_to_aid
+			}
+			ROOT = {
+				add_opinion_modifier = {
+					target = PREV
+					modifier = joined_economic_aid_program
+				}
+			}
+			ROOT = {
+				add_opinion_modifier = {
+					target = PREV
+					modifier = joined_economic_aid_program_trade
+				}
+			}			
+			if = {
+				limit = {
+					ROOT = {
+						NOT = { has_dynamic_modifier = { modifier = cw_aid_program_giver_dm } }
+					}
+				}
+				ROOT = {
+					add_dynamic_modifier = {
+						modifier = cw_aid_program_giver_dm
+					}
+				}
+			}
+		}
+		reject_effect = {
+			set_country_flag = { flag = rejected_aid_offer value = 1 days = 90 }
+		}
+		ai_desire = {
+			base = 1
+			modifier = {
+				ROOT = { has_country_flag = did_diplomatic_action_aid }
+				add = -1000
+			}
+			modifier = {
+				has_country_flag = rejected_aid_offer
+				add = -500
+			}
+			modifier = {
+				is_neighbor_of = ROOT
+				similar_ideology_check = yes
+				add = 200
+			}
+			modifier = {
+				is_ai = no
+				add = -500
+			}
+			modifier = {
+				similar_ideology_check = yes
+				add = 100
+			}
+			modifier = {
+				similar_ideology_check = no
+				add = -100
+			}
+			modifier = {
+				ROOT = { has_opinion = { target = PREV value > 0 } }
+				add = 25
+			}			
+			modifier = {		#Check for ideology even if country is priority
+				similar_ideology_check = yes
+				is_in_array = {
+					array = ROOT.priority_countries
+					value = PREV.id
+				}
+				add = 500
+			}
+		}
+		ai_acceptance = {
+			base_desire = {
+				modifier = {
+					add = 5
+				}
+				modifier = {
+					has_idea = unstable_government
+					add = 15
+				}
+				modifier = {
+					is_neighbor_of = ROOT
+					strength_ratio = { tag = ROOT ratio < 2 }					
+					add = 50
+				}
+			}
+			is_colonial_nation = {
+				modifier = {
+					has_government = colonial
+					add = -20
+				}
+				modifier = {
+					has_government = colonial
+					any_neighbor_country = { has_idea = cw_revolutionary_zeal }
+					add = 20
+				}
+			}
+			wants_economic_help = {
+				modifier = {
+					num_of_civilian_factories < 10
+					add = 20
+				}
+				modifier = {
+					capital_scope = { is_on_continent = africa }
+					add = 20
+				}
+				modifier = {
+					capital_scope = { is_on_continent = south_america }
+					add = 10
+				}
+			}
+			ideology_checks = {
+				modifier = {
+					PREV = { similar_ideology_check = no }
+					add = -50
+				}	
+				modifier = {
+					PREV = { similar_ideology_check = yes }
+					add = 20
+				}
+				modifier = {
+					same_ideology_check = yes
+					add = 20
+				}
+				modifier = {
+					ROOT = {
+						OR = {
+							has_government = communism
+							has_government = communism_totalitarian
+						}
+					}
+					has_government = unaligned_right
+					OR = {
+						has_country_leader_with_trait = unpopular_monarch
+						has_country_leader_with_trait = absolute_monarch
+					}
+					add = -50
+				}
+				modifier = {
+					ROOT = {
+						OR = {
+							has_government = communism
+							has_government = communism_totalitarian
+						}
+					}
+					OR = {
+						has_government = democratic
+						has_government = democratic_socialist
+					}
+					add = -500
+				}
+				modifier = {
+					ROOT = {
+						OR = {
+							has_government = democratic
+							has_government = democratic_socialist
+						}
+					}
+					OR = {
+						has_government = communism
+						has_government = communism_totalitarian
+					}
+					add = -500
+				}				
+			}
+		}
+	}
+	cw_request_economic_aid = {
+		icon = 21
+		allowed = {
+		}
+		visible = {
+			ROOT = {
+				NOT = {
+					is_in_array = {
+						array = PREV.aid_program_participants_array
+						value = THIS.id
+					}
+				}
+			}
+			OR = {
+				ROOT = {
+					has_country_flag = special_aid_permission
+					capital_scope = { is_on_continent = europe }
+				}
+				AND = {
+					OR = {
+						ROOT = {
+							capital_scope = { is_on_continent = asia }
+							capital_scope = { is_on_continent = australia }
+						}
+					}
+					has_country_flag = economic_aid_asia_allowed
+				}
+				AND = {
+					capital_scope = { is_on_continent = africa }
+					ROOT = { has_country_flag = economic_aid_africa_allowed }
+				}
+				AND = {
+					capital_scope = { is_on_continent = middle_east }
+					ROOT = { has_country_flag = economic_aid_middle_east_allowed }
+				}
+				AND = {
+					OR = {
+						ROOT = {
+							capital_scope = { is_on_continent = south_america }
+							capital_scope = { is_on_continent = north_america }
+						}
+					}
+					has_country_flag = economic_aid_americas_allowed
+				}
+			}			
+			has_dynamic_modifier = { modifier = cw_aid_program_giver_dm }
+		}
+		selectable = {
+			custom_trigger_tooltip = {
+				tooltip = "Aid program participants limit not reached."
+				OR = {
+					AND = {
+						has_country_flag = democratic_leader_flag
+						check_variable = { economic_aid_program_participants < global.dem_aid_program_max_participants }
+					}
+					AND = {
+						has_country_flag = communist_leader_flag
+						check_variable = { economic_aid_program_participants < global.com_aid_program_max_participants }
+					}
+					AND = {
+						has_country_flag = neutral_leader_flag
+						check_variable = { economic_aid_program_participants < global.neutral_aid_program_max_participants }
+					}
+					AND = {
+						has_country_flag = communist_reformist_leader_flag
+						check_variable = { economic_aid_program_participants < global.com_ref_aid_program_max_participants }
+					}					
+				}
+			}
+		}
+
+		send_description = CW_REQUEST_ECONOMIC_AID_LOC
+		receive_description = CW_REQUEST_ECONOMIC_AID_RECIEVER_LOC
+		accept_title = CW_REQUEST_ECONOMIC_AID_ACCEPTED_TITLE
+		accept_description = CW_REQUEST_ECONOMIC_AID_ACCEPTED_DESC
+		reject_title = CW_REQUEST_ECONOMIC_AID_REJECTED_TITLE
+		reject_description = CW_REQUEST_ECONOMIC_AID_REJECTED_DESC
+		cost = 0
+
+		requires_acceptance = yes
+		show_acceptance_on_action_button = yes
+
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action_aid value = 1 days = 25 } }
+			}		
+		}
+		complete_effect = {
+			add_to_variable = { economic_aid_program_participants = 1 }
+			if = {
+				limit = {
+					ROOT = { has_idea_with_trait = cw_briliant_negotiator }
+				}
+				else = {
+					add_to_variable = { aid_program_cost = 5 }
+				}
+			}
+			ROOT = {
+				add_offsite_building = { type = industrial_complex level = 4 }
+				set_variable = { aid_program_effect@PREV = 0.10 }
+				set_variable = { economic_aid_level@PREV = 1 }
+				add_to_array = {
+					array = PREV.aid_program_participants_array
+					value = THIS.id
+				}
+				add_dynamic_modifier = {
+					modifier = cw_aid_program_target_dm
+					scope = PREV
+				}
+				add_opinion_modifier = {
+					target = PREV
+					modifier = enrolled_us_to_aid
+				}
+				set_country_flag = recieving_economic_aid
+			}
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							is_puppet_of = PREV
+							is_subject_of = PREV
+						}
+					}
+				}
+				subtract_from_variable = { aid_program_puppet_effect@PREV = @AID_PUPPET_EFFECT }
+				else_if = {
+					limit = {
+						ROOT = {
+							OR = {
+								is_puppet = yes
+								is_subject = yes
+							}
+						}
+					}
+					subtract_from_variable = { aid_program_puppet_effect@PREV = @AID_PUPPET_EFFECT }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_government = democratic
+						has_government = democratic_socialist
+					}
+				}
+				ROOT = {
+					subtract_from_variable = {
+						aid_program_drift_communism_ref_effect@PREV = @AID_DRIFT_EFFECT 
+					}
+					subtract_from_variable = {
+						aid_program_drift_communism_total_effect@PREV = @AID_DRIFT_EFFECT 
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_government = communism
+				}
+				ROOT = {
+					add_to_variable = {
+						aid_program_drift_communism_ref_effect@PREV = @AID_DRIFT_EFFECT 
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_government = communism_totalitarian
+				}
+				ROOT = {
+					add_to_variable = {
+						aid_program_drift_communism_total_effect@PREV = @AID_DRIFT_EFFECT 
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_government = unaligned_right
+						has_government = neutrality
+					}
+				}
+				ROOT = {
+					add_to_variable = {
+						aid_program_drift_neutrality_effect@PREV = @AID_DRIFT_EFFECT 
+					}
+				}
+			}
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = joined_economic_aid_program
+			}
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = joined_economic_aid_program_trade
+			}
+			if = {
+				limit = {
+					NOT = { has_dynamic_modifier = { modifier = cw_aid_program_giver_dm } }
+				}
+				add_dynamic_modifier = {
+					modifier = cw_aid_program_giver_dm
+				}
+			}
+		}
+		reject_effect = {
+			set_country_flag = { flag = rejected_aid_request value = 1 days = 90 }
+		}
+		ai_desire = {
+			modifier = {
+				ROOT = { has_country_flag = did_diplomatic_action_aid }
+				add = -1000
+			}		
+			modifier = {
+				ROOT = { num_of_civilian_factories < 10 }
+				add = 20
+			}
+			modifier = {
+				ROOT = { capital_scope = { is_on_continent = africa } }
+				add = 20
+			}
+			modifier = {
+				ROOT = { capital_scope = { is_on_continent = south_america } }
+				add = 10
+			}		
+		}
+		ai_acceptance = {		
+			ideology_checks = {
+				modifier = {
+					PREV = { similar_ideology_check = no }
+					NOT = { OR = { has_government = neutrality has_government = unaligned_right } }
+					add = -50
+				}	
+				modifier = {
+					PREV = { similar_ideology_check = yes }
+					NOT = { OR = { has_government = neutrality has_government = unaligned_right } }
+					add = 20
+				}
+				modifier = {
+					same_ideology_check = yes
+					NOT = { OR = { has_government = neutrality has_government = unaligned_right } }
+					add = 20
+				}
+				modifier = {
+					same_ideology_check = no
+					NOT = { OR = { has_government = neutrality has_government = unaligned_right } }
+					add = -50
+				}
+			}
+			relation_checks = {
+				modifier = {
+					has_opinion = { target = ROOT value < 5 }
+					add = -10
+				}
+				modifier = {
+					has_opinion = { target = ROOT value < -50 }
+					add = -50
+				}				
+				modifier = {
+					has_opinion = { target = ROOT value > 9 }
+					add = 5
+				}
+				modifier = {
+					has_opinion = { target = ROOT value > 20 }
+					add = 10
+				}				
+				modifier = {
+					has_opinion = { target = ROOT value > 50 }
+					add = 20
+				}
+				modifier = {
+					has_war_with = ROOT
+					add = -100
+				}
+				modifier = {
+					ROOT = { any_owned_state = { is_core_of = PREV.PREV } }
+					add = -120
+				}
+				modifier = {
+					any_owned_state = { is_claimed_by = ROOT }
+					add = -75
+				}					
+				modifier = {
+					has_volunteers_amount_from = {
+						tag = ROOT
+						count > 1
+					}
+					add = 20					
+				}				
+				modifier = {
+					is_in_array = {
+						array = ROOT.embargoed_countries
+						value = FROM.id
+					}
+					add = -100
+				}
+				modifier = {
+					ROOT = {
+						is_in_array = {
+							array = PREV.priority_countries
+							value = THIS.id
+						}
+					}
+					same_ideology_org_checker = yes
+					add = 500
+				}
+			}
+		}
+	}
+	cw_leave_economic_aid = {
+		allowed = {
+		}
+		visible = {
+			ROOT = {
+				has_dynamic_modifier = {
+					modifier = cw_aid_program_target_dm
+					scope = PREV
+				}
+			}
+		}
+		selectable = {
+		}
+
+		send_description = CW_LEAVE_ECONOMIC_AID_LOC
+		receive_description = CW_LEAVE_ECONOMIC_AID_RECIEVER_LOC
+		accept_title = CW_LEAVE_ECONOMIC_AID_LOC_ACCEPTED_TITLE
+		accept_description = CW_LEAVE_ECONOMIC_AID_LOC_ACCEPTED_DESC		
+		cost = 0
+
+		requires_acceptance = no
+
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action value = 1 days = 25 } }
+			}		
+		}
+		complete_effect = {
+			subtract_from_variable = { economic_aid_program_participants = 1 }
+			remove_opinion_modifier = {
+				target = ROOT
+				modifier = joined_economic_aid_program
+			}
+			remove_opinion_modifier = {
+				target = ROOT
+				modifier = joined_economic_aid_program_trade
+			}
+			ROOT = {
+				if = {
+					limit = {
+						check_variable = { economic_aid_level@PREV = 1 }
+					}
+					add_offsite_building = { type = industrial_complex level = -4 }
+					PREV = { subtract_from_variable = { aid_program_cost = 5 } }
+				}
+				if = {
+					limit = {
+						check_variable = { economic_aid_level@PREV = 2 }
+					}
+					add_offsite_building = { type = industrial_complex level = -8 }
+					PREV = { subtract_from_variable = { aid_program_cost = 10 } }
+				}
+				if = {
+					limit = {
+						check_variable = { economic_aid_level@PREV = 3 }
+					}
+					add_offsite_building = { type = industrial_complex level = -12 }
+					PREV = { subtract_from_variable = { aid_program_cost = 15 } }
+				}
+				if = {
+					limit = {
+						check_variable = { economic_aid_level@PREV = 4 }
+					}
+					add_offsite_building = { type = industrial_complex level = -16 }
+					PREV = { subtract_from_variable = { aid_program_cost = 20 } }
+				}
+				remove_from_array = {
+					array = PREV.aid_program_participants_array
+					value = THIS.id
+				}
+				remove_dynamic_modifier = {
+					modifier = cw_aid_program_target_dm 
+					scope = PREV 
+				}
+			}
+		}
+		ai_desire = {
+			base = 0
+			modifier = {
+				ROOT = { tag = YUG }
+				add = -120
+			}			
+			modifier = {
+				similar_ideology_check = no
+				add = 100
+			}
+		}
+	}
+	cw_abandon_economic_aid = {		# Demand that country leaves rival aid program
+		icon = 22
+		allowed = {
+		}
+		visible = {
+			is_in_array = {
+				array = ROOT.aid_program_participants_array
+				value = THIS.id
+			}
+			OR = {
+				AND = {
+					ROOT = { has_country_flag = democratic_leader_flag }
+					OR = {
+						is_in_array = {
+							array = event_target:communist_leader.aid_program_participants_array
+							value = THIS.id
+						}
+						is_in_array = {
+							array = event_target:neutral_leader.aid_program_participants_array
+							value = THIS.id
+						}
+						is_in_array = {
+							array = event_target:communist_reformist_leader.aid_program_participants_array
+							value = THIS.id
+						}						
+					}
+				}
+				AND = {
+					ROOT = { has_country_flag = communist_leader_flag }
+					OR = {
+						is_in_array = {
+							array = event_target:democratic_leader.aid_program_participants_array
+							value = THIS.id
+						}
+						is_in_array = {
+							array = event_target:neutral_leader.aid_program_participants_array
+							value = THIS.id
+						}
+						is_in_array = {
+							array = event_target:communist_reformist_leader.aid_program_participants_array
+							value = THIS.id
+						}
+					}
+				}
+				AND = {
+					ROOT = { has_country_flag = communist_reformist_leader_flag }
+					OR = {
+						is_in_array = {
+							array = event_target:democratic_leader.aid_program_participants_array
+							value = THIS.id
+						}
+						is_in_array = {
+							array = event_target:communist_leader.aid_program_participants_array
+							value = THIS.id
+						}						
+						is_in_array = {
+							array = event_target:neutral_leader.aid_program_participants_array
+							value = THIS.id
+						}
+					}
+				}				
+				AND = {
+					ROOT = { has_country_flag = neutral_leader_flag }
+					OR = {
+						is_in_array = {
+							array = event_target:democratic_leader.aid_program_participants_array
+							value = THIS.id
+						}
+						is_in_array = {
+							array = event_target:communist_leader.aid_program_participants_array
+							value = THIS.id
+						}
+						is_in_array = {
+							array = event_target:communist_reformist_leader.aid_program_participants_array
+							value = THIS.id
+						}						
+					}
+				}				
+			}
+		}
+		selectable = {
+		}
+
+		send_description = CW_ABANDON_ECONOMIC_AID_LOC
+		receive_description = CW_ABANDON_ECONOMIC_AID_RECIEVER_LOC
+		accept_title = CW_ABANDON_ECONOMIC_AID_ACCEPTED_TITLE
+		accept_description = CW_ABANDON_ECONOMIC_AID_ACCEPTED_DESC
+		reject_title = CW_ABANDON_ECONOMIC_AID_REJECTED_TITLE
+		reject_description = CW_ABANDON_ECONOMIC_AID_REJECTED_DESC
+		cost = 0
+
+		requires_acceptance = yes
+		show_acceptance_on_action_button = yes
+
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action value = 1 days = 25 } }
+			}		
+		}
+		complete_effect = {
+			every_country = {
+				limit = {
+					NOT = { tag = ROOT }
+					PREV = {
+						is_in_array = {
+							array = PREV.aid_program_participants_array
+							value = THIS.id
+						}
+					}
+				}
+				subtract_from_variable = { economic_aid_program_participants = 1 }
+				PREV = {
+					if = {
+						limit = {
+							check_variable = { economic_aid_level@PREV = 1 }
+						}
+						add_offsite_building = { type = industrial_complex level = -4 }
+						PREV = { subtract_from_variable = { aid_program_cost = 5 } }
+					}
+					if = {
+						limit = {
+							check_variable = { economic_aid_level@PREV = 2 }
+						}
+						add_offsite_building = { type = industrial_complex level = -8 }
+						PREV = { subtract_from_variable = { aid_program_cost = 10 } }
+					}
+					if = {
+						limit = {
+							check_variable = { economic_aid_level@PREV = 3 }
+						}
+						add_offsite_building = { type = industrial_complex level = -12 }
+						PREV = { subtract_from_variable = { aid_program_cost = 15 } }
+					}
+					if = {
+						limit = {
+							check_variable = { economic_aid_level@PREV = 4 }
+						}
+						add_offsite_building = { type = industrial_complex level = -16 }
+						PREV = { subtract_from_variable = { aid_program_cost = 20 } }
+					}
+					remove_from_array = {
+						array = PREV.aid_program_participants_array
+						value = THIS.id
+					}
+					remove_dynamic_modifier = {
+						modifier = cw_aid_program_target_dm 
+						scope = PREV 
+					}
+				}				
+			}
+		}
+		reject_effect = {
+		}
+		ai_desire = {
+			modifier = {
+				ROOT = { has_country_flag = did_diplomatic_action_aid }
+				add = -1000
+			}		
+			modifier = {
+				is_neighbor_of = ROOT
+				add = 50
+			}
+			modifier = {
+				same_ideology_org_checker = yes
+				add = 50
+			}		
+		}
+		ai_acceptance = {
+			base_desire = {
+				modifier = {
+					add = -5
+				}
+			}
+			ideology_checks = {
+				modifier = {
+					PREV = { similar_ideology_check = no }
+					NOT = { OR = { has_government = neutrality has_government = unaligned_right } }
+					add = -50
+				}	
+				modifier = {
+					PREV = { similar_ideology_check = yes }
+					NOT = { OR = { has_government = neutrality has_government = unaligned_right } }						
+					add = 20
+				}
+				modifier = {
+					same_ideology_check = yes
+					NOT = { OR = { has_government = neutrality has_government = unaligned_right } }					
+					add = 20
+				}
+				modifier = {
+					same_ideology_check = no
+					NOT = { OR = { has_government = neutrality has_government = unaligned_right } }					
+					add = -50
+				}					
+				modifier = {
+					PREV = { similar_ideology_check = no }
+					ROOT = { is_ai = yes }
+					add = 200
+				}				
+			}
+			diplomatic_checks = {
+				modifier = {
+					ROOT = { OR = { has_country_flag = democratic_leader has_country_flag = communist_reformist_leader_flag has_country_flag = communist_leader has_country_flag = neutral_leader } }
+					add = 10
+				}				
+				modifier = {
+					ROOT = {
+						is_in_array = {
+							array = global.unsc_permanent_members_array
+							value = THIS.id
+						}
+					}
+					add = 15
+				}				
+				modifier = {
+					ROOT = {
+						is_in_array = {
+							array = global.unsc_non_permanent_members_array
+							value = THIS.id
+						}
+					}
+					add = 10
+				}				
+			}
+			military_checks = {
+				modifier = {
+					is_neighbor_of = ROOT
+					strength_ratio = { tag = ROOT ratio < 1 }
+					add = 20
+				}
+				modifier = {
+					NOT = { is_neighbor_of = ROOT }
+					strength_ratio = { tag = ROOT ratio < 1 }
+					add = -1
+				}
+			}
+		}
+	}
+	cw_cancel_economic_aid = {		#For AI only to reduce code on scripted gui
+		allowed = {
+		}
+		visible = {
+			ROOT = { is_ai = yes }		
+			is_in_array = {
+				array = ROOT.aid_program_participants_array
+				value = THIS.id
+			}
+		}
+		selectable = {
+			NOT = { check_variable = { cw_economic_aid_lock@ROOT > 0 } }
+		}
+
+		accept_title = CW_CANCEL_ECONOMIC_AID_ACCEPTED_TITLE
+		accept_description = CW_CANCEL_ECONOMIC_AID_ACCEPTED_DESC
+		cost = 0
+
+		requires_acceptance = no
+
+		on_sent_effect = {
+			if = {
+				limit = {
+					ROOT = { is_ai = yes }
+				}
+				ROOT = { set_country_flag = { flag = did_diplomatic_action value = 1 days = 25 } }
+			}		
+		}
+		complete_effect = {
+			ROOT = { subtract_from_variable = { economic_aid_program_participants = 1 } }
+			if = {
+				limit = {
+					check_variable = { economic_aid_level@ROOT = 1 }
+				}
+				add_offsite_building = { type = industrial_complex level = -4 }
+				ROOT = { subtract_from_variable = { aid_program_cost = 5 } }
+			}
+			if = {
+				limit = {
+					check_variable = { economic_aid_level@ROOT = 2 }
+				}
+				add_offsite_building = { type = industrial_complex level = -8 }
+				ROOT = { subtract_from_variable = { aid_program_cost = 10 } }
+			}
+			if = {
+				limit = {
+					check_variable = { economic_aid_level@ROOT = 3 }
+				}
+				add_offsite_building = { type = industrial_complex level = -12 }
+				ROOT = { subtract_from_variable = { aid_program_cost = 15 } }
+			}
+			if = {
+				limit = {
+					check_variable = { economic_aid_level@ROOT = 4 }
+				}
+				add_offsite_building = { type = industrial_complex level = -16 }
+				ROOT = { subtract_from_variable = { aid_program_cost = 20 } }
+			}
+			remove_from_array = {
+				array = ROOT.aid_program_participants_array
+				value = THIS.id
+			}
+			remove_dynamic_modifier = {
+				modifier = cw_aid_program_target_dm 
+				scope = ROOT 
+			}
+		}
+		ai_desire = {
+			base = 0
+			modifier = {
+				ROOT = { has_country_flag = did_diplomatic_action_aid }
+				add = -1000
+			}			
+			modifier = {
+				same_ideology_org_checker = no
+				add = 50
+			}
+			modifier = {
+				similar_ideology_check = yes
+				is_in_array = {
+					array = ROOT.priority_countries
+					value = PREV.id
+				}
+				add = -100
+			}
+			modifier = {	#If relations are really low cancel our support
+				ROOT = { NOT = { has_opinion = { target = PREV value > -50 } } }
+				add = 200
+			}
+		}
+	}	
+}

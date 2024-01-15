@@ -1,0 +1,18 @@
+﻿l_english:
+ ### CHI IDEAS ###
+ CHI_cw_corrupt_bureaucracy_3:0 "Corrupt Bureaucracy"
+ CHI_cw_corrupt_bureaucracy_2:0 "Corrupt Bureaucracy"
+ CHI_cw_corrupt_bureaucracy_1:0 "Corrupt Bureaucracy"
+ CHI_new_yuan_dollar:0 "New Yuan Dollar"
+ CHI_gold_standard:0 "Reintroduced Gold Standard"
+ ### CHINA ###
+ CHI_homecoming_legion:0 "Huanxiang Tuan"
+ CHI_homecoming_legion_desc:0 "Homecoming Legion, which was composed of landlords who sought the return of their redistributed land and property from peasants and CCP guerrillas, as well as forcibly conscripted peasants and communist POWs."
+ CHI_desertion_wave:0 "Pandemic Desertion"
+ CHI_desertion_wave_desc:0 "Our soldiers no longer believe in the ideas of the republic, thousands of soldiers are disappearing from our ranks while those who remain surrender without fighting.\n\nMany are switching sides to fight for the Communists, if we do not tackle this problem as soon as possible we will not have any men remaining to fight."
+ CHI_desertion_light:0 "Sporadic Desertion"
+ CHI_desertion_light_desc:0 "While desertion is still a problem in our armed forces, it seems to have been contained for now."
+ cw_un_permanent:0 "Permanent UN Security Council Member"
+ cw_un_permanent_desc:0 "[From.GetNameDef] is a permanent UNSC member, they can vote and veto resolutions presented before the United Nations Security Council."
+ cw_un_non_permanent:0 "§MNon Permanent§! UN Security Council Member"
+ cw_un_non_permanent_desc:0 "[From.GetNameDef] is a non permanent UNSC member, they can vote on resolutions presented before the United Nations Security Council but have no veto power."

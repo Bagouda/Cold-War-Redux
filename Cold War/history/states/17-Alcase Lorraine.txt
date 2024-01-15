@@ -1,0 +1,30 @@
+state = {
+	id=17
+	local_supplies=0.0 
+	name="STATE_17" # Lorraine
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 9642 }
+ 	add_to_array = { list_victory_point = 11516 }
+ 	set_variable = { victory_point = 10 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = FRA
+		add_core_of = FRA
+		victory_points = {
+			11516 5 
+		}
+		victory_points = {
+			9642 5 
+		}
+	}
+	resources={
+		steel=28 # was: 48
+		crops = 8
+	}
+	manpower = 1517500
+	provinces={
+		521 698 3646 3666 6698 9642 9658 11488 11516 11642 
+	}
+}

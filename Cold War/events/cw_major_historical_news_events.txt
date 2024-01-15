@@ -1,0 +1,1132 @@
+﻿################################
+# MAJOR HISTORICAL NEWS EVENTS #
+################################
+add_namespace = cw_aid_program_events
+news_event = {
+	id = cw_aid_program_events.0		#Marshall Plan lunched
+	title = cw_aid_program_events.0.t
+	desc = cw_aid_program_events.0.d
+	picture = GFX_mp_start_world_news
+
+	fire_only_once = no
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_aid_program_events.1		#Comecon Aid Lunched
+	title = cw_aid_program_events.1.t
+	desc = cw_aid_program_events.1.d
+	picture = GFX_comecon_start_world_news
+
+	fire_only_once = no
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_aid_program_events.2		#Shanghai Aid Launched - PRC
+	title = cw_aid_program_events.2.t
+	desc = cw_aid_program_events.2.d
+	picture = GFX_news_event_048
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+##########
+add_namespace = cw_historic_events
+news_event = {
+	id = cw_historic_events.1		#India Partition
+	title = cw_historic_events.1.t
+	desc = cw_historic_events.1.d
+	picture = GFX_indian_independence
+
+	major = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				ROOT = { tag = IND }
+			}
+			hidden_effect = {
+				IND = {
+					delete_unit_template_and_units = {
+						division_template = "Indian Colonial Infantry"
+					}
+					load_oob = IND_independent
+				}
+			}
+		}
+	}	
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.3		# Stalin's Death
+	title = "The Death of Stalin"
+	desc = cw_historic_events.3.d
+	picture = GFX_stalin_funeral
+
+	major = yes
+	
+	trigger = {
+		SOV = { has_country_leader = { name = "Joseph Stalin" ruling_only = yes } }
+		date > 1953.03.04
+	}
+	
+
+	fire_only_once = yes
+	
+	immediate = {
+		hidden_effect = {
+			SOV = {
+				top_bar_decisions_notification_new_decisions_available = yes
+				if = {
+					limit = {
+						NOT = { has_country_flag = loaded_1950_focuses_country }
+						is_ai = no
+					}
+					set_country_flag = open_candidate_selection_screen
+				}			
+				if = {
+					limit = {
+						NOT = { has_country_flag = loaded_1950_focuses_country }
+						is_ai = yes
+					}
+					load_focus_tree = sov_focus_1950
+					set_country_flag = loaded_1950_focuses_country
+				}
+				kill_country_leader = yes 
+				retire_country_leader = yes
+				add_country_leader_role = { character = SOV_georgy_malenkov }
+				add_stability = -0.5
+				set_political_party = {
+					ideology = communism_totalitarian
+					popularity = 60
+				}
+				set_party_name = { ideology = communism long_name = "Communist Party of the Soviet Union" name = "Reformists" }
+				set_party_name = { ideology = communism_totalitarian long_name = "Communist Party of the Soviet Union" name = "Stalinists" }
+				set_country_flag = communist_power_struggle
+				set_country_flag = post_stalin_communist_power_struggle
+				set_variable = { country_ref_first_option_votes_percent = 40 }	#Malenkov
+				set_variable = { country_ref_second_option_votes_percent = 30 }	#Beria
+				set_country_flag = third_option_occupied
+				set_variable = { country_ref_third_option_votes_percent = 20 }	#Molotov
+				set_country_flag = fourth_option_occupied
+				set_variable = { country_ref_fourth_option_votes_percent = 10 }	#Khrushev
+				cw_communist_power_struggle_initial_setup = yes
+				add_ideas = sov_dm_bulganin
+				add_ideas = sov_hog_georgi_malenkov
+				add_ideas = sov_tm_alexei_kosygin
+				add_ideas = sov_fm_vyacheslav_molotov
+				if = {
+					limit = {
+						has_completed_focus = SOV_the_old_guard
+					}
+					add_ideas = sov_power_struggle_reform_opposition
+					remove_ideas = political_power_struggle
+					remove_ideas = sov_leningrad_plot
+					set_party_name = { ideology = communism long_name = "The Anti Party Group" name = "Anti Party Group" }
+					else = {
+						add_ideas = sov_power_struggle_total_opposition
+						remove_ideas = sov_leningrad_plot
+						remove_ideas = political_power_struggle
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+						OR = {
+							has_state_category = large_city
+							has_state_category = metropolis
+							has_state_category = megalopolis
+						}
+					}
+					set_variable = { ROOT.exempted_city_name = THIS.id }
+				}				
+			}
+		}
+	}
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.4		# End of Soviet Reconstruction
+	title = cw_historic_events.4.t
+	desc = cw_historic_events.4.d
+	picture = GFX_lenin_poster
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+
+
+news_event = {
+	id = cw_historic_events.6		# Unified Neutrality left Germany Established
+	title = cw_historic_events.6.t
+	desc = cw_historic_events.6.d
+	picture = GFX_west_germany_established
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.7		# Unified Neutrality right Germany Established
+	title = cw_historic_events.7.t
+	desc = cw_historic_events.7.d
+	picture = GFX_german_empire_flag
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.8		# Berlin blockade initiated
+	title = cw_historic_events.8.t
+	desc = cw_historic_events.8.d
+	picture = GFX_berlin_blockade_news
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.9		# Berlin airlift initiated
+	title = cw_historic_events.9.t
+	desc = cw_historic_events.9.d
+	picture = GFX_berlin_airlift_news
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.11		# Berlin lift suspended
+	title = cw_historic_events.11.t
+	desc = cw_historic_events.11.d
+	picture = GFX_destroyed_us_bomber
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.12		#Winston Churchill's Iron Curtain speech
+	title = cw_historic_events.12.t
+	desc = cw_historic_events.12.d
+	picture = GFX_churchil_truman
+	fire_only_once = yes
+	trigger = {
+		NOT = { ENG = { has_country_leader = { name = "Sir Winston Churchill" } } }
+		date > 1946.03.05
+		NOT = { has_global_flag = ic_speech_done }
+	}	
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = ic_speech_done
+		}
+	}	
+	
+	
+	major = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.13		# Paris treaty ratified by UNSC
+	title = cw_historic_events.13.t
+	desc = cw_historic_events.13.d
+	picture = GFX_paris_peace_treaties
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.16		# Kuomintang leaves mainland China
+	title = cw_historic_events.16.t
+	desc = cw_historic_events.16.d
+	picture = GFX_mao_chaingk_flags
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+		if = {
+			limit = {
+				CHI = { exists = yes }
+			}
+			PRC = { set_variable = { twin_country = CHI.id } }
+		}
+	}
+}
+news_event = {
+	id = cw_historic_events.17		# Proclamation of PRC
+	title = cw_historic_events.17.t
+	desc = cw_historic_events.17.d
+	picture = GFX_mao_radio_mics
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_historic_events.18		# Treaty of Dunkirk
+	title = "Treaty of Dunkirk"
+	desc = cw_historic_events.18.d
+	picture = GFX_treaty_of_dunkirk
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.19		# Treaty of Dunkirk
+	title = "Formation of The Western Union"
+	desc = cw_historic_events.19.d
+	picture = GFX_western_union
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.20		# Nuremberg trials
+	title = "The Nuremberg Trials"
+	desc = cw_historic_events.20.d
+	picture = GFX_nuremberg_trials
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_historic_events.21		# Resignation of Charles de Gaulle
+	title = "De Gaulle Resigns"
+	desc = cw_historic_events.21.d
+	picture = GFX_de_gaulle_1
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.22		# Bombing of King David Hotel
+	title = "King David Hotel Bombing"
+	desc = cw_historic_events.22.d
+	picture = GFX_king_daid_bombing
+	fire_only_once = yes
+	show_major = {
+		is_major = yes
+	}
+	
+	trigger = {
+		AND = {
+			date > 1946.7.22
+			454 = { is_controlled_by = ENG }
+			NOT = { ENG = { has_country_flag = king_david_hotel_bombed } }
+		}
+	}
+	
+
+	immediate = {
+		if = {
+			limit = {
+				ROOT = { tag = ENG }
+			}
+			hidden_effect = {
+				ENG = {
+					set_country_flag = king_david_hotel_bombed
+					ISR = { add_named_threat = { threat = 5 name = "King David Hotel Bombing" } }
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.23		# PSPS Victorious Event
+	title = cw_historic_events.23.t
+	desc = cw_historic_events.23.d
+	picture = GFX_psps_victory_event
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.24		# Batista coup
+	title = "Fulgencio Batista Takes Power in Cuba"
+	desc = cw_historic_events.24.d
+	picture = GFX_cuba_batista_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.25		# Nasser Takes Power in Egypt
+	title = "King Farouk Deposed"
+	desc = cw_historic_events.25.d
+	picture = GFX_egypt_revolution_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.26		# Hungarian Revolution
+	title = "Hungary Communist Party Dissolved"
+	desc = cw_historic_events.26.d
+	picture = GFX_hungary_revolution_1956_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.27		# Formation of NATO
+	title = "NATO Formed"
+	desc = cw_historic_events.27.d
+	picture = GFX_nato_formed_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.28		# Elizabeth II Crowned
+	title = "Elizabeth II Crowned"
+	desc = cw_historic_events.28.d
+	picture = GFX_elizabeth_crowning_news
+
+	major = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		every_country = {
+			limit = {
+				has_idea = eng_george_6
+			}
+			remove_ideas = eng_george_6
+			add_ideas = eng_elizabeth_2			
+		}
+	}
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.29		# 14 July Irqai Revolution
+	title = "Iraqi Monarchy Overthrown"
+	desc = cw_historic_events.29.d
+	picture = GFX_iraq_revolution_news
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.30		# Nationalization of Suez Canal
+	title = "Egypt Seizes Suez Canal"
+	desc = cw_historic_events.30.d
+	picture = GFX_suez_canal_news
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.31		# The American Red Scare
+	title = "The Second Red Scare"
+	desc = cw_historic_events.31.d
+	picture = GFX_usa_red_scare_news
+
+	major = no
+	is_triggered_only = yes
+	fire_only_once = yes 
+	
+	immediate = {
+		hidden_effect = {
+			subtract_from_variable = {
+				red_scare_pp = 0.50 
+			}
+			subtract_from_variable = {
+				red_scare_stability = 0.050
+			}
+			#add_to_variable = {
+			#	red_scare_drift = 0.1
+			#}		
+			add_dynamic_modifier = {
+				modifier = cw_red_scare_modifier
+			}
+		}
+	}
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_historic_events.32		# Formation of Waraw Pact
+	title = "Warsaw Pact Formed"
+	desc = cw_historic_events.32.d
+	picture = GFX_warsaw_pact_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_historic_events.33		# Iran Oil Nationalizaton
+	title = cw_historic_events.33.t
+	desc = cw_historic_events.33.d
+	picture = GFX_oil_factories_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_historic_events.34		# ANZUS Treaty
+	title = "ANZUS Collective Security Treaty"
+	desc = cw_historic_events.34.d
+	picture = GFX_anzus_treaty_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_historic_events.35		# Dutch Surrender Indonesia
+	title = "The Dutch Surrender Indonesia"
+	desc = cw_historic_events.35.d
+	picture = GFX_dutch_surrender_indonesia_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.36		# Manchuria Handover Begins
+	title = "Soviet Union Begins Manchuria Handover"
+	desc = cw_historic_events.36.d
+	picture = GFX_manchuria_struggle_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_historic_events.37		# Mohammad Mosaddegh Arrested
+	title = "Mohammad Mosaddegh Arrested"
+	desc = cw_historic_events.37.d
+	picture = GFX_iran_shah_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.38		# 1954 Geneva Conference
+	title = "The Geneva Conference"
+	desc = cw_historic_events.38.d
+	picture = GFX_1954_geneva_confrence_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+
+news_event = {
+	id = cw_historic_events.39		# Sino Soviet Treaty 1950
+	title = "Sino-Soviet Treaty of Friendship, Alliance and Mutual Assistance"
+	desc = cw_historic_events.39.d
+	picture = GFX_sino_soviet_treaty_1950_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.40		# China intervenes in Korean War
+	title = cw_historic_events.40.t
+	desc = cw_historic_events.40.d
+	picture = GFX_china_korean_war_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.41		# End of Korean War
+	title = "Armicstice Declared in Korea"
+	desc = cw_historic_events.41.d
+	picture = GFX_korea_ceasefire_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.42		# Paris Treaty 1951 (Formation of ECSC)
+	title = "European Coal and Steel Community Formed"
+	desc = cw_historic_events.42.d
+	picture = GFX_formation_of_ecsc_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.43		# Establishment of Israel
+	title = "Israel Declares Indepdendence"
+	desc = cw_historic_events.43.d
+	picture = GFX_israel_independence
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.44		# Decolonization
+	title = cw_historic_events.44.t
+	desc = cw_historic_events.44.d
+	picture = GFX_un_generic_news_2
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.45		# Panama Canal Riots
+	title = cw_historic_events.45.t
+	desc = cw_historic_events.45.d
+	picture = GFX_panama_canal_riots_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.46		# Country leaves ACC
+	title = cw_historic_events.46.t
+	desc = cw_historic_events.46.d
+	picture = GFX_acc_meeting_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.47		# Radio Free Europe
+	title = cw_historic_events.47.t
+	desc = cw_historic_events.47.d
+	picture = GFX_radio_free_europe_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.48		# Tangier Speech
+	title = cw_historic_events.48.t
+	desc = cw_historic_events.48.d
+	picture = GFX_muhammad_v_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+		if = {
+			limit = {
+				tag = FRA
+			}
+			MOR = {
+				add_autonomy_score = { value = 150 }
+				add_country_leader_trait = anti_colonial_leader
+			}
+		}
+	}
+}
+news_event = {
+	id = cw_historic_events.49		# End of first Indochina war
+	title = cw_historic_events.49.t
+	desc = cw_historic_events.49.d
+	picture = GFX_end_of_indochina_war_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.50		# Ngo Dinh Diem takes power in South Vietnam
+	title = cw_historic_events.50.t
+	desc = cw_historic_events.50.d
+	picture = GFX_ngo_dinh_diem_president_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.51		# Formation of Viet Cong
+	title = cw_historic_events.51.t
+	desc = cw_historic_events.51.d
+	picture = GFX_vietnam_nlf_news
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_historic_events.52		# 1958 Algiers putsch
+	title = cw_historic_events.52.t
+	desc = cw_historic_events.52.d
+	picture = GFX_algiers_putch_news
+
+
+	fire_only_once = yes
+	trigger = {
+		NOT = { has_global_flag = algiers_putsch_triggered }
+		OR = {
+			AND = {
+				FRA = { has_war_with = ALG }
+				ALG = {
+					OR = {
+						num_divisions > 10
+						has_volunteers_amount_from = {
+							tag = SOV
+							count > 0
+						}
+						has_volunteers_amount_from = {
+							tag = PRC
+							count > 0
+						}
+					}
+					has_full_control_of_state = 460
+					has_full_control_of_state = 817
+				}
+			}
+			FRA = { has_completed_focus = FRA_french_union_algeria_grant_algerians_full_rights }
+		}
+		date > 1955.1.1
+	}
+
+	major = yes
+
+	immediate = {
+		set_global_flag = algiers_putsch_triggered
+		hidden_effect = {
+			ALG = {
+				every_controlled_state = {
+					limit = {
+						OR = {
+							is_core_of = ALG
+							is_claimed_by = ALG
+						}
+					}
+					ALG = { set_state_owner = PREV }
+				}
+				start_civil_war = {
+					ideology = unaligned_right
+					keep_political_leader = yes
+					size = 0.05
+					states = { 
+						459 817 460
+					}
+					states_filter = {
+						impassable = no
+					}
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+			}
+			every_country_with_original_tag = {
+				original_tag_to_check = ALG
+				limit = {
+					has_war_with = ALG
+				}
+				set_cosmetic_tag = MILITARY_COUP
+				save_event_target_as = algeria_uprising
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Military Junta"
+					desc = ""
+					picture = "gfx/leaders/generic_right_wing_nationalists.dds"
+					ideology = military_idolg
+					expire = 2020.10.10
+					traits = { stern_anti_communist last_stand_fighter }					
+				}
+				transfer_state = 1
+			}
+			FRA = {
+				set_party_name = {
+					ideology = democratic 
+					long_name = "Union for the New Republic" 
+					name = "UNR" 
+				}					
+				army_experience = -500
+				navy_experience = -500
+				air_experience = -500
+				add_command_power = -100
+				add_ideas = unstable_government
+				country_lock_all_division_template = yes
+				complete_national_focus = FRA_algeirs_putsch
+				every_controlled_state = {
+					limit = {
+						OR = {
+							is_core_of = ALG
+							is_claimed_by = ALG
+						}
+					}
+					event_target:algeria_uprising = { transfer_state = PREV }
+				}
+				transfer_units_fraction= {
+					target = event_target:algeria_uprising
+					size = 0.3
+					stockpile_ratio = 0.5
+					army_ratio = 0.1
+					navy_ratio = 0.1
+					air_ratio = 0.2
+					keep_unit_leaders_trigger = {
+						NOT = { has_trait = trait_SPA_nationalist_sympathies }
+					}
+				}				
+				activate_targeted_decision = { target = event_target:algeria_uprising decision = fra_military_takeover_mission }
+				top_bar_decisions_notification_new_decisions_available = yes
+				add_to_war = { 
+					targeted_alliance = event_target:algeria_uprising 
+					enemy = ALG
+					hostility_reason = asked_to_join
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "OK"
+	}
+}
+
+#### REDUX
+news_event = {
+	id = cw_historic_events.53		#YUG soviet split
+	title = cw_historic_events.53.t
+	desc = cw_historic_events.53.d
+	picture = GFX_news_event_yugoslavian_split	
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.53.a
+	}
+	option = {
+		trigger = {  is_communism =  yes }
+		name = cw_historic_events.53.b
+	}
+}
+news_event = {
+	id = cw_historic_events.54		#soviet prepare for total war
+	title = cw_historic_events.54.t
+	desc = cw_historic_events.54.d
+	picture = GFX_news_event_SOV_supreme_soviet	
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.54.a
+	}
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.54.b
+	}
+}
+news_event = {
+	id = cw_historic_events.55		#soviet prepare for global intervention
+	title = cw_historic_events.55.t
+	desc = cw_historic_events.55.d
+	picture = GFX_news_event_SOV_supreme_soviet
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.55.a
+	}
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.55.b
+	}
+}
+news_event = {
+	id = cw_historic_events.56		#usa prepare for global intervention
+	title = cw_historic_events.56.t
+	desc = cw_historic_events.56.d
+	picture = GFX_news_event_generic_rally_3	
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.56.a
+	}
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.56.b
+	}
+}
+news_event = {
+	id = cw_historic_events.57		#usa prepare for total war
+	title = cw_historic_events.57.t
+	desc = cw_historic_events.57.d
+	picture = GFX_news_event_generic_rally_3
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.57.a
+	}
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.57.b
+	}
+}
+news_event = {
+	id = cw_historic_events.58		#usa discourse before war
+	title = cw_historic_events.58.t
+	desc = cw_historic_events.58.d
+	picture = GFX_news_event_usa_japan_at_war	
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.58.a
+	}
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.58.b
+	}
+}
+news_event = {
+	id = cw_historic_events.59		#SOV discourse before war
+	title = cw_historic_events.59.t
+	desc = cw_historic_events.59.d
+	picture = GFX_news_event_SOV_invasion_iran	
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.59.a
+	}
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.59.b
+	}
+}

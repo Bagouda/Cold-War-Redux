@@ -1,0 +1,37 @@
+
+state={
+	id=10
+	local_supplies=0.0 
+	name="STATE_10"
+	resources={
+		crops=10.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 3544 }
+ 	add_to_array = { list_victory_point = 402 }
+ 	set_variable = { victory_point = 26 }
+		owner = POL
+		add_core_of = POL
+		buildings = {
+			infrastructure = 1
+			air_base = 2
+			industrial_complex = 1
+
+		}
+		victory_points = {
+			402 1 
+		}
+		victory_points = {
+			3544 25 
+		}
+
+	}
+
+	provinces={
+		467 3482 3544 6511 9400 11492 
+	}
+	manpower=432100
+	buildings_max_level_factor=1.000
+	state_category=devestated_wasteland
+}

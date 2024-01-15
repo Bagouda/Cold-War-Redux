@@ -1,0 +1,885 @@
+defined_text = {
+	name = CW_REF_MON_OTHER_VOTES_WARNING
+	text = {
+		trigger = {
+			NOT = {
+				OR = {
+					has_country_flag = mon_ref_support_const_mon
+					has_country_flag = mon_ref_support_republic
+					has_country_flag = mon_ref_support_total_mon
+				}
+			}
+		}
+		localization_key = "CW_OTHER_VOTES_WARNING"
+	}
+}
+defined_text = {
+	name = CW_REF_CRISIS_GET_COM_PARTY_ORG
+	text = {
+		trigger = {
+			var:mon_ref_initiator = { has_government = communism }
+		}
+		localization_key = "[?ROOT.party_popularity@communism|%0]"
+	}
+	text = {
+		trigger = {
+			var:mon_ref_initiator = { has_government = communism_totalitarian }
+		}
+		localization_key = "[?ROOT.party_popularity@communism_totalitarian|%0]"
+	}
+}
+
+defined_text = {
+	name = CW_REF_INF_TIMEOUT_LOC
+	text = {
+		trigger = {
+			ROOT = { check_variable  = { referendum_timeout_counter > 0 } }
+		}
+		localization_key = "REF_STATE_INSTRUCTIONS_TIMEOUT_LOC"
+	}
+	text = { localization_key = REF_STATE_INSTRUCTIONS_LOC }
+}
+defined_text = {
+	name = CW_REF_INF_TIMEOUT_DECISION_LOC
+	text = {
+		trigger = {
+			ROOT = { check_variable  = { referendum_timeout_counter > 0 } }
+		}
+		localization_key = "REF_STATE_INSTRUCTIONS_TIMEOUT_LOC"
+	}
+	text = { localization_key = REF_STATE_INSTRUCTIONS_DECISIONS_LOC }
+}
+
+defined_text = {
+	name = CW_REF_COMMUNIST_VOTING_TT
+	text = {
+		trigger = {
+			ROOT = {
+				OR = {
+					has_government = communism
+					has_government = communism_totalitarian
+				}
+			}
+		}
+		localization_key = "CW_COMMUNIST_MON_REF_RESTRICTION_TT"
+	}
+}
+defined_text = {
+	name = CW_REF_GET_THIRD_OPTION
+	text = {
+		trigger = {
+			has_country_flag = third_option_occupied
+		}
+		localization_key = "CS_REF_THIRD_OPTION_LOC"
+	}
+}
+defined_text = {
+	name = CW_REF_GET_FOURTH_OPTION
+	text = {
+		trigger = {
+			has_country_flag = fourth_option_occupied
+		}
+		localization_key = "CS_REF_FOURTH_OPTION_LOC"
+	}
+}
+
+########################################################################
+defined_text = {
+	name = CW_REF_GET_THIRD_OPTION_TRACKER
+	text = {
+		trigger = {
+			has_country_flag = third_option_occupied
+		}
+		localization_key = "CS_REF_THIRD_OPTION_LOC_TRACKER"
+	}
+}
+defined_text = {
+	name = CW_REF_GET_FOURTH_OPTION_TRACKER
+	text = {
+		trigger = {
+			has_country_flag = fourth_option_occupied
+		}
+		localization_key = "CS_REF_FOURTH_OPTION_LOC_TRACKER"
+	}
+}
+########################################################################
+
+defined_text = {
+	name = REF_CS_RESULT_INDEPENDENCE_LOC
+	text = {
+		trigger = {
+			OR = {
+				is_puppet = yes
+				is_subject = yes
+			}
+		}
+		localization_key = "We will become independent. Elections will be held to elect a new government."
+	}
+	text = { localization_key = "We will remain independent." }
+}
+
+defined_text = {
+	name = REF_INTERVENTION_TOPBAR_ALERT_LOC
+	text = {
+		trigger = {
+			has_country_flag = referendum_topbar_alert
+		}
+		localization_key = "[?ref_notification_target.GetName]"
+	}
+}
+
+##### VARIABLE LOCALISATION FIXES (SO THAT UNUSUED ONES DONT CAUSE A MILLION ERRORS #####
+######### SOVERNITY REFERENDUMS #########
+##### DIPLOMACY VIEW #####
+defined_text = {
+	name = CS_REF_THIRD_OPTION_LOC_DIP
+	text = {
+		trigger = {
+			has_country_flag = third_option_occupied
+		}
+		localization_key = "[?ref_cs_third_option.GetName]"
+	}
+}
+
+defined_text = {
+	name = CS_REF_FOURTH_OPTION_LOC_DIP
+	text = {
+		trigger = {
+			has_country_flag = fourth_option_occupied
+		}
+		localization_key = "[?ref_cs_fourth_option.GetName]"
+	}
+}
+
+defined_text = {
+	name = CS_REF_THIRD_OPTION_FLAG_DIP
+	text = {
+		trigger = {
+			has_country_flag = third_option_occupied
+		}
+		localization_key = "[?ref_cs_third_option.GetFlag]"
+	}
+}
+
+defined_text = {
+	name = CS_REF_FOURTH_OPTION_FLAG_DIP
+	text = {
+		trigger = {
+			has_country_flag = fourth_option_occupied
+		}
+		localization_key = "[?ref_cs_fourth_option.GetFlag]"
+	}
+}
+##### DECISIONS VIEW #####
+defined_text = {
+	name = CS_REF_THIRD_OPTION_LOC_DIC
+	text = {
+		trigger = {
+			has_country_flag = third_option_occupied
+		}
+		localization_key = "[?ref_cs_third_option.GetName]"
+	}
+}
+
+defined_text = {
+	name = CS_REF_FOURTH_OPTION_LOC_DIC
+	text = {
+		trigger = {
+			has_country_flag = fourth_option_occupied
+		}
+		localization_key = "[?ref_cs_fourth_option.GetName]"
+	}
+}
+
+defined_text = {
+	name = CS_REF_FIRST_OPTION_FLAG_DIC
+	text = {
+		trigger = {
+			NOT = { has_country_flag = country_yes_no_referendum }
+		}
+		localization_key = "[?ref_cs_first_option.GetFlag]"
+	}
+}
+
+defined_text = {
+	name = CS_REF_SECOND_OPTION_FLAG_DIC
+	text = {
+		trigger = {
+			NOT = { has_country_flag = country_yes_no_referendum }
+		}
+		localization_key = "[?ref_cs_second_option.GetFlag]"
+	}
+}
+
+defined_text = {
+	name = CS_REF_THIRD_OPTION_FLAG_DIC
+	text = {
+		trigger = {
+			has_country_flag = third_option_occupied
+		}
+		localization_key = "[?ref_cs_third_option.GetFlag]"
+	}
+}
+
+defined_text = {
+	name = CS_REF_FOURTH_OPTION_FLAG_DIC
+	text = {
+		trigger = {
+			has_country_flag = fourth_option_occupied
+		}
+		localization_key = "[?ref_cs_fourth_option.GetFlag]"
+	}
+}
+######### STATE REFERENDUMS #########
+##### DECISIONS VIEW #####
+defined_text = {
+	name = REF_DESC_GET_THIRD_OPTION
+	text = {
+		trigger = {
+			has_country_flag = third_option_occupied
+		}
+		localization_key = "STATE_REF_DESC_THIRD_OPTION"
+	}
+}
+
+defined_text = {
+	name = REF_DESC_GET_FOURTH_OPTION
+	text = {
+		trigger = {
+			has_country_flag = third_option_occupied
+		}
+		localization_key = "STATE_REF_DESC_FOURTH_OPTION"
+	}
+}
+
+defined_text = {
+	name = STATE_REF_THIRD_OPTION_LOC_DIC
+	text = {
+		trigger = {
+			has_country_flag = third_option_occupied
+		}
+		localization_key = "[?ref_state_ref_third_option.GetName]"
+	}
+}
+
+defined_text = {
+	name = STATE_REF_FOURTH_OPTION_LOC_DIC
+	text = {
+		trigger = {
+			has_country_flag = fourth_option_occupied
+		}
+		localization_key = "[?ref_state_ref_fourth_option.GetName]"
+	}
+}
+
+defined_text = {
+	name = STATE_REF_THIRD_OPTION_FLAG_DIC
+	text = {
+		trigger = {
+			has_country_flag = third_option_occupied
+		}
+		localization_key = "[?ref_state_ref_third_option.GetFlag]"
+	}
+}
+
+defined_text = {
+	name = STATE_REF_FOURTH_OPTION_FLAG_DIC
+	text = {
+		trigger = {
+			has_country_flag = fourth_option_occupied
+		}
+		localization_key = "[?ref_state_ref_fourth_option.GetFlag]"
+	}
+}
+##### DIPLOMACY VIEW #####
+defined_text = {
+	name = STATE_REF_THIRD_OPTION_FLAG_LOC_DIP
+	text = {
+		trigger = {
+			OWNER = { has_country_flag = third_option_occupied }
+		}
+		localization_key = "[?owner:ref_state_ref_third_option.GetName]"
+	}
+}
+
+defined_text = {
+	name = STATE_REF_FOURTH_OPTION_FLAG_LOC_DIP
+	text = {
+		trigger = {
+			OWNER = { has_country_flag = fourth_option_occupied }
+		}
+		localization_key = "[?owner:ref_state_ref_fourth_option.GetName]"
+	}
+}
+
+defined_text = {
+	name = STATE_REF_FIRST_OPTION_FLAG_DIP
+	text = {
+		trigger = {
+		}
+		localization_key = "[?owner:ref_state_ref_first_option.GetFlag]"
+	}
+}
+
+defined_text = {
+	name = STATE_REF_SECOND_OPTION_FLAG_DIP
+	text = {
+		trigger = {
+		}
+		localization_key = "[?owner:ref_state_ref_second_option.GetFlag]"
+	}
+}
+
+defined_text = {
+	name = STATE_REF_THIRD_OPTION_FLAG_DIP
+	text = {
+		trigger = {
+			OWNER = { has_country_flag = third_option_occupied }
+		}
+		localization_key = "[?owner:ref_state_ref_third_option.GetFlag]"
+	}
+}
+
+defined_text = {
+	name = STATE_REF_FOURTH_OPTION_FLAG_DIP
+	text = {
+		trigger = {
+			OWNER = { has_country_flag = fourth_option_occupied }
+		}
+		localization_key = "[?owner:ref_state_ref_fourth_option.GetFlag]"
+	}
+}
+
+defined_text = {
+	name = STATE_REF_TIMER_DESC
+	text = {
+		trigger = {
+			THIS = { has_country_flag = third_option_occupied }
+		}
+		localization_key = "STATE_REF_TIMER_DESC_LONG"
+	}
+	text = {
+		trigger = {
+			THIS = { has_country_flag = state_yes_no_referendum_iinitiator }
+		}
+		localization_key = "CW_YES_NO_STATE_REF"
+	}	
+	text = { localization_key = "STATE_REF_TIMER_DESC_SHORT" }
+}
+
+defined_text = {
+	name = CW_STATE_REF_GET_THIRD_OPTION
+	text = {
+		trigger = {
+			has_country_flag = third_option_occupied
+		}
+		localization_key = "CS_STATE_REF_THIRD_OPTION_LOC"
+	}
+}
+defined_text = {
+	name = CW_STATE_REF_GET_FOURTH_OPTION
+	text = {
+		trigger = {
+			has_country_flag = fourth_option_occupied
+		}
+		localization_key = "CS_STATE_REF_FOURTH_OPTION_LOC"
+	}
+}
+
+defined_text = {
+	name = CW_STATE_REF_REFERENDUM_NAME
+
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			NOT = {
+				has_country_flag = territory_demanding_autonomy
+				has_country_flag = territory_demanding_independence
+				has_country_flag = territory_demanding_outside_annexation
+			}
+		}
+		localization_key = "CW_STATE_REF_SINGLE_STATE_TIMER_GENERIC"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			NOT = {
+				has_country_flag = territory_demanding_autonomy
+				has_country_flag = territory_demanding_independence
+				has_country_flag = territory_demanding_outside_annexation
+			}
+		}
+		localization_key = "CW_STATE_REF_TIMER_GENERIC"
+	}	
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			has_country_flag = territory_demanding_autonomy
+		}
+		localization_key = "CW_STATE_REF_SINGLE_STATE_TIMER_NAME_AUTONOMY"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			has_country_flag = territory_demanding_autonomy
+		}
+		localization_key = "CW_STATE_REF_TIMER_NAME_AUTONOMY"
+	}	
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			has_country_flag = territory_demanding_independence
+		}
+		localization_key = "CW_STATE_REF_SINGLE_STATE_TIMER_NAME_INDEPEDENCE"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			has_country_flag = territory_demanding_independence
+		}
+		localization_key = "CW_STATE_REF_TIMER_NAME_INDEPEDENCE"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			has_country_flag = territory_demanding_outside_annexation
+		}
+		localization_key = "CW_STATE_REF_SINGLE_STATE_OUTSIDE_ANNEXATION_TIMER_NAME"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			has_country_flag = territory_demanding_outside_annexation
+		}
+		localization_key = "CW_STATE_REF_OUTSIDE_ANNEXATION_TIMER_NAME"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			has_country_flag = territory_demanding_outside_union
+		}
+		localization_key = "CW_STATE_REF_SINGLE_STATE_OUTSIDE_UNION_TIMER_NAME"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			has_country_flag = territory_demanding_outside_union
+		}
+		localization_key = "CW_STATE_REF_OUTSIDE_UNION_TIMER_NAME"
+	}	
+}
+defined_text = {
+	name = CW_STATE_REF_REFERENDUM_RESULT_SECOND_OPTION
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_second_option = { exists = no }
+			ROOT = { has_country_flag = territory_demanding_autonomy }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_AUTONOMY_PUPPET_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_second_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_autonomy }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_AUTONOMY_NEW_COUNTRY_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_second_option = { exists = no }
+			ROOT = { has_country_flag = territory_demanding_autonomy }
+			
+		}
+		localization_key = "STATE_REF_AUTONOMY_NEW_COUNTRY_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_second_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_autonomy }
+			
+		}
+		localization_key = "STATE_REF_AUTONOMY_PUPPET_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_second_option = { exists = no }
+			ROOT = { has_country_flag = territory_demanding_independence }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_INDEPENDENCE_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_second_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_independence }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_INDEPENDENCE_NEW_COUNTRY_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_second_option = { exists = no }
+			ROOT = { has_country_flag = territory_demanding_independence }
+			
+		}
+		localization_key = "STATE_REF_INDEPENDENCE_NEW_COUNTRY_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_second_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_independence }
+			
+		}
+		localization_key = "STATE_REF_INDEPENDENCE_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_second_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_outside_union }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_UNION_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_second_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_outside_union }
+			
+		}
+		localization_key = "STATE_REF_UNION_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_second_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_outside_annexation }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_OUTSIDE_ANNEXATION_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_second_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_outside_annexation }
+			
+		}
+		localization_key = "STATE_REF_OUTSIDE_ANNEXATION_SECOND_OPTION_RESULT"
+	}	
+}
+defined_text = {
+	name = CW_STATE_REF_REFERENDUM_RESULT_THIRD_OPTION
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_third_option = { exists = no }
+			ROOT = { has_country_flag = territory_demanding_autonomy }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_AUTONOMY_PUPPET_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_third_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_autonomy }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_AUTONOMY_NEW_COUNTRY_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_third_option = { exists = no }
+			ROOT = { has_country_flag = territory_demanding_autonomy }
+			
+		}
+		localization_key = "STATE_REF_AUTONOMY_NEW_COUNTRY_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_third_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_autonomy }
+			
+		}
+		localization_key = "STATE_REF_AUTONOMY_PUPPET_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_third_option = { exists = no }
+			ROOT = { has_country_flag = territory_demanding_independence }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_INDEPENDENCE_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_third_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_independence }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_INDEPENDENCE_NEW_COUNTRY_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_third_option = { exists = no }
+			ROOT = { has_country_flag = territory_demanding_independence }
+			
+		}
+		localization_key = "STATE_REF_INDEPENDENCE_NEW_COUNTRY_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_third_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_independence }
+			
+		}
+		localization_key = "STATE_REF_INDEPENDENCE_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_third_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_outside_union }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_UNION_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_third_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_outside_union }
+			
+		}
+		localization_key = "STATE_REF_UNION_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_third_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_outside_annexation }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_OUTSIDE_ANNEXATION_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_third_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_outside_annexation }
+			
+		}
+		localization_key = "STATE_REF_OUTSIDE_ANNEXATION_SECOND_OPTION_RESULT"
+	}	
+}
+defined_text = {
+	name = CW_STATE_REF_REFERENDUM_RESULT_FOURTH_OPTION
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_fourth_option = { exists = no }
+			ROOT = { has_country_flag = territory_demanding_autonomy }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_AUTONOMY_PUPPET_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_fourth_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_autonomy }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_AUTONOMY_NEW_COUNTRY_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_fourth_option = { exists = no }
+			ROOT = { has_country_flag = territory_demanding_autonomy }
+			
+		}
+		localization_key = "STATE_REF_AUTONOMY_NEW_COUNTRY_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_fourth_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_autonomy }
+			
+		}
+		localization_key = "STATE_REF_AUTONOMY_PUPPET_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_fourth_option = { exists = no }
+			ROOT = { has_country_flag = territory_demanding_independence }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_INDEPENDENCE_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_fourth_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_independence }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_INDEPENDENCE_NEW_COUNTRY_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_fourth_option = { exists = no }
+			ROOT = { has_country_flag = territory_demanding_independence }
+			
+		}
+		localization_key = "STATE_REF_INDEPENDENCE_NEW_COUNTRY_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_fourth_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_independence }
+			
+		}
+		localization_key = "STATE_REF_INDEPENDENCE_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_fourth_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_outside_union }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_UNION_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_fourth_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_outside_union }
+			
+		}
+		localization_key = "STATE_REF_UNION_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref = 1 }
+			var:ref_state_ref_fourth_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_outside_annexation }
+			
+		}
+		localization_key = "STATE_REF_SINGLE_STATE_OUTSIDE_ANNEXATION_SECOND_OPTION_RESULT"
+	}
+	text = {
+		trigger = {
+			check_variable = { amount_of_states_in_ref > 1 }
+			var:ref_state_ref_fourth_option = { exists = yes }
+			ROOT = { has_country_flag = territory_demanding_outside_annexation }
+			
+		}
+		localization_key = "STATE_REF_OUTSIDE_ANNEXATION_SECOND_OPTION_RESULT"
+	}	
+}
+defined_text = {
+	name = CW_STATE_REF_NAME_LOCALISATION
+	text = {
+		trigger = {
+			OWNER = { has_country_flag = state_yes_no_referendum_iinitiator }
+		}
+		localization_key = "STATE_YES_NO_REF_TIMER_LOC"
+	}
+	text = { localization_key = "STATE_REF_TIMER_LOC" }
+}
+
+defined_text = {
+	name = CW_COUNTRY_REFERENDUM_DECISIONS_NAME_LOC
+	text = {
+		trigger = {
+			has_country_flag = join_faction_referendum
+		}
+		localization_key = "COUNTRY_FACTION_REFERENDUM_NAME"
+	}
+	text = {
+		trigger = {
+			has_country_flag = contitution_referendum
+		}
+		localization_key = "COUNTRY_CONSTITUTION_REFERENDUM_NAME"
+	}	
+	text = { localization_key = "CW_COUNTRY_YES_NO_REFERENDUM_TIMER" }
+}
+
+defined_text = {
+	name = CW_COUNTRY_REFERENDUM_DECISIONS_NAME_INTERVENTION_LOC
+	text = {
+		trigger = {
+			has_country_flag = join_faction_referendum
+		}
+		localization_key = "[?FROM.GetAdjective] [?requested_faction_leader.GetFactionName] Membership Referendum"
+	}
+	text = { localization_key = "CW_COUNTRY_YES_NO_REFERENDUM_TIMER" }
+}
+
+defined_text = {
+	name = CW_COUNTRY_REFERENDUM_DIP_ACTION_LOC
+	text = {
+		trigger = {
+			has_country_flag = join_faction_referendum
+		}
+		localization_key = "COUNTRY_FACTION_REFERENDUM_DIP_ACTION_DESC"
+	}
+	text = { localization_key = "COUNTRY_YES_NO_REF_DIP_ACTION_DESC" }
+}
+
+
+defined_text = {
+	name = CW_COUNTRY_REFERENDUM_TIMER_LOC
+	text = {
+		trigger = {
+			has_country_flag = join_faction_referendum
+		}
+		localization_key = "COUNTRY_YES_NO_REF_LOC"
+	}
+	text = { localization_key = "CS_REF_DIP_TIMER_LOC" }
+}
+
+defined_text = {
+	name = CW_COUNTRY_SOV_REFERENDUM_GET_COUNTRY_NAME
+	text = {
+		trigger = {
+			FROM = { tag = UNN }
+		}
+		localization_key = "[unsc_ref_first_option.GetName]"
+	}
+	text = { localization_key = "[FROM.GetName]" }
+}
+defined_text = {
+	name = CW_COUNTRY_SOV_REFERENDUM_GET_COUNTRY_ADJ
+	text = {
+		trigger = {
+			FROM = { tag = UNN }
+		}
+		localization_key = "[unsc_ref_first_option.GetAdjective]"
+	}
+	text = { localization_key = "[FROM.GetAdjective]" }
+}

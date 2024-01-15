@@ -1,0 +1,39 @@
+SOV_historical_plan_1946_non_historic = {
+	name = "Soviet 1946 Non Historical Focuses"
+	desc = ""
+
+	enable = {
+		tag = SOV
+		is_historical_focus_on = no
+		has_focus_tree = sov_focus_1946
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		SOV_comecon_aid
+		SOV_write_paris_treaty
+		SOV_chinese_civil_war_intervention	
+		SOV_ccw_give_manchuria_communists
+	}
+
+	research = {
+	}
+	ideas = {
+	}
+	traits = {
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

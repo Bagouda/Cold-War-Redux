@@ -1,0 +1,1120 @@
+characters={
+	####################################################################################################
+	######################################### Country Leader ###########################################
+	####################################################################################################
+	KOR_archer_l_lerch = {			#https://en.wikipedia.org/wiki/United_States_Army_Military_Government_in_Korea
+		name = "Archer L. Lerch"
+		portraits = {
+			civilian = {
+				large = GFX_kor_archer_l_lerch
+			}
+		}
+		country_leader={
+			ideology = military_occupation_government
+			desc = ""
+			traits = {}
+			expire = 1960.4.27
+		}
+	}
+	KOR_cho_bong_am = {
+		name = "Cho Bong-am"
+		portraits = {
+			civilian = {
+				large = GFX_kor_cho_bong_am
+			}
+		}
+		country_leader={
+			ideology = communist_idolg
+			desc = ""
+			traits = {}
+			expire = 1960.4.27
+		}
+	}
+	KOR_william_f_dean = {
+		name = "William F. Dean"
+		portraits = {
+			civilian = {
+				large = GFX_william_f_dean
+			}
+		}
+		country_leader={
+			ideology = military_occupation_government
+			desc = ""
+			traits = {}
+			expire = 1960.4.27
+		}
+	}
+	KOR_kim_gu = {
+		name = "Kim Gu"
+		portraits = {
+			civilian = {
+				large = GFX_kim_gu
+			}
+		}
+		country_leader={
+			ideology = autocracy
+			desc = ""
+			traits = {}
+			expire = 1960.4.27
+		}
+	}
+	KOR_syngman_rhee = {
+		name = "Syngman Rhee"
+		portraits = {
+			civilian = {
+				large = GFX_syngman_rhee_leader
+				small = GFX_syngman_rhee_advisor
+			}
+		}
+		country_leader={
+			ideology = reactionary
+			desc = ""
+			traits = { stern_anti_communist neutrality_right_drift_trait }
+			expire = 1960.4.27
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = kor_hog_syngman_rhee
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic_socialist
+			}
+			traits  = {
+				cw_political_strongman
+				neutrality_right_drift_trait				
+			}
+			visible = {		
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}		
+	}	
+	####################################################################################################
+	######################################### Deputy Minister ##########################################
+	####################################################################################################
+	KOR_hog_yi_si_yeong = {
+		name = kor_hog_yi_si_yeong
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_1
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = kor_hog_yi_si_yeong
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_popular_politician 
+			}
+			visible = {
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	KOR_hog_ham_tae_young = {
+		name = kor_hog_ham_tae_young
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_2
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = kor_hog_ham_tae_young
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_fm_silent_workhorse 
+			}
+			visible = {		
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	KOR_hog_kim_seong_su = {
+		name = kor_kim_seong_su
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_3
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = kor_kim_seong_su
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				trusted_advisor 
+			}
+			visible = {		
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	KOR_hog_yi_yun_yong = {
+		name = kor_hog_yi_yun_yong
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_3
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = kor_hog_yi_yun_yong
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_ideological_crusader 
+			}
+			visible = {		
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}	
+	####################################################################################################
+	######################################### Foreign Minister #########################################
+	####################################################################################################
+	KOR_fm_chang_myon = {
+		name = kor_fm_chang_myon
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_1
+			}
+		}		
+		advisor = {
+			slot = foreign_minister
+			idea_token = kor_fm_chang_myon
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_dialouge_proponent  
+			}
+			visible = {
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	KOR_fm_chang_taek_sang = {
+		name = kor_fm_chang_taek_sang
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_2
+			}
+		}		
+		advisor = {
+			slot = foreign_minister
+			idea_token = kor_fm_chang_taek_sang
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_diplomatic_schemer  
+			}
+			visible = {
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	KOR_fm_pyun_yong_tae = {
+		name = kor_fm_pyun_yong_tae
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_3
+			}
+		}		
+		advisor = {
+			slot = foreign_minister
+			idea_token = kor_fm_pyun_yong_tae
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_diligent  
+			}
+			visible = {
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	KOR_fm_yim_byeong_jik = {
+		name = kor_fm_yim_byeong_jik
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_1
+			}
+		}		
+		advisor = {
+			slot = foreign_minister
+			idea_token = kor_fm_yim_byeong_jik
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_great_compromiser  
+			}
+			visible = {
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	KOR_fm_jo_jeong_hwan = {
+		name = kor_fm_jo_jeong_hwan
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_2
+			}
+		}		
+		advisor = {
+			slot = foreign_minister
+			idea_token = kor_fm_jo_jeong_hwan
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_expert_warmonger  
+			}
+			visible = {
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	KOR_fm_choi_kyu_hah = {
+		name = kor_fm_choi_kyu_hah
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_3
+			}
+		}		
+		advisor = {
+			slot = foreign_minister
+			idea_token = kor_fm_choi_kyu_hah
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_silver_tounged_diplomat  
+			}
+			visible = {
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}		
+	####################################################################################################
+	######################################### Defense Minister #########################################
+	####################################################################################################
+	KOR_dm_lee_beom_seok = {
+		name = kor_dm_lee_beom_seok
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_army_asia_1
+			}
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = kor_dm_lee_beom_seok
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_war_propagandist
+			}
+			visible = {
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_dm_shin_sung_mo = {
+		name = kor_dm_shin_sung_mo
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_navy_asia_3
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = kor_dm_shin_sung_mo
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				navy_screen_2
+			}
+			visible = {
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_dm_lee_ki_poong = {
+		name = kor_dm_lee_ki_poong
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_navy_asia_3
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = kor_dm_lee_ki_poong
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_expirienced_veteran
+			}
+			visible = {
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_dm_shin_tae_young = {
+		name = kor_dm_shin_tae_young
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_army_asia_3
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = kor_dm_shin_tae_young
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_military_production_specialist
+			}
+			visible = {
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_dm_sohn_won_yil = {
+		name = kor_dm_sohn_won_yil
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_army_asia_3
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = kor_dm_sohn_won_yil
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				navy_capital_ship_2
+			}
+			visible = {
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_dm_kim_chung_yul = {
+		name = kor_dm_kim_chung_yul
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_army_asia_3
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = kor_dm_kim_chung_yul
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				air_air_superiority_3
+			}
+			visible = {
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	####################################################################################################
+	######################################## Treasury Minister #########################################
+	####################################################################################################	
+	KOR_tm_kim_do_yeon = {
+		name = kor_tm_kim_do_yeon
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_1
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = kor_tm_kim_do_yeon
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_construction_infra_specialist
+			}
+			visible = {
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_tm_choi_sun_ju = {
+		name = kor_tm_choi_sun_ju
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_2
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = kor_tm_choi_sun_ju
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_military_industrial_specialist
+			}
+			visible = {
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_tm_yun_posun = {
+		name = kor_tm_yun_posun
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_3
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = kor_tm_yun_posun
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_captain_of_industry
+			}
+			visible = {
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_tm_baek_du_jin = {
+		name = kor_tm_baek_du_jin
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_1
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = kor_tm_baek_du_jin
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_ideological_workaholic
+			}
+			visible = {
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_tm_kim_hyeon_cheol = {
+		name = kor_tm_kim_hyeon_cheol
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_2
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = kor_tm_kim_hyeon_cheol
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_briliant_economist
+			}
+			visible = {
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_tm_in_tae_sik = {
+		name = kor_tm_in_tae_sik
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_generic_political_advisor_asia_3
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = kor_tm_in_tae_sik
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_tight_spender
+			}
+			visible = {
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	###################################### Head of Intelligence ########################################
+	####################################################################################################
+	#KOR_spy_hoyt_vandenberg = {
+	#	name = "Hoyt Vandenberg"
+	#	allowed_civil_war = {}
+	#	portraits = {
+	#		civilian = {
+	#			small = GFX_usa_hoyt_vandenberg
+	#		}
+	#	}	
+	#	advisor = {
+	#		slot = theorist
+	#		idea_token = usa_spy_hoyt_vandenberg
+	#		
+	#		allowed  = {
+	#			tag = KOR
+	#		}
+	#		available = {	#Determines what player sees as requirments to use
+	#		}
+	#		traits  = {
+	#			cw_air_intelligence_speciality
+	#		}
+	#		visible = {
+	#			date < 1953.6.29
+	#		}			
+	#		do_effect  = {}
+	#		on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+	#		on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+	#		research_bonus = {}
+	#		
+	#		ai_will_do = {
+	#			factor = 0
+	#		}
+	#	}
+	#}
+	####################################################################################################
+	######################################### Chief of Staff ###########################################
+	####################################################################################################
+	KOR_chief_park_chung_hee = {
+		name = kor_chief_park_chung_hee
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_generic_army_asia_1
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = kor_chief_park_chung_hee
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				army_artillery_2
+			}
+			visible = {
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_chief_kim_yong_woo = {
+		name = kor_chief_kim_yong_woo
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_generic_army_asia_2
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = kor_chief_kim_yong_woo
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_expirienced_veteran
+			}
+			visible = {
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_chief_chung_il_kwon = {
+		name = kor_chief_chung_il_kwon
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_generic_army_asia_3
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = kor_chief_chung_il_kwon
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				army_regrouping_2
+			}
+			visible = {
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_chief_paik_sun_yup = {
+		name = kor_chief_paik_sun_yup
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_generic_army_asia_4
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = kor_chief_paik_sun_yup
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				army_infantry_2
+			}
+			visible = {
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_chief_lee_hyong_kon = {
+		name = kor_chief_lee_hyong_kon
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_generic_army_asia_5
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = kor_chief_lee_hyong_kon
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				army_chief_organizational_1
+			}
+			visible = {
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	KOR_chief_yu_jae_hyung = {
+		name = kor_chief_yu_jae_hyung
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_generic_army_asia_5
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = kor_chief_yu_jae_hyung
+			
+			allowed  = {
+				tag = KOR
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				conscription_specialist
+			}
+			visible = {
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	################################## Generals and Field Marshals #####################################
+	####################################################################################################	
+	KOR_kim_jong_oh = {
+		name = "Kim Jong-oh"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_kor_kim_jong_oh_large
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+	KOR_paik_sun_yup = {
+		name = "Paik Sun-yup"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_kor_paik_sun_yup_large
+			}
+		}
+		corps_commander = {
+			traits = {}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	KOR_shin_hyun_joon = {
+		name = "Shin Hyun-joon"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_kor_shin_hyun_joon_large
+			}
+		}
+		corps_commander = {
+			traits = { naval_invader }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	KOR_sohn_won_yil = {
+		name = "Sohn Won-yil"
+		allowed_civil_war = {}
+		navy_leader = {
+			traits = { gunnery_expert }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 2
+		}
+	}
+}

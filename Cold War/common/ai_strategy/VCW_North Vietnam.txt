@@ -1,0 +1,67 @@
+vin_focus_on_attack = {
+	enable = {
+		tag = VIN
+		SVI = { is_puppet_of = FRA }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = SVI
+		value = 150
+	}
+	ai_strategy = {
+		type = garrison
+		value = 200
+	}	
+	ai_strategy = {
+		type = prepare_for_war
+		id = SVI
+		value = 100
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = SVI
+		value = 100
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = "SVI"
+		value = 500
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = "FRA"
+		value = 500
+	}	
+	ai_strategy = {
+		type = put_unit_buffers
+		value = 500
+		order_id = 1
+		
+		states = { 
+			671
+		}
+		
+		ratio = 0.25
+		
+		area = vietnam
+		
+		subtract_invasions_from_need = no
+	}
+}
+vin_help_vietcong = {
+	enable = {
+		tag = VIN
+		VTC = { exists = yes }
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "VTC"
+		value = 200
+	}
+}

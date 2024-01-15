@@ -1,0 +1,58 @@
+ideas = {
+	country = {
+		cw_svi_binh_xuyen = {
+			
+			picture  = tur_tdpa
+			
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			
+			available = {
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_factory_max_efficiency_factor = -0.5
+				stability_factor = -0.10
+				global_building_slots = -0.25
+				consumer_goods_factor = -0.1
+				communism_drift = -0.03
+				communism_totalitarian_drift = -0.03
+			}
+		}
+		cw_svi_nlf = {
+			
+			picture  = tur_tdpa
+			
+			allowed = {
+				tag = SVI
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			
+			available = {
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = -0.10
+				local_manpower = -0.15
+				command_power_gain = -0.10
+				drift_defence_factor = -0.1
+			}
+			targeted_modifier = {
+				tag = VTC
+				attack_bonus_against = -0.1
+			}			
+		}		
+	}
+}

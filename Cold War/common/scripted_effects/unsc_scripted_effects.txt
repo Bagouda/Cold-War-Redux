@@ -1,0 +1,2809 @@
+harm_relations_with_unsc_members_severe = {
+	custom_effect_tooltip = "Relations will all Security Council members will be severely damaged."
+	every_country = {
+		limit = {
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+			NOT = { tag = ROOT }
+		}
+		add_opinion_modifier = {
+			target = ROOT
+			modifier = protest_action_strong
+		}
+	}
+}
+cw_set_resolution_observer = {
+	if = {
+		limit = {
+			is_ai = no
+			NOT = {
+				OR = {
+					is_in_array = {
+						array = global.unsc_permanent_members_array
+						value = THIS.id
+					}
+					is_in_array = {
+						array = global.unsc_non_permanent_members_array
+						value = THIS.id
+					}
+				}
+			}
+		}
+		set_country_flag = { flag = resolution_obeserver value = 1 days = 3 }
+	}
+}
+cw_allow_non_unsc_volunteers = {
+	custom_effect_tooltip = "CW_VOLUNTEER_RULE_EXCEPTION_TT"
+	hidden_effect = {
+		set_variable = { volunteers_allowed_from@ROOT = 1 }
+	}
+}
+cw_remove_from_unsc_for_shuffle = {
+	if = {
+		limit = {
+			is_in_array = {
+				array = global.unsc_non_permanent_members_array
+				value = THIS.id
+			}
+		}
+		cw_top_bar_notification_lost_unsc_seat = yes
+		subtract_from_variable = { global.unsc_members = 1 }
+		remove_ideas = cw_un_non_permanent
+		remove_from_unsc_balance = yes
+		remove_from_array = { global.unsc_non_permanent_members_array = THIS.id }
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			set_country_flag = { flag = recent_removal_from_unsc value = 1 days = 30 }
+		}
+		UNB = { cw_add_to_unsc_non_permanent = yes }
+	}
+}
+cw_remove_from_unsc = {
+	if = {
+		limit = {
+			is_in_array = {
+				array = global.unsc_permanent_members_array
+				value = THIS.id
+			}
+		}
+		cw_top_bar_notification_lost_unsc_seat = yes
+		subtract_from_variable = { global.unsc_members = 1 }
+		#cw_make_unrecognized = yes
+		remove_ideas = cw_un_permanent
+		remove_from_unsc_balance = yes
+		remove_from_array = { global.unsc_permanent_members_array = THIS.id }
+		if = {
+			limit = {
+				NOT = { has_event_target = unsc_pretender }
+			}
+			UNA = { cw_add_to_unsc_permanent = yes }
+		}
+	}
+	if = {
+		limit = {
+			is_in_array = {
+				array = global.unsc_non_permanent_members_array
+				value = THIS.id
+			}
+		}
+		cw_top_bar_notification_lost_unsc_seat = yes
+		subtract_from_variable = { global.unsc_members = 1 }
+		add_ideas  = cw_non_recognized_state
+		remove_ideas = cw_un_non_permanent
+		remove_from_unsc_balance = yes
+		remove_from_array = { global.unsc_non_permanent_members_array = THIS.id }
+		if = {
+			limit = {
+				NOT = { has_event_target = unsc_pretender_non_permanent }
+			}
+			UNB = { cw_add_to_unsc_non_permanent = yes }
+		}
+	}
+}
+cw_add_to_unsc_permanent = {
+	if = {
+		limit = {
+			is_ai = no
+		}
+		cw_top_bar_notification_became_unsc_member = yes
+	}
+	if = {
+		limit = {
+			is_unsc_member = yes
+		}
+		cw_remove_from_unsc = yes
+	}
+	add_to_variable = { global.unsc_members = 1 }
+	add_ideas = cw_un_permanent
+	add_to_unsc_balance = yes
+	add_to_array = { array = global.unsc_permanent_members_array value = THIS.id }
+	if = {
+		limit = {
+			has_idea = cw_partially_recognized_state
+		}
+		remove_ideas = cw_partially_recognized_state
+	}
+	if = {
+		limit = {
+			has_idea = cw_non_recognized_state
+		}
+		remove_ideas = cw_non_recognized_state
+	}
+}
+cw_add_to_unsc_non_permanent = {
+	if = {
+		limit = {
+			is_ai = no
+		}
+		cw_top_bar_notification_became_unsc_member = yes
+	}
+	add_to_variable = { global.unsc_members = 1 }
+	add_ideas = cw_un_non_permanent
+	add_to_unsc_balance = yes
+	add_to_array = { global.unsc_non_permanent_members_array = THIS.id }
+	if = {
+		limit = {
+			has_idea = cw_partially_recognized_state
+		}
+		remove_ideas = cw_partially_recognized_state
+	}
+	if = {
+		limit = {
+			has_idea = cw_non_recognized_state
+		}
+		remove_ideas = cw_non_recognized_state
+	}
+}
+cw_unsc_set_like_resolution = {
+	if = {
+		limit = {
+			is_ai = yes
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+		}
+		set_country_flag = like_resolution
+	}
+}
+
+cw_unsc_set_hate_resolution = {
+	if = {
+		limit = {
+			is_ai = yes
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+		}
+		set_country_flag = hate_resolution
+	}
+}
+
+cw_unsc_set_abstain_resolution = {
+	if = {
+		limit = {
+			is_ai = yes
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+		}
+		set_country_flag = abstain_from_resolution
+	}
+}
+
+cw_unsc_set_veto_resolution = {
+	if = {
+		limit = {
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+		}
+		set_country_flag = veto_resolution
+	}
+}
+
+cw_unsc_set_resolution_vote_randomizer_one_member = {
+	if = {
+		limit = {
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+		}
+		random_list = {
+			33 = {
+				set_country_flag = like_resolution
+			}
+			33 = {
+				set_country_flag = hate_resolution
+			}
+			34 = {
+				set_country_flag = abstain_from_resolution
+			}
+		}
+	}
+}
+
+cw_unsc_set_resolution_vote_randomizer_all_memmbers = {
+	every_other_country = {
+		limit = {
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+			NOT = {
+				OR = {
+					has_country_flag = like_resolution
+					has_country_flag = hate_resolution
+					has_country_flag = abstain_from_resolution
+					has_country_flag = veto_resolution
+				}
+			}
+		}
+		random_list = {
+			33 = {
+				set_country_flag = like_resolution
+			}
+			33 = {
+				set_country_flag = hate_resolution
+			}
+			34 = {
+				set_country_flag = abstain_from_resolution
+			}
+		}
+	}
+}
+
+cw_unsc_start_resolution_effect = {
+	hidden_effect = {
+		### NOTIFICATION ###
+		unsc_vote_phone_alert = yes
+		### NOTIFICATION ###
+		event_target:unsc_initiator = { set_country_flag = unsc_initiator_flag }
+		event_target:unsc_target = { set_country_flag = unsc_target_flag }
+		if = {
+			limit = {
+				event_target:unsc_target = { is_unsc_member = yes }
+			}
+			event_target:unsc_target = { set_country_flag = unsc_voted_abstain }
+		}
+		if = {
+			limit = {
+				event_target:unsc_initiator = { is_unsc_member = yes }
+			}
+			event_target:unsc_initiator = {  set_country_flag = unsc_voted_abstain }
+		}
+		if = {
+			limit = {
+				event_target:unsc_target = { is_major = yes }
+			}
+			set_global_flag = resolution_veto_disabled
+			set_global_flag = unsc_major_historical_resolution
+		}
+		if = {
+			limit = {
+				NOT = { event_target:unsc_initiator = { tag = UNN } }
+			}
+			event_target:unsc_initiator = { set_country_flag = like_resolution }
+		}
+		if = {
+			limit = {
+				event_target:unsc_target = { has_country_flag = unsc_generic_demand_sanctions }
+			}
+			every_country = {
+				limit = {
+					OR = {
+						is_lend_leasing = event_target:unsc_target
+						event_target:unsc_target = {
+							OR = { 
+								has_volunteers_amount_from = {
+									tag = PREV
+									count > 0
+								}
+								is_in_array = {
+									array = PREV.aid_program_participants_array
+									value = THIS.id
+								}
+								is_in_array = {
+									array = PREV.military_aid_countries_array
+									value = THIS.id
+								}
+								has_war_together_with = PREV
+							}
+						}
+					}
+				}
+				set_country_flag = hate_resolution
+			}
+		}
+		if = {
+			limit = {
+				event_target:unsc_target = { has_country_flag = unsc_generic_withdrawal_resolution }
+			}
+			every_country = {
+				limit = {
+					event_target:unsc_target = {
+						any_enemy_country = {
+							OR = {
+								ROOT = { is_lend_leasing = PREV }
+								has_volunteers_amount_from = {
+									tag = ROOT
+									count > 0
+								}
+								is_in_array = {
+									array = ROOT.aid_program_participants_array
+									value = THIS.id
+								}
+								is_in_array = {
+									array = ROOT.military_aid_countries_array
+									value = THIS.id
+								}
+							}
+						}
+					}
+				}
+				set_country_flag = hate_resolution
+			}
+		}		
+		if = {
+			limit = {
+				UNN = { check_variable = { custom_usc_resolution_timer = 0 } }
+			}
+			set_variable = { global.unsc_resolution_vote_timer = 30 }
+			else = {
+				set_variable = { global.unsc_resolution_vote_timer = UNN.custom_usc_resolution_timer }
+			}
+		}
+		add_to_variable = { global.resolution_counter = 1 }
+	}
+}
+
+remove_from_unsc_balance = {
+	if = { limit = { OR = { has_government = communism has_government = communism_totalitarian has_government = neutrality } } subtract_from_variable = { global.unsc_communist_countries_total = 1 } }
+	else_if = { limit = { OR = { has_government = democratic has_government = democratic_socialist has_government = unaligned_right } } subtract_from_variable = { global.unsc_western_countries_total = 1 } }
+}
+add_to_unsc_balance = {
+	if = { limit = { OR = { has_government = communism has_government = communism_totalitarian has_government = neutrality } } add_to_variable = { global.unsc_communist_countries_total = 1 } }
+	else_if = { limit = { OR = { has_government = democratic has_government = democratic_socialist has_government = unaligned_right } } add_to_variable = { global.unsc_western_countries_total = 1 } }
+}
+
+add_to_unsc_balance_bribe = {
+	if = { limit = { var:unsc_bribed_by = { OR = { has_government = communism has_government = communism_totalitarian has_government = neutrality } } } add_to_variable = { global.unsc_communist_countries_total = 1 } }
+	else_if = { limit = { var:unsc_bribed_by = { OR = { has_government = democratic has_government = democratic_socialist has_government = unaligned_right } } } add_to_variable = { global.unsc_western_countries_total = 1 } }
+}
+
+remove_from_unsc_balance_bribe = {
+	if = { limit = { var:unsc_bribed_by = { OR = { has_government = communism has_government = communism_totalitarian has_government = neutrality } } } subtract_from_variable = { global.unsc_communist_countries_total = 1 } }
+	else_if = { limit = { var:unsc_bribed_by = { OR = { has_government = democratic has_government = democratic_socialist has_government = unaligned_right } } } subtract_from_variable = { global.unsc_western_countries_total = 1 } }
+}
+unsc_shuffle_non_permanent = {
+	cw_top_bar_notification_new_unsc_members = yes
+	every_country = {
+		limit = {
+			is_in_array = {
+				array = global.unsc_non_permanent_members_array
+				value = THIS.id
+			}
+		}
+		cw_remove_from_unsc_for_shuffle = yes
+		if = {
+			limit = {
+				check_variable = { 	var = global.unsc_non_permanent_members_array^num value = 10 compare = less_than }
+			}
+			while_loop_effect = {
+				break = var:global.unsc_non_permanent_members_array^num
+				limit = {
+					check_variable = { 	var = global.unsc_non_permanent_members_array^num value = 10 compare = less_than }
+				}
+				random_country = {
+					limit = {
+						eligable_to_join_unsc = yes
+					}
+					cw_add_to_unsc_non_permanent = yes
+				}
+			}
+		}
+	}
+	unsc_force_unsc_trade_sanctions = yes
+	if = {
+		limit = {
+			SOV = { unsc_has_state_vote_ukr = no }
+		}
+		subtract_from_variable = { global.unsc_communist_countries_total = 1 }
+	}
+	if = {
+		limit = {
+			SOV = { unsc_has_state_vote_blr = no }
+		}
+		subtract_from_variable = { global.unsc_communist_countries_total = 1 }
+	}	
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = unsc_shuffle
+				option = UNSC_SHUFFLE_ONE_YEARS
+			}
+		}
+		set_variable = { global.unsc_non_permanent_shuffle = 365 }
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = unsc_shuffle
+				option = UNSC_SHUFFLE_TWO_YEARS
+			}
+		}
+		set_variable = { global.unsc_non_permanent_shuffle = 730 }
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = unsc_shuffle
+				option = UNSC_SHUFFLE_THREE_YEARS
+			}
+		}
+		set_variable = { global.unsc_non_permanent_shuffle = 1095 }
+	}
+	if = {
+		limit = {
+			has_game_rule = {
+				rule = unsc_shuffle
+				option = UNSC_SHUFFLE_FIVE_YEARS
+			}
+		}
+		set_variable = { global.unsc_non_permanent_shuffle = 1825 }
+	}
+	every_country = {		# Removing bribe stuff
+		limit = {
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+			has_country_flag = initiated_bribe_vote
+		}
+		clr_country_flag = bribed_to_vote_on_unsc
+		clr_country_flag = initiate_bribe_vote
+		clr_country_flag = initiated_bribe_vote
+		clear_variable = THIS.unsc_bribed_by
+	}
+	if = {
+		limit = {
+			SOV = { unsc_has_state_vote_ukr = yes }
+		}
+		SOV = { add_to_unsc_balance = yes }
+	}
+	if = {
+		limit = {
+			SOV = { unsc_has_state_vote_blr = yes }
+		}
+		SOV = { add_to_unsc_balance = yes }
+	}
+}
+cw_unsc_clear_votes = {
+	every_country = {
+		limit = {
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+		}
+		clr_country_flag = unsc_voted_yes
+		clr_country_flag = unsc_voted_no
+		clr_country_flag = unsc_voted_abstain
+		clr_country_flag = unsc_voted_veto
+	}
+	clear_variable = global.unsc_total_votes
+	clear_variable = global.unsc_total_votes_yes
+	clear_variable = global.unsc_total_votes_no
+	clear_variable = global.unsc_total_votes_veto
+	clear_variable = global.unsc_total_votes_abstain
+}
+cw_unsc_switch_initiator_to_unn = {
+	event_target:unsc_initiator = { clr_country_flag = resolution_obeserver }
+	clear_global_event_target = unsc_initiator
+	UNN = { save_global_event_target_as = unsc_initiator }
+}
+cw_unsc_switch_target_to_unn = {
+	event_target:unsc_target = { clr_country_flag = resolution_obeserver }
+	clear_global_event_target = unsc_target
+	UNN = { save_global_event_target_as = unsc_target }
+}
+cw_unsc_adjust_relations = {
+	if = {
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = like_resolution }
+		}
+		every_country = {
+			limit = {
+				has_country_flag = unsc_voted_yes
+			}
+			reverse_add_opinion_modifier = { target = event_target:unsc_target modifier = unsc_voted_for_us }
+		}
+	}
+	if = {
+		limit = {
+			has_event_target = unsc_initiator
+			event_target:unsc_initiator = { has_country_flag = like_resolution }
+		}
+		every_country = {
+			limit = {
+				has_country_flag = unsc_voted_yes
+			}
+			reverse_add_opinion_modifier = { target = event_target:unsc_initiator modifier = unsc_voted_for_us }
+		}
+	}
+	if = {
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = hate_resolution }
+		}
+		every_country = {
+			limit = {
+				has_country_flag = unsc_voted_no
+			}
+			reverse_add_opinion_modifier = { target = event_target:unsc_target modifier = unsc_voted_for_us }
+		}
+	}
+	if = {
+		limit = {
+			has_event_target = unsc_initiator
+			event_target:unsc_initiator = { has_country_flag = hate_resolution }
+		}
+		every_country = {
+			limit = {
+				has_country_flag = unsc_voted_no
+			}
+			reverse_add_opinion_modifier = { target = event_target:unsc_initiator modifier = unsc_voted_for_us }
+		}
+	}
+	if = {
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = like_resolution }
+		}
+		every_country = {
+			limit = {
+				has_country_flag = unsc_voted_no
+			}
+			reverse_add_opinion_modifier = { target = event_target:unsc_target modifier = unsc_voted_against_us }
+		}
+	}
+	if = {
+		limit = {
+			has_event_target = unsc_initiator
+			event_target:unsc_initiator = { has_country_flag = like_resolution }
+		}
+		every_country = {
+			limit = {
+				has_country_flag = unsc_voted_no
+			}
+			reverse_add_opinion_modifier = { target = event_target:unsc_initiator modifier = unsc_voted_against_us }
+		}
+	}
+	if = {
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = like_resolution }
+		}
+		every_country = {
+			limit = {
+				has_country_flag = unsc_voted_veto
+			}
+			reverse_add_opinion_modifier = { target = event_target:unsc_target modifier = unsc_voted_against_us }
+		}
+	}
+	if = {
+		limit = {
+			has_event_target = unsc_initiator
+			event_target:unsc_initiator = { has_country_flag = like_resolution }
+		}
+		every_country = {
+			limit = {
+				has_country_flag = unsc_voted_veto
+			}
+			reverse_add_opinion_modifier = { target = event_target:unsc_initiator modifier = unsc_voted_against_us }
+		}
+	}
+	if = {
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = hate_resolution }
+		}
+		every_country = {
+			limit = {
+				has_country_flag = unsc_voted_yes
+			}
+			reverse_add_opinion_modifier = { target = event_target:unsc_target modifier = unsc_voted_against_us }
+		}
+	}
+	if = {
+		limit = {
+			has_event_target = unsc_initiator
+			event_target:unsc_initiator = { has_country_flag = hate_resolution }
+		}
+		every_country = {
+			limit = {
+				has_country_flag = unsc_voted_yes
+			}
+			reverse_add_opinion_modifier = { target = event_target:unsc_initiator modifier = unsc_voted_against_us }
+		}
+	}
+}
+cw_unsc_clear_junk = {
+	### CLEAR GENERIC FLAGS ###
+	event_target:unsc_target = {
+		clr_country_flag = resolution_generic_transfer_core_state_un
+		clr_country_flag = unsc_resolution_request_truce
+		clr_country_flag = refused_truce_request
+		clr_country_flag = refused_truce_demand
+		clr_country_flag = unsc_requesting_recognition
+		clr_country_flag = unsc_generic_resolution_revoke_lease
+		clr_country_flag = unsc_expel_from_un
+		clr_country_flag = unsc_police_action_target
+		clr_country_flag = unsc_condem_violence
+		clr_country_flag = generic_recognition_offmap_country
+		clr_country_flag = unsc_generic_withdrawal_resolution
+		clr_country_flag = unsc_resolution_generic_international_lease
+		clr_country_flag = unsc_resolution_generic_international_lease_non_canal
+		clr_country_flag = unsc_resolution_generic_remove_sanctions
+		clr_country_flag = intervention_request_target
+		clr_country_flag = unsc_generic_extend_police_action
+		clr_country_flag = unsc_requesting_ref_annexation_recognition
+		clr_country_flag = unsc_generic_increase_police_participation
+		clr_country_flag = resolution_generic_abolish_core_controlled
+		clr_country_flag = resolution_generic_abolish_core_not_controlled
+		clr_country_flag = resolution_generic_request_core_controlled
+		clr_country_flag = resolution_generic_request_core_not_controlled
+		clr_country_flag = unsc_generic_demand_unsc_shuffle
+		clr_country_flag = unsc_generic_demand_sanctions
+		clr_country_flag = unsc_generic_request_unraa_aid
+		if = {
+			limit = {
+				has_global_flag = unsc_days_reset
+			}
+			clr_global_flag = unsc_days_reset
+		}		
+	}
+	if = {
+		limit = {
+			has_event_target = unsc_target
+		}
+		event_target:unsc_target = {
+			clr_country_flag = like_resolution
+			clr_country_flag = hate_resolution
+			clr_country_flag = unsc_target_flag
+			clr_country_flag = wants_unsc_support
+		}
+		clear_global_event_target = unsc_target
+	}
+	if = {
+		limit = {
+			has_event_target = unsc_initiator
+		}
+		event_target:unsc_initiator = {
+			clr_country_flag = unsc_initiator_flag
+			clr_country_flag = wants_unsc_support
+			clr_country_flag = like_resolution
+			clr_country_flag = hate_resolution
+			clr_country_flag = wants_unsc_support
+		}
+		clear_global_event_target = unsc_initiator
+	}
+	if = {
+		limit = {
+			has_event_target = requested_core
+		}
+		clear_global_event_target = requested_core
+	}
+	every_country = { limit = { has_country_flag = unsc_target_flag } clr_country_flag = unsc_target_flag }
+	if = {
+		limit = {
+			has_variable = global.override_resolution_target
+		}
+		clear_variable = global.override_resolution_target
+	}
+	if = {
+		limit = {
+			has_variable = global.override_resolution_initiator
+		}
+		clear_variable = global.override_resolution_initiator
+	}	
+	############# REMOVING GLOBAL FLAGS #############
+	if = {
+		limit = {
+			has_global_flag = resolution_veto_disabled
+		}
+		clr_global_flag = resolution_veto_disabled
+	}
+	if = {
+		limit = {
+			has_global_flag = unsc_major_historical_resolution
+		}
+		clr_global_flag = unsc_major_historical_resolution
+	}
+	if = {
+		limit = {
+			has_global_flag = unsc_implementing_resolution_flag
+		}
+		clr_global_flag = unsc_implementing_resolution_flag
+		clear_variable = global.unsc_debugger
+	}
+	if = {
+		limit = {
+			has_global_flag = unsc_military_resolution
+		}
+		clr_global_flag = unsc_military_resolution
+	}
+	############# REMOVING BRIBE STUFF #############
+	every_country = {
+		limit = {
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+			has_country_flag = initiated_bribe_vote
+		}
+		var:unsc_bribed_by = { add_to_variable = { THIS.unsc_bribe_cost = 0.10 } }
+		var:unsc_bribed_by = { subtract_from_variable = { THIS.unsc_bribed_countries = 1 } }
+		clr_country_flag = bribed_to_vote_on_unsc
+		clear_variable = THIS.unsc_bribed_by
+		clr_country_flag = initiated_bribe_vote
+	}
+	############# UNSC BALANCE INDICATORS EFFECTS #############
+	clear_variable = global.unsc_communist_countries_total
+	clear_variable = global.unsc_western_countries_total
+	if = {
+		limit = {
+			SOV = { unsc_has_state_vote_ukr = yes }
+		}
+		SOV = { add_to_unsc_balance = yes }
+	}
+	if = {
+		limit = {
+			SOV = { unsc_has_state_vote_blr = yes }
+		}
+		SOV = { add_to_unsc_balance = yes }
+	}
+	every_country = {		# Restaring UNSC balance indicators
+		limit = {
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = bribed_to_vote_on_unsc
+			}
+			add_to_unsc_balance_bribe = yes
+		}
+		else = { add_to_unsc_balance = yes }
+	}
+	every_country = {		# Closing UNSC window for AI
+		limit = {
+			is_ai = yes
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+		}
+		clr_country_flag = open_unsc_window
+	}
+	every_country = {		# Remove wants_unts_support/like/hate/abstain/veto resolution flags
+		limit = {
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = like_resolution
+			}
+			clr_country_flag = like_resolution
+		}
+		if = {
+			limit = {
+				has_country_flag = hate_resolution
+			}
+			clr_country_flag = hate_resolution
+		}
+		if = {
+			limit = {
+				has_country_flag = abstain_from_resolution
+			}
+			clr_country_flag = abstain_from_resolution
+		}
+		if = {
+			limit = {
+				has_country_flag = veto_resolution
+			}
+			clr_country_flag = veto_resolution
+		}
+		if = {
+			limit = {
+				has_country_flag = wants_unsc_support
+			}
+			clr_country_flag = wants_unsc_support
+		}
+	}
+}
+cw_unsc_force_puppet_votes = {
+	every_country = {
+		limit = {
+			AND = {
+				OR = {
+					is_subject = yes
+					is_puppet = yes
+				}
+				OR = {
+					is_in_array = {
+						array = global.unsc_non_permanent_members_array
+						value = THIS.id
+					}
+					is_in_array = {
+						array = global.unsc_permanent_members_array
+						value = THIS.id
+					}
+				}
+				NOT = {
+					OR = {
+						has_country_flag = unsc_voted_yes
+						has_country_flag = unsc_voted_no
+						has_country_flag = unsc_voted_abstain
+						has_country_flag = unsc_voted_veto
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					OVERLORD = { has_country_flag = unsc_voted_yes }
+					OVERLORD = { has_country_flag = like_resolution }
+				}
+			}
+			set_country_flag = unsc_voted_yes
+			add_to_variable = { global.unsc_total_votes_yes = 1 }
+			add_to_variable = { global.unsc_total_votes = 1 }
+		}
+		if = {
+			limit = {
+				OR = {
+				 	OVERLORD = { has_country_flag = unsc_voted_no }
+					OVERLORD = { has_country_flag = hate_resolution }
+				}
+			}
+			set_country_flag = unsc_voted_no
+			add_to_variable = { global.unsc_total_votes_no = 1 }
+			add_to_variable = { global.unsc_total_votes = 1 }
+		}
+		if = {
+			limit = {
+				OVERLORD = { has_country_flag = unsc_voted_abstain }
+				OVERLORD = { NOT = { OR = { has_country_flag = unsc_target_flag has_country_flag = unsc_initiator_flag } } }
+			}
+			set_country_flag = unsc_voted_abstain
+			add_to_variable = { global.unsc_total_votes_abstain = 1 }
+			add_to_variable = { global.unsc_total_votes = 1 }
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					OR = {
+						has_country_flag = unsc_voted_yes
+						has_country_flag = unsc_voted_no
+						has_country_flag = unsc_voted_abstain
+						has_country_flag = unsc_voted_veto
+					}
+				}
+			}
+			set_country_flag = unsc_voted_abstain
+			add_to_variable = { global.unsc_total_votes_abstain = 1 }
+			add_to_variable = { global.unsc_total_votes = 1 }
+		}
+	}
+}
+cw_unsc_force_abstain = {
+	every_country = {
+		limit = {
+			AND = {
+				NOT = {
+					OR = {
+						is_subject = yes
+						is_puppet = yes
+					}
+				}
+			  OR = {
+					is_in_array = {
+					  array = global.unsc_non_permanent_members_array
+					  value = THIS.id
+					}
+					is_in_array = {
+					  array = global.unsc_permanent_members_array
+					  value = THIS.id
+					}
+			  }
+				NOT = {
+					OR = {
+						has_country_flag = unsc_voted_yes
+						has_country_flag = unsc_voted_no
+						has_country_flag = unsc_voted_abstain
+						has_country_flag = unsc_voted_veto
+					}
+				}
+		 	}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_country_flag = unsc_target_flag
+					has_country_flag = unsc_initiator_flag
+					OR = { has_government = neutrality has_government = unaligned_right }
+				}
+			}
+			set_country_flag = unsc_voted_abstain
+			add_to_variable = { global.unsc_total_votes_abstain = 1 }
+			add_to_variable = { global.unsc_total_votes = 1 }
+		}
+		else = {
+			set_country_flag = unsc_voted_abstain
+			set_temp_variable = { unsc_abstain_cost_calculator_temp = THIS.unsc_abstain_cost }
+			multiply_temp_variable = { unsc_abstain_cost_calculator_temp = -1 }
+			add_political_power = unsc_abstain_cost_calculator_temp
+			add_to_variable = { THIS.unsc_abstain_cost = 5 }
+			add_to_variable = { global.unsc_total_votes_abstain = 1 }
+			add_to_variable = { global.unsc_total_votes = 1 }
+			add_to_variable = { THIS.total_unsc_abstained_resolutions = 1 }
+		}
+	}
+}
+###########################################################################
+########################### RESOLUTION REJECTED ###########################
+###########################################################################
+cw_unsc_reject_resolution = {
+	UNN = { add_named_threat = { threat = 0.1 name = UNSC_RESOLUTION_REJECTED } }
+	event_target:unsc_initiator = { 
+		set_variable = { THIS.resoultion_failed_cooldown_timer = 120  } 
+
+		
+	}
+	#### AFRICA DECOLONIZATION RESOLUTION ####	
+	if = {																																											# Decolonization 1514 Resolution REJECTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_decolonization_1514_resolution }
+		}
+		UNN = { clr_country_flag = unsc_decolonization_1514_resolution }
+	}
+	#### RECOGNIZE REGION RESOLUTION ####	
+	if = {																																											# REGION RECOGNITION/UNRECOGNITION REJECTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_generic_resolution_recognize_region }
+		}
+		event_target:unsc_initiator = {
+	 		clr_country_flag = unsc_generic_resolution_recognize_region
+	 	}
+		clear_array = UNN.region_resolution_states
+		clear_array = UNN.region_resolution_countries
+	}
+	#### END LEASE RESOLUTION ####																																					# END LEASE RESOLUTION resolution REJECTED
+	if = {
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_generic_resolution_revoke_lease }
+		}
+		if = {
+			limit ={
+				event_target:requested_leased_state = { state = 454 }
+			}
+			794 = { cw_revoke_state_lease = yes }
+			793 = { cw_revoke_state_lease = yes }
+			454 = { cw_revoke_state_lease = yes }
+			ISR = {
+				transfer_state = 454
+				cw_make_unrecognized = yes
+				set_politics = {
+					ruling_party = unaligned_right
+					elections_allowed = no
+				}
+				set_popularities = {
+					democratic  = 0
+					democratic_socialist = 60
+					neutrality = 0
+					communism_totalitarian = 40
+					unaligned_right = 0
+					colonial =  0
+				}
+				load_oob = "ISR_1946"
+			}
+			454 = {
+				add_core_of = ISR
+				add_claim_by = PAL
+			}
+			PAL = { add_ideas = cw_non_recognized_state }
+			PAL = {
+				transfer_state = 793
+				transfer_state = 794
+				set_politics = {
+					ruling_party = unaligned_right
+					elections_allowed = no
+				}
+				set_popularities = {
+					democratic  = 10
+					democratic_socialist = 0
+					neutrality = 10
+					communism_totalitarian = 20
+					unaligned_right = 60
+					colonial =  0
+				}
+				create_country_leader = {
+					name = "Amin al-Husseini"
+					desc = ""
+					picture = "PALH1.dds"
+					ideology = political_islam
+					expire = 1952.9.18
+					traits = {}
+				}
+				load_oob = "PAL_1946"
+			}
+			793 = {
+				add_core_of = PAL
+				add_claim_by = ISR
+				add_claim_by = JOR
+			}
+			794 = {
+				add_core_of = PAL
+				add_claim_by = ISR
+				add_claim_by = EGY
+			}
+		}
+	}
+	#### KOREAN UNIFICATION ####
+	if = {																																											# KOREAN UNIFICATION resolution REJECTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_korea_reunification }
+		}
+		if = {
+			limit = {
+				USA = { NOT = { has_completed_focus = USA_democratic_korea } }
+			}
+			USA = { complete_national_focus = USA_democratic_korea }
+		}
+		if = {
+			limit = {
+				SOV = { NOT = { has_completed_focus = SOV_establish_dprk } }
+			}
+			SOV = { complete_national_focus = SOV_establish_dprk }
+		}
+	}
+	#### PARIS TREATIES ####
+	if = {																																											# PARIS TREATIES resolution REJECTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_paris_peace_treaty }
+		}
+		set_global_flag = paris_treaty_rejected_by_unsc
+		UNN = { add_named_threat = { threat = 20  name = "Paris Peace Accords Rejected" } }
+		news_event = cw_non_historic_news.4
+		event_target:unsc_target = { clr_country_flag = unsc_paris_peace_treaty }
+	}
+	#### NEUTRAL AUSTRIA  ####
+	if = {																																											# NEUTRAL AUSTRIA resolution REJECTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_neutral_austria }
+		}
+		event_target:unsc_target = { clr_country_flag = unsc_neutral_austria }
+	}
+	if = {																																											# RECOGNIZE GOVERNMENT REJECTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_resolution_generic_remove_sanctions }
+			is_ai = yes
+		}
+		event_target:unsc_target = { add_to_variable = { THIS.resoultion_failed_cooldown_timer = 365 } }
+	}	
+	if = {																																											# RECOGNIZE GOVERNMENT REJECTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_requesting_recognition }
+			is_ai = yes
+		}
+		event_target:unsc_target = { add_to_variable = { THIS.resoultion_failed_cooldown_timer = 365 } }
+	}
+	if = {																																											# REQUEST TRUCE REJECTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_resolution_request_truce }
+		}
+		event_target:unsc_target = { set_country_flag = { flag = resolution_against_rejected value = 1 days = 185 } }
+	}
+	#### POLICE ACTION ####
+	if = {																																											# POLICE ACTION resolution REJECTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_police_action_target }
+		}
+		event_target:unsc_initiator = { clr_country_flag = can_ask_for_police_action }
+	}
+	cw_unsc_clear_junk = yes
+}
+###########################################################################
+########################### RESOLUTION VETOED ###########################
+###########################################################################
+cw_unsc_veto_resolution = {
+	#### KOREAN UNIFICATION ####
+	event_target:unsc_initiator = { set_variable = { THIS.resoultion_failed_cooldown_timer = 250  } }
+	if = {																																											# REGION RECOGNITION/UNRECOGNITION VETOED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_generic_resolution_recognize_region }
+		}
+		event_target:unsc_initiator = {
+	 		clr_country_flag = unsc_generic_resolution_recognize_region
+	 	}
+		clear_array = UNN.region_resolution_states
+		clear_array = UNN.region_resolution_countries
+	}
+	if = {																																											# KOREAN UNIFICATION resolution VETOED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_korea_reunification }
+		}
+		if = {
+			limit = {
+				USA = { NOT = { has_completed_focus = USA_democratic_korea } }
+			}
+			USA = { complete_national_focus = USA_democratic_korea }
+		}
+		if = {
+			limit = {
+				SOV = { NOT = { has_completed_focus = SOV_establish_dprk } }
+			}
+			SOV = { complete_national_focus = SOV_establish_dprk }
+		}
+	}
+	#### NEUTRAL AUSTRIA  ####
+	if = {																																											# NEUTRAL AUSTRIA resolution VETOED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_neutral_austria }
+		}
+		event_target:unsc_target = { clr_country_flag = unsc_neutral_austria }
+	}
+	if = {																																											# REQUEST TRUCE VETOED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_resolution_request_truce }
+		}
+		event_target:unsc_target = { set_country_flag = { flag = resolution_against_rejected value = 1 days = 360 } }
+	}
+	if = {																																											# RECOGNIZE GOVERNMENT VETOED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_requesting_recognition }
+		}
+		event_target:unsc_target = { add_to_variable = { THIS.resoultion_failed_cooldown_timer = 120 } }
+	}
+	cw_unsc_clear_junk = yes
+}
+###########################################################################
+########################### RESOLUTION STALLED ###########################
+###########################################################################
+cw_unsc_abstain_resolution = {
+	#### AFRICA DECOLONIZATION RESOLUTION ####	
+	if = {																																											# Decolonization 1514 Resolution STALLED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_decolonization_1514_resolution }
+		}
+		UNN = { clr_country_flag = unsc_decolonization_1514_resolution }
+	}
+	if = {																																											# REGION RECOGNITION/UNRECOGNITION STALLED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_generic_resolution_recognize_region }
+		}
+		event_target:unsc_initiator = {
+			clr_country_flag = unsc_generic_resolution_recognize_region
+		}
+		clear_array = UNN.region_resolution_states
+		clear_array = UNN.region_resolution_countries
+	}
+	if = {
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_generic_extend_police_action }
+			NOT = { event_target:unsc_initiator = { has_war_with = event_target:unsc_target }	 }
+		}
+		cw_unsc_clear_junk = yes
+	}
+	#### END LEASE RESOLUTION ####																																					# END LEASE RESOLUTION resolution STALLED
+	if = {
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_generic_resolution_revoke_lease }
+		}
+		if = {
+			limit ={
+				event_target:requested_leased_state = { state = 454 }
+			}
+			794 = { cw_revoke_state_lease = yes }
+			793 = { cw_revoke_state_lease = yes }
+			454 = { cw_revoke_state_lease = yes }
+			ISR = {
+				transfer_state = 454
+				add_ideas = cw_non_recognized_state
+				set_politics = {
+					ruling_party = unaligned_right
+					elections_allowed = no
+				}
+				set_popularities = {
+					democratic  = 0
+					democratic_socialist = 60
+					neutrality = 0
+					communism_totalitarian = 40
+					unaligned_right = 0
+					colonial =  0
+				}
+				load_oob = "ISR_1946"
+			}
+			PAL = { add_ideas = cw_non_recognized_state }
+			PAL = {
+				transfer_state = 793
+				transfer_state = 794
+				set_politics = {
+					ruling_party = unaligned_right
+					elections_allowed = no
+				}
+				set_popularities = {
+					democratic  = 10
+					democratic_socialist = 0
+					neutrality = 10
+					communism_totalitarian = 20
+					unaligned_right = 60
+					colonial =  0
+				}
+				create_country_leader = {
+					name = "Amin al-Husseini"
+					desc = ""
+					picture = "PALH1.dds"
+					ideology = political_islam
+					expire = 1952.9.18
+					traits = {}
+				}
+				load_oob = "PAL_1946"
+			}
+
+		}
+	}
+	#### KOREAN UNIFICATION ####
+	if = {																																											# KOREAN UNIFICATION resolution STALLED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_korea_reunification }
+		}
+		if = {
+			limit = {
+				USA = { NOT = { has_completed_focus = USA_democratic_korea } }
+			}
+			USA = { complete_national_focus = USA_democratic_korea }
+		}
+		if = {
+			limit = {
+				SOV = { NOT = { has_completed_focus = SOV_establish_dprk } }
+			}
+			SOV = { complete_national_focus = SOV_establish_dprk }
+		}
+	}
+	#### PARIS TREATIES ####
+	if = {																																											# PARIS TREATIES resolution STALLED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_paris_peace_treaty }
+		}
+		set_global_flag = paris_treaty_stalled_by_unsc
+		UNN = { add_named_threat = { threat = 10  name = "Paris Peace Accords Not Ratified" } }
+		news_event = cw_non_historic_news.5
+		event_target:unsc_target = { clr_country_flag = unsc_paris_peace_treaty }
+	}
+	#### NEUTRAL AUSTRIA  ####
+	if = {																																											# NEUTRAL AUSTRIA resolution STALLED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_neutral_austria }
+		}
+		event_target:unsc_target = { clr_country_flag = unsc_neutral_austria }
+	}
+	if = {																																											# RECOGNIZE BALTICS STALLED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_requesting_recognition }
+		}
+		event_target:unsc_target = { set_variable = { THIS.resoultion_failed_cooldown_timer = 120 } }
+	}
+	if = {																																											# REQUEST TRUCE STALLED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_resolution_request_truce }
+		}
+		set_country_flag = { flag = resolution_against_rejected value = 1 days = 90 }
+	}
+	if = {																																											# REQUEST TRUCE STALLED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_resolution_request_truce }
+		}
+		event_target:unsc_target = { set_country_flag = { flag = resolution_against_rejected value = 1 days = 90 } }
+	}
+	#### POLICE ACTION ####
+	if = {																																											# POLICE ACTION resolution STALLED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_police_action_target }
+		}
+		event_target:unsc_initiator = { clr_country_flag = can_ask_for_police_action }
+	}
+	event_target:unsc_initiator = { set_variable = { THIS.resoultion_failed_cooldown_timer = 60  } }
+	cw_unsc_clear_junk = yes
+}
+##########################################################################
+########################### RESOLUTION ADOPTED ###########################
+##########################################################################
+cw_unsc_adopt_resolution = {
+
+	#### KOREAN WAR RESOLUTION ####
+	if = {																																												#Korean War Resolution Adopted
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { 
+				has_country_flag = unsc_korean_war_peace_resolution
+				has_war = yes
+			}
+		}
+		news_event = cw_historic_events.41
+		every_country = {
+			limit = {
+				has_war_together_with = KOR
+			}
+			save_event_target_as = white_peace_target
+		}
+		every_country = {
+			limit = {
+				has_war_together_with = PRK
+			}
+			save_event_target_as = white_peace_target_2
+		}
+		every_country = {
+			limit = {
+				has_war_with = KOR
+			}
+			white_peace = event_target:white_peace_target
+			set_truce = {
+				target = event_target:white_peace_target
+				days = 120
+			}
+			white_peace = KOR
+			set_truce = {
+				target = KOR
+				days = 120
+			}
+		}
+		every_country = {
+			limit = {
+				has_war_with = PRK
+			}
+			white_peace = event_target:white_peace_target_2
+			set_truce = {
+				target = event_target:white_peace_target_2
+				days = 120
+			}
+			white_peace = PRK
+			set_truce = {
+				target = PRK
+				days = 120
+			}
+		}
+		if = {
+			limit = {
+				KOR = {
+					is_in_faction_with = UNN
+				}
+			}
+			KOR = {
+				clr_country_flag = un_police_action_granted
+				remove_from_array = {
+					array = SOV.police_action_targets
+					value = THIS.id
+				}
+			}
+			KOR = { leave_faction = yes }
+		}
+		if = {
+			limit = {
+				PRK = {
+					OR = {
+						is_in_faction_with = UNN
+					}
+				}
+			}
+			PRK = {
+				clr_country_flag = un_police_action_granted
+				remove_from_array = {
+					array = USA.police_action_targets
+					value = THIS.id
+				}
+			}
+			PRK = { leave_faction = yes }
+		}
+		UNN = { add_named_threat = { threat = -20 name = "Ended Korean War" }  }
+		525 = { set_demilitarized_zone = yes }
+		clr_global_flag = korean_war_activated
+		cw_unsc_clear_junk = yes
+		else_if = {
+			limit = {
+				has_event_target = unsc_target
+				event_target:unsc_target = { has_country_flag = unsc_korean_war_peace_resolution }
+				has_war = no
+			}
+			cw_unsc_clear_junk = yes
+		}
+	}
+	#### END LEASE RESOLUTION ####																																					# END LEASE RESOLUTION resolution ADOPTED
+	if = {
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_generic_resolution_revoke_lease }
+		}
+		if = {
+			limit ={
+				event_target:requested_leased_state = { state = 454 }
+			}
+			794 = { cw_revoke_state_lease = yes }
+			793 = { cw_revoke_state_lease = yes }
+			454 = { cw_revoke_state_lease = yes }
+			ISR = {
+				transfer_state = 454
+				cw_make_unrecognized = yes
+				set_politics = {
+					ruling_party = unaligned_right
+					elections_allowed = no
+				}
+				set_popularities = {
+					democratic  = 0
+					democratic_socialist = 60
+					neutrality = 0
+					communism_totalitarian = 40
+					unaligned_right = 0
+					colonial =  0
+				}
+				load_oob = "ISR_1946"
+			}
+			454 = {
+				add_core_of = ISR
+				add_claim_by = JOR
+			}
+			PAL = {
+				transfer_state = 793
+				transfer_state = 794
+				cw_make_unrecognized = yes
+				set_politics = {
+					ruling_party = unaligned_right
+					elections_allowed = no
+				}
+				set_popularities = {
+					democratic  = 10
+					democratic_socialist = 0
+					neutrality = 10
+					communism_totalitarian = 20
+					unaligned_right = 60
+					colonial =  0
+				}
+				create_country_leader = {
+					name = "Amin al-Husseini"
+					desc = ""
+					picture = "PALH1.dds"
+					ideology = political_islam
+					expire = 1952.9.18
+					traits = {}
+				}
+				load_oob = "PAL_1946"
+			}
+			793 = {
+				add_core_of = PAL
+				add_claim_by = ISR
+				add_claim_by = JOR
+			}
+			794 = {
+				add_core_of = PAL
+				add_claim_by = ISR
+				add_claim_by = EGY
+			}
+		}
+		cw_unsc_clear_junk = yes
+	}
+	#### PARIS TREATIES ####
+	if = {																																											# PARIS TREATIES resolution ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_paris_peace_treaty }
+		}
+		every_country = {
+			limit = {
+				is_euu_member = yes
+				is_ai = no
+			}
+			top_bar_decisions_notification_new_decisions_available = yes
+		}
+		### Spain ###
+		if = {
+			limit = { has_global_flag = usa_sanction_franco }
+			
+			SPR = {
+				add_to_array = { array = USA.countries_who_pay_us_reparations value = THIS.id }
+				add_to_array = { array = SOV.countries_who_pay_us_reparations value = THIS.id }
+				add_to_array = { array = FRA.countries_who_pay_us_reparations value = THIS.id }
+				add_to_array = { array = ENG.countries_who_pay_us_reparations value = THIS.id }
+			
+				set_variable = { amount_of_reperations_remaining@SOV = 5 }
+				set_variable = { amount_of_reperations_remaining@USA = 5 }
+				set_variable = { amount_of_reperations_remaining@FRA = 5 }
+				set_variable = { amount_of_reperations_remaining@ENG = 5 }
+				set_temp_variable = { international_lease_years = 13 }
+		
+			}
+			
+		}
+		
+		if = {
+			limit = { has_global_flag = usa_remove_franco }
+
+			# TODO
+		}
+		
+		if = {
+			limit = { has_global_flag = usa_franco_gracied }
+
+			
+		}
+		
+		
+		#### Danemark ###
+		
+		if = { 
+			limit = { has_global_flag = sov_claim_bornmol }
+			SOV =  { 914 = { cw_grant_lease_five_years = yes } }
+		}
+		
+		if = { 
+			limit = { has_global_flag = sov_claim_danemark_guarantee }
+			DEN = { 
+				transfer_state = 914 
+				add_ideas = enforced_neutrality
+				
+			}
+		}
+		
+		
+	
+		DEN = { 
+			transfer_state = 101
+		}
+		
+		
+		#### GERMANY ###
+		5 = { add_core_of = POL }
+		85 = { add_core_of = POL }
+		86 = { add_core_of = POL }
+		63 = { add_core_of = POL }
+		68 = { add_core_of = POL }
+		if = { limit = { has_global_flag = sov_claim_polish_silesia }
+			66 = { add_core_of = POL }
+			67 = { add_core_of = POL }
+			
+			POL = { 
+				transfer_state = 66
+				transfer_state = 67
+				}
+		}
+		762 = { add_core_of = POL }
+		69 = { remove_claim_by = GER }
+		28 = { remove_claim_by = GER }
+		763 = { remove_claim_by = GER }
+		every_state = { limit = { AND = { is_owned_and_controlled_by = POL is_core_of = GER } } remove_core_of = GER add_claim_by = GER }
+		
+		#### ITALY ###
+		ITA = { transfer_state = 559 transfer_state = 814 }
+		
+		# if sov claim ethiopia
+		if = {
+			limit = {has_global_flag = sov_claim_somalia }
+			
+			SOV = {
+				transfer_state = 559 transfer_state = 814 
+			
+				559 = {
+					cw_grant_lease_international = yes
+				}				
+				814 = {
+					cw_grant_lease_international = yes
+				}
+			
+			}
+		}
+		else = {
+		
+			ITA = {
+				559 = {
+					cw_grant_lease_international = yes
+				}
+				814 = {
+					cw_grant_lease_international = yes
+				}
+			
+			}
+		}
+		
+		# if sov claim libya
+		
+		if = {
+			limit = { has_global_flag = sov_claim_cyrenaica }
+			SOV = {
+				transfer_state = 273
+				transfer_state = 663
+				transfer_state = 662
+				transfer_state = 449
+				transfer_state = 450
+				transfer_state = 451
+			
+			
+				
+				
+				450 = {
+					cw_grant_lease_international = yes
+				}
+		
+			}
+		}
+		
+		
+		
+		if = {
+			limit = {
+				AND = {
+				789 = { is_controlled_by = USA }
+				has_global_flag = usa_unn_trieste
+				}
+			}
+			
+			USA = {
+				789 = {  
+					add_claim_by = USA
+					cw_grant_lease_five_years = yes
+				}
+			}
+		}
+		
+		if = {
+			limit = {
+				AND = {
+				789 = { is_controlled_by = USA }
+				has_global_flag = usa_italian_trieste
+				}
+			}
+			ITA = { transfer_state = 789 }
+		}
+		
+		
+		if = {
+			limit = {
+				AND = {
+				789 = { is_controlled_by = USA }
+				has_global_flag = usa_yugoslavia_trieste
+				}
+			}
+			YUG = { transfer_state = 789 }
+		}
+		
+		
+
+		ITA = {
+			add_to_array = { array = USA.countries_who_pay_us_reparations value = THIS.id }
+			add_to_array = { array = SOV.countries_who_pay_us_reparations value = THIS.id }
+			add_to_array = { array = FRA.countries_who_pay_us_reparations value = THIS.id }
+			add_to_array = { array = ENG.countries_who_pay_us_reparations value = THIS.id }
+			
+			if = { limit = { has_global_flag = sov_italy_reparation }
+				set_variable = { amount_of_reperations_remaining@SOV = 10 }
+			}
+			else = {
+				set_variable = { amount_of_reperations_remaining@SOV = 5 }
+			}
+			set_variable = { amount_of_reperations_remaining@USA = 5 }
+			set_variable = { amount_of_reperations_remaining@FRA = 5 }
+			set_variable = { amount_of_reperations_remaining@ENG = 5 }
+			set_temp_variable = { international_lease_years = 13 }
+		}
+		550 = { remove_claim_by = ITA }
+		550 = { remove_claim_by = ITA }
+		269 = { remove_claim_by = ITA }
+		163 = { remove_claim_by = ITA }
+		103 = { remove_claim_by = ITA }
+		103 = { remove_claim_by = 814 }
+		864 = { remove_claim_by = 814 }
+		every_state = { limit = { is_claimed_by = LBA } remove_claim_by = ITA }
+		every_state = { limit = { is_core_of = ETH } remove_claim_by = ITA }
+		ITA = { remove_resource_rights = 614 }
+		44 = { remove_claim_by = ITA }
+		
+		
+		
+		if = {
+			limit = {
+				AND = {
+					country_exists = GRE
+					has_global_flag = usa_greek_dodecanese
+				}
+			}
+			GRE = { transfer_state = 164 }
+		}
+		else_if = {
+			limit = {
+				NOT = { country_exists = GRE }
+				NOT = { CGR = { OR = { has_country_flag = cw_partially_recognized_state has_country_flag = cw_non_recognized_state } } }
+				country_exists = CGR
+				has_global_flag = usa_greek_dodecanese
+			}
+			
+			CGR = { transfer_state = 164 }
+		}
+		
+		if = {
+			limit = { has_global_flag  = usa_dodecanese_base }
+			
+			USA = {
+				164 = { cw_grant_lease_five_years = yes add_claim_by = USA}
+			}
+			
+			
+			##TODO
+		}
+		
+		
+		
+		
+		
+		39 = { remove_claim_by = AUS }
+		
+		#### FINLAND ###
+		
+		# finland garantee
+		if = {  limit = { has_global_flag = sov_claim_finland_guarantee}
+			FIN = { 
+				add_ideas = enforced_neutrality
+				add_to_array = { SOV.countries_who_pay_us_reparations = THIS.id }
+				set_variable = { amount_of_reperations_remaining@SOV = 5 }			
+			}
+			
+			SOV = { 913 = { cw_grant_lease_perpetual = yes } }
+
+		}
+		
+		
+		# finland puppet 
+		if = {
+			limit = { has_global_flag = sov_claim_finland }
+		    SOV = { puppet = FIN }
+			FIN = {
+			
+				set_politics = {
+					ruling_party = communism
+					elections_allowed = no
+					last_election = "1946.12.17"
+				}
+				
+				add_popularity = {
+					ideology = communism_totalitarian
+					popularity = 0.2
+				}				
+				
+				add_popularity = {
+					ideology = unaligned_right
+					popularity = 0.1
+				}
+				transfer_state = 913
+				
+			}
+			
+		
+		}
+		
+		147 = { remove_claim_by = FIN }
+		722 = { remove_claim_by = FIN }
+		146 = { remove_claim_by = FIN }
+		#### HUNGARY ###
+		HUN = {
+			add_to_array = { USA.countries_who_pay_us_reparations = THIS.id }
+			add_to_array = { SOV.countries_who_pay_us_reparations = THIS.id }
+			add_to_array = { FRA.countries_who_pay_us_reparations = THIS.id }
+			add_to_array = { ENG.countries_who_pay_us_reparations = THIS.id }
+			set_variable = { amount_of_reperations_remaining@SOV = 5 }
+			set_variable = { amount_of_reperations_remaining@USA = 5 }
+			set_variable = { amount_of_reperations_remaining@FRA = 5 }
+			set_variable = { amount_of_reperations_remaining@ENG = 5 }			
+		}
+		73 = { remove_claim_by = HUN }
+		664 = { remove_claim_by = HUN }
+		45 = { remove_claim_by = HUN }
+
+		
+		### transylvania ###
+		
+		if = { limit = { has_global_flag = sov_claim_transylvania_independent}
+			TRA = { transfer_state = 76 }
+			SOV = { puppet = TRA }
+			76 = { add_core_of = TRA }
+			ROM = { 
+				add_opinion_modifier = { target = ROOT modifier = protest_action_strong } 
+				add_popularity = { ideology = ROOT popularity = -0.1 } add_popularity = { ideology = unaligned_right popularity = 0.2 } 
+				add_timed_idea = { idea = transylvania_betrayal days = 180 }
+			}
+			HUN = { 
+				add_opinion_modifier = { target = ROOT modifier = protest_action_strong } 
+				add_popularity = { ideology = ROOT popularity = -0.1 } add_popularity = { ideology = unaligned_right popularity = 0.2 } 
+				add_timed_idea = { idea = transylvania_betrayal days = 180 }
+			}
+		}
+		
+		if = { limit = { has_global_flag = sov_claim_transylvania_hungary}
+			HUN = { transfer_state = 76 }	
+			ROM = { 
+				add_opinion_modifier = { target = ROOT modifier = protest_action_strong } 
+				add_popularity = { ideology = ROOT popularity = -0.1 } add_popularity = { ideology = unaligned_right popularity = 0.2 } 
+				add_timed_idea = { idea = transylvania_betrayal days = 180 }
+			}
+		}		
+		
+		if = { limit = { has_global_flag = sov_claim_transylvania_romania}
+			ROM = { transfer_state = 76 }
+			HUN = { 
+				add_opinion_modifier = { target = ROOT modifier = protest_action_strong } 
+				add_popularity = { ideology = ROOT popularity = -0.1 } add_popularity = { ideology = unaligned_right popularity = 0.2 } 
+				add_timed_idea = { idea = transylvania_betrayal days = 180 }
+			}
+		}
+		
+		
+		
+		#### ROMANIA ###
+		ROM = {
+			add_to_array = { array = USA.countries_who_pay_us_reparations value = THIS.id }
+			add_to_array = { array = SOV.countries_who_pay_us_reparations value = THIS.id }
+			add_to_array = { array = FRA.countries_who_pay_us_reparations value = THIS.id }
+			add_to_array = { array = ENG.countries_who_pay_us_reparations value = THIS.id }
+			set_variable = { amount_of_reperations_remaining@SOV = 5 }
+			set_variable = { amount_of_reperations_remaining@USA = 5 }
+			set_variable = { amount_of_reperations_remaining@FRA = 5 }
+			set_variable = { amount_of_reperations_remaining@ENG = 5 }			
+		}
+		78 = { remove_claim_by = ROM }
+		77 = { remove_claim_by = ROM }
+		766 = { remove_claim_by = ROM }
+		#### BULGARIA ###
+		BUL = {
+			add_to_array = { SOV.countries_who_pay_us_reparations = THIS.id }
+			set_variable = { amount_of_reperations_remaining@SOV = 5 }		
+		}
+		108 = { remove_claim_by = BUL }
+		184 = { remove_claim_by = BUL }
+		UNN = { add_named_threat = { threat = -10  name = PARIS_TREATY_RATIFIED } }
+		news_event = cw_historic_events.13
+		event_target:unsc_target = { clr_country_flag = unsc_paris_peace_treaty }
+		set_global_flag = paris_treaty_ratified_by_unsc
+		cw_unsc_clear_junk = yes
+	}
+	
+	
+	
+	
+	#### NEUTRAL AUSTRIA  ####
+	if = {																																											# NEUTRAL AUSTRIA resolution ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_neutral_austria }
+		}
+		every_state = { limit = { is_core_of = AUS } AUS = { transfer_state = PREV } }
+		AUS = {
+			set_politics = {
+				ruling_party = democratic
+				election_frequency = 48
+				elections_allowed = yes
+			}
+			set_popularities = {
+				democratic = 60
+				democratic_socialist = 40
+				communism = 0
+				neutrality = 0
+				unaligned_right = 0
+				colonial = 0
+			}
+			add_ideas = cw_no_military_budget
+			add_ideas = enforced_neutrality
+			add_ideas = enforced_disarnament
+			set_capital = { state = 4 }
+		}
+		AUS = { cw_new_country_notification = yes }
+		event_target:unsc_target = { clr_country_flag = unsc_neutral_austria }
+		cw_unsc_clear_junk = yes
+	}
+	#### KOREAN UNIFICATION ####
+	if = {																																											# KOREAN UNIFICATION resolution ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_korea_reunification }
+			OR = { country_exists = KOR country_exists = PRK }
+		}
+		set_global_flag = unified_korea_established
+		every_state = { limit = { OR = { is_claimed_by = KOR is_core_of = KOR } OR = { is_controlled_by = USA is_controlled_by = SOV is_controlled_by = PRK is_controlled_by = KOR } } KOR = { transfer_state  = PREV } }
+		every_state = { limit = { is_controlled_by = KOR } add_core_of = KOR remove_core_of = PRK }
+		KOR = { set_cosmetic_tag = KOR_UNI }
+		KOR = {
+			if = {
+				limit = { has_idea = cw_non_recognized_state }
+				remove_ideas = cw_non_recognized_state
+			}
+			else_if = {
+				limit = { has_idea = cw_partially_recognized_state }
+				remove_ideas = cw_partially_recognized_state
+			}
+			set_politics = {
+				ruling_party = democratic
+			}
+			set_popularities = {
+				democratic = 25
+				democratic_socialist = 0
+				communism_totalitarian = 25
+				neutrality = 25
+				unaligned_right = 25
+				colonial = 0
+			}
+			set_capital = { state = 525 }
+			drop_cosmetic_tag = yes
+			add_ideas = enforced_neutrality
+			load_oob = KOR_1946
+		}
+		cw_unsc_clear_junk = yes
+	}
+	if = {																																											# KOREAN UNIFICATION resolution ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_korea_reunification }
+			NOT = { AND = { country_exists = KOR country_exists = PRK } }
+		}
+		set_global_flag = unified_korea_established
+		every_state = {
+			limit = {
+				OR = {
+					is_core_of = KOR
+					is_core_of = PRK
+				}
+			}
+			KOR = { transfer_state = PREV }
+		}
+		KOR = {
+			set_party_name = { ideology = unaligned_right long_name = "Kingdom of Great Joseon" name = "Joseon dynasty" }
+			set_politics = {
+				ruling_party = unaligned_right
+			}
+			set_popularities = {
+				democratic = 0
+				democratic_socialist = 20
+				communism = 0
+				communism_totalitarian = 20
+				neutrality = 0
+				unaligned_right = 60
+				colonial = 0
+			}
+			create_country_leader = {
+				name = "Empress Sunjeong"
+				desc = ""
+				picture = ""
+				ideology = despotism
+				expire = 1966.2.3
+				traits = {}
+			}
+			set_capital = { state = 525 }
+			add_ideas = enforced_neutrality
+			load_oob = KOR_1946
+			set_cosmetic_tag = KOR_UNI
+		}
+		news_event = korean_unification.5
+		cw_unsc_clear_junk = yes
+	}
+	#### GERMAN UNIFICATION STALIN NOTE ####
+	if = {																																											# GERMAN UNIFICATION STALIN NOTE resolution ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_german_unification_stalin_note }
+		}
+		every_state = { limit = { is_core_of = GER } GER = { transfer_state = PREV } }
+		every_country = {
+			limit = {
+				is_in_array = {
+					array = global.acc_members
+					value = THIS.id
+				}
+			}
+			unlock_national_focus = FOG_unified_germany_demilitirize_rhineland
+			unlock_national_focus = FOG_unified_germany_prussian_question
+		}
+		if = {
+			limit = {
+				GER = { has_country_flag = proposed_ger_socialist_regime }
+			}
+			GER = {
+				set_politics = {
+					ruling_party = unaligned_right
+					election_frequency = 48
+					elections_allowed = yes
+				}
+				set_popularities = {
+					democratic = 0
+					democratic_socialist = 20
+					communism = 0
+					communism_totalitarian = 20
+					neutrality = 60
+					unaligned_right = 0
+					colonial = 0
+				}
+				create_country_leader = {
+					name = "Kurt Georg Kiesinger"
+					desc = ""
+					picture = "GERNH1.dds"
+					ideology = nationalist_idolg
+					expire = 1973.2.13
+					traits = {}
+				}
+				drop_cosmetic_tag = yes
+				cw_add_to_european_union_observers = yes
+				add_ideas = enforced_neutrality
+				add_ideas = enforced_disarnament
+				clr_country_flag = proposed_ger_socialist_regime
+				news_event = cw_historic_events.6
+			}
+		}
+		if = {
+			limit = {
+				GER = { has_country_flag = proposed_ger_monarchy_regime }
+			}
+			GER = {
+				set_politics = {
+					ruling_party = unaligned_right
+					election_frequency = 48
+					elections_allowed = yes
+				}
+				set_popularities = {
+					democratic = 0
+					democratic_socialist = 20
+					communism = 0
+					communism_totalitarian = 20
+					neutrality = 0
+					unaligned_right = 60
+					colonial = 0
+				}
+				set_party_name = {
+				    ideology = unaligned_right
+				    long_name = "House of Hohenzollern"
+				    name = "Hohenzollern"
+				}
+				create_country_leader = {	#Wilhelm, German Crown Prince
+					name = "Wilhelm III"
+					desc = ""
+					picture = "GERM1.dds"
+					ideology = despotism
+					expire = 1951.7.20
+					traits = { constitutional_monarch }
+				}
+				clr_country_flag = proposed_ger_monarchy_regime
+				cw_add_to_european_union_observers = yes
+				news_event = cw_historic_events.7
+			}
+		}
+		GER = {
+			drop_cosmetic_tag = yes
+			add_ideas = cw_no_military_budget
+			add_ideas = enforced_neutrality
+			add_ideas = enforced_disarnament
+			set_capital = { state = 801 }
+			give_military_access = USA
+			give_military_access = SOV
+			give_military_access = FRA
+			give_military_access = ENG			
+		}
+		event_target:unsc_target = { clr_country_flag = unsc_german_unification_stalin_note }
+		801 = { set_state_name = "Berlin" }
+		set_province_name = {
+		    id = 6521
+		    name = "Berlin"
+		}
+		set_province_name = {
+		    id = 11505
+		    name = "Eberswalde"
+		}
+		cw_unsc_clear_junk = yes
+	}
+	#### PARTITION CHINA ####
+	if = {																																											# PARTITION CHINA resolution ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_partition_resolution_china }
+			country_exists = PRC
+			country_exists = CHI
+		}
+		set_global_flag = unsc_implementing_resolution_flag
+		PRC = { country_event = { id = ccw_events.10 days = 1 } }
+		CHI = { country_event = { id = ccw_events.10 days = 5 } }
+		else_if = {
+			limit = {
+				event_target:unsc_target = { has_country_flag = unsc_partition_resolution_china }
+				NOT = {
+					OR = {
+						country_exists = PRC
+						country_exists = CHI
+					}
+				}
+			}
+			event_target:unsc_target = { clr_country_flag = unsc_partition_resolution_china }
+			cw_unsc_clear_junk = yes
+		}
+		# JUNK and flag are cleared in events
+	}
+	######################### GENERIC RESOLUTIONS #########################
+	#### REQUEST UNRRA AID ####
+	if = {																																											# DEMAND UNSC SANCTIONS ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_generic_request_unraa_aid }
+		}
+		event_target:unsc_initiator = {
+			every_owned_state = {
+				limit = {
+					is_core_of = event_target:unsc_target
+					has_resistance = yes
+				}
+				add_state_modifier = {
+					modifier = {
+						resistance_target = -3.0
+						resistance_decay = 3.0
+						resistance_damage_to_garrison = -0.5
+					}
+				}
+				add_resistance = -30 
+			}
+			activate_targeted_decision = { target = event_target:unsc_target decision = foreign_occupation_recieving_unraa_aid }
+		}
+		cw_unsc_clear_junk = yes
+	}	
+	#### DEMAND UNSC SANCTIONS ####
+	if = {																																											# DEMAND UNSC SANCTIONS ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = {
+				exists = yes
+			 	has_country_flag = unsc_generic_demand_sanctions
+			}
+		}
+		event_target:unsc_target = { cw_unn_sanctions_resolution_effect = yes }
+		news_event = unsc.resolution_news.3
+		event_target:unsc_initiator = { unsc_sanctions_remove_junk = yes }
+		cw_unsc_clear_junk = yes
+	}
+	if = {																																											# DEMAND UNSC SANCTIONS ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = {
+				exists = no
+			 	has_country_flag = unsc_generic_demand_sanctions
+			}
+		}
+		cw_unsc_clear_junk = yes
+	}
+	#### DEMAND UNSC SHUFFLE ####
+	if = {																																											# DEMAND UNSC SHUFFLE ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_generic_demand_unsc_shuffle }
+		}
+		unsc_shuffle_non_permanent = yes
+		cw_unsc_clear_junk = yes
+	}
+	#### REGION RECOGNITION/UNRECOGNITION ####
+	if = {																																											# REGION RECOGNITION/UNRECOGNITION ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_generic_resolution_recognize_region }
+		}
+		event_target:unsc_initiator = {
+			every_controlled_state = {
+				limit = {
+					is_in_array = {
+						array = UNN.region_resolution_states
+						value = THIS.id
+					}
+				}
+				add_core_of = PREV
+			}
+	 		clr_country_flag = unsc_generic_resolution_recognize_region
+	 	}
+		clear_array = UNN.region_resolution_states
+		clear_array = UNN.region_resolution_countries
+		cw_unsc_clear_junk = yes
+	}
+	#### LEGITIMIZE NEW REFERENDUM TERRITORY ####
+	if = {																																											# LEGITIMIZE NEW REFERENDUM TERRITORY ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_requesting_ref_annexation_recognition }
+		}
+		event_target:unsc_target = { every_owned_state = { limit = { has_state_flag = referendum_earned_state } add_core_of = PREV clr_state_flag = referendum_earned_state  } }
+		news_event = unsc.resolution_news.7
+		cw_unsc_clear_junk = yes
+	}
+	#### REMOVE SANCTIONS ####
+	if = {																																											# REMOVE SANCTIONS ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = {
+				exists = yes
+				has_country_flag = unsc_resolution_generic_remove_sanctions
+			}
+		}
+		event_target:unsc_target = { unsc_remove_sanctions = yes }
+		cw_unsc_clear_junk = yes
+	}
+	#### INTERNATIONAL ZONE NON CANAL RESOLUTION ####
+	if = {																																											# INTERNATIONAL ZONE RESOLUTIONL ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_resolution_generic_international_lease_non_canal }
+		}
+		event_target:unsc_target = { country_event = { days = 3 id = unsc.resolution.6 } }
+		set_global_flag = unsc_implementing_resolution_flag
+		# JUNK and flag are cleared in events
+	}	
+	#### INTERNATIONAL ZONE RESOLUTION ####
+	if = {																																											# INTERNATIONAL ZONE RESOLUTIONL ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_resolution_generic_international_lease }
+		}
+		event_target:unsc_target = { country_event = { days = 3 id = unsc.resolution.5 } }
+		set_global_flag = unsc_implementing_resolution_flag
+		# JUNK and flag are cleared in events
+	}
+	#### FOREIGN WITHDRAWAL RULE ####
+	if = {																																											# FOREIGN WITHDRAWAL ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_generic_withdrawal_resolution }
+			check_variable = { UNN.multiple_participant_resolution_members > 0 }
+			event_target:unsc_target = {
+				any_other_country = { any_controlled_state = { is_core_of = PREV } }
+			}
+		}
+		every_country = { limit = { is_in_array = { array = UNN.multiple_participant_resolution value = THIS.id } } country_event = { id = unsc.resolution.4 hours = 3 random_days = 10  } }
+		set_global_flag = unsc_implementing_resolution_flag
+		# JUNK and flag are cleared in events
+		else_if = {
+			limit = {
+				has_event_target = unsc_target
+				event_target:unsc_target = { has_country_flag = unsc_generic_withdrawal_resolution }
+				check_variable = { UNN.multiple_participant_resolution_members < 1 }
+			}
+			cw_unsc_clear_junk = yes
+			clr_global_flag = unsc_implementing_resolution_flag
+		}
+	}
+	#### INDEPENDENT RULE ####
+	if = {																																											# INDEPENDENT RULE ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = generic_recognition_offmap_country }
+		}
+		event_target:unsc_target = { country_event = { days = 3 id = unsc.resolution.3 } }
+		set_global_flag = unsc_implementing_resolution_flag
+		# JUNK and flag are cleared in events
+	}
+	#### Decolonization 1514 Resolution ####
+	if = {																																											# Decolonization 1514 Resolution ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_decolonization_1514_resolution }
+		}
+		cw_activate_topbar_notification_with_un_logo_global = yes
+		set_global_flag = { flag = top_bar_notificaton_africa_resolution value = 1 days = 4 }
+		set_global_flag = decolonization_started
+		news_event = cw_historic_events.44
+		play_song = "deus_ex_the_mole"
+		every_country = {
+			limit = {
+				capital_scope = { is_on_continent = africa }
+				OR = {
+					is_puppet = yes
+					is_subject = yes
+				}
+			}
+			add_ideas = winds_of_change
+		}		
+		every_country = {
+			limit = {
+				capital_scope = { is_on_continent = europe }
+				any_owned_state = {
+					is_on_continent = africa
+				}				
+			}
+			every_owned_state = {
+				limit = {
+					is_on_continent = africa
+					is_island_state = no
+					NOT = { is_core_of = PREV }
+				}
+				remove_core_of = PREV
+				add_province_modifier = { static_modifiers = { untamable_terrain } province = { all_provinces = yes } }
+			}
+			country_event = { id = setup_event.4 days = 2 }		# Actual Resistance initiated by event because does not work directly from here, fml AND DO NOT REMOVE!
+		}
+		for_each_scope_loop = {
+			array = global.countries
+			every_state = {
+				limit = {
+					is_on_continent = africa
+					is_island_state = no
+				}
+				if = {
+					limit = {
+						is_claimed_by = PREV
+						PREV = { exists = no }
+					}
+					add_core_of = PREV
+					remove_claim_by = PREV
+				}
+			}
+		}
+		event_target:neutral_leader = { set_country_flag = economic_aid_africa_allowed }
+		event_target:democratic_leader = { set_country_flag = economic_aid_africa_allowed }
+		event_target:communist_reformist_leader = { set_country_flag = economic_aid_africa_allowed }
+		event_target:communist_leader = { set_country_flag = economic_aid_africa_allowed }
+		event_target:unsc_target = { clr_country_flag = unsc_decolonization_1514_resolution }
+		cw_unsc_clear_junk = yes
+	}
+	#### PEACEKEEPING MISSION ####																																	# PEACEKEEPING MISSION resolution ADOPTED
+	if = {
+	  limit = {
+	    has_event_target = unsc_target
+	    event_target:unsc_target = {
+	      has_country_flag = unsc_police_action_target
+	      has_war = yes
+	    }
+	  }
+		set_global_flag = unsc_implementing_resolution_flag
+		every_country = {
+			limit = {
+				is_in_array = {
+					array = UNN.multiple_participant_resolution
+					value = THIS.id
+				}
+			}
+			country_event = { id = unsc.resolution.2 days = 3 }
+		}
+		if = {
+			limit = {
+				event_target:unsc_initiator = { is_ai = no }
+			}
+			event_target:unsc_initiator = { unsc_increase_peacekeeping_force_amount = yes }
+		}
+		if = {
+			limit = {
+				event_target:unsc_target = { tag = KOR }
+				has_global_flag = korean_war_activated
+			}
+			USA = { play_song = "tibdawn_act_on_instinct" }
+			PRK = { play_song = "we_will_safeguard_the_revolution" }
+			KOR = { play_song = "generals_rescue_ops" }
+		}
+	}
+	if = {
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = {
+				has_country_flag = unsc_police_action_target
+				has_war = no
+			}
+		}
+		cw_unsc_clear_junk = yes
+		clr_global_flag = unsc_military_resolution
+	}	
+	#### POLICE ACTION INCREASE TROOPS ####																										# POLICE ACTION INCREASE TROOP LEVELS ADOPTED
+	if = {
+	  limit = {
+	    has_event_target = unsc_target
+	    event_target:unsc_target = {
+	      has_country_flag = unsc_generic_increase_police_participation
+	      has_war = yes
+	    }
+	  }
+		event_target:unsc_initiator = {
+			set_country_flag = { flag = can_increase_troop_levels value = 1 days = 320 }
+			set_country_flag = { flag = troop_level_request_cooldown value = 1 days = 90 }
+			unsc_increase_peacekeeping_force_amount = yes
+		}
+		event_target:unsc_target = {
+			set_country_flag = { flag = can_recieve_volunteers value = 1 days = 325 }
+		}
+		cw_unsc_clear_junk = yes
+	}
+	##########################################################################
+	#### EXTEND POLICE ACTION ####
+	if = {																																											# EXTEND POLICE ACTION ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = {
+				has_country_flag = unsc_generic_extend_police_action
+				has_war = yes
+			}
+		}
+		event_target:unsc_initiator = {
+			remove_targeted_decision = { target = event_target:unsc_target decision = police_action_timer }
+			set_variable = { police_action_days_remaining = 320 }
+			activate_targeted_decision = { target = event_target:unsc_target decision = police_action_timer }
+			set_country_flag = { flag = un_police_action_allowed value = 1 days = 320 }
+			if = {
+				limit = {
+					is_ai = no
+				}
+				remove_wargoal = {
+					type = un_police_action
+					target = var:event_target:unsc_target.enemies^0
+				}
+				create_wargoal = {
+					type = un_police_action
+					target = var:event_target:unsc_target.enemies^0
+					expire = 320
+				}
+			}			
+			add_named_threat = { threat = 2 name = "Police Action Mandate Extended" }
+		}
+		event_target:unsc_target = {
+			set_variable = { police_action_days_remaining = 320 }
+			every_enemy_country = { remove_targeted_decision = { target = event_target:unsc_target decision = police_action_timer_police_target } }
+			every_enemy_country = { activate_targeted_decision = { target = event_target:unsc_target decision = police_action_timer_police_target } }
+		}
+		news_event = unsc.resolution_news.6
+		cw_unsc_clear_junk = yes
+	}
+	if = {
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = {
+				has_country_flag = unsc_generic_extend_police_action
+				has_war = no
+			}
+		}
+		cw_unsc_clear_junk = yes
+	}
+	#### CONDEM VIOLENCE ####
+	if = {																																											# CONDEM VIOLENCE resolution ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { is_ai = no }
+			event_target:unsc_target = { has_country_flag = unsc_condem_violence }
+		}
+		event_target:unsc_target = { unsc_mark_for_sanctions = yes }
+		news_event = unsc.resolution_news.2
+		cw_unsc_clear_junk = yes		
+	}
+	#### EXPEL FROM UN ####
+	if  = {																																									# EXPEL NON UNSC PARTICIPANT FROM UN ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_expel_from_un }
+			event_target:unsc_target = { is_unsc_member = no }
+		}
+		event_target:unsc_target = {
+			cw_make_unrecognized = yes
+		}
+		event_target:unsc_target = { add_named_threat = { threat = 0.1 name = "Expelled from UN." } }
+		cw_unsc_clear_junk = yes
+	}
+	if = {																																											# EXPEL PERMANENT MEMBER FROM UN ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_expel_from_un }
+			event_target:unsc_target = { is_unsc_member = yes }
+		}
+		news_event = unsc.resolution_news.10
+		### SPECIFIC EFFECTS FOR CHI & PRC
+		if = {
+			limit = {
+				event_target:unsc_target = { tag = CHI }
+				PRC = { exists = yes }
+			}
+			PRC = { drop_cosmetic_tag = yes }
+			CHI = { set_cosmetic_tag = CHI_UNRECOGNIZED }
+		}
+		if = {
+			limit = {
+				event_target:unsc_target = { tag = PRC }
+				CHI = { exists = yes }
+			}
+			PRC = { drop_cosmetic_tag = yes }
+			PRC = { set_cosmetic_tag = PRC_OC_communism_totalitarian }
+			CHI = { drop_cosmetic_tag = yes }
+		}
+		###
+		if = {
+			limit = {
+				has_event_target = unsc_pretender
+			}
+			event_target:unsc_target = { cw_remove_from_unsc = yes }
+			event_target:unsc_pretender = { cw_add_to_unsc_permanent = yes }
+			clear_global_event_target = unsc_pretender
+		}		
+		if = {
+			limit = {
+				has_event_target = unsc_pretender_non_permanent
+			}
+			event_target:unsc_target = { cw_remove_from_unsc = yes }
+			event_target:unsc_pretender = { cw_add_to_unsc_non_permanent = yes }
+			clear_global_event_target = unsc_pretender_non_permanent
+		}	
+		event_target:unsc_target = { add_named_threat = { threat = 0.1 name = "Expelled from UN." } }
+		cw_unsc_clear_junk = yes
+	}
+	#### REQUEST RECOGNITION ####
+	if = {																																											# RECOGNIZE GOVERNMENT resolution ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_requesting_recognition }
+		}
+		event_target:unsc_target = {
+			if = {
+				limit = {
+					has_idea = cw_non_recognized_state
+				}
+				remove_ideas = cw_non_recognized_state
+			}
+			if = {
+				limit = {
+					has_idea = cw_partially_recognized_state
+				}
+				remove_ideas = cw_partially_recognized_state
+			}
+			add_named_threat = { threat = -0.1 name = "Recognized By Security Council." }
+			remove_from_array = {
+				array = global.unsc_unrecognized_countries_array
+				value = THIS.id
+			}
+		}
+		if = {
+			limit = {
+				event_target:unsc_target = {
+					has_country_flag = unsc_requesting_recognition
+					has_variable = twin_country
+				}
+			}
+			event_target:unsc_target = {
+				var:twin_country = {
+					if = {
+						limit = {
+							has_idea = cw_non_recognized_state
+						}
+						remove_ideas = cw_non_recognized_state
+					}
+					if = {
+						limit = {
+							has_idea = cw_partially_recognized_state
+						}
+						remove_ideas = cw_partially_recognized_state
+					}
+					add_named_threat = { threat = -0.1 name = "Recognized By Security Council." }
+					remove_from_array = {
+						array = global.unsc_unrecognized_countries_array
+						value = THIS.id
+					}
+				}
+			}
+		}
+		cw_unsc_clear_junk = yes
+	}
+	#### TRANSFER CORE RESOLUTION ####
+	if = {																																											# Transfer Core Resolution for AI, without diplomatic action implementation ( since AI will not send diplomatic requests that will be rejected ) ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = resolution_generic_transfer_core_state_un }
+			event_target:unsc_target = { is_ai = yes }
+		}
+		event_target:unsc_target = { country_event = { days = 10 id = unsc.resolution.1 } }
+		set_global_flag = unsc_implementing_resolution_flag
+		# JUNK and flag are cleared in events
+	}
+	if = {																																											# Transfer Core Resolution for Human, with diplomatic action implementation ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = resolution_generic_transfer_core_state_un }
+			event_target:unsc_target = { is_ai = no }
+		}
+		event_target:unsc_target = { set_country_flag =  resolution_generic_transfer_core_state_un_implementation }
+		set_global_flag = unsc_implementing_resolution_flag
+		# JUNK and flag are cleared in events
+	}
+	#### ABOLISH CORE RESOLUTION ####
+	if = {																																											# Abolish core when controlled ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = resolution_generic_abolish_core_controlled }
+		}
+		every_country = { limit = { NOT = { has_country_flag = resolution_generic_abolish_core_controlled } } remove_state_core = event_target:requested_core }
+		event_target:unsc_target = { clr_country_flag =  resolution_generic_abolish_core_controlled }
+		clear_global_event_target = requested_core
+		cw_unsc_clear_junk = yes
+	}
+	if = {																																											# Abolish core when NOT controlled ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = resolution_generic_abolish_core_not_controlled }
+		}
+		event_target:requested_core = { remove_core_of = event_target:unsc_target }
+		event_target:unsc_target = { clr_country_flag =  resolution_generic_abolish_core_not_controlled }
+		clear_global_event_target = requested_core
+		cw_unsc_clear_junk = yes
+	}
+	#### DEMAND CORE RESOLUTION ####
+	if = {																																											# Demand core when controlled ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = resolution_generic_request_core_controlled }
+		}
+		if = {
+			limit = {
+				event_target:requested_core = { check_variable = { amount_of_other_cores > 0 } }
+				event_target:unsc_target = {
+					NOT = { OR = { has_government = communism has_government = communism_totalitarian has_government = unaligned_right has_government = neutrality } }
+				}
+			}
+			event_target:requested_core = { set_variable = { state_ref_second_option_votes_percent = 60 } cw_state_ref_initial_setup = yes set_state_flag = un_sponsored_referendum }
+			else = {
+				if = {
+					limit = {
+						OR = {
+							event_target:requested_core = { has_state_flag = leased_non_rec_territory }
+							event_target:requested_core = { has_state_flag = leased_rec_territory }
+						}
+					}
+					event_target:requested_core = {
+						clr_state_flag = leased_rec_territory
+						clr_state_flag = leased_non_rec_territory
+						clear_variable = lease_timer
+						clear_variable = lease_timer_display
+						clear_variable = true_owner
+					}
+				}
+				event_target:requested_core = { add_core_of = event_target:unsc_target }
+				event_target:unsc_target = { clr_country_flag =  resolution_generic_request_core_controlled }
+				clear_global_event_target = requested_core
+			}
+		}
+		event_target:requested_core = { clear_variable = amount_of_other_cores }
+		cw_unsc_clear_junk = yes
+	}
+	if = {																																											# Demand core when NOT controlled ADOPTED
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = resolution_generic_request_core_not_controlled }
+		}
+		event_target:requested_core = { remove_claim_by = event_target:unsc_initiator }
+		event_target:requested_core = { add_core_of = event_target:unsc_initiator }
+		event_target:unsc_target = { clr_country_flag =  resolution_generic_request_core_not_controlled }
+		clear_global_event_target = requested_core
+		cw_unsc_clear_junk = yes
+	}
+	#### CEASEFIRE RESOLUTION ####
+	if = {																																											# Demand truce resolution
+		limit = {
+			has_event_target = unsc_target
+			event_target:unsc_target = { has_country_flag = unsc_resolution_request_truce }
+		}
+		event_target:unsc_target = { clr_country_flag = refused_truce_request }
+		event_target:unsc_target = { set_country_flag = unsc_resolution_demand_truce }
+		set_global_flag = unsc_implementing_resolution_flag
+	}
+}

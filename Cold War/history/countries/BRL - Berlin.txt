@@ -1,0 +1,73 @@
+﻿#https://simple.wikipedia.org/wiki/List_of_mayors_of_Berlin
+capital = 801
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+oob = "GER_1946"
+1946.1.1 = {
+	add_ideas = {
+		city_state
+	}
+	set_politics = {
+		ruling_party = democratic_socialist
+		last_election = "1945.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 60
+		neutrality = 0
+		communism_totalitarian = 40
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Herbert Fechner"
+		desc = ""
+		picture = "BRLHC2.dds"
+		ideology = stalinism_idolg
+		expire = 1974.1.1
+		traits = {}
+	}		
+	create_country_leader = {
+		name = "Friedrich Ebert, Jr."
+		desc = ""
+		picture = "BRLHC1.dds"
+		ideology = stalinism_idolg
+		expire = 1967.1.1
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Oberbürgermeister Willy Brandt"
+		desc = ""
+		picture = "BRLH4.dds"
+		ideology = social_democrat_idolg
+		expire = 1966.1.1
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Oberbürgermeister Otto Suhr"
+		desc = ""
+		picture = "BRLH3.dds"
+		ideology = social_democrat_idolg
+		expire = 1957.1.1
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Oberbürgermeister Walther Schreiber"
+		desc = ""
+		picture = "BRLH2.dds"
+		ideology = social_democrat_idolg
+		expire = 1955.1.1
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Oberbürgermeister Ernst Reuter"
+		desc = ""
+		picture = "BRLH1.dds"
+		ideology = social_democrat_idolg
+		expire = 1953.1.1
+		traits = {}
+	}
+}

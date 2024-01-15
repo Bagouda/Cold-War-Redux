@@ -1,0 +1,182 @@
+cw_military_aid = {
+	cw_decision_ma_aid = {
+
+		icon = generic_prepare_civil_war
+
+		highlight_states = { highlight_state_targets = { state = var:FROM.capital } }
+
+		available = {
+			always = no
+		}
+
+		visible = {
+			FROM = {
+				is_in_array = {
+					array = ROOT.military_aid_countries_array
+					value = THIS.id
+				}
+			}
+		}
+
+		target_trigger = {
+			FROM = {
+				is_in_array = {
+					array = ROOT.military_aid_countries_array
+					value = THIS.id
+				}
+			}
+		}	
+		
+		complete_effect = {
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	cw_decision_ma_increase_aid = {
+
+		icon = generic_prepare_civil_war
+		
+		on_map_mode = map_only
+		highlight_states = { highlight_state_targets = { state = var:FROM.capital } }
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = MILITARY_AID_LEVEL_CHECK
+				NOT = { FROM = { check_variable = { military_aid_level@ROOT = 3 } } }
+			}
+		}
+		
+		selectable_mission = yes
+		days_remove = 30	#30
+		days_re_enable = 0
+
+		custom_cost_trigger = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+				num_of_civilian_factories_available_for_projects  > 5			
+			}		
+			
+		}
+		custom_cost_text = MILITARY_AID_COST		
+
+		visible = {
+			FROM = {
+				NOT = { check_variable = { military_aid_level = 3 } }
+				is_in_array = {
+					array = ROOT.military_aid_countries_array
+					value = THIS
+				}
+			}
+		}
+
+		target_trigger = {
+			FROM = {
+				is_in_array = {
+					array = ROOT.military_aid_countries_array
+					value = THIS
+				}
+			}
+		}
+
+		modifier = {
+			command_power_gain = -0.5
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = "CW_DECISION_MA_INCREASE_AID_EFFECT"
+			FROM = {
+				add_to_variable = { military_aid_level@ROOT = 1 }
+				add_to_variable = { military_aid_cost_to_giver@ROOT = 5 }
+				add_to_variable = { military_aid_effect@ROOT = 0.05 }
+				add_offsite_building = { type = arms_factory level = 2 }				
+			}
+			if = {
+				limit = {
+					is_ai = no
+				}
+				ROOT = {
+					add_to_variable = { military_aid_cost_factories = 5 }
+					subtract_from_variable = { military_aid_cost_fuel = 0.1 }
+					subtract_from_variable = { military_aid_cost_stability = 0.001 }
+					subtract_from_variable = { military_aid_cost_production = 0.01 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 10
+				FROM = {
+					has_war = yes
+					surrender_progress > 0.3
+				}
+			}
+		}
+	}
+	cw_decision_ma_reduce_aid = {
+		icon = generic_prepare_civil_war
+		
+		on_map_mode = map_only
+		highlight_states = { highlight_state_targets = { state = var:FROM.capital } }
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "MILITARY_AID_LEVEL_CHECK_REDUCE"
+				NOT = { FROM  = { check_variable = { military_aid > 1 } check_variable = { military_aid = 1 } } }
+			}
+		}
+		
+		selectable_mission = yes
+		days_remove = 30
+		days_re_enable = 0
+
+		visible = {
+			FROM = {
+				check_variable = { military_aid_level > 1 }
+				is_in_array = {
+					array = ROOT.military_aid_countries_array
+					value = THIS
+				}
+			}	
+		}
+
+		target_trigger = {
+			FROM = {
+				is_in_array = {
+					array = ROOT.military_aid_countries_array
+					value = THIS
+				}
+			}
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = CW_DECISION_MA_REDUCE_AID_EFFECT
+			FROM = {
+				subtract_from_variable = { military_aid_level@ROOT = 1 }
+				subtract_from_variable = { military_aid_cost_to_giver@ROOT = 5 }
+				subtract_from_variable = { military_aid_effect@ROOT = 0.05 }
+				add_offsite_building = { type = arms_factory level = -2 }				
+			}
+			if = {
+				limit = {
+					is_ai = no
+				}
+				ROOT = {
+					add_to_variable = { military_aid_cost_factories = 5 }
+					add_to_variable = { military_aid_cost_fuel = 0.1 }
+					add_to_variable = { military_aid_cost_stability = 0.01 }
+					add_to_variable = { military_aid_cost_production = 0.01 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

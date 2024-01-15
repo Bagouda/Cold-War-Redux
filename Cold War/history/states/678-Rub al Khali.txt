@@ -1,0 +1,25 @@
+state = {
+	id=678
+	local_supplies=0.0 
+	name="STATE_678"
+	state_category = wasteland
+	
+	history = {
+		owner = SAU
+		add_core_of = SAU	
+	
+		set_state_flag = high_resource_potential_oil
+		
+		buildings = {
+			infrastructure = 1
+			
+			4932 = {
+				naval_base = 2
+			}			
+		}
+	}
+	manpower=42
+	provinces={
+		4932 5081 8030 8118 10870 12740 12768 
+	}
+}

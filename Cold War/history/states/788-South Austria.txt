@@ -1,0 +1,30 @@
+state={
+	id=788
+	local_supplies=0.0 
+	name="STATE_788"
+	history = {
+ 	add_to_array = { list_victory_point = 11666 }
+ 	add_to_array = { list_victory_point = 9648 }
+ 	set_variable = { victory_point = 35 }
+		owner = ENG
+		add_core_of = AUS
+		
+		buildings = {
+			infrastructure = 1
+			arms_factory = 2
+			industrial_complex = 1		
+		}		
+		victory_points = {
+			11666 30.0 
+		}
+		victory_points = {
+			9648 5 
+		}		
+	}	
+	provinces={
+		653 3673 6673 6687 6691 9646 9648 9650 9679 11612 
+	}
+	manpower=2595983
+	buildings_max_level_factor=1.000
+	state_category = large_city
+}

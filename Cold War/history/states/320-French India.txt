@@ -1,0 +1,31 @@
+state = {
+	id=320
+	local_supplies=0.0 
+	name="STATE_320"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 10149 }
+ 	set_variable = { victory_point = 5 }
+		owner = FRA
+		add_claim_by = IND
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 2
+			10149 = {
+				naval_base = 1
+			}		
+		}
+		
+		victory_points = {
+			10149 5	#Pondicherry
+		}		
+	###
+		1947.8.15 = {
+			owner = IND
+			add_core_of = IND
+		}
+	}
+	manpower = 286410
+	provinces={ 10149 }
+}

@@ -1,0 +1,26 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_focus_austria_referendum"
+		texturefile = "gfx/interface/cw_focuses/EUU/shared/1950/focus_austria_referendum.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_divide_austria"
+		texturefile = "gfx/interface/cw_focuses/EUU/shared/1950/focus_divide_austria.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_german_austria"
+		texturefile = "gfx/interface/cw_focuses/EUU/shared/1950/focus_german_austria.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_free_austria"
+		texturefile = "gfx/interface/cw_focuses/EUU/shared/1950/focus_free_austria.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_saa_referendum"
+		texturefile = "gfx/interface/cw_focuses/EUU/shared/1950/focus_saa_referendum.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_future_of_saa"
+		texturefile = "gfx/interface/cw_focuses/EUU/shared/1950/focus_future_of_saa.dds"
+	}		
+}

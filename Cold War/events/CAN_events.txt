@@ -1,0 +1,56 @@
+﻿##############
+# CANADA EVENTS #
+##############
+add_namespace = can_events
+news_event = {
+	id = can_events.1		#NFL Joins Canada
+	title = can_events.1.t
+	desc = can_events.1.d
+	picture = GFX_newfoundland_map_flag
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+	name = "Canada Grows"
+	}
+}
+news_event = {
+	id = can_events.2		#NFL Joins UK
+	title = can_events.2.t
+	desc = can_events.2.d
+	picture = GFX_newfoundland_map_flag
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+	name = "Newfoundland is British"
+	}
+}
+news_event = {
+	id = can_events.3		#NFL Joins US
+	title = can_events.3.t
+	desc = can_events.3.d
+	picture = GFX_newfoundland_map_flag
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+	name = "An unexpected outcome"
+	}
+}
+news_event = {
+	id = can_events.4		#NFL Becomes Independent
+	title = can_events.4.t
+	desc = can_events.4.d
+	picture = GFX_newfoundland_map_flag
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+	name = "The people desire self rule"
+	}
+}

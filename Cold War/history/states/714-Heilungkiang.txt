@@ -1,0 +1,30 @@
+state = {
+	id=714
+	local_supplies=0.0 
+	name="STATE_714"
+	state_category=rural
+	history = {
+		owner = SOV
+		add_core_of = CHI
+		add_claim_by= PRC
+		add_claim_by = MAN
+		
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+		}	
+
+		1949.10.1 = {
+		owner = PRC
+		}		
+	}
+	buildings_max_level_factor=1.000
+	manpower=3694191
+	resources={
+		crops = 10
+		oil = 6
+	}
+	provinces={
+		1502 1545 1588 1645 1693 1732 1847 4506 4592 4649 4809 4876 7526 7582 7613 7767 7832 7848 7873 7894 7897 10368 10379 10675 10698 12485 12548 12618 
+	}
+}

@@ -1,0 +1,32 @@
+state = {
+	id=181
+	local_supplies=0.0 
+	name="STATE_181"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 9787 }
+ 	add_to_array = { list_victory_point = 6996 }
+ 	set_variable = { victory_point = 2 }
+		owner = POR
+		add_core_of = POR
+		
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1			
+		}		
+		victory_points = {
+			6996 1
+		}
+		victory_points = {
+			9787 1
+		}
+	}
+	resources={
+		tungsten=150 # was: 300
+	}
+	manpower = 1904600
+	provinces={
+		845 889 938 3969 6818 6996 9787 11885 
+	}
+}

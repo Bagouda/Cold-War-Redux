@@ -1,0 +1,39 @@
+﻿l_english:
+ #################################
+ ###  SOV Historic Ministers   ###
+ ################################# 
+ ### Deputy Ministers
+ sov_hog_stalin:0 "Joseph Stalin"
+ sov_hog_nikolai_bulganin:0 "Nikolai Bulganin"
+ sov_hog_georgi_malenkov:0 "Georgy Malenkov" 
+ sov_hog_nikita_khrushev:0 "Nikita Khrushev" 
+ sov_nikolai_shvernik:0 "Nikolai Shvernik" 
+ ### Foreign Ministers
+ sov_fm_vyacheslav_molotov:0 "Vyacheslav Molotov"
+ sov_fm_andrey_vyshinsky:0 "Andrey Vyshinsky"
+ sov_fm_andrei_gromyko:0 "Andrei Gromyko"
+ sov_fm_andrei_gromyko_desc:0 "$CW_VETO_POWER_TENSION_50_TTL$"
+ sov_fm_boris_ponomare:0 "Boris Ponomarev"
+ ### Defense Ministers
+ sov_dm_joseph_stalin:0 "Joseph Stalin"
+ sov_dm_beria:0 "Lavrentiy Beria"
+ sov_dm_bulganin:0 "Nikolai Bulganin"
+ sov_dm_zhukov:0 "Georgy Zhukov"
+ sov_dm_aleksandr_vasilevsky:0 "Aleksandr Vasilevsky"
+ ### Treasury Ministers
+ sov_tm_sov_maksim_saburov:0 "Maksim Saburov"
+ sov_tm_arseny_zverev:0 "Arseny Zverev"
+ sov_tm_alexei_kosygin:0 "Alexei Kosygin"
+ sov_tm_anastas_mikoyan:0 "Anastas Mikoyan"
+ sov_tm_nikolai_voznesensky:0 "Nikolai Voznesensky"
+ ### Chiefs of Staff
+ sov_chief_zhukov:0 "Georgy Zhukov"
+ sov_chief_aleksandr_vasilevsky:0 "Aleksandr Vasilevsky"
+ ### Personal Adivosrs
+ sov_lavrentiy_beria:0 "Lavrentiy Beria"
+ sov_mikhail_kalinin:0 "Mikhail Kalinin"
+ sov_pa_vsevolod_merkulov:0 "Vsevolod Mekulov"
+ sov_pa_viktor_abakumov:0 "Viktor Abakumov"
+ sov_pa_sergei_kruglov:0 "Sergei Kruglov"
+ sov_pa_nikolay_dudorov:0 "Nikolay Dudorov"
+ 

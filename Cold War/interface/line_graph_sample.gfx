@@ -1,0 +1,37 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_Line_Graph_Background"
+		textureFile = "/gfx/interface/cw_score/line_graph_background.dds"
+	}
+
+	progressbartype = {
+		name = "GFX_Line_Segment_usa"
+		textureFile1 = "/gfx/interface/cw_score/graph_line_full_usa.dds"
+		textureFile2 = "/gfx/interface/cw_score/graph_line_empty.dds"
+		size = {
+			x = 20
+			y = 200
+		}
+		effectFile = "gfx/FX/line_graph.lua"
+		horizontal = yes
+	}
+	
+	progressbartype = {
+		name = "GFX_Line_Segment_sov"
+		textureFile1 = "/gfx/interface/cw_score/graph_line_full_sov.dds"
+		textureFile2 = "/gfx/interface/cw_score/graph_line_empty.dds"
+		size = {
+			x = 20
+			y = 200
+		}
+		effectFile = "gfx/FX/line_graph.lua"
+		horizontal = yes
+	}
+	
+		spriteType = {
+		name = "GFX_Line_Graph_Chart"
+		textureFile = "/gfx/interface/cw_score/line_graph_chart.dds"
+	}
+
+}

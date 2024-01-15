@@ -1,0 +1,36 @@
+state={
+	id=795
+	local_supplies=0.0 
+	name="STATE_795"
+	history={
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SYR
+		add_core_of = SYR
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}		
+		
+		1946.4.17 = {
+			owner = SYR
+			add_core_of = SYR
+		}		
+		1967.6.1 = {
+			owner = ISR
+		}		
+	}	
+	provinces={
+		1065 
+	}
+	resources={
+		crops = 2
+	}	
+	manpower=42000
+	state_category=pastoral
+	buildings_max_level_factor=1.000
+}

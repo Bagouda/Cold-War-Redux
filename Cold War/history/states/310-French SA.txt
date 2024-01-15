@@ -1,0 +1,27 @@
+state = {
+	id=310
+	local_supplies=0.0 
+	name="STATE_310"
+	state_category = pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 12885 }
+ 	set_variable = { victory_point = 5 }
+		owner = FRA
+		buildings = {
+			infrastructure = 1
+			12885 = {
+				naval_base = 1
+			}			
+		}		
+		victory_points = {
+			12885 5 
+		}
+	}
+	resources={
+		crops = 1
+	}	
+	manpower = 47341
+	provinces={
+		4934 12885 
+	}
+}

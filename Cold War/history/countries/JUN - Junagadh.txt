@@ -1,0 +1,40 @@
+﻿capital = 428
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	OOB = JUN_1946
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 70
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 30
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Muhammad Mahabat Khan III"
+		desc = ""
+		picture = "SKMH1.dds"
+		ideology = despotism
+		expire = 1982.1.29
+		traits = {}
+	}	
+}
+
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+}
+1956.10.29 = {	#Suez Crisis
+}
+1961.12.11 = {	#Vietnam War
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+}
+1989.1.9 = {	#Fall of Berlin Wall
+}

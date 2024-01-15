@@ -1,0 +1,1140 @@
+spriteTypes = {
+	#################
+	# PER MINISTERS #	
+	#################
+	spriteType = {
+		name = "GFX_per_mohammad_mosaddegh"
+		texturefile = "gfx/interface/ministers/PER/per_mohammad_mosaddegh.dds"
+	}
+	spriteType = {
+		name = "GFX_per_fazlollah_zahedi"
+		texturefile = "gfx/interface/ministers/PER/per_fazlollah_zahedi.dds"
+	}
+	#################
+	# BUL MINISTERS #	
+	#################
+	spriteType = {
+		name = "GFX_bul_nikola_petkov"
+		texturefile = "gfx/interface/ministers/BUL/bul_nikola_petkov.dds"
+	}
+	spriteType = {
+		name = "GFX_bul_georgi_dimitrov"
+		texturefile = "gfx/interface/ministers/BUL/bul_georgi_dimitrov.dds"
+	}	
+	#################
+	# HUN MINISTERS #
+	#################
+	spriteType = {
+		name = "GFX_hun_imre_nagy"
+		texturefile = "gfx/interface/ministers/HUN/hungary_hog_imre_nagy.dds"
+	}	
+	spriteType = {
+		name = "GFX_ferenc_nagy"
+		texturefile = "gfx/interface/ministers/HUN/hungary_hog_ferenc_nagy.dds"
+	}
+	spriteType = {
+		name = "GFX_lazlo_rajk"
+		texturefile = "gfx/interface/ministers/HUN/hungary_fm_lazlo_rajk.dds"
+	}
+	spriteType = {
+		name = "GFX_matyas_rakosi"
+		texturefile = "gfx/interface/ministers/HUN/hungary_matyas_rakosi.dds"
+	}
+	spriteType = {
+		name = "GFX_tombor_jeno"
+		texturefile = "gfx/interface/ministers/HUN/hungary_tombor_jeno.dds"
+	}
+	spriteType = {
+		name = "GFX_janos_voros"
+		texturefile = "gfx/interface/ministers/HUN/hungary_janos_voros.dds"
+	}
+	#################
+	# GENERIC HOG 1 #
+	#################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_hog_1_european_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_1_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_hog_1_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_1_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_hog_1_african_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_1_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_hog_1_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_1_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_hog_1_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_1_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_hog_1_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_1_south_american.dds"
+	}
+	#################
+	# GENERIC HOG 2 #
+	#################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_hog_2_european_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_2_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_hog_2_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_2_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_hog_2_african_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_2_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_hog_2_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_2_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_hog_2_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_2_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_hog_2_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_2_south_american.dds"
+	}
+	#################
+	# GENERIC HOG 3 #
+	#################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_hog_3_european_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_3_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_hog_3_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_3_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_hog_3_african_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_3_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_hog_3_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_3_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_hog_3_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_3_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_hog_3_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_hog_3_south_american.dds"
+	}
+	##############################
+	# GENERIC FOREIGN MINISTER 1 #
+	##############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_foreign_1_european_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_1_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_foreign_1_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_1_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_foreign_1_african_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_1_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_foreign_1_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_1_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_foreign_1_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_1_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_foreign_1_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_1_south_american.dds"
+	}
+	##############################
+	# GENERIC FOREIGN MINISTER 2 #
+	##############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_foreign_2_european_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_2_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_foreign_2_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_2_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_foreign_2_african_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_2_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_foreign_2_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_2_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_foreign_2_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_2_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_foreign_2_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_2_south_american.dds"
+	}
+	##############################
+	# GENERIC FOREIGN MINISTER 3 #
+	##############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_foreign_3_european_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_3_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_foreign_3_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_3_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_foreign_3_african_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_3_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_foreign_3_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_3_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_foreign_3_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_3_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_foreign_3_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_3_south_american.dds"
+	}
+	##############################
+	# GENERIC FOREIGN MINISTER 4 #
+	##############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_foreign_4_european_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_4_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_foreign_4_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_4_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_foreign_4_african_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_4_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_foreign_4_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_4_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_foreign_4_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_4_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_foreign_4_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_4_south_american.dds"
+	}
+	##############################
+	# GENERIC FOREIGN MINISTER 5 #
+	##############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_foreign_5_european_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_5_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_foreign_5_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_5_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_foreign_5_african_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_5_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_foreign_5_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_5_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_foreign_5_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_5_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_foreign_5_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_5_south_american.dds"
+	}
+	##############################
+	# GENERIC FOREIGN MINISTER 6 #
+	##############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_foreign_6_european_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_6_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_foreign_6_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_6_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_foreign_6_african_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_6_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_foreign_6_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_6_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_foreign_6_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_6_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_foreign_6_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_foreign_6_south_american.dds"
+	}
+	##############################
+	# GENERIC DEFENSE MINISTER 1 #
+	##############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_defense_1_european_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_1_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_defense_1_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_1_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_defense_1_african_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_1_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_defense_1_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_1_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_defense_1_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_1_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_defense_1_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_1_south_american.dds"
+	}	
+	##############################
+	# GENERIC DEFENSE MINISTER 2 #
+	##############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_defense_2_european_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_2_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_defense_2_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_2_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_defense_2_african_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_2_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_defense_2_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_2_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_defense_2_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_2_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_defense_2_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_2_south_american.dds"
+	}
+	##############################
+	# GENERIC DEFENSE MINISTER 3 #
+	##############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_defense_3_european_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_3_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_defense_3_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_3_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_defense_3_african_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_3_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_defense_3_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_3_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_defense_3_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_3_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_defense_3_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_3_south_american.dds"
+	}	
+	##############################
+	# GENERIC DEFENSE MINISTER 4 #
+	##############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_defense_4_european_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_4_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_defense_4_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_4_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_defense_4_african_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_4_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_defense_4_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_4_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_defense_4_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_4_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_defense_4_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_4_south_american.dds"
+	}	
+	##############################
+	# GENERIC DEFENSE MINISTER 5 #
+	##############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_defense_5_european_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_5_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_defense_5_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_5_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_defense_5_african_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_5_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_defense_5_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_5_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_defense_5_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_5_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_defense_5_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_5_south_american.dds"
+	}	
+	##############################
+	# GENERIC DEFENSE MINISTER 6 #
+	##############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_defense_6_european_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_6_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_defense_6_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_6_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_defense_6_african_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_6_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_defense_6_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_6_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_defense_6_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_6_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_defense_6_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_defense_6_south_american.dds"
+	}
+	###############################
+	# GENERIC TREASURY MINISTER 1 #
+	###############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_treasury_1_european_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_1_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_treasury_1_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_1_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_treasury_1_african_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_1_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_treasury_1_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_1_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_treasury_1_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_1_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_treasury_1_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_1_south_american.dds"
+	}
+	###############################
+	# GENERIC TREASURY MINISTER 2 #
+	###############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_treasury_2_european_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_2_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_treasury_2_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_2_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_treasury_2_african_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_2_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_treasury_2_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_2_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_treasury_2_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_2_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_treasury_2_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_2_south_american.dds"
+	}
+	###############################
+	# GENERIC TREASURY MINISTER 3 #
+	###############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_treasury_3_european_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_3_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_treasury_3_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_3_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_treasury_3_african_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_3_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_treasury_3_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_3_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_treasury_3_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_3_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_treasury_3_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_3_south_american.dds"
+	}
+	###############################
+	# GENERIC TREASURY MINISTER 4 #
+	###############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_treasury_4_european_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_4_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_treasury_4_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_4_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_treasury_4_african_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_4_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_treasury_4_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_4_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_treasury_4_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_4_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_treasury_4_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_4_south_american.dds"
+	}
+	###############################
+	# GENERIC TREASURY MINISTER 5 #
+	###############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_treasury_5_european_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_5_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_treasury_5_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_5_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_treasury_5_african_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_5_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_treasury_5_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_5_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_treasury_5_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_5_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_treasury_5_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_5_south_american.dds"
+	}
+	###############################
+	# GENERIC TREASURY MINISTER 6 #
+	###############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_treasury_6_european_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_6_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_treasury_6_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_6_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_treasury_6_african_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_6_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_treasury_6_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_6_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_treasury_6_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_6_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_treasury_6_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_treasury_6_south_american.dds"
+	}
+	#############################
+	# GENERIC CHIEF OF STAFF  1 #
+	#############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_1_european_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_1_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_1_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_1_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_1_african_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_1_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_1_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_1_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_1_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_1_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_1_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_1_south_american.dds"
+	}
+	#############################
+	# GENERIC CHIEF OF STAFF  2 #
+	#############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_2_european_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_2_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_2_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_2_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_2_african_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_2_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_2_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_2_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_2_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_2_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_2_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_2_south_american.dds"
+	}
+	#############################
+	# GENERIC CHIEF OF STAFF  3 #
+	#############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_3_european_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_3_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_3_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_3_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_3_african_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_3_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_3_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_3_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_3_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_3_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_3_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_3_south_american.dds"
+	}
+	#############################
+	# GENERIC CHIEF OF STAFF  4 #
+	#############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_4_european_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_4_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_4_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_4_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_4_african_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_4_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_4_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_4_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_4_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_4_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_4_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_4_south_american.dds"
+	}
+	#############################
+	# GENERIC CHIEF OF STAFF  5 #
+	#############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_5_european_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_5_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_5_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_5_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_5_african_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_5_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_5_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_5_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_5_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_5_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_5_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_5_south_american.dds"
+	}
+	#############################
+	# GENERIC CHIEF OF STAFF  6 #
+	#############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_6_european_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_6_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_6_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_6_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_6_african_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_6_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_6_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_6_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_6_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_6_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_chief_of_staff_6_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_chief_of_staff_6_south_american.dds"
+	}
+	###############################
+	# GENERIC PERSONAL MINISTER 1 #
+	###############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_1_european_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_1_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_1_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_1_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_1_african_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_1_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_1_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_1_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_1_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_1_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_1_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_1_south_american.dds"
+	}
+	###############################
+	# GENERIC PERSONAL MINISTER 2 #
+	###############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_2_european_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_2_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_2_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_2_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_2_african_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_2_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_2_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_2_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_2_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_2_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_2_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_2_south_american.dds"
+	}
+	###############################
+	# GENERIC PERSONAL MINISTER 3 #
+	###############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_3_european_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_3_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_3_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_3_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_3_african_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_3_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_3_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_3_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_3_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_3_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_3_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_3_south_american.dds"
+	}
+	###############################
+	# GENERIC PERSONAL MINISTER 4 #
+	###############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_4_european_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_4_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_4_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_4_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_4_african_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_4_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_4_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_4_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_4_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_4_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_4_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_4_south_american.dds"
+	}
+	###############################
+	# GENERIC PERSONAL MINISTER 5 #
+	###############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_5_european_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_5_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_5_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_5_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_5_african_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_5_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_5_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_5_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_5_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_5_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_5_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_5_south_american.dds"
+	}
+	###############################
+	# GENERIC PERSONAL MINISTER 6 #
+	###############################
+	#EUROPEAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_6_european_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_6_european.dds"
+	}
+	#ARABIC#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_6_middle_eastern_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_6_middle_eastern.dds"
+	}
+	#AFRICAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_6_african_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_6_african.dds"
+	}
+	#INDIAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_6_indian_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_6_indian.dds"
+	}
+	#ASIAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_6_asian_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_6_asian.dds"
+	}
+	#SOUTH AMERICAN#
+	spriteType = {
+		name = "GFX_generic_personal_advisor_6_southamerican_2d"
+		texturefile = "gfx/interface/ministers/generic_personal_advisor_6_south_american.dds"
+	}
+}

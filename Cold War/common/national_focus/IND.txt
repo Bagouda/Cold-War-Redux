@@ -1,0 +1,167 @@
+focus_tree = {
+	id = india_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = IND
+			#always = no
+		}
+	}
+	
+	default = no
+	
+	focus = {
+		id = RAJ_retire_wavell
+		icon = GFX_focus_RAJ_indianisation_of_army
+		x = 8
+		y = 1
+		cost = 1
+		available = {
+		}
+		available_if_capitulated = yes
+
+		completion_reward = {
+			kill_country_leader = yes
+		}
+	}
+	focus = {
+		id = IND_hold_pakistan_referendums
+		available = {
+			cw_holding_referendum = no
+		}
+		prerequisite = { focus = RAJ_retire_wavell }
+		icon = GFX_focus_IND_pakistan_referendum
+		x = 2
+		y = 2
+		relative_position_id = RAJ_retire_wavell
+		cost = 1
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			custom_effect_tooltip = IND_PAKISTAN_REFERENDUMS_TT
+			hidden_effect = {
+				every_owned_state = { limit = { is_claimed_by = PAK } set_variable = { state_ref_second_option_votes_percent = 60 } }
+				if = {
+					limit = {
+						ROOT = { is_ai = yes }
+					}
+					431 = { set_variable = { state_ref_second_option_votes_percent = 40 } }
+				}				
+				every_owned_state = { limit = { is_core_of = PAK } set_state_flag = ref_exclude_cores }
+				PAK = { save_event_target_as = state_ref_second_option_temp }
+				set_country_flag = ref_determine_cores
+				cw_territory_ref_initial_setup = yes
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = IND_incorporate_mysore
+		available = {
+			is_puppet = no
+		}
+		prerequisite = { focus = RAJ_retire_wavell }
+		icon = GFX_goal_tripartite_pact
+		x = -1
+		y = 1
+		relative_position_id = RAJ_retire_wavell
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_state_claim = 425
+			annex_country = {
+				target = MYS
+				transfer_troops = yes
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = IND_incorporate_gujarat
+		available = {
+			is_puppet = no
+			has_war = no
+		}
+		prerequisite = { focus = RAJ_retire_wavell }
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 1
+		y = 1
+		relative_position_id = RAJ_retire_wavell
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_state_claim = 428
+			declare_war_on = {
+				target = JUN
+				type = annex_everything
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = IND_incorporate_hyderabat
+		available = {
+			is_puppet = no
+			has_war = no			
+		}
+		prerequisite = { focus = RAJ_retire_wavell }
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 0
+		y = 2
+		relative_position_id = RAJ_retire_wavell
+		cost = 10
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_state_claim = 427
+			declare_war_on = {
+				target = HYD
+				type = annex_everything
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	continuous_focus_position = { x = 43 y = 155 }
+}

@@ -1,0 +1,203 @@
+defined_text = {
+	name = CU_GET_RESOLUTION_INITIATOR_NAME
+	text = {
+		trigger = {
+			ROOT = {
+				OR = {
+					is_in_array = {
+						array = global.euu_members_array
+						value = THIS.id
+					}
+					is_in_array = {
+						array = global.acc_members
+						value = THIS.id
+					}
+				}
+			}
+		}
+		localization_key = [euu_initiator.GetName]
+	}
+}
+defined_text = {
+	name = CU_GET_RESOLUTION_INITIATOR_ADJECTIVE
+	text = {
+		trigger = {
+			ROOT = {
+				OR = {
+					is_in_array = {
+						array = global.euu_members_array
+						value = THIS.id
+					}
+					is_in_array = {
+						array = global.acc_members
+						value = THIS.id
+					}
+				}
+			}
+		}
+		localization_key = [euu_initiator.GetAdjective]
+	}
+}
+defined_text = {
+	name = CU_GET_RESOLUTION_INITIATOR_FLAG
+	text = {
+		trigger = {
+			ROOT = {
+				OR = {
+					is_in_array = {
+						array = global.euu_members_array
+						value = THIS.id
+					}
+					is_in_array = {
+						array = global.acc_members
+						value = THIS.id
+					}
+				}
+			}
+		}
+		localization_key = [euu_initiator.GetFlag]
+	}
+}
+defined_text = {
+	name = CU_GET_RESOLUTION_TARGET_NAME
+	text = {
+		trigger = {
+			ROOT = {
+				OR = {
+					is_in_array = {
+						array = global.euu_members_array
+						value = THIS.id
+					}
+					is_in_array = {
+						array = global.acc_members
+						value = THIS.id
+					}
+				}
+			}
+		}
+		localization_key = [euu_target.GetName]
+	}
+}
+defined_text = {
+	name = CU_GET_RESOLUTION_TARGET_ADJECTIVE
+	text = {
+		trigger = {
+			ROOT = {
+				OR = {
+					is_in_array = {
+						array = global.euu_members_array
+						value = THIS.id
+					}
+					is_in_array = {
+						array = global.acc_members
+						value = THIS.id
+					}
+				}
+			}
+		}
+		localization_key = [euu_target.GetAdjective]
+	}
+}
+defined_text = {
+	name = CU_GET_RESOLUTION_TARGET_FLAG
+	text = {
+		trigger = {
+			ROOT = {
+				OR = {
+					is_in_array = {
+						array = global.euu_members_array
+						value = THIS.id
+					}
+					is_in_array = {
+						array = global.acc_members
+						value = THIS.id
+					}
+				}
+			}
+		}
+		localization_key = [euu_target.GetFlag]
+	}
+}
+defined_text = {
+	name = CW_CU_MULTIPLE_TARGET_RESOLUTION_GET_NAME		#FOR EEU MEMBERS, DISPLAY OF TARGETS IS DETERMINED BY THE INTERFACE OPENING FLAG, open_euu_window. For other CU's check their respect interface flag to display correct countries.
+	text = {
+		trigger = {
+			has_country_flag = open_euu_window
+			has_variable = global.euu_multiple_target_resolution_counter
+			check_variable = { global.euu_multiple_target_resolution_counter = 1 }
+		}
+		localization_key = "CU_MULTIPLE_TARGET_RESOLUTON_GET_NAME_1"
+	}
+	text = {
+		trigger = {
+			has_country_flag = open_euu_window
+			has_variable = global.euu_multiple_target_resolution_counter
+			check_variable = { global.euu_multiple_target_resolution_counter = 2 }
+		}
+		localization_key = "CU_MULTIPLE_TARGET_RESOLUTON_GET_NAME_2"
+	}
+	text = {
+		trigger = {
+			has_country_flag = open_euu_window
+			has_variable = global.euu_multiple_target_resolution_counter
+			check_variable = { global.euu_multiple_target_resolution_counter = 3 }
+		}
+		localization_key = "CU_MULTIPLE_TARGET_RESOLUTON_GET_NAME_3"
+	}
+	text = {
+		trigger = {
+			has_country_flag = open_euu_window
+			has_variable = global.euu_multiple_target_resolution_counter
+			check_variable = { global.euu_multiple_target_resolution_counter = 4 }
+		}
+		localization_key = "CU_MULTIPLE_TARGET_RESOLUTON_GET_NAME_4"
+	}
+	text = {
+		trigger = {
+			has_country_flag = open_euu_window
+			has_variable = global.euu_multiple_target_resolution_counter
+			check_variable = { global.euu_multiple_target_resolution_counter = 5 }
+		}
+		localization_key = "CU_MULTIPLE_TARGET_RESOLUTON_GET_NAME_5"
+	}
+	text = {
+		trigger = {
+			has_country_flag = open_euu_window
+			has_variable = global.euu_multiple_target_resolution_counter
+			check_variable = { global.euu_multiple_target_resolution_counter = 6 }
+		}
+		localization_key = "CU_MULTIPLE_TARGET_RESOLUTON_GET_NAME_6"
+	}
+	text = {
+		trigger = {
+			has_country_flag = open_euu_window
+			has_variable = global.euu_multiple_target_resolution_counter
+			check_variable = { global.euu_multiple_target_resolution_counter = 7 }
+		}
+		localization_key = "CU_MULTIPLE_TARGET_RESOLUTON_GET_NAME_7"
+	}
+	text = {
+		trigger = {
+			has_country_flag = open_euu_window
+			has_variable = global.euu_multiple_target_resolution_counter
+			check_variable = { global.euu_multiple_target_resolution_counter = 8 }
+		}
+		localization_key = "CU_MULTIPLE_TARGET_RESOLUTON_GET_NAME_8"
+	}
+	text = {
+		trigger = {
+			has_country_flag = open_euu_window
+			has_variable = global.euu_multiple_target_resolution_counter
+			check_variable = { global.euu_multiple_target_resolution_counter = 9 }
+		}
+		localization_key = "CU_MULTIPLE_TARGET_RESOLUTON_GET_NAME_9"
+	}
+	text = {
+		trigger = {
+			has_country_flag = open_euu_window
+			has_variable = global.euu_multiple_target_resolution_counter
+			check_variable = { global.euu_multiple_target_resolution_counter = 10 }
+		}
+		localization_key = "CU_MULTIPLE_TARGET_RESOLUTON_GET_NAME_10"
+	}
+}

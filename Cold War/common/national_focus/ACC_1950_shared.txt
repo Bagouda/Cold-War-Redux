@@ -1,0 +1,1084 @@
+shared_focus = {
+	id = ACC_future_of_austria
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = GERMAN_QUESTION_REQ_TT
+			OR = {
+				has_global_flag = paris_treaty_ratified_by_unsc 
+				has_global_flag = paris_treaty_rejected_by_unsc 
+				has_global_flag = paris_treaty_stalled_by_unsc
+			}
+		}	
+	}
+	bypass = {
+	}
+	
+	icon = GFX_focus_austria_question
+	
+	x = 0
+	y = 0
+	
+	offset = {
+		x = 22
+		y = 1
+		trigger = {
+			tag = USA
+		}
+	}
+	offset = {
+		x = 32
+		y = 1
+		trigger = {
+			tag = FRA
+		}
+	}
+	offset = {
+		x = 35
+		y = 1
+		trigger = {
+			tag = ENG
+		}
+	}	
+	offset = {
+		x = 28
+		y = 1
+		trigger = {
+			tag = SOV
+		}
+	}
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = { has_country_flag = tree_50_loaded  }
+	prerequisite = {}
+	search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+
+	select_effect = {}
+
+	completion_reward = {
+		add_political_power = 50
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = yes
+		}
+		modifier = {
+			add = 500
+			date > 1947.6.1
+			is_historical_focus_on = yes
+		}
+	}
+}
+shared_focus = {
+	id = acc_austria_referendum
+	available = {
+		OR = {
+			tag = SOV
+			tag = USA
+		}
+	}
+	bypass = {
+		OR = {
+			USA = { has_completed_focus = acc_divided_austria }
+			SOV = { has_completed_focus = acc_divided_austria }
+		}
+	}
+	
+	icon = GFX_focus_austria_referendum
+	
+	x = 0
+	y = 2
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = ACC_future_of_austria }
+	mutually_exclusive = { focus = acc_divided_austria focus = acc_unified_austria }
+	relative_position_id = ACC_future_of_austria
+	search_filters = {}
+
+	select_effect = {}
+
+	completion_reward = {
+		add_named_threat = { threat = -10 name = CW_ALLOWED_SELF_DETERMINATION }
+		AUS = { custom_effect_tooltip = ACC_AUSTRIA_REFERENDUM_EFFECT_TT_1 }
+		custom_effect_tooltip = ACC_AUSTRIA_REFERENDUM_EFFECT_TT_2		
+		if = {
+			limit = {
+				USA = { has_completed_focus = acc_austria_referendum }
+				SOV = { has_completed_focus = acc_austria_referendum }
+			}
+			hidden_effect = {
+				every_state = {
+					limit = {
+						is_core_of = AUS
+					}
+					UNN = { transfer_state = PREV }
+				}
+				UNN = {
+					AUS = { save_event_target_as = state_ref_first_option_temp }
+					if = {
+						limit = {
+							is_neighbor_of = GER
+						}
+						GER = { save_event_target_as = state_ref_second_option_temp }
+					}
+					if = {
+						limit = {
+							is_neighbor_of = BAV
+						}
+						BAV = { save_event_target_as = state_ref_second_option_temp }
+					}
+					else = { GER = { save_event_target_as = state_ref_second_option_temp } }							
+					cw_cs_ref_initial_setup = yes
+				}
+			}
+			else = {
+				custom_effect_tooltip = FOCUS_EFFECT_USA_SOV
+			}
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = acc_unified_austria
+	available = {
+		OR = {
+			tag = SOV
+			tag = USA
+		}
+	}
+	bypass = {
+		OR = {
+			USA = { has_completed_focus = acc_divided_austria }
+			SOV = { has_completed_focus = acc_divided_austria }
+		}		
+	}
+	
+	icon = GFX_focus_generic_austria_agreement
+	
+	x = -4
+	y = 2
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = ACC_future_of_austria }
+	mutually_exclusive = { focus = acc_austria_referendum focus = acc_divided_austria }
+	relative_position_id = ACC_future_of_austria
+	search_filters = {}
+
+	select_effect = {}
+
+	completion_reward = {
+		add_named_threat = {  threat = -5  name = CW_THREAT_PROMOTED_UNIFICATION_OF_AUSTRIA }
+		if = {
+			limit = {
+				tag = SOV
+			}
+			every_other_country = {
+				limit = {
+					is_euu_member = yes
+				}
+				add_opinion_modifier = { target = ROOT modifier = eased_tensions }
+			}
+		}
+		if = {
+			limit = {
+				tag = USA
+			}
+			SOV = { add_opinion_modifier = { target = ROOT modifier = eased_tensions } }
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = yes
+		}
+	}
+}
+shared_focus = {
+	id = acc_austrian_state_treaty
+	available = {
+		USA = { has_completed_focus = acc_unified_austria }
+		SOV = { has_completed_focus = acc_unified_austria }
+		unsc_in_session = no
+		unsc_implementing_resolution = no		
+	}
+	bypass = {
+		AUS = { exists = yes }
+	}
+	
+	icon = GFX_generic_austria_un
+	
+	x = 1
+	y = 1
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = acc_unified_austria }
+	relative_position_id = acc_unified_austria
+	search_filters = {}
+
+	select_effect = {
+		ROOT = { save_global_event_target_as = unsc_initiator }
+		AUS = { save_global_event_target_as = unsc_target }
+		AUS = { set_country_flag = unsc_neutral_austria }
+		SOV = { cw_unsc_set_like_resolution = yes }
+		USA = { cw_unsc_set_like_resolution = yes }
+		CZE = { cw_unsc_set_like_resolution = yes }
+		ENG = { cw_unsc_set_like_resolution = yes }
+		FRA = { cw_unsc_set_like_resolution = yes }
+		cw_unsc_start_resolution_effect = yes
+	}
+
+	completion_reward = {
+		custom_effect_tooltip = "ACC_AUSTRIAN_STATE_TREATY_EFFEC_TT"
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = yes
+		}
+	}
+}
+shared_focus = {
+	id = acc_divided_austria
+	available = {
+		OR = {
+			tag = SOV
+			tag = USA
+		}
+	}
+	bypass = {
+		OR = {
+			USA = { has_completed_focus = acc_divided_austria }
+			SOV = { has_completed_focus = acc_divided_austria }
+		}		
+	}
+	
+	icon = GFX_focus_divide_austria
+	
+	x = 4
+	y = 2
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = ACC_future_of_austria }
+	mutually_exclusive = { focus = acc_austria_referendum focus = acc_unified_austria }
+	relative_position_id = ACC_future_of_austria
+	search_filters = {}
+
+	select_effect = {
+		every_other_country = {
+			limit = {
+				OR = {
+					is_euu_member = yes
+					is_euu_observer = yes
+				}
+			}
+			unlock_national_focus = acc_divided_austria
+		}		
+	}
+
+	completion_reward = {
+		add_named_threat = {  threat = 5  name = CW_THREAT_UNILATERAL_ACTION }
+		if = {
+			limit = {
+				tag = SOV
+			}
+			every_other_country = {
+				limit = {
+					is_euu_member = yes
+				}
+				add_opinion_modifier = { target = ROOT modifier = protest_action }
+			}
+		}
+		if = {
+			limit = {
+				tag = USA
+			}
+			SOV = { add_opinion_modifier = { target = ROOT modifier = protest_action } }
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = acc_reunite_with_german_neighbour
+	available = {
+		NOT = { tag = SOV }
+	}
+	bypass = {
+	}
+	
+	icon = GFX_focus_german_austria
+	
+	x = -1
+	y = 1
+	
+	cost = 10
+	
+	dynamic = yes
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = acc_divided_austria }
+	mutually_exclusive = { focus = acc_independent_austria }
+	relative_position_id = acc_divided_austria
+	search_filters = {}
+
+	select_effect = {}
+
+	completion_reward = {
+		add_named_threat = { threat = 5 name = CW_THREAT_UNILATERAL_ACTION }
+		if = {
+			limit = {
+				BAV = { exists = yes }
+			}
+			every_owned_state = {
+				limit = {
+					is_core_of = AUS
+				}
+				BAV = { transfer_state = PREV }
+			}
+			else = {
+				every_owned_state = {
+					limit = {
+						is_core_of = AUS
+					}
+					GER = { transfer_state = PREV }
+				}				
+			}
+		}		
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = acc_independent_austria
+	available = {
+		if = {
+			limit = {
+				tag = SOV
+			}
+			OR = {
+				AUS = { exists = yes }
+				custom_trigger_tooltip = {
+					tooltip = ACC_INDEPENDENT_AUSTRIA_SOV_TRIGGER_TT_SOV
+					all_state = {
+						is_core_of = AUS
+						is_controlled_by = GER
+					}
+					all_state = {
+						is_core_of = AUS
+						is_controlled_by = BAV
+					}					
+				}
+			}
+		}
+	}
+	bypass = {
+	}
+	
+	icon = GFX_focus_free_austria
+	
+	x = 1
+	y = 1
+	
+	cost = 10
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = acc_divided_austria }
+	mutually_exclusive = { focus = acc_reunite_with_german_neighbour }
+	relative_position_id = acc_divided_austria
+	search_filters = {}
+
+	select_effect = {
+		if = {
+			limit = {
+				tag = SOV
+			}
+			news_event = { id = cw_non_historic_news.21 days = 70 }
+		}
+	}
+
+	completion_reward = {
+		if = {
+			limit = {
+				tag = SOV
+			}
+			custom_effect_tooltip = ACC_INDEPENDENT_AUSTRIA_SOV_EFFECT_TT
+			add_named_threat = { threat = 5 name = CW_THREAT_UNILATERAL_ACTION }
+			hidden_effect = {
+				create_dynamic_country = {
+					original_tag = AUS
+					copy_tag = AUS
+					ROOT = { PREV = { save_event_target_as = new_country } }
+				}
+				every_owned_state = {
+					limit = {
+						is_core_of = AUS
+					}
+					event_target:new_country = { transfer_state = PREV }
+				}
+				event_target:new_country = { 
+					cw_new_country_notification = yes
+					cw_make_unrecognized = yes
+				}
+				puppet = event_target:new_country
+			}
+		}
+		if = {
+			limit = {
+				NOT = { tag = SOV }
+				AUS = { exists = no }
+			}
+			release = AUS
+			give_guarantee = AUS
+			hidden_effect = {
+				AUS = {
+					cw_new_country_notification = yes
+					cw_make_unrecognized = yes
+					set_capital = { state = 152 }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						OR = {
+							has_government = communism_totalitarian
+							has_government = communism
+						}
+					}
+					every_country_with_original_tag = {
+						original_tag_to_check = AUS
+						limit = {
+							OR = {
+								has_government = communism_totalitarian
+								has_government = communism
+							}
+						}
+						save_event_target_as = THE_OTHER_AUSTRIA
+					}
+					every_owned_state = {
+						limit = {
+							is_core_of = AUS
+						}
+						event_target:THE_OTHER_AUSTRIA = { transfer_state = PREV }
+					}
+					else = {
+						every_country_with_original_tag = {
+							original_tag_to_check = AUS
+							limit = {
+								NOT = {
+									OR = {
+										has_government = communism_totalitarian
+										has_government = communism
+									}
+								}
+							}
+							save_event_target_as = THE_OTHER_AUSTRIA
+						}
+						every_owned_state = {
+							limit = {
+								is_core_of = AUS
+							}
+							event_target:THE_OTHER_AUSTRIA = { transfer_state = PREV }
+						}					
+					}
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = acc_future_of_europe
+	available = {
+		date > 1954.1.1
+		OR = {
+			tag = FRA
+			tag = GER
+		}
+	}
+	bypass = {
+	}
+	
+	icon = GFX_SOV_stalin_note
+	
+	x = 0
+	y = 3
+	
+	cost = 5
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {
+		OR = {
+			tag = FRA
+			tag = GER
+		}		
+	}
+	prerequisite = { focus = ACC_future_of_austria  }
+	relative_position_id = ACC_future_of_austria
+	search_filters = {}
+
+	select_effect = {}
+
+	completion_reward = {
+		add_political_power = 100
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = yes
+		}
+	}
+}
+shared_focus = {
+	id = acc_establish_ecsc
+	available = {
+		OR = {
+			tag = FRA
+			tag = GER
+		}
+	}
+	bypass = {
+	}
+	
+	icon = GFX_SOV_stalin_note
+	
+	x = 0
+	y = 1
+	
+	cost = 10
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = acc_future_of_europe }
+	relative_position_id = acc_future_of_europe
+	search_filters = {}
+
+	select_effect = {
+	}
+
+	completion_reward = {
+		custom_effect_tooltip = FOCUS_EFFECT_FRA_GER
+		if = {
+			limit = {
+				has_global_flag = ACC_active
+			}
+			every_country = {
+				limit = {
+					is_euu_observer = yes
+				}
+				cw_remove_from_european_union_observers = yes
+			}		
+			USA = {
+				if = {
+					limit = {
+						is_euu_member = yes
+					}
+					cw_remove_from_european_union = yes
+				}
+			}
+			SOV = {
+				if = {
+					limit = {
+						is_euu_member = yes
+					}
+					cw_remove_from_european_union = yes
+				}
+				if = {
+					limit = {
+						is_euu_observer = yes
+					}
+					cw_remove_from_european_union_observers = yes
+				}
+			}
+			ENG = {
+				if = {
+					limit = {
+						is_euu_member = yes
+					}
+					cw_remove_from_european_union = yes
+				}
+				if = {
+					limit = {
+						is_euu_observer = yes
+					}
+					cw_remove_from_european_union_observers = yes
+				}			
+			}
+			if = {
+				limit = {
+					BAV = { exists = yes }
+				}
+				BAV = { cw_add_to_european_union_observers = yes }
+			}
+			hidden_effect = {
+				clr_global_flag = ACC_active
+				set_global_flag = ECSC_active
+				clear_array = euu_members_array_acc
+				set_variable = { global.euu_president = EUU.id }
+				EUU = { set_cosmetic_tag = EUU_ECSC }
+				ENG = { cw_add_to_european_union_observers = yes }
+				news_event = cw_historic_events.42
+			}
+		}
+		if = {
+			limit = {
+				is_euu_member = no
+			}
+			cw_add_to_european_union = yes
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = yes
+		}
+	}
+}
+shared_focus = {
+	id = euu_nato_membership
+	available = {
+		NOT = {
+			OR = {
+				has_government = communism
+				has_government = communism_totalitarian
+			}
+		}
+		USA  = { is_faction_leader = yes }
+		cw_holding_referendum = no
+	}
+	bypass = {
+	}
+	
+	icon = GFX_goal_invite_western_european_allies
+	
+	x = -1
+	y = 1
+	
+	cost = 5
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = acc_establish_ecsc }
+	relative_position_id = acc_establish_ecsc
+	mutually_exclusive = { focus = euu_join_weu_faction }
+	search_filters = {}
+
+	select_effect = {}
+
+	completion_reward = {
+		if = {
+			limit = {
+				NOT = { tag = USA }
+			}
+			custom_effect_tooltip = EUU_NATO_MEMBERSHIP_EFFECT_TT
+			hidden_effect = {
+				set_country_flag = join_faction_referendum
+				set_variable = { requested_faction_leader = USA.id }
+				set_variable = { country_ref_first_option_votes_percent = 60 }
+				cw_country_yes_no_ref_initial_setup = yes
+			}			
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = yes
+		}
+	}
+}
+shared_focus = {
+	id = euu_nato_membership_intervene_in_korea
+	available = {
+		PRK = { has_war_with = UNN }
+	}
+	bypass = {
+	}
+	
+	icon = GFX_focus_generic_protect_korea
+	
+	x = -2
+	y = 1
+	
+	cost = 5
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = euu_nato_membership }
+	relative_position_id = euu_nato_membership
+	search_filters = {}
+
+	select_effect = {}
+
+	completion_reward = {
+		KOR = { cw_allow_non_unsc_volunteers = yes }
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = yes
+		}
+	}
+}
+shared_focus = {
+	id = euu_join_weu_faction
+	available = {
+		if = {
+			limit = {
+				NOT = { tag = FRA }
+			}
+			FRA  = { is_faction_leader = yes }			
+		}
+	}
+	bypass = {
+	}
+	
+	icon = GFX_SOV_stalin_note
+	
+	x = 1
+	y = 1
+	
+	cost = 10
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = acc_establish_ecsc }
+	relative_position_id = acc_establish_ecsc
+	mutually_exclusive = { focus = euu_nato_membership }
+	search_filters = {}
+
+	select_effect = {}
+
+	completion_reward = {
+		if = {
+			limit = {
+				tag = FRA
+			}
+			create_faction = "European Defense Community"
+			else = {
+				custom_effect_tooltip = EUU_WEU_MEMBERSHIP_EFFECT_TT
+				hidden_effect = {
+					set_country_flag = join_faction_referendum
+					set_variable = { requested_faction_leader = FRA.id }
+					set_variable = { country_ref_first_option_votes_percent = 50 }
+					cw_country_yes_no_ref_initial_setup = yes
+				}
+				reverse_add_opinion_modifier = { target = FRA modifier = took_stand_for_us }
+			}
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = euu_join_weu_faction_intervene_in_greece
+	available = {
+		GRE = { has_civil_war = yes }
+	}
+	bypass = {
+	}
+	
+	icon = GFX_focus_generic_protect_greek_kingdom
+	
+	x = 2
+	y = 1
+	
+	cost = 5
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = euu_join_weu_faction }
+	relative_position_id = euu_join_weu_faction
+	search_filters = {}
+
+	select_effect = {}
+
+	completion_reward = {
+		GRE = { cw_allow_non_unsc_volunteers = yes }
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = euu_future_of_saarland
+	available = {
+		OR = {
+			tag = GER
+			tag = FRA
+		}
+	}
+	bypass = {
+		SAA = { exists = yes }
+	}
+	
+	icon = GFX_focus_future_of_saa
+	
+	x = 0
+	y = 2
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = acc_establish_ecsc }
+	relative_position_id = acc_establish_ecsc
+	search_filters = {}
+
+	select_effect = {}
+
+	completion_reward = {
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = yes
+		}
+	}
+}
+shared_focus = {
+	id = euu_future_of_saarland_integrate_to_fra
+	available = {
+		euu_in_session = no
+		euu_implementing_resolution = no
+	}
+	bypass = {
+	}
+	
+	icon = GFX_focus_french_saarland
+	
+	x = -1
+	y = 1
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = euu_future_of_saarland }
+	relative_position_id = euu_future_of_saarland
+	mutually_exclusive = { focus = euu_future_of_saarland_sov_referendum }
+	search_filters = {}
+
+	select_effect = {
+		HOL = { 51 = { cultural_union_generic_transfer_territory = yes } }
+		FRA = { set_country_flag = hate_cultural_union_resolution }
+		ENG = { set_country_flag = like_cultural_union_resolution }
+		USA = { set_country_flag = abstain_cultural_union_resolution }
+		cw_euu_start_resolution_effect = yes
+	}
+
+	completion_reward = {
+		if = {
+			limit = {
+				SAA = { exists = yes }
+			}
+			effect_tooltip = {
+				FRA = { 850 = { cultural_union_generic_transfer_territory = yes } }
+			}
+			else = {
+				850 = { add_core_of = FRA }
+			}
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = euu_future_of_saarland_sov_referendum
+	available = {
+		SAA = { exists = yes }
+	}
+	bypass = {
+	}
+	
+	icon = GFX_focus_saa_referendum
+	
+	x = 1
+	y = 1
+	
+	cost = 10
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = euu_future_of_saarland }
+	relative_position_id = euu_future_of_saarland
+	mutually_exclusive = { focus = euu_future_of_saarland_integrate_to_fra }
+	search_filters = {}
+
+	select_effect = {}
+
+	completion_reward = {
+		if = {
+			limit = {
+				is_historical_focus_on = yes
+			}
+			SAA = { set_country_flag = { flag = ref_favor_third_option value = 1 days = 90 } }
+		}
+		850 = { add_claim_by = GER }
+		SAA = { cw_cs_ref_initial_setup = yes }
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = yes
+		}
+	}
+}
+shared_focus = {
+	id = euu_establish_eec
+	available = {
+		date > 1958.1.1
+	}
+	bypass = {
+	}
+	
+	icon = GFX_SOV_stalin_note
+	
+	x = 0
+	y = 2
+	
+	cost = 12
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = euu_future_of_saarland_sov_referendum focus = euu_future_of_saarland_integrate_to_fra }
+	relative_position_id = euu_future_of_saarland
+	search_filters = {}
+
+	select_effect = {}
+
+	completion_reward = {
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = yes
+		}
+	}
+}

@@ -1,0 +1,24 @@
+
+state={
+	id=240
+	local_supplies=0.0 
+	name="STATE_240"
+
+	history={
+		buildings = {
+			infrastructure = 3
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+	}
+	resources={
+		crops = 1
+	}
+	provinces={
+		473 534 3492 6432 6481 6517 6577 9424 9489 9518 11439 11500 
+	}
+	manpower=1364537
+	buildings_max_level_factor=1.000
+	state_category=devestated_wasteland
+}

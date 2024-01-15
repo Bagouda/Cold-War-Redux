@@ -1,0 +1,42 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_event_morocco_muhammad_v"
+		texturefile = "gfx/event_pictures/event_morocco_muhammad_v.dds"
+	}
+	spriteType = {
+		name = "GFX_event_peaceful_protest_violent"
+		texturefile = "gfx/event_pictures/event_generic_protest_violent.dds"
+	}
+	spriteType = {
+		name = "GFX_event_peaceful_protest"
+		texturefile = "gfx/event_pictures/event_generic_protest.dds"
+	}
+	spriteType = {
+		name = "GFX_harvest_image"
+		texturefile = "gfx/event_pictures/event_harvest.dds"
+	}
+	spriteType = {
+		name = "GFX_map_ukraine"
+		texturefile = "gfx/event_pictures/event_pic_small_ukraine.dds"
+	}
+	spriteType = {
+		name = "GFX_ike_nixon"
+		texturefile = "gfx/event_pictures/usa/ike_and_nixon.dds"
+	}
+	spriteType = {
+		name = "GFX_unamerican_committee"
+		texturefile = "gfx/event_pictures/usa/unamerican_committee.dds"
+	}
+	spriteType = {
+		name = "GFX_stalin_and_mao"
+		texturefile = "gfx/event_pictures/sov/event_stalin_and_mao.dds"
+	}
+	spriteType = {
+		name = "GFX_event_peng_dehuai"
+		texturefile = "gfx/event_pictures/prc/event_peng_dehuai.dds"
+	}
+	spriteType = {
+		name = "GFX_event_weapons_cache"
+		texturefile = "gfx/event_pictures/state_event_weapon_cache.dds"
+	}	
+}

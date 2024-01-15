@@ -1,0 +1,221 @@
+﻿division_template = {
+	name = "Royal Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		mechanized = { x = 2 y = 0 }
+		artillery_brigade = { x = 0 y = 1 }
+		artillery_brigade = { x = 1 y = 1 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}	
+}
+division_template = {
+	name = "Royal Armour Division"
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 2 y = 0 }
+		mechanized = { x = 0 y = 1 }
+		mechanized = { x = 1 y = 1 }
+		mechanized = { x = 2 y = 1 }
+	}
+	support = {
+        engineer = { x = 0 y = 0 }
+		logistics_company = { x = 0 y = 0 }
+	}	
+}
+division_template = {
+	name = "Colonial Infantry"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+	}
+	support = {
+		military_police = { x = 0 y = 0 }
+	}
+}
+units = {
+	# Colonial Garrisons #
+	# Singapore
+	division = {
+		name = "Singapore Colonial Garrison"
+		location = 12299
+		division_template = "Colonial Infantry"
+	}
+	division = {
+		location = 12299
+		division_template = "Royal Infantry Division"
+	}
+	# Egypt
+	division = {
+		name = "Egypt Colonial Garrison"
+		location = 7011
+		division_template = "Colonial Infantry"
+	}
+	division = {
+		location = 7011
+		division_template = "Royal Infantry Division"
+	}	
+	division = {
+		name = "Suez Colonial Garrison"
+		location = 12049
+		division_template = "Colonial Infantry"
+	}
+	# Hong Kong
+	division = {
+		name = "Hong Kong Colonial Garrison"
+		location = 10062
+		division_template = "Colonial Infantry"
+	}
+	# Cyprus
+	division = {
+		name = "Cyprus Colonial Garrison"
+		location = 7193
+		division_template = "Colonial Infantry"
+	}
+	#Malta
+	division = {
+		name = "Malta Colonial Garrison"
+		location = 12003
+		division_template = "Colonial Infantry"
+	}
+	# Palestine
+	division = {
+		name = "Palestine Colonial Garrison"
+		location = 4206
+		division_template = "Colonial Infantry"
+	}
+	# Jordan
+	division = {
+		name = "Jordan Colonial Garrison"
+		location = 7151
+		division_template = "Colonial Infantry"
+	}
+	# Yemen
+	division = {
+		name = "Aden Colonial Garrison"
+		location = 5074
+		division_template = "Colonial Infantry"
+	}
+	# Sudan
+	division = {
+		name = "Sudan Colonial Garrison"
+		location = 12806
+		division_template = "Colonial Infantry"
+	}
+	# Kenya
+	division = {
+		name = "Kenya Colonial Garrison"
+		location = 5210
+		division_template = "Colonial Infantry"
+	}
+	# Nigeria
+	division = {
+		name = "Nigeria Colonial Garrison"
+		location = 2050
+		division_template = "Colonial Infantry"
+	}
+	### Regular Troops - British Isles ###
+	division = {
+		location = 4135
+		division_template = "Royal Infantry Division"
+	}	
+	division = {
+		location = 3379
+		division_template = "Royal Infantry Division"
+	}	
+	division = {
+		location = 6103
+		division_template = "Royal Infantry Division"
+	}
+	division = {
+		location = 6103
+		division_template = "Royal Infantry Division"
+	}
+	division = {
+		location = 6103
+		division_template = "Royal Infantry Division"
+	}
+	division = {
+		location = 6103
+		division_template = "Royal Armour Division"
+	}
+	### Regular Troops - West German Garrison ###
+	division = {
+		location = 9320
+		division_template = "Royal Infantry Division"
+	}
+	division = {
+		location = 6298
+		division_template = "Royal Infantry Division"
+	}
+	division = {
+		location = 9264
+		division_template = "Royal Infantry Division"
+	}
+	division = {
+		location = 9264
+		division_template = "Royal Armour Division"
+	}
+	division = {
+		location = 9375
+		division_template = "Royal Infantry Division"
+	}
+	division = {
+		location = 11468
+		division_template = "Royal Infantry Division"
+	}
+	division = {
+		location = 11402
+		division_template = "Royal Infantry Division"
+	}
+	division = {
+		location = 6570
+		division_template = "Royal Infantry Division"
+	}
+	division = {
+		location = 6513
+		division_template = "Royal Armour Division"
+	}	
+}
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_3
+			creator = "ENG"
+		}
+		requested_factories = 2
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "ENG"
+		}
+		requested_factories = 2
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_3
+			creator = "ENG"
+		}
+		requested_factories = 1
+	}		
+	add_equipment_production = {
+		equipment = {
+			type = mechanized_equipment_3
+			creator = "ENG"
+		}
+		requested_factories = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = medium_tank_equipment_3
+			creator = "ENG"
+		}
+		requested_factories = 1
+	}
+}

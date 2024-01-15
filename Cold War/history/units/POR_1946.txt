@@ -1,0 +1,100 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Infantry Division"		# Infantry Division with AA capability
+	#division_names_group = POR_INF_01
+	# Note: each regiment could also mobilize a 3rd battalion if called up
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		anti_air_brigade = { x = 2 y = 0 }
+		anti_air_brigade = { x = 2 y = 1 }
+		anti_air_brigade = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Light Infantry"		# light infantry formation
+	#division_names_group = POR_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Colonial Infantry" 		# full size infantry division with less equipment need
+	#division_names_group = POR_INF_01
+	# Note: Cavalry regiments included about 5 squadrons/companies
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+
+units = {
+	###### GOA GARRISON ######
+	division = {
+		name = "Goa Garrision"
+		location = 1273
+		division_template = "Infantry Division"
+	}
+	###### MACAU GARRISON ######
+	division = {
+		name = "Macau Garrision"
+		location = 4189
+		division_template = "Infantry Division"
+	}	
+	###### Exército Portugues (CO: Cabral) #####
+	# Governo Militar Portugues (CO: Cunha) #
+	division = {
+		name = "2nd Infantry division"
+		location = 9817
+		division_template = "Infantry Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = { 
+		name = "3rd infantry division"
+		location = 12958
+		division_template = "Light Infantry"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	division = { 
+		name = "5th infantry division"
+		location = 12935
+		division_template = "Light Infantry"
+		start_experience_factor = 0.3
+	}
+
+	# 1a Distrito Militar (CO: Junior) #
+	division = { 
+		name = "4th infantry division"
+		location = 1552
+		division_template = "Colonial Infantry"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+
+	}
+	
+}
+
+
+
+### Starting Production ###

@@ -1,0 +1,41 @@
+state = {
+	id=130
+	local_supplies=0.0 
+	name="STATE_130"
+	state_category = metropolis
+	history = {
+ 	add_to_array = { list_victory_point = 9379 }
+ 	add_to_array = { list_victory_point = 11297 }
+ 	add_to_array = { list_victory_point = 9315 }
+ 	set_variable = { victory_point = 28 }
+		owner = ENG
+		add_core_of = ENG
+		buildings = {
+			infrastructure = 5
+			arms_factory = 1
+			industrial_complex = 1
+			air_base = 3
+			dockyard  = 2
+			11297 = {
+				naval_base = 1
+			}			
+		}		
+		victory_points = {
+			9315 3
+		}
+		victory_points = {
+			11297 10 
+		}
+		victory_points = {
+			9379 15 
+		}
+	}
+	resources={
+		steel=71 # was: 120
+		crops = 5
+	}
+	manpower = 4762495
+	provinces={
+		6268 9269 9315 9332 9379 9397 11297 11317 11382 
+	}
+}

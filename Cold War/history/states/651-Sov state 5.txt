@@ -1,0 +1,30 @@
+state = {
+	id=651
+	local_supplies=0.0 
+	name="STATE_651" # Ufa
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 1278 }
+ 	add_to_array = { list_victory_point = 4354 }
+ 	set_variable = { victory_point = 6 }
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+		}
+		
+		victory_points = {
+			4354 1 
+		}
+		victory_points = {
+			1278 5
+		}
+	}
+	manpower = 2552075
+	provinces={
+		273 291 1258 1278 1305 3289 4283 4354 6285 7237 7416 7431 7444 9349 10226 12130 12172 
+	}
+}

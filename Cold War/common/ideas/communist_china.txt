@@ -1,0 +1,327 @@
+ideas = {
+	hidden_ideas = {
+		PRC_enforce_eight_points = {
+
+			picture = prc_the_long_march
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				compliance_gain = 0.10
+			}
+		}	
+	}
+	country = {	
+		PRC_uneducated_rural_population_4 = {
+
+			picture = generic_army_war_college
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = -0.15
+				production_factory_efficiency_gain_factor = -0.15
+				production_factory_start_efficiency_factor = -0.15
+				conversion_cost_civ_to_mil_factor = 0.15
+				research_speed_factor = -0.15
+			}
+		}
+		PRC_uneducated_rural_population_5 = {
+
+			picture = generic_army_war_college
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = -0.25
+				production_factory_efficiency_gain_factor = -0.25
+				production_factory_start_efficiency_factor = -0.25
+				conversion_cost_civ_to_mil_factor = 0.25
+				research_speed_factor = -0.25
+			}
+		}	
+		PRC_anti_rightist_campaign_idea = {
+
+			picture = officers_purged
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.25
+				communism_totalitarian_drift = 0.30
+				communism_drift = 0.15
+				stability_weekly = -0.01
+			}
+		}
+		PRC_hundread_flowers_movement_idea_2 = {
+
+			picture = jap_supremacy_of_technology
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = -0.25
+				democratic_drift = 0.10
+				communism_drift = 0.15
+				max_planning = 0.10
+				research_speed_factor = 0.10
+			}
+		}		
+		PRC_hundread_flowers_movement_idea = {
+
+			picture = jap_supremacy_of_technology
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = -0.25
+				unaligned_right_drift = 0.30
+				democratic_drift = 0.30
+				army_leader_start_level = 1
+				army_leader_start_attack_level= 1
+				army_leader_start_planning_level= 1
+				army_leader_start_logistics_level= 1
+				max_planning = 0.30
+				research_speed_factor = 0.30
+			}
+		}	
+		PRC_demoralized_intellectuals = {
+
+			picture = jap_supremacy_of_will
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				drift_defence_factor = 0.25
+				army_leader_start_level = -5
+				army_leader_start_attack_level= -5
+				army_leader_start_planning_level= -5
+				army_leader_start_logistics_level= -5
+				max_planning = -0.50
+				research_speed_factor = -0.50
+			}
+		}	
+		PRC_danwei_idea = {
+
+			picture = generic_production_bonus
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+				consumer_goods_factor = 0.05
+			}
+		}
+		PRC_long_march_expirience = {
+
+			picture = prc_the_long_march
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_org_factor = 0.3
+				army_morale_factor = 0.3
+				out_of_supply_factor = -0.10
+				terrain_penalty_reduction = 0.10
+				army_speed_factor = 0.10
+			}
+		}
+		PRC_mao_land_reform_with_compensation = {
+
+			picture = HUN_treaty_of_triannon
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription_factor = 0.30
+				war_support_weekly = 0.25
+				resistance_damage_to_garrison_on_our_occupied_states = 0.30
+				resistance_growth_on_our_occupied_states = 0.30
+				consumer_goods_factor = 0.05
+				mobilization_speed = 0.1
+			}
+		}
+		PRC_mao_land_reform_no_compensation = {
+
+			picture = tur_tdpa
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				conscription_factor = 0.30
+				war_support_weekly = 0.30
+				resistance_damage_to_garrison_on_our_occupied_states = 0.20
+				resistance_growth_on_our_occupied_states = 0.20
+				consumer_goods_factor = -0.05
+			}
+		}
+		PRC_banditry = {
+
+			picture = generic_purge
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = -0.10
+				war_support_factor = -0.10
+			}
+		}
+		PRC_nationalist_mismanagment_5 = {
+
+			picture = ROM_king_carol_emptied_accounts
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = -0.30
+				production_speed_buildings_factor = -0.50
+				consumer_goods_factor = 0.25
+			}
+		}
+		PRC_nationalist_mismanagment_4 = {
+
+			picture = ROM_king_carol_emptied_accounts
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = -0.20
+				production_speed_buildings_factor = -0.30
+				consumer_goods_factor = 0.20
+			}
+		}		
+		PRC_defecting_nationalists = {
+
+			picture = tfv_can_conscription_crisis
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				unaligned_right_drift = 0.05 
+				non_core_manpower = 0.25
+			}
+		}		
+	}
+}

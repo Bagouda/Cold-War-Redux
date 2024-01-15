@@ -1,0 +1,420 @@
+﻿capital = 613 # Nanjing
+set_variable = { twin_country = PRC.id }	#Communist China
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+save_global_event_target_as = neutral_leader
+set_country_flag = neutral_leader_flag
+set_major = yes
+set_country_flag = police_action_blocked
+set_convoys = 20
+set_research_slots = 3
+####start tech####
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons2 = 1
+	infantry_weapons1 = 1
+	improved_infantry_weapons = 1
+	improved_infantry_weapons_2 = 1
+	infantry_at = 1
+	infantry_at2 = 1
+	advanced_infantry_weapons = 1
+	advanced_infantry_weapons2 = 1
+	marines = 1
+	paratroopers = 1
+	tech_mountaineers = 1
+	tech_special_forces = 1
+	jungle_warfare = 1
+	mountain_warfare = 1
+	night_vision = 1
+	support_weapons = 1
+	support_weapons2 = 1
+	support_weapons3 = 1
+	support_weapons4 = 1
+	motorised_infantry = 1
+	motorized_rocket_unit = 1
+	armored_car1 = 1
+	armored_car2 = 1
+	armored_car3 = 1
+	armored_car_at_upgrade = 1
+	mechanised_infantry = 1
+	amphibious_mechanized_infantry = 1
+	amphibious_mechanized_infantry_2 = 1
+	mechanised_infantry2 = 1
+	mechanised_infantry3 = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	railway_gun = 1
+	wartime_train = 1
+	armored_train = 1
+	
+	gw_artillery = 1
+	interwar_artillery = 1
+	artillery1 = 1
+	artillery2 = 1
+	artillery3 = 1
+	artillery4 = 1
+	artillery5 = 1
+	mountain_gun = 1
+	rocket_artillery = 1
+	rocket_artillery2 = 1
+	rocket_artillery3 = 1
+	rocket_artillery4 = 1
+	interwar_antiair = 1
+	antiair1 = 1
+	antiair2 = 1
+	antiair3 = 1
+	antiair4 = 1
+	antiair5 = 1
+	interwar_antitank = 1
+	antitank1 = 1
+	antitank2 = 1
+	antitank3 = 1
+	antitank4 = 1
+	antitank5 = 1
+	
+	early_fighter = 1
+	cv_early_fighter = 1
+	fighter1 = 1
+	cv_fighter1 = 1
+	fighter2 = 1
+	cv_fighter2 = 1
+	fighter3 = 1
+	cv_fighter3 = 1
+	jet_fighter1 = 1
+	jet_fighter2 = 1
+	CAS1 = 1
+	cv_CAS1 = 1
+	CAS2 = 1
+	cv_CAS2 = 1
+	CAS3 = 1
+	cv_CAS3 = 1
+	naval_bomber1 = 1
+	cv_naval_bomber1 = 1
+	naval_bomber2 = 1
+	cv_naval_bomber2 = 1
+	naval_bomber3 = 1
+	cv_naval_bomber3 = 1
+	early_bomber = 1
+	heavy_fighter1 = 1
+	heavy_fighter2 = 1
+	heavy_fighter3 = 1
+	scout_plane1 = 1
+	scout_plane2 = 1
+	tactical_bomber1 = 1
+	tactical_bomber2 = 1
+	tactical_bomber3 = 1
+	jet_tactical_bomber1 = 1
+	jet_tactical_bomber2 = 1
+	strategic_bomber1 = 1
+	strategic_bomber2 = 1
+	strategic_bomber3 = 1
+	jet_strategic_bomber1 = 1
+	
+	gwtank = 1
+	basic_light_tank = 1
+	basic_light_td = 1
+	basic_light_art = 1
+	basic_light_spaa = 1
+	improved_light_tank = 1
+	improved_light_td = 1
+	improved_light_art = 1
+	improved_light_spaa = 1
+	amphibious_tank = 1
+	amphibious_tank_2 = 1
+	advanced_light_tank = 1
+	advanced_light_td = 1
+	advanced_light_art = 1
+	advanced_light_spaa = 1
+	basic_medium_tank = 1
+	basic_medium_td = 1
+	basic_medium_art = 1
+	basic_medium_spaa = 1
+	improved_medium_tank = 1
+	improved_medium_td = 1
+	improved_medium_art = 1
+	improved_medium_spaa = 1
+	advanced_medium_tank = 1
+	advanced_medium_td = 1
+	advanced_medium_art = 1
+	advanced_medium_spaa = 1
+	main_battle_tank = 1
+	modern_td = 1
+	modern_art = 1
+	modern_spaa = 1
+	basic_heavy_tank = 1
+	basic_heavy_td = 1
+	basic_heavy_art = 1
+	basic_heavy_spaa = 1
+	improved_heavy_tank = 1
+	improved_heavy_td = 1
+	improved_heavy_art = 1
+	improved_heavy_spaa = 1
+	advanced_heavy_tank = 1
+	advanced_heavy_td = 1
+	advanced_heavy_art = 1
+	advanced_heavy_spaa = 1
+	super_heavy_tank = 1
+	super_heavy_td = 1
+	super_heavy_art = 1
+	super_heavy_spaa = 1
+	
+	
+	
+	
+	advanced_destroyer = 1
+	early_light_cruiser = 1
+	basic_light_cruiser = 1
+	improved_light_cruiser = 1
+	advanced_light_cruiser = 1
+	early_heavy_cruiser = 1
+	basic_heavy_cruiser = 1
+	improved_heavy_cruiser = 1
+	advanced_heavy_cruiser = 1
+	early_battlecruiser = 1
+	basic_battlecruiser = 1
+	
+	electronic_mechanical_engineering = 1
+	radio = 1
+	radio_detection = 1
+}
+if = {
+	limit = { 
+		has_dlc = "Man the Guns" 
+	}
+	set_technology = {
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		improved_ship_hull_light = 1
+		advanced_ship_hull_light = 1
+		smoke_generator = 1
+		basic_depth_charges = 1
+		improved_depth_charges = 1
+		advanced_depth_charges = 1
+		modern_depth_charges = 1
+		sonar = 1
+		improved_sonar = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		improved_ship_hull_cruiser = 1
+		advanced_ship_hull_cruiser = 1
+		improved_airplane_launcher = 1
+		basic_cruiser_armor_scheme = 1
+		
+		early_ship_hull_heavy = 1
+		basic_ship_hull_heavy = 1
+		ship_hull_super_heavy = 1
+		improved_ship_hull_heavy = 1
+		advanced_ship_hull_heavy = 1
+		basic_heavy_armor_scheme = 1
+		improved_heavy_armor_scheme = 1
+		ship_hull_light_1 = 1
+		ship_hull_cruiser_2 = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		amphibious_tank_chassis = 1
+		amphibious_drive = 1
+		advanced_light_tank_chassis = 1
+		basic_medium_tank_chassis = 1
+		improved_medium_tank_chassis = 1
+		advanced_medium_tank_chassis = 1
+		main_battle_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		improved_heavy_tank_chassis = 1
+		advanced_heavy_tank_chassis = 1
+		super_heavy_tank_chassis = 1
+		armor_tech_1 = 1
+		armor_tech_2 = 1
+		armor_tech_3 = 1
+		armor_tech_4 = 1
+		engine_tech_1 = 1
+		engine_tech_2 = 1
+		engine_tech_3 = 1
+		engine_tech_4 = 1
+	}
+}
+####end tech####
+if = {
+	limit = {
+		has_dlc = "La Resistance"
+	}
+	create_intelligence_agency = yes
+}
+1946.1.1 = {
+	oob = "CHI_1946"
+	#set_naval_oob = "CHI_1946_naval_mtg"
+	diplomatic_relation = { country = ENG relation = non_aggression_pact }
+	diplomatic_relation = { country = FRA relation = non_aggression_pact }
+	add_opinion_modifier = { target = ENG modifier = ww2_major_allies }
+	add_opinion_modifier = { target = USA modifier = ww2_major_allies }
+	add_opinion_modifier = { target = USA modifier = anti_communist_ally }	
+	add_opinion_modifier = { target = SOV modifier = ww2_major_allies }
+	add_opinion_modifier = { target = FRA modifier = ww2_major_allies }
+	add_opinion_modifier = { target = PRC modifier = ww2_major_allies }
+	puppet = XSM
+	set_stability = 60
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_3
+		amount = 10000
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = support_equipment_1
+		amount = 10000
+		producer = CHI
+	}
+	# Country Leaders
+	recruit_character = CHI_chiang_kai_shek
+	activate_advisor = CHI_chiang_kai_shek
+	### Deputy Minister
+	recruit_character = chi_hog_song_ziwen
+	activate_advisor = chi_hog_song_ziwen
+	recruit_character = chi_hog_li_zongren
+	recruit_character = chi_hog_chen_cheng
+	recruit_character = chi_hog_he_yingqin
+	recruit_character = chi_hog_sun_fo
+	### Foreign Minister
+	recruit_character = CHI_fm_wang_shijie
+	activate_advisor = chi_fm_wang_shijie
+	recruit_character = chi_fm_wellington_koo
+	recruit_character = chi_fm_yeh_kung_chao
+	recruit_character = chi_fm_chen_lifu
+	recruit_character = chi_fm_shen_chang_huan
+	### Defense Minister
+	recruit_character = chi_dm_bai_chongxi
+	activate_advisor = chi_dm_bai_chongxi
+	recruit_character = chi_dm_he_yingqin
+	recruit_character = chi_dm_xu_yongchang
+	recruit_character = chi_dm_zhang_fakui
+	### Treasury Minister
+	recruit_character = chi_tm_weng_wenhao
+	activate_advisor = chi_tm_weng_wenhao
+	recruit_character = chi_tm_kung_hsiang_hsi
+	recruit_character = chi_tm_wang_yun_wu
+	recruit_character = chi_tm_du_yuesheng
+	recruit_character = chi_tm_yen_chia_kan
+	### Head of Intelligence
+	recruit_character = chi_spy_soong_mei_ling
+	activate_advisor = chi_spy_soong_mei_ling
+	recruit_character = chi_spy_chiang_ching_kuo
+	### Chief of Staff
+	recruit_character = CHI_hog_he_yingqin
+	activate_advisor = chi_chief_he_yingqin
+	### Military Characters
+	recruit_character = CHI_du_yuming
+	recruit_character = CHI_yan_shixan
+	recruit_character = CHI_zhang_xueliang
+	recruit_character = CHI_sun_li_jen
+	recruit_character = CHI_hsueh_yueh
+	recruit_character = CHI_hu_zongnan
+	recruit_character = CHI_long_yun
+	recruit_character = CHI_feng_yuxiang
+	recruit_character = CHI_chiang_wei_kuo
+	recruit_character = CHI_tang_enbo
+	recruit_character = CHI_liu_zhi
+	
+	
+	add_ideas = {
+		#CHI_cw_corrupt_bureaucracy_3	#Added via on action to allow starting cabinet positions
+		CHI_army_corruption_1
+		CHI_hyper_inflation_4
+		CHI_desertion_wave
+		# Economy
+		cw_detente
+		cw_high_tariffs
+		cw_military_industry_focus
+		cw_minor_unions_allowed
+		# Military
+		cw_high_military_budget
+		cw_limited_conscription
+		cw_minimal_training
+		cw_infantry_forces
+		cw_tactical_strike_forces
+		cw_transport_navy_focus
+		# Society
+		cw_minimum_education_budget
+		cw_censored_press
+		cw_only_refugees_policy
+		cw_monitored_religous_institutions
+		cw_minorities_marginalised
+		cw_ni_nationalism
+	}
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 10
+		democratic_socialist = 0
+		neutrality = 10
+		communism_totalitarian = 30
+		unaligned_right = 50
+		colonial =  0
+	}
+}
+
+1948.5.14 = {
+}
+1949.12.1 = {
+	capital = 524 # Taipei
+	add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+	set_convoys = 50
+	set_research_slots = 2
+}
+1950.6.25 = {
+	white_peace = PRC
+}
+1956.10.29 = {
+	create_country_leader = {
+		name = "Chiang Kai-shek"
+		desc = POLITICS_CHIANG_KAI_SHEK_DESC
+		picture = "CHIH1_1.dds"
+		ideology = paternal_auto_idolg
+		expire = 1975.4.5
+		traits = {}
+	}
+}
+1961.12.11 = {
+}
+1979.12.24 = {	
+	create_country_leader = {
+		name = "Yen Chia-kan"
+		desc = ""
+		picture = "CHIH2.dds"
+		ideology = paternal_auto_idolg
+		expire = 1978.5.20
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Chiang Ching-kuo"
+		desc = ""
+		picture = "CHIH3.dds"
+		ideology = paternal_auto_idolg
+		expire = 1988.1.13
+		traits = {}
+	}
+}
+1989.1.9 = {		
+	create_country_leader = {
+			name = "Chiang Ching-kuo"
+			desc = ""
+			picture = "CHIH4.dds"
+			ideology = paternal_auto_idolg
+			expire = 1966.5.20
+			traits = {}
+	}
+}

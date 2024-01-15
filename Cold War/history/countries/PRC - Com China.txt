@@ -1,0 +1,429 @@
+﻿capital = 622	#Beijing
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_country_flag = police_action_blocked
+set_major = yes
+set_convoys = 20
+set_research_slots = 3
+####start tech####
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons2 = 1
+	infantry_weapons1 = 1
+	improved_infantry_weapons = 1
+	improved_infantry_weapons_2 = 1
+	infantry_at = 1
+	infantry_at2 = 1
+	advanced_infantry_weapons = 1
+	advanced_infantry_weapons2 = 1
+	marines = 1
+	paratroopers = 1
+	tech_mountaineers = 1
+	tech_special_forces = 1
+	jungle_warfare = 1
+	mountain_warfare = 1
+	night_vision = 1
+	support_weapons = 1
+	support_weapons2 = 1
+	support_weapons3 = 1
+	support_weapons4 = 1
+	motorised_infantry = 1
+	motorized_rocket_unit = 1
+	armored_car1 = 1
+	armored_car2 = 1
+	armored_car3 = 1
+	armored_car_at_upgrade = 1
+	mechanised_infantry = 1
+	amphibious_mechanized_infantry = 1
+	amphibious_mechanized_infantry_2 = 1
+	mechanised_infantry2 = 1
+	mechanised_infantry3 = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	railway_gun = 1
+	wartime_train = 1
+	armored_train = 1
+	
+	gw_artillery = 1
+	interwar_artillery = 1
+	artillery1 = 1
+	artillery2 = 1
+	artillery3 = 1
+	artillery4 = 1
+	artillery5 = 1
+	mountain_gun = 1
+	rocket_artillery = 1
+	rocket_artillery2 = 1
+	rocket_artillery3 = 1
+	rocket_artillery4 = 1
+	interwar_antiair = 1
+	antiair1 = 1
+	antiair2 = 1
+	antiair3 = 1
+	interwar_antitank = 1
+	antitank1 = 1
+	antitank2 = 1
+	antitank3 = 1
+	
+	early_fighter = 1
+	cv_early_fighter = 1
+	fighter1 = 1
+	cv_fighter1 = 1
+	fighter2 = 1
+	cv_fighter2 = 1
+	fighter3 = 1
+	cv_fighter3 = 1
+	jet_fighter1 = 1
+	jet_fighter2 = 1
+	CAS1 = 1
+	cv_CAS1 = 1
+	CAS2 = 1
+	cv_CAS2 = 1
+	CAS3 = 1
+	cv_CAS3 = 1
+	naval_bomber1 = 1
+	cv_naval_bomber1 = 1
+	naval_bomber2 = 1
+	cv_naval_bomber2 = 1
+	naval_bomber3 = 1
+	cv_naval_bomber3 = 1
+	early_bomber = 1
+	heavy_fighter1 = 1
+	heavy_fighter2 = 1
+	heavy_fighter3 = 1
+	scout_plane1 = 1
+	scout_plane2 = 1
+	
+	gwtank = 1
+	basic_light_tank = 1
+	basic_light_td = 1
+	basic_light_art = 1
+	basic_light_spaa = 1
+	improved_light_tank = 1
+	improved_light_td = 1
+	improved_light_art = 1
+	improved_light_spaa = 1
+	amphibious_tank = 1
+	amphibious_tank_2 = 1
+	advanced_light_tank = 1
+	advanced_light_td = 1
+	advanced_light_art = 1
+	advanced_light_spaa = 1
+	basic_medium_tank = 1
+	basic_medium_td = 1
+	basic_medium_art = 1
+	basic_medium_spaa = 1
+	improved_medium_tank = 1
+	improved_medium_td = 1
+	improved_medium_art = 1
+	improved_medium_spaa = 1
+	advanced_medium_tank = 1
+	advanced_medium_td = 1
+	advanced_medium_art = 1
+	advanced_medium_spaa = 1
+	main_battle_tank = 1
+	modern_td = 1
+	modern_art = 1
+	modern_spaa = 1
+	basic_heavy_tank = 1
+	basic_heavy_td = 1
+	basic_heavy_art = 1
+	basic_heavy_spaa = 1
+	improved_heavy_tank = 1
+	improved_heavy_td = 1
+	improved_heavy_art = 1
+	improved_heavy_spaa = 1
+	advanced_heavy_tank = 1
+	advanced_heavy_td = 1
+	advanced_heavy_art = 1
+	advanced_heavy_spaa = 1
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		amphibious_tank_chassis = 1
+		amphibious_drive = 1
+		advanced_light_tank_chassis = 1
+		basic_medium_tank_chassis = 1
+		improved_medium_tank_chassis = 1
+		advanced_medium_tank_chassis = 1
+		main_battle_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		improved_heavy_tank_chassis = 1
+		advanced_heavy_tank_chassis = 1
+		super_heavy_tank_chassis = 1
+		armor_tech_1 = 1
+		armor_tech_2 = 1
+		armor_tech_3 = 1
+		armor_tech_4 = 1
+		engine_tech_1 = 1
+		engine_tech_2 = 1
+		engine_tech_3 = 1
+		engine_tech_4 = 1
+	}
+}
+####end tech####
+1946.1.1 = {
+	oob = "PRC_1946"
+	set_cosmetic_tag = PRC_CP # China Prior to proclamation of PRC
+	add_opinion_modifier = { target = ENG modifier = ww2_major_allies }
+	add_opinion_modifier = { target = USA modifier = ww2_major_allies }
+	add_opinion_modifier = { target = CHI modifier = ww2_major_allies }
+	add_opinion_modifier = { target = FRA modifier = ww2_major_allies }
+	add_opinion_modifier = { target = SOV modifier = ww2_major_allies }
+	add_opinion_modifier = { target = SOV modifier = revolutionary_brothers }
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_3
+		amount = 10000
+		producer = PRC
+	}
+	add_equipment_to_stockpile = {
+		type = support_equipment_1
+		amount = 10000
+		producer = PRC
+	}	
+	add_timed_idea = {
+		idea = PRC_long_march_expirience
+		days = 900
+	}
+	add_timed_idea = {
+		idea = PRC_defecting_nationalists
+		days = 900
+	}
+	### Country Leaders
+	recruit_character = PRC_mao_zedong
+	### Deputy Minister
+	recruit_character = prc_hog_prc_ren_bishi
+	activate_advisor = prc_hog_prc_ren_bishi
+	recruit_character = prc_hog_liu_shaoqi
+	recruit_character = prc_hog_zhou_enlai
+	### Foreign Minister
+	recruit_character = prc_fm_zhang_wentian
+	recruit_character = prc_fm_chen_yi
+	recruit_character = prc_fm_lin_boqu
+	### Defense Minister
+	recruit_character = prc_dm_lu_dingyi
+	recruit_character = prc_dm_ye_jianying
+	recruit_character = prc_dm_xu_xiangqian
+	recruit_character = prc_dm_zhang_aiping
+	recruit_character = prc_dm_wu_yuzhang
+	### Treasury Minister
+	recruit_character = prc_tm_li_fuchun
+	activate_advisor = prc_tm_li_fuchun
+	recruit_character = prc_tm_li_xiannian
+	recruit_character = prc_tm_deng_xiaoping
+	recruit_character = prc_tm_chen_yun
+	recruit_character = prc_tm_gao_gang
+	### Head of Intelligence
+	recruit_character = PRC_pa_kang_sheng
+	recruit_character = PRC_cai_chang
+	### Chief of Staff
+	recruit_character = prc_chief_peng_zhen
+	activate_advisor = prc_chief_peng_zhen
+	recruit_character = prc_dm_liu_yalou
+	recruit_character = prc_chief_hu_yaobang
+	### Military Characters
+	recruit_character = PRC_lin_biao
+	recruit_character = PRC_peng_dehuai
+	recruit_character = PRC_zhu_de
+	recruit_character = PRC_he_long
+	recruit_character = PRC_liu_bocheng
+	recruit_character = PRC_nie_rongzhen
+	recruit_character = PRC_su_yu
+	recruit_character = PRC_chen_geng
+	recruit_character = PRC_tan_zheng
+	recruit_character = PRC_yang_dezhi
+	add_ideas = {
+		cw_partially_recognized_state
+		PRC_nationalist_mismanagment_5
+	# Economy
+		cw_state_incentives
+		cw_10_hour_workday
+		cw_hardline
+		cw_acceptable_education_budget
+		cw_military_industry_focus
+		cw_closed_economy	
+	# Military
+		cw_high_military_budget
+		cw_extensive_conscription
+		cw_infantry_forces
+		cw_tactical_strike_forces
+		cw_blue_water_navy_focus
+	# Society
+		cw_censored_press
+		cw_closed_borders_policy
+		cw_monitored_religous_institutions
+		cw_minority_not_recognized
+		cw_ni_patriotism		
+	}
+	set_politics = {
+		ruling_party = communism_totalitarian
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 5
+		neutrality = 5
+		communism_totalitarian = 85
+		unaligned_right = 5
+		colonial =  0
+	}
+	############# Commanders ################
+	#### CORPS COMMANDER ###
+	#create_corps_commander = {
+	#	id = 145104
+	#	name = "Huang Kecheng"
+	#	picture = "PRC_CC_145104.dds"
+	#	traits = { trait_SPR_anti_stalinist_loyalties }
+	#	skill = 5
+	#	attack_skill = 4
+	#	defense_skill = 5
+	#	planning_skill = 3
+	#	logistics_skill = 4
+	#}
+	#create_corps_commander = {
+	#	id = 145105	
+	#	name = "Qin Jiwei"
+	#	picture = "PRC_CC_145105.dds"
+	#	traits = { trait_SPR_stalinist_loyalties }
+	#	skill = 3
+	#	attack_skill = 2
+	#	defense_skill = 1
+	#	planning_skill = 2
+	#	logistics_skill = 3
+	#}
+	#create_corps_commander = {
+	#	id = 145106	
+	#	name = "Xu Guangda"
+	#	picture = "PRC_CC_145106.dds"
+	#	traits = { trait_SPR_stalinist_loyalties }
+	#	skill = 2
+	#	attack_skill = 2
+	#	defense_skill = 1
+	#	planning_skill = 2
+	#	logistics_skill = 3
+	#}
+	#create_corps_commander = {
+	#	id = 145107	
+	#	name = "Xu Haidong"
+	#	picture = "PRC_CC_145107.dds"
+	#	traits = { trait_SPR_stalinist_loyalties }
+	#	skill = 2
+	#	attack_skill = 2
+	#	defense_skill = 2
+	#	planning_skill = 3
+	#	logistics_skill = 3
+	#}
+	#create_corps_commander = {
+	#	id = 145108	
+	#	name = "Mao Anying"
+	#	picture = "PRC_CC_145108.dds"
+	#	traits = { politically_connected trait_SPR_stalinist_loyalties }
+	#}
+	#create_corps_commander = {
+	#	id = 145109
+	#	name = "Wen Yucheng"
+	#	picture = "PRC_CC_145109.dds"
+	#	traits = { trait_SPR_stalinist_loyalties }
+	#}
+	#### NAVAL LEADERS ####
+	# ADDED VIA FOCUSES
+	#create_navy_leader = {
+	#	name = "Liu Zhonghua"
+	#	picture = "PRC_ADM_145500.dds"
+	#	traits = { trait_SPR_stalinist_loyalties }
+	#	id = 145500
+	#}
+	#create_navy_leader = {
+	#	name = "Xiao Jinguang"
+	#	picture = "PRC_ADM_145501.dds"
+	#	traits = { trait_SPR_stalinist_loyalties }
+	#	id = 145501
+	#}
+	#create_navy_leader = {
+	#	name = "Liu Huaqing"
+	#	picture = "PRC_ADM_145502.dds"
+	#	traits = { trait_SPR_stalinist_loyalties }
+	#	id = 145502
+	#}	
+}
+
+1948.5.14 = {
+}
+1950.6.25 = {
+	white_peace = CHI
+	capital = 608	#Beijing
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+	drop_cosmetic_tag = yes
+	set_cosmetic_tag = PRC_CP_PRO
+	set_convoys = 50
+set_research_slots = 2
+}
+1961.12.11 = {
+	set_politics = {
+		ruling_party = communism_totalitarian
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 10
+		communism_totalitarian = 90
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Mao Zedong"
+		desc = POLITICS_MAO_ZEDONG_DESC
+		picture = "PRCH1_2.dds"
+		ideology = maoist_idolg
+		expire = 1976.9.9			
+		traits = {}
+	}
+}
+1971.10.25 = {
+	drop_cosmetic_tag = yes 
+	remove_ideas = cw_partially_recognized_state
+}
+1979.12.24 = {
+	create_country_leader = {
+		name = "Hu Yaobang"
+		desc = ""
+		picture = "PRCH3.dds"
+		ideology = maoist_idolg
+		expire = 1987.1.15		
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Hua Guofeng"
+		desc = ""
+		picture = "PRCH2.dds"
+		ideology = maoist_idolg
+		expire = 1981.7.28			
+		traits = {}
+	}
+}
+1989.1.9 = {
+	create_country_leader = {
+		name = "Zhao Ziyang"
+		desc = ""
+		picture = "PRCH4.dds"
+		ideology = maoist_idolg
+		expire = 1989.6.24		
+		traits = {}
+	}
+}

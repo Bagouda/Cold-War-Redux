@@ -1,0 +1,20 @@
+defined_text = {
+	name = CW_TRADE_BLOCKER_LOC
+	text = {
+		trigger = {
+			SOV = { has_idea = cw_closed_economy }
+		}
+		localization_key = "Trading is not available to countries with closed economies or restricted economic policies."
+	}
+	text = { localization_key = "fdfdf" }
+}
+defined_text = {
+	name = CW_ESPIONAGE_BLOCKER_LOC
+	text = {
+		trigger = {
+			ROOT = { cw_can_use_espionage = no }
+		}
+		localization_key = "The espionage system is not available right now."
+	}
+	text = { localization_key = "fdfdf" }
+}

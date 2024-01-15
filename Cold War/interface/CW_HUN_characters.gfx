@@ -1,0 +1,15 @@
+spriteTypes = {
+	### Country Leaders
+	spriteType = {
+		name = "GFX_hun_zoltan_tildy_civilian_large"
+		texturefile = "gfx/leaders/HUN/HUNH1.dds"
+	}
+	spriteType = {
+		name = "GFX_hun_ferenc_nagy_large"
+		texturefile = "gfx/leaders/HUN/HUNH2.dds"
+	}
+	spriteType = {
+		name = "GFX_hun_matyas_rakosi_large"
+		texturefile = "gfx/leaders/HUN/HUNH3.dds"
+	}
+}

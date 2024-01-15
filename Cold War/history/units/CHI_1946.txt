@@ -1,0 +1,260 @@
+﻿division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 3 y = 0 }		
+		artillery_brigade = { x = 2 y = 1 }
+	}
+	support = {
+        signal_company = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Motorized Infantry"
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 2 y = 0 }
+	}
+}
+division_template = {
+	name = "Light Armour division"
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 2 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 2 y = 1 }		
+	}
+}
+units = {
+	division = {
+		location = 11913
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 10068
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 1004
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}	
+	division = {
+		location = 9958
+		division_template = "Motorized Infantry"
+	}	
+	division = {
+		location = 11761
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 9843
+		division_template = "Light Armour division"
+	}
+	division = {
+		location = 9843
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}	
+	division = {
+		location = 9843
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 9843
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}	
+	division = {
+		location = 4140
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 12026
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 6828
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 4208
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 10053
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 4093
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 12062
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 4058
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 7074
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 1139
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 9958
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 11931
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 6932
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 12713
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 7301
+		division_template = "Motorized Infantry"
+	}
+	division = {
+		location = 1976
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 1976
+		division_template = "Light Armour division"
+	}	
+	division = {
+		location = 2006
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 10724
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 10068
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	#### XINJIANG FORCES ####
+	division = {
+		location = 4682
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 7850
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 4709
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 12656
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 10839
+		division_template = "Motorized Infantry"
+	}
+	division = {
+		location = 12671
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 12093
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 10102
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 4071
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 1154
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}
+	division = {
+		location = 9971
+		division_template = "Infantry Division"
+		start_experience_factor = 0.3
+	}	
+}
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_3
+			creator = "USA"
+		}
+		requested_factories = 5
+		progress = 0.66
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "CHI"
+		}
+		requested_factories = 5
+		progress = 0.64
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = motorized_equipment_1
+			creator = "CHI"
+		}
+		requested_factories = 2
+		progress = 0.66
+		efficiency = 20
+	}
+}

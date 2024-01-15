@@ -1,0 +1,43 @@
+bookmarks = {
+	bookmark = {
+		name = "COLD_WAR_BEGINS_NAME"
+		desc = "COLD_WAR_BEGINS_DESC"
+		date = 1946.1.1.24
+		picture = "GFX_select_date_1939"
+		default_country = "USA"
+		default = yes		
+	
+		"USA" = {
+			history = 1946_BOOKMARK_USA
+			ideology = democratic
+			ideas = {
+				winner_ww2
+				usa_beacon_of_liberty
+			}
+			focuses = {
+				USA_cca_intervene_arab_israeli_war
+				USA_the_marshall_plan
+				USA_ccw_intervention_active
+			}
+		}
+		
+		"SOV" = {
+			history = 1946_BOOKMARK_SOV
+			ideology = communism
+			ideas = {
+				winner_ww2
+				sov_dispersed_industry_4
+				cw_sov_1946_famine_mild
+			}
+			focuses = {
+				SOV_chinese_civil_war_intervention
+				SOV_comecon_aid
+				SOV_west_communism
+			}
+		}	
+		
+		effect = {
+			randomize_weather = 22345 # <- Obligatory in every bookmark !
+		}
+	}
+}

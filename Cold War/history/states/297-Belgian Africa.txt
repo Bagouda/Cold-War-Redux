@@ -1,0 +1,37 @@
+
+state={
+	id=297
+	local_supplies=0.0 
+	name="STATE_297"
+
+	history = {
+ 	add_to_array = { list_victory_point = 1903 }
+ 	set_variable = { victory_point = 1 }
+		owner = SPR
+		add_claim_by = EQG
+
+		1968.10.12 = {
+			owner = EQG
+			add_core_of = EQG
+			remove_core_of = SPR
+		}
+
+		buildings = {
+			infrastructure = 1
+
+			1903 = {
+				naval_base = 1
+			}
+		}		
+		victory_points = {
+			1903 1 
+		}
+	}
+
+	provinces={
+		1903 11718 
+	}
+	manpower=175000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

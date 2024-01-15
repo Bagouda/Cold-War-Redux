@@ -1,0 +1,131 @@
+ideas = {
+	hidden_ideas = {
+	}
+	country = {
+		FRA_moroccan_goumier = {
+			allowed = {
+				#tag = FRA
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					OR = {
+						has_government = communism
+						has_government = communism_totalitarian
+					}
+				}
+			}
+
+			available = {
+				MOR = { is_subject_of = FRA }
+			}
+
+			removal_cost = -1
+
+			picture = por_colonial_army
+
+			targeted_modifier = {
+				tag = MOR
+				autonomy_manpower_share = 0.5
+			}
+		}
+		FRA_foreign_legion_1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			
+			modifier = {
+				non_core_manpower = 0.1
+				local_manpower = -0.1
+				war_support_factor = 0.05
+			}
+		}
+		FRA_foreign_legion_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			
+			modifier = {
+				non_core_manpower = 0.2
+				local_manpower = -0.2
+				resistance_decay = -0.05
+				war_support_factor = 0.1
+			}
+		}
+		FRA_foreign_legion_3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			
+			modifier = {
+				non_core_manpower = 0.3
+				local_manpower = -0.3
+				resistance_decay = -0.1
+				war_support_factor = 0.15
+			}
+		}				
+		FRA_the_parties_regime = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = FRA_political_violence
+
+			
+			modifier = {
+				political_power_gain = -0.5
+			}
+		}
+		FRA_utilize_german_labor = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				tag = FRA
+			}
+			
+			removal_cost = -1
+
+			picture = ger_rebuild_the_nation
+			
+			modifier = {
+				local_resources_factor = 0.15
+				production_speed_buildings_factor = 0.1
+			}
+		}		
+	}
+}

@@ -1,0 +1,44 @@
+﻿division_template = {
+	name = "Infantry division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+		artillery_brigade = { x = 1 y = 1 }
+	}
+}
+units = {
+	division = {
+		location = 10265
+		division_template = "Infantry division"
+		start_experience_factor = 1.0
+	}
+	division = {
+		location = 4241
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 4241
+		division_template = "Infantry division"
+	}	
+	division = {
+		location = 4241
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 4288
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 4288
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 4288
+		division_template = "Infantry division"
+	}
+	division = {
+		location = 4288
+		division_template = "Infantry division"
+	}		
+}

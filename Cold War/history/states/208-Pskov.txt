@@ -1,0 +1,23 @@
+state = {
+	id=208
+	local_supplies=0.0 
+	name="STATE_208" # Luga
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 9098 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 2
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		victory_points = {
+			9098 1
+		}
+	}
+	manpower = 341819
+	provinces={
+		104 126 181 3120 6139 6197 9097 9098 11032 11080 11139 11186 
+	}
+}

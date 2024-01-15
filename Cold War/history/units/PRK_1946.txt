@@ -1,0 +1,117 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 4 y = 0 }
+		infantry = { x = 1 y = 1 }
+		artillery_brigade = { x = 1 y = 1 }
+	}
+	support = {
+	}
+}
+division_template = {
+	name = "Tank  Division"
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+	}
+}
+units = {
+	division = {		#Korean Chinese Civil War volunteers
+		location = 12040
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 0.9
+
+	}
+	division = {		#Korean Chinese Civil War volunteers
+		location = 12040
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 0.9
+	}
+	division = {		#Korean Chinese Civil War volunteers
+		location = 9981
+		division_template = "Infantry Division"
+		start_experience_factor = 1.0
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 6928
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 848
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 848
+		division_template = "Infantry Division"
+	}	
+	division = {
+		location = 9981
+		division_template = "Infantry Division"
+	}
+	division = {
+		location = 12040
+		division_template = "Tank  Division"
+	}
+	division = {
+		location = 848
+		division_template = "Tank  Division"
+	}
+}
+
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_3
+			creator = "PRK"
+		}
+		requested_factories = 2
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "PRK"
+		}
+		requested_factories = 2
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_3
+			creator = "PRK"
+		}
+		requested_factories = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = anti_tank_equipment_3
+			creator = "PRK"
+		}
+		requested_factories = 1
+	}		
+	add_equipment_production = {
+		equipment = {
+			type = motorized_equipment_1
+			creator = "PRK"
+		}
+		requested_factories = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = medium_tank_equipment_3
+			creator = "PRK"
+		}
+		requested_factories = 1
+	}
+}

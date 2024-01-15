@@ -1,0 +1,36 @@
+state = {
+	id=115
+	local_supplies=0.0 
+	name="STATE_115"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 10074 }
+ 	add_to_array = { list_victory_point = 4159 }
+ 	set_variable = { victory_point = 30 }
+		owner = ITA
+		add_core_of = ITA
+		
+		buildings = {
+			infrastructure = 2
+			air_base = 3
+			industrial_complex = 1
+			10074 = {
+				naval_base = 2
+			}			
+		}
+		
+		victory_points = {
+			4159 10 
+		}
+		victory_points = {
+			10074 20 
+		}
+	}
+	resources={
+		crops = 10
+	}	
+	manpower = 3836571
+	provinces={
+		1009 1156 3857 4014 4159 7059 7147 10074 12047 
+	}
+}

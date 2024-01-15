@@ -1,0 +1,25 @@
+state = {
+	id=685
+	local_supplies=0.0 
+	name="STATE_685"
+	state_category = enclave
+	history = {
+ 	add_to_array = { list_victory_point = 7617 }
+ 	set_variable = { victory_point = 25 }
+		owner = USA
+		add_core_of = USA
+		add_core_of = PAN
+		
+		buildings = {
+			infrastructure = 1
+			7617 = {
+				naval_base = 5
+			}
+		}	
+		victory_points = {
+			7617 25 
+		}
+	}
+	manpower = 39467
+	provinces={ 7617 }
+}

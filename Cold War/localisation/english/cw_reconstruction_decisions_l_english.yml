@@ -1,0 +1,16 @@
+﻿l_english:
+ ########################################
+ ### Country Reconstruction Decisions ###
+ ########################################
+ cw_reconstruction_rebuild_state_housing:0 "Rebuild [FROM.GetName] State Housing"
+ cw_reconstruction_rebuild_state_housing_desc:0 "Much of the housing in [FROM.GetName] was destroyed in the war and the local population will need help in rebuilding their homes."
+ cw_reconstruction_repair_infrastructure:0 "Rebuild [FROM.GetName] Infrastructure"
+ cw_reconstruction_repair_infrastructure_desc:0 "Clearning the destroyed urban areas and expanding or building new infrastructure will speed up our reconstruction efforts in the area."
+ cw_reconstruction_expand_local_administration:0 "Expand [FROM.GetName] [ROOT.GetAdjective] Administration"
+ cw_reconstruction_expand_local_administration_desc:0 "The administration in this area is lacking skilled workers to oversee the reconstruction efforts, we should encourage or force immigration to the area to improve the reconstruction efforts."
+ cw_reconstruction_reconstruct_civ_industry:0 "Rebuild [FROM.GetName] Economic Centers"
+ cw_reconstruction_reconstruct_civ_industry_desc:0 "The economic center in [FROM.GetName] must be rebuilt to encourage reconstruction efforts, by providing state funds we can ensure that economic activity in [FROM.GetName] is revitalized.\n\n§WThis decision is only available once per state.§!"
+ cw_reconstruction_award_hero_city:0 "Award Hero City Status"
+ cw_reconstruction_award_hero_city_desc:0 "The citizens of [FROM.GetName] have demonstrated unrelenting heroism in the defense of their city. Their efforts should be celebrated and commemorated for future generations to remember the imporant role their city played in the war."
+ cw_reconstruction_repair_railways:0 "Rebuild [FROM.GetName] - [ROOT.Capital.GetName] Railway"
+ cw_reconstruction_repair_railways_desc:0 "We must reconnect [FROM.GetName] to [ROOT.Capital.GetName] to allow our industry, civilians and the military smooth transportation between the two regions.\n\n§WThis decision is only available once per state.§!"

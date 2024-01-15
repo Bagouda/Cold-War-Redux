@@ -1,0 +1,35 @@
+state = {
+	id=171
+	local_supplies=0.0 
+	name="STATE_171"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 758 }
+ 	add_to_array = { list_victory_point = 6734 }
+ 	set_variable = { victory_point = 4 }
+		owner = SPR
+		add_core_of = SPR
+		
+		buildings = {
+			infrastructure = 2	
+			industrial_complex = 1		
+			758 = {
+				naval_base = 2	
+			}			
+		}
+		
+		victory_points = {
+			6734 1
+		}
+		victory_points = {
+			758 3
+		}
+	}
+	resources={
+		crops = 10
+	}		
+	manpower = 2295085
+	provinces={
+		729 758 3761 6734 6764 9686 9689 11675 11692 11710 11840 
+	}
+}

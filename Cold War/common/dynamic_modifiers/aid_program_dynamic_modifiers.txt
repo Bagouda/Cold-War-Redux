@@ -1,0 +1,26 @@
+cw_aid_program_giver_dm = {
+	enable = { always = yes } #optional, the modifier won't apply if not enabled
+	remove_trigger = { ROOT = { exists = no check_variable = { economic_aid_program_participants > 0 } } }
+	
+	# list of modifiers
+	civilian_factory_use = ROOT.aid_program_cost
+}
+cw_aid_program_target_dm = {
+	enable = { always = yes } #optional, the modifier won't apply if not enabled
+	remove_trigger = { ROOT = { exists = no } }
+	icon = "GFX_idea_man_five_year_plan_industry"
+	
+	# list of modifiers
+	industry_repair_factor = ROOT.aid_program_effect@PREV
+	production_speed_industrial_complex_factor = ROOT.aid_program_effect@PREV
+	production_speed_infrastructure_factor = ROOT.aid_program_effect@PREV
+	industrial_capacity_factory = ROOT.aid_program_effect@PREV
+	industrial_capacity_dockyard = ROOT.aid_program_effect@PREV
+	subjects_autonomy_gain = ROOT.aid_program_puppet_effect@PREV
+	stability_weekly = 0.05
+	war_support_weekly = 0.05
+	communism_drift = ROOT.aid_program_drift_communism_ref_effect@PREV
+	communism_totalitarian_drift = ROOT.aid_program_drift_communism_total_effect@PREV
+	drift_defence_factor = ROOT.aid_program_drift_neutrality_effect@PREV
+
+}

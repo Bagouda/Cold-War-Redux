@@ -1,0 +1,90 @@
+
+SOV_volunteers = {
+	icon = "GFX_idea_SOV_war_heroes" 
+	enable = { original_tag = SOV }
+	send_volunteer_size = ROOT.cw_number_base 
+	civilian_factory_use = ROOT.cw_number_base
+	production_speed_industrial_complex_factor = ROOT.cw_number_base_bloat
+	industrial_capacity_factory = ROOT.cw_number_base_bloat
+	line_change_production_efficiency_factor =  ROOT.cw_number_base_bloat	
+
+} 
+
+
+USA_volunteers = {
+	icon = "GFX_idea_generic_infantry_bonus"
+	enable = { original_tag = USA }
+	send_volunteer_size = ROOT.cw_number_base 
+	civilian_factory_use = ROOT.cw_number_base 
+	production_speed_industrial_complex_factor = ROOT.cw_number_base_bloat
+	industrial_capacity_factory = ROOT.cw_number_base_bloat
+	line_change_production_efficiency_factor =  ROOT.cw_number_base_bloat
+	
+} 
+
+
+## inteligence
+
+
+SOV_nkvd = {
+
+
+	icon = "GFX_idea_nkvd_2"
+	enable = { 
+		original_tag = SOV 
+		has_intelligence_agency = yes
+	}
+	operative_slot =  ROOT.cw_slot_operative 
+	intel_network_gain_factor = ROOT.cw_intel_gain
+	boost_ideology_mission_factor  = ROOT.cw_ideology_operative
+	propaganda_mission_factor = 	ROOT.cw_stability_operative
+	own_operative_capture_chance_factor = ROOT.cw_operative_capture
+	enemy_operative_capture_chance_factor = ROOT.cw_ennemy_operative_capture 
+
+
+
+}
+
+
+USA_cia = {
+
+
+	icon = "GFX_idea_nkvd_2"
+	enable = { 
+		original_tag = USA 
+		has_intelligence_agency = yes
+	}
+	operative_slot =  ROOT.cw_slot_operative 
+	intel_network_gain_factor = ROOT.cw_intel_gain
+	boost_ideology_mission_factor  = ROOT.cw_ideology_operative
+	propaganda_mission_factor = 	ROOT.cw_stability_operative
+	own_operative_capture_chance_factor = ROOT.cw_operative_capture
+	enemy_operative_capture_chance_factor = ROOT.cw_ennemy_operative_capture 
+
+
+
+}
+
+## post ww2 instability in europe
+
+post_ww2_communist_insurgency = {
+	icon = "GFX_idea_SOV_soviet_hegemony"
+
+	
+	stability_weekly = ROOT.ww2_stability
+	communism_totalitarian_drift = ROOT.ww2_com_drift 
+	communism_totalitarian_acceptance = 30
+	drift_defence_factor = -0.3
+
+
+}
+
+
+# AI volunteer boost
+
+
+ai_volunteer = {
+
+
+	send_volunteer_size = ai_volunteer_boost
+}

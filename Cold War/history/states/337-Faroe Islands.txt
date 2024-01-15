@@ -1,0 +1,15 @@
+state = {
+	id=337
+	local_supplies=0.0 
+	name="STATE_337"
+	state_category = small_island
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = DEN
+		add_core_of = DEN
+	}
+	manpower = 25900
+	provinces= { 13003 }
+}

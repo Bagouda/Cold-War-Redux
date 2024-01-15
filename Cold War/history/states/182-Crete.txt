@@ -1,0 +1,32 @@
+state = {
+	id=182
+	local_supplies=0.0 
+	name="STATE_182"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 9940 }
+ 	add_to_array = { list_victory_point = 12058 }
+ 	set_variable = { victory_point = 2 }
+		owner = GRE
+		add_core_of = GRE
+		add_claim_by = CGR		
+		
+		buildings = {
+			infrastructure = 1
+			12058 = {	#Athens Port
+				naval_base = 1
+			}		
+		}
+		
+		victory_points = {
+			12058 1
+		}
+		victory_points = {
+			9940 1
+		}
+	}
+	manpower = 387900
+	provinces=
+	{
+1164 4170 9940 12058 	}
+}

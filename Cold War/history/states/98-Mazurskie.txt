@@ -1,0 +1,36 @@
+
+state={
+	id=98
+	local_supplies=0.0 
+	name="STATE_98"
+	resources={
+		crops=5.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 3295 }
+ 	add_to_array = { list_victory_point = 3230 }
+ 	set_variable = { victory_point = 10 }
+		buildings = {
+			infrastructure = 1
+
+		}
+		owner = POL
+		add_core_of = POL
+		add_core_of = GER
+		
+		victory_points = {
+			3230 5 
+		}
+		victory_points = {
+			3295 5 
+		}
+	}
+
+	provinces={
+		3230 3295 6259 6321 6347 6567 9290 9316 11385 
+	}
+	manpower=1412100
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

@@ -1,0 +1,492 @@
+ideas = {
+	cw_press_freedom = {
+		law = yes
+		cw_state_press = {								#reliable state news
+						
+			cost = 100
+			removal_cost = -1
+			level = 5
+			
+			available = {			
+			}
+
+			modifier = {
+				mobilization_speed = 0.05
+				surrender_limit = -0.05
+				drift_defence_factor = 0.10
+				political_power_factor = 0.10
+				consumer_goods_factor = 0.01
+				research_speed_factor = -0.10
+				stability_weekly = 0.001
+			}
+
+			cancel_if_invalid = no
+		}
+		cw_propaganda_press = {							#lies and slander
+						
+			cost = 200
+			removal_cost = -1
+			level = 3
+			
+			available = {
+			}
+
+			modifier = {
+				war_support_weekly = 0.005
+				mobilization_speed = 0.15
+				
+				drift_defence_factor = 0.20
+				justify_war_goal_time = -0.33
+				generate_wargoal_tension = -0.1
+				resistance_damage_to_garrison  = -0.3
+				#political_power_factor = 0.1
+				research_speed_factor = -0.05
+				stability_weekly = -0.003 				#some people aren't buying this bullshit
+				foreign_subversive_activites = 0.30 	#what if our propaganda gets disproven...?
+			}
+			
+			cancel_if_invalid = no
+		}		
+		cw_censored_press = {							#let's put a spin on this
+						
+			cost = 200
+			removal_cost = -1
+			level = 3
+			
+			available = {		
+			}
+
+			modifier = {
+				political_power_factor = -0.05
+				war_support_weekly = 0.001
+				
+				drift_defence_factor = 0.30
+				resistance_damage_to_garrison = -0.1
+				research_speed_factor = -0.01
+				foreign_subversive_activites = -0.15
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+		cw_free_press = {								#"freedom" ain't free
+						
+			cost = 100
+			removal_cost = -1
+			level = 1
+			
+			available = {
+				NOT = {
+					has_government = communism_totalitarian
+				}
+			}
+
+			modifier = {
+				war_support_weekly = -0.001
+				mobilization_speed = -0.10
+				justify_war_goal_time = -0.15			#yellow journalism
+				generate_wargoal_tension = 0.1
+				resistance_damage_to_garrison  = 0.3
+				surrender_limit = -0.1		   
+				political_power_factor = -0.15
+				research_speed_factor = 0.03
+				
+				subversive_activites_upkeep = -0.25		#journos are excellent cover
+				stability_weekly = -0.001
+				foreign_subversive_activites = 0.15
+			}
+			
+			cancel_if_invalid = no
+		}
+	}
+	cw_immigration_policy = {
+		law = yes
+		cw_closed_borders_policy = {
+						
+			cost = 150
+			removal_cost = -1
+			level = 5
+			
+			available = {
+			}
+
+			modifier = {
+				stability_weekly = 0.001
+				drift_defence_factor = 0.5
+				foreign_subversive_activites = -0.5
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_only_refugees_policy = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 4
+			
+			available = {
+			}
+
+			modifier = {
+				stability_weekly = 0.0005
+				monthly_population = 0.01
+				foreign_subversive_activites = -0.15
+			}
+
+			cancel_if_invalid = no
+		}
+		cw_limited_immigration_policy = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 3
+			
+			available = {		
+			}
+
+			modifier = {
+				monthly_population = 0.02
+				research_speed_factor = 0.03
+				drift_defence_factor = -0.10
+				foreign_subversive_activites = 0.05
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+		cw_biased_immigration_policy = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 3
+			
+			available = {
+			}
+
+			modifier = {
+				monthly_population = 0.03
+			}
+			
+			cancel_if_invalid = no
+		}		
+		cw_points_based_system = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 2
+			
+			available = {
+			}
+
+			modifier = {
+				monthly_population = 0.05
+				drift_defence_factor = -0.20
+				research_speed_factor = 0.05
+				stability_weekly = -0.001
+				foreign_subversive_activites = 0.15
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_open_borders = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 1
+			
+			available = {
+			}
+
+			modifier = {
+				stability_weekly = -0.003
+				monthly_population = 0.10
+				drift_defence_factor = -0.25
+				research_speed_factor = 0.03
+				foreign_subversive_activites = 0.3
+				production_speed_industrial_complex_factor = 0.03
+			}
+			
+			cancel_if_invalid = no
+		}
+	}
+	cw_religious_laws = {
+		law = yes
+		cw_state_religion = {
+						
+			cost = 400
+			removal_cost = -1
+			level = 3
+			
+			available = {
+				NOT = {	
+					OR = {
+						has_government = communism 
+						has_government = communism_totalitarian 
+						#maybe some flags?
+					}
+				}		
+			}
+
+			modifier = {
+				non_core_manpower = -0.30
+				war_support_weekly = 0.001
+				stability_weekly = 0.001
+				research_speed_factor = -0.05
+				drift_defence_factor = 0.5
+				political_power_factor = 0.1
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.1 
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_monitored_religous_institutions = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 2
+			
+			available = {
+			}
+
+			modifier = {
+				stability_weekly = -0.001
+				drift_defence_factor = 0.3
+				political_power_factor = 0.05
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+		cw_enforced_secular_state = {
+						
+			cost = 300
+			removal_cost = -1
+			level = 3
+			
+			available = {		
+			}
+
+			modifier = {
+				stability_weekly = -0.002
+				research_speed_factor = 0.05
+				political_power_factor = 0.15				
+			}
+			
+			cancel_if_invalid = no
+		}		
+		cw_free_religious_practice = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 1
+			
+			available = {
+				NOT = { has_government = communism_totalitarian }
+			}
+
+			modifier = {
+				drift_defence_factor = -0.3
+				non_core_manpower = 0.30
+				improve_relations_maintain_cost_factor = -0.15 
+			}
+
+			cancel_if_invalid = no
+		}
+	}
+	cw_minority_rights = {
+		law = yes
+		cw_minority_not_recognized = {
+			cost = 100
+			removal_cost = -1
+			level = 5
+			
+			available = {
+			}
+
+			modifier = {
+				non_core_manpower = -0.50
+				foreign_subversive_activites = -0.50
+				stability_weekly = -0.002	
+				conscription_factor = -0.15
+				improve_relations_maintain_cost_factor = 0.15 
+				research_speed_factor = -0.05
+			}
+			cancel_if_invalid = no
+		}
+		cw_cultural_reletavism = {
+			cost = 100
+			removal_cost = -1
+			level = 1
+			
+			available = {
+			}
+
+			modifier = {
+				stability_weekly = 0.001
+				conscription = 0.005
+				subversive_activites_upkeep = -0.15
+				improve_relations_maintain_cost_factor = -0.10
+			}
+
+			cancel_if_invalid = no
+		}
+		cw_seprate_but_equal = {
+			cost = 100
+			removal_cost = -1
+			level = 4
+			
+			available = {		
+			}
+
+			modifier = {
+				non_core_manpower = -0.15
+				foreign_subversive_activites = -0.15
+				conscription_factor = -0.10
+				improve_relations_maintain_cost_factor = 0.10
+				research_speed_factor = -0.03
+			}
+			cancel_if_invalid = no
+		}
+		cw_minorities_marginalised = {
+			cost = 100
+			removal_cost = -1
+			level = 3
+			
+			available = {
+			}
+
+			modifier = {
+				research_speed_factor = -0.01
+				foreign_subversive_activites = -0.05
+				non_core_manpower = -0.05
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+		cw_universal_rights = {
+			cost = 100
+			removal_cost = -1
+			level = 2
+			
+			available = {
+			}
+
+			modifier = {
+				foreign_subversive_activites = 0.15
+				stability_weekly = 0.001	
+				political_power_factor = -0.10
+				research_speed_factor = 0.03
+			}
+			
+			cancel_if_invalid = no
+		}
+	}
+	
+	
+	
+	cw_national_identity = {
+		law = yes
+		cw_ni_patriotism = {
+						
+			cost = 0
+			removal_cost = -1
+			level = 6
+			
+			available = {
+				always = no
+			}
+
+			modifier = {
+				conscription_factor = 0.1				
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_ni_imperialism = {
+						
+			cost = 0
+			removal_cost = -1
+			level = 5
+			
+			available = {
+				always = no
+				NOT = {
+					OR = {
+						has_government = communism
+						has_government = communism_totalitarian
+					}
+				}
+			}
+
+			modifier = {
+				subjects_autonomy_gain = -0.1
+				occupation_cost = -0.10
+			}
+
+			cancel_if_invalid = no
+		}
+		cw_ni_nationalism = {
+						
+			cost = 0
+			removal_cost = -1
+			level = 4
+			
+			available = {
+				always = no
+			}
+
+			modifier = {
+				army_core_defence_factor = 0.1
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_ni_isolation = {
+			cost = 0
+			removal_cost = -1
+			level = 3
+			
+			available = {
+				always = no
+			}
+
+			modifier = {
+				enemy_justify_war_goal_time = 0.1
+			}
+			
+			cancel_if_invalid = no
+		}
+		cw_ni_unity = {
+						
+			cost = 0
+			removal_cost = -1
+			level = 2
+			
+			available = {
+				always = no
+			}
+
+			modifier = {
+				stability_weekly = 0.002
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+		cw_ni_personality_cult = {
+						
+			cost = 0
+			removal_cost = -1
+			level = 1
+			
+			available = {
+				always = no
+			}
+
+			modifier = {
+				political_power_gain = 0.1
+				communism_totalitarian_drift = 0.03
+				unaligned_right_drift = 0.01
+			}
+			
+			cancel_if_invalid = no
+		}		
+	}	
+}

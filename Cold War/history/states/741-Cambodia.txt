@@ -1,0 +1,49 @@
+
+state={
+	id=741
+	local_supplies=0.0 
+	name="STATE_741"
+	resources={
+		crops=10.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 7376 }
+ 	set_variable = { victory_point = 10 }
+		owner = VIN
+		add_claim_by = CAM
+
+		buildings = {
+			infrastructure = 1
+		}
+				
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+
+			}
+
+		}
+		1953.11.9 = {
+			owner = CAM
+			add_core_of = CAM
+			remove_claim_by = CAM
+			remove_core_of = FRA
+
+		}
+		victory_points = {
+			7376 10
+		}
+
+	}
+
+	provinces={
+		1353 4251 4359 5236 7319 7376 7404 7432 10134 10177 10289 10317 12191 
+	}
+	manpower=5245000
+	buildings_max_level_factor=1.000
+	state_category=town
+}

@@ -1,0 +1,83 @@
+﻿capital = 298
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 30
+		communism_totalitarian = 10
+		unaligned_right = 60
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "William Tubman"
+		desc = ""
+		picture = "LIBH2.dds"
+		ideology = paternal_auto_idolg
+		expire = 1971.7.23
+		traits = {}
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+}
+1956.10.29 = {	#Suez Crisis
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1955.5.3"
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 60
+		democratic_socialist = 0
+		neutrality = 30
+		communism_totalitarian = 10
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+			name = "Edwin Barclay"
+			desc = ""
+			picture = ""
+			ideology = social_cons_idolg
+			expire = 1971.7.23
+			traits = {}
+	}	
+	create_country_leader = {
+			name = "William Tubman"
+			desc = ""
+			picture = "LIBH2.dds"
+			ideology = oligarchism
+			expire = 1971.7.23
+			traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	create_country_leader = {
+			name = "William Tolbert"
+			desc = ""
+			picture = "LIBH3.dds"
+			ideology = paternal_auto_idolg
+			expire = 1980.4.12
+			traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	create_country_leader = {
+			name = "Samuel Doe"
+			desc = ""
+			picture = "LIBH4.dds"
+			ideology = oligarchism
+			expire = 1980.4.12
+			traits = {}
+	}
+}

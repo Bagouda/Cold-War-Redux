@@ -1,0 +1,27 @@
+state = {
+	id=541
+	local_supplies=0.0 
+	name="STATE_541"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 4879 }
+ 	set_variable = { victory_point = 1 }
+		owner = SAF
+		add_claim_by = NAM
+		
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			4879 1
+		}
+	}
+	resources={
+		crops = 5
+		steel = 10
+	}	
+	manpower = 245000
+	provinces={
+		2207 2229 4879 5154 5189 7605    10963    
+	}
+}

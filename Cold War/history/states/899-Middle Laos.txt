@@ -1,0 +1,42 @@
+
+state={
+	id=899
+	local_supplies=0.0 
+	name="STATE_899"
+	resources={
+		crops=5.000
+	}
+	history={
+ 	add_to_array = { list_victory_point = 10326 }
+ 	set_variable = { victory_point = 5 }
+		owner = VIN
+		add_core_of = LAO
+
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+		buildings = {
+			infrastructure = 1
+
+		}
+		1953.10.22 = {
+			owner = LAO
+			add_core_of = LAO
+			remove_core_of = FRA
+
+		}
+		victory_points = { 10326 5 }	#Nape
+	}
+
+	provinces={
+		1362 1390 10326 1520 4260 10195 4539 10238
+	}
+	manpower=114000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

@@ -1,0 +1,426 @@
+defined_text = {
+	name = CW_PA_TUTORIAL_AVAILABLE_ACTION
+	text = {
+		trigger = {
+			OR = {
+				has_government = democratic
+				has_government = democratic_socialist
+			}
+		}
+		localization_key = "Peacekeeping Mission"
+	}
+	text = { localization_key = "Send Peacekeeping Force" }
+}
+defined_text = {
+	name = CW_TOP_BAR_NOTIFICATIONS_TRIGGERS
+	text = {
+		trigger = {
+			has_global_flag = unsc_shuffle_done
+		}
+		localization_key = "CW_GENERIC_UNSC_SHUFFLE_ALERT"
+	}	
+	text = {
+		trigger = {
+			has_global_flag = top_bar_notificaton_sanctions_allowed
+		}
+		localization_key = "CW_TOPBAR_NOTIFICATION_SANCTIONS_ALLOWED"
+	}	
+	text = {
+		trigger = {
+			has_global_flag = top_bar_notificaton_africa_resolution
+		}
+		localization_key = "CW_NOTIFICATIONS_AFRICA_RESOLUTION_EFFECT"
+	}	
+	text = {
+		trigger = {
+			has_global_flag = global_top_bar_notificaton_new_country
+		}
+		localization_key = "CW_NOTIFICATIONS_NEW_COUNTRY"
+	}
+	text = {
+		trigger = {
+			has_global_flag = global_top_bar_notificaton_gained_independence
+		}
+		localization_key = "CW_NOTIFICATIONS_GAINED_INDEPENDENCE"
+	}	
+	text = {
+		trigger = {
+			has_country_flag = top_bar_notificaton_joined_unsc
+		}
+		localization_key = "CW_NOTIFICATIONS_BECAME_UNSC_MEMBER"
+	}
+	text = {
+		trigger = {
+			has_country_flag = top_bar_notificaton_left_unsc
+		}
+		localization_key = "CW_NOTIFICATIONS_LOST_UNSC_SEAT"
+	}
+	text = {
+		trigger = {
+			has_country_flag = top_bar_notificaton_economic_aid_increased
+		}
+		localization_key = "CW_NOTIFICATIONS_ECONOMIC_AID_INCREASED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = top_bar_notificaton_economic_aid_decreased
+		}
+		localization_key = "CW_NOTIFICATIONS_ECONOMIC_AID_DECREASED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = top_bar_notificaton_economic_aid_suspended
+		}
+		localization_key = "CW_NOTIFICATIONS_ECONOMIC_AID_SUSPENDED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = top_bar_notificaton_left_cultural_union_euu
+		}
+		localization_key = "CW_NOTIFICATIONS_REMOVED_FROM_CULTURAL_UNION_EU"
+	}
+	text = {
+		trigger = {
+			has_country_flag = top_bar_notificaton_joined_cultural_union
+		}
+		localization_key = "CW_NOTIFICATIONS_REMOVED_FROM_CULTURAL_UNION_EU"
+	}	
+}
+defined_text = {
+	name = CW_TOP_BAR_NOTIFICATIONS_FLAG_TRIGGERS
+	text = {
+		trigger = {
+			OR = {
+				has_country_flag = top_bar_notificaton_activated_with_country_flag
+				has_global_flag = global_top_bar_notificaton_activated_with_country_flag
+			}
+		}
+		localization_key = "[?global.top_bar_notification_country.GetFlag]"
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_country_flag = top_bar_notificaton_economic_aid_increased			
+				has_country_flag = top_bar_notificaton_economic_aid_decreased
+				has_country_flag = top_bar_notificaton_economic_aid_suspended				
+			}
+		}
+		localization_key = "[?top_bar_notification_aid_provider.GetFlag]"
+	}
+	text = { localization_key = [?ROOT.GetFlag] }
+}
+defined_text = {	
+	name = CW_UNSC_NOTIFICATIONS_TRIGGERS
+	text = {
+		trigger = {
+			has_country_flag = notification_unsc_in_session
+			NOT = { OR = { has_country_flag = unsc_initiator_flag has_country_flag = resolution_obeserver has_country_flag = unsc_target_flag } }
+			THIS = {
+				NOT = {
+					AND = {
+						OR = {
+							is_subject = yes
+							is_puppet = yes
+						}
+						OVERLORD = {
+							is_in_array = {
+								array = global.unsc_non_permanent_members_array
+								value = THIS.id
+							}
+							is_in_array = {
+								array = global.unsc_permanent_members_array
+								value = THIS.id
+							}
+						}
+					}
+				}
+				OR = {
+					is_in_array = {
+						array = global.unsc_non_permanent_members_array
+						value = THIS.id
+					}
+					is_in_array = {
+						array = global.unsc_permanent_members_array
+						value = THIS.id
+					}
+				}
+			}
+		}
+		localization_key = "CW_GENERIC_UNSC_VOTE_ALERT"
+	}
+	text = {
+		trigger = {
+			has_country_flag = notification_unsc_in_session
+			NOT = { OR = { has_country_flag = unsc_initiator_flag has_country_flag = resolution_obeserver has_country_flag = unsc_target_flag } }
+			THIS = {
+				AND = {
+					OR = {
+						is_subject = yes
+						is_puppet = yes
+						NOT = { has_idea_with_trait = indepndent_foreign_policy }
+					}
+					OR = {
+						is_in_array = {
+							array = global.unsc_non_permanent_members_array
+							value = THIS.id
+						}
+						is_in_array = {
+							array = global.unsc_permanent_members_array
+							value = THIS.id
+						}
+					}
+					OVERLORD = {
+						is_in_array = {
+							array = global.unsc_non_permanent_members_array
+							value = THIS.id
+						}
+						is_in_array = {
+							array = global.unsc_permanent_members_array
+							value = THIS.id
+						}
+					}					
+				}
+			}
+		}
+		localization_key = "CW_GENERIC_UNSC_VOTE_ALERT_PUPPET"
+	}	
+	text = {
+		trigger = {
+			has_country_flag = notification_unsc_in_session
+			has_country_flag = unsc_initiator_flag
+			NOT = { has_country_flag = unsc_target_flag }
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+		}
+		localization_key = "CW_GENERIC_UNSC_CANNOT_VOTE_INITIATOR"
+	}
+	text = {
+		trigger = {
+			has_country_flag = notification_unsc_in_session
+			has_country_flag = unsc_target_flag
+			OR = {
+				is_in_array = {
+					array = global.unsc_non_permanent_members_array
+					value = THIS.id
+				}
+				is_in_array = {
+					array = global.unsc_permanent_members_array
+					value = THIS.id
+				}
+			}
+		}
+		localization_key = "CW_GENERIC_UNSC_CANNOT_VOTE_TARGET"
+	}	
+	text = {
+		trigger = {
+			has_country_flag = notification_unsc_in_session
+			has_country_flag = resolution_obeserver
+			NOT = {
+				OR = {
+					is_in_array = {
+						array = global.unsc_non_permanent_members_array
+						value = THIS.id
+					}
+					is_in_array = {
+						array = global.unsc_permanent_members_array
+						value = THIS.id
+					}
+				}
+			}
+		}
+		localization_key = "CW_GENERIC_UNSC_VOTE_ALERT_OBSERVER"
+	}	
+	text = {
+		trigger = {
+			has_country_flag = notification_unsc_in_session
+			has_country_flag = resolution_obeserver
+			has_country_flag = unsc_target_flag
+			NOT = {
+				OR = {
+					is_in_array = {
+						array = global.unsc_non_permanent_members_array
+						value = THIS.id
+					}
+					is_in_array = {
+						array = global.unsc_permanent_members_array
+						value = THIS.id
+					}
+				}
+			}
+		}
+		localization_key = "CW_GENERIC_UNSC_CANNOT_VOTE_TARGET"
+	}
+	text = {
+		trigger = {
+			has_country_flag = unsc_support_stopped
+		}
+		localization_key = "CW_UNSC_SUPPORT_STOPPED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = notification_state_claimed
+		}
+		localization_key = "CW_UNSC_STATE_CLAIMED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = notification_state_leased
+		}
+		localization_key = "CW_UNSC_STATE_LEASED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = notification_state_not_leased
+		}
+		localization_key = "CW_UNSC_STATE_NOT_LEASED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = notification_state_monopoly_rejected
+		}
+		localization_key = "CW_MONOPOLY_REQ_REJECTED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = notification_state_monopoly_accepted
+		}
+		localization_key = "CW_MONOPOLY_REQ_ACCEPTED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = notification_involvment_tip
+		}
+		localization_key = "CW_NEW_PLAYER_INVOLVMENT_TIP"
+	}
+	text = {
+		trigger = {
+			has_country_flag = state_monopoly_activated_notification
+		}
+		localization_key = "CW_NOTIFICATIONS_STATE_MONOPOLY_ACTIVATED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = phone_notification_food_exports
+		}
+		localization_key = "CW_NOTIFICATIONS_FOOD_EXPORTS_STARTED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = phone_notification_state_lease_revoked
+		}
+		localization_key = "CW_PHONE_NOTIFICATION_STATE_LEASE_REVOKED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = phone_notification_state_monopoly_suspended
+		}
+		localization_key = "CW_PHONE_NOTIFICATION_STATE_MONOPOLY_SUSPENDED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = phone_notification_state_monopoly_suspended_by_monopoly_holder
+		}
+		localization_key = "CW_PHONE_NOTIFICATION_STATE_MONOPOLY_SUSPENDED_BY_MONOPOLY_HOLDER"
+	}
+	text = {
+		trigger = {
+			has_country_flag = phone_notification_state_monopoly_given_by_us
+		}
+		localization_key = "CW_PHONE_NOTIFICATION_STATE_MONOPOLY_GIVEN_BY_US"
+	}
+	text = {
+		trigger = {
+			has_country_flag = phone_notification_joined_unsc_embargo
+		}
+		localization_key = "CW_PHONE_NOTIFICATION_JOINEDUNSC_EMBARGO"
+	}
+	text = {
+		trigger = {
+			has_country_flag = phone_notification_generic_refused_request
+		}
+		localization_key = "CW_PHONE_NOTIFICATION_GENERIC_REQUEST_REFUSED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = phone_notification_generic_accepted_request
+		}
+		localization_key = "CW_PHONE_NOTIFICATION_GENERIC_REQUEST_ACCEPTED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = phone_notification_military_aid_granted
+		}
+		localization_key = "CW_PHONE_NOTIFICATION_GENERIC_MILITARY_AID_GRANTED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = phone_notification_generic_economic_aid_granted
+		}
+		localization_key = "CW_PHONE_NOTIFICATION_GENERIC_ECONOMIC_AID_GRANTED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = phone_notification_generic_economic_aid_refused
+		}
+		localization_key = "CW_PHONE_NOTIFICATION_GENERIC_ECONOMIC_AID_REFUSED"
+	}	
+}
+defined_text = {
+	name = CW_TOP_DECISIONS_NOTIFICATION_LOC
+	text = {
+		trigger = {
+			has_country_flag = new_decisions_available_notification
+		}
+		localization_key = "CW_DECISIONS_NOTIFICATION_NEW_DECISIONS_AVAILABLE_LOC"
+	}
+	text = {
+		trigger = {
+			has_country_flag = new_state_decisions_available_notification
+		}
+		localization_key = "CW_DECISIONS_NOTIFICATION_NEW_STATE_DECISIONS_AVAILABLE_LOC"
+	}	
+	text = {
+		trigger = {
+			has_country_flag = too_many_insurgencies_notification
+		}
+		localization_key = "CW_DECISIONS_NOTIFICATION_TOO_MANY_INSURGENCIES_LOC"
+	}
+	text = {
+		trigger = {
+			has_country_flag = new_intelligence_agency_mission_available
+		}
+		localization_key = "CW_NEW_SPY_MISSIONS_AVAILABLE"
+	}
+	text = {
+		trigger = {
+			has_country_flag = notification_new_elections_started
+		}
+		localization_key = "CW_DECISIONS_NOTIFICATION_NEW_ELECTIONS_STARTED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = notification_elections_ended
+		}
+		localization_key = "CW_DECISIONS_NOTIFICATION_ELECTIONS_ENDED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = notification_country_referendum_started
+		}
+		localization_key = "CW_NEW_COUNTRY_REFERENDUM_STARTED"
+	}
+	text = {
+		trigger = {
+			has_country_flag = notification_state_referendum_started
+		}
+		localization_key = "CW_NEW_STATE_REFERENDUM_STARTED"
+	}		
+}

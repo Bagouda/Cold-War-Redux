@@ -1,0 +1,18 @@
+state = {
+	id=579
+	local_supplies=0.0 
+	name="STATE_579" # Salekhard
+	state_category = wasteland
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+	}
+	manpower = 45484
+	provinces={
+		1664 3169 4669 7689 7738 
+	}
+}

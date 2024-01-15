@@ -1,0 +1,69 @@
+protect_east_german_border = {
+	enable = {
+		tag = SOV
+		country_exists = DDR
+	}
+	abort = {
+		NOT = {
+			country_exists = DDR
+		}
+	}
+	ai_strategy = {
+		type = force_defend_ally_borders
+		id = "DDR"
+		value = 100
+	}
+}
+default_area_priority = {
+	enable = {
+		tag = SOV
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = germany
+		value = 100
+	}
+	ai_strategy = {
+		type = area_priority
+		id = middle_east
+		value = 50
+	}
+	abort_when_not_enabled = yes
+}
+soviet_power_struggle = {
+	enable = {
+		tag = SOV
+		has_active_mission = post_stalin_power_struggle
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = { 
+		type = pp_spend_priority
+		id = admiral
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = pp_spend_priority
+		id = guarantee
+		value = -9999
+	}
+
+	ai_strategy = { 
+		type = pp_spend_priority
+		id = relation
+		value = -9999
+	}
+	ai_strategy = {
+		type = pp_spend_amount
+		id = idea
+		value = -9999
+	}	
+	ai_strategy = {
+		type = pp_spend_amount
+		id = decision
+		value = 100
+	}	
+}

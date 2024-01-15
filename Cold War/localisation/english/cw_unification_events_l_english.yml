@@ -1,0 +1,16 @@
+﻿l_english:
+ german_unification.1.t:0 "The Stalin Note"
+ german_unification.1.d:0 "[SOV.GetLeader] has contacted the Western allies who hold control over Germany suggesting that a unification of Germany is the best way to to solve the German question.\n\nWe should consider our response to this suggestion and the consequences it may have over Germany in particular and Europe as a whole.\n\nIf we reject the proposal Germany will be divided between a Communist state and a western backed state.\n\nIf if we agree to this proposal a UN Security Council resolution will be drafted, if the resolution is adopted a neutral and disarmed German state will be created in all the current occupation zones." 
+ german_unification.2.t:0 "Western Allies reject German Unification"
+ german_unification.2.d:0 "The Western powers have rejected our suggestion of German unification and are moving forward with the establishment of their own puppet state in West Germany\n\nOur attempts at a mutual resolution for the German question have not been successful.\n\nWe must now move forward with our own plans for Germany."  
+ german_unification.3.t:0 "United States Seeks to Unify Germany"
+ german_unification.3.d:0 "The [USA.GetAdjective] ambassador to the Soviet Union has handed the government a suggestion on behalf of President [USA.GetLeader] regarding the future of Germany.\n\nThe [USA.GetAdjective] vision for Germany is of a unified, disarmed state with strict restrictions in the constitution regarding the ability of the state to rearm or join any military blocs.\n\nWe should consider this proposal since our agents in the west report that the alternative to this plan is a rearmed West German state which might threaten our motherland once more..." 
+ german_unification.4.t:0 "[FROM.GetName] rejects plan for a unified Germany"
+ german_unification.4.d:0 "[FROM.GetLeader] has rejected our calls for a unified German state.\n\nIt is unclear what are the reasons for the rejections but nevertheless it seems we must proceed on our own and establish a septate German state in the territories we control."
+ #
+ korean_unification.1.t:0 "Korean Unification suggested by [FROM.GetName]"
+ korean_unification.1.d:0 "The leadership of the [FROM.GetName] have come up with a suggestion to unify Korea under single rule, they suggest holding a referendum to allow the Korean people to decide on their own form of government.\n\nThis is an interesting offer that could help reduce dependence on us in the region and reduce tension with the [FROM.GetName] at the same time." 
+ korean_unification.a:0 "We cannot agree to this"
+ korean_unification.b:0 "Agree to the proposal"
+ korean_unification.2.t:0 "[FROM.GetName] rejects plan for a unified Korea"
+ korean_unification.2.d:0 "The [USA.GetAdjective] ambassador has notified us that the [FROM.GetAdjective] government has rejected the idea of a unified Korean state at this point." 

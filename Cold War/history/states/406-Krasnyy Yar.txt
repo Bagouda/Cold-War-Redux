@@ -1,0 +1,22 @@
+state = {
+	id=406
+	local_supplies=0.0 
+	name="STATE_406" # Gurev
+	state_category = wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 3618 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_claim_by = KAZ
+		victory_points = {
+			3618 1
+		}
+	}
+	manpower = 146494
+	provinces={
+		464 477 554 615 3459 3618 3622 6498 6514 6615 7322 9453 9469 11442 11455 11469 11578 11591 
+	}
+}

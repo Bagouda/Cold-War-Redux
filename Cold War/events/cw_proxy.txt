@@ -1,0 +1,517 @@
+#### NUKE ####
+
+add_namespace = nuke
+
+country_event = {
+	id = nuke.1
+	desc =  nuke.1.d
+	title =  nuke.1.t
+
+	is_triggered_only = yes
+
+	option = {
+		name = nuke.1.a
+	
+		declare_war_on = {
+			target = event_target:nuke_aggressor
+			type = annex_everything
+		}
+		
+		ai_chance = { base = 1000 }
+		
+	}
+	
+	option = {
+		name = nuke.1.b
+		add_stability = -0.4
+	}
+}
+
+
+
+
+add_namespace = cw_proxy_war
+
+
+### SOVIET ###
+news_event  = {
+	id = cw_proxy_war.0
+	desc =cw_proxy_war.0.d
+	title = cw_proxy_war.0.t
+	major = yes
+	
+	picture = GFX_news_event_soviet_tanks 
+	is_triggered_only = yes
+	
+	option = {
+		name = cw_proxy_war.0.a
+	}
+
+}
+
+#Notice a country the withdrawal of troop
+news_event  = {
+	id = cw_proxy_war.1
+	desc =cw_proxy_war.1.d
+	title = cw_proxy_war.1.t
+	major = yes
+	is_triggered_only = yes
+	picture = GFX_new_forces_retreating
+	option = {
+		name = cw_proxy_war.1.a
+	}
+
+}
+
+
+### USA ###
+news_event  = {
+	id = cw_proxy_war.2
+	desc =cw_proxy_war.2.d
+	title = cw_proxy_war.2.t
+	
+	picture = GFX_generic_soldiers_fighting
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = cw_proxy_war.2.a
+	}
+
+}
+
+#Notice a country the withdrawal of troop
+news_event  = {
+	id = cw_proxy_war.3
+	desc =cw_proxy_war.3.d
+	title = cw_proxy_war.3.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.3.a
+	}
+
+}
+
+### Other communist intervention ###
+news_event  = {
+	id = cw_proxy_war.4
+	desc =cw_proxy_war.4.d
+	title = cw_proxy_war.4.t
+	
+	picture = GFX_generic_soldiers_fighting
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = cw_proxy_war.4.a
+	}
+
+}
+
+#Notice a country the withdrawal of troop
+news_event  = {
+	id = cw_proxy_war.5
+	desc =cw_proxy_war.5.d
+	title = cw_proxy_war.5.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.3.a
+	}
+
+}
+
+
+
+
+### Other democratic intervention ###
+
+# deployement
+news_event  = {
+	id = cw_proxy_war.6
+	desc =cw_proxy_war.6.d
+	title = cw_proxy_war.6.t
+	
+	picture = GFX_generic_soldiers_fighting
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = cw_proxy_war.6.a
+	}
+
+}
+
+# withdrawal 
+news_event  = {
+	id = cw_proxy_war.7
+	desc =cw_proxy_war.7.d
+	title = cw_proxy_war.7.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.7.a
+	}
+
+}
+
+# USA lag behind
+country_event  = {
+	id = cw_proxy_war.8
+	desc =cw_proxy_war.8.d
+	title = cw_proxy_war.8.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.8.a
+		
+		news_event = cw_proxy_war.10
+		set_country_flag = looser_boost_1
+		upgrade_conscription_law = yes
+		upgrade_containment_law = yes
+		upgrade_military_budget_law = yes
+		add_ideas = {
+			cw_military_industry_focus
+			revanchism_1
+		}
+	}
+
+}
+
+# USA lag behind big
+country_event  = {
+	id = cw_proxy_war.9
+	desc =cw_proxy_war.9.d
+	title = cw_proxy_war.9.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.9.a
+		
+		
+		clr_country_flag = looser_boost_1
+		set_country_flag = looser_boost_2
+		news_event = cw_proxy_war.11
+		upgrade_conscription_law = yes
+		upgrade_containment_law = yes
+		upgrade_military_budget_law = yes
+		upgrade_work_hour_law = yes
+		remove_ideas = revanchism_1
+		add_ideas = {
+			cw_military_industry_focus
+			revanchism_2
+			
+		}
+	}
+
+}
+
+
+# USA lag behind world event
+
+news_event  = {
+	id = cw_proxy_war.10
+	desc =cw_proxy_war.10.d
+	title = cw_proxy_war.10.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.10.a
+	}
+
+}
+
+
+# USA lag behind big world event
+
+news_event  = {
+	id = cw_proxy_war.11
+	desc =cw_proxy_war.11.d
+	title = cw_proxy_war.11.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.11.a
+	}
+
+}
+
+# SOV lag behind
+
+country_event  = {
+	id = cw_proxy_war.12
+	desc =cw_proxy_war.12.d
+	title = cw_proxy_war.12.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.12.a
+		set_country_flag = looser_boost_1
+		news_event = cw_proxy_war.14
+		upgrade_conscription_law = yes
+		upgrade_containment_law = yes
+		upgrade_military_budget_law = yes
+		add_ideas = {
+			cw_military_industry_focus
+			revanchism_1
+		}
+	}
+
+}
+
+# SOV lag behind big
+
+country_event  = {
+	id = cw_proxy_war.13
+	desc =cw_proxy_war.13.d
+	title = cw_proxy_war.13.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.13.a
+		set_country_flag = looser_boost_2
+		clr_country_flag = looser_boost_1
+		news_event = cw_proxy_war.15
+		upgrade_conscription_law = yes
+		upgrade_containment_law = yes
+		upgrade_military_budget_law = yes
+		upgrade_work_hour_law = yes
+		remove_ideas = revanchism_1
+		add_ideas = {
+			cw_military_industry_focus
+			revanchism_2
+			
+		}
+	}
+}
+
+
+# SOV lag behind world event
+news_event  = {
+	id = cw_proxy_war.14
+	desc =cw_proxy_war.14.d
+	title = cw_proxy_war.14.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.14.a
+	}
+
+}
+
+# SOV lag behind big world event
+news_event  = {
+	id = cw_proxy_war.15
+	desc =cw_proxy_war.15.d
+	title = cw_proxy_war.15.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.15.a
+	}
+
+}
+
+# USA caught up
+news_event  = {
+	id = cw_proxy_war.16
+	desc =cw_proxy_war.16.d
+	title = cw_proxy_war.16.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.16.a
+	}
+
+}
+
+# SOV POV democracy ended 
+country_event  = {
+	id = cw_proxy_war.17
+	desc =cw_proxy_war.17.d
+	title = cw_proxy_war.17.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.17.a
+		add_to_variable = { cw_score = 5 }
+	}
+}
+
+# SOV POV communism 
+country_event  = {
+	id = cw_proxy_war.18
+	desc =cw_proxy_war.18.d
+	title = cw_proxy_war.18.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.18.a
+		subtract_from_variable = { cw_score = 5 }
+	}
+}
+
+# USA POV democracy ended by communist
+country_event  = {
+	id = cw_proxy_war.19
+	desc =cw_proxy_war.19.d
+	title = cw_proxy_war.19.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.19.a
+		subtract_from_variable = { cw_score = 5 }
+	}
+}
+
+# USA POV communism ended by democracy
+country_event  = {
+	id = cw_proxy_war.20
+	desc =cw_proxy_war.20.d
+	title = cw_proxy_war.20.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.20.a
+		add_to_variable = { cw_score = 5 }
+	}
+}
+
+
+
+# democracy end communism
+news_event  = {
+	id = cw_proxy_war.21
+	desc =cw_proxy_war.21.d
+	title = cw_proxy_war.21.t
+	picture = GFX_new_forces_retreating
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.21.a
+	}
+
+}
+
+
+
+add_namespace = spain_intervention
+
+news_event = { # spanish coup successfull
+	id = spain_intervention.1
+	desc =spain_intervention.1.d
+	title = spain_intervention.1.t
+	major = yes
+	picture = GFX_news_event_021
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = spain_intervention.1.a
+	}
+	
+
+}
+
+
+news_event = { # spanish coup fail
+	id = spain_intervention.2
+	desc =spain_intervention.2.d
+	title = spain_intervention.2.t
+	major = yes
+	picture = GFX_mao_zedong_execution_news
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = spain_intervention.2.a
+	}
+
+
+}
+
+news_event = { # Intervention in spain
+
+	id = spain_intervention.3
+	desc =spain_intervention.3.d
+	title = spain_intervention.3.t
+	major = yes
+	picture = GFX_news_event_003
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = spain_intervention.3.a
+	}
+
+
+}
+
+
+news_event = { # white peace timeout
+
+	id = spain_intervention.4
+	desc =spain_intervention.4.d
+	title = spain_intervention.4.t
+	major = yes
+	picture = GFX_news_event_spr_francoist_civil_war_victory
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = spain_intervention.4.a
+	}
+
+
+}
+
+
+news_event = { # catastrophic failure
+	id = spain_intervention.5
+	desc =spain_intervention.5.d
+	title = spain_intervention.5.t
+	major = yes
+	picture = GFX_news_event_spr_francoist_civil_war_victory
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = spain_intervention.5.a
+	}
+
+}
+
+news_event = { # victory in spain
+
+	id = spain_intervention.6
+	desc =spain_intervention.6.d
+	title = spain_intervention.6.t
+	major = yes
+	picture = GFX_news_event_021
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = spain_intervention.6.a
+	}
+
+
+}
+

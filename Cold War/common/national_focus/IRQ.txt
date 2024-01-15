@@ -1,0 +1,82 @@
+focus_tree = {
+	id = iraq_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = IRQ
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	focus = {
+		id = IRQ_depose_faisal
+		available = {
+			date > 1958.7.8
+		}
+		icon = GFX_goal_generic_war_with_comintern
+		x = 1
+		y = 1
+		cost = 2
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		completion_reward = {
+			random_list = {
+				75 = {
+					ENG = { end_puppet = ROOT }
+					leave_faction = yes
+					drop_cosmetic_tag = yes
+					cw_make_unrecognized = yes
+					set_politics = {
+						ruling_party = neutrality
+						elections_allowed = no
+					}
+					set_popularities = {	
+						democratic  = 0
+						democratic_socialist = 5
+						neutrality = 70
+						communism_totalitarian = 5
+						unaligned_right = 10
+						colonial =  0
+					}
+					news_event = cw_historic_events.25
+					if = {
+						limit = {
+							is_in_array = {
+								array = global.unsc_non_permanent_members_array
+								value = THIS.id
+							}
+						}
+						cw_remove_from_unsc = yes
+					}
+				}
+				25 = {
+					load_oob = IRQ_civil_war
+					start_civil_war = {
+						ideology = neutrality
+						keep_political_leader = yes
+						size = 0.6
+						states_filter = { impassable = no }
+						compute_proxy_score = yes
+					}
+					compute_proxy_score = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+}

@@ -1,0 +1,23 @@
+state = {
+	id=550
+	local_supplies=0.0 
+	name="STATE_550"
+	state_category = rural
+	history={
+		buildings = {
+			infrastructure = 1
+		}
+		owner = ENG
+		add_claim_by = ETH
+		add_claim_by = ITA
+		1950.12.1 = {
+			owner = ERI
+			add_core_of = ERI
+		}
+				
+	}
+	manpower = 300300
+	provinces={
+		   8043  12766
+	}
+}

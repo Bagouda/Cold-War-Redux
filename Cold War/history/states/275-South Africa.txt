@@ -1,0 +1,28 @@
+state = {
+	id=275
+	local_supplies=0.0 
+	name="STATE_275" # Transvaal
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 10400 }
+ 	set_variable = { victory_point = 10 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SAF
+		add_core_of = SAF
+		victory_points = {
+			10400 10
+		}
+	}
+	resources={
+		uranium=5
+		steel=5 # was: 8
+		chromium=53 # was: 80
+		crops = 20
+	}
+	manpower = 3680363
+	provinces={
+		1688 2171 2213 5106 5217 5231 10400 10566 10668 12064 12648 
+	}
+}

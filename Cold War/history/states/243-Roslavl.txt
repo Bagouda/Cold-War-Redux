@@ -1,0 +1,23 @@
+state = {
+	id=243
+	local_supplies=0.0 
+	name="STATE_243"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 11336 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		victory_points = {
+			11336 1
+		}
+	}
+	manpower = 576210
+	provinces={
+		223 236 3210 3278 3297 6243 9253 9351 11336 
+	}
+}

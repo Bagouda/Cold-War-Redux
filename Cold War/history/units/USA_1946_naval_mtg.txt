@@ -1,0 +1,321 @@
+﻿
+units= {
+
+	####### NAVAL UNITS #######
+	
+	fleet = {
+	          name = "Pacific fleet"
+			  naval_base = 4180
+			  task_force = {
+			  name = "Recon squadron 1"
+			  location = 7125 
+			  
+			  ship = { name = "USS Bremerton" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			  ship = { name = "USS Gearing" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			  }
+			  task_force = {
+			  name = "Recon squadron 2"
+			  location = 4180 
+			  
+			  ship = { name = "USS Rochester" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			  ship = { name = "USS Salt Lake City" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			  ship = { name = "USS Eugene A. Greene" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			  }
+			  task_force = {
+			  name = "Strike force 1"
+			  location = 4357 
+			  
+			  ship = { name = "USS Boxer" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Cowpens" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Independence Class" } } 
+				
+			}
+			ship = { name = "USS New Orleans" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			  ship = { name = "USS Gyatt" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			}
+			task_force = {
+			  name = "Strike force 2"
+			  location = 7315 
+			  
+			  ship = { name = "USS Ticonderoga" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Lexington" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Nevada" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS California" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS Canberra" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Oakland" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Flint" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Fall River" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			  ship = { name = "USS Hamner" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			}
+			task_force = {
+			  name = "Strike force 3"
+			  location = 7315 
+			  
+			  ship = { name = "USS Bunkerhill" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Essex" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Tennessee" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS West Virginia" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS Quincy" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Pitsburg" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Reno" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS San Juan" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			  ship = { name = "USS Epperson" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			}
+			task_force = {
+			  name = "Strike force 4"
+			  location = 7315 
+			  
+			ship = { name = "USS Maryland" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS Colorado" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS New Jersey" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS Santa Fe" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS mobile" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Denver" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Portland" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			  ship = { name = "USS Frank Knox" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			}
+			task_force = {
+			  name = "Sub squadron 2"
+			  location = 7315 
+			  
+			ship = { name = "USS Shark (SS-314)" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = USA version_name = "Balao Class" } } }
+			  ship = { name = "USS Tang (SS-306)" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = USA version_name = "Balao Class" } } }
+			}
+			task_force = {
+			  name = "Carrier force 1"
+			  location = 7315 
+			  
+			  ship = { name = "USS Saratoga" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Hancock" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Bon Homme River" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Southerland" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			ship = { name = "USS William C. Lawe" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			ship = { name = "USS Lloyd Thomas" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			}
+			task_force = {
+			  name = "Strike force 5"
+			  location = 9814 
+			  
+			  ship = { name = "USS Interpid" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Columbus" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Topeka" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Keppler" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			}
+			task_force = {
+			  name = "Strike force 6"
+			  location = 9814 
+			  
+			  ship = { name = "USS Texas" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			  ship = { name = "USS Alabama" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS Wilkes Barre" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Dayton" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Nashiville" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Rowan" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			ship = { name = "USS Gurke" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			}
+			task_force = {
+			  name = "Sub squadron 3"
+			  location = 9814 
+			  ship = { name = "USS Barbel (SS-316)" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = USA version_name = "Balao Class" } } }
+			  ship = { name = "USS Kete (SS-369)" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = USA version_name = "Balao Class" } } }
+			  ship = { name = "USS Lagarto (SS-371)" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = USA version_name = "Balao Class" } } }
+			  ship = { name = "USS Bullhead (SS-332)" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = USA version_name = "Balao Class" } } }
+			  ship = { name = "USS Cochino (SS-345)" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = USA version_name = "Balao Class" } } }
+			  ship = { name = "USS Blower (SS-325)" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = USA version_name = "Balao Class" } } }
+			  ship = { name = "USS Stickleback (SS-415)" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = USA version_name = "Balao Class" } } }
+			  ship = { name = "USS Catfish (SS-339)" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = USA version_name = "Balao Class" } } }
+			  ship = { name = "USS Atule (SS-403)" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = USA version_name = "Balao Class" } } }
+			  }
+			  task_force = {
+			  name = "Strike force 7"
+			  location = 9814 
+			  
+			  ship = { name = "USS Shangri La" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Tucson" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS McKean" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			ship = { name = "USS Henderson" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			}
+			task_force = {
+			  name = "Escort force 4"
+			  location = 9814 
+			  ship = { name = "USS Cabot" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Independence Class" } } 
+				
+			}
+			ship = { name = "USS Belleau Wood" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Independence Class" } } 
+				
+			}
+			ship = { name = "USS Pensacola" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Richard B. Anderson" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			ship = { name = "USS James E. Kyes" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			  }
+			  
+			  task_force = {
+			  name = "Strike force 8"
+			  location = 9713 
+			  
+			  ship = { name = "USS York Town" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Hornet" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS New York" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS Arkansas" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS Oklahama City" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Amesterdam" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Hollister" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			}
+			task_force = {
+			  name = "Strike force 9"
+			  location = 9713 
+			  
+			ship = { name = "USS Bennington" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Indiana" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS Massachusette" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS Independance" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Tuscaloosa" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Eversole" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			}
+			task_force = {
+			  name = "Escort force 5"
+			  location = 9814 
+			  
+			ship = { name = "USS San jecinto" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Independence Class" } } 
+				
+			}
+			ship = { name = "USS Wichita" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS San Diego" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Birmangham" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Vincennes" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Shelton" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			  }
+			  task_force = {
+			  name = "Recon squadron 3"
+			  location = 9713 
+			  
+			  ship = { name = "USS Boston" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			  ship = { name = "USS Atlanta" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			  ship = { name = "USS Chevalier" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			  }
+		}
+		
+		fleet = {
+	          name = "Atlantic fleet"
+			  naval_base = 873
+			  task_force = {
+			  name = "Strike force 1"
+			  location = 873 
+			  ship = { name = "USS Ranger" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Wyoming" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS Little Rock" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Portsmouth" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Macon" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Kenneth D. Bailey" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			  }
+			  task_force = {
+			  name = "Strike force 2"
+			  location = 873 
+			  ship = { name = "USS Midway" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Mississippi" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS Chester" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Louisville" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Augusta" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS William R. Rush" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			  }
+			  task_force = {
+			  name = "Escort force 1"
+			  location = 873 
+			  ship = { name = "USS Bataan" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Independence Class" } } 
+				
+			}
+			ship = { name = "USS Idaho" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS Minneapolis" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS San Francisco" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Brooklyn" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS William M. Wood" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			  }
+			  task_force = {
+			  name = "Escort force 2"
+			  location = 873 
+			  ship = { name = "USS Langley" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Independence Class" } } 
+				
+			}
+			ship = { name = "USS South Dakuta" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS Philadelphia" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Savannah" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Phoenix" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Wiltsie" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			  }
+			  task_force = {
+			  name = "Escort force 3"
+			  location = 873 
+			  ship = { name = "USS Monterey" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Independence Class" } } 
+				
+			}
+			ship = { name = "USS Wisconsin" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			ship = { name = "USS Honolulu" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS St Louis" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Columbia" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			ship = { name = "USS Theodore E. Chandler" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			  }
+			 task_force = {
+			  name = "Strike force 10"
+			  location = 6732 
+			  ship = { name = "USS New Mexico" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			  ship = { name = "USS Helena" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			  ship = { name = "USS Cleveland" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			  ship = { name = "USS Higbee" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			  ship = { name = "USS Benner" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			  }
+			  task_force = {
+			  name = "Strike force 11"
+			  location = 3878 
+			  ship = { name = "USS Enterprise" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			ship = { name = "USS Franklin D Rosvelt" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } }
+			  ship = { name = "USS Missouri" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			  ship = { name = "USS Fargo" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			  ship = { name = "USS Dennis J. Buckley" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			  }
+			  task_force = {
+			  name = "Strike force 11"
+			  location = 3878 
+			  ship = { name = "USS Wasp" definition = carrier equipment = { ship_hull_carrier_3 = { amount = 1 owner = USA version_name = "Essex Class" } } 
+				
+			}
+			  ship = { name = "USS Washington" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			  ship = { name = "USS North Carolina" definition = battleship equipment = { ship_hull_heavy_4 = { amount = 1 owner = USA version_name = "Iowa Class" } } }
+			  ship = { name = "USS Boise" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			  ship = { name = "USS Montpelier" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = USA version_name = "Baltimore Class" } } }
+			  ship = { name = "USS Corry" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = USA version_name = "Gearing Class" } } }
+			  }
+			  
+	    }
+		
+}

@@ -1,0 +1,9 @@
+﻿l_english:
+ SCRIPTED_TRIGGER_CHAR_IS_ON_CABINET:0 "is serving on the cabinet."
+ SCRIPTED_TRIGGER_CHAR_IS_HOG:0 "is serving on the cabinet as $hog_minister$."
+ SCRIPTED_TRIGGER_CHAR_IS_FOREIGN_MINISTER:0 "is serving on the cabinet as §H$foreign_minister$§!."
+ SCRIPTED_TRIGGER_CHAR_IS_DEFENSE_MINISTER:0 "is serving on the cabinet as §H$defense_minister$§!."
+ SCRIPTED_TRIGGER_CHAR_IS_TREASURY_MINISTER:0 "is serving on the cabinet as §H$treasury_minister$§!."
+ SCRIPTED_TRIGGER_CHAR_IS_HOI:0 "is serving on the cabinet as §H$head_of_intelligence_minister$§!."
+ SCRIPTED_TRIGGER_CHAR_IS_CHIEF_OF_STAFF:0 "is serving on the cabinet as §H$chief_of_staff$§!."
+ HAS_SAME_IDEOLOGY_GROUP: "Is in the same §HIdeology Group§! as §H[PREV.GetName]§!"

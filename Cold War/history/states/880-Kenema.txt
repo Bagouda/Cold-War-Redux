@@ -1,0 +1,25 @@
+state={
+	id=880
+	local_supplies=0.0 
+	name="STATE_880"
+	state_category = pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 2038 }
+ 	set_variable = { victory_point = 1 }
+		owner = ENG
+		add_claim_by = SIE
+		
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			2038 1 
+		}
+	}
+	manpower = 884250
+
+	provinces={
+		2094 
+	}
+	buildings_max_level_factor=1.000
+}

@@ -1,0 +1,53 @@
+﻿capital = 556
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_country_flag = decolonization	
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1946.9.28"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 25
+		democratic_socialist = 5
+		neutrality = 50
+		communism_totalitarian = 0
+		unaligned_right = 20
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Ahmed Toure"
+		desc = ""
+		picture = "ahmed_toure.dds"
+		ideology = democratic_nationalist_idolg
+		expire = 1985.4.11
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Ahmed Toure"
+		desc = ""
+		picture = "ahmed_toure.dds"
+		ideology = social_cons_idolg
+		expire = 1969.4.28
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Ahmed Toure"
+		desc = ""
+		picture = "ahmedchi.dds"
+		ideology = stalinism_idolg
+		expire = 1985.4.11
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Ahmed Toure"
+		desc = ""
+		picture = "ahmedsov.dds"
+		ideology = revisionist_idolg
+		expire = 1969.4.28
+		traits = {}
+	}
+}

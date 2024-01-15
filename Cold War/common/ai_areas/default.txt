@@ -1,0 +1,104 @@
+areas = {
+
+	suez = {
+        strategic_regions = {
+            208
+        }
+    }
+
+    germany = {
+		strategic_regions = {
+			6
+            8
+        }
+    }
+
+	europe = {
+		continents = { 
+			europe
+		}
+	}
+
+	north_america = {
+
+		continents = { 
+			north_america 
+		}
+	}
+
+	south_america = {
+
+		continents = { 
+			south_america 
+		}
+	}
+
+	central_america = {
+
+		continents = { 
+			central_america 
+		}
+	}	
+
+	africa = {
+
+		continents = { 
+			africa 
+		}		
+	}
+
+	asia = {
+
+		continents = { 
+			asia 
+		}
+	}
+
+	korea = {
+        strategic_regions = {
+            186
+        }
+	}
+	vietnam = {
+        strategic_regions = {
+            142
+        }
+	}
+	madagascar = {
+        strategic_regions = {
+            181
+        }
+	}	
+	tibet = {
+        strategic_regions = {
+            146
+        }
+	}		
+	philipines = {
+        strategic_regions = {
+            160
+        }
+	}		
+	
+	middle_east = {
+
+		continents = { 
+			middle_east 
+		}
+	}
+
+	pacific = {
+	}
+
+	oceania = {
+
+		strategic_regions = {
+			156 # Australia
+			157 # New Zealand
+			86  # Tasman Sea
+			98  # Great Australian Bight
+			81  # Coral Sea
+		}
+	}
+	
+}

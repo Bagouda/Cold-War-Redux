@@ -1,0 +1,26 @@
+ideas = {		# Ideas to make the game shut the fuck up about missing ideas
+	hidden_ideas = {
+		SOV_purged_junior_navy_officers_3 = {
+			allowed = {
+				always = no
+			}
+			available = {
+			}
+			allowed_civil_war = {
+			}
+			modifier = {
+			}		
+		}
+		SOV_purged_junior_army_officers_3 = {
+			allowed = {
+				always = no
+			}
+			available = {
+			}
+			allowed_civil_war = {
+			}
+			modifier = {
+			}		
+		}
+	}
+}

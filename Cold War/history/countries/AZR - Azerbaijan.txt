@@ -1,0 +1,33 @@
+﻿capital = 419 #Baku
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+#	set_cosmetic_tag = AZB_PER
+	add_ideas = {
+		cw_non_recognized_state
+	}	
+	set_politics = {
+		ruling_party = communism_totalitarian
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 100
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+			name = "Ja'far Pishevari"
+			desc = ""
+			picture = AZBH1.dds
+			ideology = stalinism_idolg
+			expire = 1955.4.6
+			traits = {}
+	}	
+}
+1946.11.15 = {
+	drop_cosmetic_tag = yes
+}

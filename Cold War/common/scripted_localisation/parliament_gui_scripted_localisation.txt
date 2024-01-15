@@ -1,0 +1,181 @@
+# Gets the loc to be displayed based on what the current v (value) of the element in the array is (the value corresponds to the party id set in the scripted effect).
+defined_text = {
+	name = GetParliamentPartyName
+	text = {
+		trigger = {
+			check_variable = { v = 1 }
+		}
+		localization_key = party_1_text
+	}
+	text = {
+		trigger = {
+			check_variable = { v = 2 }
+		}
+		localization_key = party_2_text
+	}
+	text = {
+		trigger = {
+			check_variable = { v = 3 }
+		}
+		localization_key = party_3_text
+	}
+	text = {
+		trigger = {
+			check_variable = { v = 4 }
+		}
+		localization_key = party_4_text
+	}
+	text = {
+		trigger = {
+			check_variable = { v = 5 }
+		}
+		localization_key = party_5_text
+	}
+	text = {
+		trigger = {
+			check_variable = { v = 6 }
+		}
+		localization_key = party_6_text
+	}
+	text = {
+		localization_key = "Error"
+	}
+}
+
+# Since index starts as 0, i can get the current seat number by jut adding it by one and then displaying it.
+defined_text = {
+	name = GetParliamentSeatName
+	text = {
+		trigger = {
+			set_temp_variable = { temp_seat = parliament_main_index }
+			add_to_temp_variable = { temp_seat = 1 }
+			check_variable = { temp_seat > 0 }
+		}
+		localization_key = parliament_seat_text
+	}
+}
+defined_text = {
+	name = PARLIAMENT_IDEOLOGY_NAME
+	text = {
+		trigger = {
+			OR = {
+				has_government = communism
+				has_government = communism_totalitarian
+			}
+		}
+		localization_key = "CW_PARLIAMENT_NAME_COMMUNIST"
+	}
+	text = {
+		trigger = {
+			original_tag = USA
+		}
+		localization_key = "CW_PARLIAMENT_NAME_USA"
+	}
+	text = {
+		trigger = {
+			original_tag = FRA
+		}
+		localization_key = "CW_PARLIAMENT_NAME_FRA"
+	}	
+	text = { localization_key = "CW_PARLIAMENT_NAME_GENERIC" }
+}
+defined_text = {
+	name = PARLIAMENT_GET_LEADING_PARTY_NAME_FROM_ID
+	text = {		#Dem Right
+		trigger = {
+			check_variable = { THIS.highest_party_ideology = 20053 }
+		}
+		localization_key = party_1_text
+	}	
+	text = {		#Dem Left
+		trigger = {
+			check_variable = { THIS.highest_party_ideology = 20061 }
+		}
+		localization_key = party_2_text
+	}
+	text = {
+		trigger = {		#Neutrality Right
+			check_variable = { THIS.highest_party_ideology = 20070 }
+		}
+		localization_key = party_3_text
+	}
+	text = {
+		trigger = {		#Neutrality Left
+			check_variable = { THIS.highest_party_ideology = 20087 }
+		}
+		localization_key = party_4_text
+	}		
+	text = {
+		trigger = {		#Com Ref
+			check_variable = { THIS.highest_party_ideology = 20099 }
+		}
+		localization_key = party_5_text
+	}		
+	text = {
+		trigger = {		#Com Total
+			check_variable = { THIS.highest_party_ideology = 20104 }
+		}
+		localization_key = party_6_text
+	}
+}
+defined_text = {
+	name = PARLIAMENT_GET_RULING_PARTY_FROM_ID
+	text = {		#Dem Right
+		trigger = {
+			has_government = democratic
+		}
+		localization_key = party_1_text
+	}	
+	text = {		#Dem Left
+		trigger = {
+			has_government = democratic_socialist
+		}
+		localization_key = party_2_text
+	}
+	text = {
+		trigger = {		#Neutrality Right
+			has_government = unaligned_right
+		}
+		localization_key = party_3_text
+	}
+	text = {
+		trigger = {		#Neutrality Left
+			has_government = neutrality
+		}
+		localization_key = party_4_text
+	}		
+	text = {
+		trigger = {		#Com Ref
+			has_government = communism
+		}
+		localization_key = party_5_text
+	}		
+	text = {
+		trigger = {		#Com Total
+			has_government = communism_totalitarian
+		}
+		localization_key = party_6_text
+	}		
+}
+defined_text = {
+	name = ELECTIONS_END_GER_RESULTS
+	text = {
+		trigger = {
+			check_variable = { THIS.highest_party_popularity > 0.50 }
+		}
+		localization_key = CW_ELECTIONS_END_GOVERNMENT_FORMED
+	}
+	text = {
+		trigger = {
+			check_variable = { var = num_of_elections value = 5 compare = greater_than_or_equals }
+			OR = {
+				check_variable = { THIS.highest_party_ideology  = 20053 }	#Dem Right
+				check_variable = { THIS.highest_party_ideology  = 20061 }	#Dem Left
+				check_variable = { THIS.highest_party_ideology  = 20099 }	#Com Ref
+				check_variable = { THIS.highest_party_ideology  = 20104 }	#Com Total
+			}
+		}
+		localization_key = "CW_LARGEST_NON_DEM_PARTY_CIVIL_WAR"
+	}	
+	text = { localization_key = "CW_ELECTIONS_END_ANOTHER_ELECTION" }
+}

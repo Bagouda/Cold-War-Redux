@@ -1,0 +1,219 @@
+guiTypes = {
+	containerWindowType = {
+		name = "cw_manchuria_struggle_decision_ui_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 0 }
+		containerWindowType = {
+			name = "cw_manchuria_states"
+			position = { x = 167 y = -340 }
+			iconType = {
+				name = "background"
+				spriteType = "GFX_manchuria_struggle_background"
+				position = { x = -167 y = -14 }
+			}
+			#######################################################
+			iconType = {
+				name = "manchuria_holunbuir_prc_icon"
+				spriteType = "GFX_manchuria_struggle_holunbuir"
+				position = { x = 10 y = 9 }
+				frame = 1
+			}
+			iconType = {
+				name = "manchuria_holunbuir_chi_icon"
+				spriteType = "GFX_manchuria_struggle_holunbuir"
+				position = { x = 10 y = 9 }
+				frame = 2
+			}
+			iconType = {
+				name = "manchuria_holunbuir_undecided_icon"
+				spriteType = "GFX_manchuria_struggle_holunbuir"
+				position = { x = 10 y = 9 }
+				frame = 3
+			}
+			instantTextboxType = {
+				name = "holunbuir_control_indicator"
+				position = { x = -70 y = 60 }
+				font = "Arial12_bold"
+				text = "KMT: [?761.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?761.man_struggle_prc_control]%"
+				maxWidth = 300
+				maxHeight = 50
+				fixedsize = yes
+				format = center
+			}
+			####
+			iconType = {
+				name = "manchuria_heilngikiang_prc_icon"
+				spriteType = "GFX_manchuria_struggle_heilngikiang"
+				position = { x = 77 y = 8 }
+				frame = 1
+			}
+			iconType = {
+				name = "manchuria_heilngikiang_chi_icon"
+				spriteType = "GFX_manchuria_struggle_heilngikiang"
+				position = { x = 77 y = 8 }
+				frame = 2
+			}
+			iconType = {
+				name = "manchuria_heilngikiang_undecided_icon"
+				spriteType = "GFX_manchuria_struggle_heilngikiang"
+				position = { x = 77 y = 8 }
+				frame = 3
+			}
+			instantTextboxType = {
+				name = "heilngikiang_control_indicator"
+				position = { x = 30 y = 110 }
+				font = "Arial12_bold"
+				text = "KMT: [?714.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?714.man_struggle_prc_control]%"
+				maxWidth = 300
+				maxHeight = 50
+				fixedsize = yes
+				format = center
+			}
+			####
+			iconType = {
+				name = "manchuria_sungukiang_prc_icon"
+				spriteType = "GFX_manchuria_struggle_sungukiang"
+				position = { x = 209 y = 117 }
+				frame = 1
+			}
+			iconType = {
+				name = "manchuria_sungukiang_chi_icon"
+				spriteType = "GFX_manchuria_struggle_sungukiang"
+				position = { x = 209 y = 117 }
+				frame = 2
+			}
+			iconType = {
+				name = "manchuria_sungukiang_undecided_icon"
+				spriteType = "GFX_manchuria_struggle_sungukiang"
+				position = { x = 209 y = 117 }
+				frame = 3
+			}
+			instantTextboxType = {
+				name = "sungukiang_control_indicator"
+				position = { x = 120 y = 170 }
+				font = "Arial12_bold"
+				text = "KMT: [?717.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?717.man_struggle_prc_control]%"
+				maxWidth = 300
+				maxHeight = 50
+				fixedsize = yes
+				format = center
+			}
+			####
+			iconType = {
+				name = "manchuria_liaoning_prc_icon"
+				spriteType = "GFX_manchuria_struggle_liaoning"
+				position = { x = 51 y = 149 }
+				frame = 1
+			}
+			iconType = {
+				name = "manchuria_liaoning_chi_icon"
+				spriteType = "GFX_manchuria_struggle_liaoning"
+				position = { x = 51 y = 149 }
+				frame = 2
+			}
+			iconType = {
+				name = "manchuria_liaoning_undecided_icon"
+				spriteType = "GFX_manchuria_struggle_liaoning"
+				position = { x = 51 y = 149 }
+				frame = 3
+			}
+			instantTextboxType = {
+				name = "liaoning_control_indicator"
+				position = { x = -40 y = 170 }
+				font = "Arial12_bold"
+				text = "KMT: [?715.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?715.man_struggle_prc_control]%"
+				maxWidth = 300
+				maxHeight = 50
+				fixedsize = yes
+				format = center
+			}			
+			####
+			iconType = {
+				name = "manchuria_kirin_prc_icon"
+				spriteType = "GFX_manchuria_struggle_kirin"
+				position = { x = 141 y = 166 }
+				frame = 1
+			}
+			iconType = {
+				name = "manchuria_kirin_chi_icon"
+				spriteType = "GFX_manchuria_struggle_kirin"
+				position = { x = 141 y = 166 }
+				frame = 2
+			}
+			iconType = {
+				name = "manchuria_kirin_undecided_icon"
+				spriteType = "GFX_manchuria_struggle_kirin"
+				position = { x = 141 y = 166 }
+				frame = 3
+			}
+			instantTextboxType = {
+				name = "kirin_control_indicator"
+				position = { x = 40 y = 190 }
+				font = "Arial12_bold"
+				text = "KMT: [?328.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?328.man_struggle_prc_control]%"
+				maxWidth = 300
+				maxHeight = 50
+				fixedsize = yes
+				format = center
+			}
+			####
+			iconType = {
+				name = "manchuria_jehol_prc_icon"
+				spriteType = "GFX_manchuria_struggle_jehol"
+				position = { x = 26 y = 204 }
+				frame = 1
+			}
+			iconType = {
+				name = "manchuria_jehol_chi_icon"
+				spriteType = "GFX_manchuria_struggle_jehol"
+				position = { x = 26 y = 204 }
+				frame = 2
+			}
+			iconType = {
+				name = "manchuria_jehol_undecided_icon"
+				spriteType = "GFX_manchuria_struggle_jehol"
+				position = { x = 26 y = 204 }
+				frame = 3
+			}
+			instantTextboxType = {
+				name = "jehol_control_indicator"
+				position = { x = -90 y = 225 }
+				font = "Arial12_bold"
+				text = "KMT: [?610.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?610.man_struggle_prc_control]%"
+				maxWidth = 300
+				maxHeight = 50
+				fixedsize = yes
+				format = center
+			}
+			####
+			iconType = {
+				name = "manchuria_liaotung_prc_icon"
+				spriteType = "GFX_manchuria_struggle_liaotung"
+				position = { x = 93 y = 224 }
+				frame = 1
+			}
+			iconType = {
+				name = "manchuria_liaotung_chi_icon"
+				spriteType = "GFX_manchuria_struggle_liaotung"
+				position = { x = 93 y = 224 }
+				frame = 2
+			}
+			iconType = {
+				name = "manchuria_liaotung_undecided_icon"
+				spriteType = "GFX_manchuria_struggle_liaotung"
+				position = { x = 93 y = 224 }
+				frame = 3
+			}
+			instantTextboxType = {
+				name = "liaotung_control_indicator"
+				position = { x = -10 y = 250 }
+				font = "Arial12_bold"
+				text = "KMT: [?716.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?716.man_struggle_prc_control]%"
+				maxWidth = 300
+				maxHeight = 50
+				fixedsize = yes
+				format = center
+			}			
+		}
+	}
+}

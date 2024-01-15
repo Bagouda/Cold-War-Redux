@@ -1,0 +1,16 @@
+﻿
+units= {
+
+	####### NAVAL UNITS #######
+	
+	fleet = {
+	          name = "Royal Norwegian Navy"
+			  naval_base = 122
+			  task_force = {
+			  name = "surface force"
+			  location = 122 
+			  ship = { name = "Vigo" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = NOR version_name = "Battle Class" } } }
+			}
+	}	
+} 
+

@@ -1,0 +1,48 @@
+cw_we_pacification_category = {
+	picture = ger_mefo_bills
+
+	icon = GFX_decision_category_generic_crisis
+	visible_when_empty = yes
+
+	allowed = {
+	}
+
+	visible = {
+		has_variable = pacification_target
+	}
+	on_map_area = {
+		target_array = var:ROOT.pacification_target:controlled_states
+		target_trigger = {
+			FROM = {
+				has_resistance = yes
+				is_core_of = FROM.OWNER
+			}
+		}
+		name = cw_pactification_category_subtitle_loc
+		zoom = 150
+	}	
+}
+cw_we_insurgency_category = {
+	picture = ger_mefo_bills
+
+	icon = GFX_decision_category_infiltration
+	visible_when_empty = yes
+
+	allowed = {
+	}
+
+	visible = {
+		has_variable = our_insurgency_target
+		var:our_insurgency_target = { has_civil_war = no }
+	}
+	on_map_area = {
+		target_array = var:ROOT.our_insurgency_target:controlled_states
+		target_trigger = {
+			FROM = {
+				has_resistance = yes
+			}
+		}
+		name = cw_insurgency_category_subtitle_loc
+		zoom = 150
+	}	
+}

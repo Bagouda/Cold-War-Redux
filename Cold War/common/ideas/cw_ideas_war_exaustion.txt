@@ -1,0 +1,22 @@
+ideas = {
+	hidden_ideas = {
+		country_sent_volunteers = {
+			
+			allowed = {
+				always = yes
+			}
+			
+			available = {
+				any_unit_leader = { is_leading_volunteer_group_with_original_country = ROOT }
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			
+			modifier = {
+				war_support_factor = -0.10
+			}
+		}
+	}
+}

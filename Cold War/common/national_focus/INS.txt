@@ -1,0 +1,51 @@
+focus_tree = {
+	id = indonesia_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = INS
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	#focus = {
+	#	id = INS_madium_affair
+	#	available = {
+	#		date > 1948.7.8
+	#		has_war = no
+	#		controls_state = 667
+	#	}
+	#	icon = GFX_goal_generic_war_with_comintern
+	#	x = 1
+	#	y = 1
+	#	cost = 2
+	#
+	#	bypass = {
+	#	}
+	#	available_if_capitulated = no
+	#	
+	#	completion_reward = {
+	#		start_civil_war = {
+	#			ideology = communism_totalitarian
+	#			keep_political_leader = yes
+	#			size = 0.3
+	#			states_filter = { impassable = no }
+	#			states = { 
+	#				672
+	#			}
+	#		}
+	#	}
+	#	ai_will_do = {
+	#		base = 1
+	#		modifier = {
+	#			add = 10
+	#			is_historical_focus_on = yes
+	#		}
+	#	}
+	#}	
+}

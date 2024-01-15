@@ -1,0 +1,27 @@
+state={
+	id=860
+	local_supplies=0.0 
+	name="STATE_860"
+	state_category = enclave
+	history = {
+ 	add_to_array = { list_victory_point = 8124 }
+ 	set_variable = { victory_point = 10 }
+		owner = FRA
+		add_claim_by = DJI
+		
+		buildings = {
+			infrastructure = 1
+			8124 = {
+				naval_base = 1	
+			}			
+		}		
+		victory_points = {
+			8124 10
+		}
+	}
+	manpower = 45232
+	provinces={
+		8124 
+	}
+	buildings_max_level_factor=1.000
+}

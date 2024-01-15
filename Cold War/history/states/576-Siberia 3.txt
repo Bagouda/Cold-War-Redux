@@ -1,0 +1,18 @@
+state = {
+	id=576
+	local_supplies=0.0 
+	name="STATE_576" # Yeniseisk
+	state_category = wasteland
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+	}
+	manpower = 117195
+	provinces={
+		1679 1697 1741 1780 1828 1837 4687 4785 4831 4842 7701 7707 7750 7805 7863 10544 10576 10631 10705 12615 12655 12666 
+	}
+}

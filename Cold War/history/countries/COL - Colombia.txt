@@ -1,0 +1,453 @@
+﻿capital = 306
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+set_variable = {proxy_point = 45 }
+####start tech####
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons2 = 1
+	infantry_weapons1 = 1
+	improved_infantry_weapons = 1
+	improved_infantry_weapons_2 = 1
+	infantry_at = 1
+	infantry_at2 = 1
+	advanced_infantry_weapons = 1
+	advanced_infantry_weapons2 = 1
+	marines = 1
+	paratroopers = 1
+	tech_mountaineers = 1
+	tech_special_forces = 1
+	jungle_warfare = 1
+	mountain_warfare = 1
+	night_vision = 1
+	support_weapons = 1
+	support_weapons2 = 1
+	support_weapons3 = 1
+	support_weapons4 = 1
+	motorised_infantry = 1
+	motorized_rocket_unit = 1
+	armored_car1 = 1
+	armored_car2 = 1
+	armored_car3 = 1
+	armored_car_at_upgrade = 1
+	mechanised_infantry = 1
+	amphibious_mechanized_infantry = 1
+	amphibious_mechanized_infantry_2 = 1
+	mechanised_infantry2 = 1
+	mechanised_infantry3 = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	railway_gun = 1
+	wartime_train = 1
+	armored_train = 1
+	
+	gw_artillery = 1
+	interwar_artillery = 1
+	artillery1 = 1
+	artillery2 = 1
+	artillery3 = 1
+	artillery4 = 1
+	artillery5 = 1
+	mountain_gun = 1
+	rocket_artillery = 1
+	rocket_artillery2 = 1
+	rocket_artillery3 = 1
+	rocket_artillery4 = 1
+	interwar_antiair = 1
+	antiair1 = 1
+	antiair2 = 1
+	antiair3 = 1
+	antiair4 = 1
+	antiair5 = 1
+	interwar_antitank = 1
+	antitank1 = 1
+	antitank2 = 1
+	antitank3 = 1
+	antitank4 = 1
+	antitank5 = 1
+	
+	early_fighter = 1
+	cv_early_fighter = 1
+	fighter1 = 1
+	cv_fighter1 = 1
+	fighter2 = 1
+	cv_fighter2 = 1
+	fighter3 = 1
+	cv_fighter3 = 1
+	jet_fighter1 = 1
+	jet_fighter2 = 1
+	CAS1 = 1
+	cv_CAS1 = 1
+	CAS2 = 1
+	cv_CAS2 = 1
+	CAS3 = 1
+	cv_CAS3 = 1
+	naval_bomber1 = 1
+	cv_naval_bomber1 = 1
+	naval_bomber2 = 1
+	cv_naval_bomber2 = 1
+	naval_bomber3 = 1
+	cv_naval_bomber3 = 1
+	early_bomber = 1
+	heavy_fighter1 = 1
+	heavy_fighter2 = 1
+	heavy_fighter3 = 1
+	scout_plane1 = 1
+	scout_plane2 = 1
+	tactical_bomber1 = 1
+	tactical_bomber2 = 1
+	tactical_bomber3 = 1
+	jet_tactical_bomber1 = 1
+	jet_tactical_bomber2 = 1
+	strategic_bomber1 = 1
+	strategic_bomber2 = 1
+	strategic_bomber3 = 1
+	jet_strategic_bomber1 = 1
+	
+	gwtank = 1
+	basic_light_tank = 1
+	basic_light_td = 1
+	basic_light_art = 1
+	basic_light_spaa = 1
+	improved_light_tank = 1
+	improved_light_td = 1
+	improved_light_art = 1
+	improved_light_spaa = 1
+	amphibious_tank = 1
+	amphibious_tank_2 = 1
+	advanced_light_tank = 1
+	advanced_light_td = 1
+	advanced_light_art = 1
+	advanced_light_spaa = 1
+	basic_medium_tank = 1
+	basic_medium_td = 1
+	basic_medium_art = 1
+	basic_medium_spaa = 1
+	improved_medium_tank = 1
+	improved_medium_td = 1
+	improved_medium_art = 1
+	improved_medium_spaa = 1
+	advanced_medium_tank = 1
+	advanced_medium_td = 1
+	advanced_medium_art = 1
+	advanced_medium_spaa = 1
+	main_battle_tank = 1
+	modern_td = 1
+	modern_art = 1
+	modern_spaa = 1
+	basic_heavy_tank = 1
+	basic_heavy_td = 1
+	basic_heavy_art = 1
+	basic_heavy_spaa = 1
+	improved_heavy_tank = 1
+	improved_heavy_td = 1
+	improved_heavy_art = 1
+	improved_heavy_spaa = 1
+	advanced_heavy_tank = 1
+	advanced_heavy_td = 1
+	advanced_heavy_art = 1
+	advanced_heavy_spaa = 1
+	super_heavy_tank = 1
+	super_heavy_td = 1
+	super_heavy_art = 1
+	super_heavy_spaa = 1
+	
+	electronic_mechanical_engineering = 1
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		amphibious_tank_chassis = 1
+		amphibious_drive = 1
+		advanced_light_tank_chassis = 1
+		basic_medium_tank_chassis = 1
+		improved_medium_tank_chassis = 1
+		advanced_medium_tank_chassis = 1
+		main_battle_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		improved_heavy_tank_chassis = 1
+		advanced_heavy_tank_chassis = 1
+		super_heavy_tank_chassis = 1
+		armor_tech_1 = 1
+		armor_tech_2 = 1
+		armor_tech_3 = 1
+		armor_tech_4 = 1
+		engine_tech_1 = 1
+		engine_tech_2 = 1
+		engine_tech_3 = 1
+		engine_tech_4 = 1
+	}
+}
+####end tech####
+1946.1.1 = {
+	OOB = COL_1946
+	set_politics = {
+		ruling_party = democratic_socialist
+		last_election = "1942.5.5"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 41
+		democratic_socialist = 32
+		neutrality = 17
+		communism_totalitarian = 10
+		communism = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Gustavo Rojas Pinilla"
+		desc = ""
+		picture = "COLH4_M.dds"
+		ideology = military_conservative_idolg
+		expire = 1953.6.13
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Mariano Ospina Pérez"
+		desc = ""
+		picture = "COLH2.dds"
+		ideology = social_cons_idolg
+		expire = 1953.6.13
+		traits = { democratic_right }
+	}
+	create_country_leader = {
+		name = "Alfonso López Pumarejo"
+		desc = ""
+		picture = "COLH1.dds"
+		ideology = social_democrat_idolg
+		expire = 1950.8.7
+		traits = { democratic_left }
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1949.11.27"
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 100
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Laureano Gómez Castro"
+		desc = ""
+		picture = "COLH2.dds"
+		ideology = social_cons_idolg
+		expire = 1953.6.13
+		traits = {}
+	}
+}
+1950.6.25 = {	#Korean War
+	create_country_leader = {
+		name = "Gustavo Rojas Pinilla"
+		desc = ""
+		picture = "COLHM1.dds"
+		ideology = military_idolg
+		expire = 1957.5.10
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Laureano Gómez Castro"
+		desc = ""
+		picture = "COLH2.dds"
+		ideology = social_cons_idolg
+		expire = 1953.6.13
+		traits = {}
+	}
+}
+1956.10.29 = {	#Suez Crisis
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1949.11.27"
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 30
+		democratic_socialist = 40
+		neutrality = 30
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "AlbertoLleras Camargo"
+		desc = ""
+		picture = "COLH3.dds"
+		ideology = social_democrat_idolg
+		expire = 1962.8.7
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Luis Ernesto Ordóñez Castillo"	#Joint Junta
+		desc = ""
+		picture = "COLHM6.dds"
+		ideology = military_idolg
+		expire = 1958.8.9
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Rafael Navas Pardo"	#Joint Junta
+		desc = ""
+		picture = "COLHM5.dds"
+		ideology = military_idolg
+		expire = 1958.8.9
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Rubén Piedrahíta Arango"	#Joint Junta, Admiral
+		desc = ""
+		picture = "COLHM4.dds"
+		ideology = military_idolg
+		expire = 1958.8.9
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Deogracias Fonseca Espinosa"	#Joint Junta
+		desc = ""
+		picture = "COLHM3.dds"
+		ideology = military_idolg
+		expire = 1958.8.9
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Gabriel París Gordillo"	#Joint Junta
+		desc = ""
+		picture = "COLHM2.dds"
+		ideology = military_idolg
+		expire = 1958.8.9
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Gustavo Rojas Pinilla"
+		desc = ""
+		picture = "COLHM1.dds"
+		ideology = military_idolg
+		expire = 1957.5.10
+		traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1958.5.4"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 70
+		democratic_socialist = 25
+		neutrality = 5
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Alfonso López Michelsen"
+		desc = ""
+		picture = "COLH7.dds"
+		ideology = social_democrat_idolg
+		expire = 1978.8.7
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Misael Pastrana Borrero"
+		desc = ""
+		picture = "COLH6.dds"
+		ideology = social_cons_idolg
+		expire = 1974.8.7
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Carlos Lleras Restrepo"
+		desc = ""
+		picture = "COLH5.dds"
+		ideology = social_democrat_idolg
+		expire = 1970.8.7
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Guillermo León Valencia"
+		desc = ""
+		picture = "COLH4.dds"
+		ideology = social_cons_idolg
+		expire = 1966.8.7
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "AlbertoLleras Camargo"
+		desc = ""
+		picture = "COLH3.dds"
+		ideology = social_democrat_idolg
+		expire = 1962.8.7
+		traits = {}
+	}
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1978.6.4"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 48
+		democratic_socialist = 52
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Belisario Betancur Cuartas"
+		desc = ""
+		picture = "COLH8.dds"
+		ideology = social_cons_idolg
+		expire = 1986.8.7
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Julio César Turbay Ayala"
+		desc = ""
+		picture = "COLH7.dds"
+		ideology = social_democrat_idolg
+		expire = 1982.8.7
+		traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1986.5.25"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Virgilio Barco Vargas"
+		desc = ""
+		picture = "COLH9.dds"
+		ideology = social_democrat_idolg
+		expire = 1990.8.7
+		traits = {}
+	}
+}

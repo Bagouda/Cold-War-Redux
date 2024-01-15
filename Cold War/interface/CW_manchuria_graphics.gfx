@@ -1,0 +1,41 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_manchuria_struggle_background"
+		texturefile = "gfx/interface/machuria_struggle/manchuria_struggle_background.dds"
+	}
+	spriteType = {
+		name = "GFX_manchuria_struggle_heilngikiang"
+		texturefile = "gfx/interface/machuria_struggle/manchuria_heilngikiang_control.dds"
+		noofframes = 3
+	}
+	spriteType = {
+		name = "GFX_manchuria_struggle_holunbuir"
+		texturefile = "gfx/interface/machuria_struggle/manchuria_holunbuir_control.dds"
+		noofframes = 3
+	}
+	spriteType = {
+		name = "GFX_manchuria_struggle_jehol"
+		texturefile = "gfx/interface/machuria_struggle/manchuria_jehol_control.dds"
+		noofframes = 3
+	}
+	spriteType = {
+		name = "GFX_manchuria_struggle_kirin"
+		texturefile = "gfx/interface/machuria_struggle/manchuria_kirin_control.dds"
+		noofframes = 3
+	}
+	spriteType = {
+		name = "GFX_manchuria_struggle_liaoning"
+		texturefile = "gfx/interface/machuria_struggle/manchuria_liaoning_control.dds"
+		noofframes = 3
+	}
+	spriteType = {
+		name = "GFX_manchuria_struggle_liaotung"
+		texturefile = "gfx/interface/machuria_struggle/manchuria_liaotung_control.dds"
+		noofframes = 3
+	}
+	spriteType = {
+		name = "GFX_manchuria_struggle_sungukiang"
+		texturefile = "gfx/interface/machuria_struggle/manchuria_sungukiang_control.dds"
+		noofframes = 3
+	}
+}

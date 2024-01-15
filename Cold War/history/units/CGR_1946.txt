@@ -1,0 +1,42 @@
+﻿division_template = {
+	name = "Guerilla Brigade"
+	is_locked = yes
+	template_counter = 13
+	regiments = {
+		insurgency = { x = 0 y = 0 }
+		insurgency = { x = 1 y = 0 }
+		insurgency = { x = 2 y = 0 }
+		artillery_brigade = { x = 1 y = 1 }
+	}
+}
+units = {
+    division = {
+		location = 936
+		division_template = "Guerilla Brigade"
+		start_experience_factor = 0.5
+	}
+	division = {
+		location = 966
+		division_template = "Guerilla Brigade"
+		start_experience_factor = 0.5
+	}
+	division = {
+		location = 3844
+		division_template = "Guerilla Brigade"
+		start_experience_factor = 0.5
+	}
+}
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_3
+			creator = "CGR"
+		}
+	}
+	add_equipment_production = {
+		equipment = {
+			type = rocket_artillery_equipment_2
+			creator = "CGR"
+		}
+	}	
+}

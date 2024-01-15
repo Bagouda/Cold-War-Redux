@@ -1,0 +1,23 @@
+state={
+	id=792
+	local_supplies=0.0 
+	name="STATE_792"
+	history={
+ 	add_to_array = { list_victory_point = 4660 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_claim_by = AZR
+		victory_points = {
+			4660 1 
+		}
+	}	
+	provinces={
+		4660 
+	}
+	manpower=50000
+	state_category=town
+	buildings_max_level_factor=1.000
+}

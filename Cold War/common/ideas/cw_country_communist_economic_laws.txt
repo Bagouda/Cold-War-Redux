@@ -1,0 +1,504 @@
+#economic capacity consumed by the military instead of being invested into consumer and producer goods
+ideas = {
+	cw_land_reform_law = {
+		law = yes
+		
+		cw_feudal_landlords = { #good ck2 cold war mod am i rite?
+ 			cost = 100
+			removal_cost = -1
+			level = 1
+			
+			visible = { always = no }
+			available = { 
+				always = no
+			}
+			
+			modifier = {
+				stability_weekly = -0.003
+				min_export = 0.30
+				consumer_goods_factor = 0.15
+				political_power_gain = 0.25
+				conscription = 0.015
+				war_support_weekly = 0.001
+				monthly_population = -0.10
+			}
+			cancel_if_invalid = no
+			ai_will_do = {}
+		}
+		
+		cw_warlords = { #less decadent, more rowdy
+ 			cost = 100
+			removal_cost = -1
+			level = 2
+			
+			visible = { always = no }
+			available = {
+				always = no
+			}
+			
+			modifier = {
+				stability_weekly = -0.005
+				min_export = 0.2
+				consumer_goods_factor = 0.10
+				political_power_gain = 0.10
+				conscription = 0.020
+				war_support_weekly = 0.002
+				monthly_population = -0.15
+			}
+			cancel_if_invalid = no
+			ai_will_do = {}
+		}
+		
+		cw_landed_gentry = { #rich fat man in a tophat says you need to move to make space for sheep
+			cost = 50
+			removal_cost = -1
+			level = 2
+			
+			visible = {}
+			available = {
+				NOT = {
+					OR = {
+						has_idea = cw_feudal_landlords
+						has_idea = cw_warlords
+					}
+				}
+			}
+			
+			modifier = {
+				stability_weekly = -0.001
+				min_export = 0.1
+				consumer_goods_factor = 0.10
+				political_power_gain = 0.15
+				monthly_population = -0.05
+			}
+			cancel_if_invalid = no
+			ai_will_do = {}
+		}
+		
+		cw_stratified_farmers = {
+			cost = 250
+			removal_cost = -1
+			level = 3
+			
+			visible = {}
+			available = {
+				NOT = {
+					OR = {
+						has_idea = cw_feudal_landlords
+						has_idea = cw_warlords
+					}
+				}
+			}
+			
+			modifier = {
+				consumer_goods_factor = 0.03
+			}
+			default = yes
+			cancel_if_invalid = no
+			ai_will_do = {}
+		}
+		
+		cw_farmland_redistribution = {	# NEED TO IMPLEMENT SOME FUNKY LAND REFORM MECHANIC
+			cost = 500
+			removal_cost = -1
+			level = 4
+			
+			visible = { NOT = { OR = { has_idea = cw_communal_land_ownership has_idea = cw_state_land_ownership } } }
+			available = { has_idea = cw_stratified_farmers }
+			
+			modifier = {
+				stability_weekly = -0.003
+				political_power_gain = -0.50
+			}
+			cancel_if_invalid = no
+			ai_will_do = {}
+			on_add = {
+				activate_mission = cw_land_reform_law_timer_mission
+			}
+		}
+		
+		cw_fair_individual_land_ownership = { #farms redistributed
+			cost = 100
+			removal_cost = -1
+			level = 5
+			
+			visible = {}
+			available = {
+				OR = {
+					has_idea = cw_state_land_ownership
+					has_idea = cw_communal_land_ownership
+				}
+			}
+			
+			modifier = {
+				stability_weekly = 0.001
+				monthly_population = 0.05
+			}
+			cancel_if_invalid = no
+			ai_will_do = {}
+		}
+		
+		cw_communal_land_ownership = { #tribes, kolhoz, mir
+			cost = 300
+			removal_cost = -1
+			level = 6
+			
+			visible = {}
+			available = {
+				OR = {
+					has_idea = cw_state_land_ownership
+					has_idea = cw_fair_individual_land_ownership
+				}
+			}
+			
+			modifier = {
+				stability_weekly = 0.003
+				consumer_goods_factor = -0.03
+				political_power_gain = 0.10
+				war_support_weekly = -0.001
+				monthly_population = 0.05
+			}
+			cancel_if_invalid = no
+			ai_will_do = {}
+		}
+		
+		cw_state_land_ownership = { #sovkhoz
+			cost = 500
+			removal_cost = -1
+			level = 7
+			
+			visible = {}
+			available = {
+				OR = {
+					has_idea = cw_communal_land_ownership
+					has_idea = cw_fair_individual_land_ownership
+				}
+			}
+			
+			modifier = {
+				stability_weekly = 0.001
+				consumer_goods_factor = -0.05
+				political_power_gain = -0.15
+				monthly_population = 0.10
+			}
+			
+			cancel_if_invalid = no
+			ai_will_do = {}
+		}
+	}
+	cw_trade_unions = {
+		law = yes
+		
+		cw_workplace_democracy = {
+			cost = 100
+			removal_cost = -1
+			level = 4
+			
+			visible = {
+				OR = {
+					has_government = communism_totalitarian
+					has_government = communism
+				}
+			}
+			available = {
+				NOT = { has_government = communism_totalitarian }
+			}
+			
+			modifier = {
+				stability_weekly = 0.005
+				war_support_weekly = -0.003
+				political_power_factor = -0.15
+				research_speed_factor = 0.05
+				production_speed_buildings_factor = -0.05
+				industrial_capacity_factory = -0.05
+				industrial_capacity_dockyard = -0.05
+				drift_defence_factor = 0.50
+			}
+			cancel_if_invalid = no
+		}
+		
+		cw_soviet_trade_unions = {
+			cost = 100
+			removal_cost = -1
+			level = 3
+			
+			visible = {
+				OR = {
+					has_government = communism_totalitarian
+					has_government = communism
+				}
+			}
+			available = {
+				if = {
+					limit = { original_tag = SOV }
+					NOT = {
+						has_country_leader = {
+							name = "Joseph Stalin"
+							ruling_only = yes
+						}
+					}
+				}
+			}
+			default = yes
+			modifier = {
+				stability_weekly = 0.002
+				war_support_weekly = -0.001
+				production_speed_buildings_factor = -0.03
+				industrial_capacity_factory = -0.02
+				industrial_capacity_dockyard = -0.02
+				drift_defence_factor = 0.10
+			}
+			cancel_if_invalid = no
+		}
+		
+		cw_state_incentives = { #congratulations for reaching 300% of the quota, comrade!
+			cost = 100
+			removal_cost = -1
+			level = 3
+			
+			visible = {
+				OR = {
+					has_government = communism_totalitarian
+					has_government = communism
+				}
+			}
+			available = {
+				OR = {
+					has_government = communism_totalitarian
+					has_government = communism
+				}
+			}
+			
+			modifier = {
+				research_speed_factor = 0.03
+				stability_weekly = 0.001
+				consumer_goods_factor = 0.03
+				political_power_factor = 0.10
+				production_factory_max_efficiency_factor = 0.05
+				production_factory_efficiency_gain_factor = -0.05
+				drift_defence_factor = 0.25
+				local_resources_factor = 0.05
+			}
+			cancel_if_invalid = no
+		}
+		
+		cw_enforced_quotas = {
+			cost = 100
+			removal_cost = -1
+			level = 2
+			
+			visible = {
+				OR = {
+					has_government = communism_totalitarian
+					has_government = communism
+				}
+			}
+			available = {
+				OR = {
+					has_government = communism_totalitarian
+					has_government = communism
+				}
+			}
+			
+			modifier = {
+				monthly_population = -0.02
+				political_power_factor = -0.10
+				production_factory_efficiency_gain_factor = -0.15
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+				drift_defence_factor = -0.15
+				local_resources_factor = 0.10
+				resistance_growth = 0.3
+			}
+			cancel_if_invalid = no
+		}
+		
+		cw_opressive_quotas = { #reach that % or else...
+			cost = 100
+			removal_cost = -1
+			level = 1
+			
+			visible = {
+				OR = {
+					has_government = communism_totalitarian
+					has_government = communism
+				}
+			}
+			available = {
+				OR = {
+					has_government = communism_totalitarian
+					has_government = communism
+				}
+			}
+			
+			modifier = {
+				stability_weekly = -0.001
+				research_speed_factor = -0.05
+				monthly_population = -0.05
+				political_power_factor = -0.15
+				production_factory_efficiency_gain_factor = -0.30
+				industrial_capacity_factory = 0.10
+				industrial_capacity_dockyard = 0.10
+				drift_defence_factor = -0.30
+				local_resources_factor = 0.15
+				resistance_growth = 0.5
+			}
+			cancel_if_invalid = no
+		}
+	}
+	cw_industry_focus = {
+		law = yes
+		cw_five_year_resource_industry_focus = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 4
+
+			visible = {
+				OR = {
+					has_government = communism_totalitarian
+					has_government = communism
+				}
+			}
+
+			available = {
+				OR = {
+					custom_trigger_tooltip = {
+						tooltip = "Has not enacted a new 5 Year Plan."
+						NOT = { has_country_flag = recent_five_year_plan_change }
+					}
+					custom_trigger_tooltip = {
+						tooltip = "Ravaged by a famine."
+						NOT = { OR = { has_idea = cw_famine_mild has_idea = cw_famine_severe } }
+					}
+				}
+			}
+
+			on_add = {
+				custom_effect_tooltip = "COM_INDUSTRY_FOCUS_CHANGE_TT"
+				set_country_flag = { flag = recent_five_year_plan_change value = 1 days = 1825 }
+			}
+
+			modifier = {
+				local_resources_factor = 0.15
+				production_speed_synthetic_refinery_factor = 0.15
+				production_speed_arms_factory_factor = -0.10
+				conscription_factor = -0.1
+			}
+			
+			cancel_if_invalid = no
+			
+			ai_will_do = {
+   				factor = 1
+				modifier = {
+					factor = 100
+					OR = {
+						has_idea = cw_famine_mild
+						has_idea = cw_famine_severe
+					}
+				}
+			}			
+		}
+		cw_five_year_plan_military_industry_focus = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 3
+
+			visible = {
+				OR = {
+					has_government = communism_totalitarian
+					has_government = communism
+				}
+			}
+
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = "Has not enacted a new 5 Year Plan."
+					NOT = { has_country_flag = recent_five_year_plan_change }
+				}			
+			}
+
+			on_add = {
+				custom_effect_tooltip = "COM_INDUSTRY_FOCUS_CHANGE_TT"
+				set_country_flag = { flag = recent_five_year_plan_change value = 1 days = 1825 }
+			}
+
+			modifier = {
+				production_speed_arms_factory_factor = 0.20
+			}
+			
+			cancel_if_invalid = no
+			
+			ai_will_do = {
+   				factor = 1
+				modifier = {
+					factor = 20
+					has_war = yes
+				}
+			}			
+		}		
+		cw_five_year_plan_civilian_industry_focus = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 2
+
+			visible = {
+				OR = {
+					has_government = communism_totalitarian
+					has_government = communism
+				}
+			}
+
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = "Has not enacted a new 5 Year Plan."
+					NOT = { has_country_flag = recent_five_year_plan_change }
+				}			
+			}
+
+			on_add = {
+				custom_effect_tooltip = "COM_INDUSTRY_FOCUS_CHANGE_TT"
+				set_country_flag = { flag = recent_five_year_plan_change value = 1 days = 1825 }
+			}
+
+			modifier = {
+				production_speed_industrial_complex_factor = 0.20
+			}
+			default = yes
+			cancel_if_invalid = no
+		}
+		cw_five_year_plan_infra_industry_focus = {
+						
+			cost = 100
+			removal_cost = -1
+			level = 1
+
+			visible = {
+				OR = {
+					has_government = communism_totalitarian
+					has_government = communism
+				}
+			}
+
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = "Has not enacted a new 5 Year Plan."
+					NOT = { has_country_flag = recent_five_year_plan_change }
+				}			
+			}
+			
+			on_add = {
+				custom_effect_tooltip = "COM_INDUSTRY_FOCUS_CHANGE_TT"
+				set_country_flag = { flag = recent_five_year_plan_change value = 1 days = 1825 }
+			}
+
+			modifier = {
+				production_speed_infrastructure_factor = 0.20
+			}
+			
+			cancel_if_invalid = no
+		}			
+	}
+}

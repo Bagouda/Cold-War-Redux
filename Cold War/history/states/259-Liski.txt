@@ -1,0 +1,27 @@
+state = {
+	id=259
+	local_supplies=0.0 
+	name="STATE_259" # Poltava
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 11504 }
+ 	set_variable = { victory_point = 3 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_core_of = UKR
+		
+		victory_points = {
+			11504 3
+		}
+	}
+	resources={
+		crops = 2
+	}
+	manpower = 1442584
+	provinces={
+		511 559 3557 6495 6507 6578 6605 9413 9519 11504 
+	}
+}

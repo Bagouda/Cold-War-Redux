@@ -1,0 +1,31 @@
+parliament_gui_decision_category = {
+	icon = usa_congress
+
+	# picture = 
+
+	allowed = { always = yes }
+	
+	visible = {
+		is_ai = no
+		tag = FRA
+		has_active_mission = cw_national_elections_timer
+	}
+
+	priority = 1000
+
+	scripted_gui = parliament_gui
+	visible_when_empty = yes
+
+	on_map_area = {
+		target_array = controlled_states
+		target_trigger = {
+			FROM = {
+				state_strategic_value > 50
+				is_in_home_area = yes
+				is_core_of = ROOT
+			}
+		}
+		name = cw_election_state_actions_desc
+		zoom = 150
+	}		
+}

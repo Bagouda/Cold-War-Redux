@@ -1,0 +1,9 @@
+spriteTypes = {
+	#################
+	# SVI MINISTERS #	
+	#################
+	spriteType = {
+		name = "GFX_idea_svi_ngo_dinh_diem"
+		texturefile = "gfx/interface/ministers/SVI/svi_ngo_dinh_diem.dds"
+	}
+}

@@ -1,0 +1,33 @@
+state = {
+	id=413
+	local_supplies=0.0 
+	name="STATE_413"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 7953 }
+ 	set_variable = { victory_point = 3 }
+		owner = ENG
+		add_core_of = PER
+		1946.2.2 = {
+			owner = PER
+		}
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			5005 = {
+				naval_base = 1
+			}			
+		}	
+		
+		victory_points = {
+			7953 3
+		}
+	}
+	resources={
+		oil=28 # was: 42
+	}
+	manpower = 797356
+	provinces={
+		1922 5005 5089 7953 
+	}
+}

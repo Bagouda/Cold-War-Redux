@@ -1,0 +1,35 @@
+state={
+	id=618
+	local_supplies=0.0 
+	name="STATE_618"
+	resources={
+		crops=3.000
+		oil=10
+		uranium=5
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 1844 }
+ 	set_variable = { victory_point = 5 }
+		buildings = {
+			infrastructure = 2
+		}
+		owner = SIK
+		add_core_of = SIK
+		add_core_of = CHI
+		add_claim_by = PRC
+		victory_points = {
+			1844 5	#Karamay
+		}
+		1949.10.1 = {
+			owner = PRC
+		}
+	}
+
+	provinces={
+		1703 1708 1844 4823 7693 7866 12526 12590 12601 12737 
+	}
+	manpower=670800
+	buildings_max_level_factor=1.000
+	state_category=town
+}

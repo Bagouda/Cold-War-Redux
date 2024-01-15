@@ -1,0 +1,31 @@
+state = {
+	id=314
+	local_supplies=0.0 
+	name="STATE_314"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 12823 }
+ 	set_variable = { victory_point = 3 }
+		owner = ELS
+		add_core_of = ELS
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			12823 = {	
+				naval_base = 2
+			}		
+		}		
+		victory_points = {
+			12823 3
+		}
+	}
+	resources={
+		chromium=1 # was: 1
+		crops = 2
+	}
+	manpower = 1437611
+	provinces={
+		12823 13093 
+	}
+}

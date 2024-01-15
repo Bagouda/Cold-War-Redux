@@ -1,0 +1,120 @@
+﻿capital = 286 #Phnom Penh
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 5
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 15
+		unaligned_right = 80
+		colonial =  0
+	}	
+	create_country_leader = {	#Vietnam/Soviet Backed Ruler
+			name = "Pen Sovan"
+			desc = ""
+			picture = "CAMH4.dds"
+			ideology = stalinism_idolg
+			expire = 1981.12.12
+			traits = {}
+	}	
+	create_country_leader = {
+			name = "Norodom Suramarit"
+			desc = ""
+			picture = "CAMH2.dds"
+			ideology = consitutional
+			expire = 1960.4.3
+			traits = {}
+	}	
+	create_country_leader = {
+			name = "Norodom Sihanouk"
+			desc = ""
+			picture = "CAMH1.dds"
+			ideology = consitutional
+			expire = 1993.6.14
+			traits = {}
+	}
+}
+
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+}
+1956.10.29 = {	#Suez Crisis
+}
+1961.12.11 = {	#Vietnam War
+	set_politics = {
+		ruling_party = neutrality
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 80
+		communism_totalitarian = 20
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {	#China/USA backed ruler in exile
+			name = "Pol Pot"
+			desc = ""
+			picture = "CAMH7.dds"
+			ideology = maoist_idolg
+			expire = 1998.4.15
+			traits = {}
+	}	
+	create_country_leader = {	#Leader after a coup
+			name = "Lon Nol"
+			desc = ""
+			picture = "CAMH4.dds"
+			ideology = military_idolg
+			expire = 1993.6.14
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Norodom Sihanouk"
+			desc = ""
+			picture = "CAMH3.dds"
+			ideology = paternal_auto_idolg
+			expire = 1993.6.14
+			traits = {}
+	}	
+}
+###People's Republic of Kampuchea -  A Puppet of Vietnam###
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = communism_totalitarian
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 100
+		unaligned_right = 20
+		colonial =  0
+	}	
+	create_country_leader = {	#Vietnam/Soviet Backed Ruler
+			name = "Heng Samrin"
+			desc = ""
+			picture = "CAMH6.dds"
+			ideology = stalinism_idolg
+			expire = 1960.4.3
+			traits = {}
+	}
+	create_country_leader = {	#Vietnam/Soviet Backed Ruler
+			name = "Pen Sovan"
+			desc = ""
+			picture = "CAMH5.dds"
+			ideology = stalinism_idolg
+			expire = 1960.4.3
+			traits = {}
+	}	
+}
+1989.1.9 = {	#Fall of Berlin Wall
+}

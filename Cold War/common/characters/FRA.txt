@@ -1,0 +1,1676 @@
+characters={
+	####################################################################################################
+	######################################### Country Leader ###########################################
+	####################################################################################################
+	FRA_charles_de_gaulle = {
+		name = "Charles de Gaulle"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_fra_charles_de_gaulle_large
+			}
+		}
+		country_leader={
+			desc = ""
+			ideology = social_cons_idolg
+			expire = 1969.4.28
+		}
+	}
+	FRA_felix_gouin = {
+		name = "Felix Gouin"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_fra_felix_gouin_large
+				small = GFX_fra_felix_gouin
+			}
+		}
+		country_leader={
+			desc = ""
+			ideology = social_democrat_idolg
+			expire = 1946.6.24
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = fra_hog_felix_gouin
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1977.10.25
+			}
+			traits = { 
+				cw_popular_politician
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = fra_dm_felix_gouin
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_military_reformer
+			}
+			visible = {
+				date < 1977.10.25
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}		
+	}
+	FRA_georges_bidault = {
+		name = "Georges Bidault"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_fra_georges_bidault_large
+				small = GFX_fra_georges_bidault
+			}
+		}
+		country_leader={
+			desc = POLITICS_GEORGES_BIDAULT_DESC
+			ideology = social_cons_idolg
+			expire = 1946.10.14
+			traits = {}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = fra_hog_georges_bidault
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1955.1.20
+			}
+			traits = { 
+				cw_fm_silent_workhorse
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = fra_fm_georges_bidault
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1955.1.20
+			}
+			traits = { 
+				cw_dialouge_proponent
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}		
+	}
+	FRA_rene_coty = {
+		name = "René Coty"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_fra_rene_coty_large
+			}
+		}
+		country_leader={
+			desc = ""
+			ideology = social_cons_idolg
+			expire = 1959.1.8
+		}
+	}
+	FRA_maurice_thorez = {
+		name = "Maurice Thorez"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_fra_maurice_thorez_large
+			}
+		}
+		country_leader={
+			desc = ""
+			ideology = revisionist_idolg
+			expire = 1994.1.1
+			traits = {}
+		}
+	}
+	FRA_vincent_auriol = {
+		name = "Vincent Auriol"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_fra_vincent_auriol_large
+			}
+		}
+		country_leader={
+			desc = ""
+			ideology = social_cons_idolg
+			expire = 1954.1.16
+			traits = {}
+		}
+	}
+	FRA_leon_blum = {
+		name = "Léon Blum"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_leon_blum
+			}
+		}		
+		country_leader={
+			desc = POLITICS_LEON_BLUM_DESC
+			ideology = social_democrat_idolg
+			expire = 1947.1.16
+			traits = {}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = fra_hog_leon_blum
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1950.3.30
+			}
+			traits = { 
+				cw_naive_optimist
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = fra_fm_leon_blum
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1955.1.20
+			}
+			traits = { 
+				cw_pactomaniac
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}		
+	}
+	FRA_marcel_cachin = {
+		name = "Marcel Cachin"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_fra_marcel_cachin_large
+			}
+		}		
+		country_leader={
+			desc = ""
+			ideology = stalinism_idolg
+			expire = 1961.12.11
+			traits = {}
+		}
+	}
+	####################################################################################################
+	######################################### Deputy Minister ##########################################
+	####################################################################################################
+	FRA_hog_paul_ramadier = {
+		name = fra_hog_paul_ramadier
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_paul_ramadier
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = fra_hog_paul_ramadier
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1961.10.14
+			}
+			traits = { 
+				cw_fm_silent_workhorse
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = fra_tm_paul_ramadier
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_power_unon_boss
+			}
+			visible = {
+				date < 1961.10.14
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}		
+	}
+	FRA_hog_henri_queuille = {
+		name = fra_hog_henri_queuille
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_henri_queuille
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = fra_hog_henri_queuille
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1970.6.15
+			}
+			traits = { 
+				cw_political_protege
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = fra_tm_henri_queuille
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_budget_trimmer
+			}
+			visible = {
+				date < 1970.6.15
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}		
+	}
+	FRA_hog_rene_pleven = {
+		name = fra_hog_rene_pleven
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_rene_pleven
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = fra_hog_rene_pleven
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1993.1.13
+			}
+			traits = { 
+				cw_political_specialist
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = fra_tm_rene_pleven
+			
+			allowed = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits = {
+				cw_silent_workhorse
+			}
+			visible = {
+				date < 1993.1.13
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}		
+	}
+	FRA_hog_maurice_couve_murville = {
+		name = fra_hog_maurice_couve_murville
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_maurice_couve_murville
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = fra_hog_maurice_couve_murville
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1969.6.20
+				has_government = democratic
+			}
+			traits = { 
+				popular_figurehead
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = fra_maurice_couve_murville
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_euro_enthusiast 
+			}
+			visible = {
+				date > 1950.1.1
+				date < 1968.5.30
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}		
+	}
+	FRA_hog_michel_debre = {
+		name = fra_hog_michel_debre
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_michel_debre
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = fra_hog_michel_debre
+			
+			allowed = {		#Determines if he shows up at all in selection screen
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirements to use
+			}
+			visible = {
+				date < 1965.1.1
+				date > 1955.1.1
+			}
+			traits = { 
+				cw_popular_politician
+			}
+
+			do_effect = {}
+			on_add = { cw_appoint_as_hog_effect = yes }
+			on_remove = { cw_remove_character_as_hog = yes }
+
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	####################################################################################################
+	######################################### Foreign Minister #########################################
+	####################################################################################################
+	FRA_fm_pierre_mendes_france = {
+		name = fra_fm_pierre_mendes_france
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_pierre_mendes_france
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = fra_fm_pierre_mendes_france
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_experienced_diplomat 
+			}
+			visible = {
+				date < 1983.1.27
+				OR = {
+					has_government = democratic
+					has_government = democratic_socialist
+				}
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = fra_tm_pierre_mendes_france
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_efficient_administrator
+			}
+			visible = {
+				date < 1982.10.18
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}		
+	}
+	FRA_fm_robert_schuman = {
+		name = fra_fm_robert_schuman
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_robert_schuman
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = fra_fm_robert_schuman
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_peacemaker 
+			}
+			visible = {
+				date < 1963.9.4
+				OR = {
+					has_government = democratic
+					has_government = democratic_socialist
+				}
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 2.0
+			}
+		}
+	}
+	FRA_fm_edgar_faure = {
+		name = fra_fm_edgar_faure
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_edgar_faure
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = fra_fm_edgar_faure
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_ideological_crusader 
+			}
+			visible = {
+				date < 1988.3.30
+				NOT = {
+					OR = {
+						has_government = communism
+						has_government = communism_totalitarian
+					}
+				}
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	FRA_fm_antoine_pinay = {
+		name = fra_fm_antoine_pinay
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_antoine_pinay
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = fra_fm_antoine_pinay
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_careful_diplomatist 
+			}
+			visible = {
+				date < 1994.12.13
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	FRA_fm_christian_pineau = {
+		name = fra_fm_christian_pineau
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_christian_pineau
+			}
+		}
+		advisor = {
+			slot = foreign_minister
+			idea_token = fra_fm_christian_pineau
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_bipartisan 
+			}
+			visible = {
+				date < 1995.4.5
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	####################################################################################################
+	######################################### Defense Minister #########################################
+	####################################################################################################
+	FRA_dm_pierre_messmer = {
+		name = fra_dm_pierre_messmer
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_pierre_messmer
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = fra_dm_pierre_messmer
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_military_industrial_specialist
+			}
+			visible = {
+				date < 1974.1.6
+				date > 1955.1.1
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_dm_edmond_michelet = {
+		name = fra_dm_edmond_michelet
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_edmond_michelet
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = fra_dm_edmond_michelet
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_military_industrial_specialist
+			}
+			visible = {
+				date < 1961.8.24
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_dm_jules_moch = {
+		name = fra_dm_jules_moch
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_jules_moch
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = fra_dm_jules_moch
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_military_production_specialist
+			}
+			visible = {
+				date < 1985.8.1
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_dm_pierre_koenig = {
+		name = fra_dm_pierre_koenig
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_pierre_konig
+			}
+			army = {
+				large = GFX_fra_pierre_koenig_large
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = fra_dm_pierre_koenig
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_army_training_specialist
+			}
+			visible = {
+				date < 1970.9.2
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}	
+	}
+	FRA_dm_maurice_maunoury = {
+		name = fra_dm_maurice_maunoury
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_maurice_maunoury
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = fra_dm_maurice_maunoury
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_construction_infra_specialist
+			}
+			visible = {
+				date < 1972.10.28
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_dm_pierre_billotte = {
+		name = fra_dm_pierre_billotte
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_pierre_billotte
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = fra_dm_pierre_billotte
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_expirienced_veteran
+			}
+			visible = {
+				date < 1992.6.29
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_dm_pierre_guillaumat = {
+		name = fra_dm_pierre_guillaumat
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_pierre_guillaumat
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = fra_dm_pierre_guillaumat
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_military_industrial_specialist
+			}
+			visible = {
+				date < 1960.2.5
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	####################################################################################################
+	######################################## Treasury Minister #########################################
+	####################################################################################################
+	FRA_tm_wilfrid_baumgartner = {
+		name = fra_tm_wilfrid_baumgartner
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_wilfrid_baumgartner
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = fra_tm_wilfrid_baumgartner
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_budget_trimmer
+			}
+			visible = {
+				date < 1978.6.1
+				date > 1955.1.1
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_tm_andre_philip = {
+		name = fra_tm_andre_philip
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_andre_philip
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = fra_tm_andre_philip
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_ideological_workaholic
+			}
+			visible = {
+				date < 1970.7.5
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_tm_rene_mayer = {
+		name = fra_tm_rene_mayer
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_rene_mayer
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = fra_tm_rene_mayer
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_small_minded_isolationist
+			}
+			visible = {
+				date < 1972.12.13
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_tm_jean_monnet = {
+		name = fra_tm_jean_monnet
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_jean_monnet
+			}
+		}
+		advisor = {
+			slot = treasury_minister
+			idea_token = fra_tm_jean_monnet
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_captain_of_industry
+			}
+			visible = {
+				date < 1979.3.16
+				has_completed_focus = FRA_implement_monnet_plan
+			}
+			do_effect = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	###################################### Head of Intelligence ########################################
+	####################################################################################################
+	#https://en.wikipedia.org/wiki/Service_de_Documentation_Ext%C3%A9rieure_et_de_Contre-Espionnage#Directors_of_the_SDECE
+	FRA_spy_andre_dewavrin = {
+		name = "André Dewavrin"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_andre_dewavrin
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = fra_spy_andre_dewavrin
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_civilian_intelligence_specialist
+			}
+			visible = {
+				date < 1970.1.1
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_spy_henri_ribiere = {
+		name = "Henri-Alexis Ribiere"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_henri_ribiere
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = fra_spy_henri_ribiere
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_efficient_administrator_intelligence
+			}
+			visible = {
+				date < 1956.4.25
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_spy_paul_grossin = {
+		name = "Paul Grossin"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_paul_grossin
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = fra_spy_paul_grossin
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_air_intelligence_speciality
+			}
+			visible = {
+				date < 1957.9.25
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_spy_paul_jacquier = {
+		name = "Paul Jacquier"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_paul_jacquier
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = fra_spy_paul_jacquier
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_intelligence_decryption_specialist
+			}
+			visible = {
+				date < 1966.12.1
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_spy_eugene_guibaud = {
+		name = "Eugène Guibaud"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_fra_eugene_guibaud
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = fra_spy_eugene_guibaud
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_naval_intelligence_speciality
+			}
+			visible = {
+				date < 1970.12.1
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	####################################################################################################
+	######################################### Chief of Staff ###########################################
+	####################################################################################################
+	FRA_chief_jean_de_lattre = {
+		name = fra_chief_jean_de_lattre
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_fra_jean_de_lattre
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = fra_chief_jean_de_lattre
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				army_chief_organizational_1
+			}
+			visible = {
+				date < 1947.3.12
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_chief_georges_revers = {
+		name = fra_georges_revers
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_fra_georges_revers
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = fra_chief_georges_revers
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				army_artillery_2
+			}
+			visible = {
+				date < 1949.12.15
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	FRA_chief_clement_blanc = {
+		name = fra_chief_clement_blanc
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_fra_clement_blanc
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = fra_chief_clement_blanc
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_planing_expert
+			}
+			visible = {
+				date < 1955.6.16
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_chief_andre_zeller = {
+		name = fra_chief_andre_zeller
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_fra_andre_zeller
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = fra_chief_andre_zeller
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				conscription_specialist
+			}
+			visible = {
+				date < 1960.1.1
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_chief_henri_lorillot = {
+		name = fra_chief_henri_lorillot
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_fra_henri_lorillot
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = fra_chief_henri_lorillot
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_defense_expert
+			}
+			visible = {
+				date < 1960.1.1
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	FRA_chief_andre_demetz = {
+		name = fra_chief_andre_demetz
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_fra_andre_demetz
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = fra_chief_andre_demetz
+			
+			allowed  = {
+				tag = FRA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_offense_expert
+			}
+			visible = {
+				date < 1960.1.1
+			}			
+			do_effect = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	####################################################################################################
+	################################## Generals and Field Marshals #####################################
+	####################################################################################################
+	FRA_alphonse_juin = {
+		name = "Alphonse Juin"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_fra_alphonse_juin_large
+				small = GFX_fra_alphonse_juin_small
+			}
+		}
+		field_marshal = {
+			traits = { defensive_doctrine career_officer }
+			skill = 5
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 4
+			logistics_skill = 4
+		}
+	}
+	FRA_marcel_carpentier = {
+		name = "Marcel Carpentier"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_fra_marcel_carpentier_large
+				small = GFX_fra_marcel_carpentier_small
+			}
+		}
+		corps_commander = {
+			traits = { skilled_staffer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	FRA_paul_ely = {
+		name = "Paul Ely"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_fra_paul_ely_large
+				small = GFX_fra_paul_ely_small
+			}
+		}
+		corps_commander = {
+			traits = { organizer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	FRA_jacques_massu = {
+		name = "Jacques Massu"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_fra_jacques_massu_large
+				small = GFX_fra_jacques_massu_small
+			}
+		}
+		corps_commander = {
+			traits = { commando trait_SPA_nationalist_sympathies }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+	FRA_raoul_salan = {
+		name = "Raoul Salan"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_fra_raoul_salan_large
+				small = GFX_fra_raoul_salan_small
+			}
+		}
+		corps_commander = {
+			traits = { career_officer trait_SPA_nationalist_sympathies }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	FRA_jean_etienne_valluy = {
+		name = "Jean Etienne Valluy"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_fra_jean_etienne_valluy_large
+				small = GFX_fra_jean_etienne_valluy_small
+			}
+		}
+		corps_commander = {
+			traits = { desert_fox }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	FRA_edmond_jouhaud = {
+		name = "Edmond Jouhaud"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_fra_edmond_jouhaud_large
+				small = GFX_fra_edmond_jouhaud_small
+			}
+		}
+		corps_commander = {
+			traits = { trait_SPA_nationalist_sympathies }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	FRA_augustin_guillaume = {
+		name = "Augustin Guillaume"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_fra_augustin_guillaume_large
+				small = GFX_fra_augustin_guillaume_small
+			}
+		}
+		corps_commander = {
+			traits = { ranger }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	FRA_maurice_challe = {
+		name = "Maurice Challe"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_fra_maurice_challe_large
+				small = GFX_fra_maurice_challe_small
+			}
+		}
+		corps_commander = {
+			traits = { adaptable }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	FRA_andre_lemonnier = {
+		name = "André Lemonnier"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_fra_andre_lemonnier_large
+				small = GFX_fra_andre_lemonnier_small
+			}
+		}
+		navy_leader = {
+			traits = { chief_engineer superior_tactician }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			maneuvering_skill = 3
+			coordination_skill = 2
+		}
+	}	
+	
+}

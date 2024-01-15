@@ -1,0 +1,37 @@
+PRK_historical_plan_1950 = {
+	name = "PRK 1946 Focuses"
+	desc = ""
+
+	enable = {
+		tag = PRK
+		is_historical_focus_on = yes
+		has_focus_tree = north_korea_1950_focus_tree
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		PRK_attack_the_south_1950
+		
+	}
+
+	research = {
+	}
+	ideas = {
+	}
+	traits = {
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

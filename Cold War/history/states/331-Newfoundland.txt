@@ -1,0 +1,36 @@
+state = {
+	id=331
+	local_supplies=0.0 
+	name="STATE_331"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 12505 }
+ 	set_variable = { victory_point = 10 }
+		owner = NFL
+		add_core_of = NFL
+		add_claim_by = CAN
+
+		buildings = {
+			infrastructure = 3
+			air_base = 2
+			industrial_complex = 1
+			dockyard  = 1
+			7758 = {
+				naval_base = 2
+			}			
+		}
+		
+		1949.3.31 = {
+			owner = CAN
+			add_core_of = CAN
+			remove_core_of = NFL
+		}
+		victory_points = {
+			12505 10	#St. John's
+		}
+	}
+	manpower = 255060
+	provinces={
+		7758 7788 12505 12680 12698 
+	}
+}

@@ -1,0 +1,29 @@
+state={
+	id=864
+	local_supplies=0.0 
+	name="STATE_864"
+	state_category = rural
+	history={
+ 	add_to_array = { list_victory_point = 5017 }
+ 	set_variable = { victory_point = 10 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = ENG
+		add_claim_by = ETH
+		add_claim_by = ITA
+		1950.12.1 = {
+			owner = ERI
+			add_core_of = ERI
+		}
+		victory_points = {
+			5017 10		#Keren
+		}		
+	}
+	manpower = 510300
+	provinces={
+		5017 5047 5091 12723 
+	}
+	
+	buildings_max_level_factor=1.000
+}

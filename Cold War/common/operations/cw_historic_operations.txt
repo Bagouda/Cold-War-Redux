@@ -1,0 +1,425 @@
+### operations are sorted by order of
+### 1) no. of required operatives
+### 2) required network strength
+### eg. 1/70 comes before 2/40
+cw_operation_ajax = {
+	icon = GFX_operations_ajax
+	map_icon = GFX_operations_arrest_opposition_small
+	name = "Operation Ajax"
+	desc = CW_OPERATION_AJAX_DESC
+	priority = 1
+
+	days = 60
+	network_strength = 50
+	operatives = 2
+	experience = 10
+
+	allowed = {
+		original_tag = USA
+	}
+
+	visible = {
+		FROM = { tag = PER }
+		ROOT = { has_country_flag = operation_ajax_enabled }
+	}
+
+	equipment = {
+		infantry_equipment = 1000
+		transport_plane_equipment = 1
+	}
+
+	available = {
+		FROM = {
+			NOT = { 
+				has_country_leader = {
+					name = "Mohammad Mosaddegh"
+					ruling_only = yes
+				}
+			}
+		}
+	}
+
+	risk_chance = 0.50
+	risk_modifiers = { operation_risk }
+	outcome_extra_chance = 0.25
+	outcome_modifiers = { target_sabotage_factor operation_risk }
+	cost_modifiers = { operation_infiltrate_cost operation_cost }
+
+	on_start = {		#Stuff to do when player starts the operation
+	}
+
+	outcome_execute = {		#What you get once the operation is complete
+		ROOT = { clr_country_flag = operation_ajax_enabled }
+		random_list = {
+			75 = {
+				custom_effect_tooltip = "Mohammad Mosaddegh will be removed from power.[CW_INSERT_NEW_LINE_LOC]"
+				custom_effect_tooltip = "The British will regain control of the Anglo Iranian oil refineries in [412.GetName]"
+				PER = {
+					add_popularity = { ideology = communism_totalitarian popularity = -0.10 }
+					add_ideas = per_hog_fazlollah_zahedi
+					set_country_flag = mossadegh_removed
+					remove_trait = {
+						character = PER_mohammad_reza_shah
+						trait = monarch_in_exile
+					}
+					add_trait = {
+						character = PER_mohammad_reza_shah
+						trait = absolute_monarch
+					}
+					news_event = { id = cw_historic_events.37 days = 10 }
+				}
+			}
+			25 = {
+				PER = {
+					start_civil_war = {
+						ideology = communism_totalitarian
+						keep_political_leader = yes
+						size = 0.5
+						states_filter = { impassable = no }
+						compute_proxy_score = yes
+					}
+					compute_proxy_score = yes
+					set_country_flag = mossadegh_removed
+					remove_trait = {
+						character = PER_mohammad_reza_shah
+						trait = monarch_in_exile
+					}
+					add_trait = {
+						character = PER_mohammad_reza_shah
+						trait = absolute_monarch
+					}
+				}
+			}
+		}
+	}
+	outcome_extra_execute = {	#Extra reward that can be earned, dependent on outcome_extra_chance, NOTE: overwrites the rewards in outcome_execute so all rewards must be added AS WELL as the bonus
+		#PER = { add_popularity = { ideology = communism_totalitarian popularity = -0.30 } }
+	}
+
+	outcome_potential = {		#The reward shown before starting the mission
+		random_list = {
+			75 = {
+				custom_effect_tooltip = "Mohammad Mosaddegh will be removed from power.[CW_INSERT_NEW_LINE_LOC]"
+				custom_effect_tooltip = "The British will regain control of the Anglo Iranian oil refineries in [412.GetName]"
+				PER = {
+					add_popularity = { ideology = communism_totalitarian popularity = -0.10 }
+					add_ideas = per_hog_fazlollah_zahedi
+					set_country_flag = mossadegh_removed
+				}
+			}
+			25 = {
+				PER = {
+					start_civil_war = {
+						ideology = communism_totalitarian
+						keep_political_leader = yes
+						size = 0.5
+						states_filter = { impassable = no }
+						compute_proxy_score = yes
+					}
+					compute_proxy_score = yes
+				}
+			}
+		}
+	}
+
+	phases = {
+		cw_operation_ajax_recruit_demonstrators = { base = 25 }
+	}
+	phases = {
+		cw_sway_abolqasem_kashani = { base = 25 }
+	}
+	phases = {
+		cw_arrest_mosaddegh = { base = 25 }
+	}
+}
+
+
+
+cw_operation_new_order = {
+	icon = GFX_operations_ajax
+	map_icon = GFX_operations_arrest_opposition_small
+	name = "Operation New Order"
+	desc = CW_OPERATION_NEW_ORDER_DESC
+	priority = 1
+
+	days = 60
+	network_strength = 50
+	operatives = 2
+	experience = 10
+
+	allowed = {
+		original_tag = USA
+	}
+
+	visible = {
+		FROM = { tag = INS }
+		ROOT = { has_country_flag = operation_new_order_enabled }
+	}
+
+	equipment = {
+		infantry_equipment = 2000
+	}
+
+	available = {
+		FROM = {
+			NOT = { 
+				has_country_leader = {
+					name = "Mohammad Mosaddegh"
+					ruling_only = yes
+				}
+			}
+		}
+	}
+
+	risk_chance = 0.50
+	risk_modifiers = { operation_risk }
+	outcome_extra_chance = 0.25
+	outcome_modifiers = { target_sabotage_factor operation_risk }
+	cost_modifiers = { operation_infiltrate_cost operation_cost }
+
+	on_start = {		#Stuff to do when player starts the operation
+	}
+
+	
+
+
+	outcome_execute = {		#The reward shown before starting the mission
+		random_list = {
+			60 = {
+				custom_effect_tooltip = "Communist element will be purged from indonesia"
+				INS = {
+					add_popularity = { ideology = communism_totalitarian popularity = -0.20 }
+			
+				}
+			}
+			
+			30 = {
+				custom_effect_tooltip = "A long purge will begin"
+				INS = {
+					add_timed_idea = {
+						idea = communist_purge
+						days = 180
+					}
+			
+				}
+			
+			}
+			10 = {
+				INS = {
+					start_civil_war = {
+						ideology = communism_totalitarian
+						keep_political_leader = yes
+						size = 0.5
+						states_filter = { impassable = no }
+						compute_proxy_score = yes
+					}
+					compute_proxy_score = yes
+				}
+			}
+		}
+	}
+
+}
+
+
+}
+
+
+cw_operation_trikora = {
+	icon = GFX_operations_infiltrate_naval_forces
+	map_icon = GFX_operations_infiltrate_naval_forces_map
+	name = "Operation Trikora"
+	desc = CW_OPERATION_TRIKORA_DESC
+	priority = 1
+
+	days = 60
+	network_strength = 60
+	operatives = 2
+	experience = 10
+
+	allowed = {
+		original_tag = SOV
+	}
+
+	visible = {
+		FROM = { tag = INS }
+		ROOT = { has_country_flag = operation_trikora_enabled }
+	}
+
+	equipment = {
+		convoy = 1000
+
+		navy_submarine_1 = 10
+
+	}
+
+	available = {
+		HOL = { controls_state = 669 }
+	}
+
+	risk_chance = 0.50
+	risk_modifiers = { operation_risk }
+	outcome_extra_chance = 0.25
+	outcome_modifiers = { target_sabotage_factor operation_risk }
+	cost_modifiers = { operation_infiltrate_cost operation_cost }
+
+	on_start = {		#Stuff to do when player starts the operation
+	}
+
+	outcome_execute = {		#What you get once the operation is complete
+				ROOT = { clr_country_flag = operation_trikora_enabled 
+						transfer_state = 669
+					}
+	
+				custom_effect_tooltip = "Indonesia will land in papua thanks to our support"
+				custom_effect_tooltip = "The Dutch will be kicked out of Papua"
+				
+			
+	
+		}
+	}
+
+}
+
+
+cw_operation_kill_tito = {
+	icon = GFX_operations_ajax
+	map_icon = GFX_operations_arrest_opposition_small
+	name = "Assassinate Tito"
+	desc = CW_Assassinate_Tito_DESC
+	priority = 1
+
+	days = 60
+	network_strength = 50
+	operatives = 2
+	experience = 10
+
+	allowed = {
+		original_tag = SOV
+	}
+
+	visible = {
+		FROM = { tag = YUG }
+		ROOT = { has_country_flag = assasinate_tito_allowed }
+	}
+
+	equipment = {
+		infantry_equipment = 1000
+		transport_plane_equipment = 1
+	}
+
+	available = {
+		FROM = {
+			NOT = { 
+				has_country_leader = {
+					name = "Josip Broz Tito"
+					ruling_only = yes
+				}
+			}
+		}
+	}
+
+	risk_chance = 0.50
+	risk_modifiers = { operation_risk }
+	outcome_extra_chance = 0.25
+	outcome_modifiers = { target_sabotage_factor operation_risk }
+	cost_modifiers = { operation_infiltrate_cost operation_cost }
+
+	on_start = {		#Stuff to do when player starts the operation
+	}
+
+	outcome_execute = {		#What you get once the operation is complete
+		ROOT = { clr_country_flag = assasinate_tito_allowed }
+		random_list = {
+			50 = {
+				news_event = sov_events.15
+				custom_effect_tooltip = "Tito will be removed from power.[CW_INSERT_NEW_LINE_LOC]"
+				custom_effect_tooltip = "The Stalinist will regain control of Yugoslavia"
+				YUG = {
+					kill_country_leader = yes
+					add_country_leader_role = {
+						character =  "Arso Jovanović"
+						promote_leader = yes
+						country_leader = {
+							ideology = communism_totalitarian
+							expire = "1980.1.1.1"
+							traits = {}
+						}
+					}
+					add_popularity = { ideology = communism popularity = -0.10 }
+					add_popularity = { ideology = communism_totalitarian popularity = 0.15 }
+					set_party_rule = {
+						ideology = communism_totalitarian
+					}
+					 
+				}
+			}
+			50 = {
+				custom_effect_tooltip = "The assassination will fail."
+				news_event = sov_events.16
+				
+			}
+			10 = {
+				news_event = sov_events.17
+				YUG = {
+					start_civil_war = {
+						ideology = communism_totalitarian
+						keep_political_leader = yes
+						size = 0.5
+						states_filter = { impassable = no }
+						compute_proxy_score = yes
+					}
+					compute_proxy_score = yes
+				}
+			}
+		}
+	}
+
+
+	outcome_potential = {		#The reward shown before starting the mission
+		ROOT = { clr_country_flag = assasinate_tito_allowed }
+		random_list = {
+			50 = {
+				news_event = sov_events.15
+				custom_effect_tooltip = "Tito will be removed from power.[CW_INSERT_NEW_LINE_LOC]"
+				custom_effect_tooltip = "The Stalinist will regain control of Yugoslavia"
+				YUG = {
+					kill_country_leader = yes
+					add_country_leader_role = {
+						character =  "Arso Jovanović"
+						promote_leader = yes
+						country_leader = {
+							ideology = communism_totalitarian
+							expire = "1980.1.1.1"
+							traits = {}
+						}
+					}
+					add_popularity = { ideology = communism popularity = -0.10 }
+					add_popularity = { ideology = communism_totalitarian popularity = 0.15 }
+					set_party_rule = {
+						ideology = communism_totalitarian
+					}
+					 
+				}
+			}
+			50 = {
+				custom_effect_tooltip = "The assassination will fail."
+				news_event = sov_events.16
+				
+			}
+			10 = {
+				news_event = sov_events.17
+				YUG = {
+					start_civil_war = {
+						ideology = communism_totalitarian
+						keep_political_leader = yes
+						size = 0.5
+						states_filter = { impassable = no }
+						compute_proxy_score = yes
+					}
+					compute_proxy_score = yes
+				}
+			}
+		}
+	}
+}

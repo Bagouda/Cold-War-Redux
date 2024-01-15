@@ -1,0 +1,24 @@
+state = {
+	id=364
+	local_supplies=0.0 
+	name="STATE_364"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 7202 }
+ 	set_variable = { victory_point = 1 }
+		owner = USA
+		add_core_of = USA
+		
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1		
+		}				
+		victory_points = {
+			7202 1 
+		}
+	}
+	manpower = 1738764
+	provinces={
+		1485 1547 3994 4491 4653 7012 7134 7202 7527 10029 10047 11927 
+	}
+}

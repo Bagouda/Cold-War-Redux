@@ -1,0 +1,23 @@
+﻿l_english:
+ CW_UNSC_FLAG_TT:0 "[unsc_target.GetName]"
+ cw_unsc_voting_category:0 "United Nations Security Council"
+ cw_unsc_voting_category_desc:0 "[Root.CW_UNSC_UPPER_DESC][Root.CW_UNSC_BOTTOM_DESC]"
+ request_recognition:0 "Request recognition"
+ request_recognition_desc:0 "We will submit a resolution to the Security Council requesting the recognition of our government as the legitimate sovereign entity over [THIS.GetName].\n\nWarning: If the resolution is rejected we will have to wait a year before we can submit such a request again.[CW_UNSC_RECENTLY_SUBMITTED_RESOLUTION][CW_UNSC_GET_REJECTED_RESOLUTION_TIMER]"
+ CW_REQUEST_REC_TT:0 "Submit a resolution to the UN Security Council asking them to recognize the current regime as the legitimate ruler of [THIS.GetName].\n-----------------------------------------------------------------\n§YNote:§! Our government must be recognized by either §Y[communist_leader.GetName]§! , §Y[democratic_leader.GetName]§! or §Y[neutral_leader.GetName]§! before you may request a global recognition by the UN.\n\nHaving high relations with either §Y[communist_leader.GetName]§!, §Y[democratic_leader.GetName]§! or §Y[neutral_leader.GetName]§! will make them more likely to recognize our regime.\n-----------------------------------------------------------------"
+ UNSC_REJECTED_RESOLUTION_LOC:0 "\n\nOur last resolution was rejected, we must wait §Y[?THIS.resoultion_failed_cooldown_timer|0.]§! days before we can submit another one."
+ UNSC_RECENT_RESOLUTION_LOC:0 "\n\nWe have just recently submitted a resolution to the Security Council, we must wait §Y[?THIS.unsc_actions_cooldown|0.]§! days before we can submit another one."
+ request_ref_states_recognition:0 "Legitimize New Territories"
+ request_ref_states_recognition_desc:0 "The new territory we acquired is still not considered to be an integral part of our country, we must get the Security Council to agree to the recent annexations for everything to be official and according to international law."
+ CW_REQUEST_REF_ANNEXATION_REC_TT:0 "We will submit a resolution to the Security Council requesting the recognition of the new territory we now control following the recent referendum.\n"
+ ### POLICE ACTION
+ police_action_timer:0 "[ROOT.GetAdjective] - [FROM.GetAdjective] Peacekeeping Mission\n§gSurrender Progress:§! [?PREV.surrender_progress|%0]"
+ police_action_timer_desc:0 "We have received a mandate from the [UNN.GetName] to end the [FROm.GetAdjective] civil conflict.\n\nIf we do not manage to bring an end to the war in the time given to us by the Security Council we will be forced to evacuate our peacekeeping mission in [FROM.GetName].\n\n§RWarning:§! If the Peacekeeping mission fails we will not be able to conduct a new peacekeeping mission or send a peacekeeping force to this country for §Y5§! years."
+ extend_police_action_against:0 "Extend [ROOT.GetAdjective] Peacekeeping Mission\nin §Y[FROM.GetName]§!"
+ extend_police_action_against_desc:0 "\nWe can request from the [UN.GetAdjective] Security Council to extend the peacekeeping mission in [FROM.GetNameDef].\nThis will give us an additional 320 days to finish the war.\n\n§YNote:§! the cost of doing this will increase with each request."
+ police_action_timer_target:0 "Defend Against [FROM.GetAdjective] Police Action"
+ police_action_timer_police_target:0 "[FROM.GetAdjective] - [?.police_action_targets^0.GetAdjective] Police Action - §Y[?PREV.police_action_days_remaining]§! Days Remaining\n§g[?.police_action_targets^0.GetAdjective] Surrender Progress : [?police_action_targets^0.CW_UNSC_GET_POLICE_ACTION_TARGET_SURRENDER_PROGRESS]§!"
+ police_action_timer_police_target_desc:0 "The [FROM.GetAdjective] armed forces have been granted authorization from the [UNN.GetAdjective] Security Council to intervene in the [?.police_action_targets^0.GetAdjective] civil conflict."
+ CW_UNSC_POLICE_ACTION_EXTEND_TT:0 "We will draft a resolution to the Security Council asking for an extension of our Peacekeeping mission in [FROM.GetNameDef].\n\nIf the resolution is adopted our mandate will be extended by §Y320§! days.\n" 
+ ### SANCTIONS
+ request_remove_sanctions:0 "Request removal of sanctions"

@@ -1,0 +1,42 @@
+SWE_protect_soviet_border = {
+	enable = {
+		tag = SWE
+		OR = {
+			has_completed_focus = SWE_form_sdu
+			is_neighbor_of = SOV
+			FIN = { is_puppet_of = SOV }
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = SOV
+		value = 1000
+	}
+	
+}
+SWE_support_finland = {
+	enable = {
+		tag = SWE
+		OR = {
+			FIN = { has_civil_war = yes }
+			FIN = { has_war_with = SOV }
+		}
+	}
+	
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "FIN"
+		value = 500
+	}
+	ai_strategy = {
+		type = alliance
+		id = "FIN"
+		value = 200
+	}	
+}
+

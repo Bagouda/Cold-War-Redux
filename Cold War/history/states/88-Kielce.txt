@@ -1,0 +1,34 @@
+state = {
+	id=88
+	local_supplies=0.0 
+	name="STATE_88"
+	state_category=devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 9427 }
+ 	add_to_array = { list_victory_point = 442 }
+ 	set_variable = { victory_point = 23 }
+		owner = POL
+		add_core_of = POL
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1		
+		}			
+		victory_points = {
+			442 3
+		}
+		victory_points = {
+			9427 20
+		}
+	}
+	resources={
+		steel=5.000
+		oil=3.000
+		crops = 8
+	}
+	buildings_max_level_factor=1.000
+	manpower=1245000
+	provinces={
+		417 442 466 3410 3434 6499 6522 9412 9427 11398 11413 11507 13205 
+	}
+}

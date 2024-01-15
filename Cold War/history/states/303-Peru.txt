@@ -1,0 +1,32 @@
+state = {
+	id=303
+	local_supplies=0.0 
+	name="STATE_303" # Lima
+	state_category = large_city
+	history = {
+ 	add_to_array = { list_victory_point = 12997 }
+ 	set_variable = { victory_point = 15 }
+		owner = PRU
+		add_core_of = PRU
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 3
+			air_base = 1
+			12997 = {
+				naval_base = 3
+			}			
+		}
+		victory_points = {
+			12997 15
+		}
+	}
+	resources={
+		oil=14 # was: 18
+		crops = 5
+	}
+	manpower = 3563249
+	provinces={
+		2156 2162 5190 8199 12969 12983 12997 
+	}
+}

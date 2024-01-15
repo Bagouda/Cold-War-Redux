@@ -1,0 +1,127 @@
+﻿division_template = {
+	name = "Guerilla Brigade"
+	is_locked = yes
+	template_counter = 13
+	regiments = {
+		insurgency = { x = 0 y = 0 }
+		insurgency = { x = 1 y = 0 }
+		insurgency = { x = 2 y = 0 }
+		artillery_brigade = { x = 1 y = 1 }
+	}
+}
+units = {
+	### Guerilla Brigade Troops ###
+	# JAKARTA #
+	division = {
+		location = 10279
+		division_template = "Guerilla Brigade"			
+	}
+	division = {
+		location = 10279
+		division_template = "Guerilla Brigade"			
+	}
+	division = {
+		location = 10279
+		division_template = "Guerilla Brigade"			
+	}
+	division = {
+		location = 10279
+		division_template = "Guerilla Brigade"			
+	}
+	division = {
+		location = 4406
+		division_template = "Guerilla Brigade"			
+	}	
+	division = {
+		location = 4406
+		division_template = "Guerilla Brigade"			
+	}	
+	###	 KALIMANTAN ##
+	division = {
+		location = 5176
+		division_template = "Guerilla Brigade"			
+	}
+	division = {
+		location = 10237
+		division_template = "Guerilla Brigade"			
+	}
+	division = {
+		location = 10237
+		division_template = "Guerilla Brigade"			
+	}
+	division = {
+		location = 10237
+		division_template = "Guerilla Brigade"			
+	}	
+	division = {
+		location = 5176
+		division_template = "Guerilla Brigade"			
+	}
+	division = {
+		location = 1304
+		division_template = "Guerilla Brigade"			
+	}	
+	###	 Sumatra ##
+	division = {
+		location = 10354
+		division_template = "Guerilla Brigade"			
+	}	
+	division = {
+		location = 12181
+		division_template = "Guerilla Brigade"			
+	}
+	division = {
+		location = 12181
+		division_template = "Guerilla Brigade"			
+	}
+	division = {
+		location = 1533
+		division_template = "Guerilla Brigade"			
+	}
+	division = {
+		location = 1533
+		division_template = "Guerilla Brigade"			
+	}
+	division = {
+		location = 12343
+		division_template = "Guerilla Brigade"			
+	}	
+	division = {
+		location = 12181
+		division_template = "Guerilla Brigade"			
+	}
+	division = {
+		location = 1648
+		division_template = "Guerilla Brigade"			
+	}
+	division = {
+		location = 12296
+		division_template = "Guerilla Brigade"			
+	}		
+	division = {
+		location = 4406
+		division_template = "Guerilla Brigade"			
+	}
+
+	division = {
+		location = 4406
+		division_template = "Guerilla Brigade"			
+	}
+}
+#########################
+## STARTING PRODUCTION ##
+#########################
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_3
+			creator = "CGR"
+		}
+	}
+	add_equipment_production = {
+		equipment = {
+			type = rocket_artillery_equipment_2
+			creator = "CGR"
+		}
+	}	
+}

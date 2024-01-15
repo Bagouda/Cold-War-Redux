@@ -1,0 +1,37 @@
+scripted_gui = {
+  cw_focus_blocker = {
+    window_name = "cw_focus_button_blocker"
+    context_type = selected_country_context
+    parent_window_token = selected_country_view
+
+    visible = {
+		NOT = { tag = ROOT }
+		OR = {
+      tag = UNN
+			AND = {
+				has_game_rule = {
+					rule = national_focus_rules
+					option = FOCUS_HIDE_PLAYER_ONLY
+				}
+				is_ai = no
+			}
+			AND = {
+				has_game_rule = {
+					rule = national_focus_rules
+					option = FOCUS_HIDE_AI_ONLY
+				}
+				 is_ai = yes
+			}
+			has_game_rule = {
+				rule = national_focus_rules
+				option = FOCUS_HIDE_ALL
+			}
+		}
+    }
+    triggers = {
+    }
+    ai_enabled = {
+      always = no
+    }
+  }
+}

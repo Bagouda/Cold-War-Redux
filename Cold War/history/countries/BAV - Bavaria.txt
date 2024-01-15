@@ -1,0 +1,35 @@
+﻿capital = 52	#Munich
+set_variable = { twin_country = GER.id }
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+1946.1.1 = {
+	set_politics = {
+		ruling_party = democratic
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 40
+		democratic_socialist = 30
+		neutrality = 0
+		communism_totalitarian = 10
+		unaligned_right = 20
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Hans Ehard"
+		desc = ""
+		picture = "BAVH2.dds"
+		ideology = social_cons_idolg
+		expire = 1962.12.11
+		traits = {}
+	}	
+	create_country_leader = {	#https://en.wikipedia.org/wiki/List_of_ministers-president_of_Bavaria
+		name = "Wilhelm Hoegner"
+		desc = ""
+		picture = "BAVH1.dds"
+		ideology = social_democrat_idolg
+		expire = 1957.10.8
+		traits = {}
+	}
+}
+
+

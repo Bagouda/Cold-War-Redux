@@ -1,0 +1,330 @@
+spriteTypes = {
+	#################
+	# FRA MINISTERS #	
+	#################
+	### Country Leaders
+	spriteType = {
+		name = "GFX_fra_charles_de_gaulle_large"
+		texturefile = "gfx/leaders/FRA/FRAH4.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_felix_gouin_large"
+		texturefile = "gfx/leaders/FRA/FRAH1.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_georges_bidault_large"
+		texturefile = "gfx/leaders/FRA/FRAH2.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_rene_coty_large"
+		texturefile = "gfx/leaders/FRA/FRAH7.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_maurice_thorez_large"
+		texturefile = "gfx/leaders/FRA/FRAHCR_1.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_vincent_auriol_large"
+		texturefile = "gfx/leaders/FRA/vincent_auriol.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_marcel_cachin_large"
+		texturefile = "gfx/leaders/FRA/FRAHC1.dds"
+	}
+	####
+	spriteType = {
+		name = "GFX_fra_pierre_messmer"
+		texturefile = "gfx/interface/ministers/FRA/fra_pierre_messmer.dds"
+	}	
+	spriteType = {
+		name = "GFX_fra_wilfrid_baumgartner"
+		texturefile = "gfx/interface/ministers/FRA/fra_wilfrid_baumgartner.dds"
+	}	
+	spriteType = {
+		name = "GFX_fra_michel_debre"
+		texturefile = "gfx/interface/ministers/FRA/fra_michel_debre.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_edmond_michelet"
+		texturefile = "gfx/interface/ministers/FRA/fra_edmond_michelet.dds"
+	}
+	### HEAD OF ARMY ###
+	spriteType = {
+		name = "GFX_fra_jean_de_lattre"
+		texturefile = "gfx/interface/ministers/FRA/fra_jean_de_lattre.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_georges_revers"
+		texturefile = "gfx/interface/ministers/FRA/fra_georges_revers.dds"
+	}	
+	###
+	spriteType = {
+		name = "GFX_fra_maurice_couve_murville"	
+		texturefile = "gfx/interface/ministers/FRA/fra_maurice_couve_murville.dds"
+	}	
+	spriteType = {
+		name = "GFX_fra_pierre_mendes_france"	
+		texturefile = "gfx/interface/ministers/FRA/fra_pierre_mendes_france.dds"
+	}	
+	spriteType = {
+		name = "GFX_fra_felix_gouin"
+		texturefile = "gfx/interface/ministers/FRA/fra_felix_gouin.dds"
+	}	
+	spriteType = {
+		name = "GFX_fra_georges_bidault"
+		texturefile = "gfx/interface/ministers/FRA/fra_georges_bidault.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_charles_degaulle"
+		texturefile = "gfx/interface/ministers/FRA/fra_charles_degaulle.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_rene_pleven"
+		texturefile = "gfx/interface/ministers/FRA/fra_rene_pleven.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_edgar_faure"
+		texturefile = "gfx/interface/ministers/FRA/fra_edgar_faure.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_pierre_m_france"
+		texturefile = "gfx/interface/ministers/FRA/fra_pierre_m_france.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_alphonse_juin"
+		texturefile = "gfx/interface/ministers/FRA/fra_alphonse_juin.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_andre_philip"
+		texturefile = "gfx/interface/ministers/FRA/fra_andre_philip.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_antoine_pinay"
+		texturefile = "gfx/interface/ministers/FRA/fra_antoine_pinay.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_bertrand_goldschmidt"
+		texturefile = "gfx/interface/ministers/FRA/fra_bertrand_goldschmidt.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_christian_pineau"
+		texturefile = "gfx/interface/ministers/FRA/fra_christian_pineau.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_francois_mitterand"
+		texturefile = "gfx/interface/ministers/FRA/fra_francois_mitterand.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_francois_tanguy_prigent"
+		texturefile = "gfx/interface/ministers/FRA/fra_francois_tanguy_prigent.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_henri_navarre"
+		texturefile = "gfx/interface/ministers/FRA/fra_henri_navarre.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_henri_queuille"
+		texturefile = "gfx/interface/ministers/FRA/fra_henri_queuille.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_jacques_duclos"
+		texturefile = "gfx/interface/ministers/FRA/fra_jacques_duclos.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_jacques_massu"
+		texturefile = "gfx/interface/ministers/FRA/fra_jacques_massu.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_jean_monnet"
+		texturefile = "gfx/interface/ministers/FRA/fra_jean_monnet.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_jules_moch"
+		texturefile = "gfx/interface/ministers/FRA/fra_jules_moch.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_leon_blum"
+		texturefile = "gfx/interface/ministers/FRA/fra_leon_blum.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_maurice_maunoury"
+		texturefile = "gfx/interface/ministers/FRA/fra_maurice_maunoury.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_paul_ely"
+		texturefile = "gfx/interface/ministers/FRA/fra_paul_ely.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_paul_ramadier"
+		texturefile = "gfx/interface/ministers/FRA/fra_paul_ramadier.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_pierre_billotte"
+		texturefile = "gfx/interface/ministers/FRA/fra_pierre_billotte.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_pierre_konig"
+		texturefile = "gfx/interface/ministers/FRA/fra_pierre_konig.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_rene_mayer"
+		texturefile = "gfx/interface/ministers/FRA/fra_rene_mayer.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_robert_prigent"
+		texturefile = "gfx/interface/ministers/FRA/fra_robert_prigent.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_pierre_guillaumat"
+		texturefile = "gfx/interface/ministers/FRA/fra_pierre_guillaumat.dds"
+	}	
+	spriteType = {
+		name = "GFX_fra_robert_schuman"
+		texturefile = "gfx/interface/ministers/FRA/fra_robert_schuman.dds"
+		texturefile = "gfx/interface/ministers/FRA/fra_robert_schuman.dds"
+		effectFile = "gfx/FX/buttonstate.lua"
+		animation = {
+			animationmaskfile = "gfx/interface/ministers/FRA/fra_robert_schuman.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 2.00				# in seconds
+			animationdelay = 30			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no		
+	}
+	spriteType = {
+		name = "GFX_fra_clement_blanc"
+		texturefile = "gfx/interface/ministers/FRA/fra_clement_blanc.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_andre_zeller"
+		texturefile = "gfx/interface/ministers/FRA/fra_andre_zeller.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_henri_lorillot"
+		texturefile = "gfx/interface/ministers/FRA/fra_henri_lorillot.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_andre_demetz"
+		texturefile = "gfx/interface/ministers/FRA/fra_andre_demetz.dds"
+	}
+	###############################################################################################
+	################################## FRA Intelligence Heads #####################################
+	###############################################################################################
+	spriteType = {
+		name = "GFX_fra_andre_dewavrin"
+		texturefile = "gfx/interface/ministers/FRA/fra_andre_dewavrin.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_henri_ribiere"
+		texturefile = "gfx/interface/ministers/FRA/fra_henri_ribiere.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_paul_grossin"
+		texturefile = "gfx/interface/ministers/FRA/fra_paul_grossin.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_paul_jacquier"
+		texturefile = "gfx/interface/ministers/FRA/fra_paul_jacquier.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_eugene_guibaud"
+		texturefile = "gfx/interface/ministers/FRA/fra_eugene_guibaud.dds"
+	}
+	###############################################################################################
+	################################## FRA Military Characters ####################################
+	###############################################################################################
+	spriteType = {
+		name = "GFX_fra_alphonse_juin_large"
+		texturefile = "gfx/leaders/FRA/alphonse_juin.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_alphonse_juin_small"
+		texturefile = "gfx/interface/ministers/FRA/alphonse_juin_small.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_marcel_carpentier_large"
+		texturefile = "gfx/leaders/FRA/marcel_carpentier.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_marcel_carpentier_small"
+		texturefile = "gfx/interface/ministers/FRA/marcel_carpentier_small.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_jean_tassigny_large"
+		texturefile = "gfx/leaders/FRA/lattre_t.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_paul_ely_large"
+		texturefile = "gfx/leaders/FRA/paul_ely.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_paul_ely_small"
+		texturefile = "gfx/interface/ministers/FRA/paul_ely_small.dds"
+	}	
+	spriteType = {
+		name = "GFX_fra_jacques_massu_large"
+		texturefile = "gfx/leaders/FRA/jacques_massu.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_jacques_massu_small"
+		texturefile = "gfx/interface/ministers/FRA/jacques_massu_small.dds"
+	}	
+	spriteType = {
+		name = "GFX_fra_raoul_salan_large"
+		texturefile = "gfx/leaders/FRA/raoul_salan.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_raoul_salan_small"
+		texturefile = "gfx/interface/ministers/FRA/raoul_salan_small.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_jean_etienne_valluy_large"
+		texturefile = "gfx/leaders/FRA/jean_valluy.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_jean_etienne_valluy_small"
+		texturefile = "gfx/interface/ministers/FRA/jean_valluy_small.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_edmond_jouhaud_large"
+		texturefile = "gfx/leaders/FRA/edmond_jouhaud.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_edmond_jouhaud_small"
+		texturefile = "gfx/interface/ministers/FRA/edmond_jouhaud_small.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_augustin_guillaume_large"
+		texturefile = "gfx/leaders/FRA/augustin_guillaume.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_augustin_guillaume_small"
+		texturefile = "gfx/interface/ministers/FRA/augustin_guillaume_small.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_maurice_challe_large"
+		texturefile = "gfx/leaders/FRA/maurice_challe.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_maurice_challe_small"
+		texturefile = "gfx/interface/ministers/FRA/maurice_challe_small.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_pierre_koenig_large"
+		texturefile = "gfx/leaders/FRA/marie_pierre.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_andre_lemonnier_large"
+		texturefile = "gfx/leaders/FRA/fra_andre_lemonnier.dds"
+	}
+	spriteType = {
+		name = "GFX_fra_andre_lemonnier_small"
+		texturefile = "gfx/interface/ministers/FRA/fra_andre_lemonnier_small.dds"
+	}	
+}

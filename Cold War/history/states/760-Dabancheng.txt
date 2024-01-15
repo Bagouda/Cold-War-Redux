@@ -1,0 +1,24 @@
+state = {
+	id=760
+	local_supplies=0.0 
+	name="STATE_760"
+	state_category = rural
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = XSM
+		add_core_of = XSM
+		add_core_of = CHI
+		add_claim_by= PRC
+		
+		1949.10.1 = {
+		owner = PRC
+		}
+	}
+	buildings_max_level_factor=1.000
+	manpower=700000
+	provinces={
+		1838 4704 4843 7732 10839 12524 12598 12671 
+	}
+}

@@ -1,0 +1,122 @@
+﻿capital = 800
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 500
+set_research_slots = 0
+### NEW TECHS START ####
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	infantry_weapons2 = 1
+	improved_infantry_weapons = 1
+	improved_infantry_weapons_2 = 1
+	infantry_at = 1
+	infantry_at2 = 1
+	advanced_infantry_weapons = 1
+	advanced_infantry_weapons2 = 1
+	support_weapons = 1
+	support_weapons2 = 1
+	support_weapons3 = 1
+	tech_support = 1
+	motorised_infantry = 1
+	motorized_rocket_unit = 1
+	mechanised_infantry = 1
+}
+create_faction = "United Nations"
+1946.1.1 = {
+	OOB = "UN_Peacekeeping forces"
+	add_ideas = {
+		cw_closed_economy
+		neutrality_policy
+		cw_annihilate_kill_kill
+	}
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_3
+		amount = 10000
+		producer = USA
+	}
+	add_equipment_to_stockpile = {
+		type = support_equipment_1
+		amount = 10000
+		producer = USA
+	}
+	set_politics = {
+		ruling_party = democratic
+		election_frequency = 200
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 100
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Dag Hammarskjöld"
+		desc = ""
+		picture = UNNH3.dds
+		ideology = intergovernmental_organization
+		expire = 1952.11.10
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Trygve Lie"
+		desc = ""
+		picture = UNNH2.dds
+		ideology = intergovernmental_organization
+		expire = 1952.11.10
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Gladwyn Jebb"
+		desc = ""
+		picture = UNNH1.dds
+		ideology = intergovernmental_organization
+		expire = 1946.2.1
+		traits = {}
+	}
+}
+
+1948.5.14 = {
+	create_country_leader = {
+		name = "Trygve Lie"
+		desc = ""
+		picture = UNNH2.dds
+		ideology = intergovernmental_organization
+		expire = 1952.11.10
+		traits = {}
+	}
+}
+1950.6.25 = {
+}
+1961.12.11 = {
+	create_country_leader = {
+		name = "U Thant"
+		desc = ""
+		picture = UNNH3.dds
+		ideology = intergovernmental_organization
+		expire = 1971.12.31
+		traits = {}
+	}
+}
+1979.12.24 = {
+	create_country_leader = {
+		name = "Kurt Waldheim"
+		desc = ""
+		picture = UNNH5.dds
+		ideology = intergovernmental_organization
+		expire = 1981.12.31
+		traits = {}
+	}
+}
+1989.1.9 = {
+	create_country_leader = {
+		name = "Javier Pérez de Cuéllar"
+		desc = ""
+		picture = UNNH6.dds
+		ideology = intergovernmental_organization
+		expire = 1991.12.31
+		traits = {}
+	}
+}

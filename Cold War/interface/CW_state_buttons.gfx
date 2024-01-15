@@ -1,0 +1,122 @@
+spriteTypes = {
+	SpriteType = {
+		name = "GFX_claim_state"
+		texturefile = "gfx/interface/state_actions_graphics/claim_state_button.dds"
+	}
+	SpriteType = {
+		name = "GFX_remove_claim"
+		texturefile = "gfx/interface/state_actions_graphics/remove_claim_button.dds"
+	}
+	SpriteType = {
+		name = "GFX_develop_state"
+		texturefile = "gfx/interface/state_actions_graphics/develop_state_button.dds"
+	}
+	SpriteType = {
+		name = "GFX_stop_develop_state"
+		texturefile = "gfx/interface/state_actions_graphics/stop_develop_state_button.dds"
+	}
+	SpriteType = {
+		name = "GFX_develop_foreign_state"
+		texturefile = "gfx/interface/state_actions_graphics/develop_foreign_state_button.dds"
+	}
+	SpriteType = {
+		name = "GFX_stop_develop_foreign_state"
+		texturefile = "gfx/interface/state_actions_graphics/stop_develop_foreign_state_button.dds"
+	}
+	SpriteType = {
+		name = "GFX_request_core"
+		texturefile = "gfx/interface/state_actions_graphics/request_core_button.dds"
+	}
+	SpriteType = {
+		name = "GFX_abolish_core"
+		texturefile = "gfx/interface/state_actions_graphics/abolish_core_button.dds"
+	}
+	SpriteType = {
+		name = "GFX_cw_demand_state"
+		texturefile = "gfx/interface/state_actions_graphics/demand_state_button.dds"
+	}	
+	SpriteType = {
+		name = "GFX_cw_transfer_state"
+		texturefile = "gfx/interface/state_actions_graphics/demand_state_transfer_button.dds"
+	}
+	SpriteType = {
+		name = "GFX_suppress_dissent"
+		texturefile = "gfx/interface/state_actions_graphics/suppress_dissent_button.dds"
+	}
+	SpriteType = {
+		name = "GFX_encourage_dissent"
+		texturefile = "gfx/interface/state_actions_graphics/encourage_sepratists.dds"
+	}
+	SpriteType = {
+		name = "GFX_stop_encourage_dissent"
+		texturefile = "gfx/interface/state_actions_graphics/encourage_sepratists.dds"
+	}	
+	SpriteType = {
+		name = "GFX_border_incident"
+		texturefile = "gfx/interface/state_actions_graphics/border_incident.dds"
+	}
+	SpriteType = {
+		name = "GFX_stop_border_incident"
+		texturefile = "gfx/interface/state_actions_graphics/stop_border_incident.dds"
+	}
+	SpriteType = {
+		name = "GFX_state_button_conduct_border_raid"
+		texturefile = "gfx/interface/state_actions_graphics/state_button_border_raid.dds"
+	}
+	SpriteType = {
+		name = "GFX_state_button_conduct_border_raid_active"
+		texturefile = "gfx/interface/state_actions_graphics/state_button_border_raid.dds"
+		effectFile = "gfx/FX/buttonstate.lua"		
+		animation = {
+			animationmaskfile = "gfx/interface/abilitylist/ability_probing_attack.dds"
+			animationtexturefile = "gfx/interface/focus_completed_texture.dds" 	# <- the animated file
+			animationrotation = 0.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 26.0				# in seconds
+			animationdelay = 0.0			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "scrolling"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+	SpriteType = {
+		name = "GFX_move_capital"
+		texturefile = "gfx/interface/state_actions_graphics/move_capital.dds"
+	}
+	SpriteType = {
+		name = "GFX_request_lease"
+		texturefile = "gfx/interface/state_actions_graphics/request_lease.dds"
+	}
+	SpriteType = {
+		name = "GFX_extend_revoke_lease"
+		texturefile = "gfx/interface/state_actions_graphics/extend_revoke_lease.dds"
+	}		
+	SpriteType = {
+		name = "GFX_state_actions_panel"
+		texturefile = "gfx/interface/state_actions_graphics/more_cw_actions_panel.dds"
+	}
+	SpriteType = {
+		name = "GFX_state_button_police_action"
+		texturefile = "gfx/interface/state_actions_graphics/state_button_police_action.dds"
+	}	
+	SpriteType = {
+		name = "GFX_state_button_police_action_active"
+		texturefile = "gfx/interface/state_actions_graphics/state_button_police_action.dds"
+		effectFile = "gfx/FX/buttonstate.lua"		
+		animation = {
+			animationmaskfile = "gfx/interface/state_actions_graphics/state_button_police_action.dds"
+			animationtexturefile = "gfx/interface/focus_completed_texture.dds" 	# <- the animated file
+			animationrotation = 0.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 0.90				# in seconds
+			animationdelay = 0.0			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}	
+}

@@ -1,0 +1,31 @@
+state = {
+	id=681
+	local_supplies=0.0 
+	name="STATE_681" # Cape
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 12589 }
+ 	set_variable = { victory_point = 15 }
+		owner = SAF
+		add_core_of = SAF
+
+		buildings = {
+			infrastructure = 4
+			air_base = 3
+			industrial_complex = 4
+			12589 = {
+				naval_base = 1	
+			}				
+		}		
+		victory_points = {
+			12589 15 
+		}
+	}
+	resources={
+		crops = 5
+	}	
+	manpower = 1637178
+	provinces={
+		1509 4528 4822 5203 10415 10442 10697 12419 12547 12589 12692 
+	}
+}

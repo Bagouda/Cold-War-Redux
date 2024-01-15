@@ -1,0 +1,13 @@
+﻿l_english:
+ CW_START_ELECTIONS_EFFECT_TT:0 "National Elections will be held in [THIS.GetName]."
+ CW_ELECTIONS_END_GOVERNMENT_FORMED:0 "[PARLIAMENT_GET_LEADING_PARTY_NAME_FROM_ID] - §GForms Government§!"
+ CW_LARGEST_NON_DEM_PARTY_CIVIL_WAR:0 "§R[PARLIAMENT_GET_LEADING_PARTY_NAME_FROM_ID] Party Starts a Civil War§!"
+ CW_ELECTIONS_END_ANOTHER_ELECTION:0 "§ONo Majority - Another Election Called.§!"
+ cw_national_elections_timer:0 "[ROOT.GetAdjective] [GetYear] National Elections ([?num_of_elections])\n§gResults : §![ELECTIONS_END_GER_RESULTS]"
+ cw_election_state_actions_desc:0 "Election Actions\n§gClick here to pan to states with possible election actions."
+ cw_elections_promote_dem_right:0 "Campaign for §BDemocratic - Right§!"
+ cw_elections_promote_dem_left:0 "Campaign for §CDemocratic - Left§!"
+ cw_elections_promote_com_total:0 "Campaign for §RCommunist - Totalitarian§!"
+ cw_elections_promote_com_ref:0 "Campaign for §YCommunist - Reformist§!"
+ cw_elections_promote_neutrality_left:0 "Campaign for §HNeutrality - RLeft§!"
+ cw_elections_promote_neutrality_right:0 "Campaign for §gNeutrality - RRight§!"

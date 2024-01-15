@@ -1,0 +1,136 @@
+bookmarks = {
+	bookmark = {
+		name = "COLD_WAR_BEGINS_NAME"
+		desc = "COLD_WAR_BEGINS_DESC"
+		date = 1979.12.24
+		picture = "GFX_select_date_1939"
+		default_country = "USA"
+	
+		USA = {
+			history = USA_COLD_WAR_BEGINS_DESC
+			ideology = democratic
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		ENG = {
+			history = USA_COLD_WAR_BEGINS_DESC
+			ideology = democratic
+			ideas = {
+			}
+			focuses = {
+			}
+		}		
+		FRA = {
+			history = SOV_COLD_WAR_BEGINS_DESC
+			ideology = democratic
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		CHI = {
+			history = SOV_COLD_WAR_BEGINS_DESC
+			ideology = neutrality
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		AFG = {
+			history = SOV_COLD_WAR_BEGINS_DESC
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}		
+		IND = {
+			history = SOV_COLD_WAR_BEGINS_DESC
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}		
+		SOV = {
+			history = SOV_COLD_WAR_BEGINS_DESC
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}		
+		
+
+		"GRE"={
+			minor = yes
+			history = "DEN_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+				devastated_nation			
+			}
+			focuses = {
+			}
+		}
+		"TUR"={
+			minor = yes
+			history = "DEN_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		"CZE"={
+			minor = yes
+			history = "DEN_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		"INS"={
+			minor = yes
+			history = "DEN_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		"HOL"={
+			minor = yes
+			history = "DEN_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		"VIN"={
+			minor = yes
+			history = "DEN_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}
+		"POR"={
+			minor = yes
+			history = "DEN_GATHERING_STORM_DESC"
+			ideology = communism
+			ideas = {
+			}
+			focuses = {
+			}
+		}		
+
+		effect = {
+			randomize_weather = 12345 # <- Obligatory in every bookmark !
+		}
+	}
+}

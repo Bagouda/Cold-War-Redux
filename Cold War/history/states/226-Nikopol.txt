@@ -1,0 +1,34 @@
+state = {
+	id=226
+	local_supplies=0.0 
+	name="STATE_226" # Dnipropertovsk
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 11437 }
+ 	add_to_array = { list_victory_point = 11561 }
+ 	set_variable = { victory_point = 11 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_core_of = SOV
+		add_core_of = UKR
+		
+		victory_points = {
+			11561 1
+		}
+		victory_points = {
+			11437 10 
+		}
+	}
+	resources={
+		oil=4 # was: 6
+	}
+	resources={
+		crops= 4
+	}	
+	manpower = 839104
+	provinces={
+		453 472 486 6423 9419 9433 9463 9479 11422 11437 11452 11561 
+	}
+}

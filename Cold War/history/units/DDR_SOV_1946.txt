@@ -1,0 +1,329 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Infantry Division"		
+	#division_names_group = 
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		artillery_brigade = { x = 2 y = 0 }
+		artillery_brigade = { x = 2 y = 1 }
+		artillery_brigade = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Rifle Division"		
+	#division_names_group = SOV_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Motorized infantry Division"		
+	#division_names_group = SOV_INF_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Armored infantry Division"		
+	#division_names_group = SOV_INF_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		artillery_brigade = { x = 2 y = 0 }
+		artillery_brigade = { x = 2 y = 1 }
+		artillery_brigade = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Armored rifle Division"		
+	#division_names_group = SOV_INF_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Mountaineers Division"		
+	#division_names_group = SOV_INF_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 1 y = 1 }
+		mountaineers = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Tank Division"		
+	#division_names_group = SOV_INF_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 1 y = 2 }
+		medium_armor = { x = 2 y = 0 }
+		medium_armor = { x = 2 y = 1 }
+		medium_armor = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Rifle Regiment"		
+	#division_names_group = SOV_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Antitank division"		
+	#division_names_group = SOV_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		anti_tank_brigade = { x = 2 y = 0 }
+		anti_tank_brigade = { x = 2 y = 1 }
+		anti_tank_brigade = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Spearhead division"		
+	#division_names_group = SOV_INF_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 1 y = 2 }
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 2 y = 1 }
+		motorized = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Assault division"		
+	#division_names_group = SOV_INF_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Engineer Corps"		
+	#division_names_group = SOV_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		}
+	support = {
+        engineer = { x = 0 y = 0 }
+	          }
+}
+division_template = {
+	name = "Rocket artillery Division"		
+	#division_names_group = SOV_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		motorized_rocket_brigade = { x = 2 y = 0 }
+		motorized_rocket_brigade = { x = 2 y = 1 }
+		motorized_rocket_brigade = { x = 2 y = 2 }
+	}
+}
+units = {
+	division = {
+		name = "89th Motorized division"
+		location = 11505
+		division_template = "Motorized infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "87th Rifle division"
+		location = 11444
+		division_template = "Rifle Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "40th Rifle division"
+		location = 3535
+		division_template = "Rifle Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "1st Infantry division"
+		location = 11305
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "2nd Infantry division"
+		location = 9294
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "3rd Infantry division"
+		location = 11219
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "4th Infantry division"
+		location = 11359
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "1st Tank division"
+		location = 3522
+		division_template = "Tank Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "5th Infantry division"
+		location = 6487
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "6th Infantry division"
+		location = 425
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "7th Infantry division"
+		location = 3561
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "2nd Tank division"
+		location = 3500
+		division_template = "Tank Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "9th Infantry division"
+		location = 482
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "10th Infantry division"
+		location = 9497
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "11th Infantry division"
+		location = 9441
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "12th Infantry division"
+		location = 9471
+		division_template = "Infantry Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "3rd Tank division"
+		location = 6559
+		division_template = "Tank Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}	
+}

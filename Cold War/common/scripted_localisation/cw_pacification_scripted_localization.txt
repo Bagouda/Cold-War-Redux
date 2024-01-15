@@ -1,0 +1,126 @@
+defined_text = {
+	name = CW_GET_OUR_STATES_WITH_INSURGENCY
+	text = {
+		trigger = {
+			check_variable = { pacification_target:insurgency_states^num = 0 }
+		}
+		localization_key = "CW_NO_INSURGENCY_DETECTED"
+	}
+	text = {
+		trigger = {
+			check_variable = { pacification_target:insurgency_states^num = 1 }
+		}
+		localization_key = "[?pacification_target:insurgency_states^0.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { pacification_target:insurgency_states^num = 2 }
+		}
+		localization_key = "[?pacification_target:insurgency_states^0.GetName], [?pacification_target:insurgency_states^1.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { pacification_target:insurgency_states^num = 3 }
+		}
+		localization_key = "[?pacification_target:insurgency_states^0.GetName], [?pacification_target:insurgency_states^1.GetName], [?pacification_target:insurgency_states^2.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { pacification_target:insurgency_states^num = 4 }
+		}
+		localization_key = "[?pacification_target:insurgency_states^0.GetName], [?pacification_target:insurgency_states^1.GetName], [?pacification_target:insurgency_states^2.GetName], [?pacification_target:insurgency_states^3.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { pacification_target:insurgency_states^num = 5 }
+		}
+		localization_key = "[?pacification_target:insurgency_states^6.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { pacification_target:insurgency_states^num = 6 }
+		}
+		localization_key = "[?pacification_target:insurgency_states^7.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { pacification_target:insurgency_states^num = 7 }
+		}
+		localization_key = "[?pacification_target:insurgency_states^6.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { pacification_target:insurgency_states^num = 8 }
+		}
+		localization_key = "[?pacification_target:insurgency_states^9.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { pacification_target:insurgency_states^num = 9 }
+		}
+		localization_key = "[?pacification_target:insurgency_states^10.GetName]"
+	}
+}
+defined_text = {
+	name = CW_GET_STATES_WITH_OUR_INSURGENCY
+	text = {
+		trigger = {
+			check_variable = { our_insurgency_target:insurgency_states^num = 0 }
+		}
+		localization_key = "CW_NO_INSURGENCY_DETECTED"
+	}
+	text = {
+		trigger = {
+			check_variable = { our_insurgency_target:insurgency_states^num = 1 }
+		}
+		localization_key = "[?our_insurgency_target:insurgency_states^0.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { our_insurgency_target:insurgency_states^num = 2 }
+		}
+		localization_key = "[?our_insurgency_target:insurgency_states^0.GetName], [?our_insurgency_target:insurgency_states^1.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { our_insurgency_target:insurgency_states^num = 3 }			
+		}
+		localization_key = "[?our_insurgency_target:insurgency_states^0.GetName], [?our_insurgency_target:insurgency_states^1.GetName], [?our_insurgency_target:insurgency_states^2.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { our_insurgency_target:insurgency_states^num = 4 }
+		}
+		localization_key = "[?our_insurgency_target:insurgency_states^0.GetName], [?our_insurgency_target:insurgency_states^1.GetName], [?our_insurgency_target:insurgency_states^2.GetName], [?our_insurgency_target:insurgency_states^3.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { our_insurgency_target:insurgency_states^num = 5 }
+		}
+		localization_key = "[?our_insurgency_target:insurgency_states^6.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { our_insurgency_target:insurgency_states^num = 6 }
+		}
+		localization_key = "[?our_insurgency_target:insurgency_states^7.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { our_insurgency_target:insurgency_states^num = 7 }
+		}
+		localization_key = "[?our_insurgency_target:insurgency_states^6.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { our_insurgency_target:insurgency_states^num = 8 }
+		}
+		localization_key = "[?our_insurgency_target:insurgency_states^9.GetName]"
+	}
+	text = {
+		trigger = {
+			check_variable = { our_insurgency_target:insurgency_states^num = 9 }
+		}
+		localization_key = "[?our_insurgency_target:insurgency_states^10.GetName]"
+	}
+}

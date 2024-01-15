@@ -1,0 +1,21 @@
+state = {
+	id=758
+	local_supplies=0.0 
+	name="STATE_758"
+	state_category = wasteland
+	impassable = yes
+	history = {
+		owner = TIB
+		add_core_of = CHI
+		add_claim_by= PRC
+		
+		1951.5.23 = {
+		owner = PRC
+		}
+	}
+	buildings_max_level_factor=1.000
+	manpower=1000000
+	provinces={
+		1961 5094 8029 10802 12784 12801 
+	}
+}

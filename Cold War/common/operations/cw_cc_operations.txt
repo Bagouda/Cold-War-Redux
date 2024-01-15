@@ -1,0 +1,245 @@
+### operations are sorted by order of
+### 1) no. of required operatives
+### 2) required network strength
+### eg. 1/70 comes before 2/40
+sov_cc_operation_arrest_opposition = {
+	icon = GFX_operations_arrest_opposition
+	map_icon = GFX_operations_arrest_opposition_small
+	name = "Arrest Opposition Figure"
+	desc = CW_SOV_CC_OPERATION_ARREST_OPPOSITION_DESC
+	priority = 1
+
+	days = 15
+	network_strength = 20
+	operatives = 1
+
+	visible = {
+		ROOT = { tag = SOV }
+		FROM = {
+			has_idea_with_trait = stern_anti_communist
+			has_country_flag = communist_consolidation_target_operations	
+		}
+	}
+
+	equipment = {
+
+	}
+
+	available = {
+		ROOT = { has_military_access_to = FROM }
+	}
+
+	risk_chance = 0.1
+	risk_modifiers = { operation_infiltrate_risk operation_risk }
+	outcome_extra_chance = 0.25
+	outcome_modifiers = { operation_infiltrate_outcome operation_outcome }
+	cost_modifiers = { operation_infiltrate_cost operation_cost }
+
+	outcome_execute = {		#What you get once the operation is complete
+		if = {
+			limit = {
+				FROM = { has_idea = bul_pa_nikola_petkov }
+			}
+			FROM = { remove_ideas = bul_pa_nikola_petkov }
+			else_if = {
+				limit = {
+					FROM = { has_idea_with_trait = stern_anti_communist }
+				}
+				FROM = { remove_ideas_with_trait = stern_anti_communist }
+			}
+			else = {
+				FROM = { add_popularity = { ideology = ROOT popularity = 0.10 } }
+			}
+		}
+	}
+	outcome_extra_execute = {	#Extra reward that can be earned, dependent on outcome_extra_chance, NOTE: overwrites the rewards in outcome_execute so all rewards must be added AS WELL as the bonus
+		FROM = { add_popularity = { ideology = ROOT popularity = 0.20 } }
+		ROOT = {
+			add_collaboration = {
+				target = FROM
+				value = 0.2
+			}
+		}		
+	}
+
+	outcome_potential = {		#The reward shown before starting the mission
+		if = {
+			limit = {
+				FROM = { has_idea = bul_pa_nikola_petkov }
+			}
+			FROM = { remove_ideas = bul_pa_nikola_petkov }
+			else_if = {
+				limit = {
+					FROM = { has_idea_with_trait = stern_anti_communist }
+				}
+				FROM = { remove_ideas_with_trait = stern_anti_communist }
+			}
+			else = {
+				FROM = { add_popularity = { ideology = ROOT popularity = 0.10 } }
+			}
+		}
+	}
+
+	phases = {
+		sov_cc_collect_incriminating_material = { base = 25 }
+	}
+	phases = {
+		sov_cc_leak_material_to_press = { base = 25 }
+	}
+	phases = {
+		sov_cc_buy_off_judge = { base = 25 }
+	}
+}
+sov_cc_monarchy_referendum = {
+	icon = GFX_operations_monarchy_referendum
+	map_icon = GFX_operations_monarchy_referendum_small
+	name = "Force Monarchy Referendum"
+	desc = CW_SOV_CC_OPERATION_MON_REFERENDUM_DESC
+	
+	priority = 1
+	days = 30
+	network_strength = 30
+	operatives = 1
+
+	visible = {
+		ROOT = { tag = SOV }	
+		FROM = {
+			NOT = { has_country_flag = mon_ref_initiator }
+			has_war = no
+			has_country_flag = communist_consolidation_target_operations
+			is_in_array = {
+				array = global.countries_with_monarchies
+				value = THIS.id
+			}
+		}
+	}
+
+	equipment = {
+	}
+
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = "CW_GENERIC_IS_MONARCHY"
+			FROM = {
+				is_in_array = {
+					array = global.countries_with_monarchies
+					value = THIS.id
+				}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = "Is not holding a monarchy referendum or has public calls to hold one."
+			FROM = { NOT = { has_country_flag = mon_ref_initiator } }
+		}		
+		FROM = { has_war = no }
+	}
+
+	risk_chance = 0.1
+	experience = 2
+	risk_modifiers = { operation_infiltrate_risk operation_risk }
+	outcome_extra_chance = 0.25
+	outcome_modifiers = { operation_infiltrate_outcome operation_outcome }
+	cost_modifiers = { operation_infiltrate_cost operation_cost }
+
+	outcome_execute = {		#What you get once the operation is complete
+		custom_effect_tooltip = "OPERATION_MON_REFERENDUM_EFFECT_TT"
+		FROM = {
+			hidden_effect = { set_variable = { mon_ref_initiator = ROOT.id } }
+			hidden_effect = { country_event = com_consolidation_events.1 }
+		}
+	}
+	
+	outcome_extra_execute = {	#Extra reward that can be earned, dependent on outcome_extra_chance, NOTE: overwrites the rewards in outcome_execute so all rewards must be added AS WELL as the bonus
+		custom_effect_tooltip = "OPERATION_MON_REFERENDUM_EFFECT_TT"
+		FROM = {
+			hidden_effect = { set_variable = { mon_ref_initiator = ROOT.id } }
+			hidden_effect = { country_event = com_consolidation_events.1 }
+			add_popularity = { ideology = ROOT popularity = 0.10 }			
+		}
+	}	
+	
+	outcome_potential = {		#The reward shown before starting the mission
+		custom_effect_tooltip = "OPERATION_MON_REFERENDUM_EFFECT_TT"
+	}
+
+	phases = {
+		sov_cc_discredit_monarchy = { base = 25 }
+	}
+	phases = {
+		sov_cc_arrange_protest = { base = 25 }
+	}
+	phases = {
+		sov_cc_demand_referendum = { base = 25 }
+	}
+}
+sov_cc_arrest_country_leader = {
+	icon = GFX_operations_arrest_country_leader
+	map_icon = GFX_operations_arrest_country_leader_small
+	name = "Arrest Government Leader"
+	desc = CW_ARREST_COUNTRY_LEADER_DESC
+	priority = 1
+
+	days = 5
+	network_strength = 30
+	operatives = 1
+	experience = 5
+
+	visible = {
+		ROOT = { tag = SOV }	
+		FROM = {
+			NOT = { 
+				has_government = ROOT
+				OR = {
+					has_country_leader_with_trait = communist_sympathizer
+					has_country_leader_with_trait = communist_collaborator
+				}
+			}
+			has_country_flag = communist_consolidation_target_operations
+		}		
+	}
+
+	equipment = {
+		infantry_equipment = 1000
+		support_equipment = 100
+	}
+
+	available = {
+		OR = {
+			ROOT = { has_military_access_to = FROM }
+			FROM = { is_puppet_of = ROOT }
+		}
+	}
+
+	risk_chance = 0.1
+	risk_modifiers = { operation_infiltrate_risk operation_risk }
+	outcome_extra_chance = 0.25
+	outcome_modifiers = { operation_infiltrate_outcome operation_outcome }
+	cost_modifiers = { operation_infiltrate_cost operation_cost }
+
+	on_start = {		#Stuff to do when player starts the operation
+
+	}
+
+	outcome_execute = {		#What you get once the operation is complete
+		custom_effect_tooltip = "ARREST_COUNTRY_LEADER_EFFECT_TT"
+		FROM = { hidden_effect = { retire_country_leader = yes set_politics = { ruling_party = ROOT } } }
+		ROOT = { add_named_threat = { threat = 5 name = CW_THREAT_ARREST_FOREIGN_LEADER } }
+	}
+	outcome_extra_execute = {	#Extra reward that can be earned, dependent on outcome_extra_chance, NOTE: overwrites the rewards in outcome_execute so all rewards must be added AS WELL as the bonus
+	}
+
+	outcome_potential = {		#The reward shown before starting the mission
+		custom_effect_tooltip = "ARREST_COUNTRY_LEADER_EFFECT_TT"
+		FROM = { hidden_effect = { retire_country_leader = yes set_politics = { ruling_party = ROOT } } }
+	}
+
+	phases = {
+		sov_cc_take_over_police = { base = 25 }
+	}
+	phases = {
+		sov_cc_conduct_arrest = { base = 25 }
+	}
+	phases = {
+		sov_cc_install_collabarator = { base = 25 }
+	}
+}

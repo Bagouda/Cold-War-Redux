@@ -1,0 +1,51 @@
+FRA_historical_plan_1950 = {
+	name = "France 1950 Focuses"
+	desc = ""
+
+	enable = {
+		tag = FRA
+		is_historical_focus_on = yes
+		has_focus_tree = france_1950_focus_tree
+	}
+	abort = {
+		has_government = communism_totalitarian
+	}
+
+	ai_national_focuses = {
+		FRA_french_union
+		FRA_french_union_maghreb
+		FRA_french_union_maghreb_morocco
+		FRA_exile_muhammad_v
+		FRA_french_union_indochina
+		FRA_indochina_pacification
+		FRA_rebrand_indochina_war
+		FRA_appoint_henri_navarre
+		FRA_increase_autonomy
+		FRA_establish_south_vietnam_army
+		FRA_disband_colonial_army
+		FRA_hand_over_thu_duc_military_academy
+		FRA_negotiate_indochina_war_ceasfire
+		FRA_french_union_maghreb_algeria
+		FRA_french_union_algeria_abolish_assembly
+		FRA_algeirs_putsch_accept_military_demands
+	}
+
+	research = {
+	}
+
+	ideas = {
+	}
+	traits = {
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 10.0
+		}
+	}
+}

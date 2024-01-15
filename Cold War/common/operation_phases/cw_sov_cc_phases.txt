@@ -1,0 +1,117 @@
+###############################################
+###########	ARREST OPPOSITION PHASES ##########
+###############################################
+sov_cc_collect_incriminating_material = {
+	name = "Collect Damaging Material"
+	desc = "SOV_COLLECT_INCRIMINATING_MATERIAL_DESC"
+	outcome = SOV_CC_COLLECT_INCRIMINATING_MATERIAL_OUTCOME
+	picture = "GFX_phase_sov_collect_incriminating_material"
+	icon = "GFX_phase_sov_collect_incriminating_material_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+	}
+	return_on_complete = no
+}
+sov_cc_leak_material_to_press = {
+	name = "Leak Material to the Press"
+	desc = "SOV_LEAK_MATERIAL_TO_PRESS_DESC"
+	outcome = SOC_CC_LEAK_MATERIAL_TO_PRESS_OUTCOME
+	picture = "GFX_phase_sov_cc_leak_material_to_press"
+	icon = "GFX_phase_sov_cc_leak_material_to_press_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+	}
+	return_on_complete = no
+}
+sov_cc_buy_off_judge = {
+	name = "Bribe Presiding Judge"
+	desc = "SOV_CC_BUY_OFF_JUDGE_DESC"
+	outcome = SOV_CC_BUY_OFF_JUDGE_OUTCOME
+	picture = "GFX_phase_sov_cc_buy_off_judge"
+	icon = "GFX_phase_sov_cc_buy_off_judge_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+	}
+	return_on_complete = no
+}
+#####################################
+########## MONARCHY PHASES ##########
+#####################################
+sov_cc_discredit_monarchy = {
+	name = "Discredit Royal Family"
+	desc = "SOV_DISCREDIT_ROYAL_FAMILY_DESC"
+	outcome = "SOV_DISCREDIT_ROYAL_FAMILY_OUTCOME"
+	picture = "GFX_phase_sov_monarchy_party"
+	icon = "GFX_phase_sov_monarchy_party_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+	}
+	return_on_complete = no
+}
+sov_cc_arrange_protest = {
+	name = "Arrange Public Protests"
+	desc = "SOV_MON_PUBLIC_PROTEST_DESC"
+	outcome = "SOV_MON_PUBLIC_PROTEST_OUTCOME"
+	picture = "GFX_phase_sov_monarchy_protest"
+	icon = "GFX_phase_sov_monarchy_protest_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+	}
+	return_on_complete = no
+}
+sov_cc_demand_referendum = {
+	name = "Push Referendum Bill"
+	desc = "SOV_FORCE_REFERENDUM_BILL_DESC"
+	outcome = "SOV_FORCE_REFERENDUM_BILL_OUTCOME"
+	picture = "GFX_phase_sov_monarchy_referendum_bill"
+	icon = "GFX_phase_sov_monarchy_referendum_bill_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+	}
+	return_on_complete = no
+}
+##########################################
+########## ARREST LEADER PHASES ##########
+##########################################
+sov_cc_take_over_police = {
+	name = "Take over local Police"
+	desc = "SOV_CC_TAKE_OVER_POLICE_DESC"
+	outcome = SOV_CC_TAKE_OVER_POLICE_OUTCOME
+	picture = "GFX_operations_government_building"
+	icon = "GFX_phase_sov_disband_police_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+	}
+	return_on_complete = no
+}
+sov_cc_conduct_arrest = {
+	name = "CW_ARREST_PHASE_NAME"
+	desc = "SOV_CC_CONDUCT_LEADER_ARREST_DESC"
+	outcome = SOV_CC_CONDUCT_ARREST_OUTCOME
+	picture = "GFX_operations_spy_in_alley"
+	icon = "GFX_phase_arrest_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+	}
+	return_on_complete = no
+}
+sov_cc_install_collabarator = {
+	name = "Install Government Collaborator"
+	desc = "SOV_CC_INSTALL_PUPPET_RULER"
+	outcome = SOV_CC_INSTALL_COLLABARATOR_OUTCOME
+	picture = "GFX_operations_mass_rally"
+	icon = "GFX_phase_puppet_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+	}
+	return_on_complete = no
+}

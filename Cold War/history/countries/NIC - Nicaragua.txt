@@ -1,0 +1,28 @@
+﻿capital = 317
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = unaligned_right
+		last_election = "1942.11.19"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 5
+		neutrality = 15
+		communism_totalitarian = 10
+		unaligned_right = 70
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Anastasio Somoza García"
+		desc = ""
+		picture = "NICNR1.dds"
+		ideology = paternal_auto_idolg
+		expire = 1956.9.26		
+		traits = { }
+	}
+}

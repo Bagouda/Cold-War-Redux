@@ -1,0 +1,194 @@
+﻿start_equipment_factor = 0.25
+
+division_template = {
+	name = "Colonial Infantry"		
+	#division_names_group = POR_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Infantry Brigade"		
+	#division_names_group = POR_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+	}
+}
+division_template = {
+	name = "Tank division"		
+	#division_names_group = POR_INF_01
+	regiments = {
+		medium_armor = { x = 0 y = 0 }
+		medium_armor = { x = 0 y = 1 }
+		medium_armor = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+	}
+}
+division_template = {
+	name = "Mountaineer division"		
+	#division_names_group = POR_INF_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+	}
+}
+
+
+
+units = {
+
+    division = { 
+		name = "11th division"
+		location = 8038
+		division_template = "Colonial Infantry"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	division = { 
+		name = "8th division"
+		location = 9793
+		division_template = "Colonial Infantry"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	division = { 
+		name = "1st division"
+		location = 9846
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	division = { 
+		name = "3rd division"
+		location = 9703
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	division = { 
+		name = "7th division"
+		location = 6906
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	division = { 
+		name = "9th division"
+		location = 10094
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	division = { 
+		name = "10th division"
+		location = 4199
+		division_template = "Infantry Brigade"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	division = { 
+		name = "2nd division"
+		location = 3874
+		division_template = "Tank division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	division = { 
+		name = "5th division"
+		location = 6865
+		division_template = "Tank division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	division = { 
+		name = "6th division"
+		location = 6966
+		division_template = "Tank division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+	division = { 
+		name = "4th division"
+		location = 899
+		division_template = "Mountaineer division"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+
+	}
+}
+
+
+### Starting Production ###
+#instant_effect = {
+#	add_equipment_production = {
+#		equipment = {
+#			type = infantry_equipment_3
+#			creator = "POR"
+#		}
+#		requested_factories = 1
+#		progress = 0.66
+#		efficiency = 100
+#	}
+#	add_equipment_production = {
+#		equipment = {
+#			type = support_equipment_1
+#			creator = "POR"
+#		}
+#		requested_factories = 1
+#		progress = 0.64
+#		efficiency = 100
+#	}
+#	add_equipment_production = {
+#		equipment = {
+#			type = anti_air_equipment_3
+#			creator = "POR" 
+#		}
+#		requested_factories = 1
+#		progress = 0.3
+#		efficiency = 100
+#	}
+#}

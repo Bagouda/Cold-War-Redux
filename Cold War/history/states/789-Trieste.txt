@@ -1,0 +1,31 @@
+state={
+	id=789
+	local_supplies=0.0 
+	name="STATE_789"
+	history = {
+ 	add_to_array = { list_victory_point = 6626 }
+ 	set_variable = { victory_point = 5 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = USA
+		add_claim_by = YUG
+		add_claim_by = ITA
+		1947.2.10 = {
+			owner = UNN
+		}
+		1954.1.1 = {
+			owner = ITA
+			add_core_of = ITA
+		}		
+		victory_points = {
+			6626 5
+		}
+	}
+	provinces={
+		6626 
+	}
+	manpower=300000
+	buildings_max_level_factor=1.000
+	state_category = city
+}

@@ -1,0 +1,144 @@
+scripted_gui = {
+  cw_top_bar_notifications = {
+    window_name = "cw_top_bar_notifications_popup"
+    context_type = player_context
+    parent_window_token = top_bar
+
+    visible = {
+      ROOT = { is_ai = no }
+      OR = {
+        has_country_flag = top_bar_notificaton_activated_with_country_flag
+        has_global_flag = global_top_bar_notificaton_activated_with_country_flag
+        has_country_flag = top_bar_notificaton_activated_with_un_logo
+        has_global_flag = global_top_bar_notificaton_activated_with_un_logo
+      }
+    }
+
+    properties = {
+      notification_country_flag = {
+        image = "[CW_TOP_BAR_NOTIFICATIONS_FLAG_TRIGGERS]"
+      }
+    }
+    triggers = {
+      unsc_member_flag_border_visible = {
+        OR = {
+          has_country_flag = top_bar_notificaton_activated_with_country_flag
+          has_global_flag = global_top_bar_notificaton_activated_with_country_flag
+        }
+      }
+      notification_country_flag_visible = {
+        OR = {
+          has_country_flag = top_bar_notificaton_activated_with_country_flag
+          has_global_flag = global_top_bar_notificaton_activated_with_country_flag
+        }
+      }
+      notification_unsc_visible = {
+        OR = {
+          has_global_flag = global_top_bar_notificaton_activated_with_un_logo
+          has_country_flag = top_bar_notificaton_activated_with_un_logo
+        }
+      }
+    }
+
+    ai_enabled = {
+	   always = no
+    }
+  }
+  cw_notification_bubble = {
+    window_name = "notification_bubble"
+    context_type = player_context
+
+    visible = {
+      has_country_flag = phone_notification_activated
+    }
+
+    effects = {
+      notification_bubble_close_button_click = {
+        if = {
+          limit = {
+            has_country_flag = phone_notification_activated
+          }
+          clr_country_flag = phone_notification_activated
+        }
+        if = {
+          limit = {
+            has_country_flag = notification_unsc_in_session
+          }
+          clr_country_flag = notification_unsc_in_session
+        }
+        if = {
+          limit = {
+            has_country_flag = phone_notification_state_lease_revoked
+          }
+          clr_country_flag = phone_notification_state_lease_revoked
+        }		
+      }
+      notification_bubble_click = {
+        if = {
+          limit = {
+            OR = {
+              has_global_flag = notification_unsc_in_session
+              has_global_flag = unsc_shuffle_done
+              has_country_flag = unsc_support_stopped
+            }
+          }
+          set_country_flag = open_unsc_window
+        }
+      }
+    }
+
+    triggers = {
+    }
+
+    properties = {
+    }
+
+    ai_enabled = {
+		  always = no
+    }
+  }
+  cw_decisions_notification_bubble = {
+    window_name = "decisions_notification_bubble"
+    context_type = player_context
+    parent_window_token = notification_phone
+
+    visible = {
+      has_country_flag = decisions_notification_activated
+    }
+
+    effects = {
+    }
+
+    triggers = {
+    }
+
+    properties = {
+    }
+
+    ai_enabled = {
+		  always = no
+    }
+  }
+  cw_officer_corps_notification_bubble = {
+    window_name = "officer_corps_notification_bubble"
+    context_type = player_context
+    parent_window_token = notification_phone
+
+    visible = {
+      has_country_flag = officer_corps_notification_activated
+    }
+
+    effects = {
+    }
+
+    triggers = {
+    }
+
+    properties = {
+    }
+
+    ai_enabled = {
+		  always = no
+    }
+  }  
+}

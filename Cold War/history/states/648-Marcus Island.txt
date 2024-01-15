@@ -1,0 +1,20 @@
+state = {
+	id=648
+	local_supplies=0.0 
+	name="STATE_648"
+	state_category = tiny_island
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = USA
+		add_core_of = JAP
+		1952.4.28 = {
+			owner = JAP
+		}
+	}
+	manpower=42
+	provinces=
+	{
+13026 	}
+}

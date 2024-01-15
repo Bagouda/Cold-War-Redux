@@ -1,0 +1,180 @@
+on_actions = {
+
+
+	on_weekly = {
+	
+		effect  = {
+		
+		
+		# check for civil war due to unstability
+		if = { limit = { has_war = no }
+			# communist rise up
+			if = {
+				limit = { 
+					NOT = {
+						has_government = communism_totalitarian
+						has_government = communism
+					}
+					
+					has_stability  < 0.21
+					
+					communism_totalitarian > 0.6
+				}
+				log = "Communist civil war in : [ROOT.GetName]"
+				start_civil_war = {
+					ideology = communism_totalitarian
+					size = 0.3
+					states_filter  = {
+						is_capital = no
+					}
+					add_ideas = cw_non_recognized_state 
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+				
+			}
+			
+			
+			# democracy rise up
+
+			if = {
+			
+				limit = { 
+					OR = {
+						AND = {
+							has_government = communism_totalitarian
+							communism_totalitarian < 0.4
+						}
+						
+						
+						AND = {
+							has_government = communism
+							communism < 0.4
+						
+						}
+					}
+					
+					has_stability  < 0.21
+					
+				}
+				log = "Democratic civil war in : [ROOT.GetName]"
+				start_civil_war = {
+					ideology = democratic
+					size = 0.3
+					states_filter  = {
+						is_capital = no
+					}
+					compute_proxy_score = yes
+					add_ideas = cw_non_recognized_state 
+				}
+				compute_proxy_score = yes
+			}
+			
+			
+				if = {
+					limit = { OR  = {original_tag = SOV original_tag = USA } }
+					
+						############ MILITARY BASE ##################
+						set_variable = {cw_number_base = 0 }
+						every_controlled_state = {
+							limit = {  has_state_flag = military_base }
+							add_to_variable = { ROOT.cw_number_base = 1 }
+						}
+						
+						set_variable = {cw_number_base_bloat = cw_number_base }
+						divide_variable = {cw_number_base_bloat = 100}
+						
+						
+						############### NUKE ###############
+				
+						update_nuclear_program = yes
+				}
+			
+			}
+		}
+	}
+	
+	on_daily_SOV = {
+		effect = {	
+			update_cw_score = yes
+		}
+	}
+	
+	
+	on_daily_USA = {
+		effect = {	
+			update_cw_score = yes
+		}
+	}
+	
+	on_weekly_YUG =  {
+		if = {
+			limit  = { NOT = { has_global_flag = yug_split } }
+			
+			if = {
+				limit = { check_variable  = { party_popularity@communism > party_popularity@communism_totalitarian } }
+				news_event = cw_historic_events.53
+				set_global_flag = yug_split
+				SOV = {
+					end_puppet = YUG
+					country_event = sov_events.14
+				}
+				YUG = {
+					set_party_rule = {
+						ideology = communism
+					}
+					add_ideas = soviet_hatred
+					add_opinion_modifier = {
+						target = THIS
+						modifier = soviet_betrayal
+					}
+				}
+			}
+		
+		}
+		
+	}
+	
+	#### update radio free europe
+	on_daily_BRL = {
+		effect = {
+			update_free_europe = yes
+		}
+	}
+	
+	
+	
+	
+	on_monthly_SOV = {
+		effect = {
+					
+			add_to_variable = {
+				cw_score = monthly_gain
+				
+			}
+			update_cw_score_graph = yes
+			update_revanchism = yes
+			
+		}
+	}
+	
+	on_monthly_USA = {
+		effect = {
+		
+			if = {
+				limit = { OR = { check_variable = { party_popularity@communism > 0.4 } check_variable = { party_popularity@communism_totalitarian > 0.4 } } }
+				news_event = cw_historic_events.31
+			}
+					
+			add_to_variable = {
+				cw_score = monthly_gain
+				
+			}
+			update_cw_score_graph = yes
+			update_revanchism = yes
+			
+		}
+	}
+	
+
+}

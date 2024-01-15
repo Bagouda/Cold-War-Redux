@@ -1,0 +1,182 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_operations_ajax"
+		texturefile = "gfx/interface/operations/operation_ajax.dds"
+		legacy_lazy_load = yes
+	}
+	spriteType = {
+		name = "GFX_operations_arrest_opposition"
+		texturefile = "gfx/interface/operations/operation_arrest_opposition.dds"
+		legacy_lazy_load = yes
+	}
+	spriteType = {
+		name = "GFX_operations_arrest_opposition_small"
+		texturefile = "gfx/interface/operations/operation_arrest_opposition_map.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_operations_monarchy_referendum"
+		texturefile = "gfx/interface/operations/operation_monarchy_referendum.dds"
+		legacy_lazy_load = yes
+	}
+	spriteType = {
+		name = "GFX_operations_monarchy_referendum_small"
+		texturefile = "gfx/interface/operations/operation_monarchy_referendum_map.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_operations_arrest_country_leader"
+		texturefile = "gfx/interface/operations/operation_arrest_country_leader.dds"
+		legacy_lazy_load = yes
+	}
+	spriteType = {
+		name = "GFX_operations_arrest_country_leader_small"
+		texturefile = "gfx/interface/operations/operation_arrest_country_leader_map.dds"
+		legacy_lazy_load = yes
+	}
+	spriteType = {
+		name = "GFX_operations_assassinate_country_leader"
+		texturefile = "gfx/interface/operations/operation_assassinate_country_leader.dds"
+		legacy_lazy_load = yes
+	}
+	spriteType = {
+		name = "GFX_operations_assassinate_country_leader_small"
+		texturefile = "gfx/interface/operations/operation_assassinate_country_leader_map.dds"
+		legacy_lazy_load = yes
+	}	
+	##### OPERATION PHASE GRAPHICS #####
+	spriteType = {
+		name = "GFX_operations_ajax_arrest_mosaddegh"
+		texturefile = "gfx/interface/operations/images/operation_ajax_arrest_mosaddegh.dds"
+	}
+	spriteType = {
+		name = "GFX_operations_ajax_abolqasem_kashani"
+		texturefile = "gfx/interface/operations/images/operation_ajax_abolqasem_kashani.dds"
+		legacy_lazy_load = yes
+	}
+	spriteType = {
+		name = "GFX_operations_rioters"
+		texturefile = "gfx/interface/operations/images/operation_rioters.dds"
+		legacy_lazy_load = yes
+	}
+	spriteType = {
+		name = "GFX_operations_city_map"
+		texturefile = "gfx/interface/operations/images/operation_city_map.dds"
+		legacy_lazy_load = yes
+	}
+	spriteType = {
+		name = "GFX_phase_map_icon"
+		texturefile = "gfx/interface/operations/images/generic_map_icon.dds"
+		legacy_lazy_load = no
+	}	
+	spriteType = {
+		name = "GFX_operations_hitman_location"
+		texturefile = "gfx/interface/operations/images/operation_hitman_location.dds"
+		legacy_lazy_load = yes
+	}
+	spriteType = {
+		name = "GFX_phase_lightbulb_icon"
+		texturefile = "gfx/interface/operations/images/generic_lightbulb_icon.dds"
+		legacy_lazy_load = no
+	}	
+	spriteType = {
+		name = "GFX_operations_assasination"
+		texturefile = "gfx/interface/operations/images/operation_assasination.dds"
+		legacy_lazy_load = yes
+	}
+	spriteType = {
+		name = "GFX_phase_assassination_icon"
+		texturefile = "gfx/interface/operations/images/generic_assassination_icon.dds"
+		legacy_lazy_load = no
+	}	
+	spriteType = {
+		name = "GFX_operations_government_building"
+		texturefile = "gfx/interface/operations/images/operation_government_building.dds"
+		legacy_lazy_load = yes
+	}
+	spriteType = {
+		name = "GFX_phase_sov_disband_police_icon"
+		texturefile = "gfx/interface/operations/images/sov_disband_police_icon.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_operations_spy_in_alley"
+		texturefile = "gfx/interface/operations/images/operation_spy_in_alley.dds"
+		legacy_lazy_load = yes
+	}
+	spriteType = {
+		name = "GFX_phase_arrest_icon"
+		texturefile = "gfx/interface/operations/images/operation_phase_arrest_icon.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_operations_mass_rally"
+		texturefile = "gfx/interface/operations/images/operation_mass_rally.dds"
+		legacy_lazy_load = yes
+	}
+	spriteType = {
+		name = "GFX_phase_puppet_icon"
+		texturefile = "gfx/interface/operations/images/operation_phase_puppet_icon.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_phase_sov_monarchy_referendum_bill"
+		texturefile = "gfx/interface/operations/images/sov_referendum_announcement.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_phase_sov_monarchy_referendum_bill_icon"
+		texturefile = "gfx/interface/operations/images/sov_referendum_announcement_icon.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_phase_sov_monarchy_protest"
+		texturefile = "gfx/interface/operations/images/sov_monarchy_protest.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_phase_sov_monarchy_protest_icon"
+		texturefile = "gfx/interface/operations/images/sov_monarchy_protest_icon.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_phase_sov_monarchy_party"
+		texturefile = "gfx/interface/operations/images/sov_monarchy_party.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_phase_sov_monarchy_party_icon"
+		texturefile = "gfx/interface/operations/images/sov_monarchy_party_icon.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_phase_sov_collect_incriminating_material"
+		texturefile = "gfx/interface/operations/images/sov_collect_incriminating_material.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_phase_sov_collect_incriminating_material_icon"
+		texturefile = "gfx/interface/operations/images/sov_collect_incriminating_material_icon.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_phase_sov_cc_leak_material_to_press"
+		texturefile = "gfx/interface/operations/images/sov_leak_material_press.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_phase_sov_cc_leak_material_to_press_icon"
+		texturefile = "gfx/interface/operations/images/sov_leak_material_press_icon.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_phase_sov_cc_buy_off_judge"
+		texturefile = "gfx/interface/operations/images/sov_cc_buy_off_judge.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_phase_sov_cc_buy_off_judge_icon"
+		texturefile = "gfx/interface/operations/images/sov_cc_buy_off_judge_icon.dds"
+		legacy_lazy_load = no
+	}
+}

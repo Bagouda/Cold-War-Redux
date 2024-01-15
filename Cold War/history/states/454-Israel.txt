@@ -1,0 +1,60 @@
+state={
+	id=454
+	local_supplies=0.0 
+	name="STATE_454"
+	history = {
+ 	add_to_array = { list_victory_point = 4206 }
+ 	add_to_array = { list_victory_point = 1201 }
+ 	set_variable = { victory_point = 17 }
+		owner = ENG
+		add_core_of = ISR
+		add_core_of = PAL
+		
+		start_resistance = yes
+		set_compliance = 10
+		set_resistance = 50
+		
+		add_state_modifier = {
+			modifier = {
+				resistance_target = 0.1
+				compliance_gain = -0.5
+			}
+		}		
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}		
+		
+		buildings = {
+			infrastructure = 1
+			air_base = 2
+			industrial_complex = 2
+			1201 = {	#Haifa Port
+				naval_base = 2
+			}		
+		}
+		
+		1948.5.14 = {
+			owner = ISR
+			add_core_of = ISR			
+		}
+		victory_points = {
+			4206 12	#Tel Aviv
+		}
+		victory_points = {
+			1201 5	#Haifa
+		}
+	}
+	resources={
+		crops = 1
+	}	
+	provinces={
+		1015 1201 4206 7107 7176 11970 
+	}
+	manpower=933142
+	buildings_max_level_factor=1.000
+	state_category=city
+}

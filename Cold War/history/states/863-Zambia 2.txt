@@ -1,0 +1,30 @@
+state={
+	id=863
+	local_supplies=0.0 
+	name="STATE_863"
+	resources={
+		chromium=35.000
+		tungsten=8.000
+		crops=12.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 5199 }
+ 	set_variable = { victory_point = 1 }
+		owner = ENG
+		add_claim_by = ZMB
+		
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			5199 1 
+		}
+	}
+	provinces={
+		697 7872 10538 12677 
+	}
+	manpower=690044
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

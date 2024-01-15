@@ -1,0 +1,9 @@
+﻿l_english:
+ MANCHURIA_CONTROL_INCREASE_CHI_TT:0 "[CHI.GetName] will recieve a 5% boost to their control of a random state in Manchuria."
+ MANCHURIA_CONTROL_INCREASE_PRC_TT:0 "[PRC.GetName] will recieve a 5% boost to their control of a random state in Manchuria."
+ MANCHURIA_CONTROL_INCREASE_COUNTRY_TT:0 "Our control over [FROM.GetName] will increase by 5%."
+ MANCHURIA_STRUGGLE_KEEP_MANCHURIA_TT:0 "Manchuria will remain in Soviet control."
+ MANCHURIA_STRUGGLE_START_STRUGGLE_TT:0 "A struggle over control of Manchuria will begin between the Chinese Communists and the Kuomintang.\n"
+ MANCHURIA_STRUGGLE_CONTROL_CHANGE_RANDOM:0 "- Control will be decided randomly."
+ MANCHURIA_STRUGGLE_CHI_INCREASE_SIGNIFICANT:0 "The Nationalist forces will recieve a significant boost to their control of Manchuria.\n"
+ MANCHURIA_STRUGGLE_MOVE_ONE_MILLION:0 "One million troops will be removed from our manpower pool and sent to Manchuria."

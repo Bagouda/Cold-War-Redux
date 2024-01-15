@@ -1,0 +1,39 @@
+state={
+	id=286
+	local_supplies=0.0 
+	name="STATE_286"
+	resources={
+		crops=10.000
+		steel = 5
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 4405 }
+ 	set_variable = { victory_point = 12 }
+		owner = VIN
+		add_core_of = VIN
+		add_core_of = VTC
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}
+		
+		buildings = {
+			infrastructure = 1
+		}
+
+		victory_points = {
+			4405 12 	#Nha Trang
+		}		
+	}
+
+	provinces={
+		1285 4334 4405 7380 10162 10232 12204 
+	}
+	manpower=5245000
+	buildings_max_level_factor=1.000
+	state_category = town
+}

@@ -1,0 +1,46 @@
+state={
+	id=826
+	local_supplies=0.0 
+	name="STATE_826"
+	resources={
+		crops = 5.000
+	}
+	
+	history={
+ 	add_to_array = { list_victory_point = 4056 }
+ 	add_to_array = { list_victory_point = 12089 }
+ 	set_variable = { victory_point = 17 }
+		owner = KOR
+		add_core_of = KOR
+		add_claim_by = PRK
+		
+		1948.8.15 = {
+			owner = KOR
+		}
+		
+		buildings = {
+			infrastructure = 4
+			air_base = 1
+			arms_factory = 2
+			industrial_complex = 1
+			dockyard = 3
+			4056 = {
+				naval_base = 3
+			}		
+		}
+		
+		victory_points = {
+			4056 12		#Pusan
+		}
+		victory_points = {
+			12089 5		#Daeju
+		}		
+	}	
+	
+	provinces={
+		4056 4086 4103 7121 11912 12089 
+	}
+	manpower = 4500000
+	buildings_max_level_factor=1.000
+	state_category = city
+}

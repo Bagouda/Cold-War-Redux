@@ -1,0 +1,27 @@
+state = {
+	id=267
+	local_supplies=0.0 
+	name="STATE_267" # Kabul
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 10737 }
+ 	set_variable = { victory_point = 5 }
+		buildings = {
+			infrastructure = 2
+			air_base = 2
+		}
+		owner = AFG
+		add_core_of = AFG
+		victory_points = {
+			10737 5 
+		}
+	}
+	resources={
+		tungsten=3 # was: 3
+		crops = 5
+	}
+	manpower = 4637140
+	provinces={
+		5082 7448 7519 7584 7916 7984 10476 10737 10781 10826 10852 10896 12248 12314 12653 12769 12831 12877 
+	}
+}

@@ -1,0 +1,77 @@
+focus_tree = {
+	id = greek_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = GRE
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	
+	focus = {
+		id = GRE_monarchy_referendum
+		available = {
+			date > 1947.5.1
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_self_management
+		x = 10
+		y = 1
+		cost = 5
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			cw_mon_ref_initial_setup = yes
+			cw_ref_alert_superpowers_only = yes
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = GRE_join_NATO
+		available = {
+			date > 1952.1.1
+			USA = { is_in_faction = yes }
+			NOT = {
+				OR = {
+					has_government = communism
+					has_government = communism_totalitarian
+				}
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_self_management
+		x = 10
+		y = 1
+		cost = 5
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			USA = { add_to_faction = ROOT }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}		
+	}	
+}

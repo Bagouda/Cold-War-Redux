@@ -1,0 +1,40 @@
+state = {
+	id=362
+	local_supplies=0.0 
+	name="STATE_362"
+	state_category = large_city
+	history = {
+ 	add_to_array = { list_victory_point = 10412 }
+ 	add_to_array = { list_victory_point = 788 }
+ 	set_variable = { victory_point = 25 }
+		owner = USA
+		add_core_of = USA
+
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 3
+			arms_factory = 2
+			dockyard  = 2
+			873 = {		#Norfolk Navy Yard
+				naval_base = 3
+			}
+			788 = {		#Washington Navy Yard
+				naval_base = 1
+			}			
+		}
+		
+		victory_points = {
+			10412 15
+		}
+		victory_points = {
+			788 10
+		}
+	}
+	resources={
+		crops = 20
+	}		
+	manpower = 4151054
+	provinces={
+		788 801 865 873 951 1506 3823 3917 3925 3941 3975 4627 6846 6850 6958 6971 7466 7558 7588 7646 9779 9923 9931 10343 10412 10439 10441 11738 11841 11873 11888 
+	}
+}

@@ -1,0 +1,25 @@
+state={
+	id=887
+	local_supplies=0.0 
+	name="STATE_887"
+
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = BEL
+		add_claim_by = BRD
+
+		1962.7.1 = {
+			owner = BRD
+			add_core_of = BRD
+			remove_core_of = BEL
+		}
+	}
+	provinces={
+		7551 
+	}
+	manpower=1072865
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+}

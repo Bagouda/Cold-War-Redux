@@ -1,0 +1,32 @@
+ideas = {
+	country = {
+	}
+	hog_minister = {
+		bul_hog_georgi_dimitrov = {
+
+			picture = bul_georgi_dimitrov
+		
+			allowed = {		#Determines if he shows up at all in selection screen
+				original_tag = BUL
+			}
+			available = {	#Determines what player sees as requirements to use 
+			}
+			visible = {
+				NOT = {
+					has_country_leader = {
+						name = "Georgi Dimitrov"
+						ruling_only = yes
+					}
+				}
+			}
+			traits = { communist_collaborator }
+
+			do_effect = {
+			}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}	
+	}	
+}

@@ -1,0 +1,25 @@
+cultural_union_generic_transfer_territory = {		#Default tag is state, PREV is country that gets the state, resolution target is owner of state
+	custom_effect_tooltip = "CULTURAL_UNION_GENERIC_TRANSFER_TERRITORY_EFFECT_TT"	
+	hidden_effect = {
+		PREV = { save_global_event_target_as = euu_initiator }
+		add_to_array = {
+			array = global.euu_multiple_target_resolution_array
+			value = THIS.id
+		}
+		set_variable = { global.euu_multiple_target_resolution_counter = global.euu_multiple_target_resolution_array^num }
+		OWNER = { 
+			save_global_event_target_as = euu_target
+			set_country_flag = cu_generic_transfer_territory
+		}
+		#cw_euu_start_resolution_effect = yes		#Initiated from focus/decision/event to allow adding all relevant states
+	}
+}
+cultural_union_generic_increase_reparations = {
+	custom_effect_tooltip = "CULTURAL_UNION_GENERIC_INCREASE_REPARATIONS_EFFECT_TT"	
+	hidden_effect = {
+		PREV = { save_global_event_target_as = euu_initiator }
+		save_global_event_target_as = euu_target
+		set_country_flag = cw_generic_increase_reparations
+		cw_euu_start_resolution_effect = yes
+	}
+}

@@ -1,0 +1,130 @@
+﻿###################
+# GENERAL NEWS EVENTS #
+###################
+add_namespace = cw_colonial_news_events
+news_event = {
+	id = cw_colonial_news_events.1		#Fall of colonial capital
+	title = cw_colonial_news_events.1.t
+	desc = cw_colonial_news_events.1.d
+	picture = GFX_news_event_ger_civil_war
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_colonial_news_events.2		#End of colonial civil war
+	title = cw_colonial_news_events.2.t
+	desc = cw_colonial_news_events.2.d
+	picture = GFX_independence_proclamation
+
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = cw_colonial_news_events.3		# Overlord abandons colony
+	title = cw_colonial_news_events.3.t
+	desc = cw_colonial_news_events.3.d
+	picture = GFX_news_event_033
+
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "OK"
+	}
+}
+add_namespace = cw_colonial_setup_events
+country_event = {
+	id = cw_colonial_setup_events.1		# Overlord abandons colony
+	title = cw_colonial_setup_events.1.t
+	desc = cw_colonial_setup_events.1.d
+	picture = GFX_news_event_033
+
+	hidden = yes
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			25 = {
+				start_civil_war = {
+					ruling_party = colonial
+					ideology = unaligned_right
+					keep_political_leader = yes
+					size = 0.5
+					states_filter = {
+						impassable = no
+					}
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+			}
+			25 = {
+				start_civil_war = {
+					ruling_party = colonial
+					ideology = communism_totalitarian
+					keep_political_leader = yes
+					size = 0.4
+					states_filter = {
+						impassable = no
+					}
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+			}
+			25 = {
+				start_civil_war = {
+					ruling_party = colonial
+					ideology = neutrality
+					keep_political_leader = yes
+					size = 0.3
+					states_filter = {
+						impassable = no
+					}
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+			}
+			0 = {
+				start_civil_war = {
+					ruling_party = colonial
+					ideology = communism
+					keep_political_leader = yes
+					size = 0.2
+					states_filter = {
+						impassable = no
+					}
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+				modifier = {
+					factor = 25
+					event_target:communist_leader = { has_government = communism }
+				}
+			}
+		}
+		set_political_party = { ideology = unaligned_right popularity = 25 }
+		set_political_party = { ideology = neutrality popularity = 25 }
+		set_political_party = { ideology = communism_totalitarian popularity = 25 }
+		set_political_party = { ideology = communism popularity = 25 }
+		every_country_with_original_tag = {
+			original_tag_to_check = ROOT
+			limit = {
+				has_war_with = ROOT
+			}
+			ROOT = { save_event_target_as = unilateral_indepdendence_master }
+			add_ideas = cw_annihilate_kill_kill
+			cw_gained_unilateral_independence_notification = yes
+		}		
+	}	
+
+	option = {
+	}
+}

@@ -1,0 +1,83 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_focus_focus_nfl_referendum"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/focus_nfl_referendum.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_usa_greece_foreign_withdrawal"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/usa_focus_greece_withdrawal.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_usa_form_cia"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/focus_usa_form_cia.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_usa_dutch_withdrawal"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/focus_usa_dutch_indonesia_withdrawal.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_usa_unify_german_occupation"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/focus_unify_german_occupation.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_usa_taiwan"
+		texturefile = "gfx/interface/cw_focuses/JAP_develop_taiwan.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_usa_nuke_china"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_deploy_nukes_against_china.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_usa_create_west_germany"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/ger_occupation_unified.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_annex_pacific_islands"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/focus_usa_annex_pacific_islands.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_usa_bill"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/focus_usa_bill.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_iran_withdrawal_resolution"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/soviet_iran_withdrawal.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_est_occupation"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/focus_est_occupation.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_lat_occupation"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/focus_lat_occupation.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_lit_occupation"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/focus_lit_occupation.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_aid_the_dutch"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/USA_military_aid_dutch.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_aid_indonesia"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/USA_military_aid_indonesia.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_marshall_plan"
+		texturefile = "gfx/interface/cw_focuses/USA/1946/usa_mp_focus.dds"	
+		animation = {
+			animationmaskfile = "gfx/interface/cw_focuses/USA/1946/usa_mp_focus.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 5.00				# in seconds
+			animationdelay = 5			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}	
+}

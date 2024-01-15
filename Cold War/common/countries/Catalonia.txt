@@ -1,0 +1,3 @@
+graphical_culture = commonwealth_gfx
+graphical_culture_2d = european_2d
+color = { 169  195  128 }

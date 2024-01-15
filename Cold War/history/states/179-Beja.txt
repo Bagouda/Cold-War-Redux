@@ -1,0 +1,44 @@
+state = {
+	id=179
+	local_supplies=0.0 
+	name="STATE_179"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 3790 }
+ 	add_to_array = { list_victory_point = 6880 }
+ 	add_to_array = { list_victory_point = 9869 }
+ 	add_to_array = { list_victory_point = 9869 }
+ 	set_variable = { victory_point = 4 }
+		owner = POR
+		add_core_of = POR
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			dockyard  = 1
+			6880 = {
+				naval_base = 2
+			}			
+		}
+		
+		victory_points = {
+			9869 1
+		}
+		victory_points = {
+			9869 1
+		}
+		victory_points = {
+			6880 1
+		}
+		victory_points = {
+			3790 1
+		}
+	}
+	resources={
+		crops = 10
+	}		
+	manpower = 1122200
+	provinces={
+		980 3790 3846 3866 3886 3926 6880 6884 6933 6986 9765 9819 9869 
+	}
+}

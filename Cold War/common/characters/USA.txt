@@ -1,0 +1,1644 @@
+characters={
+	####################################################################################################
+	######################################### Country Leader ###########################################
+	####################################################################################################
+	USA_harry_truman = {
+		name = "Harry S. Truman"
+		portraits = {
+			civilian = {
+				large = GFX_usa_harry_truman
+			}
+		}
+		country_leader={
+			ideology = social_liberal_idolg
+			desc = POLITICAL_HARRY_TRUMAN_DESC
+			expire = 1953.1.20
+		}
+	}
+	USA_dwight_d_eisenhower = {
+		name = "Dwight D. Eisenhower"
+		allowed_civil_war = {}		
+		portraits = {
+			civilian = {
+				large = GFX_usa_dwight_d_eisenhower_civilian_large
+				small = GFX_usa_dwight_d_eisenhower_civilian_small
+			}
+			army = {
+				large = GFX_usa_dwight_d_eisenhower_military_large
+				small = GFX_usa_dwight_d_eisenhower_civilian_small
+			}			
+		}
+		country_leader={
+			ideology = social_cons_idolg
+			expire = 1953.1.20
+		}
+		field_marshal = {
+			skill = 9
+			traits = { naval_liason naval_invader war_hero }
+			attack_skill = 7
+			defense_skill = 6
+			planning_skill = 4
+			logistics_skill = 6
+			visible = {
+				GER = { exists = yes }
+			}			
+		}		
+	}
+	####################################################################################################
+	######################################### Deputy Minister ##########################################
+	####################################################################################################
+	USA_hog_alben_barkley = {
+		name = usa_hog_alben_barkley
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_hog_alben_barkley
+			}
+		}
+		advisor = {
+			slot = hog_minister
+			idea_token = usa_hog_alben_barkley
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic_socialist
+			}
+			traits  = {
+				cw_experienced_politician 
+			}
+			visible = {
+				date < 1956.4.30
+				has_country_leader = { name = "Harry S. Truman" ruling_only = yes }				
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	USA_hog_richard_nixon = {
+		name = usa_hog_richard_nixon
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_hog_richard_nixon
+				large = GFX_portrait_USAH5
+			}
+		}
+		country_leader={
+			ideology = social_cons_idolg
+			expire = 1974.8.9
+			traits = {}
+		}		
+		advisor = {
+			slot = hog_minister
+			idea_token = usa_hog_richard_nixon
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic
+			}
+			traits  = {
+				cw_skilful_campaigner
+			}
+			visible = {
+				date < 1994.4.22
+				has_country_leader = { name = "Dwight D. Eisenhower" ruling_only = yes }
+				NOT = { has_country_leader = { name = "Richard Nixon" ruling_only = yes } }
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	USA_hog_lyndon_johnson = {
+		name = usa_hog_lyndon_johnson
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_hog_lyndon_johnson
+				large = GFX_portrait_USAH4
+			}
+		}
+		country_leader={
+			ideology = social_cons_idolg
+			expire = 1974.8.9
+			traits = {}
+		}		
+		advisor = {
+			slot = hog_minister
+			idea_token = usa_hog_lyndon_johnson
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic
+			}
+			traits  = {
+				cw_silent_workhorse
+			}
+			visible = {
+				date < 1973.1.22
+				has_country_leader = { name = "John F. Kennedy" ruling_only = yes }
+				NOT = { has_country_leader = { name = "Lyndon B. Johnson" ruling_only = yes } }
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	USA_hog_hubert_humphrey = {
+		name = usa_hog_hubert_humphrey
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_hog_hubert_humphrey
+				large = GFX_usa_hog_hubert_humphrey_large
+			}
+		}		
+		advisor = {
+			slot = hog_minister
+			idea_token = usa_hog_hubert_humphrey
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic
+			}
+			traits  = {
+			}
+			visible = {
+				date < 1978.1.13
+				has_country_leader = { name = "Lyndon B. Johnson" ruling_only = yes }
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	USA_hog_spiro_agnew = {
+		name = usa_hog_spiro_agnew
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_hog_spiro_agnew
+				large = GFX_usa_hog_spiro_agnew_large
+			}
+		}		
+		advisor = {
+			slot = hog_minister
+			idea_token = usa_hog_spiro_agnew
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic
+			}
+			traits  = {
+			}
+			visible = {
+				date < 1996.9.17
+				has_country_leader = { name = "Richard Nixon" ruling_only = yes }
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}	
+	USA_hog_gerald_ford = {
+		name = usa_hog_gerald_ford
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_hog_gerald_ford
+				large = GFX_portrait_USAH6
+			}
+		}
+		country_leader={
+			ideology = social_cons_idolg
+			expire = 2006.12.26
+			traits = {}
+		}		
+		advisor = {
+			slot = hog_minister
+			idea_token = usa_hog_gerald_ford
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic
+			}
+			traits  = {
+			}
+			visible = {
+				date < 2006.12.26
+				NOT = { has_country_leader = { name = "Lyndon B. Johnson" ruling_only = yes } }
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	USA_hog_nelson_rockefeller = {
+		name = usa_hog_nelson_rockefeller
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_hog_gerald_ford
+				large = GFX_portrait_USAH6
+			}
+		}
+		country_leader={
+			ideology = social_cons_idolg
+			expire = 1979.1.26
+			traits = {}
+		}		
+		advisor = {
+			slot = hog_minister
+			idea_token = usa_hog_nelson_rockefeller
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic
+			}
+			traits  = {
+			}
+			visible = {
+				date < 1979.1.26
+				has_country_leader = { name = "Gerald Ford" ruling_only = yes }
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	USA_hog_walter_mondale = {
+		name = usa_hog_walter_mondale
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_hog_gerald_ford
+				large = GFX_portrait_USAH6
+			}
+		}
+		country_leader={
+			ideology = social_cons_idolg
+			expire = 2000.1.12
+			traits = {}
+		}		
+		advisor = {
+			slot = hog_minister
+			idea_token = usa_hog_walter_mondale
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic
+			}
+			traits  = {
+			}
+			visible = {
+				date < 2000.1.12
+				has_country_leader = { name = "Gerald Ford" ruling_only = yes }
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}
+	USA_hog_george_bush = {
+		name = usa_hog_george_bush
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_hog_gerald_ford
+				large = GFX_portrait_USAH6
+			}
+		}
+		country_leader={
+			ideology = social_cons_idolg
+			expire = 2018.11.30
+			traits = {}
+		}		
+		advisor = {
+			slot = hog_minister
+			idea_token = usa_hog_george_bush
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic
+			}
+			traits  = {
+			}
+			visible = {
+				date < 2018.11.30
+				has_country_leader = { name = "Gerald Ford" ruling_only = yes }
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_hog_effect = yes }	
+			on_remove = { cw_remove_character_as_hog = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 1.0
+			}
+		}
+	}	
+	####################################################################################################
+	######################################### Foreign Minister #########################################
+	####################################################################################################
+	USA_fm_james_byrnes = {
+		name = usa_fm_james_byrnes
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_fm_james_byrnes
+			}
+		}		
+		advisor = {
+			slot = foreign_minister
+			idea_token = usa_fm_james_byrnes
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				is_recognized_regime = yes
+				has_government = democratic_socialist
+			}
+			traits  = {
+				cw_great_compromiser 
+			}
+			visible = {
+				date < 1972.4.9
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do  = {
+				factor = 0
+			}
+		}
+	}
+	USA_fm_george_marshall = {
+		name = usa_fm_george_marshall
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_fm_george_marshall
+			}
+		}		
+		advisor = {
+			slot = foreign_minister
+			idea_token = usa_fm_george_marshall
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				is_recognized_regime = yes			
+				
+				has_government = democratic_socialist
+			}
+			traits  = {
+				cw_ideological_crusader
+				cw_veto_tension_reduced
+			}
+			visible = {
+				date < 1959.10.16
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 1
+				modifier = {
+					is_historical_focus_on = yes
+					add = 100
+				}
+			}
+		}
+		advisor = {
+			slot = defense_minister
+			idea_token = usa_dm_george_marshall
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic_socialist
+				date > 1949.1.1
+				custom_trigger_tooltip = {
+					tooltip = "George Marshall does not hold another position on the cabinet."
+					NOT = { has_idea = usa_fm_george_marshall }
+				}
+				custom_trigger_tooltip = {
+					tooltip = "National Security Council Established."
+					has_country_flag = national_security_act
+				}
+			}
+			traits  = {
+				army_regrouping_3
+			}
+			visible = {
+				date < 1959.10.16
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}		
+	}
+	USA_fm_dean_acheson = {
+		name = usa_fm_dean_acheson
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_fm_dean_acheson
+			}
+		}		
+		advisor = {
+			slot = foreign_minister
+			idea_token = usa_fm_dean_acheson
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				is_recognized_regime = yes			
+				has_government = democratic_socialist
+			}
+			traits = {
+				cw_dialouge_proponent
+			}			
+			visible = {
+				date < 1971.10.12
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	USA_fm_john_foster_dulles = {
+		name = usa_fm_john_foster_dulles
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_fm_john_foster_dulles
+			}
+		}		
+		advisor = {
+			slot = foreign_minister
+			idea_token = usa_fm_john_foster_dulles
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				is_recognized_regime = yes			
+				has_government = democratic
+			}
+			traits  = {
+				cw_pactomaniac
+			}
+			visible = {
+				date < 1959.5.24
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_fm_christian_herter = {
+		name = usa_fm_christian_herter
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_fm_christian_herter
+			}
+		}		
+		advisor = {
+			slot = foreign_minister
+			idea_token = usa_fm_christian_herter
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				is_recognized_regime = yes			
+				has_government = democratic
+			}
+			traits  = {
+				cw_careful_diplomatist
+			}
+			visible = {
+				date < 1966.12.30
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_fm_arthur_vandenberg = {
+		name = usa_fm_arthur_vandenberg
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_fm_arthur_vandenberg
+			}
+		}		
+		advisor = {
+			slot = foreign_minister
+			idea_token = usa_fm_arthur_vandenberg
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				is_recognized_regime = yes
+			}
+			traits  = {
+				cw_bipartisan
+			}
+			visible = {
+				date < 1951.4.18
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}	
+	USA_fm_henry_kissinger = {
+		name = usa_fm_henry_kissinger
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_fm_henry_kissinger
+			}
+		}		
+		advisor = {
+			slot = foreign_minister
+			idea_token = usa_fm_henry_kissinger
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				is_recognized_regime = yes
+			}
+			traits  = {
+				cw_ideological_crusader
+			}
+			visible = {
+				date < 1977.1.20
+				date > 1950.1.1
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_foreign_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_foreign_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	######################################### Defense Minister #########################################
+	####################################################################################################
+	USA_dm_james_forrestal = {
+		name = usa_dm_james_forrestal
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_dm_james_forrestal
+			}
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = usa_dm_james_forrestal
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic_socialist
+				OR = {		#NATIONAL SECURITY ACT UNLOCKS DEFENSE MINISTER
+					custom_trigger_tooltip = {
+						tooltip = "National Security Council Established."
+						has_country_flag = national_security_act
+					}
+					hidden_trigger = { has_start_date > 1946.01.02 }
+				}
+			}
+			traits  = {
+				cw_military_reformer
+			}
+			visible = {
+				date < 1950.1.20
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_dm_louis_johnson = {
+		name = usa_dm_louis_johnson
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_dm_louis_johnson
+			}
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = usa_dm_louis_johnson
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic_socialist
+				OR = {		#NATIONAL SECURITY ACT UNLOCKS DEFENSE MINISTER
+					custom_trigger_tooltip = {
+						tooltip = "National Security Council Established."
+						has_country_flag = national_security_act
+					}
+					hidden_trigger = { has_start_date > 1946.01.02 }
+				}
+			}
+			traits  = {
+				cw_military_reorganizer
+			}
+			visible = {
+				date < 1966.4.24
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_dm_robert_lovett = {
+		name = usa_dm_robert_lovett
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_dm_robert_lovett
+			}
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = usa_dm_robert_lovett
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic_socialist
+				OR = {		#NATIONAL SECURITY ACT UNLOCKS DEFENSE MINISTER
+					custom_trigger_tooltip = {
+						tooltip = "National Security Council Established."
+						has_country_flag = national_security_act
+					}
+					hidden_trigger = { has_start_date > 1946.01.02 }
+				}
+			}
+			traits  = {
+				cw_military_industrial_specialist
+			}
+			visible = {
+				date < 1986.5.7
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_dm_charles_wilson = {
+		name = usa_dm_charles_wilson
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_dm_charles_wilson
+			}
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = usa_dm_charles_wilson
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic
+				OR = {		#NATIONAL SECURITY ACT UNLOCKS DEFENSE MINISTER
+					custom_trigger_tooltip = {
+						tooltip = "National Security Council Established."
+						has_country_flag = national_security_act
+					}
+					hidden_trigger = { has_start_date > 1946.01.02 }
+				}
+			}
+			traits  = {
+				cw_biased_entrepreneur
+			}
+			visible = {
+				date < 1986.5.7
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_dm_thomas_gates_jr = {
+		name = usa_dm_thomas_gates_jr
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_dm_thomas_gates_jr
+			}
+		}		
+		advisor = {
+			slot = defense_minister
+			idea_token = usa_dm_thomas_gates_jr
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic_socialist
+				OR = {		#NATIONAL SECURITY ACT UNLOCKS DEFENSE MINISTER
+					custom_trigger_tooltip = {
+						tooltip = "National Security Council Established."
+						has_country_flag = national_security_act
+					}
+					hidden_trigger = { has_start_date > 1946.01.02 }
+				}
+			}
+			traits  = {
+				cw_military_budget_wizard
+			}
+			visible = {
+				date < 1983.3.25
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_defense_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_defense_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	######################################## Treasury Minister #########################################
+	####################################################################################################	
+	USA_tm_fred_vinson = {
+		name = usa_tm_fred_vinson
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_tm_fred_vinson
+			}
+		}		
+		advisor = {
+			slot = treasury_minister
+			idea_token = usa_tm_fred_vinson
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic_socialist
+			}
+			traits  = {
+				cw_efficient_administrator
+			}
+			visible = {
+				date < 1953.9.8
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_tm_john_snyder = {
+		name = usa_tm_john_snyder
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_tm_john_snyder
+			}
+		}		
+		advisor = {
+			slot = treasury_minister
+			idea_token = usa_tm_john_snyder
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic_socialist
+			}
+			traits  = {
+				cw_efficient_administrator
+			}
+			visible = {
+				date < 1985.10.8
+			}
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }	
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_tm_george_humphrey = {
+		name = usa_tm_george_humphrey
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_tm_george_humphrey
+			}
+		}		
+		advisor = {
+			slot = treasury_minister
+			idea_token = usa_tm_george_humphrey
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic
+			}
+			traits  = {
+				cw_tight_spender
+			}
+			visible = {
+				date < 1970.1.20
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes 
+				if = {
+					limit = {
+						OR = {
+							has_idea = cw_high_military_budget
+							has_idea = cw_very_high_military_budget
+						}
+					}
+					add_ideas = cw_medium_military_budget
+				}
+			}			
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_tm_robert_bernard_anderson = {
+		name = usa_tm_robert_bernard_anderson
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_tm_robert_bernard_anderson
+			}
+		}		
+		advisor = {
+			slot = treasury_minister
+			idea_token = usa_tm_robert_bernard_anderson
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_government = democratic
+			}
+			traits  = {
+				cw_silent_workhorse
+			}
+			visible = {
+				date < 1989.8.14
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_treasury_minister_effect = yes }
+			on_remove = { cw_remove_character_as_treasury_minister = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	###################################### Head of Intelligence ########################################
+	####################################################################################################
+	#https://en.wikipedia.org/wiki/Director_of_Central_Intelligence#Roscoe_H._Hillenkoetter,_1947%E2%80%931950
+	USA_spy_hoyt_vandenberg = {
+		name = "Hoyt Vandenberg"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_hoyt_vandenberg
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = usa_spy_hoyt_vandenberg
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_air_intelligence_speciality
+			}
+			visible = {
+				date < 1953.6.29
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_spy_roscoe_h_hillenkoetter = {
+		name = "Roscoe H. Hillenkoetter"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_roscoe_h_hillenkoetter
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = usa_roscoe_h_hillenkoetter
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_intelligence_agency = yes
+			}
+			traits  = {
+				cw_naval_intelligence_speciality
+			}
+			visible = {
+				date < 1950.10.7
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_spy_walter_bedell_smith = {
+		name = "Walter Bedell Smith"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_walter_bedell_smith
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = usa_walter_bedell_smith
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_intelligence_agency = yes
+			}
+			traits  = {
+				cw_efficient_administrator_intelligence
+			}
+			visible = {
+				date < 1954.10.1
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_spy_allen_dulles = {
+		name = "Allen Dulles"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_allen_dulles
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = usa_spy_allen_dulles
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_intelligence_agency = yes
+			}
+			traits  = {
+				cw_intelligence_coup_specialist
+			}
+			visible = {
+				date < 1961.11.29
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_spy_john_a_mccone = {
+		name = "John A. McCone"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				small = GFX_usa_john_a_mccone
+			}
+		}	
+		advisor = {
+			slot = theorist
+			idea_token = usa_spy_john_a_mccone
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				has_intelligence_agency = yes
+			}
+			traits  = {
+				cw_intelligence_decryption_specialist
+			}
+			visible = {
+				date < 1961.11.29
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_head_of_intelligence_minister_effect = yes }
+			on_remove = { cw_remove_character_as_head_of_intelligence = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	######################################### Chief of Staff ###########################################
+	####################################################################################################
+	#https://en.wikipedia.org/wiki/Chairman_of_the_Joint_Chiefs_of_Staff
+	USA_chief_william_leahy = {
+		name = usa_chief_william_leahy
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_usa_chief_william_leahy
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = usa_chief_william_leahy
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				cw_expirienced_seaman
+			}
+			visible = {
+				date < 1959.7.20
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_chief_arthur_radford = {
+		name = usa_chief_arthur_radford
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_usa_chief_arthur_radford
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = usa_chief_arthur_radford
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+			}
+			traits  = {
+				air_tactical_bombing_1
+			}
+			visible = {
+				date < 1973.8.17
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_chief_nathan_farragut_twining = {
+		name = usa_chief_nathan_farragut_twining
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_usa_chief_nathan_farragut_twining
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = usa_chief_nathan_farragut_twining
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				skill > 5
+			}
+			traits  = {
+				army_chief_maneuver_2
+			}
+			visible = {
+				date < 1982.3.29
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	USA_chief_joseph_t_mcnarney = {
+		name = usa_chief_joseph_t_mcnarney
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				small = GFX_usa_chief_joseph_t_mcnarney
+			}
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = usa_chief_joseph_t_mcnarney
+			
+			allowed  = {
+				tag = USA
+			}
+			available = {	#Determines what player sees as requirments to use
+				skill > 5
+			}
+			traits  = {
+				cw_air_power_proponent
+			}
+			visible = {
+				date < 1969.2.1
+				NOT = { GER = { has_country_leader = { name = "Joseph T. McNarney" ruling_only = yes } } }
+			}			
+			do_effect  = {}
+			on_add = { cw_appoint_as_chief_of_staff_effect = yes }
+			on_remove = { cw_remove_character_as_chief_of_staff = yes }
+			research_bonus = {}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	####################################################################################################
+	################################## Generals and Field Marshals #####################################
+	####################################################################################################
+	USA_douglas_macarthur_field_marshall = {
+		name = "Douglas MacArthur"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_douglas_macarthur_large
+				small = GFX_usa_douglas_macarthur_small
+			}
+		}
+		field_marshal = {
+			traits = { organisational_leader media_personality war_hero }
+			skill = 8
+			attack_skill = 8
+			defense_skill = 8
+			planning_skill = 5
+			logistics_skill = 6
+			visible = {
+				JAP = { exists = yes }
+			}
+		}
+	}
+	USA_chief_omar_bradley_cc = {
+		name = "Omar Bradley"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_chief_omar_bradley_large
+				small = GFX_usa_chief_omar_bradley
+			}
+		}
+		corps_commander = {
+			traits = { expert_improviser trickster paratrooper war_hero }
+			skill = 7
+			attack_skill = 3 
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 4
+		}
+	}	
+	USA_mark_w_clark_cc = {
+		name = "Mark W. Clark"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_mark_w_clark_large
+				small = GFX_usa_mark_w_clark_small
+			}
+		}
+		corps_commander = {
+			traits = { cavalry_leader infantry_officer war_hero ranger  }
+			skill = 6
+			attack_skill = 6 
+			defense_skill = 5
+			planning_skill = 5
+			logistics_skill = 2
+		}
+	}
+	USA_lucian_truscott_cc = {
+		name = "Lucian Truscott"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_lucian_truscott_cc_large
+				small = GFX_usa_lucian_truscott_cc_small
+			}
+		}
+		corps_commander = {
+			traits = { cavalry_officer winter_expert winter_specialist jungle_rat }
+			skill = 3
+			attack_skill = 6 
+			defense_skill = 5
+			planning_skill = 7
+			logistics_skill = 3
+		}
+	}
+	USA_jacob_l_devers_cc = {
+		name = "Jacob L. Devers"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_jacob_l_devers_cc_large
+				small = GFX_usa_jacob_l_devers_cc_small
+			}
+		}
+		corps_commander = {
+			traits = { cavalry_officer  commando  skirmisher  hill_fighter  }
+			skill = 4
+			attack_skill = 6 
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 4
+		}
+	}
+	USA_leonard_t_gerow_cc = {
+		name = "Leonard T. Gerow"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_leonard_t_gerow_cc_large
+				small = GFX_usa_leonard_t_gerow_cc_small
+			}
+		}
+		corps_commander = {
+			traits = { brilliant_strategist bearer_of_artillery  scavenger  trait_engineer  }
+			skill = 4
+			attack_skill = 3 
+			defense_skill = 2
+			planning_skill = 5
+			logistics_skill = 6
+		}
+	}	
+	USA_charles_w_ryder_cc = {
+		name = "Charles W. Ryder"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_charles_w_ryder_cc_large
+				small = GFX_usa_charles_w_ryder_cc_small
+			}
+		}
+		corps_commander = {
+			traits = {  media_personality politically_connected bearer_of_artillery swamp_fox }
+			skill = 4
+			attack_skill = 3 
+			defense_skill = 6
+			planning_skill = 5
+			logistics_skill = 6
+		}
+	}
+	USA_mattew_ridgway_cc = {
+		name = "Matthew Ridgway"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_mattew_ridgway_cc_large
+				small = GFX_usa_mattew_ridgway_cc_small
+			}
+		}
+		corps_commander = {
+			traits = { infantry_leader naval_invader panzer_leader desert_fox }
+			skill = 5
+			attack_skill = 3 
+			defense_skill = 3
+			planning_skill = 6
+			logistics_skill = 2
+		}
+	}
+	USA_josepth_t_manarney_cc = {
+		name = "Joseph T. McNarney"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_josepth_t_manarney_large
+				small = GFX_usa_josepth_t_manarney_small
+			}
+		}
+		corps_commander = {
+			traits = { career_officer war_hero }
+			skill = 4
+			attack_skill = 3 
+			defense_skill = 3
+			planning_skill = 6
+			logistics_skill = 2
+			visible = {
+				GER = { exists = yes }
+			}			
+		}
+	}
+	USA_william_f_dean_cc = {
+		name = "William F. Dean"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_william_f_dean_large
+				small = GFX_usa_william_f_dean_small
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer trait_mountaineer trait_reckless }
+			skill = 3
+			attack_skill = 3 
+			defense_skill = 3
+			planning_skill = 6
+			logistics_skill = 2
+			visible = {
+				KOR = { exists = yes }
+			}
+		}
+	}
+	####################################################################################################
+	################################## Admiral #####################################
+	####################################################################################################	
+	USA_admiral_chester_w_nimitz = {
+		name = "Chester W. Nimitz"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_chester_w_nimitz_large
+				small = GFX_usa_chester_w_nimitz_small
+			}
+		}
+		navy_leader = {
+			traits = { seawolf lancer naval_lineage loading_drill_master blue_water_expert}
+			skill = 9
+			attack_skill = 6
+			defense_skill = 4
+			maneuvering_skill = 7
+			coordination_skill = 2
+		}
+	}
+	USA_arthur_radford_admiral = {
+		name = "Arthur Radford"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_admiral_arthur_radford_large
+				small = GFX_usa_chief_arthur_radford
+			}
+		}
+		navy_leader = {
+			traits = { dive_bomber superior_tactician }
+			skill = 5
+			attack_skill = 2
+			defense_skill = 3
+			maneuvering_skill = 3
+			coordination_skill = 2
+		}
+	}
+	USA_admiral_william_halsey_jr = {
+		name = "William Halsey, Jr"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_william_halsey_jr_large
+				small = GFX_usa_william_halsey_jr_small
+			}
+		}
+		navy_leader = {
+			traits = { search_pattern_expert  cruiser_captain fly_swatter lone_wolf superior_tactician   }
+			skill = 4
+			attack_skill = 5
+			defense_skill = 3
+			maneuvering_skill = 3
+			coordination_skill = 2
+		}
+	}
+	USA_admiral_raymond_a_spruance = {
+		name = "Raymond A. Spruance"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_raymond_a_spruance_large
+				small = GFX_usa_raymond_a_spruance_small
+			}
+		}
+		navy_leader = {
+			traits = { lancer  seawolf fleet_protector lone_wolf superior_tactician    }
+			skill = 3
+			attack_skill = 4
+			defense_skill = 8
+			maneuvering_skill = 2
+			coordination_skill = 5
+		}
+	}
+	USA_admiral_jonas_h_ingram = {
+		name = "Jonas H. Ingram"
+		allowed_civil_war = {}
+		portraits = {
+			army = {
+				large = GFX_usa_jonas_h_ingram_large
+				small = GFX_usa_jonas_h_ingram_small
+			}
+		}
+		navy_leader = {
+			traits = { naval_lineage cruiser_captain fly_swatter aviation_enthusiast  }
+			skill = 3
+			attack_skill = 4
+			defense_skill = 1
+			maneuvering_skill = 4
+			coordination_skill = 6
+		}
+	}
+}

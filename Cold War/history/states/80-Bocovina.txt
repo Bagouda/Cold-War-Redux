@@ -1,0 +1,30 @@
+state = {
+	id=80
+	local_supplies=0.0 
+	name="STATE_80"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 577 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = UKR
+		add_core_of = SOV
+		add_core_of = UKR
+		1950.6.25 = {
+			owner = SOV
+		}
+		
+		victory_points = {
+			577 1 
+		}
+	}
+	resources={
+		crops = 7
+	}	
+	manpower = 474600
+	provinces={
+		577 9548
+	}
+}

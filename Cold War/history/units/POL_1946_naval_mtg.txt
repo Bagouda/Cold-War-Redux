@@ -1,0 +1,17 @@
+﻿units = {
+####### NAVAL UNITS #######
+	fleet = {
+	name = "Polish Navy"
+	naval_base = 6332
+		task_force = {
+			name = "Coast guard"
+			location = 6332 
+			ship = { name = "Grom" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = POL version_name = "Grom Class" } } }
+		}
+		task_force = {
+			name = "Sub squadron"
+			location = 6332 
+			ship = { name = "L'Aurore" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = POL version_name = "L'Aurore Class" } } }
+		}
+	}
+}

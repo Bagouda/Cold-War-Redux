@@ -1,0 +1,38 @@
+state={
+	id=900
+	local_supplies=0.0 
+	name="STATE_900"
+	resources={
+		crops= 5.0
+	}	
+	history={
+ 	add_to_array = { list_victory_point = 9961 }
+ 	add_to_array = { list_victory_point = 12433 }
+ 	set_variable = { victory_point = 10 }
+		owner = VIN
+		add_core_of = LAO
+		
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+		1953.10.22 = {
+			owner = LAO
+			add_core_of = LAO
+			remove_core_of = FRA
+		}
+
+		victory_points = { 12433 5 }	#Phong Sa
+		victory_points = { 9961 5 }		#Sam Neua
+	}
+	provinces={
+		12332 4339 9961 7075 7218 4613 12433 12392
+	}
+	manpower=250000
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+}

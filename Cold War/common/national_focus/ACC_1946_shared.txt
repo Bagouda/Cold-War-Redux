@@ -1,0 +1,1616 @@
+shared_focus = {
+	id = GER_future_of_gemany
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = GERMAN_QUESTION_REQ_TT
+			OR = {
+				has_global_flag = paris_treaty_ratified_by_unsc 
+				has_global_flag = paris_treaty_rejected_by_unsc 
+				has_global_flag = paris_treaty_stalled_by_unsc
+			}
+		}	
+	}
+	bypass = {
+	}
+	
+	icon = GFX_SOV_german_question
+	
+	x = 0
+	y = 0
+	
+	offset = {
+		x = 12
+		y = 10
+		trigger = {
+			tag = USA
+		}
+	}
+	offset = {
+		x = 32
+		y = 1
+		trigger = {
+			tag = FRA
+		}
+	}
+	offset = {
+		x = 35
+		y = 1
+		trigger = {
+			tag = ENG
+		}
+	}	
+	offset = {
+		x = 28
+		y = 8
+		trigger = {
+			tag = SOV
+		}
+	}
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = {}
+	search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+
+	select_effect = {}
+
+	completion_reward = {
+		add_political_power = 50
+		custom_effect_tooltip = GER_FORMATION_FAILURE_WARNING
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = yes
+		}
+		modifier = {
+			add = 500
+			date > 1947.6.1
+			is_historical_focus_on = yes
+		}
+	}
+}
+#################################################################
+####################### A UNIFIED GERMANY #######################
+#################################################################
+shared_focus = {
+	id = FOG_unified_germany
+	available = {
+		OR = {
+			tag = USA
+			tag = SOV
+		}
+	}
+	bypass = {
+	}
+	
+	icon = GFX_SOV_stalin_note
+	
+	x = -4
+	y = 1
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = GER_future_of_gemany }
+	mutually_exclusive = { focus = FOG_a_divided_germany }
+	relative_position_id = GER_future_of_gemany
+	search_filters = { FOCUS_TENSION_FOCUSES }
+
+	select_effect = {}
+
+	completion_reward = {
+		custom_effect_tooltip = AI_HISTORICAL_WARNING
+		add_named_threat = {  threat = 5  name = CW_THREAT_PROMOTED_GERMAN_UNIFICATION }
+		if = {
+			limit = {
+				tag = SOV
+			}
+			every_other_country = {
+				limit = {
+					is_euu_observer = yes
+				}
+				add_opinion_modifier = { target = ROOT modifier = protest_action }
+				add_popularity = { ideology = ROOT popularity = -0.1 }
+			}
+		}
+		if = {
+			limit = {
+				tag = USA
+			}
+			every_other_country = {
+				limit = {
+					is_euu_observer = yes
+				}
+				add_opinion_modifier = { target = ROOT modifier = protest_action }
+				add_popularity = { ideology = unaligned_right popularity = 0.1 }
+			}
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = FOG_unified_germany_monarchy_regime
+	available = {
+		OR = {
+			tag = USA
+			tag = SOV
+		}	
+		USA = { has_completed_focus = FOG_unified_germany }
+		SOV = { has_completed_focus = FOG_unified_germany }
+	}
+	bypass = {
+	}
+	
+	icon = GFX_focus_ger_return_of_the_kaiser
+	
+	x = -3
+	y = 1
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_unified_germany }
+	mutually_exclusive = { focus = FOG_unified_germany_neutrality_left_regime }
+	relative_position_id = FOG_unified_germany
+	search_filters = { FOCUS_TENSION_FOCUSES }
+
+	select_effect = {}
+
+	completion_reward = {
+		custom_effect_tooltip = MONARCHY_UNIFIED_GERMANY_EFFECT
+		if = {
+			limit = {
+				tag = SOV
+			}
+			every_other_country = {
+				limit = {
+					is_euu_observer = yes
+				}
+				add_opinion_modifier = { target = ROOT modifier = protest_action }
+				add_popularity = { ideology = ROOT popularity = -0.1 }
+			}
+		}
+		if = {
+			limit = {
+				tag = USA
+			}
+			every_other_country = {
+				limit = {
+					is_euu_observer = yes
+				}
+				add_opinion_modifier = { target = ROOT modifier = protest_action }
+				add_popularity = { ideology = unaligned_right popularity = 0.1 }
+			}
+		}		
+		GER = { set_country_flag = proposed_ger_monarchy_regime }
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = FOG_unified_germany_neutrality_left_regime
+	available = {
+		OR = {
+			tag = USA
+			tag = SOV
+		}	
+		USA = { has_completed_focus = FOG_unified_germany }
+		SOV = { has_completed_focus = FOG_unified_germany }
+	}
+	bypass = {
+	}
+	
+	icon = GFX_goal_generic_neutrality_focus
+	
+	x = -1
+	y = 1
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_unified_germany }
+	mutually_exclusive = { focus = FOG_unified_germany_monarchy_regime }
+	relative_position_id = FOG_unified_germany
+	search_filters = {}
+
+	select_effect = {}
+
+	completion_reward = {
+		custom_effect_tooltip = NEUTRAL_UNIFIED_GERMANY_EFFECT
+		GER = { set_country_flag = proposed_ger_socialist_regime }
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = FOG_unified_germany_establissh_neutral_germany
+	available = {
+		unsc_in_session = no
+		unsc_implementing_resolution = no
+		GER = { exists = no }
+		OR = {
+			custom_trigger_tooltip = {
+				tooltip = ESTABLISH_NEUTRAL_GERMANY_TRIGGER_TT_MON			
+				AND = {
+					USA = { has_completed_focus = FOG_unified_germany_monarchy_regime }
+					SOV = { has_completed_focus = FOG_unified_germany_monarchy_regime }
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = ESTABLISH_NEUTRAL_GERMANY_TRIGGER_TT_LEFT
+				AND = {
+					USA = { has_completed_focus = FOG_unified_germany_neutrality_left_regime }
+					SOV = { has_completed_focus = FOG_unified_germany_neutrality_left_regime }
+				}
+			}
+		}
+	}
+	bypass = {
+		GER = { exists = yes }
+	}
+	
+	icon = GFX_focus_disarmed_germany
+	
+	x = -2
+	y = 2
+	
+	cost = 5
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_unified_germany_neutrality_left_regime focus = FOG_unified_germany_monarchy_regime }
+	relative_position_id = FOG_unified_germany
+	search_filters = { FOCUS_FILTER_UNSC_FOCUSES FOCUS_FILTER_MILITARY_LEADERS_FOCUSES }
+
+	select_effect = {
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						USA = { has_completed_focus = FOG_unified_germany_monarchy_regime }
+						SOV = { has_completed_focus = FOG_unified_germany_monarchy_regime }
+					}
+					AND = {
+						USA = { has_completed_focus = FOG_unified_germany_neutrality_left_regime }
+						SOV = { has_completed_focus = FOG_unified_germany_neutrality_left_regime }
+					}
+				}
+			}
+			hidden_effect = {
+				UNN = { save_global_event_target_as = unsc_initiator }
+				GER = { save_global_event_target_as = unsc_target }
+				GER = { set_country_flag = unsc_target_flag }
+				GER = { set_country_flag = establish_neutrality }
+				set_global_flag = resolution_veto_disabled
+				every_other_country = {
+					limit = {
+						is_euu_observer = yes
+					}
+					cw_unsc_set_hate_resolution = yes
+				}
+				cw_unsc_start_resolution_effect = yes
+			}
+			if = {
+				limit = {
+					tag = SOV
+				}
+				every_other_country = {
+					limit = {
+						is_euu_observer = yes
+					}
+					add_opinion_modifier = { target = ROOT modifier = protest_action }
+					add_popularity = { ideology = ROOT popularity = -0.1 }
+				}
+			}
+			if = {
+				limit = {
+					tag = USA
+				}
+				every_other_country = {
+					limit = {
+						is_euu_observer = yes
+					}
+					add_opinion_modifier = { target = ROOT modifier = protest_action }
+					add_popularity = { ideology = unaligned_right popularity = 0.1 }
+				}
+			}
+		}		
+	}
+
+	completion_reward = {	
+		custom_effect_tooltip = ESTABLISH_NEUTRAL_UNIFIED_GERMANY_EFFECT_TT
+		custom_effect_tooltip = GER_FORMATION_FAILURE_WARNING
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = FOG_unified_germany_prussian_question
+	available = {
+		GER = { exists = yes }
+		custom_trigger_tooltip = {
+			tooltip = SOV_IS_ACC_MEMBER
+			SOV = {
+				is_in_array = {
+					array = global.euu_members_array
+					value = THIS.id
+				}
+			}
+		}	
+	}
+	bypass = {
+	}
+	
+	icon = GFX_focus_ger_revive_kaiserreich
+	
+	x = 2
+	y = 1
+	
+	cost = 3
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_unified_germany_establissh_neutral_germany focus = FOG_the_morgentau_plan focus = FOG_the_schuman_plan }
+	relative_position_id = FOG_unified_germany_establissh_neutral_germany
+	search_filters = {}
+
+	select_effect = {}
+
+	completion_reward = {}
+	
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = FOG_unified_germany_prussia_restore_and_demilitirize_prussia
+	available = {
+		GER = {
+			exists = yes
+			has_war = no
+		}
+		euu_in_session = no
+		euu_implementing_resolution = no
+		custom_trigger_tooltip = {
+			tooltip = SOV_IS_ACC_MEMBER
+			SOV = {
+				is_in_array = {
+					array = global.euu_members_array
+					value = THIS.id
+				}
+			}
+		}	
+	}
+	bypass = {
+		66 = { is_demilitarized_zone = yes }
+		68 = { is_demilitarized_zone = yes }
+		63 = { is_demilitarized_zone = yes }
+		67 = { is_demilitarized_zone = yes }
+		5 = { is_demilitarized_zone = yes }
+		763 = { is_demilitarized_zone = yes }		
+	}
+	
+	icon = GFX_focus_generic_provoke_border_clashes
+	
+	x = -1
+	y = 1
+	
+	cost = 5
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_unified_germany_prussian_question }
+	mutually_exclusive = { focus = FOG_unified_germany_prussia_recognize_polish_control }
+	relative_position_id = FOG_unified_germany_prussian_question
+	search_filters = { FOCUS_FILTER_ANNEXATION }
+
+	select_effect = {
+		GER = { 66 = { cultural_union_generic_transfer_territory = yes } }
+		GER = { 68 = { cultural_union_generic_transfer_territory = yes } }
+		GER = { 63 = { cultural_union_generic_transfer_territory = yes } }
+		GER = { 67 = { cultural_union_generic_transfer_territory = yes } }
+		GER = { 5 = { cultural_union_generic_transfer_territory = yes } }
+		GER = { 763 = { cultural_union_generic_transfer_territory = yes } }	
+		#
+		FRA = { cw_cultural_union_set_hate_resolution = yes }
+		ENG = { cw_cultural_union_set_hate_resolution = yes }
+		USA = { cw_cultural_union_set_like_resolution = yes }
+		cw_euu_make_resolution_absolute = yes
+		cw_euu_start_resolution_effect = yes
+	}
+
+	completion_reward = {
+		effect_tooltip = {
+			custom_effect_tooltip = "FOG_RESTORE_AND_DEMILITIRIZE_PRUSSIA_EFFECT_TT"
+			cw_euu_make_resolution_absolute = yes
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = FOG_unified_germany_prussia_recognize_polish_control
+	available = {
+		euu_in_session = no
+		euu_implementing_resolution = no
+		GER = {
+			exists = yes
+			has_war = no
+		}		
+	}
+	bypass = {
+		#NOT = { 63 = { is_claimed_by = GER } }
+	}
+	
+	icon = GFX_goal_tfv_sever_ties_with_uk
+	
+	x = 1
+	y = 1
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_unified_germany_prussian_question }
+	mutually_exclusive = { focus = FOG_unified_germany_prussia_restore_and_demilitirize_prussia }
+	relative_position_id = FOG_unified_germany_prussian_question
+	search_filters = {}
+
+	select_effect = {
+		save_global_event_target_as = euu_initiator
+		GER = {
+			save_global_event_target_as = euu_target
+			set_country_flag = acc_resolution_abolish_prussia
+		}
+		set_global_flag = euu_major_historical_resolution
+		FRA = { cw_cultural_union_set_like_resolution = yes }
+		ENG = { cw_cultural_union_set_like_resolution = yes }
+		USA = { cw_cultural_union_set_like_resolution = yes }
+		cw_euu_start_resolution_effect = yes	
+	}
+
+	completion_reward = {
+		custom_effect_tooltip = "FOG_UNIFIED_GERMANY_PRUSSIA_RECOGNIZE_POLISH_CONTROL_EFFECT_TT"
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = FOG_unified_germany_demilitirize_rhineland
+	available = {
+		tag = USA
+		GER = {
+			exists = yes
+			has_war = no
+		}
+	}
+	bypass = {
+	}
+	
+	icon = GFX_focus_generic_provoke_border_clashes
+	
+	x = -2
+	y = 1
+	
+	cost = 5
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_unified_germany_establissh_neutral_germany }
+	relative_position_id = FOG_unified_germany_establissh_neutral_germany
+	search_filters = {}
+
+	select_effect = {}
+
+	completion_reward = {
+		effect_tooltip = {
+			42 = { set_demilitarized_zone = yes }
+			51 = { set_demilitarized_zone = yes }
+			851 = { set_demilitarized_zone = yes }		
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = FOG_unified_germany_seize_german_industry
+	available = {
+		GER = {
+			exists = yes
+			has_war = no
+		}	
+	}
+	bypass = {
+	}
+	
+	icon = GFX_goal_generic_construct_mil_factory
+	
+	x = -1
+	y = 1
+	
+	cost = 5
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_unified_germany_demilitirize_rhineland }
+	mutually_exclusive = { focus = FOG_unified_germany_seize_german_steel_and_coal }
+	relative_position_id = FOG_unified_germany_demilitirize_rhineland
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	select_effect = {}
+
+	completion_reward = {
+		effect_tooltip = {
+			ROOT = { add_offsite_building = { type = arms_factory level = 5 } }
+			GER = { add_opinion_modifier = { target = ROOT modifier = protest_action_strong } }
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = FOG_unified_germany_seize_german_steel_and_coal
+	available = {
+		GER = {
+			exists = yes
+			has_war = no
+		}	
+		AND = {
+			custom_trigger_tooltip = {
+				tooltip =  COMMUNIST_AID_PROGRAM_INITIATED
+				has_global_flag = communist_aid_program_active
+			}
+			custom_trigger_tooltip = {
+				tooltip =  DEMOCRATIC_AID_PROGRAM_INITIATED
+				has_global_flag = democratic_aid_program_active
+			}
+		}		
+	}
+	bypass = {
+	}
+	
+	icon = GFX_focus_generic_steel
+	
+	x = 1
+	y = 1
+	
+	cost = 5
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_unified_germany_demilitirize_rhineland }
+	mutually_exclusive = { focus = FOG_unified_germany_seize_german_industry }
+	relative_position_id = FOG_unified_germany_demilitirize_rhineland
+	search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+
+	select_effect = {}
+
+	completion_reward = {
+		if = {
+			limit = {
+				tag = SOV
+			}
+			GER = { cw_give_economic_aid_effect_locked = yes }
+			851 = { SOV = { cw_give_state_monopoly_perpetual_country = yes } }
+		}
+		if = {
+			limit = {
+				tag = USA
+			}
+			GER = { cw_give_economic_aid_effect_locked = yes }
+			51 = { USA = { cw_give_state_monopoly_perpetual_country = yes } }
+		}
+		if = {
+			limit = {
+				tag = FRA
+			}
+			850 = { FRA = { cw_give_state_monopoly_perpetual_country = yes } }
+		}
+		if = {
+			limit = {
+				tag = ENG
+			}
+			42 = { ENG = { cw_give_state_monopoly_perpetual_country = yes } }
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+###############################################################
+####################### DEVIDED GERMANY #######################
+###############################################################
+shared_focus = {
+	id = FOG_a_divided_germany
+	available = {
+		OR = {
+			tag = USA
+			tag = SOV
+		}
+	}
+	bypass = {	
+	}
+	
+	icon = GFX_focus_devided_germany
+	
+	x = 4
+	y = 1
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = GER_future_of_gemany }
+	mutually_exclusive = { focus = FOG_unified_germany }
+	relative_position_id = GER_future_of_gemany
+	search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+
+	select_effect = {
+		every_other_country = {
+			limit = {
+				is_in_array = {
+					array = global.euu_members_array
+					value = THIS.id
+				}
+			}
+			unlock_national_focus = FOG_a_divided_germany
+		}
+	}
+
+	completion_reward = {
+		add_named_threat = {  threat = -5  name = CW_THREAT_PROMOTED_GERMAN_DIVISION }
+		if = {
+			limit = {
+				tag = SOV
+			}
+			every_other_country = {
+				limit = {
+					is_euu_observer = yes
+				}
+				add_opinion_modifier = { target = ROOT modifier = supporting_our_position }
+				add_popularity = { ideology = ROOT popularity = 0.1 }
+			}
+		}
+		if = {
+			limit = {
+				tag = USA
+			}
+			every_other_country = {
+				limit = {
+					is_euu_observer = yes
+				}
+				add_opinion_modifier = { target = ROOT modifier = supporting_our_position }
+				add_popularity = { ideology = unaligned_right popularity = -0.1 }
+			}
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = yes
+		}
+		modifier = {
+			add = 200
+			date > 1948.1.1
+			is_historical_focus_on = yes
+		}		
+	}
+}
+shared_focus = {
+	id = FOG_establish_east_germany
+	available = {
+		tag = SOV
+	}
+	bypass = {
+	}
+	
+	icon = GFX_ddr_flag_raised
+	
+	x = 2
+	y = 1
+	
+	cost = 5
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {
+		tag = SOV
+	}
+	prerequisite = { focus = FOG_a_divided_germany }
+	relative_position_id = FOG_a_divided_germany
+	search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_ANNEXATION }
+
+	select_effect = {
+		every_owned_state = {
+			limit = {
+				is_core_of = GER
+			}
+			add_core_of = DDR
+		}
+	}
+
+	completion_reward = {
+		custom_effect_tooltip = ESTABLISH_DDR_EFFECT_TT
+		hidden_effect = {
+			release_puppet = DDR
+			DDR = {
+				cw_make_unrecognized = yes
+				cw_new_country_notification = yes
+				add_to_array = { array = SOV.countries_who_pay_us_reparations value = THIS.id }
+				set_variable = { amount_of_reperations_remaining@SOV = 10 }			
+			}
+		}
+		top_bar_decisions_notification_new_decisions_available = yes
+		cw_remove_from_european_union = yes
+		cw_add_to_european_union_observers = yes
+		new_military_char_notification = yes
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = yes
+		}
+		modifier = {
+			add = 200
+			date > 1948.1.1
+			is_historical_focus_on = yes
+		}		
+	}
+}
+shared_focus = {
+	id = FOG_a_unify_german_occupation_zones
+	available = {
+		OR = {
+			tag = USA
+			tag = FRA
+			tag = ENG
+		}
+		if = {
+			limit = {
+				tag = USA
+			}
+			ENG = {
+				all_owned_state = {
+					NOT = { is_core_of = GER }
+				}
+			}
+			FRA = {
+				all_owned_state = {
+					NOT = { is_core_of = GER }
+				}
+			}
+		}
+	}
+	bypass = {
+		ENG = {
+			all_owned_state = {
+				NOT = { is_core_of = GER }
+			}
+		}
+		FRA = {
+			all_owned_state = {
+				NOT = { is_core_of = GER }
+			}
+		}	
+	}
+	
+	icon = GFX_focus_usa_unify_german_occupation
+	
+	x = 0
+	y = 1
+	
+	cost = 5
+	
+	dynamic = no
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_a_divided_germany }
+	relative_position_id = FOG_a_divided_germany
+	search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_ANNEXATION }
+
+	select_effect = {
+	}
+
+	completion_reward = {
+		custom_effect_tooltip = UNIFY_OCCUPATION_ZONES_EFFECT_TT
+		if = {
+			limit = {
+				NOT = { tag = USA }
+			}
+			every_state = {
+				limit = {
+					is_core_of = GER
+					is_controlled_by = ROOT
+				}
+				USA = { transfer_state = PREV }
+			}
+			else = {
+				every_state = {
+					limit = {
+						is_core_of = GER
+						is_controlled_by = ROOT
+					}
+					add_resistance = -50 
+					 add_compliance = 30 
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = yes
+		}
+		modifier = {
+			add = 200
+			date > 1948.1.1
+			is_historical_focus_on = yes
+		}
+	}
+}
+shared_focus = {
+	id = FOG_the_schuman_plan
+	available = {
+		euu_in_session = no
+		euu_implementing_resolution = no
+		custom_trigger_tooltip = {
+			tooltip = COUNTRY_IS_ACC_MEMBER
+			ROOT = {
+				is_in_array = {
+					array = global.euu_members_array
+					value = THIS.id
+				}
+			}
+		}		
+		custom_trigger_tooltip = {
+			tooltip = ALL_ALLIED_OCCUPATION_ZONES_UNIFIED
+			ENG = {
+				all_owned_state = {
+					NOT = { is_core_of = GER }
+				}
+			}
+			FRA = {
+				all_owned_state = {
+					NOT = { is_core_of = GER }
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_ai = no
+				tag = FRA
+			}
+			FRA_fm_robert_schuman = { character_serving_as_foreign_minister = yes }
+		}
+		if = {
+			limit = {
+				is_ai = yes
+				tag = FRA
+			}
+			date > 1947.1.1
+		}		
+	}
+	bypass = {
+	}
+	
+	icon = GFX_focus_shumann_plan
+	
+	x = 3
+	y = 1
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_a_unify_german_occupation_zones }
+	mutually_exclusive = { focus = FOG_the_morgentau_plan }
+	relative_position_id = FOG_a_unify_german_occupation_zones
+	search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_MILITARY_LEADERS_FOCUSES }
+
+	select_effect = {
+		ROOT = { save_global_event_target_as = euu_initiator }
+		GER = {
+			save_global_event_target_as = euu_target
+			set_country_flag = { flag = acc_resolution_adopt_schuman_plan value = 1 days = 14 }
+		}
+		hidden_effect = {
+			FRA = { cw_cultural_union_set_like_resolution = yes }
+			ENG = { cw_cultural_union_set_like_resolution = yes }
+			USA = { cw_cultural_union_set_like_resolution = yes }
+			set_global_flag = euu_major_historical_resolution
+		}
+		cw_euu_make_resolution_absolute = yes
+		cw_euu_start_resolution_effect = yes		
+	}
+
+	completion_reward = {
+		effect_tooltip = {
+			custom_effect_tooltip = "FOG_THE_SCHUMAN_DESC_EFFECT_TT"
+			cw_euu_make_resolution_absolute = yes
+			custom_effect_tooltip = GER_FORMATION_FAILURE_WARNING
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+		modifier = {
+			add = 200
+			date > 1948.1.1
+			is_historical_focus_on = yes
+		}		
+	}
+}
+shared_focus = {
+	id = FOG_the_schuman_plan_establish_saar_protectorate
+	available = {
+		tag = FRA
+		custom_trigger_tooltip = {
+			tooltip = SCHUMAN_PLAN_ADOPTED_TRIGGER_TT
+			has_global_flag = schuman_plan_adopted
+		}
+	}
+	bypass = {
+		GER = {
+			exists = yes
+			has_war = yes
+		}		
+	}
+	
+	icon = GFX_focus_saarland_protectorate
+	
+	x = -2
+	y = 1
+	
+	cost = 12
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_the_schuman_plan }
+	relative_position_id = FOG_the_schuman_plan
+	search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_ANNEXATION }
+
+	select_effect = {}
+
+	completion_reward = {
+		SAA = {
+			transfer_state = 850
+			cw_new_country_notification = yes
+			hidden_effect = {
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+					election_frequency = 48
+				}
+				set_popularities = {
+					democratic = 100
+				}
+			}			
+		}
+		FRA = {
+			puppet = SAA
+		}
+		850 = {
+			add_core_of = SAA
+			FRA = { cw_give_state_monopoly_perpetual_country = yes } 
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = FOG_the_schuman_plan_utilize_german_labour
+	available = {
+		tag = FRA
+		custom_trigger_tooltip = {
+			tooltip = SCHUMAN_PLAN_ADOPTED_TRIGGER_TT
+			has_global_flag = schuman_plan_adopted
+		}		
+	}
+	bypass = {
+		GER = {
+			exists = yes
+			has_war = yes
+		}		
+	}
+	
+	icon = GFX_focus_CZE_german_puppet
+	
+	x = 2
+	y = 1
+	
+	cost = 5
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_the_schuman_plan }
+	relative_position_id = FOG_the_schuman_plan
+	search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+
+	select_effect = {
+	}
+
+	completion_reward = {
+		ROOT = { add_timed_idea = { idea = FRA_utilize_german_labor days = 765 } }
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = FOG_the_schuman_plan_establish_ruhr_authority
+	available = {
+		tag = FRA
+		custom_trigger_tooltip = {
+			tooltip = SCHUMAN_PLAN_ADOPTED_TRIGGER_TT
+			has_global_flag = schuman_plan_adopted
+		}		
+	}
+	bypass = {
+		GER = {
+			exists = yes
+			has_war = yes
+		}		
+	}
+	
+	icon = GFX_focus_generic_steel
+	
+	x = 0
+	y = 2
+	
+	cost = 10
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_the_schuman_plan }
+	relative_position_id = FOG_the_schuman_plan
+	search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_RESOURCES_FOCUSES }
+
+	select_effect = {}
+
+	completion_reward = {
+		42 = { set_demilitarized_zone = yes }
+		42 = { FRA = { cw_give_state_monopoly_perpetual_country = yes } }
+		851 = { set_demilitarized_zone = yes }
+		851 = { FRA = { cw_give_state_monopoly_perpetual_country = yes } }
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+		modifier = {
+			add = 500
+			date > 1948.1.1
+			is_historical_focus_on = yes
+		}		
+	}
+}
+shared_focus = {
+	id = FOG_the_morgentau_plan
+	available = {
+		euu_in_session = no
+		euu_implementing_resolution = no
+		custom_trigger_tooltip = {
+			tooltip = COUNTRY_IS_ACC_MEMBER
+			ROOT = {
+				is_in_array = {
+					array = global.euu_members_array
+					value = THIS.id
+				}
+			}
+		}		
+		custom_trigger_tooltip = {
+			tooltip = ALL_ALLIED_OCCUPATION_ZONES_UNIFIED
+			ENG = {
+				all_owned_state = {
+					NOT = { is_core_of = GER }
+				}
+			}
+			FRA = {
+				all_owned_state = {
+					NOT = { is_core_of = GER }
+				}
+			}
+		}		
+	}
+	bypass = {
+	}
+	
+	icon = GFX_focus_morgentau_plan
+	
+	x = -3
+	y = 1
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_a_unify_german_occupation_zones }
+	mutually_exclusive = { focus = FOG_the_schuman_plan }
+	relative_position_id = FOG_a_unify_german_occupation_zones
+	search_filters = { FOCUS_FILTER_MILITARY_LEADERS_FOCUSES }
+
+	select_effect = {
+		ROOT = { save_global_event_target_as = euu_initiator }
+		GER = {
+			save_global_event_target_as = euu_target
+			set_country_flag = { flag = acc_resolution_adopt_morgentau_plan value = 1 days = 14 }
+		}
+		hidden_effect = {
+			FRA = { cw_cultural_union_set_like_resolution = yes }
+			ENG = { cw_cultural_union_set_hate_resolution = yes }
+			USA = { cw_cultural_union_set_hate_resolution = yes }
+			set_global_flag = euu_major_historical_resolution
+		}
+		cw_euu_make_resolution_absolute = yes
+		cw_euu_start_resolution_effect = yes
+	}
+
+	completion_reward = {	
+		effect_tooltip = {
+			custom_effect_tooltip = "FOG_THE_MORGENTAU_PLAN_DESC_EFFECT_TT"
+			cw_euu_make_resolution_absolute = yes
+			custom_effect_tooltip = GER_FORMATION_FAILURE_WARNING
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+		modifier = {
+			add = 150
+			has_government = communism_totalitarian
+		}		
+		modifier = {
+			add = -100
+			is_historical_focus_on = yes
+		}
+	}
+}
+shared_focus = {
+	id = FOG_integrate_saarland
+	available = {
+		tag = FRA
+		custom_trigger_tooltip = {
+			tooltip = MORGENTAU_PLAN_ADOPTED_TRIGGER_TT
+			has_global_flag = morgentau_plan_adopted
+		}	
+	}
+	bypass = {
+		GER = {
+			exists = yes
+			has_war = yes
+		}
+	}
+	
+	icon = GFX_focus_french_saarland
+	
+	x = 0
+	y = 1
+	
+	cost = 5
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_the_morgentau_plan }
+	relative_position_id = FOG_the_morgentau_plan
+	search_filters = { FOCUS_FILTER_ANNEXATION }
+
+	select_effect = {}
+
+	completion_reward = {
+		FRA = { transfer_state = 850 }
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = FOG_french_rhineland
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = MORGENTAU_PLAN_ADOPTED_TRIGGER_TT
+			has_global_flag = morgentau_plan_adopted
+		}
+		euu_in_session = no
+		euu_implementing_resolution = no		
+	}
+	bypass = {
+		GER = {
+			exists = yes
+			has_war = yes
+		}
+	}
+	
+	icon = GFX_focus_french_rhineland
+	
+	x = 2
+	y = 2
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_the_morgentau_plan }
+	mutually_exclusive = { focus = FOG_internationalize_the_ruhr }
+	relative_position_id = FOG_the_morgentau_plan
+	search_filters = { FOCUS_FILTER_ANNEXATION }
+
+	select_effect = {
+		FRA = { 51 = { cultural_union_generic_transfer_territory = yes } }
+		FRA = { 42 = { cultural_union_generic_transfer_territory = yes } }
+		FRA = { 851 = { cultural_union_generic_transfer_territory = yes } }
+		#
+		FRA = { cw_cultural_union_set_like_resolution = yes }
+		ENG = { cw_cultural_union_set_hate_resolution = yes }
+		USA = { cw_cultural_union_set_hate_resolution = yes }
+		cw_euu_make_resolution_absolute = yes
+		cw_euu_start_resolution_effect = yes
+	}
+
+	completion_reward = {
+		effect_tooltip = {
+			FRA = { 51 = { cultural_union_generic_transfer_territory = yes } }
+			FRA = { 42 = { cultural_union_generic_transfer_territory = yes } }
+			FRA = { 851 = { cultural_union_generic_transfer_territory = yes } }
+			cw_euu_make_resolution_absolute = yes
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = FOG_internationalize_the_ruhr
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = MORGENTAU_PLAN_ADOPTED_TRIGGER_TT
+			has_global_flag = morgentau_plan_adopted
+		}		
+		unsc_in_session = no
+		unsc_implementing_resolution = no	
+	}
+	bypass = {
+		GER = {
+			exists = yes
+			has_war = yes
+		}
+	}
+	
+	icon = GFX_focus_international_territory
+	
+	x = -2
+	y = 2
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_the_morgentau_plan }
+	mutually_exclusive = { focus = FOG_french_rhineland }
+	relative_position_id = FOG_the_morgentau_plan
+	search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+
+	select_effect = {
+		save_global_event_target_as = unsc_initiator
+		42 = { cw_unsc_generic_establish_international_zone_non_canal = yes }
+		51 = { cw_unsc_generic_establish_international_zone_non_canal = yes }
+		851 = { cw_unsc_generic_establish_international_zone_non_canal = yes }
+		set_variable = { global.override_resolution_initiator = FRA.id }
+		cw_unsc_start_resolution_effect = yes
+		FRA = { cw_cultural_union_set_hate_resolution = yes }
+		ENG = { cw_cultural_union_set_like_resolution = yes }
+		USA = { cw_cultural_union_set_like_resolution = yes }		
+	}
+
+	completion_reward = {
+		effect_tooltip = {
+			effect_tooltip = {
+				42 = { set_demilitarized_zone = yes }
+				42 = { cw_unsc_generic_establish_international_zone_non_canal = yes }
+				51 = { set_demilitarized_zone = yes }
+				51 = { cw_unsc_generic_establish_international_zone_non_canal = yes }
+				851 = { set_demilitarized_zone = yes }
+				851 = { cw_unsc_generic_establish_international_zone_non_canal = yes }				
+			}
+		}	
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}		
+	}
+}
+shared_focus = {
+	id = FOG_bakker_schut_plan
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = MORGENTAU_PLAN_ADOPTED_TRIGGER_TT
+			has_global_flag = morgentau_plan_adopted
+		}
+		euu_in_session = no
+		euu_implementing_resolution = no
+		NOT = { 51 = { is_owned_by = HOL } }
+	}
+	bypass = {
+		OR = {
+			GER = {
+				exists = yes
+				has_war = yes
+			}
+			51 = { is_owned_by = HOL }
+		}
+	}
+	
+	icon = GFX_focus_hol_oranje_boven
+	
+	x = -1
+	y = 3
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_internationalize_the_ruhr }
+	relative_position_id = FOG_the_morgentau_plan
+	search_filters = { FOCUS_FILTER_ANNEXATION }
+
+	select_effect = {
+		HOL = { 51 = { cultural_union_generic_transfer_territory = yes } }
+		FRA = { cw_cultural_union_set_hate_resolution = yes }
+		ENG = { cw_cultural_union_set_like_resolution = yes }
+		USA = { cw_cultural_union_set_abstain_resolution = yes }
+		cw_euu_start_resolution_effect = yes
+	}
+
+	completion_reward = {
+		effect_tooltip = {
+			HOL = { 51 = { cultural_union_generic_transfer_territory = yes } }
+		}
+	}
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}
+shared_focus = {
+	id = FOG_establish_south_german_state
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = MORGENTAU_PLAN_ADOPTED_TRIGGER_TT
+			has_global_flag = morgentau_plan_adopted
+		}
+		euu_in_session = no
+		euu_implementing_resolution = no
+		BAV = { exists = no }
+	}
+	bypass = {
+		OR = {
+			BAV = { exists = yes }
+			GER = {
+				exists = yes
+				has_war = yes
+			}			
+		}
+	}
+	
+	icon = GFX_focus_south_german_state
+	
+	x = 1
+	y = 3
+	
+	cost = 2
+	
+	dynamic = no
+	cancel_if_invalid = no
+	continue_if_invalid = yes
+	available_if_capitulated = yes
+	historical_ai = {}
+	allow_branch = {}
+	prerequisite = { focus = FOG_french_rhineland focus = FOG_internationalize_the_ruhr }
+	relative_position_id = FOG_the_morgentau_plan
+	search_filters = { FOCUS_FILTER_ANNEXATION }
+
+
+	select_effect = {
+		save_global_event_target_as = euu_initiator
+		GER = { 
+			save_global_event_target_as = euu_target
+			set_country_flag = acc_resolution_establish_bavaria
+		}
+		set_global_flag = euu_major_historical_resolution
+		FRA = { cw_cultural_union_set_like_resolution = yes }
+		ENG = { cw_cultural_union_set_like_resolution = yes }
+		USA = { cw_cultural_union_set_hate_resolution = yes }		
+		cw_euu_start_resolution_effect = yes
+	}
+
+	completion_reward = {
+		custom_effect_tooltip = "FOG_ESTABLISH_SOUTH_GERMAN_STATE_EFFECT_TT"
+	}
+	
+	ai_will_do = {
+		base = 1
+		modifier = {
+			add = 10
+			is_historical_focus_on = no
+		}
+	}
+}

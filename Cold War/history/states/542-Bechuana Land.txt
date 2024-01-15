@@ -1,0 +1,26 @@
+state = {
+	id=542
+	local_supplies=0.0 
+	name="STATE_542"
+	state_category = wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 8214 }
+ 	set_variable = { victory_point = 1 }
+		owner = ENG
+		add_claim_by = BOT
+		
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			8214 1
+		}
+	}
+	resources={
+		chromium=90 # was: 168
+	}
+	manpower = 116000
+	provinces={
+		1580  12940 12963 
+	}
+}

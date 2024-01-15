@@ -1,0 +1,134 @@
+svi_focus_on_protecting = {
+	enable = {
+		tag = SVI
+		has_war_with = VIN
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = "VIN"
+		value = -500
+	}	
+	ai_strategy = {
+		type = garrison
+		value = 50
+	}
+	ai_strategy = {
+		type = area_priority
+		id = vietnam
+		value = 100
+	}	
+}
+svi_garrison_border_with_vin = {
+	enable = {
+		tag = SVI
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = put_unit_buffers
+		value = 500
+		order_id = 1
+		
+		states = { 
+			847
+		}
+		
+		ratio = 0.50
+		
+		area = vietnam
+		
+		subtract_invasions_from_need = no
+	}	
+}
+fra_help_svi = {
+	enable = {
+		tag = FRA
+		SVI = { is_puppet_of = FRA }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		value = 500
+		order_id = 1
+		
+		states = { 
+			847
+		}
+		
+		ratio = 0.25
+		
+		area = vietnam
+		
+		subtract_invasions_from_need = no
+	}
+}
+svi_protect_saigon = {
+	enable = {
+		tag = SVI
+		OR = {
+			has_war_with = VIN
+			has_war_with = VTC
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = put_unit_buffers
+		value = 500
+		order_id = 1
+		
+		states = { 
+			804
+		}
+		
+		ratio = 0.25
+		
+		area = vietnam
+		
+		subtract_invasions_from_need = no
+	}
+}
+fra_focus_on_attack_but_keep_saigon_safe = {
+	enable = {
+		tag = FRA
+		has_war_with = VIN
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = VIN
+		value = 150
+	}
+	ai_strategy = {
+		type = consider_weak
+		id = VIN
+		value = 150
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = VIN
+		value = 100
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		value = 500
+		order_id = 1
+		
+		states = { 
+			804
+		}
+		
+		ratio = 0.25
+		
+		area = vietnam
+		
+		subtract_invasions_from_need = yes
+	}
+}

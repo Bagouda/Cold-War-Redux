@@ -1,0 +1,39 @@
+state = {
+	id=184
+	local_supplies=0.0 
+	name="STATE_184"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 11905 }
+ 	set_variable = { victory_point = 5 }
+		owner = CGR
+		add_core_of = CGR
+		add_core_of = GRE
+		add_claim_by = BUL
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}
+		
+		buildings = {
+			infrastructure = 1
+		}		
+		
+		1947.2.10 = {	#Treaty of Paris 1947
+			add_core_of = BUL
+		}		
+		victory_points = {
+			11905 5
+		}
+	}
+	resources={
+		chromium=11 # was: 16
+	}
+	manpower = 382500
+	provinces={
+		6990 9791 9930 11774 11905 
+	}
+}

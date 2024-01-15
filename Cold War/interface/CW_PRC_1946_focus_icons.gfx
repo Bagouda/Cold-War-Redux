@@ -1,0 +1,63 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_prc_integrate_xinxiang"
+		texturefile = "gfx/interface/cw_focuses/PRC/1946/prc_integrate_xinxiang.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_prc_vietnam_withdrawal"
+		texturefile = "gfx/interface/cw_focuses/PRC/1946/prc_vietnam_withdrawal.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_prc_vietnam_withdrawal"
+		texturefile = "gfx/interface/cw_focuses/PRC/1946/prc_vietnam_withdrawal.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_prc_burma_withdrawal"
+		texturefile = "gfx/interface/cw_focuses/PRC/1946/prc_burma_withdrawal.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_PRC_seize_manchuria"
+		texturefile = "gfx/interface/cw_focuses/PRC/1946/PRC_seize_manchuria.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_PRC_recruit_kmt_pilots"
+		texturefile = "gfx/interface/cw_focuses/PRC/1946/PRC_recruit_kmt_pilots.dds"
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_PRC_recruit_soviet_pilots"
+		texturefile = "gfx/interface/cw_focuses/PRC/1946/PRC_recruit_soviet_pilots.dds"
+		legacy_lazy_load = no		
+	}
+	spriteType = {
+		name = "GFX_PRC_eradicate_kmt_insurgency"
+		texturefile = "gfx/interface/cw_focuses/PRC/1946/prc_eradicate_kmt_insurgency.dds"
+		legacy_lazy_load = no		
+	}
+	spriteType = {
+		name = "GFX_PRC_crush_the_kuomintang"
+		texturefile = "gfx/interface/cw_focuses/PRC/1946/crush_the_kuomintang.dds"
+	}
+	spriteType = {
+		name = "GFX_PRC_proclaim_peoples_republic"
+		texturefile = "gfx/interface/cw_focuses/PRC/1946/PRC_proclaim_peoples_republic.dds"
+		animation = {
+			animationmaskfile = "gfx/interface/cw_focuses/PRC/1946/PRC_proclaim_peoples_republic.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 5.00				# in seconds
+			animationdelay = 5			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no		
+	}
+}

@@ -1,0 +1,24 @@
+state={
+	id=806
+	local_supplies=0.0 
+	name="STATE_806"
+	history = {
+ 	add_to_array = { list_victory_point = 11829 }
+ 	set_variable = { victory_point = 10 }
+		owner = TUR
+		add_core_of = TUR
+		buildings = {
+			infrastructure = 1
+			11829 = {
+				naval_base = 1
+			}			
+		}
+		victory_points = { 11829 10 }
+	}
+	provinces={
+		11829 	#Uskudar
+	}
+	manpower=100000
+	buildings_max_level_factor=1.000
+	state_category = city
+}

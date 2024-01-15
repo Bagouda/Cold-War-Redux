@@ -1,0 +1,30 @@
+
+state={
+	id=838
+	local_supplies=0.0 
+	name="STATE_838"
+
+	history={
+ 	add_to_array = { list_victory_point = 12956 }
+ 	set_variable = { victory_point = 7 }
+		owner = FRA
+		add_core_of = FRA
+		add_claim_by = MAD
+		
+		victory_points = {
+			12956 7
+		}
+
+	}
+
+	provinces={
+		2200 8246 11015 12956 
+	}
+	resources={
+		crops = 5
+		steel=12.000
+	}	
+	manpower=557387
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+}

@@ -1,0 +1,115 @@
+@REF_INF_MIN = 1
+@REF_INF_MAX = 2
+@REF_INF_SELF_MIN = 1
+@REF_INF_SELF_MAX = 5
+@REF_INF_COOLDOWN_TIMER = 10
+@REF_INF_COST_SELF = -30
+@REF_INF_COST = -50
+@STATE_REF_INF_COST_SELF = -10
+@STATE_REF_INF_COST = -15
+@STATE_REF_COOLDOWN_TIMER = 5
+scripted_gui = {
+	cw_comm_power_struggle_decisions_ui = {
+		context_type = decision_category
+		window_name = "cw_comm_power_struggle_decision_ui_window"
+
+		properties = {
+			first_option = {
+				frame = country_ref_first_option_bar_frame
+			}
+			first_candidate_picture = {
+				image = "[CW_COMM_POWER_STRUGGLE_FIRST_CANDIDATE_IMAGES]"
+			}
+			second_option = {
+				frame = country_ref_second_option_bar_frame
+			}
+			second_candidate_picture = {
+				image = "[CW_COMM_POWER_STRUGGLE_SECOND_CANDIDATE_IMAGES]"
+			}
+			third_option = {
+				frame = country_ref_third_option_bar_frame
+			}
+			third_candidate_picture = {
+				image = "[CW_COMM_POWER_STRUGGLE_THIRD_CANDIDATE_IMAGES]"
+			}
+			fourth_option = {
+				frame = country_ref_fourth_option_bar_frame
+			}
+			fourth_candidate_picture = {
+				image = "[CW_COMM_POWER_STRUGGLE_FOURTH_CANDIDATE_IMAGES]"
+			}
+		}
+		triggers = {
+			first_candidate_picture_click_enabled = {
+				NOT = { has_country_flag = cps_first_candidate_arrested }
+			}
+			second_candidate_picture_click_enabled = {
+				NOT = { has_country_flag = cps_second_candidate_arrested }
+			}
+			third_candidate_picture_click_enabled = {
+				NOT = { has_country_flag = cps_third_candidate_arrested }
+			}
+			fourth_candidate_picture_click_enabled = {
+				NOT = { has_country_flag = cps_fourth_candidate_arrested }
+			}
+			#Third Option
+			third_option_visible = {
+				has_country_flag = third_option_occupied
+			}
+			third_option_status_visible = {
+				has_country_flag = third_option_occupied
+			}
+			third_option_flag_visible = {
+				has_country_flag = third_option_occupied
+			}
+			#Fourth Option
+			fourth_option_visible = {
+				has_country_flag = fourth_option_occupied
+			}
+			fourth_option_status_visible = {
+				has_country_flag = fourth_option_occupied
+			}
+			fourth_option_flag_visible = {
+				has_country_flag = fourth_option_occupied
+			}
+		}
+		effects = {
+			first_option_flag_click = {
+			  ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_first_option = yes
+			  ####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_country_ref_update_bars = yes
+			}
+			second_option_flag_click = {
+		    ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_second_option = yes
+			  ####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_country_ref_update_bars = yes
+		  }
+			third_option_flag_click = {
+			  ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_third_option = yes
+			  ####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_country_ref_update_bars = yes
+			}
+			fourth_option_flag_click = {
+			  ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_fourth_option = yes
+			  ####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_country_ref_update_bars = yes
+			}
+		}
+	}
+}

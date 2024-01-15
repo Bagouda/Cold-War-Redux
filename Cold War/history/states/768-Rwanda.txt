@@ -1,0 +1,33 @@
+state={
+	id=768
+	local_supplies=0.0 
+	name="STATE_768"
+
+	history = {
+ 	add_to_array = { list_victory_point = 9962 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = BEL
+		add_core_of = BEL
+		add_claim_by = RWD
+
+		1962.7.1 = {
+			owner = RWD
+			add_core_of = RWD
+			remove_core_of = BEL
+		}
+
+		victory_points = {
+			9962 1 
+		}
+	}
+
+	provinces={
+		9962 
+	}
+	manpower = 1093000
+	buildings_max_level_factor = 1.000
+	state_category = pastoral
+}

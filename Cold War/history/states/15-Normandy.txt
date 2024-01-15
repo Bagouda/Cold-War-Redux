@@ -1,0 +1,38 @@
+state = {
+	id=15
+	local_supplies=0.0 
+	name="STATE_15"
+	state_category = devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 9434 }
+ 	add_to_array = { list_victory_point = 11563 }
+ 	add_to_array = { list_victory_point = 11563 }
+ 	add_to_array = { list_victory_point = 6449 }
+ 	set_variable = { victory_point = 23 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = FRA
+		add_core_of = FRA
+		victory_points = {
+			11563 5
+		}
+		victory_points = {
+			11563 5
+		}
+		victory_points = {
+			6449 3
+		}
+		victory_points = {
+			9434 10
+		}
+	}
+	resources={
+		steel=12 # was: 36
+		crops = 6
+	}
+	manpower = 2332100
+	provinces={
+		485 539 553 3549 3579 6449 6569 6599 9434 9550 9578 11521 11535 11563 
+	}
+}

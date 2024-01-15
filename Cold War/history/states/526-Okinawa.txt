@@ -1,0 +1,26 @@
+state = {
+	id=526
+	local_supplies=0.0 
+	name="STATE_526"
+	state_category = small_island
+	history = {
+ 	add_to_array = { list_victory_point = 11932 }
+ 	set_variable = { victory_point = 10 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = USA
+		add_core_of = JAP
+
+		victory_points = {
+			11932 10 
+		}
+	}
+	resources={
+		crops = 3
+	}		
+	manpower = 578000
+	provinces={
+		1123 7115 10124 11932 
+	}
+}

@@ -1,0 +1,24 @@
+state = {
+	id=755
+	local_supplies=0.0 
+	name="STATE_755"
+	state_category = pastoral
+	history = {
+		buildings = {
+			infrastructure = 2
+		}
+		owner = XSM
+		add_core_of = XSM
+		add_core_of = CHI
+		add_claim_by= PRC
+		
+		1949.10.1 = {
+		owner = PRC
+		}
+	}
+	buildings_max_level_factor=1.000
+	manpower=1000000
+	provinces={
+		2053 2099 7997 10750 10796 10834 10865 12846 12890 13146
+	}
+}

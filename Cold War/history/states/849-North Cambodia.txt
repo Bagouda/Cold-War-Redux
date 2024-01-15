@@ -1,0 +1,41 @@
+state={
+	id=849
+	local_supplies=0.0 
+	name="STATE_849"
+	resources={
+		crops = 5
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 1324 }
+ 	set_variable = { victory_point = 5 }
+		owner = VIN
+		add_claim_by = CAM
+
+		buildings = {
+			infrastructure = 1
+		}		
+		
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+		1953.11.9 = {
+			owner = CAM
+			add_core_of = CAM
+			remove_claim_by = CAM
+			remove_core_of = FRA
+		}
+		victory_points = { 1324 5 }	#Kompong Thom
+	}
+	provinces={
+		1324 4302 4639 10467 12447 12460 12475 
+	}
+	manpower=543000
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+}

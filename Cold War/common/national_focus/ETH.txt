@@ -1,0 +1,52 @@
+focus_tree = {
+	id = ethiopia_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = ETH
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	focus = {
+		id = ETH_retake_eritrea
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = {}
+		
+		icon = GFX_goal_generic_construct_civ_factory
+		x = -1
+		y = 1
+		cost = 200
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {			
+		}
+		search_filters = {}
+
+		completion_reward = {
+			custom_effect_tooltip = ETH_ERITREA_UNSC_RESOLUTION_TT
+			transfer_state = 550
+			transfer_state = 864
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+﻿
+units= {
+
+	####### NAVAL UNITS #######
+	
+	fleet = {
+	          name = "Royal Autralian Navy"
+			  naval_base = 7798
+			  task_force = {
+			  name = "Task force Australia"
+			  location = 7798 
+			  ship = { name = "HMAS Australia" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = AST version_name = "Minotaur Class" } } }
+			  ship = { name = "HMAS Hobart" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = AST version_name = "Minotaur Class" } } }
+			  ship = { name = "HMAS shropshire" definition = light_cruiser equipment = { ship_hull_cruiser_4 = { amount = 1 owner = AST version_name = "Minotaur Class" } } }
+			  ship = { name = "HMAS Arunta" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = AST version_name = "Tribal Class" } } }
+			  ship = { name = "HMAS Warramunga" definition = destroyer equipment = { ship_hull_light_4 = { amount = 1 owner = AST version_name = "Tribal Class" } } }
+			}
+	}
+		
+} 
+

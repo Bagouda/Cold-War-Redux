@@ -1,0 +1,281 @@
+﻿division_template = {
+	name = "Mountain Division"
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 2 y = 0 }
+	}
+	support = {
+        engineer = { x = 0 y = 0 }
+	}	
+}
+division_template = {
+	name = "Infantry Division"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 4 y = 0 }
+		infantry = { x = 5 y = 0 }
+		artillery_brigade = { x = 1 y = 1 }
+	}
+	support = {
+        anti_tank = { x = 0 y = 0 }
+		artillery = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Motorized Infantry"
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 2 y = 0 }
+	}
+}
+division_template = {
+	name = "Light Armour division"
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		medium_armor = { x = 1 y = 0 }
+		medium_armor = { x = 1 y = 1 }
+		medium_armor = { x = 1 y = 2 }		
+	}
+}
+units = {
+	division = {
+		location = 12880
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 12880
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}	
+	division = {
+		location = 10629
+		division_template = "Mountain Division"
+	}
+	division = {
+		location = 1959
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 10854
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 4986
+		division_template = "Mountain Division"
+	}
+	division = {
+		location = 10880
+		division_template = "Mountain Division"
+	}
+	division = {
+		location = 4939
+		division_template = "Light Armour division"
+	}
+	division = {
+		location = 517
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 517
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}	
+	division = {
+		location = 10733
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 10733
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}	
+	division = {
+		location = 12156
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 12156
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}	
+	division = {
+		location = 5007
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 5007
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}	
+	division = {
+		location = 1575
+		division_template = "Light Armour division"
+	}
+	division = {
+		location = 7571
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 7571
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}	
+	division = {
+		location = 1180
+		division_template = "Motorized Infantry"
+	}
+	division = {
+		location = 10421
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 4538
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 12078
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 1203
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 1027
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 10480
+		division_template = "Motorized Infantry"
+	}
+	division = {
+		location = 6904
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 6904
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}	
+	division = {
+		location = 9776
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 9776
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}	
+	division = {
+		location = 6969
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 6969
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}	
+	division = {
+		location = 11822
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 11822
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}	
+	division = {
+		location = 12043
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 12043
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	#### SOUTHERN TROOPS ####
+	division = {
+		location = 4089
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 12074
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 7089
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+	division = {
+		location = 4157
+		division_template = "Infantry Division"
+		start_experience_factor = 0.8
+	}
+}
+### Starting Production ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_3
+			creator = "PRC"
+		}
+		requested_factories = 2
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "PRC"
+		}
+		requested_factories = 2
+	}
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_3
+			creator = "PRC"
+		}
+		requested_factories = 1
+	}		
+	add_equipment_production = {
+		equipment = {
+			type = mechanized_equipment_3
+			creator = "PRC"
+		}
+		requested_factories = 1
+	}
+	add_equipment_production = {
+		equipment = {
+			type = medium_tank_equipment_3
+			creator = "PRC"
+		}
+		requested_factories = 1
+	}
+}

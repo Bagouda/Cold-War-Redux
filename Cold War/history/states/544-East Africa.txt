@@ -1,0 +1,25 @@
+
+state={
+	id=544
+	local_supplies=0.0 
+	name="STATE_544"
+	resources={
+		crops=5.000
+	}
+
+	history={
+		owner = POR
+		add_claim_by = MZB
+		
+		buildings = {
+			infrastructure = 1
+		}
+	}
+
+	provinces={
+		2123 2159 2180 2202 2217 5164 10972 12950 12971 
+	}
+	manpower=2062500
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

@@ -1,0 +1,156 @@
+spriteTypes = {
+	### categories
+	spriteType = {
+		name = "GFX_decision_bread_icon"
+		texturefile = "gfx/interface/decisions/bread_decision_icon.dds"
+	}		
+	spriteType = {
+		name = "GFX_manchuria_struggle_category_image"
+		texturefile = "gfx/interface/decisions/manchuria_control_category.dds"
+	}	
+	spriteType = {
+		name = "GFX_govvernment_decision_icon"
+		texturefile = "gfx/interface/decisions/govvernment_decision_icon.dds"
+	}		
+	spriteType = {
+		name = "GFX_puppet_decision_icon"
+		texturefile = "gfx/interface/decisions/puppet_decision_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_broken_communist_star_decision_icon"
+		texturefile = "gfx/interface/decisions/broken_communist_star_decision_icon.dds"
+	}	
+	spriteType = {
+		name = "GFX_communist_power_struggle_category_image"
+		texturefile = "gfx/interface/decisions/communist_power_struggle_cat_image.dds"
+	}		
+	spriteType = {
+		name = "GFX_regional_referendum_category_image"
+		texturefile = "gfx/interface/decisions/regional_referendum_cat_image.dds"
+	}	
+	spriteType = {
+		name = "GFX_crisis_category_icon"
+		texturefile = "gfx/interface/decisions/decision_category_crisis.dds"
+	}	
+	spriteType = {
+		name = "GFX_berlin_category_icon"
+		texturefile = "gfx/interface/decisions/berlin_decision_category_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_national_referendum_category_image"
+		texturefile = "gfx/interface/decisions/referendum_cat_image.dds"
+	}	
+	spriteType = {
+		name = "GFX_influence_battle_category_image"
+		texturefile = "gfx/interface/decisions/influence_battle_cat_image.dds"
+	}
+	spriteType = {
+		name = "GFX_influence_battle_category_icon"
+		texturefile = "gfx/interface/decisions/influence_battle_cat_icon.dds"
+	}		
+	spriteType = {
+		name = "GFX_un_category_image"
+		texturefile = "gfx/interface/decisions/un_cat_image.dds"
+	}
+	spriteType = {
+		name = "GFX_un_category_icon"
+		texturefile = "gfx/interface/decisions/un_cat_icon.dds"
+	}		
+	spriteType = {
+		name = "GFX_un_category"
+		texturefile = "gfx/interface/decisions/decision_cat_un_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_mp_category_image"
+		texturefile = "gfx/interface/decisions/mp_cat_image.dds"
+	}		
+	spriteType = {
+		name = "GFX_mp_category_icon"
+		texturefile = "gfx/interface/decisions/mp_cat_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_comecon_category_image"
+		texturefile = "gfx/interface/decisions/comecon_cat_image.dds"
+	}
+	spriteType = {
+		name = "GFX_comecon_category_icon"
+		texturefile = "gfx/interface/decisions/comecon_cat_icon.dds"
+	}	
+	spriteType = {
+		name = "GFX_decision_marshall_erp"
+		texturefile = "gfx/interface/decisions/decision_mp.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_marshall_erp_stop"
+		texturefile = "gfx/interface/decisions/decision_mp_stop.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_marshall_erp_modify"
+		texturefile = "gfx/interface/decisions/decision_mp_modify.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_category_australian_debacle_icon"
+		texturefile = "gfx/interface/decisions/australian_debacle_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_un_gold_decision_icon"
+		texturefile = "gfx/interface/decisions/un_decision_gold_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_un_silver_decision_icon"
+		texturefile = "gfx/interface/decisions/un_decision_silver_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_un_recognition_decision_icon"
+		texturefile = "gfx/interface/decisions/decision_icon_un_recognition.dds"
+	}
+	####################### NEW AND RELEVANT #######################
+	spriteType = {
+		name = "GFX_police_action_icon"
+		texturefile = "gfx/interface/decisions/police_action_decision_icon.dds"
+	}	
+	spriteType = {
+		name = "GFX_transport_plane_icon"
+		texturefile = "gfx/interface/decisions/transport_plane.dds"
+	}	
+	spriteType = {
+		name = "GFX_resource_companies_decision_icon"
+		texturefile = "gfx/interface/decisions/resource_companies_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_infra_decision_icon"
+		texturefile = "gfx/interface/decisions/decision_icon_infra.dds"
+	}
+	spriteType = {
+		name = "GFX_house_decision_icon"
+		texturefile = "gfx/interface/decisions/decision_house_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_soviet_medal_decision_icon"
+		texturefile = "gfx/interface/decisions/decision_soviet_medal_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_handout_decision_icon"
+		texturefile = "gfx/interface/decisions/handout_decision_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_skull_decision_icon"
+		texturefile = "gfx/interface/decisions/skull_decision_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_bribe_decision_icon"
+		texturefile = "gfx/interface/decisions/bribe_decision_icon.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_icon_power_grid"
+		texturefile = "gfx/interface/decisions/decision_icon_power_grid.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_icon_first_aid"
+		texturefile = "gfx/interface/decisions/decision_icon_first_aid.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_icon_roads"
+		texturefile = "gfx/interface/decisions/decision_icon_roads.dds"
+	}	
+}

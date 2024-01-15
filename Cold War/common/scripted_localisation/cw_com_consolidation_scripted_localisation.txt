@@ -1,0 +1,137 @@
+defined_text = {
+	name = CW_CONSILIDATION_TT_BUL
+	text = {
+		trigger = {
+			exists = yes
+			OR = {
+				has_country_flag = communist_consolidation_target
+				has_country_flag = communist_consolidation_target_operations
+			}
+			NOT = { is_puppet_of = SOV }
+		}
+		localization_key = "COMMUNIST_CONSOLIDATION_TT_BUL"
+	}
+}
+defined_text = {
+	name = CW_CONSILIDATION_TT_ROM
+	text = {
+		trigger = {
+			exists = yes
+			OR = {
+				has_country_flag = communist_consolidation_target
+				has_country_flag = communist_consolidation_target_operations
+			}
+			NOT = { is_puppet_of = SOV }
+		}
+		localization_key = "COMMUNIST_CONSOLIDATION_TT_ROM"
+	}
+}
+defined_text = {
+	name = CW_CONSILIDATION_TT_HUN
+	text = {
+		trigger = {
+			exists = yes
+			OR = {
+				has_country_flag = communist_consolidation_target
+				has_country_flag = communist_consolidation_target_operations
+			}
+			NOT = { is_puppet_of = SOV }
+		}
+		localization_key = "COMMUNIST_CONSOLIDATION_TT_HUN"
+	}
+}
+defined_text = {
+	name = CW_CONSILIDATION_TT_CZE
+	text = {
+		trigger = {
+			exists = yes
+			OR = {
+				has_country_flag = communist_consolidation_target
+				has_country_flag = communist_consolidation_target_operations
+			}
+			NOT = { is_puppet_of = SOV }
+		}
+		localization_key = "COMMUNIST_CONSOLIDATION_TT_CZE"
+	}
+}
+defined_text = {
+	name = CW_CONSILIDATION_TT_CZR
+	text = {
+		trigger = {
+			exists = yes
+			has_country_flag = communist_consolidation_target
+			NOT = { is_puppet_of = SOV }
+		}
+		localization_key = "COMMUNIST_CONSOLIDATION_TT_CZR"
+	}
+}
+defined_text = {
+	name = CW_CONSILIDATION_TT_SLO
+	text = {
+		trigger = {
+			exists = yes
+			OR = {
+				has_country_flag = communist_consolidation_target
+				has_country_flag = communist_consolidation_target_operations
+			}
+			NOT = { is_puppet_of = SOV }
+		}
+		localization_key = "COMMUNIST_CONSOLIDATION_TT_SLO"
+	}
+}
+defined_text = {
+	name = CW_CONSILIDATION_TT_POL
+	text = {
+		trigger = {
+			exists = yes
+			OR = {
+				has_country_flag = communist_consolidation_target
+				has_country_flag = communist_consolidation_target_operations
+			}
+			NOT = { is_puppet_of = SOV }
+		}
+		localization_key = "COMMUNIST_CONSOLIDATION_TT_POL"
+	}
+}
+defined_text = {
+	name = CW_CONSILIDATION_TT_FIN
+	text = {
+		trigger = {
+			exists = yes
+			OR = {
+				has_country_flag = communist_consolidation_target
+				has_country_flag = communist_consolidation_target_operations
+			}
+			NOT = { is_puppet_of = SOV }
+		}
+		localization_key = "COMMUNIST_CONSOLIDATION_TT_FIN"
+	}
+}
+defined_text = {
+	name = CW_CONSILIDATION_TT_CGR
+	text = {
+		trigger = {
+			exists = yes
+			OR = {
+				has_country_flag = communist_consolidation_target
+				has_country_flag = communist_consolidation_target_operations
+			}
+			NOT = { is_puppet_of = SOV }
+		}
+		localization_key = "COMMUNIST_CONSOLIDATION_TT_CGR"
+	}
+}
+defined_text = {
+	name = CW_CONSILIDATION_TT_TUR
+	text = {
+		trigger = {
+			exists = yes
+			OR = {
+				has_country_flag = communist_consolidation_target
+				has_country_flag = communist_consolidation_target_operations
+			}
+			NOT = { is_puppet_of = SOV }
+		}
+		localization_key = "COMMUNIST_CONSOLIDATION_TT_TUR"
+	}
+}

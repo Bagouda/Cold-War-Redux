@@ -1,0 +1,50 @@
+spriteTypes = {
+	#################
+	# KOR MINISTERS #
+	#################
+	spriteType = {
+		name = "GFX_kor_archer_l_lerch"
+		texturefile = "gfx/leaders/USA/USAKOR_1.dds"
+	}		
+	spriteType = {
+		name = "GFX_kor_cho_bong_am"
+		texturefile = "gfx/leaders/KOR/cho_bong_am_leader.dds"
+	}		
+	spriteType = {
+		name = "GFX_william_f_dean"
+		texturefile = "gfx/leaders/USA/USAKOR_2.dds"
+	}	
+	spriteType = {
+		name = "GFX_kim_gu"
+		texturefile = "gfx/leaders/KOR/kim_gu.dds"
+	}	
+	spriteType = {
+		name = "GFX_syngman_rhee_leader"
+		texturefile = "gfx/leaders/KOR/KORH1.dds"
+	}	
+	spriteType = {
+		name = "GFX_idea_syngman_rhee_advisor"
+		texturefile = "gfx/interface/ministers/PRK/syngman_rhee_advisor.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_Cho_bong_am_cabinet"
+		texturefile = "gfx/interface/ministers/KOR/Cho_bong_am_cabinet.dds"
+	}
+	### MILITARY LEADERS
+	spriteType = {
+		name = "GFX_kor_kim_jong_oh_large"
+		texturefile = "gfx/leaders/KOR/kim_jong_oh.dds"
+	}
+	spriteType = {
+		name = "GFX_kor_paik_sun_yup_large"
+		texturefile = "gfx/leaders/KOR/paik_sun_yop.dds"
+	}
+	spriteType = {
+		name = "GFX_kor_shin_hyun_joon_large"
+		texturefile = "gfx/leaders/KOR/shin_hyun_joon.dds"
+	}
+	spriteType = {
+		name = "GFX_kor_sohn_won_yil_large"
+		texturefile = "gfx/leaders/Asia/Portrait_Asia_Generic_warlord1.dds"
+	}
+}

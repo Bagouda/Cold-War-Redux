@@ -1,0 +1,47 @@
+state = {
+	id=335
+	local_supplies=0.0 
+	name="STATE_335" # Java
+	state_category = large_city
+	history = {
+ 	add_to_array = { list_victory_point = 7381 }
+ 	add_to_array = { list_victory_point = 4608 }
+ 	add_to_array = { list_victory_point = 4406 }
+ 	set_variable = { victory_point = 24 }
+		owner = EIN
+		add_core_of = EIN
+		add_core_of = INS
+		
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+			arms_factory = 2
+			air_base = 3
+			dockyard  = 2
+			7381 = {
+				naval_base = 3
+			}
+			4608 = {
+				naval_base = 1
+			}			
+		}
+		
+		victory_points = {
+			4406 5		#Bogor
+		}		
+		victory_points = {
+			4608 10 
+		}
+		victory_points = {
+			7381 20
+		}
+	}
+	resources={
+		oil=10 # was: 16
+		crops = 25
+	}
+	manpower = 41718200
+	provinces={
+		1209 1386 1398 1413 1425 4306 4390 4406 4434 4608 4621 7223 7381 7421 7642 7654 10135 10279 10307 10479 10491 12249 12277 12293 12472 
+	}
+}

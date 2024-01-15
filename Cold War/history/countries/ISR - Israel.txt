@@ -1,0 +1,106 @@
+﻿capital = 454
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	OOB = ISR_1946
+	set_politics = {
+		ruling_party = neutrality
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 50
+		neutrality = 0
+		communism_totalitarian = 50
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Levi Eshkol"
+		desc = ""
+		picture = "ISRG3.dds"
+		ideology = zionism_idolg
+		expire = 1969.1.12
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "David Ben-Gurion"
+		desc = ""
+		picture = "ISRG1.dds"
+		ideology = zionism_idolg
+		expire = 1963.6.26
+		traits = {}
+	}
+}
+1948.5.14 = {
+	create_country_leader = {
+		name = "David Ben-Gurion"
+		desc = ""
+		picture = "ISRG1.dds"
+		ideology = zionism_idolg
+		expire = 1963.6.26
+		traits = {}
+	}
+}
+1950.6.25 = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1949.7.5"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "David Ben-Gurion"
+		desc = ""
+		picture = "ISRG1.dds"
+		ideology = social_democrat_idolg
+		expire = 1963.6.26
+		traits = {}
+	}	
+}
+1961.12.11 = {
+	set_politics = {
+		last_election = "1959.7.5"
+	}
+}
+1979.12.24 = {
+	set_politics = {
+		ruling_party = democratic
+		election_frequency = 48
+		last_election = 1959.7.5
+		elections_allowed = yes
+	}
+	create_country_leader = {
+			name = "Menachem Begin"
+			desc = ""
+			picture = "ISRG6.dds"
+			ideology = social_cons_idolg
+			expire = 1977.1.12
+			traits = {}
+	}
+}
+1989.1.9 = {
+	set_politics = {
+		ruling_party = democratic
+		election_frequency = 48
+		last_election = 1959.7.5
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 90
+		democratic_socialist = 0
+		neutrality = 10
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+			name = "Yitzhak Shamir"
+			desc = ""
+			picture = "ISRG7.dds"
+			ideology = social_cons_idolg
+			expire = 1988.1.12
+			traits = {}
+	}
+}

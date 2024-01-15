@@ -1,0 +1,28 @@
+state = {
+	id=684
+	local_supplies=0.0 
+	name="STATE_684"
+	state_category = small_island
+	history = {
+		owner = USA
+		add_core_of = MIC
+		
+		start_resistance = yes
+		set_compliance = 10
+		set_resistance = 20
+		
+		add_state_modifier = {
+			modifier = {
+				resistance_target = 0.1
+				compliance_gain = -0.5
+			}
+		}		
+		buildings = {
+			infrastructure = 1
+		}
+	}
+	manpower=42357
+	provinces={
+		2489 13027 13028 13029 13030 13031 13032 13033 13034 13035 13036 
+	}
+}

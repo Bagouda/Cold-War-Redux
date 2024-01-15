@@ -1,0 +1,36 @@
+
+state={
+	id=50
+	local_supplies=0.0 
+	name="STATE_50"
+	resources={
+		aluminium=6.000
+		crops = 10
+	}
+	history={
+ 	add_to_array = { list_victory_point = 9517 }
+ 	add_to_array = { list_victory_point = 11499 }
+ 	set_variable = { victory_point = 23 }
+		owner = FRA
+		add_core_of = GER
+		
+		buildings = {
+			infrastructure = 1
+		}		
+		
+		victory_points = {
+			11499 3 
+		}
+		victory_points = {
+			9517 20 
+		}
+
+	}
+
+	provinces={
+		694 3679 3690 3692 6542 6712 6934 9655 11486 11640 13126 
+	}
+	manpower=5086854
+	buildings_max_level_factor=1.000
+	state_category=large_city
+}

@@ -1,0 +1,41 @@
+state={
+	id=848
+	local_supplies=0.0 
+	name="STATE_848"
+	resources={
+		crops = 5
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 7645 }
+ 	set_variable = { victory_point = 5 }
+		owner = VIN
+		add_core_of = CAM
+
+		buildings = {
+			infrastructure = 1
+		}		
+		
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+		1953.11.9 = {
+			owner = CAM
+			add_core_of = CAM
+			remove_claim_by = CAM
+			remove_core_of = FRA
+		}
+		victory_points = { 7645 5 }	#Stung Treng
+	}	
+	provinces={
+		1620 4330 4596 7645 10204 12167 12260 12288 
+	}
+	manpower=1346000
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+}

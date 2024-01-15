@@ -1,0 +1,27 @@
+state = {
+	id=74
+	local_supplies=0.0 
+	name="STATE_74"
+	state_category = rural
+	resources = {
+		uranium=5
+	}
+	history = {
+ 	add_to_array = { list_victory_point = 3583 }
+ 	set_variable = { victory_point = 5 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = CZE
+		add_core_of = CZE
+		add_claim_by = CZR		
+		
+		victory_points = {
+			3583 5
+		}
+	}
+	manpower = 820000
+	provinces= {
+		421 3414 3583 6485
+ 	}
+}

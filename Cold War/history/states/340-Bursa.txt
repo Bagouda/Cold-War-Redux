@@ -1,0 +1,25 @@
+state = {
+	id=340
+	local_supplies=0.0 
+	name="STATE_340"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 947 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = TUR
+		add_core_of = TUR
+		victory_points = {
+			947 1 
+		}
+	}
+	resources={
+		chromium=39 # was: 54
+	}
+	manpower = 1026527
+	provinces={
+		785 947 3786 3851 6864 6912 9799 9887 11778 11867 
+	}
+}

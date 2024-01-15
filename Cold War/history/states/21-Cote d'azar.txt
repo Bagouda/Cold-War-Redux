@@ -1,0 +1,37 @@
+state = {
+	id=21
+	local_supplies=0.0 
+	name="STATE_21" # Provence
+	state_category = devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 11834 }
+ 	add_to_array = { list_victory_point = 911 }
+ 	set_variable = { victory_point = 11 }
+		owner = FRA
+		add_core_of = FRA
+		
+		buildings = {
+			infrastructure = 3
+			air_base = 2
+			industrial_complex = 1
+			dockyard  = 1
+			11834 = {
+				naval_base = 5
+			}
+		}		
+		victory_points = {
+			11834 10
+		}
+		victory_points = {
+			911 1 
+		}
+	}
+	resources={
+		aluminium=60 # was: 120
+		crops = 10
+	}
+	manpower = 2060400
+	provinces={
+		911 956 958 3762 3928 11834 11849 11875 
+	}
+}

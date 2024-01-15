@@ -1,0 +1,34 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_idea_ita_umberto_2"
+		texturefile = "gfx/interface/ideas/ita_umberto_2.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_ita_victor_emmanuel_3"
+		texturefile = "gfx/interface/ideas/ita_victor_emmanuel_3.dds"
+	}	
+	spriteType = {
+		name = "GFX_idea_ger_wilhelm_3"
+		texturefile = "gfx/interface/ideas/ger_wilhelm_3.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_gre_george_2"
+		texturefile = "gfx/interface/ideas/gre_george_2.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_michael_i"
+		texturefile = "gfx/interface/ideas/rom_michael_1.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_simeon_2_young"
+		texturefile = "gfx/interface/ideas/simeon_2_young.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_george_6"
+		texturefile = "gfx/interface/ideas/eng_george_6.dds"
+	}
+	spriteType = {
+		name = "GFX_idea_elizabeth_2"
+		texturefile = "gfx/interface/ideas/elizabeth_2.dds"
+	}	
+}

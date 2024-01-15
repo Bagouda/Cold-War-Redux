@@ -1,0 +1,44 @@
+state = {
+	id=458
+	local_supplies=0.0 
+	name="STATE_458"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 11969 }
+ 	add_to_array = { list_victory_point = 9994 }
+ 	add_to_array = { list_victory_point = 11921 }
+ 	add_to_array = { list_victory_point = 11921 }
+ 	set_variable = { victory_point = 13 }
+		owner = FRA
+		add_core_of = FRA
+		add_core_of = TUN
+		
+		buildings = {
+			infrastructure = 3
+			air_base = 2
+			11969 = {
+				naval_base = 2
+			}			
+		}
+		
+		victory_points = {
+			11921 1 
+		}
+		victory_points = {
+			11921 1 
+		}
+		victory_points = {
+			9994 1 
+		}
+		victory_points = {
+			11969 10 
+		}
+	}
+	resources={
+		steel=6 # was: 8
+	}
+	manpower = 1982940
+	provinces={
+		1037 1046 4061 4129 4163 7077 7162 7180 9994 10091 11921 11969 
+	}
+}

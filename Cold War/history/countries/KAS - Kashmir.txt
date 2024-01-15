@@ -1,0 +1,27 @@
+﻿capital = 441
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	OOB = KAS_1946
+	set_politics = {
+		ruling_party = unaligned_right
+		elections_allowed = no
+	}
+	set_popularities = {	
+		democratic  = 40
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 60
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Hari Singh"
+		desc = ""
+		picture = "KASH1.dds"
+		ideology = despotism
+		expire = 1980.5.27
+		traits = {}
+	}
+}

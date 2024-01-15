@@ -1,0 +1,12 @@
+spriteTypes = {
+spriteType = {
+		name = "GFX_focus_KOR_economic_reliance"
+		texturefile = "gfx/interface/cw_focuses/KOR/1950/focus_KOR_economic_reliance.dds"
+		legacy_lazy_load = no
+	}
+spriteType = {
+		name = "GFX_focus_KOR_korea_united"
+		texturefile = "gfx/interface/cw_focuses/KOR/1950/focus_KOR_korea_united.dds"
+		legacy_lazy_load = no
+	}
+}

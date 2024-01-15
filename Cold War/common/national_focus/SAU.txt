@@ -1,0 +1,46 @@
+focus_tree = {
+	id = saudi_arabia_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SAU
+			#always = no
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	focus = {
+		id = SAU_nationalize_oil_industry
+		available = {
+			PER = { has_country_flag = oil_industry_nationilized }
+		}
+		icon = GFX_SOV_favor_khrushev
+		x = 5
+		y = 1
+		cost = 20
+
+		bypass = {
+		}
+		available_if_capitulated = no
+		
+		select_effect = {
+			USA = { unlock_national_focus = USA_secure_saudi_oil }
+		}
+		
+		completion_reward = {
+			set_country_flag = { flag = nationalize_those_bastards  value = 1 days = 5 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

@@ -1,0 +1,380 @@
+﻿add_namespace = ccw_events
+country_event = {
+	id = ccw_events.1		#Handover of Manchuria
+	title = ccw_events.1.t
+	desc = ccw_events.1.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "We will unify all of China"
+		ai_chance = {
+			modifier = {
+				factor = 100
+			}
+		}
+		custom_effect_tooltip = "CCW_GET_MANCHURIA_EVENT_EFFECT_LOC"
+		hidden_effect = {
+			CHI = { load_oob = CHI_manchuria_garrison }
+			THIS = {
+				transfer_state = 328
+				transfer_state = 717
+				transfer_state = 714
+				transfer_state = 715
+				transfer_state = 761
+				transfer_state = 716
+				transfer_state = 610
+			}
+			328 = {  add_core_of = THIS }
+			717 = {  add_core_of = THIS }
+			714 = {  add_core_of = THIS }
+			715 = {  add_core_of = THIS }
+			761 = {  add_core_of = THIS }
+			716 = {  add_core_of = THIS }
+			610 = { add_core_of = THIS }
+			
+			if = { limit = { SOV = { has_country_flag = give_dalian}} 745 = { add_core_of = PRC PRC = { transfer_state = 745}}}
+		}		
+	}
+}
+country_event = {
+	id = ccw_events.2		#Japanese Weapons
+	title = ccw_events.2.t
+	desc = ccw_events.2.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "With these we will destroy our enemies!"
+		custom_effect_tooltip = "Captured Japanese weapons will be added to our stockpile."		
+		PRC = {
+			add_equipment_to_stockpile = { type = infantry_equipment_3 amount = 100000 producer = PRC }
+			add_equipment_to_stockpile = { type = support_equipment amount = 10000 producer = PRC }
+			add_equipment_to_stockpile = { type = mechanized_equipment_3 amount = 1000 producer = PRC }			
+		}
+	}
+}
+country_event = {
+	id = ccw_events.3		#Soviet Secret Volunteers
+	title = ccw_events.3.t
+	desc = ccw_events.3.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "We welcome our comrades."
+		ai_chance = {
+			modifier = {
+				factor = 100
+			}
+		}
+		add_manpower = 10000	
+	}
+}
+country_event = {
+	id = ccw_events.4		#Resources
+	title = ccw_events.4.t
+	desc = ccw_events.4.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Let's put these to good use."
+		ai_chance = {
+			modifier = {
+				factor = 100
+			}
+		}
+		PRC = {
+			add_offsite_building = { type = industrial_complex level = 10 }
+			create_import = {
+				resource = steel
+				amount = 10
+				exporter = SOV
+			}
+			create_import = {
+				resource = oil
+				amount = 10
+				exporter = SOV
+			}
+			create_import = {
+				resource = rubber
+				amount = 10
+				exporter = SOV
+			}
+			create_import = {
+				resource = aluminium
+				amount = 10
+				exporter = SOV
+			}			
+		}
+	}
+}
+country_event = {
+	id = ccw_events.5		#Light weapons
+	title = ccw_events.5.t
+	desc = ccw_events.5.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "This might help."
+		ai_chance = {
+			modifier = {
+				factor = 100
+			}
+		}
+		SOV = {
+			send_equipment = { equipment = infantry_equipment amount = 100000 target = THIS }
+			send_equipment = { equipment = support_equipment amount = 100000 target = THIS }
+			send_equipment = { equipment = artillery_equipment_3 amount = 10000 target = THIS }
+			send_equipment = { equipment = mechanized_equipment_3 amount = 10000 target = THIS }			
+		}
+	}
+}
+country_event = {
+	id = ccw_events.6		#Heavy weapons
+	title = ccw_events.6.t
+	desc = ccw_events.6.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Our last chance."
+		ai_chance = {
+			modifier = {
+				factor = 100
+			}
+		}
+		SOV = {
+			send_equipment = { equipment = heavy_fighter_equipment amount = 500 target = THIS }		
+			send_equipment = { equipment = medium_tank_equipment_2 amount = 500 target = THIS }			
+		}
+	}
+}
+country_event = {
+	id = ccw_events.7		#Exposed volunteers
+	title = ccw_events.7.t
+	desc = ccw_events.7.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Our fate is in their hands"
+		ai_chance = {
+			modifier = {
+				factor = 100
+			}
+		}
+		custom_effect_tooltip = "The Soviet Union may now send us volunteers to aid us in our war."
+	}
+}
+country_event = {
+	id = ccw_events.8		#PRC event for establishing a Soviet Republic
+	title = ccw_events.8.t
+	desc = ccw_events.8.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "It's better than nothing."
+		ai_chance = {
+			modifier = {
+				factor = 100
+			}
+		}
+		add_stability = -0.3
+		set_cosmetic_tag = SOV_PRC
+		hidden_effect = {
+			every_state = { limit = { is_controlled_by = CHI } CHI = { set_state_owner = PREV } }
+			every_state = { limit = { is_controlled_by = XSM } XSM = { set_state_owner = PREV } }
+			every_state = { limit = { is_controlled_by = SIK } SIK = { set_state_owner = PREV } }
+			every_state = { limit = { OR = { state = 328 state = 717 state = 714 state = 715 state = 761 state = 716 state = 610 } is_controlled_by = PRC } PRC = { transfer_state = PREV } }
+			white_peace = CHI
+			set_major = no
+			set_country_flag = communist_manchuria
+			CHI = { country_event = ccw_events.9 }
+			news_event = { id = cw_non_historic_news.19 days = 5 }
+		}
+		if = {
+			limit = {
+				NOT = { PRC = { is_puppet_of = SOV } }
+			}
+			SOV = { puppet = PRC }			
+		}
+		give_guarantee = PRC		
+	}
+	option = {
+		name = "We will not trade one imperialist power for another."
+		ai_chance = {
+			modifier = {
+				factor = 0
+			}
+		}
+		add_stability = 0.3
+		add_popularity = { ideology = communism popularity = 0.5 }
+		reverse_add_opinion_modifier = { target = SOV modifier = rejected_demands }
+		FROM = { phone_notification_generic_request_refused = yes }
+	}	
+}
+country_event = {
+	id = ccw_events.9		#CHI event for establishing a Soviet Republic
+	title = ccw_events.9.t
+	desc = ccw_events.9.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "We can't afford a war with the Soviet Union right now."
+		ai_chance = {
+			modifier = {
+				factor = 100
+			}
+		}
+		add_stability = -0.3
+	}
+	option = {
+		name = "We must hold all of China."
+		ai_chance = {
+			modifier = {
+				factor = 0
+			}
+		}
+		add_stability = 0.3
+		declare_war_on = { target = PRC type = annex_everything }
+	}	
+}
+country_event = {
+	id = ccw_events.10		#China partition resolution implementation
+	title = ccw_events.10.t
+	desc = ccw_events.10.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = {
+		name = "There is only one China."
+		ai_chance = {
+			modifier = {
+				factor = 25
+				ROOT = { surrender_progress < 0.1 }
+			}
+		}
+		unsc_mark_for_sanctions = yes
+		hidden_effect = {
+			add_named_threat = { threat = 5 name = UNSC_REJECTED_PARTITION_PLAN }
+			news_event = { id = ccw_events.12 days = 5 }		
+			cw_unsc_clear_junk = yes
+			clr_country_flag = unsc_partition_resolution_china
+			set_country_flag = rejected_china_partition
+		}
+	}
+	option = {
+		name = "Agree to partition plan."
+		ai_chance = {
+			modifier = {
+				factor = 25
+				ROOT = { surrender_progress > 0.3 }
+			}
+			modifier = {
+				add = -50
+				is_historical_focus_on = yes
+			}
+		}
+		set_country_flag = agreed_china_partition
+		if = {
+			limit = {
+				AND = {
+					PRC = { has_country_flag = agreed_china_partition }
+					CHI = { has_country_flag = agreed_china_partition }
+				}
+			}
+			hidden_effect = {
+				every_state = { limit = { is_controlled_by = CHI } CHI = { set_state_owner = PREV } }
+				every_state = { limit = { is_controlled_by = PRC } PRC = { set_state_owner = PREV } }
+				CHI = { white_peace = PRC }
+				clr_country_flag = unsc_partition_resolution_china
+			}
+			news_event = { id = ccw_events.11 days = 5 }
+		}
+		if = {
+			limit = {
+				OR = {
+					PRC = { has_country_flag = rejected_china_partition }
+					CHI = { has_country_flag = rejected_china_partition }
+				}			
+			}
+			hidden_effect = {
+				cw_unsc_clear_junk = yes
+				clr_country_flag = unsc_partition_resolution_china
+				clr_global_flag = unsc_implementing_resolution_flag
+			}
+		}
+	}	
+}
+news_event = {
+	id = ccw_events.11		#Partition agreed
+	title = ccw_events.11.t
+	desc = ccw_events.11.d
+	picture = GFX_china_parition
+
+	major = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_global_flag = unsc_implementing_resolution_flag	
+		cw_unsc_clear_junk = yes
+	}	
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = ccw_events.12		#Partition rejected
+	title = ccw_events.12.t
+	desc = ccw_events.12.d
+	picture = GFX_china_parition
+
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = ccw_events.13		# Mao Zedong executed
+	title = ccw_events.13.t
+	desc = ccw_events.13.d
+	picture = GFX_mao_zedong_execution_news
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = ccw_events.14		# Mao Zedong flees to Soviet Union
+	title = ccw_events.14.t
+	desc = ccw_events.14.d
+	picture = GFX_mao_train_news
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}

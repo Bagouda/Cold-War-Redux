@@ -1,0 +1,21 @@
+state={
+	id=870
+	local_supplies=0.0 
+	name="STATE_870"
+	state_category=pastoral
+	history = {
+		owner = FRA
+		add_claim_by = GAB
+		buildings = {
+			infrastructure = 3
+						
+		}		
+		
+	}
+	buildings_max_level_factor=1.000
+	manpower=65566
+	provinces={
+		8207 13210 
+	}
+	buildings_max_level_factor=1.000
+}

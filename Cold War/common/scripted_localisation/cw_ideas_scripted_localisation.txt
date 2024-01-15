@@ -1,0 +1,21 @@
+defined_text = {
+	name = CW_NWO_LOC_SPHERES
+	text = {
+		trigger = {
+			original_tag = SOV
+		}
+		localization_key = "CW_NEW_WORLD_ORDER_SOV"
+	}
+	text = {
+		trigger = {
+			original_tag = USA
+		}
+		localization_key = "CW_NEW_WORLD_ORDER_USA"
+	}
+	text = {
+		trigger = {
+			original_tag = ENG
+		}
+		localization_key = "CW_NEW_WORLD_ORDER_UK"
+	}		
+}

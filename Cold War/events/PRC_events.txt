@@ -1,0 +1,195 @@
+﻿#################################
+# PRC EVENTS AND RELATED EVENTS #
+#################################
+add_namespace = prc_events
+country_event = {
+	id = prc_events.1		#Event to notify China about Crop claim
+	title = prc_events.1.t
+	desc = prc_events.1.d
+	picture = GFX_harvest_image
+
+	is_triggered_only = yes
+
+	option = {
+		name = "They are no better than the imperialists!"
+	}
+}
+
+country_event = {
+	id = prc_events.2		#Sino-Soviet Friendship Treaty
+	title = "Sino-Soviet Friendship Treaty"
+	desc = prc_events.2.d
+	picture = GFX_stalin_and_mao
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Sign the Treaty"
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 75
+				is_historical_focus_on = yes
+			}
+		}			
+		618 = { ROOT = { cw_give_state_monopoly_perpetual_country = yes } }
+		716 = { ROOT = { cw_give_state_monopoly_perpetual_country = yes } }
+		714 = { ROOT = { cw_give_state_monopoly_perpetual_country = yes } }
+		PRC = {
+			transfer_state = 745
+			745 = { remove_core_of = ROOT clr_state_flag = military_base}
+			cw_give_economic_aid_effect_locked = yes
+			set_variable = { cw_economic_aid_lock@ROOT = 1825 }
+			custom_effect_tooltip = "[THIS.GetAdjective] Economic Aid will be increased by 3 levels."
+			hidden_effect = {
+				cw_upgrade_economic_aid = yes
+				cw_upgrade_economic_aid = yes
+				cw_upgrade_economic_aid = yes
+			}
+			set_country_flag = sino_soviet_friendship_active
+		}
+		if = {
+			limit = {
+				CHI = { exists = yes }
+			}
+			CHI = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = protest_action_strong
+				}
+			}
+		}		
+		diplomatic_relation = {
+			country = PRC
+			relation = non_aggression_pact
+			active = yes
+		}
+		hidden_effect = { 
+			news_event = cw_historic_events.39
+			PRC = {
+				add_to_array = {
+					array = ROOT.priority_countries
+					value = THIS.id
+				}
+			}
+		}
+	}
+	option = {
+		name = "Reject the Treaty"
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 50
+				is_historical_focus_on = no
+			}
+		}
+		PRC = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = refused_offer
+			}
+		}
+		hidden_effect = { news_event = cw_non_historic_news.17 }
+	}
+}
+country_event = {
+	id = prc_events.3		#Great Leap Forward Famine
+	title = "A Famine Grips the Country"
+	desc = prc_events.3.d
+	picture = GFX_harvest_image
+
+	is_triggered_only = yes
+
+	option = {
+		name = "The Great Leap Must Continue!"
+		random_list = {
+			90 = {
+				cw_apply_severe_famine = yes
+				add_manpower = -3000000
+				subtract_from_variable = { great_leap_forward_population = 0.35 }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.10
+				}
+				add_to_variable = { great_leap_forward_reformist_popularity = 0.35 }
+			}
+			10 = {
+				cw_apply_mild_famine = yes
+				add_manpower = -1000000
+				subtract_from_variable = { great_leap_forward_population = 0.15 }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.05
+				}				
+				add_to_variable = { great_leap_forward_reformist_popularity = 0.15 }
+			}
+		}
+		every_owned_state = {
+			limit = {
+				has_state_flag = killed_sparrows
+			}
+			add_resource = {
+				type = crops
+				amount = -5
+			}
+			clr_state_flag = killed_sparrows
+		}
+	}
+}
+country_event = {
+	id = prc_events.4		#Great Leap Bad Steel
+	title = "Home Made Steel Useless"
+	desc = prc_events.4.d
+	picture = GFX_harvest_image
+
+	is_triggered_only = yes
+
+	option = {
+		name = "The Great Leap Must Continue!"
+		every_owned_state = {
+			limit = {
+				has_state_flag = bad_steel_added
+			}
+			add_resource = {
+				type = steel
+				amount = -5
+			}
+			clr_state_flag = bad_steel_added
+			subtract_from_variable = { great_leap_industrial_effects = 0.30 }
+		}
+	}
+}
+country_event = {
+	id = prc_events.5		# Lushan Confrence
+	title = "Peng Dehuai Speaks Out"
+	desc = prc_events.5.d
+	picture = GFX_event_peng_dehuai
+
+	is_triggered_only = yes
+
+	option = {
+		name = "Continue Current Policies"
+		activate_mission = cw_prc_great_leap_forward
+		add_days_mission_timeout = { mission = cw_prc_great_leap_forward days = -210 }
+		add_popularity = {
+			ideology = communism_totalitarian
+			popularity = 0.05
+		}				
+		subtract_from_variable = { great_leap_forward_reformist_popularity = 0.10 }
+		complete_national_focus = PRC_continue_great_leap
+		
+	}
+	option = {
+		name = "We Must Change Course"
+		activate_mission = cw_prc_great_leap_forward
+		add_days_mission_timeout = { mission = cw_prc_great_leap_forward days = -210 }
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}				
+		add_to_variable = { great_leap_forward_reformist_popularity = 0.10 }
+		complete_national_focus = PRC_reform_great_leap
+	}	
+}
+
+

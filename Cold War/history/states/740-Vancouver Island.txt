@@ -1,0 +1,20 @@
+state = {
+	id=740
+	local_supplies=0.0 
+	name="STATE_740"
+	state_category = rural
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = CAN
+		add_core_of = CAN
+	}
+	manpower = 259612
+	resources={
+		crops = 5
+	}		
+	provinces={
+		7259 1214 12259 12272 1420 
+	}
+}

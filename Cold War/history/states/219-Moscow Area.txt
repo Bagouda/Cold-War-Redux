@@ -1,0 +1,31 @@
+state = {
+	id=219
+	local_supplies=0.0 
+	name="STATE_219"
+	state_category = megalopolis
+	history = {
+ 	add_to_array = { list_victory_point = 6380 }
+ 	set_variable = { victory_point = 50 }
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		
+		buildings = {
+			infrastructure = 4
+			air_base = 5
+			industrial_complex = 6
+			arms_factory = 6
+		}
+		
+		victory_points = {
+			6380 50 
+		}
+	}
+	resources={
+		steel=16 # was: 28
+	}
+	manpower = 4335992
+	provinces={
+		301 350 366 401 3259 3290 3327 3358 3391 6283 6290 6348 6380 6414 9235 9282 9302 9348 9378 9395 11217 11236 11268 11282 11330 
+	}
+}

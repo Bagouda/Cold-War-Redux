@@ -1,0 +1,27 @@
+state = {
+	id=572
+	local_supplies=0.0 
+	name="STATE_572" # Chelyabinsk
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 9292 }
+ 	set_variable = { victory_point = 5 }
+		owner = SOV
+		add_core_of = SOV
+		add_claim_by = RUS
+		
+		buildings = {
+			infrastructure = 1
+			arms_factory  = 3
+			industrial_complex  = 1	
+		}
+		
+		victory_points = {
+			9292 5
+		}
+	}
+	manpower = 2074932
+	provinces={
+		1233 1292 1294 1327 1775 4242 7285 9292 10170 10213 10542 12106 12157 12287 12584 
+	}
+}

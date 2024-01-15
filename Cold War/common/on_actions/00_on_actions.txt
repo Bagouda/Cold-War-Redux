@@ -1,0 +1,455 @@
+on_actions = {
+	on_new_term_election = {
+		effect = {
+			if = {
+				limit = {
+					tag = FRA
+				}
+				cw_start_elections = yes
+				if = {
+					limit = {
+						date < 1946.7.1
+					}
+					news_event = cw_historic_events.21
+					retire_country_leader = yes
+					add_ideas = fra_hog_georges_bidault
+					add_ideas = fra_fm_leon_blum
+					set_politics = {
+						ruling_party = democratic_socialist
+						elections_allowed = yes
+						election_frequency = 48
+					}
+				}
+			}
+			else = {
+				set_political_party = { ideology = colonial popularity = 0 }
+				if = {
+					limit = {
+						#check_variable = { THIS.highest_party_popularity > 0.50 }
+					}
+					if = {
+						limit = {		# Dem Right
+							check_variable = { THIS.highest_party_ideology = 20053 }
+						}
+						if = {
+							limit = {
+								has_elections = yes
+							}
+							set_politics = {
+								ruling_party = democratic
+								elections_allowed = yes
+								election_frequency = 48
+							}
+							else_if = {
+								limit = {
+									has_elections = no
+								}
+								set_politics = {
+									ruling_party = democratic
+									elections_allowed = no
+								}
+							}
+						}
+					}
+					if = {
+						limit = {		# Dem Left
+							check_variable = { THIS.highest_party_ideology = 20061 }
+						}
+						if = {
+							limit = {
+								has_elections = yes
+							}
+							set_politics = {
+								ruling_party = democratic_socialist
+								elections_allowed = yes
+								election_frequency = 48
+							}
+							else_if = {
+								limit = {
+									has_elections = no
+								}
+								set_politics = {
+									ruling_party = democratic_socialist
+									elections_allowed = no
+								}
+							}
+						}
+					}
+					if = {
+						limit = {		# Neutrality Right
+							check_variable = { THIS.highest_party_ideology = 20070 }
+						}
+						if = {
+							limit = {
+								has_elections = yes
+							}
+							set_politics = {
+								ruling_party = unaligned_right
+								elections_allowed = yes
+								election_frequency = 48
+							}
+							else_if = {
+								limit = {
+									has_elections = no
+								}
+								set_politics = {
+									ruling_party = unaligned_right
+									elections_allowed = no
+								}
+							}
+						}
+						add_named_threat = { threat = 0 name = CW_THREAT_ELECTION_NEUTRAL_RIGHT_ELECTED }
+					}				
+					if = {
+						limit = {		# Neutrality Left
+							check_variable = { THIS.highest_party_ideology = 20087 }
+						}
+						set_politics = {
+							ruling_party = neutrality
+						}
+						if = {
+							limit = {
+								has_elections = yes
+							}
+							set_politics = {
+								ruling_party = neutrality
+								elections_allowed = yes
+								election_frequency = 48
+							}
+							else_if = {
+								limit = {
+									has_elections = no
+								}
+								set_politics = {
+									ruling_party = neutrality
+									elections_allowed = no
+								}
+							}
+						}
+						add_named_threat = { threat = 0 name = CW_THREAT_ELECTION_NEUTRAL_LEFT_ELECTED }
+					}				
+					if = {
+						limit = {		# Com Reformist
+							check_variable = { THIS.highest_party_ideology = 20099 }
+						}
+						set_politics = {
+							ruling_party = communism
+						}
+						add_named_threat = { threat = 0 name = CW_THREAT_ELECTION_COMMUNIST_REF_ELECTED }
+					}				
+					if = {
+						limit = {		# Com Totalitarian
+							check_variable = { THIS.highest_party_ideology = 20104 }
+						}
+						set_politics = {
+							ruling_party = communism_totalitarian
+						}
+						add_named_threat = { threat = 0 name = CW_THREAT_ELECTION_COMMUNIST_TOTAL_ELECTED }
+					}
+				}
+				if = {
+					limit = {
+						is_unsc_member = yes
+					}
+					remove_from_unsc_balance = yes
+					add_to_unsc_balance = yes
+				}
+			}
+		}
+	}
+	#ROOT IS WINNER #FROM GETS ANNEXED
+	on_annex = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						original_tag = ROOT
+					}
+				}
+				drop_cosmetic_tag = yes
+			}
+			if = {
+				limit = {
+					has_civil_war = no
+					FROM = { has_variable = twin_country }
+					FROM = { check_variable = { twin_country = ROOT.id } }
+				}
+				every_controlled_state = {
+					limit = {
+						is_core_of = FROM
+					}
+					add_core_of = ROOT
+				}
+			}
+			if = {
+				limit = {
+					has_civil_war = no
+					FROM = { has_variable = twin_country }
+					FROM = { check_variable = { twin_country = ROOT.id } }
+				}
+				every_controlled_state = {
+					limit = {
+						is_core_of = FROM
+					}
+					add_core_of = ROOT
+				}
+			}						
+		}
+	}	
+	on_peaceconference_ended = {
+		effect = {
+			if = {
+				limit = {
+					has_template = "Guerilla Brigade"
+				}
+				delete_unit_template_and_units = {
+					division_template = "Guerilla Brigade"
+					disband = yes #will refund equipment and manpower
+				}
+			}		
+			if = {
+				limit = {
+					AND = {
+						ROOT = { is_ai = yes }
+						ROOT = { check_variable = { twin_country = FROM.id } }
+					}
+				}
+				if = {
+					limit = {
+						AND = {
+							FROM = { tag = CHI }
+							date < 1960.1.1
+						}
+					}
+					# Do nothing
+				}
+				if = {
+					limit = {
+						ROOT = { OR = { tag = PRK tag = KOR } }
+						has_event_target = unsc_target
+						event_target:unsc_target = { 
+							has_country_flag = unsc_korean_war_peace_resolution
+						}
+					}
+					# Do nothing
+				}				
+				else_if = {
+					limit = {
+						ROOT = { 
+							is_ai = yes
+							is_puppet = no
+						}
+					}
+					ROOT = { annex_country = { target = FROM transfer_troops = no } }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { original_tag = FROM }
+					ROOT = {
+						OR = {
+							tag = D01
+							tag = D02
+							tag = D03
+							tag = D04
+							tag = D05
+							tag = D06
+							tag = D07
+							tag = D08
+							tag = D09
+							tag = D10
+							tag = D11
+							tag = D12
+							tag = D13
+							tag = D14
+							tag = D15
+							tag = D16
+							tag = D17
+							tag = D18
+							tag = D19
+							tag = D20
+							tag = D21
+							tag = D22
+							tag = D23
+							tag = D24
+							tag = D25
+							tag = D26
+							tag = D27
+							tag = D28
+							tag = D29
+							tag = D30
+							tag = D31
+							tag = D32
+							tag = D33
+							tag = D34
+							tag = D35
+							tag = D36
+							tag = D37
+							tag = D38
+							tag = D39
+							tag = D40
+							tag = D41
+							tag = D42
+							tag = D43
+							tag = D44
+							tag = D45
+							tag = D46
+							tag = D47
+							tag = D48
+							tag = D49
+							tag = D50
+						}
+					}
+				}
+				FROM = {
+					annex_country = { target = ROOT transfer_troops = yes }
+					cw_make_unrecognized = yes
+					drop_cosmetic_tag = yes
+					every_owned_state = { limit = { is_core_of = ROOT } force_disable_resistance = THIS  }
+					set_political_party = { ideology = colonial popularity = 0 }
+					set_capital = { state = var:our_true_capital }
+				}
+				#########################################################
+				if = {
+					limit = {
+						ROOT = { has_government = communism_totalitarian }
+					}
+					FROM = { set_politics = { ruling_party = communism_totalitarian } }
+					FROM = {
+						add_popularity = {
+							ideology = communism_totalitarian
+							popularity = 0.3
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = { has_government = communism }
+					}
+					FROM = { set_politics = { ruling_party = communism } }
+					FROM = {
+						add_popularity = {
+							ideology = communism
+							popularity = 0.3
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = { has_government = democratic }
+					}
+					FROM = { set_politics = { ruling_party = democratic } }
+					FROM = {
+						add_popularity = {
+							ideology = democratic
+							popularity = 0.3
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = { has_government = democratic_socialist }
+					}
+					FROM = { set_politics = { ruling_party = democratic_socialist } }
+					FROM = {
+						add_popularity = {
+							ideology = democratic_socialist
+							popularity = 0.3
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = { has_government = neutrality }
+					}
+					FROM = { set_politics = { ruling_party = neutrality } }
+					FROM = {
+						add_popularity = {
+							ideology = neutrality
+							popularity = 0.3
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = { has_government = unaligned_right }
+					}
+					FROM = { set_politics = { ruling_party = unaligned_right } }
+					FROM = {
+						add_popularity = {
+							ideology = unaligned_right
+							popularity = 0.3
+						}
+					}
+				}
+			}			
+		}
+	}
+	on_government_change = {
+		effect = {
+			if = {
+				limit = {
+					AND = {
+						ROOT = {
+							is_puppet = yes
+							OVERLORD = {
+								OR = {
+									has_government = communism
+									has_government = communism_totalitarian
+								}
+							}
+							OVERLORD = { similar_ideology_check = no }
+						}
+					}
+				}
+				add_timed_idea = { idea = ideological_differences days = 365 }
+				add_autonomy_ratio = { value = 1.0 }
+				add_popularity = {
+					ideology = communism
+					popularity = -0.3
+				}
+				add_popularity = {
+					ideology = communism_totalitarian
+					popularity = -0.3
+				}
+				OVERLORD = { 
+					add_opinion_modifier = { target = ROOT modifier = protest_action_strong }
+					create_wargoal = {
+						type = topple_government
+						target = ROOT
+					}
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						ROOT = {
+							is_in_faction = yes
+							is_faction_leader = no
+						}
+						faction_leader = { similar_ideology_check = no }
+					}
+				}
+				ROOT = { leave_faction = yes }
+			}
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							is_in_array = {
+							array = global.unsc_non_permanent_members_array
+							value = ROOT.id
+							}
+							is_in_array = {
+							array = global.unsc_permanent_members_array
+							value = ROOT.id
+							}
+						}
+					}
+				}
+				remove_from_unsc_balance = yes
+				add_to_unsc_balance = yes
+			}
+		}
+	}
+}

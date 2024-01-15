@@ -1,0 +1,21 @@
+state = {
+	id=764
+	local_supplies=0.0 
+	name="STATE_764"
+	state_category = town
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = YUG
+		add_core_of = YUG
+		add_claim_by = SER
+	}
+	resources={
+		crops = 5
+	}	
+	manpower = 585579
+	provinces={
+		614 3614 6643 11787
+	}
+}

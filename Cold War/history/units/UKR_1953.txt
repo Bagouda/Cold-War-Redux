@@ -1,0 +1,83 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Ukranian Patriotic Army"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		motorized = { x = 2 y = 0 }
+		armored_car = { x = 3 y = 0 }
+		artillery_brigade = { x = 1 y = 2 }
+	}
+}
+units = {
+	division = {
+		name = "1st Ukranian Patriotic Division"
+		location = 3543
+		division_template = "Ukranian Patriotic Army"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "2nd Ukranian Patriotic Division"
+		location = 504
+		division_template = "Ukranian Patriotic Army"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "3rd Ukranian Patriotic Division"
+		location = 3494
+		division_template = "Ukranian Patriotic Army"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "4th Ukranian Patriotic Division"
+		location = 11670
+		division_template = "Ukranian Patriotic Army"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "5th Ukranian Patriotic Division"
+		location = 91
+		division_template = "Ukranian Patriotic Army"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "6th Ukranian Patriotic Division"
+		location = 476
+		division_template = "Ukranian Patriotic Army"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "7th Ukranian Patriotic Division"
+		location = 6593
+		division_template = "Ukranian Patriotic Army"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "8th Ukranian Patriotic Division"
+		location = 6557
+		division_template = "Ukranian Patriotic Army"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "9th Ukranian Patriotic Division"
+		location = 504
+		division_template = "Ukranian Patriotic Army"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "9th Ukranian Patriotic Division"
+		location = 11409
+		division_template = "Ukranian Patriotic Army"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.9
+	}	
+}

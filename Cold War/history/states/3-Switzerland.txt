@@ -1,0 +1,29 @@
+state = {
+	id=3
+	local_supplies=0.0 
+	name="STATE_3"
+	state_category = large_city
+	history = {
+ 	add_to_array = { list_victory_point = 9620 }
+ 	set_variable = { victory_point = 15 }
+		owner = SWI
+		add_core_of = SWI
+		
+		buildings = {
+			infrastructure = 5
+			arms_factory = 3
+			air_base = 3
+			industrial_complex = 5
+			air_base = 4		
+		}		
+		victory_points = { 9620 15 }
+	}
+	resources={
+		aluminium=18 # was: 28
+		crops = 10
+	}
+	manpower = 2211689
+	provinces={
+		636 3612 6666 6683 9587 9618 9620 9622 9638 11590 11604 13124 
+	}
+}

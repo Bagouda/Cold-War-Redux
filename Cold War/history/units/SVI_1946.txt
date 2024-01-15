@@ -1,0 +1,38 @@
+﻿division_template = {
+	name = "Colonial Infantry"
+	template_counter = 3
+	is_locked = yes
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		cavalry = { x = 1 y = 0 }
+	}
+	support = {
+		military_police = { x = 0 y = 0 }
+	}
+}
+units = {
+	division = {
+		location = 4405
+		division_template = "Colonial Infantry"
+	}
+	division = {
+		location = 4405
+		division_template = "Colonial Infantry"
+	}	
+	division = {
+		location = 10309
+		division_template = "Colonial Infantry"
+	}
+	division = {
+		location = 10309
+		division_template = "Colonial Infantry"
+	}	
+	division = {
+		location = 1302
+		division_template = "Colonial Infantry"
+	}
+	division = {
+		location = 4260
+		division_template = "Colonial Infantry"
+	}
+}

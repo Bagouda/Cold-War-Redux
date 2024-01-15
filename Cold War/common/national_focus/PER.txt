@@ -1,0 +1,211 @@
+focus_tree = {
+	id = iran_focus_tree
+
+	country = {
+		factor = 0
+
+		modifier = {
+			add = 10
+			tag = PER
+			#always = no
+		}
+	}
+
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	focus = {
+		id = PER_soviet_azerbaijan_un
+		available = {
+			date > 1947.1.1
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			custom_trigger_tooltip = {
+				tooltip = IRAN_OCCUPIED_CHECK
+				OR = {
+					OR = {
+						SOV = {
+							any_owned_state = { is_core_of = PER }
+						}
+						AZR = { is_puppet_of = SOV }
+					}
+					ENG = {
+						any_owned_state = { is_core_of = PER }
+					}
+				}
+			}
+		}
+		icon = GFX_persia_un_icon
+		x = 1
+		y = 1
+		cost = 10
+
+		bypass = {
+		}
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_UNSC_FOCUSES }
+
+		select_effect = {
+			PER = { cw_unsc_resolution_foreign_withdrawal = yes }
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				PER = { cw_unsc_resolution_foreign_withdrawal = yes }
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PER_nationalize_oil_industry
+		available = {
+			412 = { has_state_flag = monopoly_state }
+			413 = { has_state_flag = monopoly_state }
+			date > 1951.3.17
+		}
+		bypass = {
+		}
+
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 5
+		y = 5
+		cost = 3
+
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			413 = { cw_remove_state_monopoly = yes }
+			412 = { cw_remove_state_monopoly = yes }
+			activate_advisor = per_hog_mohammad_mosaddegh
+			add_popularity = { ideology = communism_totalitarian popularity = 0.60 }
+			set_country_flag = oil_industry_nationilized
+			hidden_effect = {
+				news_event = cw_historic_events.33
+			}
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PER_shah_flee_iran
+		available = {
+		}
+		bypass = {
+		}
+
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 1
+		y = 1
+		cost = 2
+
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = PER_nationalize_oil_industry
+		prerequisite = { focus = PER_nationalize_oil_industry }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			add_trait = {
+				character = PER_mohammad_reza_shah
+				trait = monarch_in_exile
+			}
+			remove_trait = {
+				character = PER_mohammad_reza_shah
+				trait = absolute_monarch
+			}
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PER_abolish_monarchy
+		available = {
+			has_idea = per_hog_mohammad_mosaddegh
+			OR = {
+				communism > 0.5
+				communism_totalitarian > 0.5
+			}
+		}
+		bypass = {
+		}
+
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 1
+		y = 1
+		cost = 10
+
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = PER_shah_flee_iran
+		prerequisite = { focus = PER_shah_flee_iran }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			add_country_leader_role = {
+				character = PER_mohammad_mosaddegh
+				promote_leader = no
+				country_leader = {
+					ideology  = democratic_neutrality_idolg
+				}
+			}
+			add_popularity = { ideology = neutrality popularity = 0.30 }
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = yes
+				election_frequency = 48
+			}
+			news_event = cw_non_historic_news.16
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

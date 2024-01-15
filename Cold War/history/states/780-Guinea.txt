@@ -1,0 +1,22 @@
+state = {
+	id=780
+	local_supplies=0.0 
+	name="STATE_780" # Guinea
+	state_category = pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 1909 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = FRA
+		add_claim_by = GUI
+		victory_points = {
+			1909 1 
+		}
+	}
+	manpower = 97520
+	provinces={
+		1909  12802 12858
+	}
+}

@@ -1,0 +1,25 @@
+state = {
+	id=348
+	local_supplies=0.0 
+	name="STATE_348" # Kayseri
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 3870 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = TUR
+		add_core_of = TUR
+		victory_points = {
+			3870 1
+		}
+	}
+	resources={
+		crops = 5
+	}	
+	manpower = 858452
+	provinces={
+		869 919 921 961 3807 3862 3870 3964 6888 6977 9830 9861 11826 11844 
+	}
+}

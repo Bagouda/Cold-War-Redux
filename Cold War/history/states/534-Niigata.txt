@@ -1,0 +1,22 @@
+state = {
+	id=534
+	local_supplies=0.0 
+	name="STATE_534" # Hokuriku
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 1117 }
+ 	set_variable = { victory_point = 10 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = USA
+		add_core_of = JAP
+		victory_points = {
+			1117 10
+		}
+	}
+	manpower = 1933000
+	provinces={
+		1117 9952 10128 11930 11989 12007 
+	}
+}

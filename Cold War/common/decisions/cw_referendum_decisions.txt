@@ -1,0 +1,1465 @@
+@MON_CRISIS_DAYS = 30
+crisis_national = {
+	cw_mon_referendum_bill = {
+		priority = 1
+		icon = GFX_decision_eng_abdication_crisis
+
+		available = {
+			cw_holding_referendum = no
+		}
+		cancel_trigger = {
+			OR = {
+				has_civil_war = yes
+				AND = {
+					communism < 0.1
+					communism_totalitarian < 0.1
+				}
+			}
+		}
+		visible = {
+		}
+
+		days_mission_timeout = @MON_CRISIS_DAYS
+		is_good = no
+		selectable_mission = yes
+		activation = { always = no }
+
+		remove_effect = {
+			add_stability = 0.1
+		}
+
+		timeout_effect = {
+			custom_effect_tooltip = MONARCHY_REFERENDUM_EFFECT_PROTEST
+			add_ideas = referendum_protest_1
+			hidden_effect = {
+				activate_mission = cw_mon_referendum_bill_protest
+				remove_mission  = cw_mon_referendum_bill
+			}
+		}
+		complete_effect = {
+			cw_mon_ref_initial_setup = yes
+			cw_ref_alert_superpowers_only = yes
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 50
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	cw_mon_referendum_bill_protest = {
+		priority = 1
+		icon = GFX_decision_eng_abdication_crisis
+
+		available = {
+			cw_holding_referendum = no
+		}
+		cancel_trigger = {
+			OR = {
+				has_civil_war = yes
+				AND = {
+					communism < 0.1
+					communism_totalitarian < 0.1
+				}
+			}
+		}
+		visible = {
+		}
+
+		days_mission_timeout = @MON_CRISIS_DAYS
+		is_good = no
+		selectable_mission = yes
+		activation = { always = no }
+
+		remove_effect = {
+			hidden_effect = { remove_ideas = referendum_protest_1 }
+		}
+
+		timeout_effect = {
+			custom_effect_tooltip = MONARCHY_REFERENDUM_EFFECT_PROTEST_2
+			swap_ideas = {
+				remove_idea = referendum_protest_1
+				add_idea = referendum_protest_2
+			}
+			hidden_effect = {
+				activate_mission = cw_mon_referendum_bill_strikes
+				remove_mission = cw_mon_referendum_bill_protest
+			}
+		}
+		complete_effect = {
+			cw_mon_ref_initial_setup = yes
+			cw_ref_alert_superpowers_only = yes
+		}
+	}
+	cw_mon_referendum_bill_strikes = {
+		priority = 1
+		icon = GFX_decision_eng_abdication_crisis
+
+		available = {
+			cw_holding_referendum = no
+		}
+		cancel_trigger = {
+			OR = {
+				has_civil_war = yes
+				AND = {
+					communism < 0.1
+					communism_totalitarian < 0.1
+				}
+			}
+		}
+		visible = {
+		}
+
+		days_mission_timeout = @MON_CRISIS_DAYS
+		is_good = no
+		selectable_mission = yes
+		activation = { always = no }
+
+		remove_effect = {
+			hidden_effect = { remove_ideas = referendum_protest_2 }
+		}
+
+		timeout_effect = {
+			custom_effect_tooltip = MONARCHY_REFERENDUM_EFFECT_PROTEST_3
+			swap_ideas = {
+				remove_idea = referendum_protest_2
+				add_idea = referendum_protest_3
+			}
+			hidden_effect = {
+				activate_mission = cw_mon_referendum_bill_strikes_2
+				remove_mission = cw_mon_referendum_bill_strikes
+			}
+		}
+		complete_effect = {
+			cw_mon_ref_initial_setup = yes
+			cw_ref_alert_superpowers_only = yes
+		}
+	}
+	cw_mon_referendum_bill_strikes_2 = {
+		priority = 1
+		icon = GFX_decision_eng_abdication_crisis
+
+		available = {
+			cw_holding_referendum = no
+		}
+		cancel_trigger = {
+			OR = {
+				has_civil_war = yes
+				AND = {
+					communism < 0.1
+					communism_totalitarian < 0.1
+				}
+			}
+		}
+		visible = {
+		}
+
+		days_mission_timeout = @MON_CRISIS_DAYS
+		is_good = no
+		selectable_mission = yes
+		activation = { always = no }
+
+		remove_effect = {
+			hidden_effect = { remove_ideas = referendum_protest_3 }
+		}
+
+		timeout_effect = {
+			custom_effect_tooltip = MONARCHY_REFERENDUM_EFFECT_PROTEST_4
+			swap_ideas = {
+				remove_idea = referendum_protest_3
+				add_idea = referendum_protest_4
+			}
+			hidden_effect = {
+				activate_mission = cw_mon_referendum_bill_civil_war
+				remove_mission = cw_mon_referendum_bill_strikes_2
+			}
+		}
+		complete_effect = {
+			cw_mon_ref_initial_setup = yes
+			cw_ref_alert_superpowers_only = yes
+		}
+	}
+	cw_mon_referendum_bill_civil_war = {
+		priority = 1
+		icon = GFX_decision_eng_abdication_crisis
+
+		available = {
+			always = yes
+		}
+		cancel_trigger = {
+			OR = {
+				has_civil_war = yes
+				AND = {
+					communism < 0.1
+					communism_totalitarian < 0.1
+				}
+			}
+		}
+		visible = {
+		}
+
+		days_mission_timeout = @MON_CRISIS_DAYS
+		is_good = no
+		selectable_mission = yes
+		activation = { always = no }
+
+		remove_effect = {
+			hidden_effect = { remove_ideas = referendum_protest_4 }
+		}
+
+		timeout_effect = {
+			custom_effect_tooltip = MONARCHY_REFERENDUM_EFFECT_PROTEST_5
+			hidden_effect = {
+				remove_mission = cw_mon_referendum_bill_civil_war
+				remove_ideas = referendum_protest_4
+				cw_mon_referendum_initiate_civil_war = yes
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				cw_mon_ref_initial_setup = yes
+				cw_ref_alert_superpowers_only = yes
+			}
+		}
+	}
+}
+cw_monarchy_referendum_category = {
+	cw_mon_referendum_timer = {
+		priority = 1
+		icon = GFX_decision_eng_abdication_crisis
+
+		available = {
+			always = no
+		}
+
+		visible = {
+		}
+
+		days_mission_timeout = 90
+		is_good = no
+		activation = { always = no }
+
+		timeout_effect = {
+			if = {
+				limit = {
+					AND = {
+						check_variable = { country_ref_third_option_votes_percent > country_ref_second_option_votes_percent }
+						check_variable = { country_ref_third_option_votes_percent > country_ref_first_option_votes_percent }
+					}
+				}
+				custom_effect_tooltip = EXILE_ROYAL_FAMILY_DECISION_EFFECT_TT
+				hidden_effect = {
+					cw_abolish_cons_monarchy = yes
+					cw_ref_clear_junk = yes
+				}
+				else_if = {
+					limit = {
+						AND = {
+							check_variable = { country_ref_first_option_votes_percent > country_ref_second_option_votes_percent }
+							check_variable = { country_ref_first_option_votes_percent > country_ref_third_option_votes_percent }
+						}
+					}
+					custom_effect_tooltip = MONARCHY_REFERENDUM_ABSOLUTE_MONARCHY_ESTABLISHED_TT
+					hidden_effect = {
+						cw_create_absolute_monarchy = yes
+						cw_ref_clear_junk = yes
+					}
+				}
+				else_if = {
+					limit = {
+						AND = {
+							NOT = { has_country_flag = constitutional_monarchy }
+							check_variable = { country_ref_second_option_votes_percent > country_ref_first_option_votes_percent }
+							check_variable = { country_ref_second_option_votes_percent > country_ref_third_option_votes_percent }
+						}
+					}
+					custom_effect_tooltip = MONARCHY_REFERENDUM_CONST_MONARCHY_ESTABLISHED_TT
+					hidden_effect = {
+						cw_create_const_monarchy = yes
+						cw_ref_clear_junk = yes
+					}
+				}
+				else_if = {
+					limit = {
+						AND = {
+							has_country_flag = constitutional_monarchy
+							check_variable = { country_ref_second_option_votes_percent > country_ref_first_option_votes_percent }
+							check_variable = { country_ref_second_option_votes_percent > country_ref_third_option_votes_percent }
+						}
+					}
+					custom_effect_tooltip = MONARCHY_REFERENDUM_CONST_MONARCHY_CONTINUES_TT
+					hidden_effect = {
+						cw_ref_clear_junk = yes
+					}
+				}
+				else = {
+					custom_effect_tooltip = REFERENDUM_ANOTHER_REF_HELD_TT
+					hidden_effect = {
+						cw_ref_clear_junk = yes
+						cw_mon_ref_initial_setup = yes
+					}
+				}
+			}
+		}
+	}
+}
+cw_country_yes_no_referendum_category = {
+	cw_country_yes_no_referendum_timer = {
+		priority = 1
+		icon = GFX_decision_generic_nationalism
+
+		available = {
+			always = no
+		}
+
+		visible = {
+		}
+
+		days_mission_timeout = 90
+		is_good = no
+		activation = { always = no }
+
+		timeout_effect = {
+			if = {
+				limit = {
+					has_country_flag = join_faction_referendum
+				}
+				if = {
+					limit = {
+						check_variable = { country_ref_first_option_votes_percent > country_ref_second_option_votes_percent }
+					}
+					custom_effect_tooltip = COUNTRY_JOINS_FACTION_TT
+					hidden_effect = {
+						var:requested_faction_leader = { add_to_faction = ROOT }
+						every_other_country = {
+							limit = {
+								is_in_faction_with = ROOT
+								OR = {
+									is_puppet_of = ROOT
+									is_subject_of = ROOT
+								}
+							}
+							leave_faction = yes
+						}
+						clear_variable = requested_faction_leader
+						clr_country_flag = join_faction_referendum
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = contitution_referendum
+				}
+				if = {
+					limit = {
+						check_variable = { country_ref_first_option_votes_percent > country_ref_second_option_votes_percent }
+					}
+					custom_effect_tooltip = REFERENDUM_NEW_CONSTITUION_APPROVED_TT
+					add_stability = 0.10
+					if = {
+						limit = {
+							has_idea = unstable_government
+						}
+						remove_ideas = unstable_government
+					}
+				}
+				if = {
+					limit = {
+						check_variable = { country_ref_first_option_votes_percent < country_ref_second_option_votes_percent }
+					}
+					hold_election = ROOT
+					add_stability = -0.10
+					if = {
+						limit = {
+							NOT = { has_idea = unstable_government }
+						}
+						add_timed_idea = {
+							idea = unstable_government
+							days = 1825
+						}
+					}
+				}
+				hidden_effect = { clr_country_flag = contitution_referendum }
+			}			
+			clr_country_flag = country_yes_no_referendum
+			clr_country_flag = country_yes_no_ref_initiator
+			clear_array = country_yes_no_ref_1_array
+			cw_ref_clear_junk = yes
+		}
+	}
+}
+cw_sovereignty_referendum_category = {
+	cw_cs_referendum_timer = {
+		priority = 1
+		icon = GFX_decision_generic_nationalism
+
+		available = {
+			always = no
+		}
+
+		visible = {
+		}
+
+		days_mission_timeout = 90
+		is_good = no
+		activation = { always = no }
+
+		timeout_effect = {
+			if = {		#Remain/Become Independent
+				limit = {
+					AND = {
+					check_variable = { country_ref_first_option_votes_percent > country_ref_second_option_votes_percent }
+					check_variable = { country_ref_first_option_votes_percent > country_ref_third_option_votes_percent }
+					check_variable = { country_ref_first_option_votes_percent > country_ref_fourth_option_votes_percent }
+					}
+				}
+				custom_effect_tooltip = "[REF_CS_RESULT_INDEPENDENCE_LOC]"
+				if = {
+					limit = {
+						has_government = colonial
+					}
+					hidden_effect = {
+						drop_cosmetic_tag = yes
+						clr_country_flag = decolonization
+						OVERLORD = { end_puppet = ROOT }
+						hold_election = ROOT
+						add_ideas = cw_partially_recognized_state
+					}
+				}
+				if = {
+					limit = {
+						ROOT = { tag = UNN }
+					}
+					var:ref_cs_first_option = { cw_new_country_notification = yes }
+					ROOT = { release = var:ref_cs_first_option }
+				}				
+			}
+			else_if = {		#Join country A
+				limit = {
+					AND = {
+						check_variable = { country_ref_second_option_votes_percent > country_ref_first_option_votes_percent }
+						check_variable = { country_ref_second_option_votes_percent > country_ref_third_option_votes_percent }
+						check_variable = { country_ref_second_option_votes_percent > country_ref_fourth_option_votes_percent }
+					}
+				}
+				if = {
+					limit = {
+						ROOT = { tag = UNN }
+					}
+					release = var:ref_cs_first_option
+					var:ref_cs_first_option = { save_event_target_as = unsc_ref_first_option }
+					var:ref_cs_second_option = { country_event = cs.referendum.events.1 }
+					else = {
+						var:ref_cs_second_option = { country_event = cs.referendum.events.1 }
+					}
+				}
+			}
+			else_if = {		#Join country B
+				limit = {
+					AND = {
+						check_variable = { country_ref_third_option_votes_percent > country_ref_first_option_votes_percent }
+						check_variable = { country_ref_third_option_votes_percent > country_ref_second_option_votes_percent }
+						check_variable = { country_ref_third_option_votes_percent > country_ref_fourth_option_votes_percent }
+					}
+				}
+				var:ref_cs_third_option = { country_event = cs.referendum.events.1 }
+			}
+			else_if = {		#Join country C
+				limit = {
+					AND = {
+						check_variable = { country_ref_fourth_option_votes_percent > country_ref_first_option_votes_percent }
+						check_variable = { country_ref_fourth_option_votes_percent > country_ref_third_option_votes_percent }
+						check_variable = { country_ref_fourth_option_votes_percent > country_ref_second_option_votes_percent }
+					}
+				}
+				var:ref_cs_fourth_option = { country_event = cs.referendum.events.1 }
+			}
+			else = {	#Inconclusive, Hold another referendum
+				custom_effect_tooltip = REFERENDUM_ANOTHER_REF_HELD_TT
+				hidden_effect = {
+					var:ref_cs_first_option = { save_event_target_as = state_ref_first_option_temp }
+					var:ref_cs_first_option = { save_event_target_as = state_ref_second_option_temp }
+					if = {
+						limit = {
+							has_country_flag = third_option_occupied
+						}
+						var:ref_cs_first_option = { save_event_target_as = state_ref_third_option_temp }
+					}
+					if = {
+						limit = {
+							has_country_flag = fourth_option_occupied
+						}
+						var:ref_cs_first_option = { save_event_target_as = state_ref_fourth_option_temp }
+					}
+					cw_ref_cs_clear_junk = yes
+					cw_cs_ref_initial_setup = yes
+				}
+			}
+			cw_ref_cs_clear_junk = yes
+		}
+	}
+}
+cw_state_yes_noreferendum_category = {
+	cw_state_yes_no_referendum_timer = {
+		priority = 1
+		icon = GFX_decision_generic_political_rally
+
+		available = {
+			always = no
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				has_state_flag = ref_state
+			}
+		}
+
+		visible = {
+		}
+
+		days_mission_timeout = 90
+		is_good = no
+		activation = { always = no }
+
+		timeout_effect = {
+			if = {
+				limit = {
+					has_country_flag = determine_cores
+				}
+				if = {
+					limit = {
+						check_variable = { first_option_average > second_option_average }
+					}
+					every_owned_state = { limit = { has_state_flag = ref_state } add_core_of = ROOT }
+					else = {
+						add_political_power = -100
+					}
+				}
+			}
+			cw_state_ref_clear_junk = yes
+		}
+	}
+}
+cw_state_referendum_category = {
+	cw_state_referendum_timer = {
+		priority = 1
+		icon = GFX_decision_generic_political_rally
+
+		available = {
+			always = no
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				has_state_flag = ref_state
+			}
+		}
+
+		visible = {
+		}
+
+		days_mission_timeout = 90
+		is_good = no
+		activation = { always = no }
+
+		timeout_effect = {
+			if = {
+				limit = {
+					has_variable = ref_state_ref_second_option
+					AND = {
+						check_variable = { first_option_average > second_option_average }
+						check_variable = { first_option_average > third_option_average }
+						check_variable = { first_option_average > fourth_option_average }
+					}
+				}
+				every_owned_state = { limit = { OR = { is_core_of = var:ROOT.ref_state_ref_second_option is_claimed_by = var:ROOT.ref_state_ref_second_option } } add_resistance = -20 }
+				if = {
+			    limit = {
+						has_country_flag = ref_determine_cores
+					}
+					every_owned_state = {
+						limit = {
+							check_variable = { state_ref_first_option_votes_percent > state_ref_second_option_votes_percent }
+							check_variable = { state_ref_first_option_votes_percent > state_ref_third_option_votes_percent }
+							check_variable = { state_ref_first_option_votes_percent > state_ref_fourth_option_votes_percent }
+						}
+					 	add_core_of = ROOT
+						hidden_effect = { remove_claim_by = ROOT }
+				 	}
+					every_owned_state = {
+						limit = {
+							is_claimed_by = var:ROOT.ref_state_ref_second_option
+							check_variable = { state_ref_second_option_votes_percent > state_ref_first_option_votes_percent }
+							check_variable = { state_ref_second_option_votes_percent > state_ref_third_option_votes_percent }
+							check_variable = { state_ref_second_option_votes_percent > state_ref_fourth_option_votes_percent }
+						}
+					 	add_core_of = var:ROOT.ref_state_ref_second_option
+						hidden_effect = { remove_claim_by = var:ROOT.ref_state_ref_second_option }
+				 	}
+					if = {
+						limit = {
+							has_country_flag = third_option_occupied
+						}
+						every_owned_state = {
+							limit = {
+								is_claimed_by = var:ROOT.ref_state_ref_third_option
+								check_variable = { state_ref_third_option_votes_percent > state_ref_first_option_votes_percent }
+								check_variable = { state_ref_third_option_votes_percent > state_ref_second_option_votes_percent }
+								check_variable = { state_ref_third_option_votes_percent > state_ref_fourth_option_votes_percent }
+							}
+						 	add_core_of = var:ROOT.ref_state_ref_third_option
+							hidden_effect = { remove_claim_by = var:ROOT.ref_state_ref_third_option }
+					 	}
+					}
+					if = {
+						limit = {
+							has_country_flag = fourth_option_occupied
+						}
+						every_owned_state = {
+							limit = {
+								is_claimed_by = var:ROOT.ref_state_ref_fourth_option
+								check_variable = { state_ref_fourth_option_votes_percent > state_ref_first_option_votes_percent }
+								check_variable = { state_ref_fourth_option_votes_percent > state_ref_second_option_votes_percent }
+								check_variable = { state_ref_fourth_option_votes_percent > state_ref_third_option_votes_percent }
+							}
+						 	add_core_of = var:ROOT.ref_state_ref_fourth_option
+							hidden_effect = { remove_claim_by = var:ROOT.ref_state_ref_fourth_option }
+					 	}
+					}
+				}
+				if = {
+					limit = {
+						var:ROOT.one_state_ref_name = { has_state_flag = un_sponsored_referendum }
+					}
+					var:ROOT.one_state_ref_name = { add_core_of = ROOT }
+				}
+				if = {
+					limit = {
+						OR = {
+							var:ROOT.one_state_ref_name = { has_state_flag = leased_non_rec_territory }
+							var:ROOT.one_state_ref_name = { has_state_flag = leased_rec_territory }
+						}
+					}
+					var:ROOT.one_state_ref_name = {
+					 	clr_state_flag = leased_rec_territory
+						clr_state_flag = leased_non_rec_territory
+						clear_variable = lease_timer
+						clear_variable = lease_timer_display
+						clear_variable = true_owner
+				 	}
+				}
+				if = {
+					limit = {
+						has_country_flag = third_option_occupied
+					}
+					every_owned_state = { limit = { OR = { is_core_of = var:ROOT.ref_state_ref_third_option is_claimed_by = var:ROOT.ref_state_ref_third_option } } add_resistance = -20 }
+				}
+				if = {
+					limit = {
+						has_country_flag = fourth_option_occupied
+					}
+					every_owned_state = { limit = { OR = { is_core_of = var:ROOT.ref_state_ref_fourth_option is_claimed_by = var:ROOT.ref_state_ref_fourth_option } } add_resistance = -20 }
+				}
+			}
+			if = {
+				limit = {
+					has_variable = ref_state_ref_second_option
+					AND = {
+						check_variable = { second_option_average > first_option_average }
+						check_variable = { second_option_average > third_option_average }
+						check_variable = { second_option_average > fourth_option_average }
+					}
+				}
+				var:ref_state_ref_second_option = { save_event_target_as = winning_country }
+				if = {
+			    limit = {
+						has_country_flag = ref_determine_cores
+					}
+					every_owned_state = {
+						limit = {
+							check_variable = { state_ref_first_option_votes_percent > state_ref_second_option_votes_percent }
+							check_variable = { state_ref_first_option_votes_percent > state_ref_third_option_votes_percent }
+							check_variable = { state_ref_first_option_votes_percent > state_ref_fourth_option_votes_percent }
+						}
+					 	add_core_of = ROOT
+						hidden_effect = { remove_claim_by = ROOT }
+				 	}
+					every_owned_state = {
+						limit = {
+							is_claimed_by = var:ROOT.ref_state_ref_second_option
+							check_variable = { state_ref_second_option_votes_percent > state_ref_first_option_votes_percent }
+							check_variable = { state_ref_second_option_votes_percent > state_ref_third_option_votes_percent }
+							check_variable = { state_ref_second_option_votes_percent > state_ref_fourth_option_votes_percent }
+						}
+					 	add_core_of = var:ROOT.ref_state_ref_second_option
+						hidden_effect = { remove_claim_by = var:ROOT.ref_state_ref_second_option }
+				 	}
+					if = {
+						limit = {
+							has_country_flag = third_option_occupied
+						}
+						every_owned_state = {
+							limit = {
+								is_claimed_by = var:ROOT.ref_state_ref_third_option
+								check_variable = { state_ref_third_option_votes_percent > state_ref_first_option_votes_percent }
+								check_variable = { state_ref_third_option_votes_percent > state_ref_second_option_votes_percent }
+								check_variable = { state_ref_third_option_votes_percent > state_ref_fourth_option_votes_percent }
+							}
+						 	add_core_of = var:ROOT.ref_state_ref_third_option
+							hidden_effect = { remove_claim_by = var:ROOT.ref_state_ref_third_option }
+					 	}
+					}
+					if = {
+						limit = {
+							has_country_flag = fourth_option_occupied
+						}
+						every_owned_state = {
+							limit = {
+								is_claimed_by = var:ROOT.ref_state_ref_fourth_option
+								check_variable = { state_ref_fourth_option_votes_percent > state_ref_first_option_votes_percent }
+								check_variable = { state_ref_fourth_option_votes_percent > state_ref_second_option_votes_percent }
+								check_variable = { state_ref_fourth_option_votes_percent > state_ref_third_option_votes_percent }
+							}
+						 	add_core_of = var:ROOT.ref_state_ref_fourth_option
+							hidden_effect = { remove_claim_by = var:ROOT.ref_state_ref_fourth_option }
+					 	}
+					}
+				}
+				if = {
+					limit = {
+						OR = {
+							has_country_flag = territory_demanding_autonomy
+							has_country_flag = territory_demanding_independence
+							has_country_flag = territory_demanding_outside_union
+							has_country_flag = territory_demanding_outside_annexation
+						}
+					}
+					#Effect if the TAG winning the referendum DOES exists in game
+					if = {
+						limit = {
+							var:ref_state_ref_second_option = { exists = yes }
+						}
+						custom_effect_tooltip = "[CW_STATE_REF_REFERENDUM_RESULT_SECOND_OPTION]"
+						hidden_effect = {
+							create_dynamic_country = {
+								original_tag = var:ref_state_ref_second_option
+								save_event_target_as = state_ref_new_country
+								cw_single_state_ref_get_state_name = yes
+								every_state = {
+									limit = {
+										has_state_flag = ref_state
+										is_controlled_by = ROOT
+										OR = {
+											is_claimed_by = var:ref_state_ref_second_option
+											is_core_of = var:ref_state_ref_second_option
+										}
+									}
+									event_target:state_ref_new_country = { 
+										transfer_state = PREV
+										add_state_core = PREV
+									}
+									PREV = { save_event_target_as = the_new_country }
+								}
+								cw_single_state_ref_get_state_name = yes
+							}
+							var:ref_state_ref_second_option = { set_variable = { twin_country = event_target:the_new_country.id } }
+							event_target:the_new_country = { set_country_flag = decolonization set_variable = { twin_country = var:ROOT.ref_state_ref_second_option.id } }
+							every_state = { limit = { is_owned_by = var:ref_state_ref_second_option } add_claim_by = event_target:the_new_country }							
+							if = {
+								limit = {
+									ROOT = { has_country_flag = territory_demanding_autonomy }
+									event_target:the_new_country = { capital_scope = { is_on_continent = africa } }
+								}
+								puppet = event_target:the_new_country							
+								event_target:the_new_country = {
+									if = {
+										limit = {
+											is_in_faction = yes
+										}
+										leave_faction = yes
+										add_ideas = cw_we_hate_factions
+									}
+									set_politics = { ruling_party = colonial }
+									create_country_leader = {
+										name = "Colonial Administration"				# Impossible to localize
+										desc = ""
+										picture = "gfx/leaders/generic_colonial_administration.dds"
+										ideology = colonial_government
+										expire = 2000.1.1
+										traits = {}
+									}
+									set_popularities = {
+										democratic = 20
+										democratic_socialist = 20
+										unaligned_right = 20
+										neutrality = 20
+										communism = 0
+										communism_totalitarian = 20
+									}
+									if = {
+										limit = {
+											SOV = { has_government = communism }
+										}
+										set_popularities = {
+											democratic = 15
+											democratic_socialist = 15
+											unaligned_right = 15
+											neutrality = 15
+											communism = 20
+											communism_totalitarian = 20
+										}
+									}
+									if = {
+										limit = {
+											has_global_flag = decolonization_started
+										}
+										add_ideas = winds_of_change
+									}
+								}
+								##################################
+								event_target:the_new_country = { cw_state_ref_clear_variables_and_flags = yes }
+								else_if = {
+									limit = {
+										ROOT = { has_country_flag = territory_demanding_independence }
+									}
+								 	event_target:the_new_country = { add_political_power = 75 cw_state_ref_clear_variables_and_flags = yes }
+								}
+								else_if = {
+									limit = {
+										ROOT = { has_country_flag = territory_demanding_outside_annexation }
+									}
+								 	event_target:winning_country = { annex_country = { target = event_target:the_new_country transfer_troops = yes } cw_state_ref_clear_variables_and_flags = yes }
+								}
+								else_if = {
+									limit = {
+										ROOT = { has_country_flag = territory_demanding_outside_union }
+									}
+								 	event_target:winning_country = { puppet = event_target:the_new_country cw_state_ref_clear_variables_and_flags = yes }
+								}
+							}
+							if = {
+								limit = {
+									ROOT = {
+										OR = {
+											has_country_flag = democratic_leader_flag
+											has_country_flag = communist_leader_flag
+											has_country_flag = neutral_leader
+										}
+									}
+								}
+								event_target:the_new_country = { add_ideas = cw_partially_recognized_state }
+								else = { event_target:the_new_country = { cw_make_unrecognized = yes } }
+							}
+						}
+					}
+					#Effect if the TAG winning the referendum DOES NOT exists in game
+					if = {
+						limit = {
+							var:ref_state_ref_second_option = { exists = no }
+						}
+						custom_effect_tooltip = "[CW_STATE_REF_REFERENDUM_RESULT_SECOND_OPTION]"
+						hidden_effect = {
+							every_owned_state = {
+								limit = {
+									has_state_flag = ref_state
+								}
+								var:ref_state_ref_second_option = { add_state_core = PREV  }
+							}
+							if = {
+								limit = {
+									ROOT = { has_country_flag = territory_demanding_autonomy }
+									var:ref_state_ref_second_option = { capital_scope = { is_on_continent = africa } }
+								}
+								var:ref_state_ref_second_option = { set_country_flag = decolonization }
+								release_autonomy = {
+									target = var:ref_state_ref_second_option
+									autonomy_state = autonomy_colony
+									freedom_level = 0.5
+								}
+								var:ref_state_ref_second_option = { 
+									if = {
+										limit = {
+											ROOT = { has_country_flag = territory_demanding_autonomy }
+										}
+										set_politics = { ruling_party = colonial }
+										create_country_leader = {
+											name = "Colonial Administration"				# Impossible to localize
+											desc = ""
+											picture = "gfx/leaders/generic_colonial_administration.dds"
+											ideology = colonial_government
+											expire = 2000.1.1
+											traits = {}
+										}										
+									}
+									cw_make_unrecognized = yes
+									set_popularities = {
+										democratic = 20
+										democratic_socialist = 20
+										unaligned_right = 20
+										neutrality = 20
+										communism = 0
+										communism_totalitarian = 20
+									}
+									if = {
+										limit = {
+											SOV = { has_government = communism }
+										}
+										set_popularities = {
+											democratic = 15
+											democratic_socialist = 15
+											unaligned_right = 15
+											neutrality = 15
+											communism = 20
+											communism_totalitarian = 20
+										}
+									}
+									if = {
+										limit = {
+											has_global_flag = decolonization_started
+										}
+										add_ideas = winds_of_change
+									}
+								}
+								else_if = {
+									limit = {
+										ROOT = { has_country_flag = territory_demanding_independence }
+									}
+								 	release = var:ref_state_ref_second_option
+									var:ref_state_ref_second_option = { 
+										cw_gained_independence_notification = yes
+										cw_make_unrecognized = yes
+										set_popularities = {
+											democratic = 20
+											democratic_socialist = 20
+											unaligned_right = 20
+											neutrality = 20
+											communism = 0
+											communism_totalitarian = 20
+										}
+										if = {
+											limit = {
+												SOV = { has_government = communism }
+											}
+											set_popularities = {
+												democratic = 15
+												democratic_socialist = 15
+												unaligned_right = 15
+												neutrality = 15
+												communism = 20
+												communism_totalitarian = 20
+											}
+										}
+									}
+								}
+							}
+							var:ref_state_ref_second_option = { 
+								add_popularity = { ideology = colonial popularity = -0.10 }
+								add_popularity = { ideology = unaligned_right popularity = 0.20 }
+								if = {
+									limit = {
+										is_in_faction = yes
+									}
+									leave_faction = yes
+									add_ideas = cw_we_hate_factions
+								}
+							}
+							var:ref_state_ref_second_option = { cw_state_ref_clear_variables_and_flags = yes cw_make_unrecognized = yes }
+							if = {
+								limit = {
+									ROOT = {
+										OR = {
+											has_country_flag = democratic_leader_flag
+											has_country_flag = communist_leader_flag
+											has_country_flag = neutral_leader
+										}
+									}
+								}
+								event_target:the_new_country = { add_ideas = cw_partially_recognized_state }
+								else = { event_target:the_new_country = { cw_make_unrecognized = yes } }
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						var:ROOT.one_state_ref_name = { has_state_flag = un_sponsored_referendum }
+					}
+					every_owned_state = { limit = { OR = { is_core_of = var:ROOT.ref_state_ref_second_option is_claimed_by = var:ROOT.ref_state_ref_second_option } } add_resistance = 40 }
+				}
+			}
+			if = {
+			  limit = {
+				has_variable = ref_state_ref_second_option
+			    AND = {
+			      check_variable = { third_option_average > first_option_average }
+			      check_variable = { third_option_average > second_option_average }
+			      check_variable = { third_option_average > fourth_option_average }
+			    }
+			  }
+			  var:ref_state_ref_third_option = { save_event_target_as = winning_country }
+				if = {
+			    limit = {
+						has_country_flag = ref_determine_cores
+					}
+					every_owned_state = {
+						limit = {
+							check_variable = { state_ref_first_option_votes_percent > state_ref_second_option_votes_percent }
+							check_variable = { state_ref_first_option_votes_percent > state_ref_third_option_votes_percent }
+							check_variable = { state_ref_first_option_votes_percent > state_ref_fourth_option_votes_percent }
+						}
+					 	add_core_of = ROOT
+						hidden_effect = { remove_claim_by = ROOT }
+				 	}
+					every_owned_state = {
+						limit = {
+							is_claimed_by = var:ROOT.ref_state_ref_second_option
+							check_variable = { state_ref_second_option_votes_percent > state_ref_first_option_votes_percent }
+							check_variable = { state_ref_second_option_votes_percent > state_ref_third_option_votes_percent }
+							check_variable = { state_ref_second_option_votes_percent > state_ref_fourth_option_votes_percent }
+						}
+					 	add_core_of = var:ROOT.ref_state_ref_second_option
+						hidden_effect = { remove_claim_by = var:ROOT.ref_state_ref_second_option }
+				 	}
+					every_owned_state = {
+						limit = {
+							is_claimed_by = var:ROOT.ref_state_ref_third_option
+							check_variable = { state_ref_third_option_votes_percent > state_ref_first_option_votes_percent }
+							check_variable = { state_ref_third_option_votes_percent > state_ref_second_option_votes_percent }
+							check_variable = { state_ref_third_option_votes_percent > state_ref_fourth_option_votes_percent }
+						}
+					 	add_core_of = var:ROOT.ref_state_ref_third_option
+						hidden_effect = { remove_claim_by = var:ROOT.ref_state_ref_third_option }
+				 	}
+					if = {
+						limit = {
+							has_country_flag = fourth_option_occupied
+						}
+						every_owned_state = {
+							limit = {
+								is_claimed_by = var:ROOT.ref_state_ref_fourth_option
+								check_variable = { state_ref_fourth_option_votes_percent > state_ref_first_option_votes_percent }
+								check_variable = { state_ref_fourth_option_votes_percent > state_ref_second_option_votes_percent }
+								check_variable = { state_ref_fourth_option_votes_percent > state_ref_third_option_votes_percent }
+							}
+						 	add_core_of = var:ROOT.ref_state_ref_fourth_option
+							hidden_effect = { remove_claim_by = var:ROOT.ref_state_ref_fourth_option }
+					 	}
+					}
+				}
+			  if = {
+			    limit = {
+			      OR = {
+			        has_country_flag = territory_demanding_autonomy
+			        has_country_flag = territory_demanding_independence
+			        has_country_flag = territory_demanding_outside_union
+			        has_country_flag = territory_demanding_outside_annexation
+			      }
+			    }
+			    #Effect if the TAG winning the referendum DOES NOT exists in game
+			    if = {
+			      limit = {
+			        var:ref_state_ref_third_option = { exists = yes }
+			      }
+			      custom_effect_tooltip = "[CW_STATE_REF_REFERENDUM_RESULT_THIRD_OPTION]"
+			        hidden_effect = {
+			        create_dynamic_country = {
+			          original_tag = var:ref_state_ref_third_option
+			          #copy_tag = IRE
+			          save_event_target_as = state_ref_new_country
+			          every_owned_state = {
+			            limit = {
+			              has_state_flag = ref_state
+			            }
+			            event_target:state_ref_new_country = { add_state_core = PREV transfer_state = PREV  }
+			            PREV = { save_event_target_as = the_new_country }
+			          }
+			          cw_single_state_ref_get_state_name = yes
+			        }
+			        event_target:the_new_country = { set_politics = { ruling_party = var:ROOT.ref_state_ref_third_option } add_popularity = { ideology = colonial popularity = -0.10 } add_popularity = { ideology = unaligned_right popularity = 0.20 } cw_state_ref_clear_variables_and_flags = yes }
+			        every_state = { limit = { is_owned_by = var:ROOT.ref_state_ref_third_option } remove_core_of = event_target:the_new_country }
+			        every_state = { limit = { is_owned_by = event_target:the_new_country } add_claim_by = event_target:winning_country }
+			        event_target:the_new_country = { set_variable = { brother_nation = event_target:winning_country.id } add_opinion_modifier = { target = event_target:winning_country modifier = seperated_at_birth } }
+			        event_target:winning_country = { set_variable = { brother_nation = event_target:the_new_country.id } add_opinion_modifier = { target = event_target:the_new_country modifier = seperated_at_birth } }
+			        if = {
+			          limit = {
+			            ROOT = { has_country_flag = territory_demanding_autonomy }
+			          }
+			          puppet = event_target:the_new_country
+			          event_target:the_new_country = { cw_state_ref_clear_variables_and_flags = yes }
+			          else_if = {
+			            limit = {
+			              ROOT = { has_country_flag = territory_demanding_independence }
+			            }
+			            event_target:the_new_country = { add_political_power = 75 cw_state_ref_clear_variables_and_flags = yes }
+			          }
+			          else_if = {
+			            limit = {
+			              ROOT = { has_country_flag = territory_demanding_outside_annexation }
+			            }
+			            event_target:winning_country = { annex_country = { target = event_target:the_new_country transfer_troops = yes } cw_state_ref_clear_variables_and_flags = yes }
+			          }
+			          else_if = {
+			            limit = {
+			              ROOT = { has_country_flag = territory_demanding_outside_union }
+			            }
+			            event_target:winning_country = { puppet = event_target:the_new_country cw_state_ref_clear_variables_and_flags = yes }
+			          }
+			        }
+			        if = {
+			          limit = {
+			            ROOT = {
+			              OR = {
+			                has_country_flag = democratic_leader_flag
+			                has_country_flag = communist_leader_flag
+			                has_country_flag = neutral_leader
+			              }
+			            }
+			          }
+			          event_target:the_new_country = { add_ideas = cw_partially_recognized_state }
+			          else = { event_target:the_new_country = { cw_make_unrecognized = yes } }
+			        }
+			      }
+			    }
+			    #Effect if the TAG winning the referendum DOES exists in game
+			    if = {
+			      limit = {
+			        var:ref_state_ref_third_option = { exists = no }
+			      }
+			      custom_effect_tooltip = "[CW_STATE_REF_REFERENDUM_RESULT_THIRD_OPTION]"
+			      hidden_effect = {
+			        every_owned_state = {
+			          limit = {
+			            has_state_flag = ref_state
+			          }
+			          var:ref_state_ref_third_option = { add_state_core = PREV  }
+			        }
+			        if = {
+			          limit = {
+			            ROOT = { has_country_flag = territory_demanding_autonomy }
+			          }
+			          release_puppet = var:ref_state_ref_third_option
+			          else_if = {
+			            limit = {
+			              ROOT = { has_country_flag = territory_demanding_independence }
+			            }
+			            release = var:ref_state_ref_third_option
+			          }
+			        }
+			        var:ref_state_ref_third_option = { set_politics = { ruling_party = ROOT } add_popularity = { ideology = colonial popularity = -0.10 } add_popularity = { ideology = unaligned_right popularity = 0.20 } }
+			        var:ref_state_ref_third_option = { cw_state_ref_clear_variables_and_flags = yes every_owned_state = { add_core_of  = ROOT } }
+			        if = {
+			          limit = {
+			            ROOT = {
+			              OR = {
+			                has_country_flag = democratic_leader_flag
+			                has_country_flag = communist_leader_flag
+			                has_country_flag = neutral_leader
+			              }
+			            }
+			          }
+			          event_target:the_new_country = { add_ideas = cw_partially_recognized_state }
+			          else = { event_target:the_new_country = { cw_make_unrecognized = yes } }
+			        }
+			      }
+			    }
+			  }
+				if = {
+					limit = {
+						var:ROOT.one_state_ref_name = { has_state_flag = un_sponsored_referendum }
+					}
+					every_owned_state = { limit = { OR = { is_core_of = var:ROOT.ref_state_ref_third_option is_claimed_by = var:ROOT.ref_state_ref_third_option } } add_resistance = 40 }
+				}
+			}
+			if = {
+			  limit = {
+				has_variable = ref_state_ref_second_option
+			    AND = {
+			      check_variable = { fourth_option_average > first_option_average }
+			      check_variable = { fourth_option_average > second_option_average }
+			      check_variable = { fourth_option_average > third_option_average }
+			    }
+			  }
+			  var:ref_state_ref_fourth_option = { save_event_target_as = winning_country }
+				if = {
+			    limit = {
+						has_country_flag = ref_determine_cores
+					}
+					every_owned_state = {
+						limit = {
+							check_variable = { state_ref_first_option_votes_percent > state_ref_second_option_votes_percent }
+							check_variable = { state_ref_first_option_votes_percent > state_ref_third_option_votes_percent }
+							check_variable = { state_ref_first_option_votes_percent > state_ref_fourth_option_votes_percent }
+						}
+					 	add_core_of = ROOT
+						hidden_effect = { remove_claim_by = ROOT }
+				 	}
+					every_owned_state = {
+						limit = {
+							is_claimed_by = var:ROOT.ref_state_ref_second_option
+							check_variable = { state_ref_second_option_votes_percent > state_ref_first_option_votes_percent }
+							check_variable = { state_ref_second_option_votes_percent > state_ref_third_option_votes_percent }
+							check_variable = { state_ref_second_option_votes_percent > state_ref_fourth_option_votes_percent }
+						}
+					 	add_core_of = var:ROOT.ref_state_ref_second_option
+						hidden_effect = { remove_claim_by = var:ROOT.ref_state_ref_second_option }
+				 	}
+					every_owned_state = {
+						limit = {
+							is_claimed_by = var:ROOT.ref_state_ref_third_option
+							check_variable = { state_ref_third_option_votes_percent > state_ref_first_option_votes_percent }
+							check_variable = { state_ref_third_option_votes_percent > state_ref_second_option_votes_percent }
+							check_variable = { state_ref_third_option_votes_percent > state_ref_fourth_option_votes_percent }
+						}
+					 	add_core_of = var:ROOT.ref_state_ref_third_option
+						hidden_effect = { remove_claim_by = var:ROOT.ref_state_ref_third_option }
+				 	}
+					every_owned_state = {
+						limit = {
+							is_claimed_by = var:ROOT.ref_state_ref_fourth_option
+							check_variable = { state_ref_fourth_option_votes_percent > state_ref_first_option_votes_percent }
+							check_variable = { state_ref_fourth_option_votes_percent > state_ref_second_option_votes_percent }
+							check_variable = { state_ref_fourth_option_votes_percent > state_ref_third_option_votes_percent }
+						}
+					 	add_core_of = var:ROOT.ref_state_ref_fourth_option
+						hidden_effect = { remove_claim_by = var:ROOT.ref_state_ref_fourth_option }
+				 	}
+				}
+			  if = {
+			    limit = {
+			      OR = {
+			        has_country_flag = territory_demanding_autonomy
+			        has_country_flag = territory_demanding_independence
+			        has_country_flag = territory_demanding_outside_union
+			        has_country_flag = territory_demanding_outside_annexation
+			      }
+			    }
+			    #Effect if the TAG winning the referendum DOES NOT exists in game
+			    if = {
+			      limit = {
+			        var:ref_state_ref_fourth_option = { exists = yes }
+			      }
+			      custom_effect_tooltip = "[CW_STATE_REF_REFERENDUM_RESULT_FOURTH_OPTION]"
+			        hidden_effect = {
+			        create_dynamic_country = {
+			          original_tag = var:ref_state_ref_fourth_option
+			          #copy_tag = IRE
+			          save_event_target_as = state_ref_new_country
+			          every_owned_state = {
+			            limit = {
+			              has_state_flag = ref_state
+			            }
+			            event_target:state_ref_new_country = { add_state_core = PREV transfer_state = PREV  }
+			            PREV = { save_event_target_as = the_new_country }
+			          }
+			          cw_single_state_ref_get_state_name = yes
+			        }
+			        event_target:the_new_country = { set_politics = { ruling_party = var:ROOT.ref_state_ref_fourth_option } add_popularity = { ideology = colonial popularity = -0.10 } add_popularity = { ideology = unaligned_right popularity = 0.20 } cw_state_ref_clear_variables_and_flags = yes }
+			        every_state = { limit = { is_owned_by = var:ROOT.ref_state_ref_fourth_option } remove_core_of = event_target:the_new_country }
+			        every_state = { limit = { is_owned_by = event_target:the_new_country } add_claim_by = event_target:winning_country }
+			        event_target:the_new_country = { set_variable = { brother_nation = event_target:winning_country.id } add_opinion_modifier = { target = event_target:winning_country modifier = seperated_at_birth } }
+			        event_target:winning_country = { set_variable = { brother_nation = event_target:the_new_country.id } add_opinion_modifier = { target = event_target:the_new_country modifier = seperated_at_birth } }
+			        if = {
+			          limit = {
+			            ROOT = { has_country_flag = territory_demanding_autonomy }
+			          }
+			          puppet = event_target:the_new_country
+			          event_target:the_new_country = { cw_state_ref_clear_variables_and_flags = yes }
+			          else_if = {
+			            limit = {
+			              ROOT = { has_country_flag = territory_demanding_independence }
+			            }
+			            event_target:the_new_country = { add_political_power = 75 cw_state_ref_clear_variables_and_flags = yes }
+			          }
+			          else_if = {
+			            limit = {
+			              ROOT = { has_country_flag = territory_demanding_outside_annexation }
+			            }
+			            event_target:winning_country = { annex_country = { target = event_target:the_new_country transfer_troops = yes } cw_state_ref_clear_variables_and_flags = yes }
+			          }
+			          else_if = {
+			            limit = {
+			              ROOT = { has_country_flag = territory_demanding_outside_union }
+			            }
+			            event_target:winning_country = { puppet = event_target:the_new_country cw_state_ref_clear_variables_and_flags = yes }
+			          }
+			        }
+			        if = {
+			          limit = {
+			            ROOT = {
+			              OR = {
+			                has_country_flag = democratic_leader_flag
+			                has_country_flag = communist_leader_flag
+			                has_country_flag = neutral_leader
+			              }
+			            }
+			          }
+			          event_target:the_new_country = { add_ideas = cw_partially_recognized_state }
+			          else = { event_target:the_new_country = { cw_make_unrecognized = yes } }
+			        }
+			      }
+			    }
+			    #Effect if the TAG winning the referendum DOES exists in game
+			    if = {
+			      limit = {
+			        var:ref_state_ref_fourth_option = { exists = no }
+			      }
+			      custom_effect_tooltip = "[CW_STATE_REF_REFERENDUM_RESULT_FOURTH_OPTION]"
+			      hidden_effect = {
+			        every_owned_state = {
+			          limit = {
+			            has_state_flag = ref_state
+			          }
+			          var:ref_state_ref_fourth_option = { add_state_core = PREV  }
+			        }
+			        if = {
+			          limit = {
+			            ROOT = { has_country_flag = territory_demanding_autonomy }
+			          }
+			          release_puppet = var:ref_state_ref_fourth_option
+			          else_if = {
+			            limit = {
+			              ROOT = { has_country_flag = territory_demanding_independence }
+			            }
+			            release = var:ref_state_ref_fourth_option
+			          }
+			        }
+			        var:ref_state_ref_fourth_option = { set_politics = { ruling_party = ROOT } add_popularity = { ideology = colonial popularity = -0.10 } add_popularity = { ideology = unaligned_right popularity = 0.20 } }
+			        var:ref_state_ref_fourth_option = { cw_state_ref_clear_variables_and_flags = yes every_owned_state = { add_core_of  = ROOT } }
+			        if = {
+			          limit = {
+			            ROOT = {
+			              OR = {
+			                has_country_flag = democratic_leader_flag
+			                has_country_flag = communist_leader_flag
+			                has_country_flag = neutral_leader
+			              }
+			            }
+			          }
+			          event_target:the_new_country = { add_ideas = cw_partially_recognized_state }
+			          else = { event_target:the_new_country = { cw_make_unrecognized = yes } }
+			        }
+			      }
+			    }
+			  }
+				if = {
+					limit = {
+						var:ROOT.one_state_ref_name = { has_state_flag = un_sponsored_referendum }
+					}
+					every_owned_state = { limit = { OR = { is_core_of = var:ROOT.ref_state_ref_fourth_option is_claimed_by = var:ROOT.ref_state_ref_fourth_option } } add_resistance = 40 }
+				}
+			}
+			cw_state_ref_clear_junk = yes
+		}
+	}
+}
+cw_ref_tracker_category = {
+	cw_cs_ref_intervention_tracker = {
+		icon = GFX_decision_generic_nationalism
+
+		available = {
+			always = no
+		}
+
+		visible = {
+			FROM = { has_active_mission = cw_cs_referendum_timer }
+			ROOT = {
+				is_in_array = {
+					array = FROM.cs_ref_1_array
+					value = ROOT.id
+				}
+			}
+		}
+
+		is_good = no
+		fire_only_once = no
+
+		target_trigger = {
+			FROM = { has_active_mission = cw_cs_referendum_timer }
+			ROOT = {
+				is_in_array = {
+					array = FROM.cs_ref_1_array
+					value = ROOT.id
+				}
+			}
+		}
+
+		complete_effect = {
+		}
+	}
+	cw_mon_ref_intervention_tracker = {
+		icon = GFX_decision_eng_abdication_crisis
+
+		available = {
+			always = no
+		}
+
+		visible = { FROM = { has_active_mission = cw_mon_referendum_timer } }
+
+		is_good = no
+		fire_only_once = no
+
+		target_trigger = {
+			FROM = { has_active_mission = cw_mon_referendum_timer }
+			ROOT = {
+				is_in_array = {
+					array = FROM.mon_ref_1_array
+					value = ROOT.id
+				}
+			}
+		}
+
+		complete_effect = {
+		}
+	}
+	cw_sate_ref_intervention_tracker = {
+		icon = GFX_decision_generic_political_rally
+
+		available = {
+			always = no
+		}
+
+		visible = { FROM = { has_active_mission = cw_state_referendum_timer } }
+
+		is_good = no
+		fire_only_once = no
+
+		target_trigger = {
+			FROM = { has_active_mission = cw_state_referendum_timer }
+			FROM = {
+				is_in_array = {
+					array = ROOT.state_ref_1_array
+					value = FROM.id
+				}
+			}
+		}
+
+		complete_effect = {
+		}
+	}
+	cw_country_yes_no_intervention_tracker = {
+		icon = GFX_decision_generic_political_rally
+
+		available = {
+			always = no
+		}
+
+		visible = { FROM = { has_active_mission = cw_country_yes_no_referendum_timer } }
+
+		is_good = no
+		fire_only_once = no
+
+		target_trigger = {
+			FROM = { has_active_mission = cw_country_yes_no_referendum_timer }
+			ROOT = {
+				is_in_array = {
+					array = FROM.country_yes_no_ref_1_array
+					value = ROOT.id
+				}
+			}
+		}
+
+		complete_effect = {
+		}
+	}	
+}

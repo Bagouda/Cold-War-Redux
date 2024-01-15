@@ -1,0 +1,4569 @@
+focus_tree = {
+	id = sov_focus_1950
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			OR = {
+				tag = SOV
+				tag = CAN
+			}
+			NOT = { has_country_flag = show_non_historical_focuses }
+		}		
+		modifier = {
+			add = -50
+			date > 1960.1.1
+		}		
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	reset_on_civilwar = no
+	
+	###################################################
+	
+	shared_focus = ACC_future_of_austria
+	
+	###################################################	
+	focus = {
+		id = SOV_great_projects_of_communism
+		icon = GFX_goal_generic_construction
+		x = 16
+		y = 1
+		cost = 2
+		available = {
+		}
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}	
+	focus = {
+		id = SOV_build_zhiguli_hydroelectric_station
+		available = {
+		}
+		prerequisite = { focus = SOV_great_projects_of_communism }
+		icon = GFX_SOV_build_zhiguli_station
+		x = -1
+		y = 2
+		relative_position_id = SOV_great_projects_of_communism
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		cost = 20
+		
+		available_if_capitulated = no
+		
+		completion_reward = {
+			if = {
+				limit = {
+					251 = { has_state_category = devestated_wasteland }
+				}
+				251 = { set_state_category = city }
+			}
+			if = {
+				limit = {
+					251 = { has_state_category = town }
+				}
+			251 = { set_state_category = large_town }
+			}
+			if = {
+				limit = {
+					251 = { has_state_category = large_town }
+				}
+			251 = { set_state_category = city }
+			}
+			if = {
+				limit = {
+					251 = { has_state_category = city }
+				}
+			251 = { set_state_category = large_city }
+			}
+			if = {
+				limit = {
+					251 = { has_state_category = large_city }
+				}
+			251 = { set_state_category = metropolis }
+			}
+			if = {
+				limit = {
+					251 = { has_state_category = metropolis }
+				}
+			251 = { set_state_category = megalopolis }
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_build_volga_hydroelectric_station
+		available = {
+		}
+		prerequisite = { focus = SOV_great_projects_of_communism }
+		icon = GFX_SOV_build_volga_station
+		x = 1
+		y = 2
+		relative_position_id = SOV_great_projects_of_communism
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		cost = 20
+		
+		available_if_capitulated = no
+		
+		completion_reward = {
+			if = {
+				limit = {
+					217 = { has_state_category = devestated_wasteland }
+				}
+				217 = { set_state_category = city }
+			}
+			if = {
+				limit = {
+					217 = { has_state_category = town }
+				}
+			217 = { set_state_category = large_town }
+			}
+			if = {
+				limit = {
+					217 = { has_state_category = large_town }
+				}
+			217 = { set_state_category = city }
+			}
+			if = {
+				limit = {
+					217 = { has_state_category = city }
+				}
+			217 = { set_state_category = large_city }
+			}
+			if = {
+				limit = {
+					217 = { has_state_category = large_city }
+				}
+			217 = { set_state_category = metropolis }
+			}
+			if = {
+				limit = {
+					217 = { has_state_category = metropolis }
+				}
+			217 = { set_state_category = megalopolis }
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_build_kakhovka_hydroelectric_power_plant
+		available = {
+		}
+		prerequisite = { focus = SOV_great_projects_of_communism }
+		icon = GFX_SOV_build_kakhovka_station
+		x = -3
+		y = 1
+		relative_position_id = SOV_great_projects_of_communism
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		cost = 20
+		
+		available_if_capitulated = no
+		
+		completion_reward = {
+			if = {
+				limit = {
+					196 = { has_state_category = devestated_wasteland }
+				}
+				196 = { set_state_category = city }
+			}
+			if = {
+				limit = {
+					196 = { has_state_category = town }
+				}
+			196 = { set_state_category = large_town }
+			}
+			if = {
+				limit = {
+					196 = { has_state_category = large_town }
+				}
+			196 = { set_state_category = city }
+			}
+			if = {
+				limit = {
+					196 = { has_state_category = city }
+				}
+			196 = { set_state_category = large_city }
+			}
+			if = {
+				limit = {
+					196 = { has_state_category = large_city }
+				}
+			196 = { set_state_category = metropolis }
+			}
+			if = {
+				limit = {
+					196 = { has_state_category = metropolis }
+				}
+			196 = { set_state_category = megalopolis }
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = SOV_finish_building_volga_don_canal
+		available = {
+		}
+		prerequisite = { focus = SOV_great_projects_of_communism }
+		icon = GFX_SOV_build_volga_don_canal
+		x = 3
+		y = 1
+		relative_position_id = SOV_great_projects_of_communism
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		cost = 20
+		
+		available_if_capitulated = no
+		
+		completion_reward = {
+			217 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+############# WARSAW PACT BRANCH  #############
+	focus = {
+		id = SOV_support_communists_abroad
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_join_comintern
+		x = 6
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			add_political_power = 100
+		}
+		
+		ai_will_do = {
+			base = 100
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_support_north_korea
+		available = {
+			PRK = { exists = yes }
+			PRK = { has_war = yes }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_SOV_korean_flag_raised
+		x = -3
+		y = 1
+		cost = 5
+		
+		prerequisite = { focus = SOV_support_communists_abroad }
+		relative_position_id = SOV_support_communists_abroad
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_TENSION_FOCUSES FOCUS_FILTER_HISTORICAL_FOCUSES }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			PRK = { cw_give_military_aid = yes }
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_north_korea_withdrawal
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			NOT = { PRK = { all_owned_state = { is_controlled_by = THIS } } }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_north_south_korea_un_withdrawal
+		x = 0
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_UNSC_FOCUSES }
+		relative_position_id = SOV_support_north_korea
+		prerequisite = { focus = SOV_support_north_korea }
+
+		select_effect = {
+			PRK = { cw_unsc_resolution_foreign_withdrawal = yes }
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				PRK = { cw_unsc_resolution_foreign_withdrawal = yes }
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}	
+	focus = {
+		id = SOV_support_vietnam
+		available = {
+			VIN = { exists = yes }
+			VIN = { has_war = yes }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_communist_vietnam
+		x = -2
+		y = 4
+		cost = 5
+		
+		prerequisite = { focus = SOV_support_communists_abroad }
+		relative_position_id = SOV_support_communists_abroad
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_TENSION_FOCUSES }
+
+		select_effect = {}
+
+		completion_reward = {
+			VIN = { cw_give_military_aid = yes }
+			if = {
+				limit = {
+					is_historical_focus_on = yes
+				}
+				add_to_array = {
+					array = ROOT.priority_countries
+					value = VIN.id
+				}
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = SOV_support_cuban_revolutionaries
+		
+		available = {
+			CUB = { exists = yes }
+			CUB = { has_civil_war = yes }
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_support_castro
+		x = 3
+		y = 1
+		cost = 5
+		
+		prerequisite = { focus = SOV_support_communists_abroad }
+		relative_position_id = SOV_support_communists_abroad
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_TENSION_FOCUSES }
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "Will allow us to provide aid to the Cuban Revolutionaries."
+			random_country_with_original_tag = {
+				original_tag_to_check = CUB 
+				limit = {
+					has_war_with = CUB
+				}
+				cw_give_military_aid = yes
+			}			
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_support_cuban_economy
+		
+		available = {
+			CUB = {
+				exists = yes
+				has_civil_war = no
+				OR = {
+					has_government = communism
+					has_government = communism_totalitarian
+					has_government = neutrality
+				}
+			}
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_concessions
+		x = 0
+		y = 1
+		cost = 5
+		
+		prerequisite = { focus = SOV_support_cuban_revolutionaries }
+		relative_position_id = SOV_support_cuban_revolutionaries
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_TENSION_FOCUSES }
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "Will allow us to enroll Cuba to the Comecon aid Program."
+			CUB = { set_country_flag = special_aid_permission }
+			if = {
+				limit = {
+					is_historical_focus_on = yes
+				}
+				add_to_array = {
+					array = ROOT.priority_countries
+					value = CUB.id
+				}				
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = SOV_support_algeria_fln
+		
+		available = {
+			ALG = { exists = yes }
+			ALG = { has_civil_war = yes }
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_support_fln
+		x = 2
+		y = 4
+		cost = 5
+		
+		prerequisite = { focus = SOV_support_communists_abroad }
+		relative_position_id = SOV_support_communists_abroad
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_TENSION_FOCUSES }
+
+		select_effect = {}   
+
+		completion_reward = {
+			custom_effect_tooltip = "Will allow us to provide aid to the Algerian National Liberation Front."		
+			random_country_with_original_tag = {
+				original_tag_to_check = ALG 
+				limit = {
+					has_war_with = ALG
+				}
+				cw_give_military_aid = yes
+			}	
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_extend_comecon_asia
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "The Soviet Power Struggle has concluded."
+				has_country_flag = post_stalin_communist_power_finished
+			}		
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_comecon_asia
+		x = 0
+		y = 2
+		cost = 5
+		
+		prerequisite = { focus = SOV_support_communists_abroad }
+		relative_position_id = SOV_support_communists_abroad
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES FOCUS_FILTER_PARTIES_FOCUSES }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = "1. Will allow us to provide Comecon Aid to countries in Asia.[CW_INSERT_NEW_LINE_LOC]"
+			custom_effect_tooltip = "2. Will increase the maximum amount of coutries we can provide aid to by 2."
+			set_country_flag = economic_aid_asia_allowed
+			if = {
+				limit = {
+					has_government = communism
+				}
+				add_to_variable = { global.com_ref_aid_program_max_participants = 2 }
+			}
+			if = {
+				limit = {
+					has_government = communism_totalitarian
+				}
+				add_to_variable = { global.com_aid_program_max_participants = 2 }
+			}			
+			if = {
+				limit = {
+					is_historical_focus_on = yes
+				}
+				add_to_array = {
+					array = ROOT.priority_countries
+					value = PRC.id
+				}
+				remove_from_array = {
+					array = ROOT.priority_countries
+					value = ROM.id
+				}
+			}
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_embrace_egypt
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "Gamal Abdel Nasser rules Egypt"
+				EGY = {
+					has_country_leader = {
+						name = "Gamal Abdel Nasser"
+						ruling_only = yes
+					}
+				}
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_embrace_nasser
+		x = 0
+		y = 4
+		cost = 5
+		
+		prerequisite = { focus = SOV_establish_warsaw_pact }
+		relative_position_id = SOV_support_communists_abroad
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES FOCUS_FILTER_PARTIES_FOCUSES }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			EGY = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = anti_colonial_protector
+				}
+			}
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_egypt_provide_economic_aid
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_concessions
+		x = 1
+		y = 1
+		cost = 5
+		
+		prerequisite = { focus = SOV_embrace_egypt }
+		relative_position_id = SOV_embrace_egypt
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			EGY = {
+				set_variable = { cw_economic_aid_lock@ROOT = 1825 }
+				cw_give_economic_aid_effect_locked = yes
+				custom_effect_tooltip = "[CW_INSERT_NEW_LINE_LOC]Note: We will not be able to suspend our aid to [THIS.GetName] for a period of 5 years."
+			}		
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_egypt_provide_military_aid
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_tank_production
+		x = -1
+		y = 1
+		cost = 5
+		
+		prerequisite = { focus = SOV_embrace_egypt }
+		relative_position_id = SOV_embrace_egypt
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			EGY = { cw_give_military_aid = yes }
+			every_country = {
+				limit = {
+					OR = {
+						has_government = unaligned_right
+						has_government = neutrality
+					}
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = anti_colonial_protector
+				}
+			}
+		}
+		ai_will_do = {
+			base = 100
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_intervene_in_suez_crisis
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_intervene_suez_crisis
+		x = 0
+		y = 2
+		cost = 3
+		
+		prerequisite = { focus = SOV_embrace_egypt }
+		relative_position_id = SOV_embrace_egypt
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			add_political_power = 50
+		}
+		
+		ai_will_do = {
+			base = 100
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_demand_egypt_withdrawal
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			custom_trigger_tooltip = {
+				tooltip = "France, United Kingdom or Israel have occupied Egyptian territory."
+				OR = {
+					FRA = { any_controlled_state = { is_core_of = EGY } }
+					ENG = { any_controlled_state = { is_core_of = EGY } }
+					ISR = { any_controlled_state = { is_core_of = EGY } }
+				}
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_stomp_british_flag
+		x = 1
+		y = 1
+		cost = 2
+		
+		prerequisite = { focus = SOV_intervene_in_suez_crisis }
+		relative_position_id = SOV_intervene_in_suez_crisis
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+		mutually_exclusive = { focus = SOV_suez_international_zone }
+
+		select_effect = {
+			EGY = { cw_unsc_resolution_foreign_withdrawal = yes }
+		}
+
+		completion_reward = {
+			add_political_power = 50
+			effect_tooltip = {
+				EGY = { cw_unsc_generic_expel_from_un = yes }
+			}
+			every_country = {
+				limit = {
+					OR = {
+						has_government = unaligned_right
+						has_government = neutrality
+					}
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = anti_colonial_protector
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_suez_international_zone
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			EGY = {
+				exists = yes
+				has_war_with = ENG
+			}
+			805 = { is_controlled_by = EGY }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_pact_egypt
+		x = -1
+		y = 1
+		cost = 10
+		
+		prerequisite = { focus = SOV_intervene_in_suez_crisis }
+		relative_position_id = SOV_intervene_in_suez_crisis		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+		mutually_exclusive = { focus = SOV_demand_egypt_withdrawal }
+
+		select_effect = {
+			hidden_effect = {
+				805 = { save_global_event_target_as = requested_int_zone }
+				805 = {
+					owner = {
+						save_global_event_target_as = unsc_target
+						cw_unsc_set_hate_resolution = yes
+						set_country_flag = unsc_resolution_generic_international_lease 
+					}
+				}
+				save_global_event_target_as = unsc_initiator
+				set_country_flag = wants_unsc_support
+				USA = { set_country_flag = wants_unsc_support }
+				cw_unsc_start_resolution_effect = yes
+			}
+		}
+
+		completion_reward = {
+			add_political_power = 50
+			custom_effect_tooltip = "We will submit a resolution to the Security Council suggesting providing International Access to the Suez Canal."
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}	
+	
+	focus = {
+		id = SOV_crush_hungarian_revolt
+		
+		available = {
+			HUN = { exists = yes }
+			HUN = { NOT = { has_government = ROOT } }
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_crush_hungary
+		x = -1
+		y = 2
+		cost = 2
+		
+		prerequisite = { focus = SOV_establish_warsaw_pact }
+		relative_position_id = SOV_establish_warsaw_pact
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_TENSION_FOCUSES FOCUS_FILTER_HISTORICAL_FOCUSES }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = HUN
+			}		
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 200
+				HUN = { NOT = { has_government = ROOT } }
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_crush_ddr_revolt
+		
+		available = {
+			DDR = { exists = yes }
+			DDR = { has_civil_war = yes }
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_crush_germany
+		x = 1
+		y = 2
+		cost = 2
+		
+		prerequisite = { focus = SOV_establish_warsaw_pact }
+		relative_position_id = SOV_establish_warsaw_pact
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_TENSION_FOCUSES FOCUS_FILTER_HISTORICAL_FOCUSES }
+		will_lead_to_war_with = DDR
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			random_country_with_original_tag = {
+				original_tag_to_check = DDR
+				limit = {
+					has_war_with = DDR
+				}
+				ROOT = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}	
+############# STALIN SUCCESSION BRANCH #############
+	focus = {
+		id = SOV_stalin_succession
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "Stalin is dead."
+				has_country_flag = sov_power_struggle
+			}
+		}
+		
+		icon = GFX_focus_fra_loyalty_stalin
+		x = 16
+		y = 5
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_establish_collective_leadership
+		available = {
+			OR = {
+				has_completed_focus = SOV_anti_stalin_camp
+				has_completed_focus = SOV_the_old_guard
+			}
+			custom_trigger_tooltip = {
+				tooltip = "SOV_ESTABLISH_COLLECTIVE_LEADERSHIP_TRIGGER_TT"
+				OR = {
+					AND = {
+						has_country_flag = back_first_candidate
+						check_variable = { var = country_ref_first_option_votes_percent value = 50 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_second_candidate
+						check_variable = { var = country_ref_second_option_votes_percent value = 50 compare = greater_than_or_equals }
+					}
+					AND = {
+						has_country_flag = back_third_candidate
+						check_variable = { var = country_ref_third_option_votes_percent value = 50 compare = greater_than_or_equals }
+					}					
+					AND = {
+						has_country_flag = back_fourth_candidate
+						check_variable = { var = country_ref_fourth_option_votes_percent value = 50 compare = greater_than_or_equals }
+					}
+				}
+			}
+		}
+		prerequisite = { focus = SOV_the_old_guard focus = SOV_anti_stalin_camp }
+		icon = GFX_SOV_collective_leadership
+		x = 0
+		y = 2
+		relative_position_id = SOV_stalin_succession
+		cost = 5
+	
+		available_if_capitulated = no
+		
+		completion_reward = {
+			custom_effect_tooltip = "A collective leadership will be established, the power struggle will be prolonged by 365 days."
+			hidden_effect = {
+				add_days_mission_timeout = {  mission = post_stalin_power_struggle days = 365 }
+				create_country_leader = {
+					name = "Collective Leadership"
+					id = 11
+					desc = COLLECTIVE_LEADERSHIP_DESC
+					picture = "SOV_collective_leadership.dds"
+					ideology = stalinism_idolg
+					expire = 1964.10.14
+					traits = { split_leadership }
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 25
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_the_old_guard
+		available = {
+		}
+		prerequisite = { focus = SOV_stalin_succession }
+		icon = GFX_SOV_continue_stalin_legacy
+		x = 1
+		y = 1
+		relative_position_id = SOV_stalin_succession
+		cost = 5
+		
+		mutually_exclusive = { focus = SOV_anti_stalin_camp }
+		available_if_capitulated = no
+		
+		completion_reward = {
+			set_country_flag = old_guard_selected
+			custom_effect_tooltip = "STALIN_CAMP_EFFECT_TT"
+			add_ideas = sov_power_struggle_reform_opposition
+			remove_ideas = political_power_struggle
+			set_party_name = { ideology = communism long_name = "The Anti Party Group" name = "Anti Party Group" }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}	
+	focus = {
+		id = SOV_appoint_molotov
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "Soviet Power Struggle is not in progress.[CW_INSERT_NEW_LINE_LOC]"
+				NOT = { has_country_flag = sov_power_struggle }
+			}		
+		}
+		prerequisite = { focus = SOV_the_old_guard }
+		mutually_exclusive = { focus = SOV_appoint_malenkov }		
+		icon = GFX_SOV_appoint_molotov
+		x = 2
+		y = 2
+		relative_position_id = SOV_the_old_guard
+		cost = 1
+
+		available_if_capitulated = no
+		
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_appoint_malenkov
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "Soviet Power Struggle is not in progress.[CW_INSERT_NEW_LINE_LOC]"
+				NOT = { has_country_flag = sov_power_struggle }
+			}		
+		}
+		prerequisite = { focus = SOV_the_old_guard }
+		mutually_exclusive = { focus = SOV_appoint_molotov }
+		icon = GFX_SOV_appoint_melnikov
+		x = 1
+		y = 1
+		relative_position_id = SOV_the_old_guard
+		cost = 1
+
+		available_if_capitulated = no
+		
+		
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	##########################################################################
+	# MOLOTOV/MALENKOV REFORMS TREE
+	##########################################################################
+	focus = {		#Invisible until trigger
+		id = SOV_old_guard_candidate_reforms
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "The Soviet Power Struggle has concluded."
+				has_country_flag = post_stalin_communist_power_finished
+			}
+		}
+		prerequisite = { focus = SOV_appoint_molotov focus = SOV_appoint_malenkov focus = SOV_appoint_beria focus = SOV_appoint_khrushev }
+		icon = GFX_goal_support_communism
+		x = 15
+		y = 3
+		relative_position_id = SOV_the_old_guard
+		cost = 1
+		
+		dynamic = yes
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {
+		}
+		select_effect = {}		
+
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			hidden_effect = {
+				unlock_national_focus = SOV_statlinists_continue_personality_cult
+				unlock_national_focus = SOV_stalinists_social_reform
+				unlock_national_focus = SOV_stalinists_new_foreign_policy
+				unlock_national_focus = SOV_stalinists_ref_economic_reforms
+			}		
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_continue_personality_cult
+		available = {
+		}
+		prerequisite = { focus = SOV_old_guard_candidate_reforms }
+		icon = GFX_focus_stalin_statue
+		x = -7
+		y = 2
+		relative_position_id = SOV_old_guard_candidate_reforms
+		cost = 1
+
+		available_if_capitulated = no
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = 50
+				has_country_flag = post_stalin_communist_power_struggle
+				is_historical_focus_on = yes
+			}			
+		}		
+	}	
+	focus = {
+		id = SOV_statlinists_rename_kiev
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_continue_personality_cult }
+		
+		icon = GFX_focus_focus_fra_revolution_utmost
+		x = -1
+		y = 2
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_PARTIES_FOCUSES }
+		relative_position_id = SOV_statlinists_continue_personality_cult
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = SOV_appoint_malenkov
+				}
+				202 = { set_state_name = "Malenkograd" }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.05
+				}			
+				hidden_effect = {
+					set_province_name = {
+						id = 252
+						name = "Malenkograd"
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = SOV_appoint_molotov
+				}
+				202 = { set_state_name = "Molotovgrad" }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.05
+				}			
+				hidden_effect = {
+					set_province_name = {
+						id = 252
+						name = "Molotovgrad"
+					}
+				}				
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = 50
+				has_country_flag = post_stalin_communist_power_struggle
+				is_historical_focus_on = yes
+			}			
+		}
+	}
+	focus = {		#Invisible with condition
+		id = SOV_statlinists_arrest_other_ref_candidate
+		available = {
+			OR = {
+				has_completed_focus = SOV_appoint_malenkov
+				has_completed_focus = SOV_appoint_molotov
+			}
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_continue_personality_cult }
+		
+		icon = GFX_focus_hanging_rope
+		x = -2
+		y = 1
+		cost = 8
+		
+		dynamic = yes
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SOV_statlinists_continue_personality_cult
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "SOV_ARREST_OTHER_REF_CANDIDATE_EFFECT_TT"
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = cps_third_candidate_arrested }	#Malenkov Arrested
+						has_completed_focus = SOV_appoint_malenkov
+					}
+					set_country_flag = cps_third_candidate_arrested	#Molotov Arrested
+					set_country_flag = third_option_disabled
+				}
+				else_if = {
+					limit = {
+						NOT = { has_country_flag = cps_third_candidate_arrested }	#Malenkov Arrested
+						has_completed_focus = SOV_appoint_molotov
+					}
+					set_country_flag = cps_first_candidate_arrested
+					set_country_flag = first_option_disabled
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = 50
+				has_country_flag = post_stalin_communist_power_struggle
+				is_historical_focus_on = yes
+			}			
+		}
+	}
+	focus = {
+		id = SOV_statlinists_build_stalin_mausoleum
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_continue_personality_cult }
+		
+		icon = GFX_focus_spa_the_spanish_miracle
+		x = 1
+		y = 1
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_PARTIES_FOCUSES }
+		relative_position_id = SOV_statlinists_continue_personality_cult
+
+		select_effect = {}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = communism_totalitarian
+				popularity = 0.10
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = 50
+				has_country_flag = post_stalin_communist_power_struggle
+				is_historical_focus_on = yes
+			}			
+		}
+	}
+	focus = {
+		id = SOV_statlinists_build_palace_of_soviets
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_continue_personality_cult }
+		
+		icon = GFX_focus_palace_of_soviets
+		x = 1
+		y = 2
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_PARTIES_FOCUSES }
+		relative_position_id = SOV_statlinists_continue_personality_cult
+
+		select_effect = {}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = communism_totalitarian
+				popularity = 0.05
+			}
+			every_country = {
+				limit = {
+					is_puppet_of = SOV
+					is_subject_of = SOV
+				}
+				add_autonomy_ratio = {
+					value = -0.05
+					localization = "Palace of the Soviets"
+				}
+				add_popularity = {
+					ideology = communism_totalitarian
+					popularity = 0.05
+				}
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = 50
+				has_country_flag = post_stalin_communist_power_struggle
+				is_historical_focus_on = yes
+			}			
+		}
+	}
+	focus = {
+		id = SOV_statlinists_purge_anti_stalin_opposition
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_continue_personality_cult }
+		
+		icon = GFX_goal_generic_war_with_comintern
+		x = 0
+		y = 3
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_PARTIES_FOCUSES }
+		relative_position_id = SOV_statlinists_continue_personality_cult
+
+		select_effect = {}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.10
+			}
+			if = {
+				limit = {
+					has_idea = sov_power_struggle_reform_opposition
+				}
+				remove_ideas = sov_power_struggle_reform_opposition
+			}
+			custom_effect_tooltip = "All reformist leaning cabinet advisors will be removed forever."
+			set_country_flag = second_great_soviet_purge			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = 50
+				has_country_flag = post_stalin_communist_power_struggle
+				is_historical_focus_on = yes
+			}			
+		}
+	}
+	####
+	focus = {
+		id = SOV_stalinists_social_reform
+		available = {
+		}
+		prerequisite = { focus = SOV_old_guard_candidate_reforms }
+		icon = GFX_goal_generic_national_unity
+		x = -2
+		y = 1
+		relative_position_id = SOV_old_guard_candidate_reforms
+		cost = 1
+
+		available_if_capitulated = no
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}		
+	}
+	focus = {		#Invisible until trigger
+		id = SOV_statlinists_enlarge_gulags
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_stalinists_social_reform }
+		
+		icon = GFX_focus_YUG_pan_slavic_congress
+		x = -1
+		y = 1
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SOV_stalinists_social_reform
+
+		select_effect = {}
+		mutually_exclusive = { focus = SOV_statlinists_reform_gulags }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = cw_gulag_system_4
+				add_idea = cw_gulag_system_5
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {		#Invisible until trigger
+		id = SOV_statlinists_reform_gulags
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_stalinists_social_reform }
+		
+		icon = GFX_focus_CZE_german_puppet
+		x = 1
+		y = 1
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SOV_stalinists_social_reform
+
+		select_effect = {}
+		mutually_exclusive = { focus = SOV_statlinists_enlarge_gulags }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = cw_gulag_system_4
+				add_idea = cw_gulag_system_3
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_increase_centrilization
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_stalinists_social_reform }
+		
+		icon = GFX_goal_demand_sudetenland
+		x = 0
+		y = 2
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SOV_stalinists_social_reform
+
+		select_effect = {}
+
+		completion_reward = {
+			add_political_power = 100
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_end_ukraine_special_status
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_increase_centrilization }
+		
+		icon = GFX_goal_generic_forceful_treaty
+		x = -2
+		y = 1
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SOV_statlinists_increase_centrilization
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "Ukraine will lose all cores."
+			hidden_effect = {
+				every_owned_state = {
+					limit = {
+						is_core_of = UKR
+					}
+					remove_core_of = UKR
+					add_claim_by = UKR
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_end_belarus_special_status
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_increase_centrilization }
+		
+		icon = GFX_focus_belarus_russia
+		x = 2
+		y = 1
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SOV_statlinists_increase_centrilization
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "All Belarusian cores will be replaced by Russian cores."
+			hidden_effect = {
+				every_owned_state = {
+					limit = {
+						is_core_of = BLR
+					}
+					remove_core_of = BLR
+					add_claim_by = BLR
+					add_core_of = RUS
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_rusify_the_baltics
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_increase_centrilization }
+		
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		x = 0
+		y = 2
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SOV_statlinists_increase_centrilization
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "- Opposition figures in the Baltics will be exiled to Siberia.[CW_INSERT_NEW_SPACE_LOC]- Collaboration in the Baltics will increase by 30%.[CW_INSERT_NEW_SPACE_LOC]- Resistance in the Baltics will be reduced by 30%."
+			hidden_effect = {
+				every_owned_state = {
+					limit = {
+						is_core_of = LIT
+					}
+					add_resistance = -30
+					add_compliance = 30
+				}
+				every_owned_state = {
+					limit = {
+						is_core_of = LAT
+					}
+					add_resistance = -30
+					add_compliance = 30
+				}
+				every_owned_state = {
+					limit = {
+						is_core_of = EST
+					}
+					add_resistance = -30
+					add_compliance = 30
+				}
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_new_foreign_policy
+		available = {
+		}
+		prerequisite = { focus = SOV_old_guard_candidate_reforms }
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 3
+		y = 1
+		relative_position_id = SOV_old_guard_candidate_reforms
+		cost = 1
+
+		available_if_capitulated = no
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_extend_borders_vistula
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_new_foreign_policy }
+		
+		icon = GFX_focus_take_vistula
+		x = -1
+		y = 1
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_PARTIES_FOCUSES FOCUS_FILTER_ANNEXATION FOCUS_FILTER_SPHERE_FOCUSES }
+		relative_position_id = SOV_statlinists_new_foreign_policy
+
+		select_effect = {}
+
+		completion_reward = {
+			add_named_threat = { threat = 10 name = "Agressive Expansion" }
+			POL = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = protest_action_strong
+				}
+			}
+			custom_effect_tooltip = "All Polish territory East of the Vistula river will be occupied by the Soviet Union."
+			hidden_effect = {
+				transfer_state = 5
+				5 = { add_claim_by = BLR }
+				transfer_state = 98
+				5 = { add_claim_by = BLR }
+				transfer_state = 97
+				5 = { add_claim_by = BLR }
+				transfer_state = 92
+				5 = { add_claim_by = BLR }
+				}
+			if = {
+				limit = {
+					POL = {
+						OR = {
+							is_puppet_of = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				POL = {
+					add_timed_idea = { idea = cw_resistance_to_soviet_rule_5 days = 800 }
+					add_popularity = {
+						ideology = communism_totalitarian
+						popularity = -0.30
+					}
+					add_autonomy_ratio = {
+						value = 0.07
+						localization = "Took our territory"
+					}
+				}
+				random_list = {
+					50 = {
+						POL = {
+							start_civil_war = {
+								ideology = unaligned_right
+								keep_political_leader = yes
+								size = 0.7
+								states_filter = { impassable = no }
+								compute_proxy_score = yes
+							}
+							compute_proxy_score = yes
+						}
+						every_country = {
+							limit = {
+								original_tag = POL
+							}
+							declare_war_on = {
+								target = SOV
+								type = take_core_state
+								generator = { 10 98 92 5 97 }
+							}
+						}
+					}
+					50 = {
+						POL = {
+							start_civil_war = {
+								ideology = unaligned_right
+								keep_political_leader = yes
+								size = 0.3
+								compute_proxy_score = yes
+							}
+							compute_proxy_score = yes
+						}
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_support_me_communists
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_new_foreign_policy }
+		
+		icon = GFX_focus_comecon_asia
+		x = 1
+		y = 1
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_SPHERE_FOCUSES }
+		relative_position_id = SOV_statlinists_new_foreign_policy
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "Comecon aid can now be given to countries in the Middle East.[CW_INSERT_NEW_SPACE_LOC]"
+			set_global_flag = soviet_aid_middle_east_allowed
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	
+	focus = {		#Invisible until trigger
+		id = SOV_statlinists_assasinate_tito
+		available = {
+			YUG = { 
+				exists = yes
+				has_country_leader = {
+					name = "Josip Broz Tito"
+					ruling_only = yes
+				}
+			}
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_new_foreign_policy }
+		
+		icon = GFX_focus_kill_tito
+		x = 1
+		y = 2
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {
+						
+		}
+		
+		available = {
+			YUG = {
+				exists = yes
+				has_country_leader = {
+					name = "Josip Broz Tito"
+					ruling_only = yes
+				}
+			}
+		}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_SPY_MISSIONS_FOCUSES }
+		relative_position_id = SOV_statlinists_new_foreign_policy
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "Unlocks a mission to assassinate Josip Broz Tito."
+			YUG = { set_country_flag = assasinate_country_leader_allowed }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_invest_in_china
+		available = {
+			PRC = {
+				exists = yes
+			}
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_new_foreign_policy }
+		
+		icon = GFX_focus_chi_cooperation_with_the_communists
+		x = -1
+		y = 2
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {			
+		}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_INDUSTRY }
+		relative_position_id = SOV_statlinists_new_foreign_policy
+
+		select_effect = {}
+
+		completion_reward = {
+			PRC = {
+				set_country_flag = aid_mechanics_allowed
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = investing_in_our_country
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					PRC = {
+						OR = {
+							is_subject_of = ROOT
+							is_puppet_of = ROOT
+						}
+					}
+				}
+				add_autonomy_ratio = {
+					value = -50
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_settle_mongolia_question
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_new_foreign_policy }
+		
+		icon = GFX_focus_mongolia_question
+		x = 2
+		y = 3
+		cost = 3
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {			
+		}
+		search_filters = {}
+		relative_position_id = SOV_statlinists_new_foreign_policy
+
+		select_effect = {
+		}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_incorporate_mongolia
+		available = {
+			MON = { exists = yes }
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_settle_mongolia_question }
+		
+		icon = GFX_focus_destroy_mongolia
+		x = 1
+		y = 1
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {			
+		}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_ANNEXATION FOCUS_TENSION_FOCUSES }
+		relative_position_id = SOV_statlinists_settle_mongolia_question
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			add_named_threat = { threat = 30 name = "Annexed an independent country" }
+			unsc_mark_for_sanctions = yes
+			every_other_country = {
+				limit = {
+					OR = {
+						is_neighbor_of = MON
+						is_unsc_member = yes
+					}
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = protest_action_strong
+				}				
+			}
+			annex_country = {
+				target = MON
+				transfer_troops = no
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_demand_mon_conessions
+		available = {
+			MON = { exists = yes }
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_settle_mongolia_question }
+		
+		icon = GFX_focus_mongolia_consessions
+		x = -1
+		y = 2
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {			
+		}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_RESOURCES_FOCUSES }
+		relative_position_id = SOV_statlinists_settle_mongolia_question
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			give_resource_rights = { receiver = SOV state = 330 }
+			MON = { add_stability = -0.1 }
+			add_popularity = { ideology = communism_totalitarian popularity = -0.1 }
+			hidden_effect = {
+				330 = { set_state_flag = monopoly_state }
+				330 = { set_variable = { my_resource_state_owner = SOV.id } }	#Not to allow the extractor to use the button again			
+				330 = { set_state_flag = { flag = binding_contract days = 3825 } }
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_economic_reform
+		available = {
+		}
+		prerequisite = { focus = SOV_old_guard_candidate_reforms }
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = 8
+		y = 2
+		relative_position_id = SOV_old_guard_candidate_reforms
+		cost = 1
+
+		available_if_capitulated = no
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_expand_military_production
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_economic_reform }
+		
+		icon = GFX_focus_generic_tank_production
+		x = -1
+		y = 1
+		cost = 8
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = SOV_statlinists_economic_reform
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = europe
+					is_core_of = ROOT
+					OR = {
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = europe
+					is_core_of = ROOT
+					OR = {
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = europe
+					is_core_of = ROOT
+					OR = {
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = europe
+					is_core_of = ROOT
+					OR = {
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = europe
+					is_core_of = ROOT
+					OR = {
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_on_continent = europe
+					is_core_of = ROOT
+					OR = {
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+					}
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_expand_naval_capability
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_economic_reform }
+		
+		icon = GFX_goal_generic_navy_battleship
+		x = 0
+		y = 4
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = SOV_statlinists_economic_reform
+
+		select_effect = {
+		}
+
+		completion_reward = {			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}	
+	focus = {
+		id = SOV_statlinists_expand_baltic_shipyards
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_expand_naval_capability }
+		
+		icon = GFX_focus_baltic_shipyards
+		x = -2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = SOV_statlinists_expand_naval_capability
+		mutually_exclusive = { focus = SOV_statlinists_expand_pacific_shipyards focus = SOV_statlinists_expand_black_sea_shipyards }
+		
+		select_effect = {
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					owns_state = 195
+				}
+				195 = {
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 13
+				}
+				13 = {
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 763
+				}
+				763 = {
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 12
+				}
+				12 = {
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinists_expand_pacific_shipyards
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_expand_naval_capability }
+		
+		icon = GFX_focus_pacific_shipyards
+		x = 0
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = SOV_statlinists_expand_naval_capability
+		mutually_exclusive = { focus = SOV_statlinists_expand_baltic_shipyards focus = SOV_statlinists_expand_black_sea_shipyards }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					owns_state = 408
+				}
+				408 = {
+					add_building_construction = {
+						type = naval_base
+						level = 5
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 5
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 537
+				}
+				537 = {
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 555
+				}
+				555 = {
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}	
+	focus = {
+		id = SOV_statlinists_expand_black_sea_shipyards
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_expand_naval_capability }
+		
+		icon = GFX_focus_black_sea_shipyards
+		x = 2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = SOV_statlinists_expand_naval_capability
+		mutually_exclusive = { focus = SOV_statlinists_expand_pacific_shipyards focus = SOV_statlinists_expand_baltic_shipyards }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					owns_state = 137
+				}
+				137 = {
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 192
+				}
+				192 = {
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 196
+				}
+				196 = {
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					owns_state = 806
+				}
+				806 = {
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinistse_develop_european_russia
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_economic_reform }
+		
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 1
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESOURCES_FOCUSES }
+		relative_position_id = SOV_statlinists_economic_reform
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_on_continent = europe
+					is_core_of = ROOT
+					OR = {
+						has_state_category = large_city
+						has_state_category = metropolis
+						has_state_category = megalopolis
+						has_state_category = city
+						has_state_category = town
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}				
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}	
+	####################### REFORMIST TREE #######################
+	focus = {
+		id = SOV_anti_stalin_camp
+		available = {
+		}
+		prerequisite = { focus = SOV_stalin_succession }
+		icon = GFX_SOV_reform_soviet_union
+		x = -1
+		y = 1
+		relative_position_id = SOV_stalin_succession
+		cost = 5
+
+		mutually_exclusive = { focus = SOV_the_old_guard }
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_POLITICAL }		
+		available_if_capitulated = no
+		
+		completion_reward = {
+			hidden_effect = {
+				add_ideas = sov_power_struggle_total_opposition
+				remove_ideas = sov_leningrad_plot
+				remove_ideas = political_power_struggle
+				#every_country = {						#Add later to power struggle result
+				#	limit = {
+				#		has_idea = comecon_reciever_1_low
+				#	}
+				#	remove_ideas = comecon_reciever_1_low
+				#	add_ideas = rev_comecon_reciever_1_low
+				#}
+				#every_country = {
+				#	limit = {
+				#		has_idea = comecon_reciever_1_medium
+				#	}
+				#	remove_ideas = comecon_reciever_1_medium
+				#	add_ideas = rev_comecon_reciever_1_medium
+				#}
+				#every_country = {
+				#	limit = {
+				#		has_idea = comecon_reciever_1_high
+				#	}
+				#	remove_ideas = comecon_reciever_1_high
+				#	add_ideas = rev_comecon_reciever_1_high
+				#}
+				#every_country = {
+				#	limit = {
+				#		has_idea = comecon_reciever_1_highest 
+				#	}
+				#	remove_ideas = comecon_reciever_1_highest
+				#	add_ideas = rev_comecon_reciever_1_highest
+				#}
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_appoint_khrushev
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "Soviet Power Struggle is not in progress.[CW_INSERT_NEW_LINE_LOC]"
+				NOT = { has_country_flag = sov_power_struggle }
+			}
+		}
+		prerequisite = { focus = SOV_anti_stalin_camp }
+		icon = GFX_SOV_favor_khrushev
+		x = -1
+		y = 1
+		relative_position_id = SOV_anti_stalin_camp
+		cost = 1
+
+		available_if_capitulated = no
+		mutually_exclusive = { focus = SOV_appoint_beria }
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_appoint_beria
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "Soviet Power Struggle is not in progress.[CW_INSERT_NEW_LINE_LOC]"
+				NOT = { has_country_flag = sov_power_struggle }
+			}		
+		}
+		prerequisite = { focus = SOV_anti_stalin_camp }
+		mutually_exclusive = { focus = SOV_appoint_khrushev }
+		icon = GFX_SOV_appoint_beria
+		x = -2
+		y = 2
+		relative_position_id = SOV_anti_stalin_camp
+		cost = 1
+
+		available_if_capitulated = no
+		
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}
+	focus = {
+		id = SOV_statlinistse_great_eastern_european_wall
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_statlinists_economic_reform }
+		
+		icon = GFX_goal_generic_construct_military
+		x = -1
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_DECISIONS_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES }
+		relative_position_id = SOV_statlinists_economic_reform
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = "Enables decisions to build border fortifications in Eastern European satellite nations."
+			custom_effect_tooltip = "Will stop the population decline in Eastern European satellite nations."
+			set_country_flag = great_european_wall_initiated
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
+		}
+	}	
+	##########################################################################
+	# KHRUSHEV/BERIA REFORMS TREE
+	##########################################################################
+	focus = {		#Invisible until trigger
+		id = SOV_reformist_candidate_reforms
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "The Soviet Power Struggle has concluded."
+				has_country_flag = post_stalin_communist_power_finished
+			}
+		}
+
+		prerequisite = { focus = SOV_appoint_molotov focus = SOV_appoint_malenkov focus = SOV_appoint_beria focus = SOV_appoint_khrushev }
+		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
+		x = -10
+		y = 3
+		relative_position_id = SOV_anti_stalin_camp
+		cost = 1
+		
+		dynamic = yes
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {
+			
+		}
+		select_effect = {}		
+
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			hidden_effect = {
+				unlock_national_focus = SOV_destalinazation
+				unlock_national_focus = SOV_social_reform
+				unlock_national_focus = SOV_new_foreign_policy
+				unlock_national_focus = SOV_ref_economic_reforms
+			}		
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	######## DE STALINIZATION ########
+	focus = {
+		id = SOV_destalinazation
+		available = {
+		}
+		prerequisite = { focus = SOV_reformist_candidate_reforms }
+		icon = GFX_SOV_destalinazation
+		x = -7
+		y = 1
+		relative_position_id = SOV_reformist_candidate_reforms
+		cost = 1
+
+		available_if_capitulated = no
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = 50
+				has_country_flag = post_stalin_communist_power_struggle
+				is_historical_focus_on = yes
+			}			
+		}		
+	}
+	focus = {
+		id = SOV_ref_denounce_stalin
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_destalinazation }
+		
+		icon = GFX_focus_dennounce_stalin
+		x = 2
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_PARTIES_FOCUSES }
+		relative_position_id = SOV_destalinazation
+
+		select_effect = {}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = communism_totalitarian
+				popularity = -0.10
+			}
+			add_stability = -0.10
+			custom_effect_tooltip = "All countries will lose 5% Communsit Totalitarian party organisation.[CW_INSERT_NEW_LINE_LOC]"
+			hidden_effect = {
+				every_other_country = {
+					add_popularity = {
+						ideology = communism_totalitarian
+						popularity = -0.05
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					has_government = communism_totalitarian
+					is_neighbor_of = ROOT
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = ideological_conflict
+				}
+			}
+			every_country = {
+				limit = {
+					is_puppet_of = SOV
+					is_subject_of = SOV	
+				}
+				add_autonomy_ratio = {
+					value = 0.05
+					localization = "Denounced Stalin"
+				}
+				add_stability = -0.10
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 50
+				has_country_flag = post_stalin_communist_power_struggle
+				is_historical_focus_on = yes
+			}			
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {		#Invisible with condition
+		id = SOV_arrest_other_ref_candidate
+		available = {
+		OR = {
+				has_completed_focus = SOV_appoint_beria
+				has_completed_focus = SOV_appoint_khrushev
+			}
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_destalinazation }
+		
+		icon = GFX_focus_hanging_rope
+		x = -2
+		y = 1
+		cost = 5
+		
+		dynamic = yes
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = SOV_destalinazation
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "SOV_ARREST_OTHER_REF_CANDIDATE_EFFECT_TT"
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = cps_second_candidate_arrested }
+						has_completed_focus = SOV_the_old_guard
+						NOT = { has_country_flag = back_second_candidate }
+					}
+					set_country_flag = cps_second_candidate_arrested	#Beria Arrested
+					set_country_flag = second_option_disabled
+				}
+				else_if = {
+					limit = {
+						NOT = { has_country_flag = cps_fourth_candidate_arrested }	#Khrushev Arrested
+						has_completed_focus = SOV_the_old_guard
+						NOT = { has_country_flag = back_fourth_candidate }
+					}
+					set_country_flag = cps_fourth_candidate_arrested
+					set_country_flag = fourth_option_disabled
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 50
+				has_country_flag = post_stalin_communist_power_struggle
+				is_historical_focus_on = yes
+			}			
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_end_personality_cult
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_destalinazation }
+		
+		icon = GFX_focus_outlaw_stalin
+		x = -1
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_PARTIES_FOCUSES }
+		relative_position_id = SOV_destalinazation
+
+		select_effect = {}
+
+		completion_reward = {
+			add_ideas = cw_ni_unity
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+			add_popularity = {
+				ideology = communism_totalitarian
+				popularity = -0.05
+			}
+			every_country = { 
+				limit = {
+					is_puppet_of = SOV
+					is_subject_of = SOV
+				}
+				add_popularity = {
+					ideology = communism_totalitarian
+					popularity = -0.05
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 50
+				has_country_flag = post_stalin_communist_power_struggle
+				is_historical_focus_on = yes
+			}			
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_rename_stalingrad
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_destalinazation }
+		
+		icon = GFX_focus_stalingrad_sign
+		x = 1
+		y = 2
+		cost = 3
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_PARTIES_FOCUSES }
+		relative_position_id = SOV_destalinazation
+
+		select_effect = {}
+
+		completion_reward = {
+			217 = { set_state_name = "Volgograd" }
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}			
+			hidden_effect = {
+				set_province_name = {
+					id = 3529
+					name = "Volgograd"
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 50
+				has_country_flag = post_stalin_communist_power_struggle
+				is_historical_focus_on = yes
+			}			
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_relocate_stalin_body
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_rename_stalingrad focus = SOV_end_personality_cult }
+		
+		icon = GFX_SOV_stalin_grave
+		x = 0
+		y = 3
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_PARTIES_FOCUSES FOCUS_FILTER_STABILITY }
+		relative_position_id = SOV_destalinazation
+
+		select_effect = {}
+
+		completion_reward = {
+			add_stability = -0.10
+			add_popularity = {
+				ideology = communism
+				popularity = 0.10
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 50
+				has_country_flag = post_stalin_communist_power_struggle
+				is_historical_focus_on = yes
+			}			
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = SOV_social_reform
+		available = {
+		}
+		prerequisite = { focus = SOV_reformist_candidate_reforms }
+		icon = GFX_goal_generic_national_unity
+		x = -2
+		y = 2
+		relative_position_id = SOV_reformist_candidate_reforms
+		cost = 1
+
+		available_if_capitulated = no
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_end_forced_labour
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_social_reform }
+		
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = 1
+		y = 1
+		cost = 7
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_STABILITY }
+		relative_position_id = SOV_social_reform
+
+		select_effect = {}
+
+		completion_reward = {
+			add_stability = 0.10
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_ease_press_restrictions
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_social_reform }
+		
+		icon = GFX_focus_newspapers
+		x = -1
+		y = 1
+		cost = 7
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_POLITICAL }
+		relative_position_id = SOV_social_reform
+
+		select_effect = {}
+
+		completion_reward = {
+			add_ideas = cw_censored_press
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_host_spartakiad
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_social_reform }
+		
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		x = -1
+		y = 2
+		cost = 7
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_TFV_AUTONOMY }
+		relative_position_id = SOV_social_reform
+
+		select_effect = {}
+
+		completion_reward = {
+			every_country = { 
+				limit = {
+					is_puppet_of = SOV
+					is_subject_of = SOV
+				}
+				add_autonomy_ratio = {
+					value = -0.05
+				}
+				add_popularity = {
+					ideology = communism_totalitarian
+					popularity = -0.05
+				}
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_allow_cultural_exchanges
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_social_reform }
+		
+		icon = GFX_focus_foreign_films
+		x = 1
+		y = 2
+		cost = 7
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES }
+		relative_position_id = SOV_social_reform
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "All European countries will receive a boost to the organisation of their Communist Reformist party."		
+			hidden_effect = {
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.03
+				}
+				add_popularity = {
+					ideology = democratic_socialist
+					popularity = 0.05
+				}
+				every_other_country = {
+					limit = {
+						capital_scope = { is_on_continent = europe }
+						NOT = { is_puppet_of = ROOT }
+					}
+					random_list = {
+						25 = {
+							add_popularity = {
+								ideology = communism
+								popularity = 0.05
+							}
+						}
+						25 = {
+							add_popularity = {
+								ideology = communism
+								popularity = 0.07
+							}					
+						}
+						25 = {
+							add_popularity = {
+								ideology = communism
+								popularity = 0.03
+							}					
+						}
+						25 = {
+							add_popularity = {
+								ideology = communism
+								popularity = 0.02
+							}
+						}
+					}
+				}
+				every_other_country = {
+					limit = {
+						capital_scope = { is_on_continent = europe }
+						is_puppet_of = ROOT
+					}
+					random_list = {
+						25 = {
+							add_popularity = {
+								ideology = communism
+								popularity = 0.30
+							}
+						}
+						25 = {
+							add_popularity = {
+								ideology = communism
+								popularity = 0.10
+							}					
+						}
+						25 = {
+							add_popularity = {
+								ideology = communism
+								popularity = 0.20
+							}					
+						}
+						25 = {
+							add_popularity = {
+								ideology = communism
+								popularity = 0.15
+							}
+						}
+					}
+				}				
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = SOV_return_siberia_exiles
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_social_reform }
+		
+		icon = GFX_focus_ger_great_red_menace
+		x = 0
+		y = 3
+		cost = 7
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_MANPOWER }
+		relative_position_id = SOV_social_reform
+
+		select_effect = {}
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = ROOT
+						is_on_continent = europe
+						NOT = { has_state_category = wasteland }
+						has_state_category = city
+						has_state_category = large_city
+						has_state_category = megalopolis
+						has_state_category = metropolis
+					}
+				}
+				add_manpower = 10000
+			}
+			random_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = ROOT
+						is_on_continent = europe
+						NOT = { has_state_category = wasteland }
+						has_state_category = city
+						has_state_category = large_city
+						has_state_category = megalopolis
+						has_state_category = metropolis
+					}
+				}
+				add_manpower = 15000
+			}
+			random_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = ROOT
+						is_on_continent = europe
+						NOT = { has_state_category = wasteland }
+						has_state_category = city
+						has_state_category = large_city
+						has_state_category = megalopolis
+						has_state_category = metropolis
+					}
+				}
+				add_manpower = 30000
+			}
+			random_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = ROOT
+						is_on_continent = europe
+						NOT = { has_state_category = wasteland }
+						has_state_category = city
+						has_state_category = large_city
+						has_state_category = megalopolis
+						has_state_category = metropolis
+					}
+				}
+				add_manpower = 50000
+			}
+			random_owned_state = {
+				limit = {
+					OR = {
+						is_core_of = ROOT
+						is_on_continent = europe
+						NOT = { has_state_category = wasteland }
+						has_state_category = city
+						has_state_category = large_city
+						has_state_category = megalopolis
+						has_state_category = metropolis
+					}
+				}
+				add_manpower = 70000
+			}
+			408 = {
+				add_manpower = 80000
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {	#Invisible until trigger
+		id = SOV_reform_gulags
+		available = {
+			has_completed_focus = SOV_appoint_beria 
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_social_reform }
+		
+		icon = GFX_focus_CZE_german_puppet
+		x = -2
+		y = 3
+		cost = 7
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {
+			
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_MANPOWER }
+		relative_position_id = SOV_social_reform
+
+		select_effect = {}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = cw_gulag_system_4
+				add_idea = cw_gulag_system_2
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = SOV_new_foreign_policy
+		available = {
+		}
+		prerequisite = { focus = SOV_reformist_candidate_reforms }
+		icon = GFX_goal_tripartite_pact
+		x = 2
+		y = 2
+		relative_position_id = SOV_reformist_candidate_reforms
+		cost = 1
+
+		available_if_capitulated = no
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {		#Invisible until trigger
+		id = SOV_realign_the_satelites
+		available = {
+			has_government = communism
+			has_war = no
+			has_completed_focus = SOV_anti_stalin_camp
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_realign_puppets
+		x = 0
+		y = 3
+		cost = 7
+		
+		prerequisite = { focus = SOV_new_foreign_policy }
+		relative_position_id = SOV_new_foreign_policy
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {
+			
+		}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_PARTIES_FOCUSES }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			every_country = {
+				limit = {
+					capital_scope = { is_on_continent = europe }
+					NOT = { OR = { tag = FIN tag = ALB tag = HUN } }
+					OR = {
+						is_puppet_of = ROOT
+						is_subject_of = ROOT
+					}
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.30
+				}
+				add_popularity = {
+					ideology = communism_totalitarian
+					popularity = -0.30
+				}
+				retire_ideology_leader = communism_totalitarian
+				if = {
+					limit = {
+						tag = POL
+					}
+					create_country_leader = {
+						name = "Bolesław Bierut"
+						desc = ""
+						picture = "POLHC1.dds"
+						ideology = revisionist_idolg
+						expire = 1956.10.21
+						traits = { communist_reformist }
+					}
+				}
+				if = {
+					limit = {
+						tag = CZE
+					}
+					create_country_leader = {
+						name = "Antonín Novotný"
+						desc = ""
+						picture = "CZEH3.dds"
+						ideology = revisionist_idolg
+						expire = 1968.1.5
+						traits = { communist_reformist }
+					}
+				}
+				if = {
+					limit = {
+						tag = ROM
+					}
+					create_country_leader = {
+						name = "Gheorghe Gheorghiu-Dej"
+						desc = ""
+						picture = "ROMH1_reformist.dds"
+						ideology = revisionist_idolg
+						expire = 1965.3.19			
+						traits = { communist_reformist }
+					}
+				}
+				if = {
+					limit = {
+						tag = DDR
+					}
+					create_country_leader = {
+						name = "Walter Ulbricht"
+						desc = ""
+						picture = "DDRH2_refoirmist.dds"
+						ideology = revisionist_idolg
+						expire = 1960.9.7
+						traits = { communist_reformist }
+					}
+				}				
+				if = {
+					limit = {
+						tag = BUL
+					}
+					create_country_leader = {
+						name = "Valko Chervenkov"
+						desc = ""
+						picture = "BULH4_reformist.dds"
+						ideology = revisionist_idolg
+						expire = 1956.4.18
+						traits = { communist_reformist }
+					}
+				}				
+				set_politics = {
+					ruling_party = communism
+				}				
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 50
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {		#Invisible until trigger
+		id = SOV_realign_the_satelites_hungary
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_sov_remove_rakosi
+		x = -1
+		y = 1
+		cost = 5
+		
+		prerequisite = { focus = SOV_realign_the_satelites }
+		relative_position_id = SOV_realign_the_satelites
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_PARTIES_FOCUSES }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			HUN = {
+				retire_ideology_leader = communism_totalitarian
+				create_country_leader = {
+					name = "János Kádár"
+					desc = ""
+					picture = "HUNH7.dds"
+					ideology = revisionist_idolg
+					expire = 1965.7.18
+					traits = { communist_reformist }
+				}
+				set_politics = {
+					ruling_party = communism
+				}
+				hidden_effect = {
+					add_ideas = hun_hog_imre_nagy
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 70
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = SOV_reconcile_with_tito
+		available = {
+			country_exists = YUG
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_new_foreign_policy }
+		
+		icon = GFX_SOV_reconcile_tito
+		x = 1
+		y = 1
+		cost = 7
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		relative_position_id = SOV_new_foreign_policy
+
+		select_effect = {}
+
+		completion_reward = {
+			YUG = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = charm_offensive
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_ease_trade_restrictions
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_new_foreign_policy }
+		
+		icon = GFX_goal_generic_trade
+		x = -1
+		y = 1
+		cost = 7
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_RESOURCES_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		relative_position_id = SOV_new_foreign_policy
+
+		select_effect = {}
+
+		completion_reward = {
+			add_ideas = cw_high_tariffs
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_middle_east_pivot
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_new_foreign_policy }
+		
+		icon = GFX_focus_middle_east
+		x = -1
+		y = 2
+		cost = 7
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		relative_position_id = SOV_new_foreign_policy
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "Comecon aid can now be given to countries in the Middle East.[CW_INSERT_NEW_SPACE_LOC]"
+			set_global_flag = soviet_aid_middle_east_allowed
+			every_other_country = {
+				limit = {
+					capital_scope = { is_on_continent = middle_east }
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = charm_offensive
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {			#Invisible with condition
+		id = SOV_abandon_east_germany
+		available = {
+			has_completed_focus = SOV_appoint_beria
+			DDR = {
+				OR = {
+					is_puppet_of = SOV
+					is_subject_of = SOV
+				}
+			}
+			country_exists = DDR
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_new_foreign_policy }
+		
+		icon = GFX_focus_release_nation
+		x = -1
+		y = 3
+		cost = 7
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {
+			
+		}
+		search_filters = { FOCUS_FILTER_DIPLOMACY_FOCUSES FOCUS_FILTER_TFV_AUTONOMY FOCUS_FILTER_SPHERE_FOCUSES }
+		relative_position_id = SOV_new_foreign_policy
+
+		select_effect = {}
+
+		completion_reward = {
+			end_puppet = DDR
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {			#Invisible with condition
+		id = SOV_abandon_baltics
+		available = {
+			has_completed_focus = SOV_appoint_beria
+			custom_trigger_tooltip = {
+				tooltip = "The Baltic Countries are under Soviet Control."
+				OR = {
+					11 = { is_controlled_by = ROOT } 
+					784 = { is_controlled_by = ROOT }
+					189 = { is_controlled_by = ROOT }
+					188 = { is_controlled_by = ROOT }
+					190 = { is_controlled_by = ROOT }
+					12 = { is_controlled_by = ROOT } 
+					13 = { is_controlled_by = ROOT } 
+					191 = { is_controlled_by = ROOT }
+				}
+			}
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_new_foreign_policy }
+		
+		icon = GFX_focus_release_nation
+		x = 1
+		y = 3
+		cost = 7
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {
+			
+		}
+		search_filters = { FOCUS_FILTER_TFV_AUTONOMY FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		relative_position_id = SOV_new_foreign_policy
+
+		select_effect = {}
+
+		completion_reward = {
+			release = EST
+			release = LAT
+			release = LIT
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = -10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_ref_economic_reforms
+		available = {
+		}
+		prerequisite = { focus = SOV_reformist_candidate_reforms }
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = 7
+		y = 1
+		relative_position_id = SOV_reformist_candidate_reforms
+		cost = 1
+
+		available_if_capitulated = no
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}		
+	}
+	focus = {
+		id = SOV_transfer_crimea_ukraine
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_ref_economic_reforms }
+		
+		icon = GFX_focus_ukr_symbol
+		x = 0
+		y = 1
+		cost = 7
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		relative_position_id = SOV_ref_economic_reforms
+
+		select_effect = {}
+
+		completion_reward = {
+			137 = {
+				remove_claim_by = RUS
+				add_core_of = UKR
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = SOV_allow_urban_mobility
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_ref_economic_reforms }
+		
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 2
+		y = 1
+		cost = 7
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_HISTORICAL_FOCUSES }
+		relative_position_id = SOV_ref_economic_reforms
+
+		select_effect = {}
+
+		completion_reward = {
+			add_timed_idea = { idea = cw_populatioin_boost days = 365 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_operation_abundance
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_ref_economic_reforms }
+		
+		icon = GFX_goal_generic_consumer_goods
+		x = -2
+		y = 1
+		cost = 12
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL_FOCUSES  }
+		relative_position_id = SOV_ref_economic_reforms
+
+		select_effect = {}
+
+		completion_reward = {
+			add_ideas = cw_five_year_plan_civilian_industry_focus
+			every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					OR = {
+						has_state_category = large_city
+						has_state_category = megalopolis
+						has_state_category = metropolis
+						has_state_category = large_town
+						has_state_category = devestated_wasteland
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_improve_worker_conditions
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_ref_economic_reforms }
+		
+		icon = GFX_focus_generic_treaty
+		x = -1
+		y = 2
+		cost = 9
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_INDUSTRY }
+		relative_position_id = SOV_ref_economic_reforms
+
+		select_effect = {}
+
+		completion_reward = {
+			add_ideas = cw_10_hour_workday
+			add_ideas = cw_state_incentives
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = SOV_establish_regional_sconomic_soviets
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_ref_economic_reforms }
+		
+		icon = GFX_focus_generic_soviet_politics
+		x = 1
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL_FOCUSES }
+		relative_position_id = SOV_ref_economic_reforms
+
+		select_effect = {}
+
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					OR = {
+						has_state_category = city
+						has_state_category = large_city
+						has_state_category = megalopolis
+						has_state_category = metropolis
+						has_state_category = town
+						has_state_category = large_town
+						has_state_category = devestated_wasteland
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {	#visible until trigger
+		id = SOV_twelve_million_khrushchyovkas
+		available = {
+			has_completed_focus = SOV_appoint_khrushev
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_establish_regional_sconomic_soviets }
+		
+		icon = GFX_focus_residential_blocks
+		x = 1
+		y = 1
+		cost = 12
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {
+			
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL_FOCUSES }
+		relative_position_id = SOV_establish_regional_sconomic_soviets
+
+		select_effect = {}
+
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					OR = {
+						has_state_category = city
+						has_state_category = large_city
+						has_state_category = megalopolis
+						has_state_category = metropolis
+						has_state_category = town
+						has_state_category = large_town
+						has_state_category = devestated_wasteland
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {	#Invisible until trigger
+		id = SOV_virgin_lands_campaign
+		available = {
+			has_completed_focus = SOV_appoint_khrushev
+			NOT = { has_country_flag = succesful_steppe_transformation }
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SOV_improve_worker_conditions }
+		
+		icon = GFX_focus_virgin_lands_campaign
+		x = -1
+		y = 1
+		cost = 11
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {
+		}
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES FOCUS_FILTER_DECISIONS_FOCUSES FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_INDUSTRY }
+		relative_position_id = SOV_improve_worker_conditions
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = { has_country_flag = succesful_steppe_transformation }
+				}
+				hidden_effect = { set_variable = { steppe_transormation_success = 60 } }
+				activate_mission = sov_steppe_transformation
+				else = {
+					add_resource = { type = crops amount = 30 state = 404 }
+					add_resource = { type = crops amount = 15 state = 402 }
+					add_resource = { type = crops amount = 20 state = 589 }
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

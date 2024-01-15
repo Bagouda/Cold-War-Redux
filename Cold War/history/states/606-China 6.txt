@@ -1,0 +1,32 @@
+state = {
+	id=606
+	local_supplies=0.0 
+	name="STATE_606"
+	state_category=town
+	history = {
+ 	add_to_array = { list_victory_point = 7222 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = CHI
+		add_core_of = CHI
+		add_claim_by= PRC
+		
+		1949.10.1 = {
+		owner = PRC
+		}
+		victory_points = {
+			7222 1 
+		}
+	}
+	resources={
+		steel=11.000
+		crops = 10
+	}
+	buildings_max_level_factor=1.000
+	manpower=18265400
+	provinces={
+		1083 1146 4079 4158 4203 7035 7094 7222 9937 10008 10017 10040 10064 10079 11916 11994 12036 12061 
+	}
+}

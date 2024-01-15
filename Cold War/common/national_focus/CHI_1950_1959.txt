@@ -1,0 +1,4176 @@
+focus_tree = {
+	id = chi_1950_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = CHI
+			date > 1950.1.1
+		}
+		modifier = {
+			add = -50
+			date > 1960.1.1
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	focus = {
+		id = CHI_new_constitution
+		available = {
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 32
+		y = 1
+		cost = 20
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					capital_scope = {
+						NOT = { state = 613 }
+					}
+				}
+				set_capital = { state = 613 }
+			}
+			if = {
+				limit = {
+					PRC = { exists = no }
+				}
+				every_owned_state = {
+					limit = {
+						OR = {
+							is_claimed_by = PRC
+							is_core_of = PRC
+						}
+					}
+					remove_core_of = PRC
+					remove_claim_by = PRC
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_federation_constitution
+		available = {
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_goal_tripartite_pact
+		x = 2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = CHI_new_constitution }
+		relative_position_id = CHI_new_constitution
+		mutually_exclusive = { focus = CHI_centralized_state }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_political_power = 100
+			custom_effect_tooltip = "CHI_FEDERATION_CONSTITUTION_EFFECT_TT"
+			hidden_effect = {
+				set_cosmetic_tag = CHI_FEDERATION
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_allow_xsm_autonomy
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_chi_xsm_autonomy
+		x = 0
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = { XSM = { exists = yes } }
+		search_filters = { FOCUS_FILTER_TFV_AUTONOMY FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = CHI_federation_constitution }
+		relative_position_id = CHI_federation_constitution
+
+		select_effect = {}
+
+		completion_reward = {
+			add_stability = 0.1
+			annex_country = {
+				target = XSM
+				transfer_troops = yes
+			}
+			every_state = {
+				limit = {
+					OR = {
+						is_claimed_by = XSM
+						is_core_of = XSM
+					}
+				}
+				add_dynamic_modifier = { modifier = autonomous_state }
+				remove_core_of = XSM
+			}		
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_allow_xinxiang_autonomy
+		available = {
+			any_owned_state = { 
+				OR = {
+					is_claimed_by = SIK
+					is_core_of = SIK
+				}
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_PRC_xinjiang_autonomy
+		x = 1
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_TFV_AUTONOMY FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = CHI_federation_constitution }
+		relative_position_id = CHI_federation_constitution
+
+		select_effect = {}
+
+		completion_reward = {
+			add_stability = 0.1			
+			every_owned_state = {
+				limit = {
+					OR = {
+						is_claimed_by = SIK
+						is_core_of = SIK
+					}
+				}
+				cancel_resistance = yes
+				add_dynamic_modifier = { modifier = autonomous_state }
+				remove_core_of = SIK
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_tibet_autonomy
+		available = {
+			TIB = { exists = yes is_neighbor_of = ROOT }
+			TIB = { NOT = { is_puppet_of = ROOT } }
+			any_owned_state = {
+				OR = {
+					is_claimed_by = TIB
+					is_core_of = TIB
+				}
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_chi_tibet_autonomy
+		x = 2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_TFV_AUTONOMY FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = CHI_federation_constitution }
+		relative_position_id = CHI_federation_constitution
+
+		select_effect = {}
+
+		completion_reward = {
+			add_stability = 0.1
+			annex_country = {
+				target = TIB
+			}
+			every_owned_state = {
+				limit = {
+					OR = {
+						is_claimed_by = TIB
+						is_core_of = TIB
+					}
+				}
+				add_core_of = ROOT
+				add_dynamic_modifier = { modifier = autonomous_state }
+				remove_core_of = TIB
+			}			
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_centralized_state
+		available = {
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_political_pressure
+		x = -2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = CHI_new_constitution }
+		relative_position_id = CHI_new_constitution
+		mutually_exclusive = { focus = CHI_federation_constitution }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_political_power = 100
+			add_stability = -0.3
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_conquer_xsm
+		available = {
+			XSM = { exists = yes is_neighbor_of = ROOT }
+			XSM = { NOT = { is_puppet_of = ROOT } }		
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_conquer_xsm
+		x = 0
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = { XSM = { exists = yes } }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = CHI_centralized_state }
+		relative_position_id = CHI_centralized_state
+		will_lead_to_war_with = XSM
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = XSM
+				}
+				else = {
+					declare_war_on = {
+						target = XSM
+						type = annex_everything
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_integrate_xinxiang
+		available = {
+			any_owned_state = {
+				OR = {
+					is_claimed_by = SIK
+					is_core_of = SIK
+				}
+			}		
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_conquer_xinxiang
+		x = -1
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = CHI_centralized_state }
+		relative_position_id = CHI_centralized_state
+
+		select_effect = {}
+
+		completion_reward = {
+			random_list = {
+				50 = {
+					custom_effect_tooltip = XINXIANG_REVOLET_LARGE_TT
+					hidden_effect = {
+						every_owned_state = {
+							limit = {
+								OR = {
+									is_claimed_by = SIK
+									is_core_of = SIK
+								}
+							}
+							add_state_modifier = {
+								modifier = {
+									resistance_target = 0.1
+									compliance_gain = 0.5
+								}
+							}
+							SIK = {
+								set_politics = {
+									ruling_party = unaligned_right
+								}
+								add_timed_idea = {
+									idea = cw_revolutionary_zeal
+									days = 180
+								}
+								random_owned_state = {
+									create_unit = {
+										division = "division_template = \"Cavarly Division\" start_experience_factor = 0.4" 
+										owner = SIK
+										allow_spawning_on_enemy_provs = no
+										count = 10
+									}
+								}
+								random_owned_state = {
+									create_unit = {
+										division = "division_template = \"Cavarly Division\" start_experience_factor = 0.4" 
+										owner = SIK
+										allow_spawning_on_enemy_provs = no
+										count = 15
+									}
+								}
+								random_owned_state = {
+									create_unit = {
+										division = "division_template = \"Cavarly Division\" start_experience_factor = 0.4" 
+										owner = SIK
+										allow_spawning_on_enemy_provs = no
+										count = 5
+									}
+								}
+								transfer_state = PREV
+								declare_war_on = {
+									target = ROOT
+									type = take_core_state
+									generator = { 618 619 617 287 }
+								}
+							}
+						}
+					}
+				}
+				50 = {
+					custom_effect_tooltip = XINXIANG_REVOLET_SMALL_TT
+					hidden_effect = {
+						every_owned_state = {
+							limit = {
+								OR = {
+									is_claimed_by = SIK
+									is_core_of = SIK
+								}
+							}
+							add_state_modifier = {
+								modifier = {
+									resistance_target = 0.1
+									compliance_gain = 0.5
+								}
+							}
+							SIK = {
+								set_politics = {
+									ruling_party = unaligned_right
+								}
+								add_timed_idea = {
+									idea = cw_revolutionary_zeal
+									days = 180
+								}
+								random_owned_state = {
+									create_unit = {
+										division = "division_template = \"Cavarly Division\" start_experience_factor = 0.4" 
+										owner = SIK
+										allow_spawning_on_enemy_provs = no
+										count = 10
+									}
+								}
+								transfer_state = PREV
+								declare_war_on = {
+									target = ROOT
+									type = take_core_state
+									generator = { 618 619 617 287 }
+								}
+							}
+						}
+					}				
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_conquer_tibet
+		available = {
+			TIB = { exists = yes is_neighbor_of = ROOT }
+			TIB = { NOT = { is_puppet_of = ROOT } }		
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_conquer_tibet
+		x = -2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = CHI_centralized_state }
+		relative_position_id = CHI_centralized_state
+		will_lead_to_war_with = TIB
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = TIB
+				}
+				else = {
+					declare_war_on = {
+						target = TIB
+						type = annex_everything
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_the_communist_menace
+		available = {
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_war_with_comintern
+		x = 0
+		y = 3
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = CHI_centralized_state focus = CHI_federation_constitution }
+		relative_position_id = CHI_new_constitution
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_allow_communist_in_government
+		available = {
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_major_alliance
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_PARTIES_FOCUSES }
+		prerequisite = { focus = CHI_the_communist_menace }
+		relative_position_id = CHI_the_communist_menace
+		mutually_exclusive = { focus = CHI_ban_all_communist_organisations }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_stability = 0.3
+			add_ideas = prc_tm_deng_xiaoping
+			add_ideas = prc_hog_liu_shaoqi
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = communism_totalitarian
+				popularity = 0.1
+			}
+			custom_effect_tooltip = "CW_INSERT_NEW_LINE"
+			if = {
+				limit = {
+					PRC = { exists = yes }
+				}
+				PRC = {
+					add_timed_idea = {
+						idea = unstable_government_communist
+						days = 1800
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_ban_all_communist_organisations
+		available = {
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_forceful_treaty
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_PARTIES_FOCUSES }
+		prerequisite = { focus = CHI_the_communist_menace }
+		relative_position_id = CHI_the_communist_menace
+		mutually_exclusive = { focus = CHI_allow_communist_in_government }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_stability = -0.30
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_recover_manchuria
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_territory_or_war
+		x = 0
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {
+			PRC = {
+				exists = yes
+				has_country_flag = communist_manchuria
+			}
+		}
+		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_WAR_SUPPORT }
+		prerequisite = { focus = CHI_ban_all_communist_organisations focus = CHI_allow_communist_in_government }
+		relative_position_id = CHI_the_communist_menace
+
+		select_effect = {}
+
+		completion_reward = {
+			add_war_support = 0.30
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_manchuria_arm_resistance_forces
+		available = {
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_chi_arm_manchuria_republic
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES }
+		prerequisite = { focus = CHI_recover_manchuria }
+		relative_position_id = CHI_recover_manchuria
+		mutually_exclusive = { focus = CHI_conquer_manchuria }
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "CHI_MANCHURIA_ARM_RESISTANCE_FORCES_EFFECT_TT"
+			hidden_effect = {
+				PRC = {
+					random_owned_state = {
+						limit = {
+							is_capital = no
+						}
+						MAN = { transfer_state = PREV }
+					}
+					random_owned_state = {
+						limit = {
+							is_capital = no
+						}
+						MAN = { transfer_state = PREV }
+					}
+					random_owned_state = {
+						limit = {
+							is_capital = no
+						}
+						MAN = { transfer_state = PREV }
+					}					
+				}
+				MAN = {
+					set_cosmetic_tag = SOV_PRC
+					set_country_flag = special_police_action_flag
+					set_politics = {
+						ruling_party = unaligned_right
+					}
+					set_political_party = {
+						ideology = unaligned_right
+						popularity = 100
+					}
+					division_template = {
+						name = "Militia Division"
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 2 y = 0 }
+						}
+					}
+					every_owned_state = {
+						limit = {
+							is_owned_and_controlled_by = PREV
+						}
+						create_unit = {
+							division = "division_template = \"Militia Division\" start_experience_factor = 0" 
+							owner = MAN
+							allow_spawning_on_enemy_provs = no
+							count = 2
+						}
+					}
+				}
+				PRC = {
+					declare_war_on = {
+						target = MAN
+						type = civil_war
+					}				
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_conquer_manchuria
+		available = {
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_PRC_seize_manchuria
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_TENSION_FOCUSES }
+		prerequisite = { focus = CHI_recover_manchuria }
+		relative_position_id = CHI_recover_manchuria
+		mutually_exclusive = { focus = CHI_manchuria_arm_resistance_forces }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_threat = 10
+			create_wargoal = {
+				type = civil_war
+				target = PRC
+			}
+			custom_effect_tooltip = "CHI_CONQUER_MANCHURIA_EFFECT_TT"
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_integrate_manchuria
+		available = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = "MANCHURIA_CROP_TRIGGER_TT"
+					controls_state = 219
+					AND = {
+						controls_state = 761
+						controls_state = 714
+						controls_state = 717
+						controls_state = 328
+						controls_state = 715
+						controls_state = 716
+						controls_state = 610
+					}
+				}
+				MAN = {
+					has_war = no
+					custom_trigger_tooltip = {
+						tooltip = "MANCHURIA_CROP_TRIGGER_TT"
+						controls_state = 219
+						AND = {
+							controls_state = 761
+							controls_state = 714
+							controls_state = 717
+							controls_state = 328
+							controls_state = 715
+							controls_state = 716
+							controls_state = 610
+						}
+					}
+				}
+			}
+
+		}
+		
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_self_management
+		x = 0
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		prerequisite = { focus = CHI_conquer_manchuria focus = CHI_manchuria_arm_resistance_forces }
+		relative_position_id = CHI_recover_manchuria
+
+		select_effect = {}
+
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = PRC
+				}
+				cancel_resistance = yes
+			}
+			every_owned_state = {
+				limit = {
+					is_claimed_by = PRC
+				}
+				remove_core_of = PRC
+				remove_claim_by = PRC
+			}			
+			if = {
+				limit = {
+					MAN = { 
+						exists = yes
+						has_war = no
+					}
+				}
+				annex_country = {
+					target = MAN
+				}
+			}
+			hidden_effect = {
+				random_list = {
+					50 = {
+						news_event = { id = ccw_events.13 days = 5 }
+					}
+					50 = {
+						news_event = { id = ccw_events.13 days = 10 }
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	#### RECOVERY FROM CIVIL WAR ####
+	focus = {
+		id = CHI_recover_from_civil_war
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_man_claim_the_mandate_of_heaven
+		x = 12
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_STABILITY }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_stability = 0.30
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_claim_territorial_leases
+		available = {
+			
+		}
+		bypass = {
+		}
+		
+		icon = GFX_chi_negotiations_por_and_uk
+		x = -6
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		prerequisite = { focus = CHI_recover_from_civil_war }
+		relative_position_id = CHI_recover_from_civil_war		
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "PRC_CLAIM_TERRITORIAL_LEASES_TT"
+			hidden_effect = {
+				ROOT = { transfer_state = 326 }
+				ROOT = { transfer_state = 729 }
+				ENG = { 326 = { cw_grant_lease_perpetual = yes } }
+				POR = { 729 = { cw_grant_lease_perpetual = yes } }
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = CHI_renegotiate_hong_kong_lease
+		available = {
+			326 = { any_neighbor_state = { is_owned_by = ROOT } }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_PRC_claim_hong_kong
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_DIPLOMACY_FOCUSES FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = CHI_claim_territorial_leases }
+		relative_position_id = CHI_claim_territorial_leases		
+
+		select_effect = {}
+
+		completion_reward = {
+			ROOT = {
+				326 = { save_event_target_as = lease_negotiation_target }
+				country_event = generic_events.6 
+			} 
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = CHI_renegotiate_macau_lease
+		available = {
+			729 = { any_neighbor_state = { is_owned_by = ROOT } }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_PRC_claim_macau
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_DIPLOMACY_FOCUSES FOCUS_FILTER_ANNEXATION }
+		prerequisite = { focus = CHI_claim_territorial_leases }
+		relative_position_id = CHI_claim_territorial_leases		
+
+		select_effect = {}
+
+		completion_reward = {
+			ROOT = {
+				729 = { save_event_target_as = lease_negotiation_target }
+				country_event = generic_events.6 
+			}		
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_establish_coastal_economic_zones
+		available = {
+			326 = { is_owned_by = ENG }
+			729 = { is_owned_by = POR }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 0
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = CHI_claim_territorial_leases
+		prerequisite = { focus = CHI_renegotiate_macau_lease }
+		prerequisite = { focus = CHI_renegotiate_hong_kong_lease }
+
+		select_effect = {}
+
+		completion_reward = {
+			326 = {
+				every_neighbor_state = {
+					limit = {
+						is_owned_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			729 = {
+				every_neighbor_state = {
+					limit = {
+						is_owned_by = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	##### EDUCATE THE MASSES ####
+	focus = {
+		id = CHI_educate_the_masses
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_research2
+		x = 6
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		relative_position_id = CHI_recover_from_civil_war
+		prerequisite = { focus = CHI_recover_from_civil_war }		
+
+		select_effect = {}
+
+		completion_reward = {
+			add_political_power = 50
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_establish_military_schools
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_military_mission
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_educate_the_masses
+		prerequisite = { focus = CHI_educate_the_masses }		
+
+		select_effect = {}
+
+		completion_reward = {
+			add_command_power = 50
+			army_experience = 50
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_expand_public_education
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_intelligence_exchange
+		x = -1
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = CHI_educate_the_masses
+		prerequisite = { focus = CHI_establish_military_schools }		
+
+		select_effect = {}
+
+		completion_reward = {
+			add_ideas = cw_acceptable_education_budget
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_rebuild_shanghai_university
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_research
+		x = -1
+		y = 3
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = CHI_educate_the_masses
+		prerequisite = { focus = CHI_expand_public_education }		
+
+		select_effect = {}
+
+		completion_reward = {
+			613 = { 
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_introduce_population_controls
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_national_unity
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_educate_the_masses
+		prerequisite = { focus = CHI_educate_the_masses }		
+
+		select_effect = {}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = cw_populatioin_loss_high
+				days = 7300
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_introduce_minimum_wage_plan
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_fra_devalue_the_franc
+		x = 1
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		relative_position_id = CHI_educate_the_masses
+		prerequisite = { focus = CHI_introduce_population_controls }		
+
+		select_effect = {}
+
+		completion_reward = {
+			add_ideas = cw_medium_unions_allowed
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_conduct_extensive_land_reform
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_neutrality_focus
+		x = 1
+		y = 3
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_educate_the_masses
+		prerequisite = { focus = CHI_introduce_minimum_wage_plan }		
+
+		select_effect = {}
+
+		completion_reward = {
+			add_ideas = cw_fair_individual_land_ownership
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_the_new_china
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_chi_one_china_policy
+		x = 0
+		y = 4
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_educate_the_masses
+		prerequisite = { focus = CHI_conduct_extensive_land_reform }
+		prerequisite = { focus = CHI_rebuild_shanghai_university }
+
+		select_effect = {}
+
+		completion_reward = {
+			remove_ideas = PRC_uneducated_rural_population_5
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	##### CHINESE RECONSTRUCTION ####
+	focus = {
+		id = CHI_chinese_reconstruction
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 0
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_DECISIONS_FOCUSES }
+		relative_position_id = CHI_recover_from_civil_war
+		prerequisite = { focus = CHI_recover_from_civil_war }		
+
+		select_effect = {}
+
+		completion_reward = {
+			add_political_power = 50
+			set_country_flag = china_reconstruction_started			
+			set_variable = { ROOT.china_coastal_reconstruction_cost_time = 400 }
+			capital_scope = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}		
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+
+	focus = {
+		id = CHI_encourage_urbanization
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_propaganda
+		x = 0
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_DECISIONS_FOCUSES }
+		prerequisite = { focus = CHI_chinese_reconstruction }
+		relative_position_id = CHI_chinese_reconstruction		
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = CHI_COASTAL_RECONSTRUCTION_TIME_REDUCTION_TT
+			subtract_from_variable = { ROOT.china_coastal_reconstruction_cost_time = 50 }		
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = CHI_seize_manchuria_steel_mills
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "MANCHURIA_CROP_TRIGGER_TT"
+				controls_state = 219
+				AND = {
+					controls_state = 761
+					controls_state = 714
+					controls_state = 717
+					controls_state = 328
+					controls_state = 715
+					controls_state = 716
+					controls_state = 610
+				}
+			}		
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_steel
+		x = -1
+		y = 3
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+		prerequisite = { focus = CHI_chinese_reconstruction }
+		relative_position_id = CHI_chinese_reconstruction		
+
+		select_effect = {}
+
+		completion_reward = {
+			add_resource = {
+				type = steel
+				amount = 15
+				state = 328
+			}
+			add_resource = {
+				type = steel
+				amount = 5
+				state = 715
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = sino_soviet_friendship_active }
+				}
+				328 = { SOV = { cw_give_state_monopoly_binding_country = yes } }
+			}
+			328 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}		
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = CHI_seize_manchuria_oil_well
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "MANCHURIA_CROP_TRIGGER_TT"
+				controls_state = 219
+				AND = {
+					controls_state = 761
+					controls_state = 714
+					controls_state = 717
+					controls_state = 328
+					controls_state = 715
+					controls_state = 716
+					controls_state = 610
+				}
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_oil_refinery
+		x = 1
+		y = 3
+		cost = 12
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+		prerequisite = { focus = CHI_chinese_reconstruction }
+		relative_position_id = CHI_chinese_reconstruction		
+
+		select_effect = {}
+
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 25
+				state = 714
+			}
+			add_resource = {
+				type = oil
+				amount = 5
+				state = 761
+			}
+			if = {
+				limit = {
+					ROOT = { has_country_flag = sino_soviet_friendship_active }
+				}
+				714 = { SOV = { cw_give_state_monopoly_binding_country = yes } }
+			}
+			714 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}			
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	
+	focus = {
+		id = CHI_reconstruction_enlist_soviet_aid
+		available = {
+			SOV = { has_opinion = { target = ROOT value > 50 } }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		x = -2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_DECISIONS_FOCUSES FOCUS_FILTER_RESOURCES_FOCUSES }
+		prerequisite = { focus = CHI_encourage_urbanization }
+		relative_position_id = CHI_encourage_urbanization
+		mutually_exclusive = { 
+			focus = CHI_reconstruction_enlist_american_aid 
+			focus = CHI_reconstruction_use_emergency_powers 
+		}
+
+		select_effect = {}
+
+		completion_reward = {
+			set_variable = { cw_economic_aid_lock@SOV = 1825 }
+			SOV = { country_event = { id = generic_events.10 days = 5 } }
+			custom_effect_tooltip = "CW_INSERT_NEW_SPACE"
+			custom_effect_tooltip = "RECONSTRUCTION_REDUCE_TIME_TT_1"
+			capital_scope = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}			
+			}
+			594 = { SOV = { cw_give_state_monopoly_perpetual_country = yes } }
+			592 = { SOV = { cw_give_state_monopoly_perpetual_country = yes } }
+			593 = { SOV = { cw_give_state_monopoly_perpetual_country = yes } }
+			subtract_from_variable = { ROOT.china_coastal_reconstruction_cost_time = 150 }
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = CHI_reconstruction_enlist_american_aid
+		available = {
+			USA = { has_opinion = { target = ROOT value > 50 } }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_chi_mission_to_the_us
+		x = 2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_DECISIONS_FOCUSES FOCUS_FILTER_RESOURCES_FOCUSES }
+		prerequisite = { focus = CHI_encourage_urbanization }
+		relative_position_id = CHI_encourage_urbanization
+		mutually_exclusive = { 
+			focus = CHI_reconstruction_use_emergency_powers 
+			focus = CHI_reconstruction_enlist_soviet_aid 
+		}
+
+		select_effect = {}
+
+		completion_reward = {
+			set_variable = { cw_economic_aid_lock@USA = 1825 }
+			USA = { country_event = { id = generic_events.10 days = 5 } }
+			custom_effect_tooltip = "CW_INSERT_NEW_SPACE"
+			custom_effect_tooltip = "RECONSTRUCTION_REDUCE_TIME_TT_1"
+			capital_scope = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}			
+			}
+			594 = { USA = { cw_give_state_monopoly_perpetual_country = yes } }
+			592 = { USA = { cw_give_state_monopoly_perpetual_country = yes } }
+			593 = { USA = { cw_give_state_monopoly_perpetual_country = yes } }
+			subtract_from_variable = { ROOT.china_coastal_reconstruction_cost_time = 150 }
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = CHI_reconstruction_use_emergency_powers
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = 0
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		prerequisite = { focus = CHI_chinese_reconstruction }
+		relative_position_id = CHI_encourage_urbanization
+		mutually_exclusive = { 
+			focus = CHI_reconstruction_enlist_american_aid 
+			focus = CHI_reconstruction_enlist_soviet_aid 
+		}
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "RECONSTRUCTION_REDUCE_TIME_TT_2"
+			subtract_from_variable = { china_coastal_reconstruction_cost_time = 120 }
+			add_ideas = cw_14_hour_workday
+			custom_effect_tooltip = "[CW_INSERT_NEW_LINE_LOC]"
+			add_ideas = cw_enforced_quotas
+			custom_effect_tooltip = "[CW_INSERT_NEW_LINE_LOC]"
+			add_ideas = cw_five_year_plan_infra_industry_focus
+			custom_effect_tooltip = "[CW_INSERT_NEW_LINE_LOC]"
+			add_ideas = cw_emergency_laws
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = CHI_finish_reconstruction
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "PRC_FINISH_RECONSTRUCTION_TT_COASTAL"
+				check_variable = { coast_reconstruction_progress > 79 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = "PRC_FINISH_RECONSTRUCTION_TT_INTERIOR"
+				check_variable = { interior_reconstruction_progress > 49 }
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		x = 0
+		y = 4
+		cost = 12
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		prerequisite = { focus = CHI_encourage_urbanization }
+		relative_position_id = CHI_chinese_reconstruction
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = CHI_cw_corrupt_bureaucracy_1
+				}
+				remove_ideas = CHI_cw_corrupt_bureaucracy_1
+			}
+			every_owned_state = {
+				limit = {
+					has_state_category = devestated_wasteland
+				}
+				set_state_category = large_city
+			}
+			if = {
+				limit = {
+					has_idea = cw_emergency_laws
+				}
+				remove_ideas = cw_emergency_laws
+			}
+			if = {
+				limit = {
+					326 = { is_owned_by = ENG }
+				}
+				593 = { set_state_category = metropolis }
+				592 = { set_state_category = metropolis }
+				613 = { set_state_category = megalopolis }
+				capital_scope = { set_state_category = capital_city }
+			}
+			add_stability = 0.30
+			add_political_power = 100
+			add_timed_idea = { idea = cw_sov_post_reconstruction_boom days = 365 }
+		}
+		
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	##### ASIA DECOLONIZATION #####
+	focus = {
+		id = CHI_the_future_of_asia
+		
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_usa_focus_on_asia
+		x = 23
+		y = 11
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+
+		select_effect = {}
+
+		completion_reward = {
+			hidden_effect = {
+				unlock_national_focus = CHI_decolonization_of_burma
+				unlock_national_focus = CHI_decolonization_of_malaysia
+				unlock_national_focus = CHI_decolonization_of_indochina
+				unlock_national_focus = CHI_decolonization_of_indonesia
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_mongolia_policy
+		
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_mongolian_question
+		x = 2
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_the_future_of_asia
+		prerequisite = { focus = CHI_the_future_of_asia }
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_mongolia_regime_change
+		
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_mongolia_policy
+		prerequisite = { focus = CHI_mongolia_policy }
+		mutually_exclusive = { focus = CHI_conquer_mongolia }
+
+		select_effect = {}
+
+		completion_reward = {
+			MON = {
+				start_civil_war = {
+					ideology = ROOT
+					keep_political_leader = yes
+					size = 0.5
+					states_filter = { impassable = no }
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+			}
+			random_country_with_original_tag = {
+				original_tag_to_check = MON
+				limit = {
+					has_war_with = MON
+				}
+				set_country_flag = special_police_action_flag
+			}			
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_conquer_mongolia
+		
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_mongolia_policy
+		prerequisite = { focus = CHI_mongolia_policy }
+		mutually_exclusive = { focus = CHI_mongolia_regime_change }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_named_threat = { threat = 10  name = CW_THREAT_CLAIMED_TERRITORY }
+			every_state = {
+				limit = {
+					is_owned_by = MON
+				}
+				add_claim_by = ROOT
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_integrate_mongolia
+		
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_demand_sudetenland
+		x = 0
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_mongolia_policy
+		prerequisite = { focus = CHI_conquer_mongolia focus = CHI_mongolia_regime_change }
+		will_lead_to_war_with = MON
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = CHI_conquer_mongolia
+				}
+				create_wargoal = {
+					type = annex_everything
+					target = MON
+				}
+				else_if = {
+					limit = {
+						MON = { has_government = ROOT }
+					}
+					annex_country = {
+						target = MON
+						transfer_troops = yes
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_korea_policy
+		
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_korean_question
+		x = -2
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_the_future_of_asia
+		prerequisite = { focus = CHI_the_future_of_asia }
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_integrate_korea
+		
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_korea_policy
+		prerequisite = { focus = CHI_korea_policy }
+		mutually_exclusive = { focus = CHI_arm_south_korea }
+
+		select_effect = {}
+
+		completion_reward = {
+			add_named_threat = { threat = 10  name = CW_THREAT_CLAIMED_TERRITORY }
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_by = KOR
+						is_owned_by = PRK
+					}
+				}
+				add_claim_by = ROOT
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_arm_south_korea
+		
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_focus_generic_tank_production
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_korea_policy
+		prerequisite = { focus = CHI_korea_policy }
+		mutually_exclusive = { focus = CHI_integrate_korea }		
+
+		select_effect = {}
+
+		completion_reward = {
+			KOR = { cw_give_military_aid = yes }
+			send_equipment_fraction = { target = KOR value = 0.10 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_intervene_in_korean_war
+		
+		available = {
+			KOR = { has_war_with = PRK }
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_dangerous_deal
+		x = 0
+		y = 2
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_korea_policy
+		prerequisite = { focus = CHI_integrate_korea focus = CHI_arm_south_korea }
+		will_lead_to_war_with = PRK
+
+		select_effect = {}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = CHI_integrate_korea
+				}
+				declare_war_on = {
+					target = PRK
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = KOR
+					type = annex_everything
+				}
+				else = {
+					declare_war_on = {
+						target = PRK
+						type = annex_everything
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_integrate_new_territory
+		
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+			has_war = no
+			OR = {
+				MON = { exists = no }
+				AND = {
+					KOR = { exists = no }
+					PRK = { exists = no }
+				}
+			}
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_generic_propaganda
+		x = 0
+		y = 5
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_the_future_of_asia
+		prerequisite = { focus = CHI_intervene_in_korean_war focus = CHI_integrate_mongolia }
+
+		select_effect = {
+			if = {
+				limit = {
+					MON = { exists = no }
+					330 = { is_owned_by = ROOT }		#	Capital of Mongolia
+				}
+				MON = { cw_unsc_generic_recognize_region_resolution = yes }
+			}
+			if = {
+				limit = {
+					PRK = { exists = no }
+					527 = { is_owned_by = ROOT }		#	Capital of North Korea
+				}
+				PRK = { cw_unsc_generic_recognize_region_resolution = yes }
+			}
+			if = {
+				limit = {
+					KOR = { exists = no }
+					525 = { is_owned_by = ROOT }		#	Capital of South Korea
+				}
+				KOR = { cw_unsc_generic_recognize_region_resolution = yes }
+			}
+			cw_unsc_start_resolution_effect = yes		
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					MON = { exists = no }
+					330 = { is_owned_by = ROOT }		#	Capital of Mongolia
+				}
+				effect_tooltip = {
+					MON = { cw_unsc_generic_recognize_region_resolution = yes }
+				}
+			}
+			if = {
+				limit = {
+					PRK = { exists = no }
+					527 = { is_owned_by = ROOT }		#	Capital of North Korea
+				}
+				effect_tooltip = {
+					PRK = { cw_unsc_generic_recognize_region_resolution = yes }
+				}
+			}
+			if = {
+				limit = {
+					KOR = { exists = no }
+					525 = { is_owned_by = ROOT }		#	Capital of South Korea
+				}
+				effect_tooltip = {
+					KOR = { cw_unsc_generic_recognize_region_resolution = yes }
+				}
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = CHI_decolonization_of_indonesia
+		
+		available = {
+			INS = {
+				OR = {
+					has_war_with = HOL
+					is_puppet = yes
+					is_subject = yes
+					NOT = { has_government = ROOT }
+				}
+			}
+		}
+		bypass = {
+			INS = {
+				has_government = ROOT
+				has_war = no
+			}
+		}
+		
+		icon = GFX_goal_support_democracy
+		x = 17
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_the_future_of_asia
+		prerequisite = { focus = CHI_the_future_of_asia }
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indonesia_violent
+		
+		available = {
+			INS = {
+				OR = {
+					has_war_with = HOL
+					is_puppet = yes
+					is_subject = yes
+					NOT = { has_government = ROOT }
+				}
+			}
+		}
+		bypass = {
+			INS = {
+				has_government = ROOT
+				has_war = no
+			}
+		}
+		
+		icon = GFX_focus_hol_war_on_pacifism
+		x = -2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_indonesia
+		prerequisite = { focus = CHI_decolonization_of_indonesia }
+		mutually_exclusive = { focus = CHI_decolonization_of_indonesia_non_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indonesia_violent_arm_indonesia_natioinalists
+		
+		available = {
+			INS = {
+				OR = {
+					has_war_with = HOL
+					is_puppet = yes
+					is_subject = yes
+					NOT = { has_government = ROOT }
+				}
+			}
+		}
+		bypass = {
+			INS = {
+				has_government = ROOT
+				has_war = no
+			}
+		}
+		
+		icon = GFX_goal_generic_military_sphere
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_indonesia_violent
+		prerequisite = { focus = CHI_decolonization_of_indonesia_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+			send_equipment = {
+				equipment = infantry_equipment_3
+				amount = 1000
+				target = INS
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indonesia_violent_fund_indonesia_natioinalists
+		
+		available = {
+			INS = {
+				OR = {
+					has_war_with = HOL
+					is_puppet = yes
+					is_subject = yes
+					NOT = { has_government = ROOT }
+				}
+			}
+		}
+		bypass = {
+			INS = {
+				has_government = ROOT
+				has_war = no
+			}
+		}
+		
+		icon = GFX_focus_mex_privatisation
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_indonesia_violent
+		prerequisite = { focus = CHI_decolonization_of_indonesia_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+			INS = { cw_give_military_aid = yes }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indonesia_non_violent
+		
+		available = {
+			INS = {
+				OR = {
+					has_war_with = HOL
+					is_puppet = yes
+					is_subject = yes
+					NOT = { has_government = ROOT }
+				}
+			}
+		}
+		bypass = {
+			INS = {
+				has_government = ROOT
+				has_war = no
+			}
+		}
+		
+		icon = GFX_focus_eng_decolonization
+		x = 2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_indonesia
+		prerequisite = { focus = CHI_decolonization_of_indonesia }
+		mutually_exclusive = { focus = CHI_decolonization_of_indonesia_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indonesia_non_violent_demand_withdrawal
+		
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+		bypass = {
+			INS = {
+				has_government = ROOT
+				has_war = no
+			}
+		}
+		
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 0
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+		relative_position_id = CHI_decolonization_of_indonesia_non_violent
+		prerequisite = { focus = CHI_decolonization_of_indonesia_non_violent }
+
+		select_effect = {
+			INS = { cw_unsc_resolution_foreign_withdrawal = yes }
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				INS = { cw_unsc_resolution_foreign_withdrawal = yes }
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indonesia_initiate_uprising
+		
+		available = {
+			INS = { OR = { has_war_with = HOL has_civil_war = yes } }
+		}
+		bypass = {
+			INS = {
+				NOT = {
+					OR = {
+						has_war_with = HOL 
+						has_civil_war = yes 
+					}
+				}
+			}
+		}
+		
+		icon = GFX_focus_BUL_condemn_macedonian_organizations
+		x = 0
+		y = 3
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_indonesia
+		prerequisite = {
+			focus = CHI_decolonization_of_indonesia_non_violent_demand_withdrawal
+			focus = CHI_decolonization_of_indonesia_violent_fund_indonesia_natioinalists 
+			focus = CHI_decolonization_of_indonesia_violent_arm_indonesia_natioinalists 
+		}
+
+		select_effect = {}
+
+		completion_reward = {
+			INS = {
+				start_civil_war = {
+					ideology = unaligned_right
+					keep_political_leader = yes
+					size = var:party_popularity@unaligned_right
+					states_filter = { impassable = no }
+				}
+				custom_effect_tooltip = "CW_INSERT_NEW_LINE"
+			}
+			INS = { custom_effect_tooltip = CW_CIVIL_WAR_SIZE_TT }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indonesia_peacekeeping_mission
+		
+		available = {
+			INS = { OR = { has_war_with = HOL has_civil_war = yes } }
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+		bypass = {
+			INS = {
+				has_government = ROOT
+				has_war = no
+			}
+		}
+		
+		icon = GFX_focus_generic_un_peacekeeping_mission
+		x = 0
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+		relative_position_id = CHI_decolonization_of_indonesia_initiate_uprising
+		prerequisite = { focus = CHI_decolonization_of_indonesia_initiate_uprising }
+
+		select_effect = {
+			INS = { cw_unsc_resolution_police_action = yes }
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				INS = { cw_unsc_resolution_police_action = yes }
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = CHI_decolonization_of_indochina
+		
+		available = {
+			SVI = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			SVI = { has_government = ROOT }
+		}
+		
+		icon = GFX_goal_support_democracy
+		x = 9
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_the_future_of_asia
+		prerequisite = { focus = CHI_the_future_of_asia }
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indochina_violent
+		
+		available = {
+			SVI = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			SVI = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_hol_war_on_pacifism
+		x = -2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_indochina
+		prerequisite = { focus = CHI_decolonization_of_indochina }
+		mutually_exclusive = { focus = CHI_decolonization_of_indochina_non_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indochina_violent_arm_indochina_natioinalists
+		
+		available = {
+			SVI = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			SVI = { has_government = ROOT }
+		}
+		
+		icon = GFX_goal_generic_military_sphere
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_indochina_violent
+		prerequisite = { focus = CHI_decolonization_of_indochina_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+			SVI = {
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.3
+				}
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indochina_violent_fund_indochina_natioinalists
+		
+		available = {
+			SVI = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			SVI = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_mex_privatisation
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_indochina_violent
+		prerequisite = { focus = CHI_decolonization_of_indochina_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+			SVI = {
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.2
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indochina_non_violent
+		
+		available = {
+			SVI = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			SVI = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_eng_decolonization
+		x = 2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_indochina
+		prerequisite = { focus = CHI_decolonization_of_indochina }
+		mutually_exclusive = { focus = CHI_decolonization_of_indochina_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indochina_non_violent_independence_referendum
+		
+		available = {
+			SVI = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			SVI = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_usa_voter_registration_act
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_indochina_non_violent
+		prerequisite = { focus = CHI_decolonization_of_indochina_non_violent }
+		mutually_exclusive = { focus = CHI_decolonization_of_indochina_non_violent_demand_withdrawal }
+
+		select_effect = {}
+
+		completion_reward = {
+			SVI = {
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.1
+				}
+			}
+			SVI = { OVERLORD = { activate_targeted_decision = { target = PREV decision = cw_generic_colony_independence_referendum } } }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indochina_non_violent_demand_withdrawal
+		
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no		
+		}
+		bypass = {
+			SVI = { has_government = ROOT }
+		}
+		
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 1
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+		relative_position_id = CHI_decolonization_of_indochina_non_violent
+		prerequisite = { focus = CHI_decolonization_of_indochina_non_violent }
+		mutually_exclusive = { focus = CHI_decolonization_of_indochina_non_violent_independence_referendum }
+
+		select_effect = {
+			SVI = { cw_unsc_resolution_foreign_withdrawal = yes }
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				SVI = { cw_unsc_resolution_foreign_withdrawal = yes }
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indochina_initiate_uprising
+		
+		available = {
+			SVI = { has_war = no NOT = { has_government = ROOT } }
+		}
+		bypass = {
+			SVI = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_BUL_condemn_macedonian_organizations
+		x = 0
+		y = 3
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_indochina
+		prerequisite = {
+			focus = CHI_decolonization_of_indochina_non_violent_demand_withdrawal
+			focus = CHI_decolonization_of_indochina_non_violent_independence_referendum 
+			focus = CHI_decolonization_of_indochina_violent_fund_indochina_natioinalists 
+			focus = CHI_decolonization_of_indochina_violent_arm_indochina_natioinalists 
+		}
+
+		select_effect = {}
+
+		completion_reward = {
+			SVI = {
+				start_civil_war = {
+					ideology = ROOT
+					keep_political_leader = yes
+					size = var:party_popularity@unaligned_right
+					states_filter = { impassable = no }
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+				custom_effect_tooltip = "CW_INSERT_NEW_LINE"
+			}
+			SVI = { custom_effect_tooltip = CW_CIVIL_WAR_SIZE_TT }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_indochina_peacekeeping_mission
+		
+		available = {
+			SVI = { has_civil_war = yes }
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+		bypass = {
+			SVI = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_generic_un_peacekeeping_mission
+		x = 0
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+		relative_position_id = CHI_decolonization_of_indochina_initiate_uprising
+		prerequisite = { focus = CHI_decolonization_of_indochina_initiate_uprising }
+
+		select_effect = {
+			random_country_with_original_tag = {
+				original_tag_to_check = SVI
+				limit = {
+					has_war_with = SVI
+				}
+				cw_unsc_resolution_police_action = yes
+			}
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				random_country_with_original_tag = {
+					original_tag_to_check = SVI
+					limit = {
+						has_war_with = SVI
+					}
+					cw_unsc_resolution_police_action = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = CHI_decolonization_of_malaysia
+		
+		available = {
+			MAL = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			MAL = { has_government = ROOT }
+		}
+		
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		x = -9
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_the_future_of_asia
+		prerequisite = { focus = CHI_the_future_of_asia }
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_malaysia_violent
+		
+		available = {
+			MAL = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			MAL = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_hol_war_on_pacifism
+		x = -2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_malaysia
+		prerequisite = { focus = CHI_decolonization_of_malaysia }
+		mutually_exclusive = { focus = CHI_decolonization_of_malaysia_non_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_malaysia_violent_arm_malaysia_natioinalists
+		
+		available = {
+			MAL = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			MAL = { has_government = ROOT }
+		}
+		
+		icon = GFX_goal_generic_military_sphere
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_malaysia_violent
+		prerequisite = { focus = CHI_decolonization_of_malaysia_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+			MAL = {
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.3
+				}
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_malaysia_violent_fund_malaysia_natioinalists
+		
+		available = {
+			MAL = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			MAL = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_mex_privatisation
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_malaysia_violent
+		prerequisite = { focus = CHI_decolonization_of_malaysia_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+			MAL = {
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.2
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_malaysia_non_violent
+		
+		available = {
+			MAL = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			MAL = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_eng_decolonization
+		x = 2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_malaysia
+		prerequisite = { focus = CHI_decolonization_of_malaysia }
+		mutually_exclusive = { focus = CHI_decolonization_of_malaysia_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_malaysia_non_violent_independence_referendum
+		
+		available = {
+			MAL = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			MAL = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_usa_voter_registration_act
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_malaysia_non_violent
+		prerequisite = { focus = CHI_decolonization_of_malaysia_non_violent }
+		mutually_exclusive = { focus = CHI_decolonization_of_malaysia_non_violent_demand_withdrawal }
+
+		select_effect = {}
+
+		completion_reward = {
+			MAL = {
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.1
+				}
+			}
+			MAL = { OVERLORD = { activate_targeted_decision = { target = PREV decision = cw_generic_colony_independence_referendum } } }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_malaysia_non_violent_demand_withdrawal
+		
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no		
+		}
+		bypass = {
+			MAL = { has_government = ROOT }
+		}
+		
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 1
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+		relative_position_id = CHI_decolonization_of_malaysia_non_violent
+		prerequisite = { focus = CHI_decolonization_of_malaysia_non_violent }
+		mutually_exclusive = { focus = CHI_decolonization_of_malaysia_non_violent_independence_referendum }
+
+		select_effect = {
+			MAL = { cw_unsc_resolution_foreign_withdrawal = yes }
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				MAL = { cw_unsc_resolution_foreign_withdrawal = yes }
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_malaysia_initiate_uprising
+		
+		available = {
+			MAL = { has_war = no NOT = { has_government = ROOT } }
+		}
+		bypass = {
+			MAL = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_BUL_condemn_macedonian_organizations
+		x = 0
+		y = 3
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_malaysia
+		prerequisite = {
+			focus = CHI_decolonization_of_malaysia_non_violent_demand_withdrawal
+			focus = CHI_decolonization_of_malaysia_non_violent_independence_referendum 
+			focus = CHI_decolonization_of_malaysia_violent_fund_malaysia_natioinalists 
+			focus = CHI_decolonization_of_malaysia_violent_arm_malaysia_natioinalists 
+		}
+
+		select_effect = {}
+
+		completion_reward = {
+			MAL = {
+				start_civil_war = {
+					ideology = ROOT
+					keep_political_leader = yes
+					size = var:party_popularity@unaligned_right
+					states_filter = { impassable = no }
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+				custom_effect_tooltip = "CW_INSERT_NEW_LINE"
+			}
+			MAL = { custom_effect_tooltip = CW_CIVIL_WAR_SIZE_TT }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_malaysia_peacekeeping_mission
+		
+		available = {
+			MAL = { has_civil_war = yes }
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+		bypass = {
+			MAL = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_generic_un_peacekeeping_mission
+		x = 0
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+		relative_position_id = CHI_decolonization_of_malaysia_initiate_uprising
+		prerequisite = { focus = CHI_decolonization_of_malaysia_initiate_uprising }
+
+		select_effect = {
+			random_country_with_original_tag = {
+				original_tag_to_check = MAL
+				limit = {
+					has_war_with = MAL
+					has_government = ROOT
+				}
+				cw_unsc_resolution_police_action = yes
+			}
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				random_country_with_original_tag = {
+					original_tag_to_check = MAL
+					limit = {
+						has_war_with = MAL
+						has_government = ROOT
+					}
+					cw_unsc_resolution_police_action = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = CHI_decolonization_of_burma
+		
+		available = {
+			BUR = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			BUR = { has_government = ROOT }
+		}
+		
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		x = -17
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_the_future_of_asia
+		prerequisite = { focus = CHI_the_future_of_asia }
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_burma_violent
+		
+		available = {
+			BUR = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			BUR = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_hol_war_on_pacifism
+		x = -2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_burma
+		prerequisite = { focus = CHI_decolonization_of_burma }
+		mutually_exclusive = { focus = CHI_decolonization_of_burma_non_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_burma_violent_arm_burma_natioinalists
+		
+		available = {
+			BUR = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			BUR = { has_government = ROOT }
+		}
+		
+		icon = GFX_goal_generic_military_sphere
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_burma_violent
+		prerequisite = { focus = CHI_decolonization_of_burma_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+			BUR = {
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.3
+				}
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_burma_violent_fund_burma_natioinalists
+		
+		available = {
+			BUR = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			BUR = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_mex_privatisation
+		x = 1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_burma_violent
+		prerequisite = { focus = CHI_decolonization_of_burma_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+			BUR = {
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.2
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_burma_non_violent
+		
+		available = {
+			BUR = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			BUR = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_eng_decolonization
+		x = 2
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_burma
+		prerequisite = { focus = CHI_decolonization_of_burma }
+		mutually_exclusive = { focus = CHI_decolonization_of_burma_violent }
+
+		select_effect = {}
+
+		completion_reward = {
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_burma_non_violent_independence_referendum
+		
+		available = {
+			BUR = {
+				NOT = { has_government = ROOT }
+			}
+		}
+		bypass = {
+			BUR = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_usa_voter_registration_act
+		x = -1
+		y = 1
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_burma_non_violent
+		prerequisite = { focus = CHI_decolonization_of_burma_non_violent }
+		mutually_exclusive = { focus = CHI_decolonization_of_burma_non_violent_demand_withdrawal }
+
+		select_effect = {}
+
+		completion_reward = {
+			BUR = {
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.1
+				}
+			}
+			BUR = { OVERLORD = { activate_targeted_decision = { target = PREV decision = cw_generic_colony_independence_referendum } } }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_burma_non_violent_demand_withdrawal
+		
+		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no		
+		}
+		bypass = {
+			BUR = { has_government = ROOT }
+		}
+		
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 1
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+		relative_position_id = CHI_decolonization_of_burma_non_violent
+		prerequisite = { focus = CHI_decolonization_of_burma_non_violent }
+		mutually_exclusive = { focus = CHI_decolonization_of_burma_non_violent_independence_referendum }
+
+		select_effect = {
+			BUR = { cw_unsc_resolution_foreign_withdrawal = yes }
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				BUR = { cw_unsc_resolution_foreign_withdrawal = yes }
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_burma_initiate_uprising
+		
+		available = {
+			BUR = { has_war = no NOT = { has_government = ROOT } }
+		}
+		bypass = {
+			BUR = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_BUL_condemn_macedonian_organizations
+		x = 0
+		y = 3
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = yes
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_decolonization_of_burma
+		prerequisite = {
+			focus = CHI_decolonization_of_burma_non_violent_demand_withdrawal
+			focus = CHI_decolonization_of_burma_non_violent_independence_referendum 
+			focus = CHI_decolonization_of_burma_violent_fund_burma_natioinalists 
+			focus = CHI_decolonization_of_burma_violent_arm_burma_natioinalists 
+		}
+
+		select_effect = {}
+
+		completion_reward = {
+			BUR = {
+				start_civil_war = {
+					ideology = ROOT
+					keep_political_leader = yes
+					size = var:party_popularity@unaligned_right
+					states_filter = { impassable = no }
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+				custom_effect_tooltip = "CW_INSERT_NEW_LINE"
+			}
+			BUR = { custom_effect_tooltip = CW_CIVIL_WAR_SIZE_TT }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_decolonization_of_burma_peacekeeping_mission
+		
+		available = {
+			BUR = { has_civil_war = yes }
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+		bypass = {
+			BUR = { has_government = ROOT }
+		}
+		
+		icon = GFX_focus_generic_un_peacekeeping_mission
+		x = 0
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+		relative_position_id = CHI_decolonization_of_burma_initiate_uprising
+		prerequisite = { focus = CHI_decolonization_of_burma_initiate_uprising }
+
+		select_effect = {
+			random_country_with_original_tag = {
+				original_tag_to_check = BUR
+				limit = {
+					has_war_with = BUR
+					has_government = ROOT
+				}
+				cw_unsc_resolution_police_action = yes
+			}
+		}
+
+		completion_reward = {
+			effect_tooltip = {
+				random_country_with_original_tag = {
+					original_tag_to_check = BUR
+					limit = {
+						has_war_with = BUR
+						has_government = ROOT						
+					}
+					cw_unsc_resolution_police_action = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = CHI_shanghai_aid_program
+		
+		available = {
+		}
+		bypass = {
+		}
+		
+		icon = GFX_prc_shanghai_economic_program
+		x = 0
+		y = 6
+		cost = 10
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = yes
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {}
+		relative_position_id = CHI_the_future_of_asia
+		prerequisite = { focus = CHI_decolonization_of_burma_peacekeeping_mission }
+		prerequisite = { focus = CHI_decolonization_of_malaysia_peacekeeping_mission }
+		prerequisite = { focus = CHI_decolonization_of_indochina_peacekeeping_mission }
+		prerequisite = { focus = CHI_decolonization_of_indonesia_peacekeeping_mission }
+
+		select_effect = {}
+
+		completion_reward = {
+			custom_effect_tooltip = "CHI_SHANGHAI_AID_PROGRAM_TT"
+			hidden_effect = {
+				set_global_flag = neutral_aid_program_active
+				set_variable = { global.neutral_aid_program_max_participants = 5 }
+				news_event = cw_aid_program_events.2
+				set_country_flag = economic_aid_asia_allowed
+				set_country_flag = economic_aid_middle_east_allowed
+				if = {
+					limit = {
+						is_historical_focus_on = yes
+					}
+					add_to_array = {
+						array = ROOT.priority_countries
+						value = PHI.id
+					}
+					add_to_array = {
+						array = ROOT.priority_countries
+						value = VIN.id
+					}
+					add_to_array = {
+						array = ROOT.priority_countries
+						value = IND.id
+					}
+					add_to_array = {
+						array = ROOT.priority_countries
+						value = INS.id
+					}
+					add_to_array = {
+						array = ROOT.priority_countries
+						value = MAL.id
+					}					
+				}
+			}		
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

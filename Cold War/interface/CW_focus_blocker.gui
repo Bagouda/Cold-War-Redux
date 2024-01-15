@@ -1,0 +1,18 @@
+guiTypes = {
+	containerWindowType = {
+		name = "cw_focus_button_blocker"
+		position = { x = -2 y = 44 }
+		iconType = {
+			name = "focus_blocker_icon"
+			spriteType ="GFX_cw_focus_blocker_icon"
+			position = { x = 144 y = 159 }
+			Orientation = "CENTER"
+		}		
+		iconType = {
+			name = "focus_blocker_overlay"
+			spriteType ="GFX_cw_focus_blocker_overlay"
+			position = { x = 249 y = 161 }
+			Orientation = "CENTER"
+		}
+	}
+}

@@ -1,0 +1,23 @@
+state = {
+	id=449
+	local_supplies=0.0 
+	name="STATE_449" # El Agheila
+	state_category = enclave
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = ENG
+		add_claim_by = LBA
+		add_claim_by = ITA
+
+		1947.2.10 = {	#Treaty of Paris 1947
+			remove_claim_by = ITA
+		}
+		
+	}
+	manpower = 40431
+	provinces={
+		1041 1198 4047 4057 10046 10117 12088 
+	}
+}

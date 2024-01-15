@@ -1,0 +1,283 @@
+guiTypes = {
+	containerWindowType = {
+		name = "cw_state_monopoly_diplomacy_interface"
+		position = { x = 0 y = 0 }
+		size = { width = 0 height = 250 }
+		orientation = center
+		origo = center
+		moveable = yes
+		fade_time = 200
+		fade_type = linear
+		clipping = no
+
+		containerWindowType = {
+			name = "country_eligable_states_list"
+			position = { x = 30 y = 151 }
+			size = { width = 525 height = 250 }
+			margin = { top = 23 left = 0 bottom = 12 right = 0 }
+			verticalScrollbar = "right_vertical_slider"
+
+			background = {
+				name = "member_list_background"
+				spriteType = "GFX_member_countries_bg"
+				alwaystransparent = yes
+			}
+			
+			buttonType = {
+				name = "no_selection_background"
+				quadTextureSprite = "GFX_decision_item_bg"
+				position = { x = -10 y = 0 }
+				buttonFont = "hoi_20bs"
+				buttonText = "CW_MONOPOLY_INTERFACE_NO_SELECTION"
+			}
+			
+			buttonType = {
+				name = "no_selection_background_selected"
+				quadTextureSprite = "GFX_decision_item_bg"
+				position = { x = -10 y = 0 }
+				buttonFont = "hoi_20bs"
+				buttonText = "CW_MONOPOLY_INTERFACE_NO_SELECTION"
+				frame = 2
+			}
+
+			gridboxtype = {
+				name = "country_eligable_states_gridbox"
+				position = { x = 10 y = 45 }
+				size = { width = 0 height = 1 }
+				slotsize = { width = 0 height = 45 }
+				max_slots_horizontal = 1
+				add_horizontal = no
+			}
+		}
+		
+		iconType = {
+			name = "state_filter_titlebar"
+			spriteType  = "GFX_intel_header_bg"
+			position = { x = 25 y = 133 }
+		}
+		
+		containerWindowType = {
+			name = "state_stat_filters"
+			position = { x = 35 y = 129 }
+			
+			instantTextboxType = {
+				name = "state_name"
+				position = { x = 20 y = 14 }
+				font = "hoi_18mbs"
+				text = "CW_LEASE_INTERFACE_STATE_NAME"
+				maxWidth = 167
+				maxHeight = 10
+				format = left
+				fixedsize = yes
+			}
+			
+			iconType = {
+				name = "state_filter_icon_fossil_uranium"
+				spriteType  = "GFX_resources_strip"
+				position = { x = 190 y = 12 }
+				frame = 7
+			}
+			
+			iconType = {
+				name = "state_filter_icon_fossil_fuel"		#Increased by 35
+				spriteType  = "GFX_resources_strip"
+				position = { x = 220 y = 8 }
+				frame = 1
+			}
+			
+			iconType = {
+				name = "state_filter_icon_steel"
+				spriteType  = "GFX_resources_strip"
+				position = { x = 255 y = 8 }
+				frame = 5
+			}
+			
+			iconType = {
+				name = "state_filter_icon_tungsten"
+				spriteType  = "GFX_resources_strip"
+				position = { x = 290 y = 8 }
+				frame = 4
+			}
+			
+			iconType = {
+				name = "state_filter_icon_aluminium"
+				spriteType  = "GFX_resources_strip"
+				position = { x = 325 y = 8 }
+				frame = 2
+			}
+
+			iconType = {
+				name = "state_filter_icon_chromium"
+				spriteType  = "GFX_resources_strip"
+				position = { x = 360 y = 8 }
+				frame = 6
+			}
+			
+
+			iconType = {
+				name = "monopoly_period_icon"
+				spriteType  = "GFX_building_status_overlay"
+				position = { x = 405 y = 1 }
+				pdx_tooltip = "CW_FILTER_STATE_MONOPOLY_PERIOD_TT"
+			}			
+		}	
+	}
+	############### GRIDBOX INFORMATION IN A LIST ###############
+	containerWindowType = {
+		name = "country_eligable_monopoly_states_entry"		#Draws data from the gridbox above
+		position = { x = -10 y = 0 }
+		size = { width = 0 height = 0 }
+		
+		buttonType = {
+			name = "state_name_background"
+			quadTextureSprite = "GFX_decision_item_bg"
+			position = { x = -10 y = 0 }
+			pdx_tooltip = "CW_STATE_BACKGROUND_MONOPOLY_TT"
+		}
+		
+		buttonType = {
+			name = "state_name_background_selected"
+			quadTextureSprite = "GFX_decision_item_bg"
+			position = { x = -10 y = 0 }
+			frame = 2
+			pdx_tooltip = "CW_STATE_BACKGROUND_MONOPOLY_TT"
+		}
+		
+		iconType = {
+			name = "state_has_potential_glow"
+			quadTextureSprite = "GFX_monopoly_potential_glow"
+			position = { x = 0 y = -1 }
+			scale = 0.8
+		}		
+		
+		instantTextboxType = {
+			name = "state_name"
+			position = { x = 15 y = 10 }
+			font = "hoi_18mbs"
+			text = "[THIS.OWNER.GetFlag] [THIS.GetName]"
+			maxWidth = 175
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+
+		instantTextboxType = {
+			name = "infra_lvl"
+			position = { x = 200 y = 10 }
+			font = "hoi_18mbs"
+			text = "[?THIS.resource@uranium|0]"
+			maxWidth = 30
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		
+		instantTextboxType = {		#Increased by 35
+			name = "state_resource_amount_fossil_fuel"
+			position = { x = 235 y = 10 }
+			font = "hoi_18mbs"
+			text = "[?THIS.resource@oil|0]"
+			maxWidth = 30
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		
+		instantTextboxType = {
+			name = "state_resource_amount_steel"
+			position = { x = 265 y = 10 }
+			font = "hoi_18mbs"
+			text = "[?THIS.resource@steel|0]"
+			maxWidth = 30
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		
+		instantTextboxType = {
+			name = "state_resource_amount_tungsten"
+			position = { x = 305 y = 10 }
+			font = "hoi_18mbs"
+			text = "[?THIS.resource@tungsten|0]"
+			maxWidth = 30
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		
+		instantTextboxType = {
+			name = "state_resource_amount_aluminium"
+			position = { x = 337 y = 10 }
+			font = "hoi_18mbs"
+			text = "[?THIS.resource@aluminium|0]"
+			maxWidth = 30
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		
+		instantTextboxType = {
+			name = "state_resource_amount_chromium"
+			position = { x = 373 y = 10 }
+			font = "hoi_18mbs"
+			text = "[?THIS.resource@chromium|0]"
+			maxWidth = 30
+			maxHeight = 10
+			format = left
+			fixedsize = yes
+		}
+		
+
+		
+		buttonType = {
+			name = "monopoly_period_decrease_button"
+			quadTextureSprite ="GFX_naval_decrease_amount"
+			position = { x = 398 y = 12 }
+			pdx_tooltip = ""
+			scale = 0.6
+		}
+
+		iconType = {
+			name = "requested_monopoly_period_background"
+			quadTextureSprite ="GFX_interface_button_hole"
+			position = { x = 416 y = 3 }
+			scale = 1.5
+		}
+		
+		instantTextboxType = {
+			name = "requested_monopoly_period"
+			position = { x = 423 y = 11 }
+			font = "cg_18b"
+			text = "[?requested_monopoly_period]"
+			maxWidth = 20
+			maxHeight = 10
+			format = CENTER
+			fixedsize = yes
+		}
+		
+		buttonType = {
+			name = "monopoly_period_increase_button"
+			quadTextureSprite ="GFX_naval_increase_amount"
+			position = { x = 448 y = 12 }
+			pdx_tooltip = ""
+			scale = 0.6
+		}
+
+		buttonType = {
+			name = "monopoly_binding_checkbox"
+			quadTextureSprite ="GFX_generic_checkbox"
+			position = { x = 470 y = 10 }
+			pdx_tooltip = CW_MONOPOLY_BINDING_CHECKBOX_TTL
+			scale = 0.7
+			frame = 1
+		}
+		buttonType = {
+			name = "monopoly_binding_checkbox_ticked"
+			quadTextureSprite ="GFX_generic_checkbox"
+			position = { x = 470 y = 10 }
+			pdx_tooltip = CW_MONOPOLY_BINDING_CHECKBOX_CHECKED_TTL
+			scale = 0.7
+			frame = 2
+		}		
+	}
+}

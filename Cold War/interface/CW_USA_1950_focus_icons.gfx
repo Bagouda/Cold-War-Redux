@@ -1,0 +1,247 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_goal_usa_korean_war_support"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/korean_war_support.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_usa_algeria_withdraw"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_algeria_withdrawal.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_usa_egypt_withdraw"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_egypt_withdrawal.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_usa_sau_aramco_agreement"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_usa_sau_aramco_agreement.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_usa_form_nsa"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_usa_nsa.dds"
+	}
+	spriteType = {
+		name = "GFX_goal_mp_aid_middle_east"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_mp_middle_east.dds"
+		animation = {
+			animationmaskfile = "gfx/interface/cw_focuses/USA/1950/focus_mp_middle_east.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 5.00				# in seconds
+			animationdelay = 5			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "scrolling"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+	spriteType = {
+		name = "GFX_goal_mp_aid_asia"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_mp_asia.dds"
+		animation = {
+			animationmaskfile = "gfx/interface/cw_focuses/USA/1950/focus_mp_asia.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = yes			# yes or no ;)
+			animationtime = 5.00				# in seconds
+			animationdelay = 5			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "scrolling"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 1.0 y = 1.0 } 
+		}
+		legacy_lazy_load = no
+	}
+
+	spriteType = {
+		name = "GFX_goal_domestic_policy"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_domestic_policy.dds"
+	}
+
+	spriteType = {
+		name = "GFX_goal_alaska_statehood_referendum"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_alaska_statehood_referendum.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_hawaii_statehood_referendum"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_hawaii_statehood_referendum.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_open_the_mackinac_bridge"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_open_the_mackinac_bridge.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_construct_interstate_highway_system"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_construct_interstate_highway_system.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_usa_defense_production_act"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_usa_defense_production_act.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_civil_reform"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_civil_reform.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_modify_the_pledge_of_allegiance"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_modify_the_pledge_of_allegiance.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_in_god_we_trust"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_in_god_we_trust.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_civil_rights_act"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_civil_rights_act.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_form_nato"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_form_nato.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_invite_western_european_allies"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_invite_western_european_allies.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_invite_turkey_and_greece"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_invite_turkey_and_greece.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_invite_germany"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_invite_germany.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_millitary_reforms"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_millitary_reforms.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_nsc_68"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_nsc_68.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_proxy_war"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_millitary_aid_to_french_indochina.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_military_aid_1"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_provide_mil_aid.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_military_aid_2"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_provide_military_aid.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_usaf_academy"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_usaf_academy.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_armed_forces_racial_integration"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_armed_forces_racial_integration.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_anzus_treaty"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_anzus_treaty.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_sino_american_mutual_defense_treaty"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_sino_american_mutual_defense_treaty.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_united_states_japan_security_treaty"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_united_states_japan_security_treaty.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_extend_economic_aid_to_Asia"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_extend_economic_aid_to_Asia.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_deploy_nukes_against_china"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_deploy_nukes_against_china.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_provide_military_aid"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_provide_military_aid.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_intervene_in_the_middleeast"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_intervene_in_the_middleeast.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_algerian_war_intervention"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_algerian_war_intervention.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_support_antiegypt_coalition"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_support_antiegypt_coalition.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_extend_economic_aid_mde"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_extend_economic_aid_mde.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_provide_mil_aid"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_provide_mil_aid.dds"
+	}
+
+	spriteType = {
+		name = "GFX_goal_arm_NLF"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_arm_NLF.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_intervene_in_suez"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_intervene_in_suez.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_support_eg"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_support_eg.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_iran_oil_crisis"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_iran_oil_crisis.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_goal_oil_aid"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_oil_aid.dds"
+	}
+
+	spriteType = {
+		name = "GFX_goal_op_ajax"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_op_ajax.dds"
+	}
+
+	spriteType = {
+		name = "GFX_goal_secure_oil_concessions"
+		texturefile = "gfx/interface/cw_focuses/USA/1950/focus_secure_oil_concessions.dds"
+	}
+}

@@ -1,0 +1,21 @@
+state = {
+	id=136
+	local_supplies=0.0 
+	name="STATE_136"
+	state_category = devestated_wasteland
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = ENG
+		add_core_of = ENG
+	}
+	resources={
+		tungsten=4 # was: 6
+		aluminium=3 # was: 4
+	}
+	manpower = 745466
+	provinces={
+		200 3150 9161 11055 11136 11207 11306 
+	}
+}

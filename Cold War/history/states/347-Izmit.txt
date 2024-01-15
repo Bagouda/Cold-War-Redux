@@ -1,0 +1,30 @@
+state = {
+	id=347
+	local_supplies=0.0 
+	name="STATE_347"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 11811 }
+ 	add_to_array = { list_victory_point = 904 }
+ 	set_variable = { victory_point = 2 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = TUR
+		add_core_of = TUR
+		victory_points = {
+			904 1 
+		}
+		victory_points = {
+			11811 1 
+		}
+	}
+	resources={
+		chromium=19 # was: 26
+		crops = 5
+	}
+	manpower = 807660
+	provinces={
+		890 904 3905 3919 6871 11811 11866 11883 
+	}
+}

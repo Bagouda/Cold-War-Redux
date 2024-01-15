@@ -1,0 +1,40 @@
+PRC_historical_plan_1950 = {
+	name = "PRC 1950 Focuses"
+	desc = ""
+
+	enable = {
+		tag = PRC
+		is_historical_focus_on = yes
+		has_focus_tree = prc_1950_focus_tree
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		PRC_five_year_plan
+		PRC_sino_soviet_friendship_treaty
+		PRC_establish_foreign_office
+		PRC_korea_policy
+		PRC_korea_military_aid
+	}
+
+	research = {
+	}
+	ideas = {
+	}
+	traits = {
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

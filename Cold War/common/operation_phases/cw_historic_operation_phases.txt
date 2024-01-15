@@ -1,0 +1,39 @@
+###############################################
+###########	ARREST OPPOSITION PHASES ##########
+###############################################
+cw_operation_ajax_recruit_demonstrators = {
+	name = "Recruit Rioters and Agitators"
+	desc = "CW_OPERATION_AJAX_RECRUIT_DEMONSTRATORS_DESC"
+	outcome = CW_OPERATION_AJAX_DEMONSTRATORS_OUTCOME
+	picture = "GFX_operations_rioters"
+	icon = "GFX_phase_sov_monarchy_protest_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+	}
+	return_on_complete = no
+}
+cw_sway_abolqasem_kashani = {
+	name = "Secure Abolqasem Kashani's Support"
+	desc = "CW_SWAY_ABOLQASEM_KASHANI_DESC"
+	outcome = CW_SWAY_ABOLQASEM_KASHANI_OUTCOME
+	picture = "GFX_operations_ajax_abolqasem_kashani"
+	icon = "GFX_phase_puppet_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+	}
+	return_on_complete = no
+}
+cw_arrest_mosaddegh = {
+	name = "Arrest Mohammad Mosaddegh"
+	desc = "CW_ARREST_MOSADDEGH_DESC"
+	outcome = CW_ARREST_MOSADDEGH_OUTCOME
+	picture = "GFX_operations_ajax_arrest_mosaddegh"
+	icon = "GFX_phase_arrest_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+	}
+	return_on_complete = no
+}

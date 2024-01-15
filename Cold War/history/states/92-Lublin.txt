@@ -1,0 +1,29 @@
+
+state={
+	id=92
+	local_supplies=0.0 
+	name="STATE_92"
+
+	history={
+ 	add_to_array = { list_victory_point = 11399 }
+ 	set_variable = { victory_point = 1 }
+		owner = POL
+		add_core_of = POL
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+
+		}
+		victory_points = {
+			11399 1 
+		}
+
+	}
+
+	provinces={
+		402 524 3521 3559 6484 6580 9452 9494 9521 9544 11399 11466 12562 
+	}
+	manpower=2464600
+	buildings_max_level_factor=1.000
+	state_category=devestated_wasteland
+}

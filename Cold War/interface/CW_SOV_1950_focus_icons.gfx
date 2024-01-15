@@ -1,0 +1,10 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_focus_embrace_nasser"
+		texturefile = "gfx/interface/cw_focuses/SOV/1950/SOV_embrace_nasser.dds"
+	}
+	spriteType = {
+		name = "GFX_focus_intervene_suez_crisis"
+		texturefile = "gfx/interface/cw_focuses/SOV/1950/intervene_suez_crisis.dds"
+	}
+}

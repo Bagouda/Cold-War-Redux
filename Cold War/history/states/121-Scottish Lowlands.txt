@@ -1,0 +1,30 @@
+state = {
+	id=121
+	local_supplies=0.0 
+	name="STATE_121" # Lothian
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 9392 }
+ 	add_to_array = { list_victory_point = 6300 }
+ 	set_variable = { victory_point = 11 }
+		owner = ENG
+		add_core_of = ENG
+		
+		buildings = {
+			infrastructure = 1
+			arms_factory = 1
+			industrial_complex = 1					
+			dockyard  = 1		
+			9392 = {	
+				naval_base = 3
+			}		
+		}
+		
+		victory_points = { 6300 1 }
+		victory_points = { 9392 10 }
+	}
+	manpower = 1431624
+	provinces={
+		159 6300 9314 9383 9392 11378 
+	}
+}

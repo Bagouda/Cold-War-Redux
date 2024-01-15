@@ -1,0 +1,31 @@
+state = {
+	id=309
+	local_supplies=0.0 
+	name="STATE_309"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 10906 }
+ 	set_variable = { victory_point = 5 }
+		owner = HOL
+		add_core_of = HOL
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			10906 = {
+				naval_base = 1
+			}			
+		}		
+		victory_points = {
+			10906 5
+		}
+	}
+	resources={
+		aluminium=60 # was: 104
+		crops = 1
+	}	
+	manpower = 152000
+	provinces={
+		1928 10906 12828 
+	}
+}

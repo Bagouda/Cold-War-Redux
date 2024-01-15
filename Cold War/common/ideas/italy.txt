@@ -1,0 +1,22 @@
+ideas = {
+	country = {
+		ten_million_letters = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = inba_target
+
+			
+			modifier = {
+				democratic_drift = 0.5
+			}
+		}
+	}
+}

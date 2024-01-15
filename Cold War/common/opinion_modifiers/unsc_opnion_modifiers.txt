@@ -1,0 +1,26 @@
+opinion_modifiers = {
+	unsc_sanctions_1 = {
+		trade = yes
+		value = -50
+	}
+	unsc_voted_against_us = {
+		value = -25
+		months = 6
+		decay = 1		
+	}	
+	unsc_voted_for_us = {
+		value = 10
+		months = 3
+		decay = 1		
+	}
+	stopped_unsc_support = {
+		value = -15
+		months = 6
+		decay = 1
+	}
+	requested_sanctions_against_us = {
+		value = -75
+		months = 12
+		decay = 1
+	}		
+}

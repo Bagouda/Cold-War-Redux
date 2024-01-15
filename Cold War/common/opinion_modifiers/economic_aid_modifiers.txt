@@ -1,0 +1,27 @@
+opinion_modifiers = {
+	enrolled_us_to_aid = {
+		value = 50
+	}
+	joined_economic_aid_program = {
+		value = 25
+	}	
+	joined_economic_aid_program_trade = {
+		trade = yes
+		value = 25
+	}
+	increased_our_economic_aid = {
+		value = 10
+		months = 6
+		decay = 1
+	}
+	decreased_our_economic_aid = {
+		value = -5
+		months = 8
+		decay = 1
+	}
+	suspended_our_economic_aid = {
+		value = -15
+		months = 12
+		decay = 1
+	}
+}

@@ -1,0 +1,49 @@
+defined_text = {
+	name = CW_EUU_RESOLUTION_GET_DESC
+	########### ACC RESOLUTIONS ###########
+	text = {
+		trigger = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_resolution_adopt_morgentau_plan }
+		}
+		localization_key = "ACC_RESOLUTION_ADOPT_MORGENTAU_PLAN_DESC"
+	}
+	text = {
+		trigger = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_resolution_adopt_schuman_plan }
+		}
+		localization_key = "ACC_RESOLUTION_ADOPT_SCUMAN_PLAN_DESC"
+	}
+	text = {
+		trigger = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_resolution_establish_bavaria }
+		}
+		localization_key = "ACC_RESOLUTION_ESTABLISH_BAVARIA_DESC"
+	}
+	text = {
+		trigger = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = acc_resolution_abolish_prussia }
+		}
+		localization_key = "ACC_RESOLUTION_ABOLISH_PRUSSIA_DESC"
+	}	
+	########### END OF ACC RESOLUTIONS ###########
+	########### GENERIC CULTURAL UNION RESOLUTIONS ###########
+	text = {
+		trigger = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = cu_generic_transfer_territory }
+		}
+		localization_key = "CU_GENERIC_TRANSFER_TERRITORY_DESC"
+	}
+	text = {
+		trigger = {
+			has_event_target = euu_target
+			event_target:euu_target = { has_country_flag = cw_generic_increase_reparations }
+		}
+		localization_key = "ACC_RESOLUTION_INCREASE_REPARATIONS_DESC"
+	}	
+	text = { localization_key = "CW_EUU_RESOLUTION_DESC_ERROR" }
+}

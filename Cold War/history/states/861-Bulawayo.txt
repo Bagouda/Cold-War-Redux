@@ -1,0 +1,28 @@
+state={
+	id=861
+	local_supplies=0.0 
+	name="STATE_861"
+	state_category = pastoral
+	history = {
+ 	add_to_array = { list_victory_point = 10929 }
+ 	set_variable = { victory_point = 1 }
+		owner = ENG
+		add_claim_by = ZIM
+		
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			10929 1 
+		}
+	}
+	resources={
+		crops = 8
+	}	
+	
+	manpower=1185668
+	provinces={
+		1874 2151 4851 
+	}
+	buildings_max_level_factor=1.000
+}

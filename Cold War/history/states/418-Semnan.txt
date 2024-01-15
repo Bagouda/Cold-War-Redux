@@ -1,0 +1,20 @@
+state = {
+	id=418
+	local_supplies=0.0 
+	name="STATE_418"
+	state_category = wasteland
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = PER
+		add_core_of = PER
+	}
+	resources={
+		crops = 5
+	}	
+	manpower = 332362
+	provinces={
+		8009 8093 10873 11671 12704 12748 12818 
+	}
+}

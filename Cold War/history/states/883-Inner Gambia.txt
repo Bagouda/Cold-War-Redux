@@ -1,0 +1,20 @@
+state={
+	id=883
+	local_supplies=0.0 
+	name="STATE_883"
+	state_category=enclave
+	history = {
+		owner = ENG
+		add_claim_by = GAM
+		
+		buildings = {
+			infrastructure = 1		
+		}
+	}
+	buildings_max_level_factor=1.000
+	manpower=99760
+	provinces={
+		13213 
+	}
+	buildings_max_level_factor=1.000
+}

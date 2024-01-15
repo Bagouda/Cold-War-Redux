@@ -1,0 +1,96 @@
+﻿capital = 8
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1945.10.21"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 80
+		democratic_socialist = 10
+		neutrality = 0
+		communism_totalitarian = 10
+		unaligned_right = 0
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Pierre Dupong"
+		desc = ""
+		picture = "LUXG1.dds"
+		ideology = social_cons_idolg
+		expire = 1953.12.23
+		traits = {}
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+}
+1956.10.29 = {	#Suez Crisis
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1954.5.30"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Gaston Thorn"
+		desc = ""
+		picture = "LUXG3.dds"
+		ideology = social_liberal_idolg
+		expire = 1984.4.20
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Joseph Bech"
+		desc = ""
+		picture = "LUXG2.dds"
+		ideology = social_cons_idolg
+		expire = 1958.3.29
+		traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1959.2.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Pierre Werner"
+		desc = ""
+		picture = "LUXG4.dds"
+		ideology = social_cons_idolg
+		expire = 1984.4.20
+		traits = {}
+	}
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1979.6.10"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1984.6.17"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Jacques Santer"
+		desc = ""
+		picture = "LUXG5.dds"
+		ideology = social_cons_idolg
+		expire = 1995.1.26
+		traits = {}
+	}
+}

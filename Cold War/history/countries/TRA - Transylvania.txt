@@ -1,0 +1,25 @@
+﻿capital = 76
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+create_country_leader = {
+	name = "Military Occupation"
+	desc = ""
+	picture = "gfx/leaders/SOV/portrait_SOV_white_transitionary_council.dds"
+	ideology = stalinism_idolg
+	expire = 1954.1.16
+	traits = {}
+}
+set_politics = {
+	ruling_party = communism_totalitarian
+	last_election = "1930.11.9"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+	democratic  = 10
+	democratic_socialist = 10
+	neutrality = 10
+	communism_totalitarian = 30
+	communism = 10
+	unaligned_right = 30
+	colonial =  0
+}

@@ -1,0 +1,27 @@
+state={
+	id=885
+	local_supplies=0.0 
+	name="STATE_885"
+
+	history = {
+		owner = SPR
+		add_claim_by = EQG
+
+		1968.10.12 = {
+			owner = EQG
+			add_core_of = EQG
+			remove_core_of = SPR
+		}
+
+		buildings = {
+			infrastructure = 1			
+		}
+	}
+
+	provinces={
+		8244 
+	}
+	manpower=50000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

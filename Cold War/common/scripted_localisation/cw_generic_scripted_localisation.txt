@@ -1,0 +1,186 @@
+defined_text = {
+	name = CW_TIMER_REMAINING_DISPLAY_UNIT
+	text = {
+		trigger = {
+			check_variable = { duration_calculator_output_display = 1 }
+		}
+		localization_key = CW_DAY
+	}
+	text = {
+		trigger = {
+			check_variable = { duration_calculator_output_display = 2 }
+		}
+		localization_key = CW_DAYS
+	}
+	text = {
+		trigger = {
+			check_variable = { duration_calculator_output_display = 3 }
+		}
+		localization_key = CW_MONTH
+	}
+	text = {
+		trigger = {
+			check_variable = { duration_calculator_output_display = 4 }
+		}
+		localization_key = CW_MONTHS
+	}
+	text = {
+		trigger = {
+			check_variable = { duration_calculator_output_display = 5 }
+		}
+		localization_key = CW_YEAR
+	}
+	text = {
+		trigger = {
+			check_variable = { duration_calculator_output_display = 6 }
+		}
+		localization_key = CW_YEARS
+	}	
+}
+defined_text = {
+	name = CW_HIGHEST_NON_RULING_ORG
+	text = {		#Dem Right
+		trigger = {
+			check_variable = { highest_party_ideology@exclude_ruling_party = 20053 }
+		}
+		localization_key = party_1_text
+	}	
+	text = {		#Dem Left
+		trigger = {
+			check_variable = { highest_party_ideology@exclude_ruling_party = 20061 }
+		}
+		localization_key = party_2_text
+	}
+	text = {
+		trigger = {		#Neutrality Right
+			check_variable = { highest_party_ideology@exclude_ruling_party = 20070 }
+		}
+		localization_key = party_3_text
+	}
+	text = {
+		trigger = {		#Neutrality Left
+			check_variable = { highest_party_ideology@exclude_ruling_party = 20087 }
+		}
+		localization_key = party_4_text
+	}		
+	text = {
+		trigger = {		#Com Ref
+			check_variable = { highest_party_ideology@exclude_ruling_party = 20099 }
+		}
+		localization_key = party_5_text
+	}		
+	text = {
+		trigger = {		#Com Total
+			check_variable = { highest_party_ideology@exclude_ruling_party = 20104 }
+		}
+		localization_key = party_6_text
+	}
+	text = {
+		trigger = {
+			check_variable = { highest_party_ideology@exclude_ruling_party = 357 }
+		}
+		localization_key = "No Active Opposition"
+	}
+}
+defined_text = {
+	name = CW_MILITARY_AID_COST
+	text = {
+		trigger = {
+		}
+		localization_key = "[?FROM.military_aid_cost_to_giver@ROOT]"
+	}
+}
+defined_text = {
+	name = CW_COLOR_IN_YELLOW_LOC
+	text = {
+		trigger = {
+		}
+		localization_key = CW_COLOR_IN_YELLOW_START
+	}
+}
+defined_text = {
+	name = CW_COLOR_IN_LOC
+	text = {
+		trigger = {
+		}
+		localization_key = CW_COLOR_IN_END
+	}
+}
+defined_text = {
+	name = CW_INSERT_NEW_LINE_LOC
+	text = {
+		trigger = {
+		}
+		localization_key = CW_INSERT_NEW_LINE
+	}
+}
+defined_text = {
+	name = CW_INSERT_NEW_SPACE_LOC
+	text = {
+		trigger = {}
+		localization_key = CW_INSERT_NEW_SPACE
+	}
+}
+defined_text = {
+	name = CW_CHECK_COUNTER_EMBARGO
+	text = {
+		trigger = {
+			ROOT = {
+				is_in_array = {
+					array = FROM.embargoed_countries
+					value = ROOT.id
+				}			
+			}
+		}
+		localization_key = CW_WE_ARE_EMBARGO_THEM
+	}
+}
+defined_text = {
+	name = CW_FOCUS_EXPIRE
+	text = {
+		trigger = {
+			date < 1960.1.1			
+		}
+		localization_key = "1.1.1950"
+	}
+	text = {
+		trigger = {
+			date > 1960.1.1
+			date < 1970.1.1				
+			has_country_flag = loaded_1950_focuses
+		}
+		localization_key = "1.1.1960"
+	}	
+	text = { localization_key = "-" }
+}
+defined_text = {
+	name = AUS_DETERMINE_NEIGHBOUR
+	text = {
+		trigger = {
+			is_neighbor_of = GER	
+		}
+		localization_key = "Germany"
+	}
+	text = {
+		trigger = {
+			is_neighbor_of = BAV
+		}
+		localization_key = "Bavaria"
+	}
+	text = { localization_key = "Germany" }
+}
+defined_text = {
+	name = TWIN_COUNTRY_WAR_CHECK
+	text = {
+		trigger = {
+			has_variable = twin_country
+			has_war_with = var:twin_country
+			var:twin_country = {
+				is_puppet_of = ROOT
+				has_war_together_with = ROOT
+				check_variable = { twin_country = PREV.id }
+			}
+		}
+		localization_key = CW_UNCONDITIONAL_TRUCE_TWIN_COUNTRY_EFFECT_FROM_TT
+	}
+}

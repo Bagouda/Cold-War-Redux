@@ -1,0 +1,489 @@
+usa_berlin = {
+
+	berlin_form_division = {
+		available = {BRL = {   NOT = {  OR = { has_government = communism_totalitarian } has_army_size = { size > 9  } } } tag = USA }
+		visible = {BRL = {  has_army_size = { size < 10  } } tag = USA }
+		custom_cost_trigger = { has_army_experience > 10 command_power > 20 }
+		
+		complete_effect = {
+			801 = {
+				create_unit = {
+					division = "division_template = \"Infantry Brigade\" start_experience_factor = 0.5" 
+					owner = BRL
+				}
+			}
+		}
+	
+	}
+	
+	increase_radar_tech_1 = {
+		fire_only_once = yes
+		visible = { NOT = { BRL = { OR = { has_government = communism_totalitarian has_tech = radio_detection } } } tag = USA  has_completed_focus = USA_radio_free_europe}
+		custom_cost_trigger = { }
+		
+
+		
+		complete_effect = {
+				BRL = { set_technology = {radio_detection = 1 } }
+			}
+			
+		
+	}
+	increase_radar_tech_2 = {
+		fire_only_once = yes
+		visible = { NOT = { BRL = { OR = {  has_government = communism_totalitarian has_tech = decimetric_radar } }  } BRL = {  has_tech = radio_detection } tag = USA  has_completed_focus = USA_radio_free_europe }
+		custom_cost_trigger = { }
+		
+
+		
+		complete_effect = {
+				BRL = { set_technology = { decimetric_radar = 1 } }
+			}
+			
+		
+	}
+	increase_radar_tech_3 = {
+		fire_only_once = yes
+		visible = { NOT = { BRL = { OR = { has_government = communism_totalitarian has_tech = improved_decimetric_radar } } } BRL = {  has_tech = decimetric_radar  } tag = USA has_completed_focus = USA_radio_free_europe }
+		custom_cost_trigger = { }
+		
+
+		
+		complete_effect = {
+				BRL = { set_technology = {  improved_decimetric_radar = 1 } }
+			}
+			
+		
+	}
+	increase_radar_tech_4 = {
+		fire_only_once = yes
+		visible = { NOT = { BRL = { OR = { has_government = communism_totalitarian has_tech = centimetric_radar } } } BRL = { has_tech = improved_decimetric_radar } tag = USA has_completed_focus = USA_radio_free_europe }
+		custom_cost_trigger = { }
+		
+
+		
+		complete_effect = {
+				BRL = { set_technology = { centimetric_radar  = 1 } }
+			}
+			
+		
+	}
+	increase_radar_tech_5 = {
+		fire_only_once = yes
+		visible = { NOT = { BRL = { OR = { has_government = communism_totalitarian has_tech = improved_centimetric_radar } } } BRL = { has_tech = centimetric_radar } tag = USA has_completed_focus = USA_radio_free_europe }
+		custom_cost_trigger = { }
+		
+
+		
+		complete_effect = {
+				BRL = { set_technology = { improved_centimetric_radar = 1 } }
+			}
+			
+		
+	}
+	increase_radar_tech_6 = {
+		fire_only_once = yes
+		visible = { NOT = { BRL = { OR = { has_government = communism_totalitarian has_tech = advanced_centimetric_radar } } } BRL = { has_tech = improved_centimetric_radar } tag = USA has_completed_focus = USA_radio_free_europe }
+		custom_cost_trigger = { }
+		
+
+		
+		complete_effect = {
+				BRL = { set_technology = { advanced_centimetric_radar =1 } }
+			}	
+	}
+
+}
+
+ger_reconstruction = {
+	GER_finish_reconstruction = {
+	
+		cost = 100
+		visible = { tag = USA  }
+		available = { GER = { num_of_civilian_factories > 35 } }
+		
+		
+		days_remove = 20
+		complete_effect = {
+			USA = {
+				add_to_variable = { cw_score = 100 }
+			}
+			
+			GER = { set_country_flag =  win_reconstruction}
+			set_temp_variable = { ger_civ = GER.num_of_civilian_factories }
+			set_temp_variable = { ddr_civ = DDR.num_of_civilian_factories}
+			random_list = {
+				ger_civ = {
+					DDR = {
+						compute_proxy_score = yes
+						start_civil_war = {
+							compute_proxy_score = yes
+							ideology = democratic
+							size = 0.3
+						
+						}
+						compute_proxy_score = yes
+						
+					}
+				}
+				
+				ddr_civ = {
+				
+				}
+				
+				ddr_civ = {
+				
+				}
+			
+			}
+		}	
+	}
+
+	GER_rebuild_state = {
+		state_target = yes
+		target_array =  GER.owned_states
+		days_remove = 30
+		visible = { tag = USA }
+		target_trigger = {
+			
+			FROM = { has_state_category = devestated_wasteland }
+		}
+		
+		available = {
+			ROOT = { num_of_civilian_factories_available_for_projects > 4 }
+		}
+		
+		modifier = {
+			civilian_factory_use = 3
+		} 
+		
+		complete_effect = {
+			FROM = {
+				 set_state_category = city
+			}
+			
+			
+		}
+	
+	}
+	
+	DDR_finish_reconstruction = {
+		days_remove = 20
+	
+		visible = { tag = SOV }
+		available = { DDR = { num_of_civilian_factories > 35 } }
+		cost = 100
+
+		
+		
+		complete_effect = {
+			SOV = {
+				add_to_variable = { cw_score = 100 }
+			}
+			
+			DDR = { set_country_flag =  win_reconstruction }
+			
+			set_temp_variable = { ger_civ = GER.num_of_civilian_factories }
+			set_temp_variable = { ddr_civ = DDR.num_of_civilian_factories}
+			random_list = {
+				ddr_civ = {
+					GER = {
+						compute_proxy_score = yes
+						start_civil_war = {
+							compute_proxy_score = yes
+							ideology = communism_totalitarian
+							size = 0.3
+						
+						}
+						compute_proxy_score = yes
+						
+					}
+				}
+				
+				ger_civ = {
+				
+				}
+				
+				ger_civ = {
+				
+				}
+			
+			}
+			
+			
+		}	
+	}
+
+	DDR_rebuild_state = {
+		state_target = yes
+		target_array =  DDR.owned_states
+		days_remove = 30
+		
+		available = {
+			ROOT = { num_of_civilian_factories_available_for_projects > 4 }
+		}
+		
+		modifier = {
+			civilian_factory_use = 3
+		} 
+		
+		
+		visible = { tag = SOV }
+		target_trigger = {
+			
+			FROM = { has_state_category = devestated_wasteland }
+		}
+		
+		
+		complete_effect = {
+			FROM = {
+				 set_state_category = city
+			}
+		}
+	
+	}
+
+}
+
+
+cw_berlin_category = {
+	
+	
+	
+	cw_berlin_blockade_timer = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = { always = no }
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ""
+				always = no
+			}
+		}
+		cancel_trigger = {
+			SOV = { has_war_with = USA }
+		}
+		activation = { always = no }
+		days_mission_timeout = 323
+		is_good = no
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 801
+			}
+		}
+		
+		timeout_effect = {
+			clr_global_flag = berlin_blockaded
+			if = {
+				limit = {
+					BRL = { communism_totalitarian > 0.5 }
+				}
+				DDR = { annex_country = { target = BRL transfer_troops = yes } }
+				DDR = { set_capital = { state = 801 } }
+			}
+			if = {
+				limit = {
+					BRL = { democratic_socialist > 0.5 }
+				}
+				GER = { annex_country = { target = BRL transfer_troops = yes } }
+			}
+		}
+	}
+	bb_west_initiate_berlin_airlift = {
+		icon = GFX_transport_plane_icon
+		available = { NOT = { has_country_flag = chose_airlift } }
+		
+		visible = { tag = USA has_country_flag = berlin_blockade_intervention NOT = { has_country_flag = chose_airlift } }
+		
+		cost = 50
+		fire_only_once = yes
+
+		complete_effect = {
+			set_country_flag = chose_airlift
+			air_experience = 50
+			add_named_threat = { threat = 5 name = berlin_airlift_tension_tt }
+			hidden_effect = { news_event = cw_historic_events.9 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 50
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = 50
+				is_historical_focus_on = no
+			}
+		}
+	}
+	bb_west_end_siege_force = {
+		icon = GFX_decision_infiltrate_state
+		available = {
+			divisions_in_border_state = {
+				size > 5
+				state = 801
+				border_state = 64
+			}
+		}
+		
+		visible = { tag = USA  has_country_flag = berlin_blockade_intervention  }
+		
+		cost = 0
+		custom_cost_trigger = { has_army_experience > 50 command_power > 50 }
+		custom_cost_text = "berlin_siege_force_req"
+
+		complete_effect = {
+			add_command_power = -50
+			army_experience = -50
+			add_named_threat = { threat = 30 name = berlin_airlift_tension_force_tt }
+			hidden_effect = { annex_country = { target = BRL transfer_troops = yes }
+				start_border_war = {
+					change_state_after_war = yes
+					attacker = {
+						state = 801
+	#					on_win = japan_border_conflict.2
+	#					on_lose = japan_border_conflict.3
+	#					on_cancel = japan_border_conflict.4
+					}
+					
+					defender = {
+						state = 915
+	#					on_win = japan_border_conflict.3
+	#					on_lose = japan_border_conflict.2
+	#					on_cancel = japan_border_conflict.4
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 50
+				is_historical_focus_on = no
+			}
+		}		
+	}
+	bb_west_authorize_supply_drop = {
+		icon = GFX_decision_eng_trade_unions_demand
+		available = {}
+		
+		visible = { tag = USA  has_country_flag = chose_airlift has_country_flag = berlin_blockade_intervention }
+
+		cost = 0
+		custom_cost_trigger = { has_air_experience  > 5 }
+		custom_cost_text = "berlin_siege_airlift_int_req"
+		
+		targets = { BRL }
+		fixed_random_seed = no
+		days_remove = 30
+		
+		modifier = {
+			political_power_gain = -0.2
+			consumer_goods_factor = 0.01
+			experience_gain_air = -0.01
+		}
+		complete_effect = {
+			air_experience = -5
+			FROM = { add_timed_idea = { idea = supplied_by_airlift days = 30 } }
+			random_list = {
+				50 = {
+				}			
+				30 = {
+					add_equipment_to_stockpile = {
+						type = transport_plane_equipment
+						amount = -1
+						producer = USA
+					}
+				}
+				10 = {
+					air_experience = 5
+				}
+				10 = {
+					add_popularity = { ideology = democratic_socialist popularity = 0.03 }
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 10
+				FROM = { communism_totalitarian > 0.5 }
+			}
+			modifier = {
+				factor = -10
+				FROM = { communism_totalitarian < 0.5 }
+			}			
+		}			
+	}
+	bb_sov_shoot_down_supply = {
+		icon = GFX_decision_generic_prepare_civil_war
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "A Supply convoy is headed towards West Berlin."
+				BRL = {
+					has_idea = supplied_by_airlift 
+				}
+			}
+		}
+		
+		visible = { tag = SOV  has_global_flag = berlin_blockaded }
+
+		cost = 0
+		custom_cost_trigger = { command_power  > 10 }
+		custom_cost_text = "berlin_siege_airlift_int_req"
+		
+		targets = { USA }
+		fixed_random_seed = no
+		days_remove = 20
+		
+		modifier = {
+			political_power_gain = -0.2
+			consumer_goods_factor = 0.01
+			experience_gain_air = -0.01
+		}
+		complete_effect = {
+			air_experience = -5
+			random_list = {
+				50 = {}
+				15 = {
+					add_named_threat = { threat = 5 name = PLANE_DOWN_BB }
+					USA = { country_event = us_events.7 }
+					USA = { add_equipment_to_stockpile = {
+						type = transport_plane_equipment
+						amount = -5
+						producer = USA
+					} }
+				}
+				10 = {
+					start_border_war = {
+						change_state_after_war = no
+						attacker = {
+							state = 64
+		#					on_win = japan_border_conflict.2
+		#					on_lose = japan_border_conflict.3
+		#					on_cancel = japan_border_conflict.4
+						}
+						
+						defender = {
+							state = 801
+		#					on_win = japan_border_conflict.3
+		#					on_lose = japan_border_conflict.2
+		#					on_cancel = japan_border_conflict.4
+						}
+					}
+					
+				}
+				25 = {
+					BRL = { add_popularity = { ideology = communism_totalitarian popularity = 0.03 } }
+				}
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				is_historical_focus_on = no
+			}
+		}			
+	}	
+}

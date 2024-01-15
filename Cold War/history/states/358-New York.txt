@@ -1,0 +1,40 @@
+state = {
+	id=358
+	local_supplies=0.0 
+	name="STATE_358"
+	state_category = megalopolis
+	history = {
+ 	add_to_array = { list_victory_point = 3878 }
+ 	add_to_array = { list_victory_point = 11654 }
+ 	set_variable = { victory_point = 33 }
+		owner = USA
+		add_core_of = USA
+		
+		buildings = {
+			infrastructure = 4		
+			industrial_complex = 3
+			air_base = 3
+			arms_factory = 5
+			dockyard  = 5
+			3878 = {		#New York Navy Yard
+				naval_base = 4
+			}			
+		}
+		
+		victory_points = {
+			11654 3 
+		}
+		victory_points = {
+			3878 30
+		}
+	}
+	resources={
+		steel=13 # was: 24.000
+		crops = 20
+	}
+	buildings_max_level_factor=1.000
+	manpower=12588061
+	provinces={
+		598 706 734 859 1436 3602 3702 3733 3747 3806 3878 3894 6707 6717 6778 6795 6911 6916 9664 9673 9693 9708 9721 9754 9774 10381 11650 11654 11660 11662 11665 11680 11722 13157 
+	}
+}

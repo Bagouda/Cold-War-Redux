@@ -1,0 +1,51 @@
+
+state={
+	id=543
+	local_supplies=0.0 
+	name="STATE_543"
+	resources={
+		crops=5.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 13232 }
+ 	set_variable = { victory_point = 13 }
+		owner = FRA
+		add_core_of = FRA
+		add_claim_by = MAD
+
+		start_resistance = yes
+		if = {
+			limit = {
+				is_claimed_by = MAD
+			}
+			remove_claim_by = MAD
+		}
+		add_core_of = MAD
+		force_enable_resistance = {
+			occupier = FRA
+			occupied = MAD
+		}
+		start_resistance = MAD
+		add_state_modifier = {
+			modifier = {
+				resistance_growth = 0.01
+			}
+		}
+
+		buildings = {
+			infrastructure = 1
+			air_base = 1
+		}
+		victory_points = {
+			13232 13
+		}
+	}
+
+	provinces={
+		13230 13231 13232 13233 
+	}
+	manpower=1342725
+	buildings_max_level_factor=1.000
+	state_category = city
+}

@@ -1,0 +1,17 @@
+state = {
+	id=457
+	local_supplies=0.0 
+	name="STATE_457" # Arabian Desert
+	state_category = wasteland
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = EGY
+		add_core_of = EGY
+	}
+	manpower = 2194
+	provinces={
+		1080 4068 4910 5069 7156 9957 10126 12002 12889 
+	}
+}

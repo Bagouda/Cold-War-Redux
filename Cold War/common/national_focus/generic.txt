@@ -1,0 +1,11 @@
+focus_tree = {
+	id = generic_focus
+	
+	country = {
+		factor = 1
+	}
+	
+	default = yes
+	continuous_focus_position = { x = 20 y = 2000 }
+	reset_on_civilwar = no
+}

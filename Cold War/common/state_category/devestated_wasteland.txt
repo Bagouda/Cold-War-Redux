@@ -1,0 +1,8 @@
+state_categories={
+	devestated_wasteland = {
+		local_building_slots = 0
+	
+		color = { 40 43 40 }
+
+	}
+}

@@ -1,0 +1,1176 @@
+@REF_INF_MIN = 1
+@REF_INF_MAX = 2
+@REF_INF_SELF_MIN = 1
+@REF_INF_SELF_MAX = 5
+@REF_INF_COOLDOWN_TIMER = 5
+@REF_INF_COST_SELF = -30
+@REF_INF_COST = -50
+@STATE_REF_INF_COST_SELF = -10
+@STATE_REF_INF_COST = -15
+@STATE_REF_COOLDOWN_TIMER = 5
+scripted_gui = {
+	cw_monarchy_referendum_diplomacy_ui = {
+		window_name = "cw_mon_referendum_diplomacy_view"
+		context_type = selected_country_context
+		parent_window_token = selected_country_view
+
+		visible = {
+				NOT = { ROOT = { has_country_flag = mon_ref_initiator } }
+				ROOT = {
+					is_in_array = {
+						array = PREV.mon_ref_1_array
+						value = ROOT.id
+					}
+				}
+				has_country_flag = mon_ref_initiator
+		}
+
+		triggers = {
+			#First Option
+			absolute_option_icon_click_enabled = {
+				check_variable = { var = country_ref_first_option_votes_percent value = 100 compare = not_equals }
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				NOT = {
+					has_country_flag = mon_ref_restrict_absolute_vote
+					ROOT = {
+						OR = {
+							has_country_flag = mon_ref_restrict_absolute_vote
+							has_country_flag = mon_ref_support_const_mon
+							has_country_flag = mon_ref_support_republic
+							has_government = communism
+							has_government = communism_totalitarian
+						}
+					}
+				}
+			}
+			constitutional_option_icon_click_enabled = {
+				check_variable = { var = country_ref_second_option_votes_percent value = 100 compare = not_equals }
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				NOT = {
+					has_country_flag = mon_ref_restrict_constitutional_vote
+					ROOT = {
+						OR = {
+							has_country_flag = mon_ref_restrict_constitutional_vote
+							has_country_flag = mon_ref_support_total_mon
+							has_country_flag = mon_ref_support_republic
+							has_government = communism
+							has_government = communism_totalitarian
+						}
+					}
+				}
+			}
+			republic_option_icon_click_enabled = {
+				check_variable = { var = country_ref_second_option_votes_percent value = 100 compare = not_equals }
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				NOT = {
+					has_country_flag = mon_ref_restrict_reblic_vote
+					ROOT = {
+						OR = {
+							has_country_flag = mon_ref_restrict_republic_vote
+							has_country_flag = mon_ref_support_total_mon
+							has_country_flag = mon_ref_support_const_mon
+						}
+					}
+				}
+			}
+			option_blocker_absolute_visible = {
+				has_country_flag = mon_ref_restrict_absolute_vote
+			}
+			option_blocker_constitutional_visible = {
+				has_country_flag = mon_ref_restrict_constitutional_vote
+			}
+			option_blocker_republic_visible = {
+				has_country_flag = mon_ref_restrict_reblic_vote
+			}
+		}
+		effects = {
+			absolute_option_icon_click = {
+				if = {
+					limit = {
+						NOT = { ROOT = { has_country_flag = mon_ref_support_total_mon } }
+					}
+					ROOT = { set_country_flag = mon_ref_support_total_mon }
+				}
+				ROOT = { add_political_power = @REF_INF_COST_SELF }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_first_option = yes
+				####################################
+				#### GRAPHIC BAR FRAME UPDATE	####
+				####################################
+				cw_country_ref_update_bars = yes
+			}
+			constitutional_option_icon_click = {
+				if = {
+					limit = {
+						NOT = { ROOT = { has_country_flag = mon_ref_support_const_mon } }
+					}
+					ROOT = { set_country_flag = mon_ref_support_const_mon }
+				}
+				ROOT = { add_political_power = @REF_INF_COST_SELF }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_second_option = yes
+				####################################
+				#### GRAPHIC BAR FRAME UPDATE	####
+				####################################
+				cw_country_ref_update_bars = yes
+			}
+			republic_option_icon_click = {
+				if = {
+					limit = {
+						NOT = { ROOT = { has_country_flag = mon_ref_support_republic } }
+					}
+					ROOT = { set_country_flag = mon_ref_support_republic }
+				}
+				ROOT = { add_political_power = @REF_INF_COST_SELF }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_third_option = yes
+				####################################
+				#### GRAPHIC BAR FRAME UPDATE	####
+				####################################
+				cw_country_ref_update_bars = yes
+			}
+		}
+	}
+	cw_monarchy_referendum_decisions_ui = {
+		context_type = decision_category
+		window_name = "cw_mon_referendum_decision_view"
+
+		properties = {
+			first_option = {
+				frame = country_ref_first_option_bar_frame
+			}
+			second_option = {
+				frame = country_ref_second_option_bar_frame
+			}
+			third_option = {
+				frame = country_ref_third_option_bar_frame
+			}
+		}
+		triggers = {
+			#First Option
+			absolute_option_icon_click_enabled = {
+				check_variable = { var = country_ref_first_option_votes_percent value = 100 compare = not_equals }
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				NOT = {
+					has_country_flag = mon_ref_restrict_absolute_vote
+					ROOT = {
+						OR = {
+							has_country_flag = mon_ref_restrict_absolute_vote
+							has_country_flag = mon_ref_support_const_mon
+							has_country_flag = mon_ref_support_republic
+							has_government = communism
+							has_government = communism_totalitarian
+						}
+					}
+				}
+			}
+			constitutional_option_icon_click_enabled = {
+				check_variable = { var = country_ref_second_option_votes_percent value = 100 compare = not_equals }
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				NOT = {
+					has_country_flag = mon_ref_restrict_constitutional_vote
+					ROOT = {
+						OR = {
+							has_country_flag = mon_ref_restrict_constitutional_vote
+							has_country_flag = mon_ref_support_total_mon
+							has_country_flag = mon_ref_support_republic
+							has_government = communism
+							has_government = communism_totalitarian
+						}
+					}
+				}
+			}
+			republic_option_icon_click_enabled = {
+				check_variable = { var = country_ref_second_option_votes_percent value = 100 compare = not_equals }
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				NOT = {
+					has_country_flag = mon_ref_restrict_reblic_vote
+					ROOT = {
+						OR = {
+							has_country_flag = mon_ref_restrict_republic_vote
+							has_country_flag = mon_ref_support_total_mon
+							has_country_flag = mon_ref_support_const_mon
+						}
+					}
+				}
+			}
+			option_blocker_absolute_visible = {
+				has_country_flag = mon_ref_restrict_absolute_vote
+			}
+			option_blocker_constitutional_visible = {
+				has_country_flag = mon_ref_restrict_constitutional_vote
+			}
+			option_blocker_republic_visible = {
+				has_country_flag = mon_ref_restrict_reblic_vote
+			}
+		}
+		effects = {
+			absolute_option_icon_click = {
+				if = {
+					limit = {
+						NOT = { ROOT = { has_country_flag = mon_ref_support_total_mon } }
+					}
+					ROOT = { set_country_flag = mon_ref_support_total_mon }
+				}
+				ROOT = { add_political_power = @REF_INF_COST_SELF }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_first_option = yes
+				####################################
+				#### GRAPHIC BAR FRAME UPDATE	####
+				####################################
+				cw_country_ref_update_bars = yes
+			}
+			constitutional_option_icon_click = {
+				if = {
+					limit = {
+						NOT = { ROOT = { has_country_flag = mon_ref_support_const_mon } }
+					}
+					ROOT = { set_country_flag = mon_ref_support_const_mon }
+				}
+				ROOT = { add_political_power = @REF_INF_COST_SELF }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_second_option = yes
+				####################################
+				#### GRAPHIC BAR FRAME UPDATE	####
+				####################################
+				cw_country_ref_update_bars = yes
+			}
+			republic_option_icon_click = {
+				if = {
+					limit = {
+						NOT = { ROOT = { has_country_flag = mon_ref_support_republic } }
+					}
+					ROOT = { set_country_flag = mon_ref_support_republic }
+				}
+				ROOT = { add_political_power = @REF_INF_COST_SELF }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_third_option = yes
+				####################################
+				#### GRAPHIC BAR FRAME UPDATE	####
+				####################################
+				cw_country_ref_update_bars = yes
+			}
+		}
+	}
+	cw_country_sovereignty_referendum_diplomacy_ui = {
+		window_name = "cw_cs_referendum_diplomacy_view"
+		context_type = selected_country_context
+		parent_window_token = selected_country_view
+
+		visible = {
+			OR = {
+				AND = {
+					ROOT = { NOT = { has_country_flag = cs_ref_initiator } }
+					ROOT = {
+						is_in_array = {
+							array = PREV.cs_ref_1_array
+							value = ROOT.id
+						}
+					}
+					has_country_flag = cs_ref_initiator
+				}
+				AND = {
+					NOT = { ROOT = { has_country_flag = country_yes_no_ref_initiator } }
+					ROOT = {
+						is_in_array = {
+							array = PREV.country_yes_no_ref_1_array
+							value = ROOT.id
+						}
+					}
+					has_country_flag = country_yes_no_ref_initiator
+				}
+			}
+		}
+
+		properties = {
+			first_option_flag = {
+				image = "[?THIS.ref_cs_first_option.GetFlag]"
+			}
+			second_option_flag = {
+				image = "[?THIS.ref_cs_second_option.GetFlag]"
+			}
+			third_option_flag = {
+				image = "[CS_REF_THIRD_OPTION_FLAG_DIP]"
+			}
+			fourth_option_flag = {
+				image = "[CS_REF_FOURTH_OPTION_FLAG_DIP]"
+			}
+		}
+
+		triggers = {
+			yes_no_referendum_yes_option_visible = {
+				has_country_flag = country_yes_no_referendum
+			}
+			yes_no_referendum_yes_option_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = country_ref_first_option_votes_percent value = 100 compare = not_equals }
+			}
+			yes_no_referendum_no_option_visible = {
+				has_country_flag = country_yes_no_referendum
+			}
+			yes_no_referendum_no_option_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = country_ref_first_option_votes_percent value = 100 compare = not_equals }
+			}
+			first_option_flag_visible = {
+				NOT = { has_country_flag = country_yes_no_referendum }
+			}
+			second_option_flag_visible = {
+				NOT = { has_country_flag = country_yes_no_referendum }
+			}
+			first_option_flag_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = country_ref_first_option_votes_percent value = 100 compare = not_equals }
+			}
+			second_option_flag_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = country_ref_second_option_votes_percent value = 100 compare = not_equals }
+			}
+			third_option_flag_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = country_ref_third_option_votes_percent value = 100 compare = not_equals }
+			}
+			fourth_option_flag_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = country_ref_first_option_votes_percent value = 100 compare = not_equals }
+			}
+			#Third Option
+			third_option_visible = {
+				has_country_flag = third_option_occupied
+			}
+			third_option_status_visible = {
+				has_country_flag = third_option_occupied
+			}
+			third_option_flag_visible = {
+				has_country_flag = third_option_occupied
+			}
+			#Fourth Option
+			fourth_option_visible = {
+				has_country_flag = fourth_option_occupied
+			}
+			fourth_option_status_visible = {
+				has_country_flag = fourth_option_occupied
+			}
+			fourth_option_flag_visible = {
+				has_country_flag = fourth_option_occupied
+			}
+		}
+		effects = {
+			yes_no_referendum_yes_option_click = {
+				ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_first_option = yes
+				####################################
+				#### GRAPHIC BAR FRAME UPDATE	####
+				####################################
+				cw_country_ref_update_bars = yes
+			}
+			first_option_flag_click = {
+			  ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_first_option = yes
+			  ####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_country_ref_update_bars = yes
+			}
+			yes_no_referendum_no_option_click = {
+		    ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_second_option = yes
+			  ####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_country_ref_update_bars = yes
+		  }
+			second_option_flag_click = {
+		    ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_second_option = yes
+			  ####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_country_ref_update_bars = yes
+		  }
+			third_option_flag_click = {
+			  ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_third_option = yes
+			  ####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_country_ref_update_bars = yes
+			}
+			fourth_option_flag_click = {
+			  ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_fourth_option = yes
+			  ####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_country_ref_update_bars = yes
+			}
+		}
+	}
+	cw_country_sovereignty_referendum_decisions_ui = {
+		context_type = decision_category
+		window_name = "cw_referendums_cs_decision_ui_window"
+
+		properties = {
+			first_option = {
+				frame = country_ref_first_option_bar_frame
+			}
+			first_option_flag = {
+				image = "[CS_REF_FIRST_OPTION_FLAG_DIC]"
+			}
+			second_option = {
+				frame = country_ref_second_option_bar_frame
+			}
+			second_option_flag = {
+				image = "[CS_REF_SECOND_OPTION_FLAG_DIC]"
+			}
+			third_option = {
+				frame = country_ref_third_option_bar_frame
+			}
+			third_option_flag = {
+				image = "[CS_REF_THIRD_OPTION_FLAG_DIC]"
+			}
+			fourth_option = {
+				frame = country_ref_fourth_option_bar_frame
+			}
+			fourth_option_flag = {
+				image = "[CS_REF_FOURTH_OPTION_FLAG_DIC]"
+			}
+		}
+		triggers = {
+			yes_no_referendum_yes_option_visible = {
+				has_country_flag = country_yes_no_referendum
+			}
+			yes_no_referendum_yes_option_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = country_ref_first_option_votes_percent value = 100 compare = not_equals }
+			}
+			yes_no_referendum_no_option_visible = {
+				has_country_flag = country_yes_no_referendum
+			}
+			yes_no_referendum_no_option_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = country_ref_first_option_votes_percent value = 100 compare = not_equals }
+			}
+			first_option_flag_visible = {
+				NOT = { has_country_flag = country_yes_no_referendum }
+			}
+			second_option_flag_visible = {
+				NOT = { has_country_flag = country_yes_no_referendum }
+			}
+			first_option_flag_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = country_ref_first_option_votes_percent value = 100 compare = not_equals }
+			}
+			second_option_flag_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = country_ref_second_option_votes_percent value = 100 compare = not_equals }
+			}
+			third_option_flag_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = country_ref_third_option_votes_percent value = 100 compare = not_equals }
+			}
+			fourth_option_flag_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = country_ref_first_option_votes_percent value = 100 compare = not_equals }
+			}
+			#Third Option
+			third_option_visible = {
+				has_country_flag = third_option_occupied
+			}
+			third_option_status_visible = {
+				has_country_flag = third_option_occupied
+			}
+			third_option_flag_visible = {
+				has_country_flag = third_option_occupied
+			}
+			#Fourth Option
+			fourth_option_visible = {
+				has_country_flag = fourth_option_occupied
+			}
+			fourth_option_status_visible = {
+				has_country_flag = fourth_option_occupied
+			}
+			fourth_option_flag_visible = {
+				has_country_flag = fourth_option_occupied
+			}
+		}
+		effects = {
+			yes_no_referendum_yes_option_click = {
+				ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_first_option = yes
+				####################################
+				#### GRAPHIC BAR FRAME UPDATE	####
+				####################################
+				cw_country_ref_update_bars = yes
+			}
+			first_option_flag_click = {
+			  ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_first_option = yes
+			  ####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_country_ref_update_bars = yes
+			}
+			yes_no_referendum_no_option_click = {
+		    ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_second_option = yes
+			  ####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_country_ref_update_bars = yes
+		  }
+			second_option_flag_click = {
+		    ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_second_option = yes
+			  ####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_country_ref_update_bars = yes
+		  }
+			third_option_flag_click = {
+			  ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_third_option = yes
+			  ####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_country_ref_update_bars = yes
+			}
+			fourth_option_flag_click = {
+			  ROOT = { add_political_power = @REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @REF_INF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				cw_country_ref_update_fourth_option = yes
+			  ####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_country_ref_update_bars = yes
+			}
+		}
+	}
+	cw_territory_referendum_state_ui = {
+		window_name = "cw_territory_referendum_state_view"
+		context_type = selected_state_context
+		parent_window_token = selected_state_view
+
+		visible = {
+			has_state_flag = ref_state
+			OWNER = {
+				is_in_array = {
+					array = ROOT.state_ref_1_array
+					value = THIS.id
+				}
+			}
+		}
+
+		properties = {
+			first_option_flag = {
+				image = "[STATE_REF_FIRST_OPTION_FLAG_DIP]"
+			}
+			second_option_flag = {
+				image = "[STATE_REF_SECOND_OPTION_FLAG_DIP]"
+			}
+			third_option_flag = {
+				image = "[STATE_REF_THIRD_OPTION_FLAG_DIP]"
+			}
+			fourth_option_flag = {
+				image = "[STATE_REF_FOURTH_OPTION_FLAG_DIP]"
+			}
+		}
+		triggers = {
+			yes_no_referendum_yes_option_visible = {
+				OWNER = { has_country_flag = state_yes_no_referendum }
+			}
+			yes_no_referendum_yes_option_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = country_ref_first_option_votes_percent value = 100 compare = not_equals }
+			}
+			yes_no_referendum_no_option_visible = {
+				OWNER = { has_country_flag = state_yes_no_referendum }
+			}
+			yes_no_referendum_no_option_visible_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = country_ref_first_option_votes_percent value = 100 compare = not_equals }
+			}
+			first_option_flag_visible = {
+				OWNER = { NOT = { has_country_flag = state_yes_no_referendum } }
+			}
+			second_option_flag_visible = {
+				OWNER = { NOT = { has_country_flag = state_yes_no_referendum } }
+			}
+			#First Option
+			first_option_flag_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = state_ref_first_option_votes_percent value = 100 compare = not_equals }
+			}
+			second_option_flag_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = state_ref_second_option_votes_percent value = 100 compare = not_equals }
+			}
+			third_option_flag_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = state_ref_third_option_votes_percent value = 100 compare = not_equals }
+			}
+			fourth_option_flag_click_enabled = {
+				ROOT = { check_variable = { referendum_timeout_counter = 0 } }
+				check_variable = { var = state_ref_fourth_option_votes_percent value = 100 compare = not_equals }
+			}
+			#Third Option
+			third_option_visible = {
+				var:owner = { has_country_flag = third_option_occupied }
+			}
+			third_option_status_visible = {
+				var:owner = { has_country_flag = third_option_occupied }
+			}
+			third_option_flag_visible = {
+				var:owner = { has_country_flag = third_option_occupied }
+			}
+			#Fourth Option
+			fourth_option_visible = {
+				var:owner = { has_country_flag = fourth_option_occupied }
+			}
+			fourth_option_status_visible = {
+				var:owner = { has_country_flag = fourth_option_occupied }
+			}
+			fourth_option_flag_visible = {
+				var:owner = { has_country_flag = fourth_option_occupied }
+			}
+		}
+		effects = {
+			yes_no_referendum_yes_option_click = {
+				if = {
+					limit = {
+						OWNER = { NOT = { check_variable = { clickable_first_majority_state = 0 } } }
+					}
+					OWNER = {
+						var:clickable_first_majority_state = {
+							ROOT = {
+								goto_state = PREV
+							}
+						}
+					}
+				}
+			}
+			yes_no_referendum_yes_option_click = {
+				ROOT = { add_political_power = @STATE_REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @STATE_REF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+				randomize_temp_variable = {
+					var = random_generator
+					distribution = uniform
+					min = @REF_INF_MIN
+					max = @REF_INF_MAX
+				}
+				set_variable = { ref_random_inf = random_generator }
+				round_variable = ref_random_inf
+				set_variable = { ref_currently_changed_option = state_ref_first_option_votes_percent }			#Current option
+				add_to_array = {
+					array = referendum_options_array
+					value = state_ref_second_option_votes_percent			#Other option
+				}
+				if = {
+					limit = {
+						OWNER = { has_country_flag = third_option_occupied }
+					}
+					add_to_array = {
+						array = referendum_options_array
+						value = state_ref_third_option_votes_percent			#Other option
+					}
+				}
+				if = {
+					limit = {
+						OWNER = { has_country_flag = fourth_option_occupied }
+					}
+					add_to_array = {
+						array = referendum_options_array
+						value = state_ref_fourth_option_votes_percent			#Other option
+					}
+				}
+				cw_add_referandum_option_vote = yes
+				set_variable = { state_ref_first_option_votes_percent = ref_currently_changed_option }			#Current option
+				set_variable = { state_ref_second_option_votes_percent = referendum_options_array^0 }			#Other option
+				if = {
+					limit = {
+						OWNER = { has_country_flag = third_option_occupied }
+					}
+					set_variable = { state_ref_third_option_votes_percent = referendum_options_array^1 }			#Other option
+				}
+				if = {
+					limit = {
+						OWNER = { has_country_flag = fourth_option_occupied }
+					}
+					set_variable = { state_ref_fourth_option_votes_percent = referendum_options_array^2 }			#Other option
+				}
+				clear_array = referendum_options_array
+				####################################
+				#### GRAPHIC BAR FRAME UPDATE	####
+				####################################
+				state_ref_average_of_votes_calculator = yes
+				cw_state_ref_update_bars = yes
+			}
+			first_option_flag_click = {
+			  ROOT = { add_political_power = @STATE_REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @STATE_REF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+			  randomize_temp_variable = {
+			    var = random_generator
+			    distribution = uniform
+			    min = @REF_INF_MIN
+			    max = @REF_INF_MAX
+			  }
+			  set_variable = { ref_random_inf = random_generator }
+			  round_variable = ref_random_inf
+			  set_variable = { ref_currently_changed_option = state_ref_first_option_votes_percent }			#Current option
+			  add_to_array = {
+			    array = referendum_options_array
+			    value = state_ref_second_option_votes_percent			#Other option
+			  }
+			  if = {
+			    limit = {
+			      OWNER = { has_country_flag = third_option_occupied }
+			    }
+			    add_to_array = {
+			      array = referendum_options_array
+			      value = state_ref_third_option_votes_percent			#Other option
+			    }
+			  }
+			  if = {
+			    limit = {
+			      OWNER = { has_country_flag = fourth_option_occupied }
+			    }
+			    add_to_array = {
+			      array = referendum_options_array
+			      value = state_ref_fourth_option_votes_percent			#Other option
+			    }
+			  }
+			  cw_add_referandum_option_vote = yes
+			  set_variable = { state_ref_first_option_votes_percent = ref_currently_changed_option }			#Current option
+			  set_variable = { state_ref_second_option_votes_percent = referendum_options_array^0 }			#Other option
+			  if = {
+			    limit = {
+			      OWNER = { has_country_flag = third_option_occupied }
+			    }
+			    set_variable = { state_ref_third_option_votes_percent = referendum_options_array^1 }			#Other option
+			  }
+			  if = {
+			    limit = {
+			      OWNER = { has_country_flag = fourth_option_occupied }
+			    }
+			    set_variable = { state_ref_fourth_option_votes_percent = referendum_options_array^2 }			#Other option
+			  }
+			  clear_array = referendum_options_array
+				####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_state_ref_update_bars = yes
+			}
+			first_option_flag_right_click = {
+				if = {
+					limit = {
+						OWNER = { NOT = { check_variable = { clickable_first_majority_state = 0 } } }
+					}
+					OWNER = {
+						var:clickable_first_majority_state = {
+							ROOT = {
+								goto_state = PREV
+							}
+						}
+					}
+				}
+			}
+			yes_no_referendum_no_option_click = {
+				ROOT = { add_political_power = @STATE_REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @STATE_REF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+		    randomize_temp_variable = {
+		      var = random_generator
+		      distribution = uniform
+		      min = @REF_INF_MIN
+		      max = @REF_INF_MAX
+		    }
+		    set_variable = { ref_random_inf = random_generator }
+		    round_variable = ref_random_inf
+		    set_variable = { ref_currently_changed_option = state_ref_second_option_votes_percent }			#Current option
+		    add_to_array = {
+		      array = referendum_options_array
+		      value = state_ref_first_option_votes_percent			#Other option
+		    }
+		    if = {
+		      limit = {
+		        OWNER = { has_country_flag = third_option_occupied }
+		      }
+		      add_to_array = {
+		        array = referendum_options_array
+		        value = state_ref_third_option_votes_percent			#Other option
+		      }
+		    }
+		    if = {
+		      limit = {
+		        OWNER = { has_country_flag = fourth_option_occupied }
+		      }
+		      add_to_array = {
+		        array = referendum_options_array
+		        value = state_ref_fourth_option_votes_percent			#Other option
+		      }
+		    }
+		    cw_add_referandum_option_vote = yes
+		    set_variable = { state_ref_second_option_votes_percent = ref_currently_changed_option }			#Current option
+		    set_variable = { state_ref_first_option_votes_percent = referendum_options_array^0 }			#Other option
+		    if = {
+		      limit = {
+		        OWNER = { has_country_flag = third_option_occupied }
+		      }
+		      set_variable = { state_ref_third_option_votes_percent = referendum_options_array^1 }			#Other option
+		    }
+		    if = {
+		      limit = {
+		        OWNER = { has_country_flag = fourth_option_occupied }
+		      }
+		      set_variable = { state_ref_fourth_option_votes_percent = referendum_options_array^2 }			#Other option
+		    }
+		    clear_array = referendum_options_array
+				####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_state_ref_update_bars = yes
+		  }
+			yes_no_referendum_no_option_right_click = {
+				if = {
+					limit = {
+						OWNER = { NOT = { check_variable = { clickable_second_majority_state = 0 } } }
+					}
+					OWNER = {
+						var:clickable_second_majority_state = {
+							ROOT = {
+								goto_state = PREV
+							}
+						}
+					}
+				}
+			}
+			second_option_flag_click = {
+				ROOT = { add_political_power = @STATE_REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @STATE_REF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+		    randomize_temp_variable = {
+		      var = random_generator
+		      distribution = uniform
+		      min = @REF_INF_MIN
+		      max = @REF_INF_MAX
+		    }
+		    set_variable = { ref_random_inf = random_generator }
+		    round_variable = ref_random_inf
+		    set_variable = { ref_currently_changed_option = state_ref_second_option_votes_percent }			#Current option
+		    add_to_array = {
+		      array = referendum_options_array
+		      value = state_ref_first_option_votes_percent			#Other option
+		    }
+		    if = {
+		      limit = {
+		        OWNER = { has_country_flag = third_option_occupied }
+		      }
+		      add_to_array = {
+		        array = referendum_options_array
+		        value = state_ref_third_option_votes_percent			#Other option
+		      }
+		    }
+		    if = {
+		      limit = {
+		        OWNER = { has_country_flag = fourth_option_occupied }
+		      }
+		      add_to_array = {
+		        array = referendum_options_array
+		        value = state_ref_fourth_option_votes_percent			#Other option
+		      }
+		    }
+		    cw_add_referandum_option_vote = yes
+		    set_variable = { state_ref_second_option_votes_percent = ref_currently_changed_option }			#Current option
+		    set_variable = { state_ref_first_option_votes_percent = referendum_options_array^0 }			#Other option
+		    if = {
+		      limit = {
+		        OWNER = { has_country_flag = third_option_occupied }
+		      }
+		      set_variable = { state_ref_third_option_votes_percent = referendum_options_array^1 }			#Other option
+		    }
+		    if = {
+		      limit = {
+		        OWNER = { has_country_flag = fourth_option_occupied }
+		      }
+		      set_variable = { state_ref_fourth_option_votes_percent = referendum_options_array^2 }			#Other option
+		    }
+		    clear_array = referendum_options_array
+				####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+			  	state_ref_average_of_votes_calculator = yes
+				cw_state_ref_update_bars = yes
+		  }
+			second_option_flag_right_click = {
+				if = {
+					limit = {
+						OWNER = { NOT = { check_variable = { clickable_second_majority_state = 0 } } }
+					}
+					OWNER = {
+						var:clickable_second_majority_state = {
+							ROOT = {
+								goto_state = PREV
+							}
+						}
+					}
+				}
+			}
+			third_option_flag_click = {
+				ROOT = { add_political_power = @STATE_REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @STATE_REF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+			  randomize_temp_variable = {
+			    var = random_generator
+			    distribution = uniform
+			    min = @REF_INF_MIN
+			    max = @REF_INF_MAX
+			  }
+			  set_variable = { ref_random_inf = random_generator }
+			  round_variable = ref_random_inf
+			  set_variable = { ref_currently_changed_option = state_ref_third_option_votes_percent }			#Current option
+			  add_to_array = {
+			    array = referendum_options_array
+			    value = state_ref_first_option_votes_percent			#Other option
+			  }
+			  add_to_array = {
+			    array = referendum_options_array
+			    value = state_ref_second_option_votes_percent			#Other option
+			  }
+			  if = {
+			    limit = {
+			      OWNER = { has_country_flag = fourth_option_occupied }
+			    }
+			    add_to_array = {
+			      array = referendum_options_array
+			      value = state_ref_fourth_option_votes_percent			#Other option
+			    }
+			  }
+			  cw_add_referandum_option_vote = yes
+			  set_variable = { state_ref_third_option_votes_percent = ref_currently_changed_option }			#Current option
+			  set_variable = { state_ref_first_option_votes_percent = referendum_options_array^0 }			#Other option
+			  set_variable = { state_ref_second_option_votes_percent = referendum_options_array^1 }			#Other option
+			  if = {
+			    limit = {
+			      OWNER = { has_country_flag = fourth_option_occupied }
+			    }
+			    set_variable = { state_ref_fourth_option_votes_percent = referendum_options_array^2 }			#Other option
+			  }
+			  clear_array = referendum_options_array
+				####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_state_ref_update_bars = yes
+			}
+			third_option_flag_right_click = {
+				if = {
+					limit = {
+						OWNER = { NOT = { check_variable = { clickable_third_majority_state = 0 } } }
+					}
+					OWNER = {
+						var:clickable_third_majority_state = {
+							ROOT = {
+								goto_state = PREV
+							}
+						}
+					}
+				}
+			}
+			fourth_option_flag_click = {
+				ROOT = { add_political_power = @STATE_REF_INF_COST }
+				ROOT = { add_to_variable = { referendum_timeout_counter = @STATE_REF_COOLDOWN_TIMER } }		#Cooldown timer after boosting an option
+			  randomize_temp_variable = {
+			    var = random_generator
+			    distribution = uniform
+			    min = @REF_INF_MIN
+			    max = @REF_INF_MAX
+			  }
+			  set_variable = { ref_random_inf = random_generator }
+			  round_variable = ref_random_inf
+			  set_variable = { ref_currently_changed_option = state_ref_fourth_option_votes_percent }			#Current option
+			  add_to_array = {
+			    array = referendum_options_array
+			    value = state_ref_first_option_votes_percent			#Other option
+			  }
+			  add_to_array = {
+			    array = referendum_options_array
+			    value = state_ref_second_option_votes_percent			#Other option
+			  }
+			  add_to_array = {
+			    array = referendum_options_array
+			    value = state_ref_third_option_votes_percent			#Other option
+			  }
+			  cw_add_referandum_option_vote = yes
+			  set_variable = { state_ref_fourth_option_votes_percent = ref_currently_changed_option }			#Current option
+			  set_variable = { state_ref_first_option_votes_percent = referendum_options_array^0 }			#Other option
+			  set_variable = { state_ref_second_option_votes_percent = referendum_options_array^1 }			#Other option
+			  set_variable = { state_ref_third_option_votes_percent = referendum_options_array^2 }			#Other option
+			  clear_array = referendum_options_array
+				####################################
+			  #### GRAPHIC BAR FRAME UPDATE	####
+			  ####################################
+				cw_state_ref_update_bars = yes
+			}
+			fourth_option_flag_right_click = {
+				if = {
+					limit = {
+						OWNER = { NOT = { check_variable = { clickable_fourth_majority_state = 0 } } }
+					}
+					OWNER = {
+						var:clickable_fourth_majority_state = {
+							ROOT = {
+								goto_state = PREV
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	cw_territory_referendum_decisions_ui = {
+		context_type = decision_category
+		window_name = "cw_territory_referendum_decision_ui_window"
+
+		properties = {
+			first_option = {
+				frame = state_ref_first_option_votes_bar_frame
+			}
+			first_option_flag = {
+				image = "[?ref_state_ref_first_option.GetFlag]"
+			}
+			second_option = {
+				frame = state_ref_second_option_votes_bar_frame
+			}
+			second_option_flag = {
+				image = "[?ref_state_ref_second_option.GetFlag]"
+			}
+			third_option = {
+				frame = state_ref_third_option_votes_bar_frame
+			}
+			third_option_flag = {
+				image = "[STATE_REF_THIRD_OPTION_FLAG_DIC]"
+			}
+			fourth_option = {
+				frame = state_ref_fourth_option_votes_bar_frame
+			}
+			fourth_option_flag = {
+				image = "[STATE_REF_FOURTH_OPTION_FLAG_DIC]"
+			}
+		}
+		triggers = {
+			yes_no_referendum_yes_option_visible = {
+				 has_country_flag = state_yes_no_referendum
+			}
+			yes_no_referendum_no_option_visible = {
+				has_country_flag = state_yes_no_referendum
+			}
+			first_option_flag_visible = {
+				NOT = { has_country_flag = state_yes_no_referendum }
+			}
+			second_option_flag_visible = {
+				NOT = { has_country_flag = state_yes_no_referendum }
+			}
+			#Third Option
+			third_option_visible = {
+				has_country_flag = third_option_occupied
+			}
+			third_option_status_visible = {
+				has_country_flag = third_option_occupied
+			}
+			third_option_flag_visible = {
+				has_country_flag = third_option_occupied
+			}
+			#Fourth Option
+			fourth_option_visible = {
+				has_country_flag = fourth_option_occupied
+			}
+			fourth_option_status_visible = {
+				has_country_flag = fourth_option_occupied
+			}
+			fourth_option_flag_visible = {
+				has_country_flag = fourth_option_occupied
+			}
+		}
+		effects = {
+			yes_no_referendum_yes_option_click = {
+				if = {
+					limit = {
+						NOT = { check_variable = { clickable_first_majority_state = 0 } }
+					}
+					var:clickable_first_majority_state = {
+					ROOT = {
+						goto_state = PREV
+					}
+					}
+				}
+			}
+			yes_no_referendum_no_option_click = {
+				if = {
+					limit = {
+						NOT = { check_variable = { clickable_second_majority_state = 0 } }
+					}
+					var:clickable_second_majority_state = {
+					ROOT = {
+						goto_state = PREV
+					}
+					}
+				}
+			}
+			first_option_flag_click = {
+				if = {
+					limit = {
+						NOT = { check_variable = { clickable_first_majority_state = 0 } }
+					}
+					var:clickable_first_majority_state = {
+					ROOT = {
+						goto_state = PREV
+					}
+				  }
+				}
+			}
+			second_option_flag_click = {
+				if = {
+					limit = {
+						NOT = { check_variable = { clickable_second_majority_state = 0 } }
+					}
+					var:clickable_second_majority_state = {
+					ROOT = {
+						goto_state = PREV
+					}
+				  }
+				}
+			}
+			third_option_flag_click = {
+				if = {
+					limit = {
+						NOT = { check_variable = { clickable_third_majority_state = 0 } }
+					}
+					var:clickable_third_majority_state = {
+					ROOT = {
+						goto_state = PREV
+					}
+				  }
+				}
+			}
+			fourth_option_flag_click = {
+				if = {
+					limit = {
+						NOT = { check_variable = { clickable_fourth_majority_state = 0 } }
+					}
+					var:clickable_fourth_majority_state = {
+					ROOT = {
+						goto_state = PREV
+					}
+				  }
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,31 @@
+state = {
+	id=317
+	local_supplies=0.0 
+	name="STATE_317"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 12738 }
+ 	set_variable = { victory_point = 3 }
+		owner = NIC
+		add_core_of = NIC
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 3
+			12738 = {	
+				naval_base = 2
+			}		
+		}		
+		victory_points = {
+			12738 3
+		}
+	}
+	resources={
+		chromium=1 # was: 1
+		crops = 5
+	}
+	buildings_max_level_factor=1.000
+	manpower=683000
+	provinces={
+		1988 2075 10728 12738 13139 13178 
+	}
+}

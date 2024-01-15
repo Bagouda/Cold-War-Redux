@@ -1,0 +1,239 @@
+on_actions = {
+	#ROOT is subject FROM is previous overlord
+	on_subject_free = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { has_autonomy_state = autonomy_wtt_imperial_subject }
+				}
+				ROOT = { give_military_access = FROM }
+			}			
+			if = {
+				limit = {
+					ROOT = { has_idea = cw_restricted_trade_policy }
+				}
+				ROOT = { remove_ideas = cw_restricted_trade_policy }
+			}
+			if = {
+				limit = {
+					ROOT = {
+						has_country_flag = decolonization
+					}
+				}
+				ROOT = { cw_gained_independence_notification = yes }
+				if = {
+					limit = {
+						has_global_flag = decolonization_started
+						ROOT = { num_of_controlled_states > 1 }
+						FROM = { capital_scope = { is_on_continent = africa } }
+					}
+					random_list = {
+						75 = {
+							start_civil_war = {
+								ideology = var:highest_party_ideology@exclude_ruling_party
+								keep_political_leader = yes
+								size = 0.5
+								states_filter = { impassable = no }
+								compute_proxy_score = yes
+							}
+							compute_proxy_score = yes
+						}
+						25 = {
+							start_civil_war = {
+								ideology = var:highest_party_ideology@exclude_ruling_party
+								keep_political_leader = yes
+								size = 0.3
+								states_filter = { impassable = no }
+								compute_proxy_score = yes
+							}
+							compute_proxy_score = yes
+						}						
+					}
+				}
+			}
+			if = {
+				limit = {
+					TAG = PHI
+					date < 1950.1.1
+				}
+				start_civil_war = {
+					ideology = communism_totalitarian
+					keep_political_leader = yes
+					capital = 623
+					size = 0.1
+					states = { 623 628 }
+					compute_proxy_score = yes
+				}
+				compute_proxy_score = yes
+				every_country ={
+					limit = {
+						has_war_with = PHI
+						original_tag = PHI
+					}
+					save_event_target_as = communist_uprising
+				}
+				event_target:democratic_leader = { set_variable = { notification_country = PHI.id } phone_notification_intervention_tip_notification = yes }
+				event_target:communist_leader = { set_variable = { notification_country = event_target:communist_uprising.id } phone_notification_intervention_tip_notification = yes }
+			}
+			if = {
+				limit = {
+					has_government = colonial
+				}
+				set_party_name = { 
+					ideology = colonial 
+					long_name = "Military occupation"
+					name = "Military occupation"
+				}
+			}
+			if = {
+				limit = {
+					tag = ZIM
+					has_cosmetic_tag = ZIM_FRN
+				}
+				ZIM = {
+					every_owned_state = {
+						limit = {
+							OR = {
+								is_core_of = ZMB
+								is_claimed_by = ZMB
+							}
+						}
+						remove_claim_by = ZMB
+						ZMB = { add_state_core = PREV }
+					}
+					release = ZMB
+					every_owned_state = {
+						limit = {
+							OR = {
+								is_core_of = MLW
+								is_claimed_by = MLW
+							}
+						}
+						remove_claim_by = MLW
+						MLW = { add_state_core = PREV }
+					}
+					release = MLW
+				}
+			}
+			if = {
+				limit = {
+					has_government = colonial
+					tag = IND
+				}
+				news_event  = cw_historic_events.1
+				release = KAS
+				KAS = { load_oob = "KAS_1946" }
+				release = PAK
+				PAK = { load_oob = "PAK_1946" }
+				release = HYD
+				HYD = { load_oob = "HYD_1946" }				
+				release = JUN
+				JUN = { load_oob = "JUN_1946" }				
+				release = MYS
+				MYS = { load_oob = "MYS_1946" }
+				retire_country_leader = yes
+				leave_faction = yes
+				drop_cosmetic_tag = yes
+				set_politics = {
+					ruling_party = democratic_socialist
+					election_frequency = 48
+					elections_allowed = yes				
+				}
+				set_popularities = {
+					democratic  = 20
+					democratic_socialist = 50
+					neutrality = 10
+					communism_totalitarian = 20
+					unaligned_right = 0
+					colonial =  0
+				}
+				puppet = MYS
+				PAK = { load_oob = PAK_1946 }							
+				KAS = { cw_make_unrecognized = yes }
+				HYD = { cw_make_unrecognized = yes }
+				JUN = { cw_make_unrecognized = yes }				
+			}
+			if = {
+				limit = {
+					NOT = {
+						OVERLORD = { tag = UNN }
+					}
+				}
+				ROOT = { drop_cosmetic_tag = yes }
+				hold_election = ROOT
+				ROOT = { set_country_flag = { flag = recent_independence value = 1 days = 1825 } }
+			}
+			if = {
+				limit = {
+					has_country_flag = decolonization
+				}
+				clr_country_flag = decolonization
+			}
+		}
+	}	
+	#ROOT is subject FROM is overlord
+	on_subject_annexed = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						is_in_array = {
+							array = global.unsc_permanent_members_array
+							value = THIS.id
+						}
+					}
+				}
+				ROOT = { remove_ideas  = cw_un_permanent }
+				ROOT = { remove_from_array = { global.unsc_permanent_members_array = THIS.id } }
+				UNA = { add_ideas = cw_un_permanent }
+				UNA = { add_to_array = { array = global.unsc_permanent_members_array value = THIS.id } }
+				UNA = { add_to_unsc_balance = yes }
+			}
+			else_if = {
+				limit = {
+					ROOT = {
+						is_in_array = {
+							array = global.unsc_non_permanent_members_array
+							value = THIS.id
+						}
+					}
+				}
+				ROOT = { remove_ideas  = cw_un_non_permanent }
+				ROOT = { remove_from_array = { global.unsc_non_permanent_members_array = THIS.id } }
+				UNB = { add_ideas = cw_un_non_permanent }
+				UNB = { add_to_array = { array = global.unsc_non_permanent_members_array value = THIS.id } }
+				UNB = { add_to_unsc_balance = yes }
+			}
+			else = {}
+		}
+	}
+	on_subject_autonomy_level_change = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							is_in_array = {
+							array = global.unsc_non_permanent_members_array
+							value = ROOT.id
+							}
+							is_in_array = {
+							array = global.unsc_permanent_members_array
+							value = ROOT.id
+							}
+						}
+					}
+				}
+				remove_from_unsc_balance = yes
+				add_to_unsc_balance = yes
+			}
+		}
+	}
+	#used when puppeting in a peace conference
+	#ROOT = nation being puppeted, FROM = overlord
+	on_puppet = {
+		effect = {
+			ROOT = { add_popularity = { ideology = colonial popularity = -0.50 } cw_make_unrecognized = yes }
+		}	
+	}
+}

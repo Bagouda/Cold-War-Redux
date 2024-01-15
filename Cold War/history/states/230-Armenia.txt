@@ -1,0 +1,28 @@
+
+state={
+	id=230
+	local_supplies=0.0 
+	name="STATE_230"
+
+	history={
+ 	add_to_array = { list_victory_point = 12320 }
+ 	set_variable = { victory_point = 15 }
+		buildings = {
+			infrastructure = 3
+		}
+		owner = SOV
+		add_claim_by = ARM
+		
+		victory_points = {
+			12320 15 	#Yerevan
+		}
+
+	}
+
+	provinces={
+		1467 3564 6997 11708 12320 12380 12441 12450 13123 
+	}
+	manpower=1250082
+	buildings_max_level_factor=1.000
+	state_category=town
+}

@@ -1,0 +1,66 @@
+cw_rebuilding_russia = {
+	icon = GFX_decision_category_generic_industry
+	priority = 11
+	allowed = {
+		tag = SOV
+	}
+	visible = {
+		has_country_flag = sov_rebuilding_effort_initiated
+	}
+	
+	visible_when_empty = yes
+
+	on_map_area = {
+		target_array = ROOT.core_states
+		target_trigger = {
+			FROM = {
+				is_on_continent = europe
+			}
+		}
+		name = cw_russia_reconstruction_status
+		zoom = 300
+	}
+}
+communist_consolidation = {
+	icon = GFX_decision_category_generic_communism
+	allowed = {
+		has_dlc = "Waking the Tiger"
+	}
+	visible = {
+		has_country_flag = consolidating_communism
+	}
+	visible_when_empty = yes
+	on_map_area = {
+		state = 48		#Sofia
+		state = 46		#Bucharest
+		state = 43		#Budapest
+		state = 9		#Prague
+		state = 10		#Warsaw
+		state = 111		#Helsinki
+		state = 49		#Ankara
+		state = 47		#Athens
+		name = COMMUNIST_CONSOLIDATION_TT
+		zoom = 300
+	}	
+}
+communist_consolidation_target = {
+	icon = GFX_decision_category_generic_communism
+	allowed = {
+		has_dlc = "Waking the Tiger"
+	}
+	visible = {
+		has_country_flag = communist_consolidation_target
+	}
+}
+soviet_power_struggle = {
+	picture = GFX_communist_power_struggle_category_image
+
+	icon = GFX_decision_category_generic_communism
+
+	scripted_gui = cw_comm_power_struggle_decisions_ui
+	visible_when_empty = no	
+	
+	visible = {
+		has_active_mission = post_stalin_power_struggle
+	}
+}

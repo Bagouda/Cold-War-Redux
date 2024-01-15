@@ -1,0 +1,48 @@
+CHI_historical_plan_1950 = {
+	name = "China 1950 Focuses"
+	desc = ""
+
+	enable = {
+		tag = CHI
+		is_historical_focus_on = yes
+		has_focus_tree = chi_1950_focus_tree
+	}
+	abort = {
+		is_subject = yes
+	}
+
+	ai_national_focuses = {
+		CHI_new_constitution
+		CHI_centralized_state
+		CHI_conquer_xsm
+		CHI_integrate_xinxiang
+		CHI_conquer_tibet
+		CHI_decolonization_of_indochina
+		CHI_decolonization_of_indochina_violent
+		CHI_decolonization_of_indochina_violent_arm_indochina_natioinalists
+		CHI_decolonization_of_indochina_violent_fund_indochina_natioinalists
+		CHI_decolonization_of_indochina_initiate_uprising
+		CHI_the_communist_menace
+		CHI_recover_from_civil_war
+		CHI_educate_the_masses
+	}
+
+	research = {
+	}
+	ideas = {
+	}
+	traits = {
+	}
+
+	
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

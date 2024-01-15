@@ -1,0 +1,89 @@
+spriteTypes = {	
+	SpriteType = {
+		name = "GFX_topbar_aid_button"
+		texturefile = "gfx/interface/topbar/topbar_aid_button_background.dds"
+	}
+	SpriteType = {
+		name = "GFX_economic_aid_screen_bg"
+		texturefile = "gfx/interface/aid_program/economic_aid_bg.dds"
+	}
+	SpriteType = {
+		name = "GFX_economic_aid_screen_glass"
+		texturefile = "gfx/interface/aid_program/economic_aid_screen_glass.dds"
+	}	
+	SpriteType = {
+		name = "GFX_aid_program_title_glass"
+		texturefile = "gfx/interface/aid_program/aid_program_title_glass.dds"
+		animation = {
+			animationmaskfile = "gfx/interface/aid_program/aid_program_title_glass.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = no			# yes or no ;)
+			animationtime = 3.0				# in seconds
+			animationdelay = 1			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 2.0 y = 2.0 } 
+		}
+		animation = {
+			animationmaskfile = "gfx/interface/aid_program/aid_program_title_glass.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = no			# yes or no ;)
+			animationtime = 3.0				# in seconds
+			animationdelay = 1			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 2.0 y = 2.0 } 
+		}		
+	}	
+	SpriteType = {
+		name = "GFX_economic_aid_screen_bg_with_scrollbar"
+		texturefile = "gfx/interface/aid_program/economic_aid_bg_with_scrollbar.dds"
+	}	
+	SpriteType = {
+		name = "GFX_member_countries_bg"
+		texturefile = "gfx/interface/aid_program/aid_program_members_background.dds"
+	}	
+	SpriteType = {
+		name = "GFX_modify_aid_background"
+		texturefile = "gfx/interface/aid_program/cw_modify_aid_background.dds"
+	}
+	SpriteType = {
+		name = "GFX_increase_aid_button"
+		texturefile = "gfx/interface/aid_program/cw_increase_aid.dds"
+	}
+	SpriteType = {
+		name = "GFX_decrease_aid_button"
+		texturefile = "gfx/interface/aid_program/cw_decrease_aid.dds"
+	}
+	SpriteType = {
+		name = "GFX_cancel_aid_button"
+		texturefile = "gfx/interface/aid_program/cw_cancel_aid.dds"
+	}
+
+	SpriteType = {
+		name = "GFX_diplo_countrylist_flag_frame_comecon"
+		texturefile = "gfx/interface/aid_program/diplo_countrylist_flag_frame_comecon.dds"
+	}	
+	
+	SpriteType = {
+		name = "GFX_cw_aid_level"
+		texturefile = "gfx/interface/aid_program/cw_economic_aid_level_indicator.dds"
+		noOfFrames = 4
+		animation = {
+			animationmaskfile = "gfx/interface/aid_program/aid_program_title_glass.dds"
+			animationtexturefile = "gfx/interface/goals/shine_overlay.dds" 	# <- the animated file
+			animationrotation = -90.0		# -90 clockwise 90 counterclockwise(by default)
+			animationlooping = no			# yes or no ;)
+			animationtime = 3.0				# in seconds
+			animationdelay = 5			# in seconds
+			animationblendmode = "add"       #add, multiply, overlay
+			animationtype = "pulsing"      #scrolling, rotating, pulsing
+			animationrotationoffset = { x = 0.0 y = 0.0 }
+			animationtexturescale = { x = 2.0 y = 2.0 } 
+		}
+	}
+}

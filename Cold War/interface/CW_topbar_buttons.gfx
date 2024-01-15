@@ -1,0 +1,55 @@
+spriteTypes = {
+
+	frameAnimatedSpriteType = {
+		name = "GFX_WT_anim_strip_cw"
+		texturefile = "gfx//interface//WT_anim_strip.dds"
+		noOfFrames = 33
+		loadType = "INGAME"
+		animation_rate_fps = 10
+		looping = yes
+		play_on_show = yes
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_topbar_button_blocker"
+		texturefile = "gfx/interface/topbar/top_button_blocker.dds"
+	}
+	SpriteType = {
+		name = "GFX_un_button_bg"
+		texturefile = "gfx/interface/topbar/un_button_background.dds"
+	}
+	SpriteType = {
+		name = "GFX_unn_voting_animation"
+		texturefile = "gfx/interface/topbar/un_voting_button.dds"
+		noofframes = 5
+	}
+	frameAnimatedSpriteType = {
+		name = "GFX_unn_resolution_imeplentation"	
+		texturefile = "gfx/interface/topbar/unsc_implementing.dds"
+		noOfFrames = 16
+		loadType = "INGAME"
+		animation_rate_fps = 32
+		looping = yes
+		play_on_show = yes
+		pause_on_loop = 1.0	
+	}
+	#### SPLASH SCREEN ####
+	SpriteType = {
+		name = "GFX_splash_bg"
+		texturefile = "gfx/interface/splash_screen/cwm_splash_background.dds"
+	}
+	SpriteType = {
+		name = "GFX_splash_screen_overlay"
+		texturefile = "gfx/interface/splash_screen/cw_splash_screen_overlay.dds"
+	}
+	frameAnimatedSpriteType = {
+		name = "GFX_unsc_removal_warning"
+		texturefile = "gfx/interface/alerts/cw_alert_un_kick_imminent.dds"
+		noOfFrames = 2
+		animation_rate_fps = 2.0
+		looping = yes
+		play_on_show = yes
+		pause_on_loop = 0.0
+		effectFile = "gfx/FX/buttonstate_blendframes.lua"		
+	}	
+}

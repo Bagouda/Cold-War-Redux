@@ -1,0 +1,56 @@
+
+state={
+	id=613
+	local_supplies=0.0 
+	name="STATE_613"
+	resources={
+		crops=12.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 11913 }
+ 	add_to_array = { list_victory_point = 7014 }
+ 	add_to_array = { list_victory_point = 10076 }
+ 	add_to_array = { list_victory_point = 10076 }
+ 	set_variable = { victory_point = 66 }
+		owner = CHI
+		add_core_of = CHI
+		add_claim_by = PRC
+		1949.10.1 = {
+			owner = PRC
+
+		}
+		buildings = {
+			infrastructure = 3
+			air_base = 3
+			industrial_complex = 1
+			arms_factory = 1
+			dockyard = 2
+			7014 = {
+				naval_base = 8
+
+			}
+
+		}
+		victory_points = {
+			10076 3 
+		}
+		victory_points = {
+			10076 3 
+		}
+		victory_points = {
+			7014 20 
+		}
+		victory_points = {
+			11913 40 
+		}
+
+	}
+
+	provinces={
+		996 7014 7120 10034 10076 11913 11982 12052 12076 13142 
+	}
+	manpower=8204400
+	buildings_max_level_factor=1.000
+	state_category=devestated_wasteland
+}

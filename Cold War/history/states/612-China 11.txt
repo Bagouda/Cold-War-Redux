@@ -1,0 +1,30 @@
+state = {
+	id=612
+	local_supplies=0.0 
+	name="STATE_612" # Chahar
+	state_category = rural
+	history = {
+		owner = PRC
+		add_core_of = CHI
+		add_core_of = PRC
+		add_claim_by = INM
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+			arms_factory = 1			
+		}			
+		
+		1949.10.1 = {
+		owner = PRC
+		}
+	}
+	resources={
+		uranium=5
+		crops = 5
+	}	
+	manpower = 566000
+	provinces={
+		1551 1608 1796 1811 1871 4222 4555 4655 7578 7648 10363 10372 12348 12448 12554 
+	}
+}

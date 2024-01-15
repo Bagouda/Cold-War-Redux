@@ -1,0 +1,70 @@
+﻿capital = 292
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+1946.1.1 = {
+	OOB = SAU_1946
+	set_politics = {
+		ruling_party = unaligned_right
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 0
+		communism_totalitarian = 0
+		unaligned_right = 100
+		colonial =  0
+	}
+	create_country_leader = {
+		name = "Ibn Saud"
+		desc = ""
+		picture = "SAUH1.dds"
+		ideology = despotism
+		expire = 1975.4.5
+		traits = { absolute_monarch }
+	}
+}
+1948.5.14 = {
+}
+1950.6.25 = {
+}
+1961.12.11 = {
+	create_country_leader = {
+			name = "Faisal "
+			desc = ""
+			picture = "SAUH3.dds"
+			ideology = despotism
+			expire = 1975.3.25
+			traits = {}
+	}
+	create_country_leader = {
+			name = "Saud"
+			desc = ""
+			picture = "SAUH2.dds"
+			ideology = despotism
+			expire = 1953.11.9
+			traits = {}
+	}
+}
+1979.12.24 = {
+	create_country_leader = {
+			name = "Khalid"
+			desc = ""
+			picture = "SAUH4.dds"
+			ideology = despotism
+			expire = 1982.6.13
+			traits = {}
+	}
+}
+1989.1.9 = {
+	create_country_leader = {
+			name = "Fahd"
+			desc = ""
+			picture = "SAUH5.dds"
+			ideology = despotism
+			expire = 2005.8.1
+			traits = {}
+	}
+}

@@ -1,0 +1,85 @@
+﻿add_namespace = cs.referendum.events
+country_event = {
+	id = cs.referendum.events.1		#Joining a country after Sovernity referendum
+	title = cs.referendum.events.1.t
+	desc = cs.referendum.events.1.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+	
+	option = {
+		ai_chance = {
+			modifier = {
+				factor = 80
+			}
+		}
+		name = "Proceed with the union"
+		if = {
+			limit = {
+				FROM = { tag = UNN }
+			}
+			annex_country = { target = event_target:unsc_ref_first_option transfer_troops = yes }
+			every_owned_state = { limit = { is_core_of = event_target:unsc_ref_first_option } add_core_of = ROOT }
+			hidden_effect = {
+				event_target:unsc_ref_first_option = { save_event_target_as = ref_annexed_country }
+				country_event = cs.referendum.events.4
+			}
+			else = {
+				annex_country = { target = FROM transfer_troops = yes }
+				hidden_effect = {
+					every_owned_state = { limit = { is_core_of = FROM } add_core_of = ROOT }
+					FROM = { save_event_target_as = ref_annexed_country }
+					country_event = cs.referendum.events.4
+				}
+			}
+		}
+	}
+	option = {
+		name = "We can't afford this now"
+		if = {
+			limit = {
+				NOT = { FROM = { tag = UNN } }
+			}
+			hidden_effect = {
+				ROOT = { set_country_flag = { flag = refused_referendum_annexation_request value = 1 days = 90 } }
+				FROM = { every_owned_state = { limit = { is_claimed_by = ROOT } remove_claim_by = ROOT } }
+				FROM = { country_event = cs.referendum.events.2 }
+			}
+		}
+		ai_chance = {
+			modifier = {
+				factor = 20
+			}
+		}		
+	}
+}
+
+country_event = {
+	id = cs.referendum.events.2		#Reply event if annexation request is refused
+	title = cs.referendum.events.2.t
+	desc = cs.referendum.events.2.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Outrageous!"
+		custom_effect_tooltip = "Another referendum will be held."
+		cw_ref_cs_clear_junk = yes
+		cw_cs_ref_initial_setup = yes
+	}
+}
+news_event = {
+	id = cs.referendum.events.4		#Referendum annexation news event
+	title = cs.referendum.events.4.t
+	desc = cs.referendum.events.4.d
+	picture = GFX_generic_cheering_crowd_1
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+	name = "OK"
+	}
+}

@@ -1,0 +1,46 @@
+cw_red_scare_modifier = {
+	enable = { always = yes }
+	icon = "GFX_idea_usa_red_scare"
+	
+	# list of modifiers
+	political_power_gain = ROOT.red_scare_pp
+	stability_factor = ROOT.red_scare_stability
+	unaligned_right_drift = ROOT.red_scare_drift
+}
+
+PRC_great_leap_forward_modifier = {
+	enable = { always = yes }
+	icon = "GFX_idea_great_leap_forward"
+	
+	# list of modifiers
+	production_factory_max_efficiency_factor = ROOT.great_leap_industrial_effects
+	industrial_capacity_factory = ROOT.great_leap_industrial_effects
+	consumer_goods_factor = ROOT.great_leap_forward_consumer_goods
+	monthly_population = ROOT.great_leap_forward_population
+	communism_drift = ROOT.great_leap_forward_reformist_popularity
+	communism_totalitarian_drift = ROOT.great_leap_forward_cpc_popularity
+	drift_defence_factor = ROOT.great_leap_forward_drift_defense
+	production_speed_infrastructure_factor = ROOT.great_leap_end_effect_infra_build_speed
+	country_resource_crops = ROOT.great_leap_end_effect_crops
+}
+
+radio_free_europe = {
+		
+
+			enable = { always = yes }
+			remove_trigger = {
+			
+				BRL = { exists =  no }
+					
+			}
+			icon ="GFX_idea_radio_free_europe"
+
+			custom_modifier_tooltip  =  RADIO_FREE_EUROPE_TT
+
+
+		
+
+			communism_drift = BRL.free_europe_com 
+			communism_totalitarian_drift =  BRL.free_europe_com_tot
+
+}

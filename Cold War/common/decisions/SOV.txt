@@ -1,0 +1,1376 @@
+foreign_politics = {
+	sov_manchuria_handover = {
+
+		icon = GFX_decision_eng_trade_unions_demand
+		priority = 0
+		
+		fire_only_once = yes
+		is_good = no
+		selectable_mission = yes
+		days_mission_timeout = 150
+		days_remove = 300
+		
+		cost = 0
+		
+		activation = {
+			tag = SOV
+			date < 1947.01.01
+			custom_trigger_tooltip = {
+				tooltip = "Control any part of Manchuria."
+				SOV = {
+					OR = {
+						controls_state = 761
+						controls_state = 714
+						controls_state = 717
+						controls_state = 328
+						controls_state = 715
+						controls_state = 716
+						controls_state = 610
+					}
+				}
+			}			
+		}			
+
+		cancel_trigger = {
+			custom_trigger_tooltip = {
+				tooltip = "Soviet Union does not control any part of Manchuria."		
+				SOV = {
+					NOT = {
+						OR = {
+							controls_state = 761
+							controls_state = 714
+							controls_state = 717
+							controls_state = 328
+							controls_state = 715
+							controls_state = 716
+							controls_state = 610
+						}
+					}
+				}
+			}
+		}
+
+		available = {
+			CHI = { exists = yes }
+			custom_trigger_tooltip = {
+				tooltip = "Control any part of Manchuria."
+				SOV = {
+					OR = {
+						controls_state = 761
+						controls_state = 714
+						controls_state = 717
+						controls_state = 328
+						controls_state = 715
+						controls_state = 716
+						controls_state = 610
+					}
+				}
+			}			
+		}
+
+		visible = {
+		
+			CHI = { exists = yes }
+			SOV = {
+				OR = {
+					controls_state = 761
+					controls_state = 714
+					controls_state = 717
+					controls_state = 328
+					controls_state = 715
+					controls_state = 716
+					controls_state = 610
+				}
+			}
+			
+		}
+		
+		timeout_effect = {
+			custom_effect_tooltip = MANCHURIA_STRUGGLE_KEEP_MANCHURIA_TT
+			PRC = { add_autonomy_ratio = { value = 0.5 } add_opinion_modifier = { target = ROOT modifier = protest_action } }
+			CHI = { add_opinion_modifier = { target = ROOT modifier = protest_action } }
+			every_neighbor_country = {
+				add_popularity = {
+					ideology = ROOT
+					popularity = -0.1
+				}
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = MANCHURIA_STRUGGLE_START_STRUGGLE_TT
+			CHI = { add_opinion_modifier = { target = ROOT modifier = returned_territory } }
+			set_variable = { manchuria_pullback_timer = 300 }
+			hidden_effect = {
+			
+				SOV = {
+					country_event = {
+						id = sov_manchuria.1
+						days = 60
+						random_days = 20
+					}
+				
+				
+
+					country_event = {
+						id = sov_manchuria.4
+						days = 80
+						random_days = 20
+					}
+				}
+				set_global_flag = manchuria_struggle_started
+				news_event = cw_historic_events.36
+				610 = {
+					set_variable = { man_struggle_prc_control = 50 }
+					set_variable = { man_struggle_chi_control = 50 }
+				}
+				716 = {
+					set_variable = { man_struggle_prc_control = 50 }
+					set_variable = { man_struggle_chi_control = 50 }
+				}
+				328 = {
+					set_variable = { man_struggle_prc_control = 50 }
+					set_variable = { man_struggle_chi_control = 50 }
+				}
+				717 = {
+					set_variable = { man_struggle_prc_control = 50 }
+					set_variable = { man_struggle_chi_control = 50 }
+				}
+				714 = {
+					set_variable = { man_struggle_prc_control = 50 }
+					set_variable = { man_struggle_chi_control = 50 }
+				}
+				761 = {
+					set_variable = { man_struggle_prc_control = 50 }
+					set_variable = { man_struggle_chi_control = 50 }
+				}
+				715 = {
+					set_variable = { man_struggle_prc_control = 50 }
+					set_variable = { man_struggle_chi_control = 50 }
+				}				
+				cw_calculate_manchuria_overall_control = yes
+			}
+		}
+		
+		remove_effect = {
+			610 = {
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_prc_control > THIS.man_struggle_chi_control
+						}
+					}
+					PRC = { transfer_state = PREV }
+				}
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_chi_control > THIS.man_struggle_prc_control
+						}
+					}
+					CHI = { transfer_state = PREV }
+				}
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_chi_control = THIS.man_struggle_prc_control
+						}
+					}				
+					custom_effect_tooltip = MANCHURIA_STRUGGLE_CONTROL_CHANGE_RANDOM
+					hidden_effect = {
+						random_list = {
+							50 = {
+								PRC = { transfer_state = PREV }
+							}
+							50 = {
+								CHI = { transfer_state = PREV }
+							}
+						}
+					}
+				}
+				clear_variable = THIS.man_struggle_chi_control
+				clear_variable = THIS.man_struggle_prc_control
+			}
+			716 = {
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_prc_control > THIS.man_struggle_chi_control
+						}
+					}
+					PRC = { transfer_state = PREV }
+				}
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_chi_control > THIS.man_struggle_prc_control
+						}
+					}
+					CHI = { transfer_state = PREV }
+				}
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_chi_control = THIS.man_struggle_prc_control
+						}
+					}				
+					custom_effect_tooltip = MANCHURIA_STRUGGLE_CONTROL_CHANGE_RANDOM
+					hidden_effect = {
+						random_list = {
+							50 = {
+								PRC = { transfer_state = PREV }
+							}
+							50 = {
+								CHI = { transfer_state = PREV }
+							}
+						}
+					}
+				}
+				clear_variable = THIS.man_struggle_chi_control
+				clear_variable = THIS.man_struggle_prc_control
+			}
+			328 = {
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_prc_control > THIS.man_struggle_chi_control
+						}
+					}
+					PRC = { transfer_state = PREV }
+				}
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_chi_control > THIS.man_struggle_prc_control
+						}
+					}
+					CHI = { transfer_state = PREV }
+				}
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_chi_control = THIS.man_struggle_prc_control
+						}
+					}				
+					custom_effect_tooltip = MANCHURIA_STRUGGLE_CONTROL_CHANGE_RANDOM
+					hidden_effect = {
+						random_list = {
+							50 = {
+								PRC = { transfer_state = PREV }
+							}
+							50 = {
+								CHI = { transfer_state = PREV }
+							}
+						}
+					}
+				}
+				clear_variable = THIS.man_struggle_chi_control
+				clear_variable = THIS.man_struggle_prc_control
+			}
+			717 = {
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_prc_control > THIS.man_struggle_chi_control
+						}
+					}
+					PRC = { transfer_state = PREV }
+				}
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_chi_control > THIS.man_struggle_prc_control
+						}
+					}
+					CHI = { transfer_state = PREV }
+				}
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_chi_control = THIS.man_struggle_prc_control
+						}
+					}				
+					custom_effect_tooltip = MANCHURIA_STRUGGLE_CONTROL_CHANGE_RANDOM
+					hidden_effect = {
+						random_list = {
+							50 = {
+								PRC = { transfer_state = PREV }
+							}
+							50 = {
+								CHI = { transfer_state = PREV }
+							}
+						}
+					}
+				}
+				clear_variable = THIS.man_struggle_chi_control
+				clear_variable = THIS.man_struggle_prc_control
+			}
+			714 = {
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_prc_control > THIS.man_struggle_chi_control
+						}
+					}
+					PRC = { transfer_state = PREV }
+				}
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_chi_control > THIS.man_struggle_prc_control
+						}
+					}
+					CHI = { transfer_state = PREV }
+				}
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_chi_control = THIS.man_struggle_prc_control
+						}
+					}				
+					custom_effect_tooltip = MANCHURIA_STRUGGLE_CONTROL_CHANGE_RANDOM
+					hidden_effect = {
+						random_list = {
+							50 = {
+								PRC = { transfer_state = PREV }
+							}
+							50 = {
+								CHI = { transfer_state = PREV }
+							}
+						}
+					}
+				}
+				clear_variable = THIS.man_struggle_chi_control
+				clear_variable = THIS.man_struggle_prc_control
+			}
+			715 = {
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_prc_control > THIS.man_struggle_chi_control
+						}
+					}
+					PRC = { transfer_state = PREV }
+				}
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_chi_control > THIS.man_struggle_prc_control
+						}
+					}
+					CHI = { transfer_state = PREV }
+				}
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_chi_control = THIS.man_struggle_prc_control
+						}
+					}				
+					custom_effect_tooltip = MANCHURIA_STRUGGLE_CONTROL_CHANGE_RANDOM
+					hidden_effect = {
+						random_list = {
+							50 = {
+								PRC = { transfer_state = PREV }
+							}
+							50 = {
+								CHI = { transfer_state = PREV }
+							}
+						}
+					}
+				}
+				clear_variable = THIS.man_struggle_chi_control
+				clear_variable = THIS.man_struggle_prc_control
+			}
+			761 = {
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_prc_control > THIS.man_struggle_chi_control
+						}
+					}
+					PRC = { transfer_state = PREV }
+				}
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_chi_control > THIS.man_struggle_prc_control
+						}
+					}
+					CHI = { transfer_state = PREV }
+				}
+				if = {
+					limit = {
+						check_variable = {
+							THIS.man_struggle_chi_control = THIS.man_struggle_prc_control
+						}
+					}				
+					custom_effect_tooltip = MANCHURIA_STRUGGLE_CONTROL_CHANGE_RANDOM
+					hidden_effect = {
+						random_list = {
+							50 = {
+								PRC = { transfer_state = PREV }
+							}
+							50 = {
+								CHI = { transfer_state = PREV }
+							}
+						}
+					}
+				}
+				clear_variable = THIS.man_struggle_chi_control
+				clear_variable = THIS.man_struggle_prc_control
+			}
+			clear_variable = global.prc_manchuria_control
+			clear_variable = global.chi_manchuria_control
+			clr_global_flag = manchuria_struggle_started
+			
+		}		
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				date > 1946.2.10
+			}
+		}	
+	}
+}
+cw_struggle_for_manchuria_category = {
+}
+special_projects = {
+	sov_great_european_wall_construction = {
+
+		icon = GFX_decision_eng_propaganda_campaigns
+		allowed = {
+			tag = SOV
+		}
+		
+		visible = {
+			#has_country_flag = great_european_wall_initiated
+		}
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				owner = {
+					tag = FROM
+				}
+			}
+		}		
+		
+		available = {}
+		
+		cost = 0
+		custom_cost_trigger = {
+			num_of_available_civilian_factories > 10
+		}
+		custom_cost_text = SOV_GREAT_EUROPEAN_WALL_CONSTRUCTION_COST	
+		days_remove = 120
+
+		target_trigger = {
+			FROM = {
+				capital_scope = { is_on_continent = europe }
+				any_home_area_neighbor_country = { OR = { tag = YUG NOT = { has_government = communism_totalitarian } } }
+				is_puppet_of = ROOT
+				NOT = {
+					OR = {
+						tag = UKR
+						tag = MOL
+						tag = EST
+						tag = LAT
+						tag = LIT
+					}
+				}
+			}
+		}
+		
+		targeted_modifier = {
+			communism_totalitarian_drift = 0.01
+		}
+		modifier = {
+			civilian_factory_use = 10
+		}	
+		
+		complete_effect = {}
+		
+		remove_effect = {
+			FROM = {
+				set_country_flag = great_european_wall_built
+				if = {
+					limit = {
+						has_idea = cw_populatioin_loss_low
+					}
+					remove_ideas = cw_populatioin_loss_low
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						DDR = { has_country_flag = great_european_wall_built }
+						CZE = { has_country_flag = great_european_wall_built }
+						HUN = { has_country_flag = great_european_wall_built }
+						ROM = { has_country_flag = great_european_wall_built }
+						BUL = { has_country_flag = great_european_wall_built }
+					}
+				}
+				news_event = cw_non_historic_news.12
+				add_named_threat = { threat = 5 name = "Great Eastern European Wall" }
+				every_other_country = {
+					limit = {
+						capital_scope = { is_on_continent = europe }
+						is_puppet_of = ROOT
+						NOT = {
+							OR = {
+								tag = UKR
+								tag = MOL
+								tag = EST
+								tag = LAT
+								tag = LIT
+							}
+						}
+					}
+					add_ideas = cw_great_european_wall
+				}
+			}
+			if = {
+				limit = {
+					FROM = { tag = ALB }
+				}
+				184 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}				
+			}				
+			if = {
+				limit = {
+					FROM = { tag = CGR }
+				}
+				184 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				3914 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = { tag = YUG }
+				}
+				102 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = { tag = BUL }
+				}
+				211 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				48 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = { tag = ROM }
+				}
+				81 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				82 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = { tag = HUN }
+				}
+				154 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				155 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}				
+			}
+			if = {
+				limit = {
+					FROM = { tag = AUS }
+				}
+				4 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}				
+			}
+			if = {
+				limit = {
+					FROM = { tag = CZE }
+				}
+				69 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					FROM = { tag = DDR }
+				}
+				65 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				
+				60 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				64 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+				61 = {
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	sov_steppe_transformation = {
+		icon = GFX_decision_infiltrate_state
+		
+		allowed = {
+			tag = SOV
+		}
+
+		available = {
+			NOT = {
+				AND = {
+					controls_state = 402
+					controls_state = 404
+					controls_state = 589
+				}
+			}
+		}
+
+		modifier = {
+			local_resources_factor = 0.10
+			stability_factor = 0.10
+			political_power_gain = 0.10
+		}
+		
+		days_remove = 120
+		days_mission_timeout = 730
+		is_good = yes
+		activation = { always = no }
+		fire_only_once = yes
+
+		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = { ROOT.steppe_transormation_success = 0 }
+				}
+				add_resource = { type = crops amount = 10 state = 404 }
+				hidden_effect = {
+					cw_apply_severe_famine = yes 
+					news_event = cw_non_historic_news.7
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { ROOT.steppe_transormation_success = 5 }
+				}
+				random_list = {
+					5 = {
+						add_resource = { type = crops amount = 10 state = 402 }
+						add_resource = { type = crops amount = 10 state = 404 }
+						add_resource = { type = crops amount = 10 state = 589 }
+					}
+					95 = {
+						add_resource = { type = crops amount = 2 state = 404 }
+						add_resource = { type = crops amount = 2 state = 402 }
+						add_resource = { type = crops amount = 2 state = 589 }
+					}
+				}
+				if = {
+					limit = {
+						has_idea = cw_sov_1946_famine_severe
+					}
+					hidden_effect = {
+						cw_apply_severe_famine = yes 
+						news_event = cw_non_historic_news.7
+					}
+				}
+			}			
+			if = {
+				limit = {
+					check_variable = { ROOT.steppe_transormation_success = 20 }
+				}
+				random_list = {
+					25 = {
+						add_resource = { type = crops amount = 20 state = 402 }
+						add_resource = { type = crops amount = 20 state = 404 }
+						add_resource = { type = crops amount = 20 state = 589 }
+						hidden_effect = { news_event = cw_non_historic_news.6 }
+						set_country_flag = succesful_steppe_transformation
+					}
+					75 = {
+						add_resource = { type = crops amount = 6 state = 404 }
+						add_resource = { type = crops amount = 6 state = 402 }
+						add_resource = { type = crops amount = 6 state = 589 }
+						hidden_effect = { news_event = cw_non_historic_news.7 }
+					}
+				}
+				if = {
+					limit = {
+						has_idea = cw_sov_1946_famine_severe
+					}
+					remove_ideas = cw_sov_1946_famine_severe
+					add_timed_idea = { idea = cw_sov_1946_famine_mild days = 365 }
+				}				
+				
+			}
+			if = {
+				limit = {
+					check_variable = { ROOT.steppe_transormation_success = 35 }
+				}
+				random_list = {
+					35 = {
+						add_resource = { type = crops amount = 40 state = 402 }
+						add_resource = { type = crops amount = 40 state = 404 }
+						add_resource = { type = crops amount = 40 state = 589 }
+						hidden_effect = { news_event = cw_non_historic_news.6 }
+						set_country_flag = succesful_steppe_transformation
+					}
+					65 = {
+						add_resource = { type = crops amount = 13 state = 404 }
+						add_resource = { type = crops amount = 13 state = 402 }
+						add_resource = { type = crops amount = 13 state = 589 }
+						hidden_effect = { news_event = cw_non_historic_news.7 }
+					}
+				}
+				if = {
+					limit = {
+						has_idea = cw_sov_1946_famine_severe
+					}
+					remove_ideas = cw_sov_1946_famine_severe
+					add_timed_idea = { idea = cw_sov_1946_famine_mild days = 182 }
+				}				
+			}
+			if = {
+				limit = {
+					check_variable = { ROOT.steppe_transormation_success = 50 }
+				}
+				random_list = {
+					50 = {
+						add_resource = { type = crops amount = 70 state = 402 }
+						add_resource = { type = crops amount = 70 state = 404 }
+						add_resource = { type = crops amount = 70 state = 589 }
+						hidden_effect = { news_event = cw_non_historic_news.6 }
+						set_country_flag = succesful_steppe_transformation
+					}
+					50 = {
+						add_resource = { type = crops amount = 30 state = 404 }
+						add_resource = { type = crops amount = 15 state = 402 }
+						add_resource = { type = crops amount = 20 state = 589 }
+						hidden_effect = { news_event = cw_non_historic_news.7 }
+					}
+				}
+				if = {
+					limit = {
+						has_idea = cw_sov_1946_famine_severe
+					}
+					remove_ideas = cw_sov_1946_famine_severe
+				}				
+			}
+			hidden_effect = { clear_variable = ROOT.steppe_transormation_success }
+		}
+	}
+}
+crisis_national = {
+	sov_1946_famine = {
+		icon = GFX_handout_decision_icon
+		
+		allowed = {
+			tag = SOV
+		}
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "Soviet Union has more than 300 Crops."		
+				ROOT = { check_variable = { resource_produced@crops > 299 } }
+			}
+		}
+
+		modifier = {
+			stability_factor = 0.05
+			political_power_gain = 0.5
+			communism_totalitarian_drift = 0.05
+		}
+		
+		days_remove = 120
+		days_mission_timeout = 90
+		is_good = no
+		fire_only_once = yes
+
+		complete_effect = {
+			add_political_power = 100
+			add_stability = 0.2
+			UKR = { remove_ideas = cw_sov_1946_famine_severe }
+			UKR = { add_timed_idea = { idea = cw_famine_mild days = 172 } }
+			ROOT = { remove_ideas = cw_sov_1946_famine_mild }
+			news_event  = sov_events.13
+			if = {
+				limit = {
+					has_completed_focus = SOV_take_grain_manchuria
+				}
+				219 = { add_resource = { type = crops amount = -50 } }				
+			}
+		}
+		
+		timeout_effect = {
+			custom_effect_tooltip = "SOV_FAMINE_EFFECT_1"
+			news_event  = sov_events.11
+			remove_ideas = cw_sov_1946_famine_mild
+			add_timed_idea = { idea = cw_sov_1946_famine_severe days = 3650 }
+			hidden_effect = { activate_mission = sov_1946_famine_severe }
+		}
+	}
+	sov_1946_famine_severe = {
+		icon = GFX_skull_decision_icon
+		
+		allowed = {
+			tag = SOV
+		}
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = "Soviet Union has more than 400 Crops."		
+				ROOT = { check_variable = { resource_produced@crops > 399 } }
+			}
+		}
+		
+		modifier = {
+			stability_factor = 0.03
+			political_power_gain = 0.3
+			communism_totalitarian_drift = 0.01
+		}
+		
+		days_remove = 90
+		days_mission_timeout = 450
+		is_good = no
+		fire_only_once = yes
+		activation = { always = no }
+
+		complete_effect = {
+			add_political_power = 50
+			add_stability = 0.1
+			UKR = { remove_ideas = cw_sov_1946_famine_severe }
+			ROOT = { remove_ideas = cw_sov_1946_famine_severe }
+			news_event  = sov_events.13
+		}
+		
+		timeout_effect = {
+			news_event  = sov_events.12
+			if = {
+				limit = {
+					country_exists = UKR
+				}
+				UKR = {
+					start_civil_war = {
+						ideology = unaligned_right
+						keep_political_leader = yes
+						states = { 73 80 89 91 93 199 201 198 799 766 }
+						size = 0.7
+						capital = 91
+						states_filter = { impassable = no }
+						compute_proxy_score = yes
+					}
+					compute_proxy_score = yes
+				}
+				else = {
+					start_civil_war = {
+						ideology = communism
+						keep_political_leader = yes
+						states = { 73 80 89 91 93 199 201 198 799 766 }
+						size = 0.3
+						capital = 217
+						states_filter = { impassable = no }
+						compute_proxy_score = yes
+					}					
+					compute_proxy_score = yes
+				}
+				every_other_country = {
+					limit = {
+						original_tag = UKR
+					}
+					declare_war_on = {
+						target = SOV
+						type = take_core_state
+						generator = { 202 766 197 203 193 259 226 196 200 227 221 225 }
+					}					
+				}
+			}
+		}
+	}	
+}

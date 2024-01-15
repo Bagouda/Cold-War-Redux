@@ -1,0 +1,25 @@
+state = {
+	id=423
+	local_supplies=0.0 
+	name="STATE_423" # Madurai
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 10278 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = IND
+		add_core_of = IND
+		victory_points = {
+			10278 1 
+		}		
+	}
+	resources={
+		crops=19 # was: 28
+	}
+	manpower = 29147500
+	provinces={
+		1238 1268 1321 1381 1409 4327 4416 4420 7265 7288 7363 7402 7436 7447 8067 10130 10246 10274 10278 10808 12164 12247 12275 
+	}
+}

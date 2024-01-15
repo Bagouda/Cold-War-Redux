@@ -1,0 +1,991 @@
+focus_tree = {
+	id = north_korea_focus_tree
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = PRK
+			#always = no
+		}
+		modifier = {
+			add = -50
+			date > 1950.1.1
+		}
+	}
+	
+	default = no
+	continuous_focus_position = { x = 43 y = 155 }
+	######################################
+	#army
+	focus = {
+		id = PRK_found_korean_peoples_army
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_focus_PRK_found_korean_peoples_army
+		x = 6
+		y = 0
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		
+		completion_reward = {
+			army_experience = 10
+			add_command_power = 25
+			custom_effect_tooltip = PRK_units_unlocked_tt
+			hidden_effect = {
+				load_oob = PRK_1946
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_reform_the_guerilla_army
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_focus_YUG_pan_slavic_congress
+		x = -2
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		
+		prerequisite = { focus = PRK_found_korean_peoples_army }
+		relative_position_id = PRK_found_korean_peoples_army
+		completion_reward = {
+			custom_effect_tooltip = PRK_divisions_for_PRC_tt
+			hidden_effect = {
+				527 = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1 start_equipment_factor = 0.5"
+						owner = PRK
+					}
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1 start_equipment_factor = 0.5"
+						owner = PRK
+					}
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 1 start_equipment_factor = 0.5"
+						owner = PRK
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	focus = {
+		id = PRK_korean_volunteer_army
+		available = {
+			country_exists = PRC
+			PRC = { has_government = communism_totalitarian }
+		}
+		bypass = {
+		}
+		icon = GFX_focus_PRK_military_state
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		
+		prerequisite = { focus = PRK_reform_the_guerilla_army }
+		relative_position_id = PRK_reform_the_guerilla_army
+		completion_reward = {
+			add_ideas = PRK_kva
+			custom_effect_tooltip = PRK_volunteers_china_tt
+			hidden_effect = {
+				add_timed_idea = { idea = cw_police_action_level_1 days = 60 }
+				set_country_flag = { flag = exempt_from_volunteers_rule value = 1 days = 60 }
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_democratic_youth_league
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_political_pressure
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		
+		prerequisite = { focus = PRK_korean_volunteer_army }
+		relative_position_id = PRK_korean_volunteer_army
+		completion_reward = {
+			add_ideas = PRK_demo_youth_league
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_approach_the_soviets
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_support_communism
+		x = 2
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		
+		prerequisite = { focus = PRK_found_korean_peoples_army }
+		relative_position_id = PRK_found_korean_peoples_army
+		completion_reward = {
+			reverse_add_opinion_modifier = {
+				target = SOV
+				modifier = revolutionary_brothers
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_request_soviet_armor
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_army_tanks
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		
+		prerequisite = { focus = PRK_approach_the_soviets }
+		relative_position_id = PRK_approach_the_soviets
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = medium_tank_chassis_3
+				amount = 400
+				producer = SOV
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_recycle_soviet_equipment
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_focus_secret_rearmament
+		x = -2
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		
+		prerequisite = { focus = PRK_approach_the_soviets }
+		relative_position_id = PRK_approach_the_soviets
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 7000
+				producer = SOV
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_soviet_aircraft
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_air_fighter
+		x = 2
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_DIPLOMACY_FOCUSES }
+		
+		prerequisite = { focus = PRK_approach_the_soviets }
+		relative_position_id = PRK_approach_the_soviets
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = fighter_equipment
+				amount = 200
+				producer = SOV
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_prepare_invasion_routes
+		available = {
+			has_full_control_of_state = 527
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		prerequisite = { focus = PRK_request_soviet_armor focus = PRK_recycle_soviet_equipment focus = PRK_soviet_aircraft }
+		relative_position_id = PRK_request_soviet_armor
+		completion_reward = {
+			527 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	#industry
+	focus = {
+		id = PRK_agricultural_reform
+		available = {
+			has_full_control_of_state = 832
+		}
+		bypass = {
+		}
+		icon = GFX_focus_prc_agrarian_socialism
+		x = 14
+		y = 0
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			add_resource = { type = crops amount = 10 state = 832 }
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_appropriate_japanese_light_industry
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_construct_civ_factory
+		x = -1
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		mutually_exclusive = {focus = PRK_appropriate_japanese_heavy_industry}
+		relative_position_id = PRK_agricultural_reform
+		prerequisite = { focus = PRK_agricultural_reform }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_appropriate_japanese_heavy_industry
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 1
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		mutually_exclusive = {focus = PRK_appropriate_japanese_light_industry}
+		prerequisite = { focus = PRK_agricultural_reform }
+		relative_position_id = PRK_agricultural_reform
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = arms_factory
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_soviet_investment
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_soviet_construction
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		prerequisite = { focus = PRK_appropriate_japanese_heavy_industry focus = PRK_appropriate_japanese_light_industry }
+		relative_position_id = PRK_appropriate_japanese_heavy_industry
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = industrial_complex
+										size > 0
+										include_locked = yes
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_chinese_investment
+		available = {
+			country_exists = PRC
+			PRC = { has_government = communism_totalitarian }
+			has_full_control_of_state = 829
+		}
+		bypass = {
+		}
+		icon = GFX_focus_prc_maoism
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		prerequisite = { focus = PRK_appropriate_japanese_heavy_industry focus = PRK_appropriate_japanese_light_industry }
+		relative_position_id = PRK_appropriate_japanese_light_industry
+		completion_reward = {
+			829 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_uwak
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_consumer_goods
+		x = -1
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		prerequisite = { focus = PRK_chinese_investment }
+		prerequisite = {focus = PRK_soviet_investment}
+		relative_position_id = PRK_soviet_investment
+		completion_reward = {
+			add_ideas = PRK_uwak_idea
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_domestic_production
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_production
+		x = -1
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		prerequisite = { focus = PRK_uwak }
+		relative_position_id = PRK_uwak
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = PRK_uwak_idea
+				add_idea = PRK_uwak_idea_1
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	#politics
+	focus = {
+		id = PRK_korean_administration
+		available = {
+			
+		}
+		icon = GFX_hol_the_foundations_of_defense
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 20
+		y = 0
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			hidden_effect = {
+				set_politics = {
+					ruling_party = communism_totalitarian
+				}
+			}
+			create_country_leader = {
+				name = "Kim Il-sung"
+				desc = ""
+				picture = "PRKH1.dds"
+				ideology = juche_idolg
+				expire = 1994.1.1
+				traits = { last_stand_fighter fiercely_independent factional_underdog}
+			}
+	
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_consolidate_the_parties
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_focus_PRK_consolidate_the_parties
+		icon = GFX_focus_PRK_consolidate_the_parties
+		x = -1
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		prerequisite = { focus = PRK_korean_administration }
+		relative_position_id = PRK_korean_administration
+		completion_reward = {
+			swap_ruler_traits = { remove = factional_underdog add = factional_underdog_1 }
+	
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_stabilize_the_economy
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 1
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		prerequisite = { focus = PRK_korean_administration }
+		relative_position_id = PRK_korean_administration
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = PRK_weak_economy
+				add_idea = PRK_weak_economy_2
+			}
+	
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_establish_DPRK
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_focus_PRK_proclaim_dprk
+		x = -1
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		
+		prerequisite = { focus = PRK_stabilize_the_economy }
+		prerequisite = { focus = PRK_consolidate_the_parties }
+		relative_position_id = PRK_stabilize_the_economy
+		completion_reward = {
+			SOV = {
+				set_autonomy = {
+					target = PRK
+					autonomy_state = autonomy_free
+				}
+			}
+	
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_prepare_for_war
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		prerequisite = { focus = PRK_establish_DPRK }
+		relative_position_id = PRK_establish_DPRK
+		completion_reward = {
+			
+			add_ideas = cw_military_industry_focus
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_peoples_guerilla_units
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_focus_prc_infiltration
+		x = 0
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		
+		prerequisite = { focus = PRK_prepare_for_war }
+		relative_position_id = PRK_prepare_for_war
+		completion_reward = {
+			if = {
+					limit = {
+						KOR = { is_ai = yes }
+					}
+						add_ideas = PRK_southern_infiltration
+				}
+				if = {
+					limit = {
+						KOR = { is_ai = no }
+					}
+						add_ideas = PRK_southern_infiltration_player
+				}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = PRK_test_the_waters
+		available = {
+			
+		}
+		bypass = {
+		}
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 2
+		y = 1
+		cost = 10
+		
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		
+		prerequisite = { focus = PRK_prepare_for_war }
+		relative_position_id = PRK_prepare_for_war
+		completion_reward = {
+			custom_effect_tooltip = CRUSH_KMT_FOCUS_EFFECT_2
+			hidden_effect = {
+				set_country_flag = { flag = free_border_incidents value = 1 days = 200 }
+				set_country_flag = { flag = free_border_incidents value = 1 days = 200 }
+				if = {
+					limit = {
+						ROOT = { is_ai = yes }
+					}
+					set_country_flag = { flag = initiate_border_skirmish value = 1 days = 200 }
+					830 = {
+						every_neighbor_state = {
+							limit = {
+								is_controlled_by = KOR 
+							}
+							set_state_flag = { flag = border_skirmish_target value = 1 days = 200 }
+						} 
+					}
+					831 = {
+						every_neighbor_state = {
+							limit = {
+								is_controlled_by = KOR 
+							}
+							set_state_flag = { flag = border_skirmish_target value = 1 days = 200 }
+						} 
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			base = 1
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	### TO BE MOVED TO 1950s
+	
+		
+}

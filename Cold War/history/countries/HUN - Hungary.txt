@@ -1,0 +1,324 @@
+﻿capital = 43
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+####start tech####
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons2 = 1
+	infantry_weapons1 = 1
+	improved_infantry_weapons = 1
+	improved_infantry_weapons_2 = 1
+	infantry_at = 1
+	infantry_at2 = 1
+	advanced_infantry_weapons = 1
+	advanced_infantry_weapons2 = 1
+	marines = 1
+	paratroopers = 1
+	tech_mountaineers = 1
+	tech_special_forces = 1
+	jungle_warfare = 1
+	mountain_warfare = 1
+	night_vision = 1
+	support_weapons = 1
+	support_weapons2 = 1
+	support_weapons3 = 1
+	support_weapons4 = 1
+	motorised_infantry = 1
+	motorized_rocket_unit = 1
+	armored_car1 = 1
+	armored_car2 = 1
+	armored_car3 = 1
+	armored_car_at_upgrade = 1
+	mechanised_infantry = 1
+	amphibious_mechanized_infantry = 1
+	amphibious_mechanized_infantry_2 = 1
+	mechanised_infantry2 = 1
+	mechanised_infantry3 = 1
+	
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_military_police = 1
+	tech_maintenance_company = 1
+	tech_field_hospital = 1
+	tech_logistics_company = 1
+	tech_signal_company = 1
+	basic_train = 1
+	railway_gun = 1
+	wartime_train = 1
+	armored_train = 1
+	
+	gw_artillery = 1
+	interwar_artillery = 1
+	artillery1 = 1
+	artillery2 = 1
+	artillery3 = 1
+	artillery4 = 1
+	artillery5 = 1
+	mountain_gun = 1
+	rocket_artillery = 1
+	rocket_artillery2 = 1
+	rocket_artillery3 = 1
+	rocket_artillery4 = 1
+	interwar_antiair = 1
+	antiair1 = 1
+	antiair2 = 1
+	antiair3 = 1
+	antiair4 = 1
+	antiair5 = 1
+	interwar_antitank = 1
+	antitank1 = 1
+	antitank2 = 1
+	antitank3 = 1
+	antitank4 = 1
+	antitank5 = 1
+	
+	early_fighter = 1
+	cv_early_fighter = 1
+	fighter1 = 1
+	cv_fighter1 = 1
+	fighter2 = 1
+	cv_fighter2 = 1
+	fighter3 = 1
+	cv_fighter3 = 1
+	jet_fighter1 = 1
+	jet_fighter2 = 1
+	CAS1 = 1
+	cv_CAS1 = 1
+	CAS2 = 1
+	cv_CAS2 = 1
+	CAS3 = 1
+	cv_CAS3 = 1
+	naval_bomber1 = 1
+	cv_naval_bomber1 = 1
+	naval_bomber2 = 1
+	cv_naval_bomber2 = 1
+	naval_bomber3 = 1
+	cv_naval_bomber3 = 1
+	early_bomber = 1
+	heavy_fighter1 = 1
+	heavy_fighter2 = 1
+	heavy_fighter3 = 1
+	scout_plane1 = 1
+	scout_plane2 = 1
+	tactical_bomber1 = 1
+	tactical_bomber2 = 1
+	tactical_bomber3 = 1
+	jet_tactical_bomber1 = 1
+	jet_tactical_bomber2 = 1
+	strategic_bomber1 = 1
+	strategic_bomber2 = 1
+	strategic_bomber3 = 1
+	jet_strategic_bomber1 = 1
+	
+	gwtank = 1
+	basic_light_tank = 1
+	basic_light_td = 1
+	basic_light_art = 1
+	basic_light_spaa = 1
+	improved_light_tank = 1
+	improved_light_td = 1
+	improved_light_art = 1
+	improved_light_spaa = 1
+	amphibious_tank = 1
+	amphibious_tank_2 = 1
+	advanced_light_tank = 1
+	advanced_light_td = 1
+	advanced_light_art = 1
+	advanced_light_spaa = 1
+	basic_medium_tank = 1
+	basic_medium_td = 1
+	basic_medium_art = 1
+	basic_medium_spaa = 1
+	improved_medium_tank = 1
+	improved_medium_td = 1
+	improved_medium_art = 1
+	improved_medium_spaa = 1
+	advanced_medium_tank = 1
+	advanced_medium_td = 1
+	advanced_medium_art = 1
+	advanced_medium_spaa = 1
+	main_battle_tank = 1
+	modern_td = 1
+	modern_art = 1
+	modern_spaa = 1
+	basic_heavy_tank = 1
+	basic_heavy_td = 1
+	basic_heavy_art = 1
+	basic_heavy_spaa = 1
+	improved_heavy_tank = 1
+	improved_heavy_td = 1
+	improved_heavy_art = 1
+	improved_heavy_spaa = 1
+	advanced_heavy_tank = 1
+	advanced_heavy_td = 1
+	advanced_heavy_art = 1
+	advanced_heavy_spaa = 1
+	super_heavy_tank = 1
+	super_heavy_td = 1
+	super_heavy_art = 1
+	super_heavy_spaa = 1
+	
+	electronic_mechanical_engineering = 1
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		amphibious_tank_chassis = 1
+		amphibious_drive = 1
+		advanced_light_tank_chassis = 1
+		basic_medium_tank_chassis = 1
+		improved_medium_tank_chassis = 1
+		advanced_medium_tank_chassis = 1
+		main_battle_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		improved_heavy_tank_chassis = 1
+		advanced_heavy_tank_chassis = 1
+		super_heavy_tank_chassis = 1
+		armor_tech_1 = 1
+		armor_tech_2 = 1
+		armor_tech_3 = 1
+		armor_tech_4 = 1
+		engine_tech_1 = 1
+		engine_tech_2 = 1
+		engine_tech_3 = 1
+		engine_tech_4 = 1
+	}
+}
+####end tech####
+1946.1.1 = {
+	set_country_flag = mon_ref_restrict_absolute_vote
+	set_cosmetic_tag = HUN_CM
+	oob = "HUN_1946"
+	### Country Leaders
+	recruit_character = HUN_zoltan_tildy
+	recruit_character = HUN_ferenc_nagy
+	recruit_character = HUN_matyas_rakosi
+	### Deputy Minister
+	### Foreign Minister
+	recruit_character = hun_fm_lazlo_rajk
+	activate_advisor = hun_fm_lazlo_rajk
+	### Defense Minister
+	recruit_character = hun_dm_tombor_jeno
+	activate_advisor = hun_dm_tombor_jeno
+	### Treasure Minister
+	recruit_character = hun_tm_ferenc_gordon
+	activate_advisor = hun_tm_ferenc_gordon
+	### Chief of Staff
+	recruit_character = hun_chief_janos_voros
+	activate_advisor = hun_chief_janos_voros
+	### Head of Intelligence
+	### Military Leaders
+	add_ideas = {
+		# Country ideas
+		hun_regency	
+	}
+	give_military_access = SOV
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1945.1.1"		
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {	
+		democratic  = 57
+		democratic_socialist = 20
+		neutrality = 3
+		communism_totalitarian = 20
+		unaligned_right = 0
+		colonial =  0
+	}
+}
+
+1948.5.14 = {
+	create_country_leader = {
+		name = "István Dobi"
+		desc = ""
+		picture = "HUNH4.dds"
+		ideology = stalinism_idolg
+		expire = 1952.8.14
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Lajos Dinnyés"
+		desc = ""
+		picture = "HUNH3.dds"
+		ideology = social_cons_idolg
+		expire = 1947.5.31
+		traits = {}
+	}
+}
+
+1950.6.25 = {
+	drop_cosmetic_tag = yes
+	set_cosmetic_tag = SOV_PUP #Second Hungarian Republic
+	set_politics = {
+		ruling_party = communism_totalitarian
+		last_election = "1947.8.31"		
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 21
+		democratic_socialist = 22
+		neutrality = 15
+		communism_totalitarian = 42
+		unaligned_right = 0
+		colonial =  0
+	}		
+	set_popularities = {	
+		democratic  = 21
+		democratic_socialist = 22
+		neutrality = 15
+		communism_totalitarian = 42
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Ernő Gerő"
+		desc = ""
+		picture = "HUNH6.dds"
+		ideology = stalinism_idolg
+		expire = 1965.7.18
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Mátyás Rákosi"
+		desc = ""
+		picture = "HUNH5.dds"
+		ideology = stalinism_idolg
+		expire = 1956.7.18
+		traits = {}
+	}
+}
+1961.12.11 = {	
+	set_politics = {
+		elections_allowed = no
+	}
+	create_country_leader = {
+		name = "János Kádár"
+		desc = ""
+		picture = "HUNH7.dds"
+		ideology = revisionist_idolg
+		expire = 1965.7.18
+		traits = { communist_reformist }
+	}	
+}
+1979.12.24 = {
+}
+1989.1.9 = {
+	create_country_leader = {
+		name = "Károly Grósz"
+		desc = ""
+		picture = "HUNH8.dds"
+		ideology = stalinism_idolg
+		expire = 1999.7.18
+		traits = {}
+	}
+}

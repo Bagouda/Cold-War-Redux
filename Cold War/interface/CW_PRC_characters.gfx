@@ -1,0 +1,190 @@
+spriteTypes = {
+	###############################################################################################
+	################################## PRC Political Characters ###################################
+	###############################################################################################
+	### Country Leaders
+	spriteType = {
+		name = "GFX_prc_mao_zedong_large"
+		texturefile = "gfx/leaders/PRC/PRCH1.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_peng_zhen"
+		texturefile = "gfx/interface/ministers/PRC/prc_peng_zhen.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_zhang_wentian"
+		texturefile = "gfx/interface/ministers/PRC/prc_zhang_wentian.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_liu_yalou"
+		texturefile = "gfx/interface/ministers/PRC/prc_liu_yalou.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_wu_yuzhang"
+		texturefile = "gfx/interface/ministers/PRC/prc_wu_yuzhang.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_li_fuchun"
+		texturefile = "gfx/interface/ministers/PRC/prc_li_fuchun.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_lu_dingyi"
+		texturefile = "gfx/interface/ministers/PRC/prc_lu_dingyi.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_cai_chang"
+		texturefile = "gfx/interface/ministers/PRC/prc_prc_cai_chang.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_lin_boqu"
+		texturefile = "gfx/interface/ministers/PRC/prc_lin_boqu.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_ren_bishi"
+		texturefile = "gfx/interface/ministers/PRC/prc_ren_bishi.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_gao_gang"
+		texturefile = "gfx/interface/ministers/PRC/prc_gao_gang.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_tm_chen_yun"
+		texturefile = "gfx/interface/ministers/PRC/prc_tm_chen_yun.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_kang_sheng"
+		texturefile = "gfx/interface/ministers/PRC/prc_kang_sheng.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_tm_deng_xiaoping"
+		texturefile = "gfx/interface/ministers/PRC/prc_tm_deng_xiaoping.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_hu_yaobang"
+		texturefile = "gfx/interface/ministers/PRC/prc_hu_yaobang.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_liu_shaoqi"
+		texturefile = "gfx/interface/ministers/PRC/prc_liu_shaoqi.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_li_xiannian"
+		texturefile = "gfx/interface/ministers/PRC/prc_li_xiannian.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_mao_zedong"
+		texturefile = "gfx/interface/ministers/PRC/prc_mao_zedong.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_zhou_enlai"
+		texturefile = "gfx/interface/ministers/PRC/zhou_enlai.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_chen_yi"
+		texturefile = "gfx/interface/ministers/PRC/prc_chen_yi.dds"
+	}
+	#
+	spriteType = {
+		name = "GFX_prc_peng_dehuai"
+		texturefile = "gfx/interface/ministers/PRC/prc_dm_peng_dehuai.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_lin_biao"
+		texturefile = "gfx/interface/ministers/PRC/prc_dm_lin_biao.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_ye_jianying"
+		texturefile = "gfx/interface/ministers/PRC/prc_dm_ye_jianying.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_xu_xiangqian"
+		texturefile = "gfx/interface/ministers/PRC/prc_xu_xiangqian.dds"
+	}	
+	spriteType = {
+		name = "GFX_prc_zhang_aiping"
+		texturefile = "gfx/interface/ministers/PRC/prc_zhang_aiping.dds"
+	}
+	###############################################################################################
+	################################## PRC Intelligence Heads #####################################
+	###############################################################################################
+
+	###############################################################################################
+	################################## PRC Military Characters ####################################
+	###############################################################################################
+	spriteType = {
+		name = "GFX_prc_zhu_de_large"
+		texturefile = "gfx/leaders/PRC/PRC_FM_145000.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_zhu_de_small"
+		texturefile = "gfx/interface/ministers/PRC/PRC_FM_145000_small.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_xu_xiangqian_large"
+		texturefile = "gfx/leaders/PRC/PRC_FM_145010.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_he_long_large"
+		texturefile = "gfx/leaders/PRC/PRC_FM_145011.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_he_long_small"
+		texturefile = "gfx/interface/ministers/PRC/PRC_FM_145011_small.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_liu_bocheng_large"
+		texturefile = "gfx/leaders/PRC/PRC_FM_145012.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_liu_bocheng_small"
+		texturefile = "gfx/interface/ministers/PRC/PRC_FM_145012_small.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_nie_rongzhen_large"
+		texturefile = "gfx/leaders/PRC/PRC_FM_145013.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_nie_rongzhen_small"
+		texturefile = "gfx/interface/ministers/PRC/PRC_FM_145013_small.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_peng_dehuai_large"
+		texturefile = "gfx/leaders/PRC/PRC_FM_145014.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_lin_biao_large"
+		texturefile = "gfx/leaders/PRC/PRC_FM_145015.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_su_yu_large"
+		texturefile = "gfx/leaders/PRC/PRC_CC_145100.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_su_yu_small"
+		texturefile = "gfx/interface/ministers/PRC/PRC_CC_145100_small.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_chen_geng_large"
+		texturefile = "gfx/leaders/PRC/PRC_CC_145101.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_chen_geng_small"
+		texturefile = "gfx/interface/ministers/PRC/PRC_CC_145101_small.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_tan_zheng_large"
+		texturefile = "gfx/leaders/PRC/PRC_CC_145102.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_tan_zheng_small"
+		texturefile = "gfx/interface/ministers/PRC/PRC_CC_145102_small.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_yang_dezhi_large"
+		texturefile = "gfx/leaders/PRC/PRC_CC_145103.dds"
+	}
+	spriteType = {
+		name = "GFX_prc_yang_dezhi_small"
+		texturefile = "gfx/interface/ministers/PRC/PRC_CC_145103_small.dds"
+	}
+}

@@ -1,0 +1,23 @@
+﻿
+units= {
+
+	####### NAVAL UNITS #######
+	
+	fleet = {
+	          name = "Netherland Royal Navy"
+			  naval_base = 1145
+			  task_force = {
+			  name = "submarine force east indies"
+			  location = 7627 
+			  ship = { name = "O 21" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = HOL version_name = "Dolfijn Class" } } }
+			  ship = { name = "O 23" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = HOL version_name = "Dolfijn Class" } } }
+			  ship = { name = "O 24" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = HOL version_name = "Dolfijn Class" } } }
+			  ship = { name = "O 27" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = HOL version_name = "Dolfijn Class" } } }
+			  ship = { name = "Dolfijn" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = HOL version_name = "Dolfijn Class" } } }
+			  ship = { name = "Zwaardvisch" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = HOL version_name = "Dolfijn Class" } } }
+			  ship = { name = "Tijgerhaai" definition = submarine equipment = { ship_hull_submarine_4 = { amount = 1 owner = HOL version_name = "Dolfijn Class" } } }
+			}
+	}
+	
+} 
+

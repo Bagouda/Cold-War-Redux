@@ -1,0 +1,139 @@
+﻿start_equipment_factor = 0.25
+division_template = {
+	name = "Infantry division"		
+	#division_names_group = POR_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Border guard"		
+	#division_names_group = POR_INF_01
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+		mountaineers = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+	}
+}
+
+
+
+units = {
+	
+	division = {
+		name = "1st Infantry division"
+		location = 11929
+		division_template = "Infantry division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "2nd Infantry division"
+		location = 4998
+		division_template = "Infantry division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "3rd Infantry division"
+		location = 1978
+		division_template = "Infantry division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "4th Infantry division"
+		location = 4558
+		division_template = "Infantry division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "5th Infantry division"
+		location = 8022
+		division_template = "Infantry division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "6th Infantry division"
+		location = 8013
+		division_template = "Infantry division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "7th Infantry division"
+		location = 2084
+		division_template = "Infantry division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "8th Infantry division"
+		location = 2041
+		division_template = "Infantry division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "9th Infantry division"
+		location = 1910
+		division_template = "Infantry division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "10th Border guard"
+		location = 10735
+		division_template = "Border guard"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "11th Border guard"
+		location = 2041
+		division_template = "Border guard"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+	division = {
+		name = "12th Border guard"
+		location = 1910
+		division_template = "Border guard"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.9
+
+	}
+
+	
+}
+
+
+
+### Starting Production ###

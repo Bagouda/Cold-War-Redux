@@ -1,0 +1,682 @@
+@AID_DRIFT_EFFECT = 0.05
+@AID_PUPPET_EFFECT = 0.1
+cw_upgrade_economic_aid = {
+	if = {
+		limit = {
+			check_variable = { economic_aid_level@ROOT < 3 }
+		}
+		custom_effect_tooltip = "[THIS.GetAdjective] Economic Aid will be increased by 1 level."
+		hidden_effect = {
+			cw_economic_aid_upgraded_notification = yes
+			add_opinion_modifier = {
+			  target = ROOT
+			  modifier = increased_our_economic_aid
+			}
+			add_offsite_building = { type = industrial_complex level = 4 }
+			add_to_variable = { economic_aid_level@ROOT = 1 }
+			add_to_variable = { aid_program_effect@ROOT = 0.10 }
+			if = {
+			  limit = {
+				OR = {
+				  is_puppet_of = ROOT
+				  is_subject_of = ROOT
+				}
+			  }
+			  subtract_from_variable = { aid_program_puppet_effect@ROOT = @AID_PUPPET_EFFECT }
+			  else_if = {
+				limit = {
+				  OR = {
+					is_puppet = yes
+					is_subject = yes
+				  }
+				}
+				subtract_from_variable = { aid_program_puppet_effect@ROOT = @AID_PUPPET_EFFECT }
+			  }
+			}
+			if = {
+			  limit = {
+				ROOT = {
+				  OR = {
+					has_government = democratic
+					has_government = democratic_socialist
+				  }
+				}
+			  }
+			  subtract_from_variable = {
+				aid_program_drift_communism_ref_effect@ROOT = @AID_DRIFT_EFFECT
+			  }
+			  subtract_from_variable = {
+				aid_program_drift_communism_total_effect@ROOT = @AID_DRIFT_EFFECT
+			  }
+			}
+			if = {
+			  limit = {
+				ROOT = {
+				  has_government = communism
+				}
+			  }
+			  add_to_variable = {
+				aid_program_drift_communism_ref_effect@ROOT = @AID_DRIFT_EFFECT
+			  }
+			}
+			if = {
+			  limit = {
+				ROOT = {
+				  has_government = communism_totalitarian
+				}
+			  }
+			  add_to_variable = {
+				aid_program_drift_communism_total_effect@ROOT = @AID_DRIFT_EFFECT
+			  }
+			}
+			if = {
+			  limit = {
+				ROOT = {
+				  OR = {
+					has_government = unaligned_right
+					has_government = neutrality
+				  }
+				}
+			  }
+			  add_to_variable = {
+				aid_program_drift_neutrality_effect@ROOT = @AID_DRIFT_EFFECT
+			  }
+			}
+			ROOT = { set_variable = { aid_program_upgrade_cooldown = 30 } }
+			if = {
+				limit = {
+				  var:aid_modification_target = { has_idea_with_trait = cw_briliant_negotiator }
+				}
+				else = {
+				  ROOT = { add_to_variable = { aid_program_cost = 5 } }
+				}
+			}
+		}
+		else = {
+			custom_effect_tooltip = "[THIS.GetAdjective] Economic Aid is at maximum and cannot be raised further."
+		}
+	}
+}
+cw_give_economic_aid_effect_locked = {		#Example KOR = { cw_give_economic_aid_effect_locked = yes } # To set amount of days: KOR = { set_variable = { cw_economic_aid_lock@ROOT = 1825 } }
+	if = {
+		limit = {
+			NOT = { has_variable = cw_economic_aid_lock@ROOT }
+			NOT = {
+				is_in_array = {
+					array = ROOT.aid_program_participants_array
+					value = THIS.id
+				}
+			}			
+		}
+		set_variable = { cw_economic_aid_lock@ROOT = 365 }
+	}
+	if = {
+		limit = {
+			NOT = {
+				is_in_array = {
+					array = ROOT.aid_program_participants_array
+					value = THIS.id
+				}
+			}
+			OR = {
+				AND = {
+					ROOT = { 
+						has_country_flag = democratic_leader_flag
+						check_variable = { economic_aid_program_participants < global.dem_aid_program_max_participants }
+					}
+				}
+				AND = {
+					ROOT = { 
+						has_country_flag = communist_leader_flag
+						check_variable = { economic_aid_program_participants < global.com_aid_program_max_participants }
+					}
+				}
+				AND = {
+					ROOT = { 
+						has_country_flag = communist_reformist_leader_flag
+						check_variable = { economic_aid_program_participants < global.com_ref_aid_program_max_participants }
+					}
+				}				
+				AND = {
+					ROOT = { 
+						has_country_flag = neutral_leader_flag
+						check_variable = { economic_aid_program_participants < global.neutral_aid_program_max_participants }
+					}
+				}
+			}
+		}
+		custom_effect_tooltip = "CW_AID_PROGRAM_SCRIPTED_EFFECT_TT"	
+		hidden_effect = {
+			ROOT = {
+				add_to_variable = { economic_aid_program_participants = 1 } 
+				add_to_variable = { aid_program_cost = 5 }
+			}
+			add_offsite_building = { type = industrial_complex level = 4 }
+			set_variable = { aid_program_effect@ROOT = 0.10 }
+			set_variable = { economic_aid_level@ROOT = 1 }
+			if = {
+				limit = {
+					OR = {
+						is_puppet_of = ROOT
+						is_subject_of = ROOT
+					}
+				}
+				subtract_from_variable = { aid_program_puppet_effect@ROOT = @AID_PUPPET_EFFECT }
+				else_if = {
+					limit = {
+						OR = {
+							is_puppet = yes
+							is_subject = yes
+						}
+					}
+					subtract_from_variable = { aid_program_puppet_effect@ROOT = @AID_PUPPET_EFFECT }
+				}
+			}			
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							has_government = democratic
+							has_government = democratic_socialist
+						}
+					}
+				}
+				subtract_from_variable = {
+					aid_program_drift_communism_ref_effect@ROOT = @AID_DRIFT_EFFECT
+				}
+				subtract_from_variable = {
+					aid_program_drift_communism_total_effect@ROOT = @AID_DRIFT_EFFECT
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						has_government = communism
+					}
+				}
+				add_to_variable = {
+					aid_program_drift_communism_ref_effect@ROOT = @AID_DRIFT_EFFECT
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						has_government = communism_totalitarian
+					}
+				}
+				add_to_variable = {
+					aid_program_drift_communism_total_effect@ROOT = @AID_DRIFT_EFFECT
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							has_government = unaligned_right
+							has_government = neutrality
+						}
+					}
+				}
+				add_to_variable = {
+					aid_program_drift_neutrality_effect@ROOT = @AID_DRIFT_EFFECT
+				}
+			}
+			add_to_array = {
+				array = ROOT.aid_program_participants_array
+				value = THIS.id
+			}
+			add_dynamic_modifier = {
+				modifier = cw_aid_program_target_dm
+				scope = ROOT
+			}
+			set_country_flag = recieving_economic_aid
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = enrolled_us_to_aid
+			}
+			ROOT = {
+				add_opinion_modifier = {
+					target = PREV
+					modifier = joined_economic_aid_program
+				}
+			}
+			ROOT = {
+				add_opinion_modifier = {
+					target = PREV
+					modifier = joined_economic_aid_program_trade
+				}
+			}			
+			if = {
+				limit = {
+					ROOT = {
+						NOT = { has_dynamic_modifier = { modifier = cw_aid_program_giver_dm } }
+					}
+				}
+				ROOT = {
+					add_dynamic_modifier = {
+						modifier = cw_aid_program_giver_dm
+					}
+				}
+			}
+		}
+		else = {
+			custom_effect_tooltip = "CW_AID_PROGRAM_SCRIPTED_EFFECT_TT"
+			custom_effect_tooltip = "CW_AID_PROGRAM_FULL_WARNING"
+			hidden_effect = {
+				ROOT = {
+					add_to_variable = { economic_aid_program_participants = 1 } 
+					add_to_variable = { aid_program_cost = 5 }
+				}
+				add_offsite_building = { type = industrial_complex level = 4 }
+				set_variable = { aid_program_effect@ROOT = 0.10 }
+				set_variable = { economic_aid_level@ROOT = 1 }
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_government = democratic
+								has_government = democratic_socialist
+							}
+						}
+					}
+					subtract_from_variable = {
+						aid_program_drift_communism_ref_effect@ROOT = @AID_DRIFT_EFFECT
+					}
+					subtract_from_variable = {
+						aid_program_drift_communism_total_effect@ROOT = @AID_DRIFT_EFFECT
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							has_government = communism
+						}
+					}
+					add_to_variable = {
+						aid_program_drift_communism_ref_effect@ROOT = @AID_DRIFT_EFFECT
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							has_government = communism_totalitarian
+						}
+					}
+					add_to_variable = {
+						aid_program_drift_communism_total_effect@ROOT = @AID_DRIFT_EFFECT
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_government = unaligned_right
+								has_government = neutrality
+							}
+						}
+					}
+					add_to_variable = {
+						aid_program_drift_neutrality_effect@ROOT = @AID_DRIFT_EFFECT
+					}
+				}
+				add_to_array = {
+					array = ROOT.aid_program_participants_array
+					value = THIS.id
+				}
+				add_dynamic_modifier = {
+					modifier = cw_aid_program_target_dm
+					scope = ROOT
+				}
+				set_country_flag = recieving_economic_aid
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = enrolled_us_to_aid
+				}
+				ROOT = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = joined_economic_aid_program
+					}
+				}
+				ROOT = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = joined_economic_aid_program_trade
+					}
+				}			
+				if = {
+					limit = {
+						ROOT = {
+							NOT = { has_dynamic_modifier = { modifier = cw_aid_program_giver_dm } }
+						}
+					}
+					ROOT = {
+						add_dynamic_modifier = {
+							modifier = cw_aid_program_giver_dm
+						}
+					}
+				}
+			}
+			random_country = {
+				limit = {
+					is_in_array = {
+						array = ROOT.aid_program_participants_array
+						value = THIS.id
+					}
+				}
+				cw_remove_from_aid_program = yes
+			}
+		}
+	}
+}
+
+cw_give_economic_aid_effect = {
+	if = {
+		limit = {
+			NOT = {
+				is_in_array = {
+					array = ROOT.aid_program_participants_array
+					value = THIS.id
+				}
+			}		
+			OR = {
+				AND = {
+					ROOT = { 
+						has_country_flag = democratic_leader_flag
+						check_variable = { economic_aid_program_participants < global.dem_aid_program_max_participants }
+					}
+				}
+				AND = {
+					ROOT = { 
+						has_country_flag = communist_leader_flag
+						check_variable = { economic_aid_program_participants < global.com_aid_program_max_participants }
+					}
+				}
+				AND = {
+					ROOT = { 
+						has_country_flag = communist_reformist_leader_flag
+						check_variable = { economic_aid_program_participants < global.com_ref_aid_program_max_participants }
+					}
+				}				
+				AND = {
+					ROOT = { 
+						has_country_flag = neutral_leader_flag
+						check_variable = { economic_aid_program_participants < global.neutral_aid_program_max_participants }
+					}
+				}
+			}
+		}
+		custom_effect_tooltip = "CW_AID_PROGRAM_SCRIPTED_EFFECT_TT"
+		hidden_effect = {
+			ROOT = {
+				add_to_variable = { economic_aid_program_participants = 1 } 
+				add_to_variable = { aid_program_cost = 5 }
+			}
+			add_offsite_building = { type = industrial_complex level = 4 }
+			set_variable = { aid_program_effect@ROOT = 0.10 }
+			set_variable = { economic_aid_level@ROOT = 1 }
+			if = {
+				limit = {
+					OR = {
+						is_puppet_of = ROOT
+						is_subject_of = ROOT
+					}
+				}
+				subtract_from_variable = { aid_program_puppet_effect@ROOT = AID_PUPPET_EFFECT }
+				else_if = {
+					limit = {
+						OR = {
+							is_puppet = yes
+							is_subject = yes
+						}
+					}
+					subtract_from_variable = { aid_program_puppet_effect@ROOT = AID_PUPPET_EFFECT }
+				}
+			}			
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							has_government = democratic
+							has_government = democratic_socialist
+						}
+					}
+				}
+				subtract_from_variable = {
+					aid_program_drift_communism_ref_effect@ROOT = @AID_DRIFT_EFFECT
+				}
+				subtract_from_variable = {
+					aid_program_drift_communism_total_effect@ROOT = @AID_DRIFT_EFFECT
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						has_government = communism
+					}
+				}
+				add_to_variable = {
+					aid_program_drift_communism_ref_effect@ROOT = @AID_DRIFT_EFFECT
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						has_government = communism_totalitarian
+					}
+				}
+				add_to_variable = {
+					aid_program_drift_communism_total_effect@ROOT = @AID_DRIFT_EFFECT
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							has_government = unaligned_right
+							has_government = neutrality
+						}
+					}
+				}
+				add_to_variable = {
+					aid_program_drift_neutrality_effect@ROOT = @AID_DRIFT_EFFECT
+				}
+			}
+			add_to_array = {
+				array = ROOT.aid_program_participants_array
+				value = THIS.id
+			}
+			add_dynamic_modifier = {
+				modifier = cw_aid_program_target_dm
+				scope = ROOT
+			}
+			set_country_flag = recieving_economic_aid
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = enrolled_us_to_aid
+			}
+			ROOT = {
+				add_opinion_modifier = {
+					target = PREV
+					modifier = joined_economic_aid_program
+				}
+			}
+			ROOT = {
+				add_opinion_modifier = {
+					target = PREV
+					modifier = joined_economic_aid_program_trade
+				}
+			}			
+			if = {
+				limit = {
+					ROOT = {
+						NOT = { has_dynamic_modifier = { modifier = cw_aid_program_giver_dm } }
+					}
+				}
+				ROOT = {
+					add_dynamic_modifier = {
+						modifier = cw_aid_program_giver_dm
+					}
+				}
+			}
+		}
+		else = {
+			custom_effect_tooltip = "CW_AID_PROGRAM_SCRIPTED_EFFECT_TT"
+			custom_effect_tooltip = "CW_AID_PROGRAM_FULL_WARNING"
+			hidden_effect = {
+				ROOT = {
+					add_to_variable = { economic_aid_program_participants = 1 } 
+					add_to_variable = { aid_program_cost = 5 }
+				}
+				add_offsite_building = { type = industrial_complex level = 4 }
+				set_variable = { aid_program_effect@ROOT = 0.10 }
+				set_variable = { economic_aid_level@ROOT = 1 }
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_government = democratic
+								has_government = democratic_socialist
+							}
+						}
+					}
+					subtract_from_variable = {
+						aid_program_drift_communism_ref_effect@ROOT = @AID_DRIFT_EFFECT
+					}
+					subtract_from_variable = {
+						aid_program_drift_communism_total_effect@ROOT = @AID_DRIFT_EFFECT
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							has_government = communism
+						}
+					}
+					add_to_variable = {
+						aid_program_drift_communism_ref_effect@ROOT = @AID_DRIFT_EFFECT
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							has_government = communism_totalitarian
+						}
+					}
+					add_to_variable = {
+						aid_program_drift_communism_total_effect@ROOT = @AID_DRIFT_EFFECT
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_government = unaligned_right
+								has_government = neutrality
+							}
+						}
+					}
+					add_to_variable = {
+						aid_program_drift_neutrality_effect@ROOT = @AID_DRIFT_EFFECT
+					}
+				}
+				add_to_array = {
+					array = ROOT.aid_program_participants_array
+					value = THIS.id
+				}
+				add_dynamic_modifier = {
+					modifier = cw_aid_program_target_dm
+					scope = ROOT
+				}
+				set_country_flag = recieving_economic_aid
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = enrolled_us_to_aid
+				}
+				ROOT = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = joined_economic_aid_program
+					}
+				}
+				ROOT = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = joined_economic_aid_program_trade
+					}
+				}			
+				if = {
+					limit = {
+						ROOT = {
+							NOT = { has_dynamic_modifier = { modifier = cw_aid_program_giver_dm } }
+						}
+					}
+					ROOT = {
+						add_dynamic_modifier = {
+							modifier = cw_aid_program_giver_dm
+						}
+					}
+				}
+			}
+			random_country = {
+				limit = {
+					is_in_array = {
+						array = ROOT.aid_program_participants_array
+						value = THIS.id
+					}
+				}
+				cw_remove_from_aid_program = yes
+			}
+		}
+	}
+}
+cw_remove_from_aid_program = {
+	custom_effect_tooltip = "CW_REMOVE_FROM_AID_PROGRAM_TT"
+	hidden_effect = {
+		ROOT = { subtract_from_variable = { economic_aid_program_participants = 1 } }
+		if = {
+			limit = {
+				check_variable = { economic_aid_level@ROOT = 1 }
+			}
+			add_offsite_building = { type = industrial_complex level = -4 }
+			ROOT = { subtract_from_variable = { aid_program_cost = 5 } }
+		}
+		if = {
+			limit = {
+				check_variable = { economic_aid_level@ROOT = 2 }
+			}
+			add_offsite_building = { type = industrial_complex level = -8 }
+			ROOT = { subtract_from_variable = { aid_program_cost = 10 } }
+		}
+		if = {
+			limit = {
+				check_variable = { economic_aid_level@ROOT = 3 }
+			}
+			add_offsite_building = { type = industrial_complex level = -12 }
+			ROOT = { subtract_from_variable = { aid_program_cost = 15 } }
+		}
+		if = {
+			limit = {
+				check_variable = { economic_aid_level@ROOT = 4 }
+			}
+			add_offsite_building = { type = industrial_complex level = -16 }
+			ROOT = { subtract_from_variable = { aid_program_cost = 20 } }
+		}
+		remove_from_array = {
+			array = ROOT.aid_program_participants_array
+			value = THIS.id
+		}
+		remove_dynamic_modifier = {
+			modifier = cw_aid_program_target_dm 
+			scope = ROOT 
+		}
+		clear_variable = aid_program_drift_communism_ref_effect@ROOT
+		clear_variable = aid_program_drift_communism_total_effect@ROOT
+		clear_variable = aid_program_drift_neutrality_effect@ROOT
+	}
+}
+cw_ask_for_economic_aid_always_agree = {
+	custom_effect_tooltip = "CW_SCRIPTED_AID_REQUEST"
+	ROOT = { set_country_flag = { flag = scripted_aid_request value = 1 days = 5 } }
+	country_event = { id = generic_events.10 days = 3 }
+}

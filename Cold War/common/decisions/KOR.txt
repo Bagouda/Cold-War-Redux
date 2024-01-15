@@ -1,0 +1,84 @@
+crisis_national = {
+	cw_korean_scorched_earth = {
+		icon = GFX_decision_generic_ignite_civil_war
+		allowed = {
+			tag = KOR
+		}
+		available = {
+			828 = { is_controlled_by = KOR }
+			827 = { is_controlled_by = KOR }
+		}
+		visible = {
+			has_war_with = PRK
+			surrender_progress > 0.30
+		}
+		
+		fire_only_once = yes
+		days_remove = 90
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 828
+				state = 827
+				state = 825
+			}
+		}
+		
+		modifier = {
+			army_defence_factor = 0.3
+		}
+		
+		complete_effect = {
+			828 = {
+				add_province_modifier = {
+					static_modifiers = { scorched_earth }
+					province = {
+						all_provinces = yes
+					}
+				}
+			}
+			827 = {
+				add_province_modifier = {
+					static_modifiers = { scorched_earth }
+					province = {
+						all_provinces = yes
+					}
+				}
+			}
+			825 = {
+				add_province_modifier = {
+					static_modifiers = { scorched_earth }
+					province = {
+						all_provinces = yes
+					}
+				}
+			}			
+		}
+		
+		remove_effect = {
+			custom_effect_tooltip = SCORCHED_EARTH_REMOVE_DECISION_TT
+			hidden_effect = {
+				828 = {
+					remove_province_modifier = {
+						static_modifiers = { scorched_earth }
+						province = {
+							all_provinces = yes
+						}
+					}
+				}
+				827 = {
+					remove_province_modifier = {
+						static_modifiers = { scorched_earth }
+						province = {
+							all_provinces = yes
+						}
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			base = 100
+		}		
+	}
+}

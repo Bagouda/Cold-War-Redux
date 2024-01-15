@@ -1,0 +1,909 @@
+leader_traits = {
+	############## COLONIAL TRAITS
+	anti_colonial_leader = {
+		autonomy_gain = 0.5
+		unaligned_right_drift = 0.10
+	}
+	###### North Korea Traits #####
+	committed_antistalinist = {
+		communism_acceptance = 50
+		communism_totalitarian_acceptance = -50
+	}
+	committed_maoist = {
+		communism_acceptance = -50
+		communism_totalitarian_acceptance = 50
+	}
+	factional_underdog_1 = {
+		hog_minister_cost_factor = 0.15
+		foreign_minister_cost_factor = 0.15
+		defense_minister_cost_factor = 0.15
+		treasury_minister_cost_factor = 0.15
+		high_command_cost_factor = 0.15
+		theorist_cost_factor = 0.15
+	}
+	factional_underdog = {
+		hog_minister_cost_factor = 0.25
+		foreign_minister_cost_factor = 0.25
+		defense_minister_cost_factor = 0.25
+		treasury_minister_cost_factor = 0.25
+		high_command_cost_factor = 0.25
+		theorist_cost_factor = 0.25
+		stability_factor = -0.1
+	}
+	###### SOVIET CPS TRAITS ######
+	unsc_sanctions_low = {
+		political_power_gain = -0.05
+	}
+	unsc_sanctions_medium = {
+		political_power_gain = -0.10
+	}
+	unsc_sanctions_high = {
+		political_power_gain = -0.20
+	}	
+	mild_reformer_malenkov = {
+		political_power_cost = -0.10
+	}
+	experienced_diplomat_molotov = {
+		subjects_autonomy_gain = -0.3
+	}
+	schemer_beria_lar = {
+		intel_network_gain = 0.10
+	}
+	schemer_beria_no_lar = {
+		foreign_subversive_activites = -0.50
+	}
+	man_of_the_people_khrushev = {
+		political_power_gain = 0.10
+		stability_factor = 0.10 
+	}
+	###### ADVISOR CABINET TRAITS ###### THESE TRAITS ARE INVISIBLE AND ARE USED TO REMOVE ADVISORS
+	deputy_minister_trait = {
+		random = no
+	}
+	foreign_minister_trait = {
+		random = no
+	}
+	defense_minister_trait = {
+		random = no
+	}
+	finance_minister_trait = {
+		random = no
+	}
+	chief_of_staff_minister_trait = {
+		random = no
+	}
+	personal_advisor_minister_trait = {
+		random = no
+	}
+	###### ADVISOR IDEOLOGY TRAITS INVISIBLE ######
+	communist_totalitarian = {
+		random = no
+	}
+	communist_reformist = {
+		random = no
+	}
+	democratic_left = {
+		random = no
+	}
+	democratic_right = {
+		random = no
+	}
+	neutrality_right = {
+		random = no
+	}
+	monarchist = {
+		random = no
+	}	
+	neutrality_left = {
+		random = no
+	}
+	###### ADVISOR IDEOLOGY TRAITS VISIBLE ######
+	communist_totalitarian_drift_trait = {
+		communism_totalitarian_drift = 0.10
+		random = yes
+	}
+	communist_reformist_drift_trait = {
+		communism_drift = 0.10
+		random = yes
+	}
+	democratic_left_drift_trait = {
+		democratic_socialist_drift = 0.10
+		random = yes
+	}
+	democratic_right_drift_trait = {
+		democratic_drift = 0.10
+		random = yes
+	}
+	neutrality_right_drift_trait = {
+		unaligned_right_drift = 0.10
+		random = yes
+	}
+	monarchist_drift_trait = {
+		unaligned_right_drift = 0.10
+		random = yes
+	}	
+	neutrality_left_drift_trait = {
+		neutrality_drift = 0.10
+		random = yes
+	}
+	###### MONARCH TRAITS ######
+	monarch_in_exile = {
+		random = no
+		communism_drift = 0.05
+		communism_totalitarian_drift = 0.05
+		political_power_gain = -0.10
+	}	
+	unpopular_monarch = {
+		random = no
+		communism_drift = 0.01
+		communism_totalitarian_drift = 0.01
+	}	
+	constitutional_monarch = {
+		random = no
+		communism_drift = -0.15
+		communism_totalitarian_drift = -0.15
+	}
+	constitutional_monarch_weak = {
+		random = no
+		communism_drift = -0.05
+		communism_totalitarian_drift = -0.05
+	}	
+	absolute_monarch = {
+		random = no
+		communism_drift = -0.30
+		communism_totalitarian_drift = -0.30	
+		communism_acceptance = -20
+		communism_totalitarian_acceptance = -50
+		unaligned_right_drift = 0.1
+	}
+	###### COUNTRY LEADER TRAITS ######
+	cw_war_hero = {
+		political_power_gain = 0.10
+		cw_military_budget_cost_factor = -0.10
+	}
+	cw_power_hungry_demagogue = {
+		stability_factor = -0.05
+		war_support_factor = -0.10
+	}	
+	cw_fiercely_neutral = {
+		ai_get_ally_desire_factor = -1000
+	}
+	fiercely_independent = {
+		ai_call_ally_desire_factor = -5000
+		ai_get_ally_desire_factor = -5000
+		political_power_gain = 0.1
+		autonomy_gain = 0.15
+	}	
+	stern_communist = {
+		communism_totalitarian_drift = 0.5
+	}
+	shadow_of_churchill = {
+		democratic_drift = 0.10
+		political_power_gain = -0.1
+		war_support_factor = -0.05
+	}	
+	president_lost_china_dem = {
+		democratic_drift = 0.10
+		political_power_gain = -0.1
+		war_support_factor = -0.05
+	}
+	president_lost_china_rep = {
+		democratic_socialist_drift = 0.10
+		political_power_gain = -0.1
+		war_support_factor = -0.05
+	}	
+	communist_symbol = {
+		political_power_gain = 0.1
+	}
+	inspiring_leader_mao = {
+		targeted_modifier = { tag = CHI attack_bonus_against = 0.2 }
+		army_morale_factor = 0.3
+	}
+	communist_sympathizer = {
+		communism_totalitarian_drift = 0.1
+	}
+	communist_collaborator = {
+		communism_totalitarian_drift = 0.20
+	}
+	communist_puppet = {
+		communism_totalitarian_acceptance = 50
+	}
+	trait_overconfident = {
+		ai_call_ally_desire_factor = -100
+	}
+	communist_rev_sympathizer = {
+		communism_drift = 0.01
+	}
+	communist_rev_collaborator = {
+		communism_drift = 0.03
+	}
+	communist_rev_puppet = {
+		communism_acceptance = 50
+	}
+	unrelenting_nationalist = {
+		autonomy_gain = 0.5
+	}		
+	skilled_diplomat = {
+		opinion_gain_monthly_factor = 0.25
+	}	
+	western_enthusiast = {
+		democratic_drift = 0.10
+	}	
+	stern_anti_imperialist_vin_fra = {
+		army_morale_factor = 0.5
+		out_of_supply_factor = -0.5
+		attrition = -0.1
+		surrender_limit = 0.5
+		targeted_modifier = { tag = FRA defense_bonus_against = 0.75 }
+		targeted_modifier = { tag = SVI defense_bonus_against = 0.75 }
+		targeted_modifier = { tag = SVI attack_bonus_against = 0.15 }
+	}
+	dutiful_administrator = {
+		autonomy_gain = 0.3
+		political_power_gain = 0.5
+	}
+	iron_fisted_brute = {
+		political_power_gain = 0.1
+		subjects_autonomy_gain = -0.3
+		communism_totalitarian_drift = 0.05
+		ai_call_ally_desire_factor = -100
+	}
+	popular_figurehead = {
+		political_power_gain = 0.1
+	}
+	trusted_advisor = {
+		offensive_war_stability_factor = 0.10
+	}		
+	careful_diplomacy = {
+		ai_join_ally_desire_factor = -100
+	}
+	split_leadership = {
+		stability_factor = 0.1
+		political_power_gain = -0.1
+	}
+	ineffectual_schemer = {
+		political_power_gain = -1.0
+	}
+	last_stand_fighter = {
+		surrender_limit = 0.5
+		war_support_factor = 0.1
+		defence = 0.1
+		ai_focus_peaceful_factor = -1.0
+		ai_focus_defense_factor = 0.5
+		random = no
+	}	
+	last_stand_fighter_chi = {
+		ai_focus_peaceful_factor = -1.0	
+		surrender_limit = 0.5
+		defence = 0.1
+		war_support_factor = 0.3
+	}	
+	###### UNIQUE MINISTER TRAITS ######
+	cw_mao_z_maoism = {
+		drift_defence_factor = 0.50
+	}	
+	cw_prince_of_terror = {
+		foreign_subversive_activites = -0.30
+		non_core_manpower = 0.02
+	}
+	cw_unreliable_skeptic = {
+		random = yes
+		political_power_gain = -0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	cw_man_of_the_people = {
+		random = yes
+		political_power_gain = 0.1
+		stability_factor = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	cw_naive_optimist = {
+		random = yes
+		political_power_gain = 0.05
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	cw_political_strongman = {
+		random = yes
+		foreign_minister_cost_factor = -0.3
+		defense_minister_cost_factor = -0.3
+		treasury_minister_cost_factor = -0.3
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	cw_experienced_politician = {
+		random = yes
+		foreign_minister_cost_factor = -0.1
+		defense_minister_cost_factor = -0.1
+		treasury_minister_cost_factor = -0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_skilful_campaigner = {
+		political_power_gain = 0.5
+	}
+	### FOREIGN MINISTER ###
+	cw_veto_tension_reduced = {
+	}	
+	cw_peacemaker = {
+		trade_opinion_factor = 0.1
+		stability_factor = 0.1
+	}	
+	cw_great_compromiser = {
+		guarantee_cost = -0.1
+	}
+	cw_ideological_crusader = {
+		send_volunteers_tension = -0.20
+		send_volunteer_size = 5
+	}
+	cw_dialouge_proponent = {
+		opinion_gain_monthly_factor  = 0.1
+	}	
+	cw_pactomaniac = {
+		opinion_gain_monthly_same_ideology_factor = 0.5
+	}
+	cw_careful_diplomatist = {
+		guarantee_cost = -0.5
+	}
+	cw_fm_silent_workhorse = {
+		political_power_gain = 0.1
+	}
+	cw_experienced_diplomat = {
+		improve_relations_maintain_cost_factor = -0.30
+		random = yes
+	}	
+	cw_fm_mr_no = {
+		random = no
+		war_support_factor = 0.1
+	}
+	cw_hawk_approach = {
+		justify_war_goal_time = -0.10
+		send_volunteer_size = 2
+	}
+	cw_bipartisan = {
+		political_power_cost = -0.20
+		random = yes
+	}
+	cw_euro_enthusiast = {
+		stability_weekly = 0.01
+	}
+	### DEFENSE MINISTER ###
+	cw_army_training_specialist = {
+		experience_gain_army = 0.10
+		training_time_army_factor = -0.3
+		random = yes
+	}	
+	cw_construction_infra_specialist = {
+		production_speed_dockyard_factor = 0.10
+		production_speed_arms_factory_factor = 0.10
+	}	
+	cw_war_propagandist = {
+		war_support_factor = 0.10
+	}	
+	cw_military_production_specialist = {
+		production_factory_max_efficiency_factor = 0.10
+	}
+	cw_military_reformer = {
+		cw_military_budget_cost_factor = -0.25
+	}
+	cw_expirienced_veteran = {
+		army_morale_factor = 0.1
+		army_org_factor = 0.05
+	}
+	cw_military_industrial_specialist = {
+		industrial_capacity_factory = 0.1
+	}
+	cw_air_power_proponent = {
+		experience_gain_air_factor = 0.1
+	}
+	cw_biased_entrepreneur = {
+		industrial_concern_cost_factor = -0.1
+	}
+	cw_military_budget_wizard = {
+		cw_air_forces_focus_cost_factor = -0.25
+		cw_land_forces_focus_cost_factor = -0.25
+		cw_naval_forces_focus_cost_factor = -0.25		
+	}
+	cw_strategic_warfare_proponent = {
+		rocket_manufacturer_cost_factor = -0.25
+	}
+	cw_military_reorganizer = {
+		equipment_conversion_speed = 0.05
+	}
+	### TM Traits ###
+	cw_captain_of_industry = {
+		production_speed_industrial_complex_factor = 0.10
+		production_speed_infrastructure_factor = 0.10
+		production_speed_synthetic_refinery_factor = 0.10
+	}	
+	cw_efficient_administrator = {
+		consumer_goods_factor = -0.10
+	}
+	cw_small_minded_isolationist = {
+		consumer_goods_factor = 0.05
+		political_power_factor = 0.1
+	}
+	cw_tight_spender = {
+		consumer_goods_factor = -0.15
+	}
+	cw_well_connected_bureaucrat = {
+		fuel_gain_factor = 0.1
+	}
+	cw_skilled_geologist = {
+		random = no
+		fuel_gain_factor = 0.1
+		production_oil_factor = 0.1
+	}
+	cw_mafia_boss = {
+		random = no
+		production_speed_arms_factory_factor = 0.10
+		stability_factor = -0.05
+	}
+	unreliable_businessman = {
+		political_power_gain = 0.01
+		industrial_capacity_factory = -0.05
+		production_speed_buildings_factor = -0.1
+	}
+	corrupt_politician = {
+		consumer_goods_factor = 0.10
+	}
+	unpopular_leader = {
+		political_power_gain = -0.5
+		required_garrison_factor = 0.5
+	}		
+	corrupt_businessman = {
+		political_power_gain = 0.10
+		industrial_capacity_factory = -0.50
+		production_speed_buildings_factor = -0.5
+	}
+	cw_silent_workhorse = {
+		production_factory_max_efficiency_factor = 0.1
+		political_power_factor = 0.1
+	}
+	cw_ideological_workaholic = {
+		local_resources_factor = 0.1
+	}	
+	cw_briliant_economist = {
+		production_speed_buildings_factor = 0.20
+	}	
+	### HAF Traits ###
+	conscription_specialist = {
+		conscription_factor = 0.05
+	}
+	cw_expirienced_seaman = {
+		cw_naval_forces_focus_cost_factor = -0.10
+		naval_strike_agility_factor = 0.02
+	}
+	### PA Traits ###
+	cw_reformer = {
+		cw_education_budget_cost_factor = -0.10
+		cw_work_hours_cost_factor = -0.10
+	}
+	cw_diligent = {
+		political_power_gain = 0.10
+	}
+	cw_political_schemer = {
+		drift_defence_factor = 0.25
+	}
+	cw_infamous_bolshevik = {
+		stability_factor = 0.10 
+	}
+	cw_well_informed_infiltrator = {
+		own_operative_capture_chance_factor = -0.10 
+	}
+	cw_ruthless_appeaser = {
+		resistance_target = -0.10
+	}
+	cw_efficient_tyrant = {
+		production_speed_nuclear_reactor_factor = 0.10
+	}
+	cw_efficient_spymaster = {
+		own_operative_intel_extraction_rate = 0.10
+	}
+	###### COUNTRY LEADER TRAITS ######
+	undisputed_leader = {
+		political_power_gain = 0.25
+	}		
+	badly_wounded = {
+		political_power_gain = -0.25
+	}	
+	skilled_diplomat = {
+		opinion_gain_monthly_factor = 0.25
+	}
+	western_enthusiast = {
+		democratic_drift = 0.10
+	}
+	cloak_and_dagger_schemer = {
+		political_power_factor = 0.10
+	}	
+	cloak_and_dagger_schemer_beria = {
+		subjects_autonomy_gain = -0.3
+	}		
+	communist_puppet = {
+		communism_acceptance = 50
+	}	
+	stern_anti_imperialist = {
+		ai_focus_peaceful_factor = -1.0
+		random = yes
+	}
+	stern_anti_communist = {
+		communism_totalitarian_drift = -0.05
+		communism_drift = -0.05
+		communism_acceptance = -20
+		communism_totalitarian_acceptance = -100		
+		random = yes
+	}	
+	dutiful_administrator = {
+		autonomy_gain = 0.3
+		political_power_gain = 0.5
+	}
+	careful_diplomacy = {
+		ai_call_ally_desire_factor = -1000
+	}
+	split_leadership = {
+		stability_weekly = -0.1
+		political_power_gain = -1.0
+	}
+	ineffectual_schemer = {
+		stability_weekly = -0.2
+		political_power_gain = -2.0
+	}
+	cw_indirect_action_proponent = {
+	}	
+	###### PERSONAL ADVISOR TRAITS ######	
+	cw_communist_revolutionary = {
+		random = no
+		communism_drift = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_democratic_reformer = {
+		random = no
+		democratic_drift = 0.5
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_unrelenting_monarchist = {
+		random = no
+		political_power_cost = -0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	cw_pr_specialist = {
+		random = no
+		legitimacy_daily = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_backroom_dealmaker = {
+		random = yes
+		political_power_gain = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_bureaucratic_specialist = {
+		random = yes
+		hog_minister_cost_factor = -0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_social_democrat= {
+		random = yes
+		democratic_socialist_drift = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	###### HEAD OF ARMY TRAITS ######
+	cw_training_specialist = {
+		random = no
+		training_time_factor = -0.10
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_planing_expert = {
+		random = no
+		planning_speed = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_defense_expert = {
+		random = no
+		defence = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	cw_offense_expert = {
+		random = no
+		offence = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_air_technical_expert = {
+		random = yes
+		air_accidents_factor = -0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_naval_coordinator = {
+		random = yes
+		naval_coordination = 0.1	
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	###### TREASURY MINISTER TRAITS ######
+	cw_budget_trimmer = {
+		random = no
+		consumer_goods_factor = -0.05
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_business_magnate = {
+		random = no
+		trade_laws_cost_factor = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_international_businessman = {
+		random = no
+		trade_opinion_factor = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	cw_military_industrialist = {
+		random = no
+		industrial_capacity_factory = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_construction_enthusiast = {
+		random = yes
+		production_speed_buildings_factor = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_power_unon_boss = {
+		random = yes
+		production_factory_max_efficiency_factor = 0.1	
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	###### DEFENSE MINISTER TRAITS ######
+	cw_volunteer_propagandist = {
+		random = no
+		send_volunteer_divisions_required  = -0.10
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_mobilization_expert = {
+		random = no
+		cw_mobilization_laws_cost_factor = -0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	cw_efficient_delegator = {
+		random = no
+		command_power_gain = 0.20
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	cw_war_propaganda_specicalist = {
+		random = no
+		defensive_war_stability_factor = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_warmonger = {
+		random = yes
+		offensive_war_stability_factor = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_relentless_fighter = {
+		random = yes
+		surrender_limit = 0.1	
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	###### FOREIGN MINISTER TRAITS ######
+	cw_briliant_negotiator = {
+		random = no
+		trade_opinion_factor = 0.10
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	cw_expert_warmonger = {
+		random = no
+		justify_war_goal_time  = -0.10
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_silver_tounged_diplomat = {
+		random = no
+		improve_relations_maintain_cost_factor = -0.50
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_model_governor = {
+		political_power_gain = 0.10
+		production_speed_buildings_factor = 0.05
+	}
+	cw_ideological_guardian = {
+		random = no
+		drift_defence_factor = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	cw_diplomatic_schemer = {
+		random = no
+		subversive_activites_upkeep  = -0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_interventionist = {
+		random = yes
+		send_volunteers_tension = -0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_war_propagandist = {
+		random = yes
+		send_volunteer_size = 3
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	###### DEPUTY MINISTER TRAITS ######
+	cw_popular_politician = {
+		random = no
+		stability_factor  = 0.10
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_political_specialist = {
+		random = no
+		political_power_gain  = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_political_protege = {
+		random = no
+		foreign_minister_cost_factor = -0.1
+		defense_minister_cost_factor = -0.1
+		treasury_minister_cost_factor = -0.1		
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	###### INTELLIGENCE HEAD TRAITS ######
+	cw_naval_intelligence_speciality = {
+		random = no
+		navy_intel_to_others = -10	
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_air_intelligence_speciality = {
+		random = no
+		airforce_intel_to_others = -10	
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+	cw_efficient_administrator_intelligence = {
+		random = no
+		agency_upgrade_time = -0.1
+		intel_network_gain_factor = 0.10
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_intelligence_coup_specialist = {
+		random = no
+		own_operative_detection_chance_factor = -0.5
+		intel_network_gain_factor = 0.15
+		boost_ideology_mission_factor = 0.5
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_intelligence_decryption_specialist = {
+		random = no
+		decryption_factor = 0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_civilian_intelligence_specialist = {
+		random = no
+		civilian_intel_to_others = -0.1
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+}

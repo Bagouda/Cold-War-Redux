@@ -1,0 +1,63 @@
+spriteTypes = {
+	#### CW MOD FILTERS ####
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_DECOLONIZATION_FOCUSES"
+		texturefile = "gfx/interface/cw_focuses/filter/declonization_filters.dds"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_MILITARY_LEADERS_FOCUSES"
+		texturefile = "gfx/interface/cw_focuses/filter/military_leaders_filters.dds"
+	}	
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_POLICIAL_ADVISORS_FOCUSES"
+		texturefile = "gfx/interface/cw_focuses/filter/political_advisors_filters.dds"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_STATE_ACTION_FOCUSES"
+		texturefile = "gfx/interface/cw_focuses/filter/state_action_filters.dds"
+	}	
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_VOTING_FOCUSES"
+		texturefile = "gfx/interface/cw_focuses/filter/voting_filters.dds"
+	}		
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_SPY_MISSIONS_FOCUSES"
+		texturefile = "gfx/interface/cw_focuses/filter/spy_missions_filters.dds"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_PARTIES_FOCUSES"
+		texturefile = "gfx/interface/cw_focuses/filter/political_filters.dds"
+	}	
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_HISTORICAL_FOCUSES"
+		texturefile = "gfx/interface/cw_focuses/filter/historic_filters.dds"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_UNSC_FOCUSES"
+		texturefile = "gfx/interface/cw_focuses/filter/un_filters.dds"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_RESOURCES_FOCUSES"
+		texturefile = "gfx/interface/cw_focuses/filter/resources_filters.dds"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_DIPLOMACY_FOCUSES"
+		texturefile = "gfx/interface/cw_focuses/filter/diplomatic_filters.dds"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_DECISIONS_FOCUSES"
+		texturefile = "gfx/interface/cw_focuses/filter/decisions_filters.dds"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_TENSION_FOCUSES"
+		texturefile = "gfx/interface/cw_focuses/filter/tension_filters.dds"
+	}	
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_SPHERE_FOCUSES"
+		texturefile = "gfx/interface/cw_focuses/filter/sphere_filters.dds"
+	}
+	spriteType = {
+		name = "GFX_FOCUS_FILTER_INTERNAL_AFFAIRS"
+		texturefile = "gfx/interface/focusview/filter/internal_affairs_icon.dds"
+	}	
+}

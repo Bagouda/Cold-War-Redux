@@ -1,0 +1,38 @@
+
+state={
+	id=108
+	local_supplies=0.0 
+	name="STATE_108"
+	resources={
+		steel=3.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 9602 }
+ 	set_variable = { victory_point = 3 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = YUG
+		add_core_of = YUG
+		add_claim_by = SER
+		add_claim_by = BUL
+		
+		1947.2.10 = {	#Treaty of Paris 1947
+			add_core_of = BUL
+		}		
+		victory_points = {
+			9602 3 
+		}
+
+	}
+	resources={
+		crops = 10
+	}
+	provinces={
+		630 6953 6998 9602 9756 9890 9906 11857 11868 11887 
+	}
+	manpower=1533000
+	buildings_max_level_factor=1.000
+	state_category=devestated_wasteland
+}

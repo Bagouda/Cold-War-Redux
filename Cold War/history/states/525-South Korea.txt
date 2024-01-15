@@ -1,0 +1,50 @@
+
+state={
+	id=525
+	local_supplies=0.0 
+	name="STATE_525"
+	resources={
+		crops=5.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 7125 }
+ 	set_variable = { victory_point = 20 }
+		owner = KOR
+		add_core_of = KOR
+		add_claim_by = PRK
+		
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}
+		
+		1948.8.15 = {
+			owner = KOR
+		}		
+		
+		buildings = {
+			infrastructure = 4
+			air_base = 3
+			arms_factory = 2
+			industrial_complex = 3
+			dockyard = 1
+			7125 = {
+				naval_base = 3
+			}
+		}
+		victory_points = {
+			7125 20
+		}
+
+	}
+
+	provinces={
+		4004 7125 11958
+	}
+	manpower=6021031
+	buildings_max_level_factor=1.000
+	state_category = large_city
+}

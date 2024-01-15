@@ -1,0 +1,32 @@
+state = {
+	id=70
+	local_supplies=0.0 
+	name="STATE_70"
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 9692 }
+ 	add_to_array = { list_victory_point = 11539 }
+ 	set_variable = { victory_point = 15 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = CZE
+		add_core_of = CZE
+		add_claim_by = SLO
+		
+		victory_points = {
+			11539 5
+		}
+		victory_points = {
+			9692 10
+		}
+	}
+	resources={
+		tungsten=1 # was: 2
+		crops = 10
+	}
+	manpower = 1230500
+	provinces={
+		541 3484 3537 9539 9692 11522 11539 
+	}
+}

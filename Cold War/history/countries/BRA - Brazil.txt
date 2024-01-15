@@ -1,0 +1,296 @@
+﻿capital = 500
+add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+set_convoys = 50
+set_research_slots = 2
+set_major = yes
+1946.1.1 = {
+	set_politics = {
+		ruling_party = unaligned_right
+		last_election = "1945.12.2"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 55
+		neutrality = 0
+		communism_totalitarian = 10
+		unaligned_right = 35
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Getúlio Vargas"
+		desc = ""
+		picture = "BRAH2.dds"
+		ideology = social_democrat_idolg
+		expire = 1954.8.24
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Gaspar Dutra"
+		desc = ""
+		picture = "BRAH1.dds"
+		ideology = military_socialist_idolg
+		expire = 1950.6.25
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Luís Carlos Prestes"
+		desc = ""
+		picture = "brazilsov.dds"
+		ideology = revisionist_idolg
+		expire = 1988.10.14
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Joao Amazonas"
+		desc = ""
+		picture = "brazilchi.dds"
+		ideology = maoist_idolg
+		expire = 1988.10.14
+		traits = {}
+	}
+}
+1948.5.14 = {	#Arab Israeli War
+}
+1950.6.25 = {	#Korean War
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1945.12.2"
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 70
+		neutrality = 30
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Carlos Luz"
+		desc = ""
+		picture = "BRAH5.dds"
+		ideology = democratic_neutrality_idolg
+		expire = 1956.1.30
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Carlos Luz"
+		desc = ""
+		picture = "BRAH4.dds"
+		ideology = democratic_neutrality_idolg
+		expire = 1955.11.11
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Café Filho"
+		desc = ""
+		picture = "BRAH3.dds"
+		ideology = social_democrat_idolg_2
+		expire = 1956.1.30
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Gaspar Dutra"
+		desc = ""
+		picture = "BRAH1.dds"
+		ideology = democratic_neutrality_idolg
+		expire = 1951.1.30
+		traits = {}
+	}	
+}
+1956.10.29 = {	#Suez Crisis
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1955.10.3"
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 48
+		neutrality = 52
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}		
+	create_country_leader = {
+		name = "Jânio Quadros"
+		desc = ""
+		picture = "BRAH7.dds"
+		ideology = social_democrat_idolg
+		expire = 1961.8.25
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Juarez Távora"
+		desc = ""
+		picture = ""
+		ideology = social_cons_idolg
+		expire = 1961.1.30
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Juscelino Kubitschek"
+		desc = ""
+		picture = "BRAH6.dds"
+		ideology = democratic_neutrality_idolg
+		expire = 1961.1.30
+		traits = {}
+	}
+}
+1961.12.11 = {	#Vietnam War
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1960.10.3"
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 48
+		neutrality = 52
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Ranieri Mazzilli"
+		desc = ""
+		picture = "BRAH8.dds"
+		ideology = democratic_neutrality_idolg
+		expire = 1961.9.7
+		traits = {}
+	}
+	create_country_leader = {	#LAST LEADER OF SECOND REPUBLIC
+		name = "João Goulart"
+		desc = ""
+		picture = "BRAH9.dds"
+		ideology = social_democrat_idolg
+		expire = 1964.4.1
+		traits = {}
+	}	
+}
+1979.12.24 = {	#Soviet Invasion of Afghanistan
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1960.10.3"
+		elections_allowed = no		
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 40
+		neutrality = 60
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Ranieri Mazzilli"
+		desc = ""
+		picture = "BRAHM10.dds"
+		ideology = military_socialist_idolg
+		expire = 1964.3.14
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Humberto Castelo Branco"
+		desc = ""
+		picture = "BRAHM11.dds"
+		ideology = military_conservative_idolg
+		expire = 1964.3.14
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Artur da Costa e Silva"
+		desc = ""
+		picture = "BRAHM12.dds"
+		ideology = military_conservative_idolg
+		expire = 1969.10.14
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Pedro Aleixo"
+		desc = ""
+		picture = "BRAHM13.dds"
+		ideology = military_conservative_idolg
+		expire = 1974.3.14
+		traits = {}
+	}
+	create_country_leader = {		#Trilateral leadership
+		name = "Augusto Rademaker"
+		desc = ""
+		picture = "BRAHM14_first.dds"
+		ideology = military_conservative_idolg
+		expire = 1974.3.14
+		traits = {}
+	}
+	create_country_leader = {		#Trilateral leadership
+		name = "Aurélio de Lira Tavares"
+		desc = ""
+		picture = "BRAHM14_second.dds"
+		ideology = military_conservative_idolg
+		expire = 1974.3.14
+		traits = {}
+	}
+	create_country_leader = {		#Trilateral leadership
+		name = "Márcio Melo"
+		desc = ""
+		picture = "BRAHM14_third.dds"
+		ideology = military_conservative_idolg
+		expire = 1974.3.14
+		traits = {}
+	}
+	create_country_leader = {
+		name = "Emílio Médici"
+		desc = ""
+		picture = "BRAHM15.dds"
+		ideology = military_conservative_idolg
+		expire = 1974.3.14
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "Ernesto Geisel"
+		desc = "BRAHM16.dds"
+		picture = ""
+		ideology = military_conservative_idolg
+		expire = 1979.3.14
+		traits = {}
+	}
+	create_country_leader = {
+		name = "João Figueiredo"
+		desc = ""
+		picture = "BRAHM17.dds"
+		ideology = military_socialist_idolg
+		expire = 1985.3.14
+		traits = {}
+	}
+}
+1989.1.9 = {	#Fall of Berlin Wall
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1985.1.15"
+		election_frequency = 48		
+		elections_allowed = yes		
+	}
+	set_popularities = {	
+		democratic  = 0
+		democratic_socialist = 60
+		neutrality = 40
+		communism_totalitarian = 0
+		unaligned_right = 0
+		colonial =  0
+	}	
+	create_country_leader = {
+		name = "Tancredo Neves"
+		desc = ""
+		picture = "BRAH10.dds"
+		ideology = social_democrat_idolg
+		expire = 1990.3.14
+		traits = {}
+	}	
+	create_country_leader = {
+		name = "José Sarney"
+		desc = ""
+		picture = "BRAH11.dds"
+		ideology = social_democrat_idolg
+		expire = 1990.3.14
+		traits = {}
+	}
+}

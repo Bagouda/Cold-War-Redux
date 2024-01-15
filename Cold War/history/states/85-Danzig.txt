@@ -1,0 +1,36 @@
+
+state={
+	id=85
+	local_supplies=0.0 
+	name="STATE_85"
+	resources={
+		crops=10.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 279 }
+ 	set_variable = { victory_point = 1 }
+		owner = POL
+		add_core_of = POL
+		add_claim_by = GER
+		
+		1947.2.10 = {	#Treaty of Paris 1947
+			add_core_of = POL
+		}		
+		
+		buildings = {
+			infrastructure = 1
+			dockyard = 1
+		}
+		victory_points = {
+			279 1 
+		}
+	}
+
+	provinces={
+		243 279 334 389 3324 9263 
+	}
+	manpower=1080100
+	buildings_max_level_factor=1.000
+	state_category=devestated_wasteland
+}

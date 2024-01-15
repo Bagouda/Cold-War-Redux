@@ -1,0 +1,384 @@
+ideas = {
+	country = {
+		cw_home_of_revolution = {
+			removal_cost = -1
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				hidden_modifier = {
+					democratic_drift = -0.5
+					democratic_socialist_drift = -0.5
+					neutrality_drift = -0.5
+					unaligned_right_drift = -0.5
+					fascism_drift = -0.5
+					send_volunteers_tension = -0.50
+					send_volunteer_factor = -1
+				}
+			}
+
+			picture = ger_the_great_red_menace	
+
+
+
+
+		}
+		cw_sov_post_reconstruction_boom = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = por_iberian_workers_united
+
+
+			modifier = {
+				monthly_population = 0.05
+				stability_weekly = 0.05
+				political_power_gain = 0.10
+				research_speed_factor = 0.10
+			}
+		}
+		
+		
+		cw_sov_man_reconstruction = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = por_iberian_workers_united
+
+
+			modifier = {
+				production_speed_buildings_factor  = 0.15
+				consumer_goods_factor = -0.05
+				stability_factor  = -0.1
+				
+			}
+		}
+		cw_sov_foreign_dependence = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = anti_soviet_pact
+
+
+			modifier = {
+				communism_drift = 0.10
+				stability_weekly = -0.001
+			}
+		}
+		cw_sov_1946_famine_severe = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = raj_risk_of_famine
+
+			modifier = {
+				communism_drift = 0.10
+				stability_weekly = -0.003
+				MONTHLY_POPULATION = -0.3
+				local_resources_factor = -0.25
+				attrition = 0.5
+				army_org_factor = -0.5
+			}
+		}
+		cw_sov_1946_famine_mild = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = raj_risk_of_famine
+
+
+			modifier = {
+				stability_weekly = -0.001
+				MONTHLY_POPULATION = -0.1
+				local_resources_factor = -0.10
+				attrition = 0.1
+				army_org_factor = -0.1
+			}
+		}
+		cw_sov_1946_famine_insignificant = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = raj_risk_of_famine
+
+
+			modifier = {
+				MONTHLY_POPULATION = -0.05
+			}
+		}
+		sov_leningrad_plot = {
+			removal_cost = -1
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			modifier = {
+				stability_factor = -0.01
+				communism_drift = 0.20
+			}
+
+			picture = trotskyite_plot_purged
+		}
+		sov_athmosphere_of_fear = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_spy_political
+
+
+			modifier = {
+				research_speed_factor = -0.10
+				foreign_subversive_activites = -0.10
+			}
+		}
+		sov_power_struggle_total_opposition = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = trotskyite_plot
+
+
+			modifier = {
+				communism_totalitarian_drift = 0.10
+				stability_factor = -0.10
+				disabled_ideas = 1
+				political_power_factor = -0.1
+			}
+		}
+		sov_power_struggle_total_opposition_minor = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = trotskyite_plot
+
+
+			modifier = {
+				communism_totalitarian_drift = 0.05
+				stability_factor = -0.1
+			}
+		}
+		sov_power_struggle_reform_opposition = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = trotskyite_plot
+
+
+			modifier = {
+				communism_drift = 0.10
+				stability_factor = -0.10
+				disabled_ideas = 1
+				political_power_factor = -0.1				
+			}
+		}
+		sov_power_struggle_reform_opposition_minor = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = trotskyite_plot
+
+
+			modifier = {
+				communism_drift = 0.05
+				stability_factor = -0.1
+			}
+		}
+		sov_dispersed_industry_1 = {
+
+			available = {
+				AND = {
+					NOT = {
+						217 = { industrial_complex > 5 }
+						206 = { industrial_complex > 5 }
+						195 = { industrial_complex > 5 }
+						202 = { industrial_complex > 5 }
+					}
+				}
+			}
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_production_bonus
+
+
+			modifier = {
+				production_speed_buildings_factor = -0.1
+				production_factory_efficiency_gain_factor = -0.1
+			}
+		}
+		sov_dispersed_industry_4 = {
+
+			available = {
+				AND = {
+					NOT = {
+						217 = { industrial_complex > 9 }
+						206 = { industrial_complex > 9 }
+						195 = { industrial_complex > 9 }
+						202 = { industrial_complex > 9 }
+					}
+				}
+			}
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_production_bonus
+
+
+			modifier = {
+				production_speed_buildings_factor = -0.5
+				consumer_goods_factor = 0.10
+				production_factory_efficiency_gain_factor = -0.5
+				send_volunteer_size = -2
+			}
+		}
+		integrating_soviet_republic = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = jap_the_unthinkable_option
+
+			modifier = {
+				autonomy_gain = -10.0
+				master_ideology_drift = 0.1
+			}
+		}
+	}
+	#materiel_manufacturer = {
+	#		
+	#	designer = yes
+	#	
+	#	klashnikov = {
+	#	
+	#		allowed = {
+	#			original_tag = SOV
+	#		}
+	#
+	#		equipment_bonus = {
+	#			infantry_equipment = {
+	#				build_cost_ic = -0.2 instant = yes
+	#			}
+	#		}
+	#		
+	#		traits = { infantry_equipment_manufacturer }
+	#
+	#	}
+	#}
+}

@@ -1,0 +1,44 @@
+
+state={
+	id=903
+	local_supplies=0.0 
+	name="STATE_903"
+	resources={
+		aluminium=12
+		chromium=24
+	}
+	history={
+ 	add_to_array = { list_victory_point = 12795 }
+ 	set_variable = { victory_point = 5 }
+		owner = BEL
+		add_claim_by = COG
+
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+				
+		1960.6.30 = {
+			owner = COG
+			add_core_of = COG
+			remove_core_of = BEL
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		victory_points = {
+			12795 5		#Sandoa
+		}		
+	}
+
+	provinces={
+		519 641 1968 4919 9238 12795 
+	}
+	manpower=157260
+	buildings_max_level_factor=1.000
+	state_category=rural
+}

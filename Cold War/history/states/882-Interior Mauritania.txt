@@ -1,0 +1,19 @@
+state={
+	id=882
+	local_supplies=0.0 
+	name="STATE_882"
+		state_category = pastoral
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = FRA
+		add_claim_by = MRA
+		
+	}
+	manpower = 112500
+	provinces={
+		8058 10814 
+	}
+	buildings_max_level_factor=1.000
+}

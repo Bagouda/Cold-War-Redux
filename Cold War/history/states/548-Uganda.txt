@@ -1,0 +1,24 @@
+state = {
+	id=548
+	local_supplies=0.0 
+	name="STATE_548"
+	state_category = rural
+	history = {
+		owner = ENG
+		add_claim_by = UGD
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+		}
+		
+	}
+	resources={
+		crops=3 # was: 4
+	}
+	buildings_max_level_factor=1.000
+	manpower=1757812
+	provinces={
+		  7133 8223 12929  13177 
+	}
+}

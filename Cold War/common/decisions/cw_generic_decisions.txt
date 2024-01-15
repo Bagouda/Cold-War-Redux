@@ -1,0 +1,692 @@
+crisis_national = {
+	cw_government_demands_war_end = {
+		icon = GFX_broken_communist_star_decision_icon
+		
+		allowed = {
+			always = no
+		}
+		
+		available = {
+		}
+
+		cancel_trigger = {
+			OR = {
+				has_war = no
+				NOT = { any_unit_leader = { is_leading_volunteer_group_with_original_country = ROOT } }
+				has_war_support > 0.10
+			}
+		}
+
+		activation = {
+			always = no
+		}
+		
+		days_mission_timeout = 362
+		is_good = no
+		selectable_mission = yes
+
+		timeout_effect = {
+			add_stability = -0.5
+			if = {
+				limit = {
+					has_civil_war = yes
+				}
+				add_ideas = extreme_war_exhaustion
+			}
+			if = {
+				limit = {
+					has_war = yes
+					has_civil_war = no
+				}
+				for_each_scope_loop = {
+					array = ROOT.enemies
+					every_state = {
+						if = {
+							limit = {
+								is_controlled_by = PREV
+								OR = {
+									is_claimed_by = PREV
+									is_core_of = PREV
+								}
+							}
+							PREV = { transfer_state = PREV }
+							add_core_of = PREV
+							remove_core_of = ROOT
+							remove_claim_by = ROOT
+							add_claim_by = ROOT
+						}
+					}
+					white_peace = ROOT
+				}
+				start_civil_war = {
+					ideology = var:highest_party_ideology@exclude_ruling_party 
+					size = var:highest_party_popularity@exclude_ruling_party
+					keep_political_leader = yes
+					compute_proxy_score = yes
+				}				
+				compute_proxy_score = yes
+			}
+		}
+		complete_effect = {
+			add_stability = -0.3
+			if = {
+				limit = {
+					any_other_country = { has_volunteers_amount_from = { tag = ROOT count > 0 } }
+				}
+				every_other_country = {
+					ROOT = { recall_volunteers_from = PREV }
+					cw_block_country_volunteers = yes
+				}
+			}
+			if = {
+				limit = {
+					has_war = yes
+				}
+				for_each_scope_loop = {
+					array = ROOT.enemies
+					every_state = {
+						if = {
+							limit = {
+								is_controlled_by = PREV
+								OR = {
+									is_claimed_by = PREV
+									is_core_of = PREV
+								}
+							}
+							PREV = { transfer_state = PREV }
+							add_core_of = PREV
+							remove_core_of = ROOT
+							remove_claim_by = ROOT
+							add_claim_by = ROOT
+						}
+					}
+					white_peace = ROOT
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 100
+		}		
+	}
+}
+foreign_politics = {
+	cw_leave_non_ideology_faction = {
+		
+		allowed = {
+			
+		}
+		available = {
+		}
+
+		visible = {
+			is_ai = yes
+			is_in_faction = yes
+			faction_leader = { similar_ideology_check = no  }
+		}
+		
+		cost = 0
+		
+		complete_effect = {
+			leave_faction = yes
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+	}
+	cw_mission_trade_agreement = {
+		icon = GFX_decision_bul_legalize_nsm
+		
+		available = {}
+
+		days_remove = 365
+		days_mission_timeout = 0
+		is_good = no
+		fire_only_once = yes
+		on_map_mode = map_only
+		
+		selectable_mission = no
+		activation = { always = no }
+		
+		cancel_trigger = {	#Determines what will abort the mission
+			custom_trigger_tooltip = {
+				tooltip = "[FROM.GetName] is embargoed by [ROOT.GetName]."
+				FROM = {
+					is_in_array = { array = ROOT.embargoed_countries value = THIS.id }				
+				}				
+			}
+		}		
+
+		target_trigger = {
+			FROM = {
+				is_in_array = {
+					array = ROOT.active_trade_deals
+					value = THIS.id
+				}
+			}
+		}
+
+		targeted_modifier = {
+			tag = FROM
+			extra_trade_to_target_factor = 0.5
+			trade_cost_for_target_factor = -0.5
+			drift_defence_factor = -0.1
+		}
+		remove_effect = {
+			hidden_effect = {
+				remove_opinion_modifier = { target = FROM modifier = cw_trade_agreement }
+				remove_opinion_modifier = { target = FROM modifier = cw_trade_agreement_trade }
+				FROM = {		
+					remove_from_array = {
+						array = ROOT.active_trade_deals
+						value = THIS.id
+					}
+				}
+			}
+		}
+	}
+}
+propaganda_efforts = {
+	war_propaganda = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			NOT = { has_country_flag = war_propaganda_campaign_running }
+			threat > 0.5
+			has_war_support < 0.5
+			has_offensive_war = no
+		}
+
+		visible = {
+			
+		}
+
+		fire_only_once = no
+
+		days_remove = 90
+		days_re_enable = 180
+
+		cost = 150
+
+		modifier = {
+			war_support_weekly = 0.01
+		}
+
+		complete_effect = {
+			set_country_flag = war_propaganda_campaign_running
+		}
+		remove_effect = {
+			clr_country_flag = war_propaganda_campaign_running
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1
+				has_war_support < 0.4
+				has_war = yes
+			}
+		}
+	}
+
+	#Propaganda campaign against a country in offensive that has caused a lot of tension and started a war
+	war_propaganda_against_warmonger = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			NOT = { has_country_flag = war_propaganda_campaign_running }
+			FROM = {
+				OR = {
+					is_justifying_wargoal_against = ROOT
+					any_enemy_country = {
+						has_volunteers_amount_from = {
+							tag = ROOT
+							count > 5
+						}
+					}
+					AND = {
+						has_war_with = ROOT
+						is_neighbor_of = ROOT
+					}
+					has_offensive_war = yes
+				}
+			}
+			
+			# lower the cost for neighbors
+			if = {
+				limit = {
+					FROM = {
+						is_neighbor_of = ROOT
+					}
+					set_temp_variable = { war_propaganda_cost = 50 }
+				}
+			}
+		}
+
+		visible = {
+			FROM = {
+				NOT = { is_in_faction_with = ROOT }
+				OR = {
+					is_justifying_wargoal_against = ROOT
+					AND = {
+						is_neighbor_of = ROOT
+						OR = {
+							has_war_with = ROOT
+							AND = {
+								NOT = { has_government = ROOT }
+								has_offensive_war = yes
+								has_added_tension_amount > 5
+							}
+						}
+					}
+					AND = {
+						NOT = { is_neighbor_of = ROOT }
+						OR = {
+							has_offensive_war_with = ROOT
+							AND = {
+								NOT = { has_government = ROOT }
+								has_offensive_war = yes
+								has_added_tension_amount > 30
+							}
+						}
+					}
+				}
+			}
+		}
+
+		target_trigger = {
+			FROM = {
+				NOT = { is_in_faction_with = ROOT }
+				OR = {
+					is_justifying_wargoal_against = ROOT
+					AND = {
+						is_neighbor_of = ROOT
+						OR = {
+							has_war_with = ROOT
+							AND = {
+								NOT = { has_government = ROOT }
+								has_offensive_war = yes
+								has_added_tension_amount > 5
+							}
+						}
+					}
+					AND = {
+						NOT = { is_neighbor_of = ROOT }
+						OR = {
+							has_offensive_war_with = ROOT
+							AND = {
+								NOT = { has_government = ROOT }
+								has_offensive_war = yes
+								has_added_tension_amount > 30
+							}
+						}
+					}
+				}
+			}
+		}
+
+		days_remove = 90
+		days_re_enable = 180
+
+		fire_only_once = yes
+
+		cost = var:war_propaganda_cost?75
+
+		modifier = {
+			war_support_weekly = 0.01
+		}
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision war_propaganda_against_warmonger"
+			set_country_flag = war_propaganda_campaign_running
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove war_propaganda_against_warmonger"
+			clr_country_flag = war_propaganda_campaign_running
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_war_support > 0.9
+			}
+		}
+	}
+}
+political_actions = {
+	cw_nationalize_foreign_companies = {
+		icon = GFX_resource_companies_decision_icon
+		
+		allowed = { 
+			always = yes
+		}
+		
+		visible = {
+			NOT = { has_variable = nationalization_started_against@FROM }
+			custom_trigger_tooltip = {
+				tooltip = CW_NATIONALIZE_FOREIGN_COMPANIES_TT
+				any_owned_state = {
+					has_state_flag = monopoly_state
+					is_core_of = ROOT
+					check_variable = { my_resource_state_owner = FROM.id }
+					OR = {
+						check_variable = { monopoly_timer > 365 }
+						has_state_flag = perpetual_monopoly
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = CW_NATIONALIZE_FOREIGN_COMPANIES_TT_2
+				any_owned_state = {
+					has_state_flag = monopoly_state
+					is_core_of = ROOT
+					NOT = { has_state_flag = recent_monopoly_added }
+					check_variable = { my_resource_state_owner = FROM.id }
+				}
+			}			
+		}
+		
+		available = {
+			NOT = { has_government = democratic }
+			custom_trigger_tooltip = {
+				tooltip = CW_NATIONALIZE_FOREIGN_COMPANIES_TT
+				any_owned_state = {
+					has_state_flag = monopoly_state
+					check_variable = { my_resource_state_owner = FROM.id }
+					OR = {
+						check_variable = { monopoly_timer > 365 }
+						has_state_flag = perpetual_monopoly
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = CW_NATIONALIZE_FOREIGN_COMPANIES_TT_2
+				any_owned_state = {
+					has_state_flag = monopoly_state
+					NOT = { has_state_flag = recent_monopoly_added }
+					check_variable = { my_resource_state_owner = FROM.id }
+				}
+			}
+		}
+		
+		cost = 100
+		
+		highlight_states = { highlight_states_trigger = { is_controlled_by = ROOT check_variable = { my_resource_state_owner = FROM.id } } }
+		
+		target_trigger = {
+			FROM = {
+				is_in_array = {
+					array = ROOT.active_monopolies_domestic
+					value = THIS.id
+				}
+			}
+			ROOT = {
+				any_owned_state = {
+					has_state_flag = monopoly_state
+					check_variable = { my_resource_state_owner = FROM.id }
+					OR = {
+						check_variable = { monopoly_timer > 365 }
+						has_state_flag = perpetual_monopoly
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			add_popularity = { ideology = ROOT popularity = 0.2 }
+			FROM = { add_opinion_modifier = { target = ROOT modifier = protest_action_light } }
+			set_variable = { nationalization_started_against@FROM = 1 }
+			activate_targeted_decision = { target = FROM decision = cw_nationalization_of_foreign_companies }
+			hidden_effect = {
+				set_country_flag = nationalization_started
+				FROM = { country_event = { id = generic_events.9 days = 10 } }
+			}			
+		}
+		
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				ROOT = { has_opinion = { target = FROM value < -30 } }
+			}
+			modifier = {
+				add = 500
+				ROOT = { has_government = communism_totalitarian }
+				ROOT = { has_opinion = { target = FROM value < -30 } }
+			}			
+			modifier = {
+				add = 500
+				ROOT = { has_country_flag = nationalize_those_bastards }
+			}
+			modifier = {
+				add = -200
+				tag = PER		#Wait for historical stuff to happen
+			}
+			modifier = {
+				add = -200
+				FROM = {
+					is_ai = yes
+					is_major = yes
+				}
+			}			
+		}		
+	}
+	cw_nationalization_of_foreign_companies = {
+		icon = GFX_resource_companies_decision_icon
+		
+		allowed = { 
+			always = yes
+		}
+		
+		highlight_states = { highlight_states_trigger = { is_controlled_by = ROOT check_variable = { my_resource_state_owner = FROM.id } } }
+		
+		available = {
+			OR = {
+				has_civil_war = yes
+				hidden_trigger = {
+					has_country_flag = nationlization_stopped
+				}
+			}
+		}
+		
+		activation = {
+			always = no
+		}
+		days_mission_timeout = 362
+		is_good = yes
+		fire_only_once = yes
+
+		timeout_effect = {
+			FROM = { add_opinion_modifier = { target = ROOT modifier = protest_action_strong } }
+			add_named_threat = { threat = 1 name = CW_THREAT_NATIONALIZED_FOREIGN_COPMANIES }
+			every_owned_state = {
+				limit = {
+					NOT = { has_state_flag = stop_nationalization }
+					check_variable = { my_resource_state_owner = FROM.id }
+				}
+				ROOT = { remove_resource_rights = PREV }
+				cw_remove_state_monopoly = yes
+				if = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 4
+							include_locked = yes
+						}
+					}
+					add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+					else_if = {
+						limit = {
+							free_building_slots = {
+								building = infrastructure
+								size > 4
+								include_locked = yes
+							}
+						}
+						add_building_construction = { type = infrastructure level = 2 instant_build = yes }
+					}
+				}
+			}
+			FROM = { save_event_target_as = nationalized_assets_of }
+			hidden_effect = {
+				news_event = state_events.13
+				set_country_flag = { flag = nationalized_foreign_companies value = 1 days = 365 }
+				clear_variable = nationalization_started_against@FROM
+				clr_country_flag = nationalization_started
+			}
+		}
+	}
+	cw_exile_royal_family = {
+		priority = 1
+		icon = GFX_decision_eng_abdication_crisis
+
+		cost = 100
+
+		available = {
+			OR = {
+				has_government = communism
+				has_government = communism_totalitarian
+			}
+		}
+
+		visible = {
+			AND = {
+				is_in_array = { array = global.countries_with_monarchies value = ROOT.id }				
+				OR = {
+					has_government = communism
+					has_government = communism_totalitarian
+				}
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = EXILE_ROYAL_FAMILY_DECISION_EFFECT_TT
+			add_stability = -0.1
+			if = {
+				limit = {
+					has_government = communism
+				}
+				add_popularity = { ideology = communism popularity = 0.1 }						
+			}
+			if = {
+				limit = {
+					has_government = communism_totalitarian
+				}
+				add_popularity = { ideology = communism_totalitarian popularity = 0.1 }						
+			}			
+			hidden_effect = {
+				set_country_flag = { flag = monarchy_exiled value = 1 days = 30 }	#To prevent generic monarchy abolished event from popping
+				cw_abolish_cons_monarchy = yes
+				country_event = monarchy_abolished_events.2
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cw_hold_unification_referendum = {
+		priority = 1
+		icon = GFX_decision_generic_form_nation
+
+		cost = 100
+
+		available = {
+			if = {
+				limit = {
+					NOT = { has_variable = twin_country }
+				}
+				any_country_with_original_tag = {
+					original_tag_to_check = ROOT
+					has_opinion = { target = ROOT value > 15 }
+					has_government = ROOT
+					is_neighbor_of = ROOT
+					is_ai = yes
+					has_war = no
+					cw_holding_referendum = no
+					is_puppet = no
+				}			
+			}
+			if = {
+				limit = {
+					has_variable = twin_country
+				}
+				var:twin_country = { 
+					has_opinion = { target = ROOT value > 15 }
+					has_government = ROOT
+					is_neighbor_of = ROOT
+					is_ai = yes
+					has_war = no
+					cw_holding_referendum = no
+					is_puppet = no
+				}				
+			}			
+		}
+
+		visible = {
+			ROOT = {
+				OR = {
+					has_government = democratic
+					has_government = democratic_socialist
+				}
+			}
+			OR = {
+				AND = {
+					any_country_with_original_tag = {
+						original_tag_to_check = ROOT
+						exists = yes
+						NOT = { tag = ROOT }
+					}
+				}
+				AND = {
+					has_variable = twin_country
+					check_variable = { var = ROOT.num_controlled_states value = var:twin_country.num_controlled_states compare = greater_than }
+					var:twin_country = { exists = yes }
+				}
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					has_variable = twin_country
+				}			
+				var:twin_country = { 
+					hidden_effect = {
+						every_owned_state = {
+							limit = {
+								is_core_of = PREV
+							}
+							add_claim_by = ROOT
+						}
+					}
+					cw_cs_ref_initial_setup = yes 
+				}
+				else = {
+					every_country_with_original_tag = {
+						original_tag_to_check = ROOT
+						limit = {
+							is_neighbor_of = ROOT
+						}
+						hidden_effect = {
+							every_owned_state = {
+								limit = {
+									is_core_of = PREV
+								}
+								add_claim_by = ROOT
+							}
+						}
+						cw_cs_ref_initial_setup = yes 						
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}		
+	}	
+}

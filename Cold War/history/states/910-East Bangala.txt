@@ -1,0 +1,41 @@
+
+state={
+	id=910
+	local_supplies=0.0 
+	name="STATE_910"
+
+	history={
+ 	add_to_array = { list_victory_point = 8048 }
+ 	set_variable = { victory_point = 5 }
+		owner = BEL
+		add_claim_by = COG
+
+		add_province_modifier = {
+			static_modifiers = {
+				untamable_terrain 
+			}
+			province = {
+				all_provinces = yes
+			}
+		}
+				
+		1960.6.30 = {
+			owner = COG
+			add_core_of = COG
+			remove_core_of = BEL
+		}
+		buildings = {
+			infrastructure = 1
+		}
+		victory_points = {
+			8048 5		#Ponthierville
+		}		
+	}
+
+	provinces={
+		3659 4715 7868 8048 8461 12555 
+	}
+	manpower=500000
+	buildings_max_level_factor=1.000
+	state_category=pastoral
+}

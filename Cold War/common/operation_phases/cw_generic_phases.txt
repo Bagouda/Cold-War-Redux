@@ -1,0 +1,40 @@
+###############################################
+###########	ARREST OPPOSITION PHASES ##########
+###############################################
+cw_generic_assasinate_country_leader_choose_location = {
+	name = "Determine Best Location"
+	desc = "CW_GENERIC_ASSASINATE_COUNTRY_LEADER_CHOOSE_LOCATION_DESC"
+	outcome = cw_generic_assasinate_country_leader_choose_location_outcome
+	picture = "GFX_operations_city_map"
+	icon = "GFX_phase_map_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+	}
+	return_on_complete = no
+}
+cw_generic_assasinate_country_leader_set_up_positions = {
+	name = "Prepare For Target Arrival"
+	desc = "CW_GENERIC_ASSASINATE_COUNTRY_LEADER_SET_UP_POSITIONS_DESC"
+	outcome = cw_generic_assasinate_country_leader_set_up_positions_outcome
+	picture = "GFX_operations_hitman_location"
+	icon = "GFX_phase_lightbulb_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+		transport_plane_equipment = 1	
+	}
+	return_on_complete = no
+}
+cw_generic_assasinate_country_leader_carry_out = {
+	name = "Carry out the Assassination"
+	desc = "CW_GENERIC_ASSASINATE_COUNTRY_LEADER_CARRY_OUT_DESC"
+	outcome = cw_generic_assasinate_country_leader_carry_out_outcome
+	picture = "GFX_operations_assasination"
+	icon = "GFX_phase_assassination_icon"
+	requirements = {	#What will make this phase available to the player
+	}
+	equipment = {	#Stuff needed to prepare the mission
+	}
+	return_on_complete = no
+}

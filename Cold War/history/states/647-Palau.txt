@@ -1,0 +1,35 @@
+state = {
+	id=647
+	local_supplies=0.0 
+	name="STATE_647"
+	state_category = small_island
+	history = {
+		owner = USA
+		add_core_of = MIC
+		
+		start_resistance = yes
+		set_compliance = 10
+		set_resistance = 20
+		
+		add_state_modifier = {
+			modifier = {
+				resistance_target = 0.1
+				compliance_gain = -0.5
+			}
+		}
+		
+		buildings = {
+			infrastructure = 1
+			4357 = {
+				naval_base = 1
+			}
+		}		
+		1952.4.28 = {
+			owner = JAP
+		}
+	}
+	manpower = 12100
+	provinces={
+		4357 12103
+	}
+}

@@ -1,0 +1,30 @@
+state = {
+	id=170
+	local_supplies=0.0 
+	name="STATE_170"
+	state_category = large_town
+	history = {
+ 	add_to_array = { list_victory_point = 6902 }
+ 	add_to_array = { list_victory_point = 3874 }
+ 	set_variable = { victory_point = 2 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SPR
+		add_core_of = SPR
+		victory_points = {
+			3874 1
+		}
+		victory_points = {
+			6902 1
+		}
+	}
+	resources={
+		tungsten=4 # was: 6
+		crops = 5
+	}
+	manpower = 1782253
+	provinces={
+		794 809 931 985 3874 3930 6866 6867 6902 6948 6954 9770 9839 9877 9925 11756 11780 11798 11851 
+	}
+}

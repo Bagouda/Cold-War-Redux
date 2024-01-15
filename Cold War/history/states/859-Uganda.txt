@@ -1,0 +1,30 @@
+state={
+	id=859
+	local_supplies=0.0 
+	name="STATE_859"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 12989 }
+ 	set_variable = { victory_point = 10 }
+		owner = ENG
+		add_claim_by = UGD
+		
+		buildings = {
+			infrastructure = 1
+			industrial_complex = 1
+		}
+		victory_points = {
+			12989 10
+		}
+	}
+	resources={
+		crops=3 # was: 4
+	}
+	buildings_max_level_factor=1.000
+	manpower=1757812
+	provinces={
+		3854 7088 12989
+	}
+	manpower=3350000
+	buildings_max_level_factor=1.000
+}

@@ -1,0 +1,141 @@
+guiTypes = {
+	containerWindowType = {
+		name = "cw_candidate_selection_interface"
+		position = { x = 0 y = 0}
+		size = { width = 800 height= 650 }
+		orientation = center
+		origo = center
+		fade_time = 100
+		moveable = yes
+		fade_type = linear
+		click_to_front = no
+		clipping = no
+
+
+		background = {
+			name = "candidate_selection_backgorund"
+			spriteType = "GFX_candidate_selection_background"
+		}
+		iconType = {
+			name = "candidate_selection_backgorund_2"
+			spriteType = "GFX_candidate_selection_background"
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "unsc_window_title"
+			position = { x = 100	 y = 40 }
+			font = "cw_inba_title_20"
+			text = "CW_CANDIDATES_WINDOW_TITLE"
+			maxWidth = 600
+			maxHeight = 10
+			fixedsize = yes
+			format = center
+		}
+		instantTextboxType = {
+			name = "inba_window_subtitle"
+			position = { x = 199 y = 76 }
+			font = "cw_digital_font"
+			text = "CW_CANDIDATES_WINDOW_SUBTITLE"
+			maxWidth = 400
+			maxHeight = 10
+			format = center
+		}
+		instantTextboxType = {
+			name = "candidate_window_description"
+			position = { x = 60 y = 131 }
+			font = "hoi_18mbs"
+			text = "CW_CANDIDATES_WINDOW_DESC"
+			maxWidth = 680
+			maxHeight = 20
+			format = center
+		}
+		buttonType = {
+			name = "first_candidate_picture"
+			spriteType = "GFX_candidate_picture_khrushev"
+			position = { x = 48 y = 245 }
+			pdx_tooltip = "FIRST_CANDIDATE_TT"
+			pdx_tooltip_delayed = "CANDIDATE_CHANGE_WARNING_TT"
+		}
+		instantTextboxType = {
+			name = "first_candidate_name"
+			position = { x = 50 y = 473 }
+			font = "cw_terminal_font"
+			text = "CW_FIRST_CANDIDATE_NAME"
+			maxWidth = 150
+			maxHeight = 20
+			format = center
+		}
+		iconType = {
+			name = "first_candidate_ideology"
+			spriteType = "GFX_ideology_communism_group"
+			position = { x = 102 y = 530 }
+			scale = 0.7	
+		}
+		buttonType = {
+			name = "second_candidate_picture"
+			spriteType = "GFX_candidate_picture_beria"
+			position = { x = 230 y = 245 }
+			pdx_tooltip = "SECOND_CANDIDATE_TT"
+			pdx_tooltip_delayed = "CANDIDATE_CHANGE_WARNING_TT"
+		}		
+		instantTextboxType = {
+			name = "second_candidate_name"
+			position = { x = 233 y = 473 }
+			font = "cw_terminal_font"
+			text = "CW_SECOND_CANDIDATE_NAME"
+			maxWidth = 150
+			maxHeight = 20
+			format = center		
+		}
+		iconType = {
+			name = "second_candidate_ideology"
+			spriteType = "GFX_ideology_communism_group"
+			position = { x = 284 y = 530 }
+			scale = 0.7	
+		}
+		buttonType = {
+			name = "third_candidate_picture"
+			spriteType = "GFX_candidate_picture_malenkov"
+			position = { x = 413 y = 245 }
+			pdx_tooltip = "THIRD_CANDIDATE_TT"
+			pdx_tooltip_delayed = "CANDIDATE_CHANGE_WARNING_TT"			
+		}
+		instantTextboxType = {
+			name = "third_candidate_name"
+			position = { x = 416 y = 473 }
+			font = "cw_terminal_font"
+			text = "CW_THIRD_CANDIDATE_NAME"
+			maxWidth = 150
+			maxHeight = 20
+			format = center
+		}
+		iconType = {
+			name = "third_candidate_ideology"
+			spriteType = "GFX_ideology_communism_totalitarian_group"
+			position = { x = 467 y = 530 }
+			scale = 0.7			
+		}
+		buttonType = {
+			name = "fourth_candidate_picture"
+			spriteType = "GFX_candidate_picture_molotov"
+			position = { x = 596 y = 245 }
+			pdx_tooltip = "FOURTH_CANDIDATE_TT"
+			pdx_tooltip_delayed = "CANDIDATE_CHANGE_WARNING_TT"				
+		}		
+		instantTextboxType = {
+			name = "fourth_candidate_name"
+			position = { x = 599 y = 473 }
+			font = "cw_terminal_font"
+			text = "CW_FOURTH_CANDIDATE_NAME"
+			maxWidth = 150
+			maxHeight = 20
+			format = center
+		}
+		iconType = {
+			name = "fourth_candidate_ideology"
+			spriteType = "GFX_ideology_communism_totalitarian_group"
+			position = { x = 649 y = 530 }
+			scale = 0.7
+		}		
+	}
+}

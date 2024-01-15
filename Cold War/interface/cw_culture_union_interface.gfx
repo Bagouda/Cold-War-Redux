@@ -1,0 +1,41 @@
+spriteTypes = {
+	SpriteType = {
+		name = "GFX_culture_union_background"
+		texturefile = "gfx/interface/culture_union/cultural_union_background.dds"
+	}
+	SpriteType = {
+		name = "GFX_acc_main_screen_image_not_in_session"
+		texturefile = "gfx/interface/culture_union/ACC/acc_not_in_session.dds"
+	}
+	SpriteType = {
+		name = "GFX_acc_main_screen_image_in_session"
+		texturefile = "gfx/interface/culture_union/ACC/acc_in_session.dds"
+	}
+	SpriteType = {
+		name = "GFX_euu_main_screen_image_not_in_session"
+		texturefile = "gfx/interface/culture_union/ACC/euu_not_in_session.dds"
+	}
+	SpriteType = {
+		name = "GFX_euu_main_screen_image_in_session"
+		texturefile = "gfx/interface/culture_union/ACC/euu_in_session.dds"
+	}
+	SpriteType = {
+		name = "GFX_cultural_union_indicator_icon"
+		texturefile = "gfx/interface/culture_union/cultural_union_bottom_indicator.dds"
+	}
+	SpriteType = {
+		name = "GFX_cu_acc_blocker"
+		texturefile = "gfx/interface/culture_union/cultural_union_acc_blocker.dds"
+	}	
+	frameAnimatedSpriteType = {
+		name = "GFX_cu_bottom_monitor_animation"
+		texturefile = "gfx/interface/culture_union/cu_monitor_animation.dds"
+		noOfFrames = 19
+		loadType = "INGAME"
+		transparencecheck = yes
+		animation_rate_fps = 50
+		looping = yes
+		play_on_show = yes
+		pause_on_loop = 0.0
+	}	
+}

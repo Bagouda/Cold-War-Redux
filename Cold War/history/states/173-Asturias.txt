@@ -1,0 +1,46 @@
+state = {
+	id=173
+	local_supplies=0.0 
+	name="STATE_173" # Granada
+	state_category = city
+	history = {
+ 	add_to_array = { list_victory_point = 9979 }
+ 	add_to_array = { list_victory_point = 747 }
+ 	add_to_array = { list_victory_point = 1176 }
+ 	add_to_array = { list_victory_point = 1176 }
+ 	set_variable = { victory_point = 6 }
+		owner = SPR
+		add_core_of = SPR
+		
+		buildings = {
+			infrastructure = 3
+			arms_factory = 1
+			industrial_complex = 1
+			air_base = 1
+			dockyard  = 2
+			9979 = {
+				naval_base = 3
+			}			
+		}
+		
+		victory_points = {
+			1176 1
+		}
+		victory_points = {
+			1176 1
+		}
+		victory_points = {
+			747 1
+		}
+		victory_points = {
+			9979 3
+		}
+	}
+	resources={
+		steel=8 # was: 12
+	}
+	manpower = 1662292
+	provinces={
+		747 1090 1176 1192 4065 4095 7068 7153 7196 7198 9979 10009 10063 11956 12038 12083 
+	}
+}

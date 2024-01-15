@@ -1,0 +1,37 @@
+state={
+	id=896
+	local_supplies=0.0 
+	name="STATE_896"
+	history={
+ 	add_to_array = { list_victory_point = 12133 }
+ 	set_variable = { victory_point = 5 }
+		owner = VIN
+		add_core_of = VIN
+		add_claim_by = CAM
+		add_claim_by = VTC
+
+		add_province_modifier = {
+			static_modifiers = { untamable_terrain }
+			province = {
+				all_provinces = yes
+			}
+		}		
+
+		buildings = {
+			infrastructure = 2
+		}
+
+		victory_points = {
+			12133 5		#Cần Thơ
+		}		
+	}
+	resources={
+		crops = 35
+	}	
+	provinces={
+		4341 7331 4284 4223 12133 7303
+	}
+	manpower=357200
+	buildings_max_level_factor=1.000
+	state_category=city
+}

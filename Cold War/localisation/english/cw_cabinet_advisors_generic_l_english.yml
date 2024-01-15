@@ -1,0 +1,27 @@
+﻿l_english:
+ hog_minister:0 "Deputy Minister"
+ foreign_minister:0 "Foreign Minister" 
+ defense_minister:0 "Defense Minister" 
+ treasury_minister:0 "Treasury Minister" 
+ head_of_intelligence_minister:0 "Head of Intelligence" 
+ chief_of_staff:0 "Head of Armed Forces"
+ ### Bulgaria Historic Ministers ###
+ bul_pa_nikola_petkov:0 "Nikola Petkov"
+ bul_hog_georgi_dimitrov:0 "Georgi Dimitrov"
+ ### Hungary Historic Ministers ###
+ hun_hog_imre_nagy:0 "Imre Nagy"
+ hun_hog_ferenc_nagy:0 "Ferenc Nagy"
+ hun_fm_lazlo_rajk:0 "László Rajk"
+ hun_pa_matyas_rakosi:0 "Mátyás Rákosi"
+ hun_dm_tombor_jeno:0 "Jenő Tombor"
+ hun_chief_janos_voros:0 "János Vörös"
+ hun_tm_ferenc_gordon:0  "Ferenc Gordon"
+ sov_kliment_voroshilov:0 "Kliment Voroshilov"
+ ### PER Historic Ministers ###
+ per_hog_mohammad_mosaddegh:0 "Mohammad Mosaddegh"
+ per_hog_fazlollah_zahedi:0 "Fazlollah Zahedi"
+ ### IRQ Historic Ministers ###
+ irq_hog_nuri_al_said:0 "Nuri al-Said"
+ irq_pam_abd_al_ilah:0 "Abd al-Ilah Hejaz"
+ ### STATE OF VIETNAM ###
+ svi_hog_ngo_dinh_diem:0 "Ngo Dinh Diem"

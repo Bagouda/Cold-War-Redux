@@ -1,0 +1,29 @@
+state = {
+	id=78
+	local_supplies=0.0 
+	name="STATE_78"
+	state_category = town
+	history = {
+ 	add_to_array = { list_victory_point = 3707 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SOV
+		add_claim_by = MOL
+		add_claim_by = ROM
+		1950.6.25 = {
+			owner = SOV
+		}		
+		victory_points = {
+			3707 1
+		}
+	}
+	resources={
+		crops=5
+	}	
+	manpower = 2296800
+	provinces=
+	{
+414 565 3407 3577 3707 3724 6600 9683 11686 11705 	}
+}

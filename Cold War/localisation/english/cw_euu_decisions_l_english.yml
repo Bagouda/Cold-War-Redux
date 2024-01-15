@@ -1,0 +1,4 @@
+﻿l_english:
+ #### ACC DECISIONS LOCALIZATION ####
+ ger_occupation_raise_reparations:0 "Increase [FROM.GetAdjective] Reparations\n§gThis will slightly radicalize the [FROM.GetAdjective] population.§!"
+ ger_occupation_raise_reparations_desc:0 "Demand that the [FROM.GetAdjective] Government pays more reparations to all [ROOT.CW_GET_CULTURAL_UNION_NAME] members."

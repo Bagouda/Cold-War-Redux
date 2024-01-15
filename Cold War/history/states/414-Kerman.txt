@@ -1,0 +1,22 @@
+state = {
+	id=414
+	local_supplies=0.0 
+	name="STATE_414"
+	state_category = wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 10913 }
+ 	set_variable = { victory_point = 1 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = PER
+		add_core_of = PER
+		victory_points = {
+			10913 1 
+		}
+	}
+	manpower = 486013
+	provinces={
+		1986 7990 10759 10890 10913 11249 12739 12809 12852 12895 
+	}
+}

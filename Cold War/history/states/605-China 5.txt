@@ -1,0 +1,39 @@
+state = {
+	id=605
+	local_supplies=0.0 
+	name="STATE_605"
+	state_category=devestated_wasteland
+	history = {
+ 	add_to_array = { list_victory_point = 6999 }
+ 	add_to_array = { list_victory_point = 4925 }
+ 	set_variable = { victory_point = 25 }
+		owner = CHI
+		add_core_of = CHI
+		add_claim_by= PRC
+
+		buildings = {
+			infrastructure = 3
+			air_base = 2
+			arms_factory = 1			
+		}
+		
+		1949.10.1 = {
+		owner = PRC
+		}
+		victory_points = {
+			6999 20 
+		}
+		victory_points = {
+			4925 5 
+		}
+	}
+	resources={
+		steel=14.000
+		crops = 5
+	}
+	buildings_max_level_factor=1.000
+	manpower= 1003000	
+	provinces={
+		1367 1395 1893 2030 2091 4925 5048 6999 7240 7256 8026 10132 10144 11865 12274 12705 12767 
+	}
+}

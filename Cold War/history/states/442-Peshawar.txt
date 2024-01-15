@@ -1,0 +1,28 @@
+state = {
+	id=442
+	local_supplies=0.0 
+	name="STATE_442"
+	state_category = rural
+	history = {
+ 	add_to_array = { list_victory_point = 12763 }
+ 	set_variable = { victory_point = 3 }
+		buildings = {
+			infrastructure = 1
+		}
+		owner = IND
+		add_core_of = IND
+		add_core_of = PAK
+		
+		1947.8.15 = {
+			owner = PAK
+			add_core_of = PAK
+		}		
+		victory_points = {
+			12763 3
+		}
+	}
+	manpower = 4684400
+	provinces={
+		1978 4558 4998 12717 12763 
+	}
+}

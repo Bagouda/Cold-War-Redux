@@ -1,0 +1,20 @@
+state = {
+	id=812
+	local_supplies=0.0 
+	name="STATE_812" # Natal
+	state_category = city
+	history = {
+		buildings = {
+			infrastructure = 1
+		}
+		owner = SAF
+		add_core_of = SAF
+	}
+	resources={
+		chromium=60 # was: 116
+	}
+	manpower = 3962157
+	provinces={
+		4556 
+	}
+}

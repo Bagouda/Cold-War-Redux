@@ -1,0 +1,25 @@
+state = {
+	id=359
+	local_supplies=0.0 
+	name="STATE_359"
+	state_category = large_city
+	history = {
+ 	add_to_array = { list_victory_point = 6882 }
+ 	set_variable = { victory_point = 5 }
+		owner = USA
+		add_core_of = USA
+
+		buildings = {
+			infrastructure = 4		
+			industrial_complex = 6
+		}
+		
+		victory_points = {
+			6882 5 
+		}
+	}
+	manpower = 4041332
+	provinces={
+		3693 3863 6882 9801 9864 11740 11782 11900 
+	}
+}

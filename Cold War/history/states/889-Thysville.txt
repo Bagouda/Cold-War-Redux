@@ -1,0 +1,39 @@
+
+state={
+	id=889
+	local_supplies=0.0 
+	name="STATE_889"
+	resources={
+		crops=15.000
+	}
+
+	history={
+ 	add_to_array = { list_victory_point = 5117 }
+ 	add_to_array = { list_victory_point = 7827 }
+ 	set_variable = { victory_point = 35 }
+		owner = BEL
+		add_claim_by = COG
+		1960.6.30 = {
+			owner = COG
+			add_core_of = COG
+			remove_core_of = BEL
+		}
+		buildings = {
+			infrastructure = 3
+			air_base = 1
+		}
+		victory_points = {
+			5117 30 
+		}
+		victory_points = {
+			7827 5 
+		}
+	}
+
+	provinces={
+		733 3771 5117 6872 7721 7827 12418 12561 12697 12925 
+	}
+	manpower=5000000
+	buildings_max_level_factor=1.000
+	state_category=rural
+}
