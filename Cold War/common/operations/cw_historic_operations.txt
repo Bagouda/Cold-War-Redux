@@ -2,6 +2,164 @@
 ### 1) no. of required operatives
 ### 2) required network strength
 ### eg. 1/70 comes before 2/40
+
+cw_operation_kill_tito = {
+	icon = GFX_operations_ajax
+	map_icon = GFX_operations_arrest_opposition_small
+	name = "Assassinate Tito"
+	desc = CW_Assassinate_Tito_DESC
+	priority = 1
+
+	days = 60
+	network_strength = 50
+	operatives = 2
+	experience = 10
+
+	allowed = {
+		original_tag = SOV
+	}
+
+	visible = {
+		FROM = { tag = YUG }
+		SOV = { has_country_flag = assasinate_tito_allowed }
+	}
+
+	equipment = {
+		infantry_equipment = 1000
+		transport_plane_equipment = 1
+	}
+
+	available = {
+		FROM = {
+			has_country_leader = {
+				name = "Josip Broz Tito"
+				ruling_only = yes
+			}
+			
+		}
+	}
+
+	risk_chance = 0.50
+	risk_modifiers = { operation_risk }
+	outcome_extra_chance = 0.25
+	outcome_modifiers = { target_sabotage_factor operation_risk }
+	cost_modifiers = { operation_infiltrate_cost operation_cost }
+
+	on_start = {		#Stuff to do when player starts the operation
+	}
+
+	outcome_execute = {		#What you get once the operation is complete
+		ROOT = { clr_country_flag = assasinate_tito_allowed }
+		random_list = {
+			50 = {
+			
+				custom_effect_tooltip = "Tito will be removed from power.[CW_INSERT_NEW_LINE_LOC]"
+				custom_effect_tooltip = "The Stalinist will regain control of Yugoslavia"
+				SOV = {
+					news_event = sov_events.15
+				}
+				YUG = {
+					kill_country_leader = yes
+					add_country_leader_role = {
+						character =  "Arso Jovanović"
+						promote_leader = yes
+						country_leader = {
+							ideology = stalinism_idolg
+							expire = "1980.1.1.1"
+							traits = {}
+						}
+					}
+					add_popularity = { ideology = communism popularity = -0.10 }
+					add_popularity = { ideology = communism_totalitarian popularity = 0.15 }
+					set_party_rule = {
+						ideology = communism_totalitarian
+					}
+					 
+				}
+			}
+			50 = {
+				custom_effect_tooltip = "The assassination will fail."
+				SOV = {
+				news_event = sov_events.16
+				
+				}
+				
+			}
+			10 = {
+				
+				YUG = {
+					news_event = sov_events.17
+					start_civil_war = {
+						ideology = communism_totalitarian
+						keep_political_leader = yes
+						size = 0.5
+						states_filter = { impassable = no }
+						compute_proxy_score = yes
+					}
+					compute_proxy_score = yes
+				}
+			}
+		}
+	}
+
+
+	outcome_potential = {		#The reward shown before starting the mission
+		ROOT = { clr_country_flag = assasinate_tito_allowed }
+		random_list = {
+			50 = {
+			
+				custom_effect_tooltip = "Tito will be removed from power.[CW_INSERT_NEW_LINE_LOC]"
+				custom_effect_tooltip = "The Stalinist will regain control of Yugoslavia"
+				SOV = {
+					news_event = sov_events.15
+				}
+				YUG = {
+					kill_country_leader = yes
+					add_country_leader_role = {
+						character =  "Arso Jovanović"
+						promote_leader = yes
+						country_leader = {
+							ideology = stalinism_idolg
+							expire = "1980.1.1.1"
+							traits = {}
+						}
+					}
+					add_popularity = { ideology = communism popularity = -0.10 }
+					add_popularity = { ideology = communism_totalitarian popularity = 0.15 }
+					set_party_rule = {
+						ideology = communism_totalitarian
+					}
+					 
+				}
+			}
+			50 = {
+				custom_effect_tooltip = "The assassination will fail."
+				SOV = {
+				news_event = sov_events.16
+				}
+				
+			}
+			10 = {
+				
+				YUG = {
+					news_event = sov_events.17
+					start_civil_war = {
+						ideology = communism_totalitarian
+						keep_political_leader = yes
+						size = 0.5
+						states_filter = { impassable = no }
+						compute_proxy_score = yes
+					}
+					compute_proxy_score = yes
+				}
+			}
+		}
+	}
+	
+}
+
+
+
 cw_operation_ajax = {
 	icon = GFX_operations_ajax
 	map_icon = GFX_operations_arrest_opposition_small
@@ -222,8 +380,6 @@ cw_operation_new_order = {
 }
 
 
-}
-
 
 cw_operation_trikora = {
 	icon = GFX_operations_infiltrate_naval_forces
@@ -249,7 +405,7 @@ cw_operation_trikora = {
 	equipment = {
 		convoy = 1000
 
-		navy_submarine_1 = 10
+		ship_hull_submarine = 10
 
 	}
 
@@ -267,159 +423,14 @@ cw_operation_trikora = {
 	}
 
 	outcome_execute = {		#What you get once the operation is complete
-				ROOT = { clr_country_flag = operation_trikora_enabled 
-						transfer_state = 669
-					}
-	
-				custom_effect_tooltip = "Indonesia will land in papua thanks to our support"
-				custom_effect_tooltip = "The Dutch will be kicked out of Papua"
+		ROOT = { clr_country_flag = operation_trikora_enabled 
+				transfer_state = 669
+			}
+
+		custom_effect_tooltip = "Indonesia will land in papua thanks to our support"
+		custom_effect_tooltip = "The Dutch will be kicked out of Papua"
 				
 			
 	
-		}
-	}
-
-}
-
-
-cw_operation_kill_tito = {
-	icon = GFX_operations_ajax
-	map_icon = GFX_operations_arrest_opposition_small
-	name = "Assassinate Tito"
-	desc = CW_Assassinate_Tito_DESC
-	priority = 1
-
-	days = 60
-	network_strength = 50
-	operatives = 2
-	experience = 10
-
-	allowed = {
-		original_tag = SOV
-	}
-
-	visible = {
-		FROM = { tag = YUG }
-		ROOT = { has_country_flag = assasinate_tito_allowed }
-	}
-
-	equipment = {
-		infantry_equipment = 1000
-		transport_plane_equipment = 1
-	}
-
-	available = {
-		FROM = {
-			NOT = { 
-				has_country_leader = {
-					name = "Josip Broz Tito"
-					ruling_only = yes
-				}
-			}
-		}
-	}
-
-	risk_chance = 0.50
-	risk_modifiers = { operation_risk }
-	outcome_extra_chance = 0.25
-	outcome_modifiers = { target_sabotage_factor operation_risk }
-	cost_modifiers = { operation_infiltrate_cost operation_cost }
-
-	on_start = {		#Stuff to do when player starts the operation
-	}
-
-	outcome_execute = {		#What you get once the operation is complete
-		ROOT = { clr_country_flag = assasinate_tito_allowed }
-		random_list = {
-			50 = {
-				news_event = sov_events.15
-				custom_effect_tooltip = "Tito will be removed from power.[CW_INSERT_NEW_LINE_LOC]"
-				custom_effect_tooltip = "The Stalinist will regain control of Yugoslavia"
-				YUG = {
-					kill_country_leader = yes
-					add_country_leader_role = {
-						character =  "Arso Jovanović"
-						promote_leader = yes
-						country_leader = {
-							ideology = communism_totalitarian
-							expire = "1980.1.1.1"
-							traits = {}
-						}
-					}
-					add_popularity = { ideology = communism popularity = -0.10 }
-					add_popularity = { ideology = communism_totalitarian popularity = 0.15 }
-					set_party_rule = {
-						ideology = communism_totalitarian
-					}
-					 
-				}
-			}
-			50 = {
-				custom_effect_tooltip = "The assassination will fail."
-				news_event = sov_events.16
-				
-			}
-			10 = {
-				news_event = sov_events.17
-				YUG = {
-					start_civil_war = {
-						ideology = communism_totalitarian
-						keep_political_leader = yes
-						size = 0.5
-						states_filter = { impassable = no }
-						compute_proxy_score = yes
-					}
-					compute_proxy_score = yes
-				}
-			}
-		}
-	}
-
-
-	outcome_potential = {		#The reward shown before starting the mission
-		ROOT = { clr_country_flag = assasinate_tito_allowed }
-		random_list = {
-			50 = {
-				news_event = sov_events.15
-				custom_effect_tooltip = "Tito will be removed from power.[CW_INSERT_NEW_LINE_LOC]"
-				custom_effect_tooltip = "The Stalinist will regain control of Yugoslavia"
-				YUG = {
-					kill_country_leader = yes
-					add_country_leader_role = {
-						character =  "Arso Jovanović"
-						promote_leader = yes
-						country_leader = {
-							ideology = communism_totalitarian
-							expire = "1980.1.1.1"
-							traits = {}
-						}
-					}
-					add_popularity = { ideology = communism popularity = -0.10 }
-					add_popularity = { ideology = communism_totalitarian popularity = 0.15 }
-					set_party_rule = {
-						ideology = communism_totalitarian
-					}
-					 
-				}
-			}
-			50 = {
-				custom_effect_tooltip = "The assassination will fail."
-				news_event = sov_events.16
-				
-			}
-			10 = {
-				news_event = sov_events.17
-				YUG = {
-					start_civil_war = {
-						ideology = communism_totalitarian
-						keep_political_leader = yes
-						size = 0.5
-						states_filter = { impassable = no }
-						compute_proxy_score = yes
-					}
-					compute_proxy_score = yes
-				}
-			}
-		}
 	}
 }

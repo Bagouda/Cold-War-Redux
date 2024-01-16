@@ -39,4 +39,8 @@ spriteTypes = {
 		name = "GFX_event_weapons_cache"
 		texturefile = "gfx/event_pictures/state_event_weapon_cache.dds"
 	}	
+	spriteType = {
+		name = "GFX_event_tito_fail"
+		texturefile = "gfx/event_pictures/SOV/tito_fail.dds"
+	}	
 }

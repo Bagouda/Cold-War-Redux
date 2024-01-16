@@ -277,6 +277,6 @@ if = {
 		picture = "YUGH2.dds"
 		ideology = stalinism_idolg
 		expire = 1980.5.4
-		traits = { fiercely_independent communist_reformist_drift_trait  }
+		traits = { communist_reformist_drift_trait  }
 	}
 }

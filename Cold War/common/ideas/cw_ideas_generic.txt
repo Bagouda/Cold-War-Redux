@@ -2131,8 +2131,13 @@ ideas = {
 			}
 			
 			modifier = {
-				communism_totalitarian_drift = 0.02
-					
+			
+				targeted_modifier = {
+					tag = SOV
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+				}
+							
 			}
 			rule = {
 					can_join_factions = no

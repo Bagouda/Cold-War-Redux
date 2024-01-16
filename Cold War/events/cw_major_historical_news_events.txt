@@ -991,7 +991,7 @@ news_event = {
 	id = cw_historic_events.53		#YUG soviet split
 	title = cw_historic_events.53.t
 	desc = cw_historic_events.53.d
-	picture = GFX_news_event_yugoslavian_split	
+	picture = GFX_news_event_tito_stalin_split	
 
 
 

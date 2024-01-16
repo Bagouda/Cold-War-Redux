@@ -108,29 +108,32 @@ on_actions = {
 	}
 	
 	on_weekly_YUG =  {
-		if = {
-			limit  = { NOT = { has_global_flag = yug_split } }
-			
+		effect = {
 			if = {
-				limit = { check_variable  = { party_popularity@communism > party_popularity@communism_totalitarian } }
-				news_event = cw_historic_events.53
-				set_global_flag = yug_split
-				SOV = {
-					end_puppet = YUG
-					country_event = sov_events.14
-				}
-				YUG = {
-					set_party_rule = {
-						ideology = communism
+				limit  = { NOT = { has_global_flag = yug_split } }
+				
+				if = {
+					limit = { check_variable  = { party_popularity@communism > party_popularity@communism_totalitarian } }
+					news_event = cw_historic_events.53
+					set_global_flag = yug_split
+					SOV = {
+						end_puppet = YUG
+						country_event = sov_events.14
 					}
-					add_ideas = soviet_hatred
-					add_opinion_modifier = {
-						target = THIS
-						modifier = soviet_betrayal
+					YUG = {
+						set_party_rule = {
+							ideology = communism
+						}
+						remove_ideas = disagreement_on_greek_civil_war
+						add_ideas = soviet_hatred
+						add_opinion_modifier = {
+							target = THIS
+							modifier = soviet_betrayal
+						}
 					}
 				}
+			
 			}
-		
 		}
 		
 	}

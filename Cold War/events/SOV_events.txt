@@ -350,7 +350,7 @@ country_event = {
 	id = sov_events.14		#Stalin want to kill tito
 	title = sov_events.14.t
 	desc = sov_events.14.d
-	picture = GFX_report_event_stalin_01	
+	picture = GFX_event_tito_fail	
 
 
 	fire_only_once = yes
@@ -393,7 +393,7 @@ news_event = {
 	id = sov_events.16		#Tito not dead
 	title = sov_events.16.t
 	desc = sov_events.16.d
-	picture = GFX_news_event_yugoslavian_split	
+	picture = GFX_news_event_tito	
 
 
 	fire_only_once = yes

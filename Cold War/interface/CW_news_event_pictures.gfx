@@ -384,4 +384,12 @@ spriteTypes = {
 		name = "GFX_news_event_yugoslavian_split"
 		texturefile = "gfx/event_pictures/news/news_event_yugoslavian_split.dds"
 	}	
+	spriteType = {
+		name = "GFX_news_event_tito_stalin_split"
+		texturefile = "gfx/event_pictures/news/tito_stalin_split.dds"
+	}	
+	spriteType = {
+		name = "GFX_news_event_tito"
+		texturefile = "gfx/event_pictures/news/tito.dds"
+	}	
 }
