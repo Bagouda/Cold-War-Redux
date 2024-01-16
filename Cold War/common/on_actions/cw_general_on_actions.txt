@@ -40,7 +40,10 @@ on_actions = {
 				limit = {
 					ROOT = {
 						has_civil_war = yes
+						NOT = { has_country_flag =  not_standard_civilwar }
 					}
+					FROM = { NOT = { has_country_flag = not_standard_civilwar }}
+					
 				}
 				#every_country = {
 				#	limit = {
@@ -54,19 +57,22 @@ on_actions = {
 					limit = {
 						ROOT = {
 							has_government = communism
+							
 						}
 					}
 					ROOT = {
 						set_cosmetic_tag = COM_REVOLT
 						retire_country_leader = yes
-						create_country_leader = {
-							name = "Communist Militias"
-							desc = ""
-							picture = "gfx/leaders/generic_communist_militia.dds"
-							ideology = communist_idolg
-							expire = 2020.10.10
-							traits = { stern_anti_imperialist last_stand_fighter }
-						}					
+						if = { limit = { any_character = { has_ideology_group = communism	} }
+							create_country_leader = {
+								name = "Communist Militias"
+								desc = ""
+								picture = "gfx/leaders/generic_communist_militia.dds"
+								ideology = communist_idolg
+								expire = 2020.10.10
+								traits = { stern_anti_imperialist last_stand_fighter }
+							}
+						}						
 					}
 				}
 				if = {
@@ -78,13 +84,15 @@ on_actions = {
 					ROOT = {
 						set_cosmetic_tag = COM_REVOLT
 						retire_country_leader = yes
-						create_country_leader = {
-							name = "Communist Militias"
-							desc = ""
-							picture = "gfx/leaders/generic_communist_militia.dds"
-							ideology = stalinism_idolg
-							expire = 2020.10.10
-							traits = { stern_anti_imperialist last_stand_fighter }
+						if = { limit = { any_character = { has_ideology_group = communism_totalitarian	} }						
+							create_country_leader = {
+								name = "Communist Militias"
+								desc = ""
+								picture = "gfx/leaders/generic_communist_militia.dds"
+								ideology = stalinism_idolg
+								expire = 2020.10.10
+								traits = { stern_anti_imperialist last_stand_fighter }
+							}
 						}
 					}
 				}
@@ -278,11 +286,18 @@ on_actions = {
 				limit = {
 					ROOT = { 
 						OR = {
-							has_government = communism
-							has_government = communism_totalitarian
-							has_government = unaligned_right
+							AND = {
+								has_government = communism
+								FROM = { NOT = { has_government = communism_totalitarian } }
+							}						
+							AND = {
+								FROM = { NOT = { has_government = communism } }
+								has_government = communism_totalitarian
+							}
+							has_government = fascism
 						}
 					}
+					
 				}
 				random_country_with_original_tag = {
 					original_tag_to_check = ROOT

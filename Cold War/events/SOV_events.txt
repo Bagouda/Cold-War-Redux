@@ -354,17 +354,19 @@ country_event = {
 
 
 	fire_only_once = yes
-	major = yes
 	is_triggered_only = yes
 	
 	immediate = {
+		SOV = {
+			set_country_flag = assasinate_tito_allowed 
+		}
 
 	}	
 	
 	option = {
 		name = sov_events.14.a
 		custom_effect_tooltip = "Unlocks a mission to assassinate Josip Broz Tito."
-		YUG = { set_country_flag = assasinate_tito_allowed }
+		
 	}
 }
 
@@ -376,7 +378,6 @@ news_event = {
 	picture = GFX_assassination_news_event	
 
 
-	fire_only_once = yes
 	major = yes
 	is_triggered_only = yes
 	
@@ -385,8 +386,14 @@ news_event = {
 	}	
 	
 	option = {
+		trigger = {  is_communism =  no }
 		name = sov_events.15.a
 	}
+	option = {
+		trigger = {  is_communism =  no }
+		name = sov_events.15.b
+	}
+	
 }
 news_event = {
 
@@ -396,7 +403,6 @@ news_event = {
 	picture = GFX_news_event_tito	
 
 
-	fire_only_once = yes
 	major = yes
 	is_triggered_only = yes
 	
@@ -405,19 +411,49 @@ news_event = {
 	}	
 	
 	option = {
+		trigger = {  is_communism =  no }
 		name = sov_events.16.a
 	}
+	option = {
+		trigger = {  is_communism =  no }
+		name = sov_events.16.b
+	}
+	
 }
 news_event = {
 
-	id = sov_events.18		# yugoslav civil war
+	id = sov_events.17		# yugoslav civil war
+	title = sov_events.17.t
+	desc = sov_events.17.d
+	picture = GFX_news_event_yugoslavian_split
+
+
+
+	major = yes
+	is_triggered_only = yes
+	
+	immediate = {
+
+	}	
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = sov_events.17.a
+	}
+	option = {
+		trigger = {  is_communism =  no }
+		name = sov_events.17.b
+	}
+}
+country_event = {
+
+	id = sov_events.18		# indochina partition
 	title = sov_events.18.t
 	desc = sov_events.18.d
 	picture = GFX_news_event_yugoslavian_split
 
 
 	fire_only_once = yes
-	major = yes
 	is_triggered_only = yes
 	
 	immediate = {
@@ -425,7 +461,73 @@ news_event = {
 	}	
 	
 	option = {
+		news_event = cw_historic_events.62
+		FRA ={
+			
+			add_named_threat = { threat = -10 name = CW_ALLOWED_SELF_DETERMINATION }
+			release = CAM
+			release = LAO			
+			end_puppet = VIN
+			VIN = { clear_variable = twin_country }		# Needed to prevent annexation of twin country
+			VTC = {
+				clear_variable = twin_country
+				white_peace = FRA
+				white_peace = VIN
+				drop_cosmetic_tag = yes
+				cw_make_recognized_immediately = yes
+				diplomatic_relation = {
+					country = VIN
+					relation = non_aggression_pact
+					active = yes
+				}
+			}
+			hidden_effect = {
+				FRA = {
+					news_event = cw_historic_events.49
+					clear_variable = pacification_target 
+				}
+				VIN = {
+					cw_gained_independence_notification = yes
+					cw_make_recognized_immediately = yes
+					set_cosmetic_tag = MON_SVI
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.15
+					}						
+					set_politics = {
+						ruling_party = fascism
+						elections_allowed = yes
+						election_frequency = 48
+					}
+					set_variable = { twin_country = VTC.id }
+					every_owned_state = {
+						limit = {
+							has_resistance = yes
+						}
+						cancel_resistance = yes
+						clear_variable = resistance_started_by
+					}
+				}
+				VTC = {
+					transfer_state = 897
+					transfer_state = 898
+					set_variable = { twin_country = VIN.id }
+					load_oob = VIN_1950
+					clear_variable = our_insurgency_target
+				}
+				LAO = {
+					load_oob = LAO_1950
+					set_cosmetic_tag = LAO_CM 
+				}
+				CAM = {
+					load_oob = CAM_1950
+					set_cosmetic_tag = CAM_CM 
+				}
+			}
 		name = sov_events.18.a
+	}
+	option = {
+		name = sov_events.18.b
 	}
 }
 

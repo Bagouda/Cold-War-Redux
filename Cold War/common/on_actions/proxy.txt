@@ -223,56 +223,7 @@ on_actions = {
 
 	}
 
-	on_ruling_party_change = {
-		effect = {
-			if = { # Democracy end
-				limit = { ROOT = { is_democracy = no }  AND = { NOT = { check_variable = { old_ideology_token = communism_totalitarian } } NOT = {  check_variable = { old_ideology_token = communism } check_variable = { old_ideology_token = fascism } } NOT = {  check_variable = { old_ideology_token = unaligned_right } } } }  
-				USA = {
-					country_event = {
-						id = cw_proxy_war.17
-						days = 1
-					}
-				
-				}
-			
-			}
-			
-			
-			if = { # democracy win
-				limit = { ROOT = { is_democracy = yes } OR = { check_variable = { old_ideology_token = communism_totalitarian } check_variable = { old_ideology_token = communism } check_variable = { old_ideology_token = fascism } check_variable = { old_ideology_token = unaligned_right } } }
-				USA = {
-					country_event = {
-						id = cw_proxy_war.16
-						days = 1
-					}
-				
-				}
-			}
-			if = {  # communism end
-				limit = { AND = { OR  = { check_variable = { old_ideology_token = communism_totalitarian }   check_variable = { old_ideology_token = communism } } ROOT = { NOT = { is_communism = yes } } } }
-				SOV ={
-					country_event = {
-						id = cw_proxy_war.18
-						days = 1
-					
-					}
-				}
-			
-			}
-			
-			
-			if = { # communism win
-				limit = { AND = { NOT ={ check_variable = { old_ideology_token = communism_totalitarian } } NOT =  { check_variable = { old_ideology_token = communism } } } ROOT = {  is_communism = yes  } } 
-				SOV = {
-					country_event = {
-						id = cw_proxy_war.19
-						days = 1
-					}
-				}
-			}
-			
-		}
-	}
+	
 	
 	
 	on_capitulation = {

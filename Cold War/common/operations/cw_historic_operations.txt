@@ -71,6 +71,7 @@ cw_operation_kill_tito = {
 					}
 					add_popularity = { ideology = communism popularity = -0.10 }
 					add_popularity = { ideology = communism_totalitarian popularity = 0.15 }
+					remove_ideas = disagreement_on_greek_civil_war
 					set_party_rule = {
 						ideology = communism_totalitarian
 					}
@@ -84,17 +85,30 @@ cw_operation_kill_tito = {
 				
 				}
 				
+				
 			}
 			10 = {
 				
 				YUG = {
 					news_event = sov_events.17
+					remove_ideas = disagreement_on_greek_civil_war
+					set_country_flag = not_standard_civilwar
+				
 					start_civil_war = {
 						ideology = communism_totalitarian
 						keep_political_leader = yes
-						size = 0.5
-						states_filter = { impassable = no }
+						size = 0.4
+						states  = {  108 106 791 105 764 45 }
 						compute_proxy_score = yes
+						
+						
+						PREV = { 
+							YUG_arso = { 
+								set_nationality = PREV.PREV
+							}
+						}
+						promote_character = YUG_arso
+						set_country_flag = not_standard_civilwar
 					}
 					compute_proxy_score = yes
 				}
@@ -126,6 +140,7 @@ cw_operation_kill_tito = {
 					}
 					add_popularity = { ideology = communism popularity = -0.10 }
 					add_popularity = { ideology = communism_totalitarian popularity = 0.15 }
+					remove_ideas = disagreement_on_greek_civil_war
 					set_party_rule = {
 						ideology = communism_totalitarian
 					}
@@ -136,19 +151,33 @@ cw_operation_kill_tito = {
 				custom_effect_tooltip = "The assassination will fail."
 				SOV = {
 				news_event = sov_events.16
+				
 				}
+				
 				
 			}
 			10 = {
 				
 				YUG = {
 					news_event = sov_events.17
+					remove_ideas = disagreement_on_greek_civil_war
+					set_country_flag = not_standard_civilwar
+				
 					start_civil_war = {
 						ideology = communism_totalitarian
 						keep_political_leader = yes
-						size = 0.5
-						states_filter = { impassable = no }
+						size = 0.4
+						states  = {  108 106 791 105 764 45 }
 						compute_proxy_score = yes
+						
+						
+						PREV = { 
+							YUG_arso = { 
+								set_nationality = PREV.PREV
+							}
+						}
+						promote_character = YUG_arso
+						set_country_flag = not_standard_civilwar
 					}
 					compute_proxy_score = yes
 				}

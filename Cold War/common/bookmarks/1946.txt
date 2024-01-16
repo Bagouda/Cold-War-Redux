@@ -15,9 +15,9 @@ bookmarks = {
 				usa_beacon_of_liberty
 			}
 			focuses = {
-				USA_cca_intervene_arab_israeli_war
 				USA_the_marshall_plan
-				USA_ccw_intervention_active
+				USA_establish_nato
+				USA_establish_cia
 			}
 		}
 		
@@ -30,9 +30,9 @@ bookmarks = {
 				cw_sov_1946_famine_mild
 			}
 			focuses = {
-				SOV_chinese_civil_war_intervention
 				SOV_comecon_aid
 				SOV_west_communism
+				SOV_chinese_civil_war_intervention
 			}
 		}	
 		

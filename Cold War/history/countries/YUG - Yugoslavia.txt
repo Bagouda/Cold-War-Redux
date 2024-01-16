@@ -249,34 +249,10 @@ if = {
 		expire = 1970.11.3
 		traits = {}
 	}
-	create_country_leader = {
-		name = "Josip Broz Tito"
-		desc = POLITICAL_TITO_DESC
-		picture = "YUGH1.dds"
-		ideology = communist_idolg
-		expire = 1980.5.4
-		traits = { fiercely_independent communist_reformist_drift_trait }
-	}
+	
+	recruit_character = YUG_tito
+	recruit_character = YUG_arso
 	
 	
-
 	
-	
-	create_country_leader = {
-		name = "Arso Jovanović"
-		desc = ""
-		picture = "yugtot.dds"
-		ideology = stalinism_idolg
-		expire = 1980.5.4
-		traits = {}
-	}
-	
-	create_country_leader = {
-		name = "Josip Broz Tito"
-		desc = ""
-		picture = "YUGH2.dds"
-		ideology = stalinism_idolg
-		expire = 1980.5.4
-		traits = { communist_reformist_drift_trait  }
-	}
 }

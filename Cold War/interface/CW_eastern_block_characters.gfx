@@ -1,0 +1,14 @@
+spriteTypes = {
+	###############################################################################################
+	################################## YUG Political Characters ###################################
+	###############################################################################################
+	spriteType = {
+		name = "GFX_tito_large"
+		texturefile = "gfx/leaders/YUG/YUGH1.dds"
+	}
+	spriteType = {
+		name = "GFX_arso_large"
+		texturefile = "gfx/leaders/YUG/yugtot.dds"
+	}
+
+}

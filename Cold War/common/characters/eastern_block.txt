@@ -1,0 +1,60 @@
+characters={
+	####################################################################################################
+	######################################### Country Leader ###########################################
+	####################################################################################################
+	YUG_tito = {
+		name =  "Josip Broz Tito"
+		allowed_civil_war = {}
+		
+		portraits = {
+			civilian = {
+				large = GFX_tito_large
+			}
+		}
+		
+		country_leader = {
+			desc = POLITICAL_TITO_DESC
+			ideology = communist_idolg
+			expire = 1980.5.4
+			# fiercely_independent 
+			traits = { communist_reformist_drift_trait }
+		
+		
+		}
+		country_leader = {
+			desc = POLITICAL_TITO_DESC
+			ideology = stalinism_idolg
+			expire = 1980.5.4
+			# fiercely_independent 
+			traits = { communist_reformist_drift_trait }
+		
+		
+		}
+		
+		
+	
+	}
+	YUG_arso = {
+		name =  "Arso Jovanović"
+		allowed_civil_war = {}
+		portraits = {
+			civilian = {
+				large = GFX_arso_large
+			}
+		}
+		
+		country_leader = {
+			ideology = stalinism_idolg
+			expire = 1980.5.4
+			# fiercely_independent 
+			traits = {}
+		
+		
+		}
+		
+		
+		
+	
+	}
+	
+}

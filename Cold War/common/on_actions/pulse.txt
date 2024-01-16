@@ -121,9 +121,25 @@ on_actions = {
 						country_event = sov_events.14
 					}
 					YUG = {
-						set_party_rule = {
-							ideology = communism
+						set_politics  = {
+							ruling_party = communism
+							elections_allowed = no
 						}
+						
+						YUG_tito ={ 
+							
+							set_country_leader_ideology = communist_idolg
+							
+							add_country_leader_trait  = {
+								ideology  = communist_idolg
+								trait  = fiercely_independent
+							}
+						}
+						remove_country_leader_role = {
+							character = YUG_tito
+							ideology = stalinism_idolg
+						}
+						promote_character = YUG_arso
 						remove_ideas = disagreement_on_greek_civil_war
 						add_ideas = soviet_hatred
 						add_opinion_modifier = {

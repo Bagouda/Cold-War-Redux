@@ -253,7 +253,6 @@ news_event = {
 	picture = GFX_churchil_truman
 	fire_only_once = yes
 	trigger = {
-		NOT = { ENG = { has_country_leader = { name = "Sir Winston Churchill" } } }
 		date > 1946.03.05
 		NOT = { has_global_flag = ic_speech_done }
 	}	
@@ -997,7 +996,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		trigger = {  is_communism =  no }
@@ -1128,5 +1127,72 @@ news_event = {
 	option = {
 		trigger = {  is_communism =  no }
 		name = cw_historic_events.59.b
+	}
+}
+news_event = {
+	id = cw_historic_events.60		#SF treaty normal
+	title = cw_historic_events.60.t
+	desc = cw_historic_events.60.d
+	picture = GFX_news_event_generic_usa_treaty	
+
+
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.60.a
+	}
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.60.b
+	}
+}
+news_event = {
+	id = cw_historic_events.61		#Sf treaty japan rearmed
+	title = cw_historic_events.61.t
+	desc = cw_historic_events.61.d
+	picture = GFX_news_event_japanese_parade
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.61.a
+	}
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.61.b
+	}
+}
+news_event = {
+	id = cw_historic_events.62		#Indochina partition
+	title = cw_historic_events.62.t
+	desc = cw_historic_events.62.d
+	picture = GFX_1954_geneva_confrence_news	
+
+
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = no
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.62.a
+	}
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.62.b
 	}
 }
