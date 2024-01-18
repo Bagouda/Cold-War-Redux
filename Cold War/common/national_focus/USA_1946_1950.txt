@@ -881,7 +881,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-
+			custom_effect_tooltip = TT_USA_INDONESIA_OPERATION
 			set_country_flag = operation_new_order_enabled
 			
 			
@@ -972,7 +972,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-		
+			custom_effect_tooltip = TT_USA_ANZUS_INTERVENTION
 			NZL = { 
 				add_ai_strategy = {
 					type = send_volunteers_desire
@@ -1071,7 +1071,9 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = TT_USA_ANZUS_TRAIN
 		
+			hidden_effect = {
 			NZL = { 
 			
 				add_ai_strategy = {
@@ -1102,28 +1104,29 @@ focus_tree = {
 					value = 300
 				}
 				capital_scope = {
-					create_unit = {
-					division = "name = \"Infantry Division\" division_template = \"Infantry Brigade\" start_experience_factor = 0.5"
-					owner = AST
-				}
-					create_unit = {
-					division = "name = \"Infantry Division\" division_template = \"Infantry Brigade\" start_experience_factor = 0.5"
-					owner = AST
-				}
-					create_unit = {
-					division = "name = \"Infantry Division\" division_template = \"Infantry Brigade\" start_experience_factor = 0.5"
-					owner = AST
-				}
-					create_unit = {
-					division = "name = \"Infantry Division\" division_template = \"Infantry Brigade\" start_experience_factor = 0.5"
-					owner = AST
-				}
-					create_unit = {
-					division = "name = \"Infantry Division\" division_template = \"Infantry Brigade\" start_experience_factor = 0.5"
-					owner = AST
-				}
+						create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Brigade\" start_experience_factor = 0.5"
+						owner = AST
+					}
+						create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Brigade\" start_experience_factor = 0.5"
+						owner = AST
+					}
+						create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Brigade\" start_experience_factor = 0.5"
+						owner = AST
+					}
+						create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Brigade\" start_experience_factor = 0.5"
+						owner = AST
+					}
+						create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Brigade\" start_experience_factor = 0.5"
+						owner = AST
+					}
 				
 				
+					}
 				}
 			}
 			
@@ -5577,13 +5580,15 @@ focus_tree = {
 		}
 
 		completion_reward = {
-
-			create_intelligence_agency = yes
-			upgrade_intelligence_agency = upgrade_commando_training
-			
 			add_dynamic_modifier = {
 				modifier = USA_cia
 			}
+			
+			hidden_effect = {
+				create_intelligence_agency = yes
+				upgrade_intelligence_agency = upgrade_commando_training
+			}
+			
 			
 		}
 		
@@ -5622,16 +5627,13 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = TT_USA_CIA_OSS
 			add_to_variable = {
 				cw_ideology_operative = 0.2
 			}
 
 			add_to_variable = {
 				cw_stability_operative = 0.2
-			}
-			add_dynamic_modifier = {
-				modifier = USA_cia
-				scope  = USA
 			}
 			
 			force_update_dynamic_modifier = yes
@@ -5672,6 +5674,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = TT_USA_CIA_NSC
+		
 			army_experience = 50
 			air_experience = 50
 			navy_experience = 50
@@ -5720,8 +5724,9 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_ideas = usa_department_of_defense
 			
+			custom_effect_tooltip = TT_USA_CIA_DOD
+			add_ideas = usa_department_of_defense
 			add_to_variable = {
 				cw_slot_operative = 1
 			}
@@ -5766,11 +5771,12 @@ focus_tree = {
 
 
 		completion_reward = {
-		
+			
 			add_dynamic_modifier = {
 				modifier = army_of_freedom
 				scope = USA
 			}
+			custom_effect_tooltip = "This modifier will be improved with the following focus."
 		}
 		
 		ai_will_do = {
@@ -5870,6 +5876,7 @@ focus_tree = {
 
 
 		completion_reward = { # add climate acclimatation
+			custom_effect_tooltip = TT_USA_ARMY_ACCLIMATATION
 			set_variable = { army_hot_bonus = 0.1 }
 			set_variable = { army_cold_bonus = 0.1 }
 		}
@@ -5928,6 +5935,7 @@ focus_tree = {
 		icon = GFX_focus_SWE_varnplikt	
 
 		completion_reward = { # more special template
+			custom_effect_tooltip = TT_USA_ARMY_SPECIAL_DIVISION
 			set_variable = { army_special_bonus = 0.3 }
 		}
 		
@@ -5984,6 +5992,7 @@ focus_tree = {
 		icon = GFX_focus_generic_railroad	
 
 		completion_reward = { # supply bonus 
+			custom_effect_tooltip = TT_USA_ARMY_SUPPLY
 			set_variable = { army_org_bonus = 0.05 }
 		}
 		
@@ -6013,6 +6022,7 @@ focus_tree = {
 
 
 		completion_reward = { # increase number of volunteer, decrease cost to create a military base
+			custom_effect_tooltip = TT_USA_ARMY_VOLUNTEERS
 			set_variable = { army_volunteer_bonus = 3 }
 		}
 		
@@ -6073,6 +6083,7 @@ focus_tree = {
 		icon = GFX_focus_generic_full_social_mobilization	
 
 		completion_reward = {
+			custom_effect_tooltip = TT_USA_TOTAL_WAR
 			set_variable = { army_training_bonus = -0.15 }
 		}
 		
@@ -6082,6 +6093,38 @@ focus_tree = {
 	
 	
 	}
+	
+	
+	focus = {
+	
+		id = USA_army_of_freedom
+		
+		relative_position_id = USA_total_war_doctrine
+		prerequisite = { focus = USA_total_war_doctrine }
+		
+		available = {
+		}
+		bypass = {
+		}
+		x =  0
+		y = 1
+		cost = 5
+		
+		icon = GFX_focus_generic_little_entente	
+
+		completion_reward = {
+			custom_effect_tooltip = TT_USA_ARMY_FREEDOM
+			set_variable = { army_manpower_bonus = 0.03 }
+			set_variable = { army_consumer_goods_bonus = 0.05 }
+		}
+		
+		ai_will_do = {
+			base = 25
+		}
+	
+	
+	}
+	
 	
 	focus = {
 	
@@ -6101,6 +6144,7 @@ focus_tree = {
 		icon = GFX_focus_generic_reorient_production	
 
 		completion_reward = {
+			custom_effect_tooltip = TT_USA_ARMY_MILITARY_COMPLEX
 			set_variable = { army_mil_bonus = 0.1 }
 			set_variable = { army_civ_bonus = -0.1 }
 		}
@@ -6131,6 +6175,7 @@ focus_tree = {
 		icon = GFX_focus_nsc_68
 
 		completion_reward = {
+			custom_effect_tooltip = TT_USA_MASS_PRODUCTION
 			set_variable = { army_efficiency_bonus = 0.1 }
 			set_variable = { army_change_bonus = -0.2 }
 		}
@@ -6143,34 +6188,6 @@ focus_tree = {
 	}
 	
 	
-	focus = {
-	
-		id = USA_army_of_freedom
-		
-		relative_position_id = USA_total_war_doctrine
-		prerequisite = { focus = USA_total_war_doctrine }
-		
-		available = {
-		}
-		bypass = {
-		}
-		x =  0
-		y = 1
-		cost = 5
-		
-		icon = GFX_focus_generic_little_entente	
-
-		completion_reward = {
-			set_variable = { army_manpower_bonus = 0.05 }
-			set_variable = { army_consumer_goods_bonus = 0.05 }
-		}
-		
-		ai_will_do = {
-			base = 25
-		}
-	
-	
-	}
 	
 	
 	
@@ -6447,7 +6464,7 @@ focus_tree = {
 
 		
 		relative_position_id = USA_paris_last_fascist_bastion
-		x = -2
+		x = 0
 		y = 1
 		cost = 1
 		
@@ -6460,6 +6477,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = "We'll demand war reparation to spain"
+			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_sanction_franco
 		}
 		ai_will_do = {
@@ -6497,6 +6516,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = "Unlock decision to remove Franco"
+			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_remove_franco
 		}
 		ai_will_do = {
@@ -6517,7 +6538,7 @@ focus_tree = {
 		mutually_exclusive = { focus = USA_paris_spain_sanction }
 		mutually_exclusive = { focus = USA_paris_franco_removal }
 		relative_position_id = USA_paris_last_fascist_bastion
-		x = 0
+		x = -2
 		y = 1
 		cost = 1
 		
@@ -6531,6 +6552,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = "Franco will own us a favor"
+			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_franco_gracied
 		}
 		ai_will_do = {
@@ -6567,6 +6590,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			
 		}
 		ai_will_do = {
 			base = 10		
@@ -6603,6 +6627,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = "Transfer Dodecanese Back to Greece"
+			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_greek_dodecanese
 		}
 		ai_will_do = {
@@ -6638,6 +6664,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = "Establish a Military Base on Dodecanese Island, This will greatly upset the greek!"
+			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_dodecanese_base
 		}
 		ai_will_do = {
@@ -6707,6 +6735,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = "Greenland wil be given back to Denmark"
+			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_give_back_greenland
 		}
 		ai_will_do = {
@@ -6741,6 +6771,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = "The Status of Greenland will be discussed after the ratification of the treaty"
+			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_claim_greenland
 		}
 		ai_will_do = {
@@ -6815,6 +6847,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = "Transfer Trieste to Italy"
+			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_italian_trieste
 			ITA = { 
 				add_popularity = {
@@ -6858,6 +6892,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = "Establish a Military base in Trieste"
+			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_unn_trieste
 		}
 		ai_will_do = {
@@ -6894,6 +6930,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = "Transfer Trieste to Yugoslavia"
+			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_yugoslavia_trieste
 			YUG = { 
 				add_popularity = {
@@ -6982,6 +7020,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = "The treaty will be vote once every party made its demands"
 			clr_country_flag = write_paris_treaty
 			clr_country_flag = important_matter
 			set_country_flag = ready_paris_treaty
@@ -7315,6 +7354,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = "Will allow decision to reconstruct Germany"
 			set_country_flag = germany_rebuilding
 
 		}

@@ -493,11 +493,11 @@ country_event = {
 					cw_make_recognized_immediately = yes
 					set_cosmetic_tag = MON_SVI
 					add_popularity = {
-						ideology = fascism
+						ideology = unaligned_right
 						popularity = 0.15
 					}						
 					set_politics = {
-						ruling_party = fascism
+						ruling_party = unaligned_right
 						elections_allowed = yes
 						election_frequency = 48
 					}

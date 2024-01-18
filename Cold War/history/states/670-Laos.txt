@@ -12,7 +12,7 @@ state={
  	add_to_array = { list_victory_point = 10456 }
  	set_variable = { victory_point = 15 }
 		owner = VIN
-		add_claim_by = LAO
+		add_core_of = LAO
 		
 		add_province_modifier = {
 			static_modifiers = {

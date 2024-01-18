@@ -2,6 +2,7 @@
 set_variable = { twin_country = VIN.id }	#South Vietnam
  add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 1946.1.1 = {
+set_cosmetic_tag = COM_REVOLT
 	add_ideas = {
 	}
 	add_equipment_to_stockpile = {

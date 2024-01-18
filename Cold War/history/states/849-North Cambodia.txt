@@ -10,7 +10,7 @@ state={
  	add_to_array = { list_victory_point = 1324 }
  	set_variable = { victory_point = 5 }
 		owner = VIN
-		add_claim_by = CAM
+		add_core_of = CAM
 
 		buildings = {
 			infrastructure = 1

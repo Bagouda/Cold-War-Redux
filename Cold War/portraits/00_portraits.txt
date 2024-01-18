@@ -82,7 +82,7 @@ continent = {
 				"GFX_generic_leader_cw_neutrality" 
 			}
 		}
-		neutrality = {
+		colonial = {
 				male = { 
 				"GFX_generic_leader_cw_colonial" 
 			}
@@ -148,7 +148,7 @@ continent = {
 				"GFX_generic_leader_cw_neutrality" 
 			}
 		}
-		neutrality = {
+		colonial = {
 				male = { 
 				"GFX_generic_leader_cw_colonial" 
 			}
@@ -213,7 +213,7 @@ continent = {
 				"GFX_generic_leader_cw_neutrality" 
 			}
 		}
-		neutrality = {
+		colonial = {
 				male = { 
 				"GFX_generic_leader_cw_colonial" 
 			}
@@ -279,7 +279,7 @@ continent = {
 				"GFX_generic_leader_cw_neutrality" 
 			}
 		}
-		neutrality = {
+		colonial = {
 				male = { 
 				"GFX_generic_leader_cw_colonial" 
 			}
@@ -344,7 +344,7 @@ continent = {
 				"GFX_generic_leader_cw_neutrality" 
 			}
 		}
-		neutrality = {
+		colonial = {
 				male = { 
 				"GFX_generic_leader_cw_colonial" 
 			}
@@ -410,7 +410,7 @@ continent = {
 				"GFX_generic_leader_cw_neutrality" 
 			}
 		}
-		neutrality = {
+		colonial = {
 				male = { 
 				"GFX_generic_leader_cw_colonial" 
 			}
@@ -473,7 +473,7 @@ continent = {
 				"GFX_generic_leader_cw_neutrality" 
 			}
 		}
-		neutrality = {
+		colonial = {
 				male = { 
 				"GFX_generic_leader_cw_colonial" 
 			}
