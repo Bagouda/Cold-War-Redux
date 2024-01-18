@@ -1,5 +1,5 @@
 ﻿capital = 361
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 
 set_variable = { cw_score = 0 }
 set_variable = { cw_soft_power = 0 }
@@ -248,7 +248,7 @@ if = {
 	}
 }
 ####end tech####
-1946.1.1 = {
+1946.1.1 = { 
     OOB = USA_1946
     set_naval_oob = "USA_1946_naval_mtg"
 
@@ -393,6 +393,8 @@ if = {
 		unaligned_right = 0
 		colonial =  0
 	}
+	
+	
 }
 1948.5.14 = {	#Arab Israeli War
 }

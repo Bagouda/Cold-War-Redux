@@ -410,6 +410,42 @@ news_event  = {
 
 }
 
+news_event  = { # opposition arrested
+	id = cw_proxy_war.22
+	desc =cw_proxy_war.22.d
+	title = cw_proxy_war.22.t
+	picture = GFX_psps_victory_event
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.22.a
+	}
+
+}
+news_event  = { # coup  in 
+	id = cw_proxy_war.23
+	desc =cw_proxy_war.23.d
+	title = cw_proxy_war.23.t
+	picture = GFX_psps_victory_event
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.23.a
+	}
+
+}
+news_event  = { # Leader arrested
+	id = cw_proxy_war.24
+	desc =cw_proxy_war.24.d
+	title = cw_proxy_war.24.t
+	picture = GFX_psps_victory_event
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = cw_proxy_war.24.a
+	}
+
+}
 
 
 add_namespace = spain_intervention

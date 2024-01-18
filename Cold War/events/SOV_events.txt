@@ -465,10 +465,12 @@ country_event = {
 		FRA ={
 			
 			add_named_threat = { threat = -10 name = CW_ALLOWED_SELF_DETERMINATION }
-			release = CAM
-			release = LAO			
+					
 			end_puppet = VIN
-			VIN = { clear_variable = twin_country }		# Needed to prevent annexation of twin country
+			VIN = { clear_variable = twin_country  # Needed to prevent annexation of twin country
+				release = CAM
+				release = LAO	
+			}		
 			VTC = {
 				clear_variable = twin_country
 				white_peace = FRA

@@ -1646,8 +1646,43 @@ cw_unsc_adopt_resolution = {
 		
 		if = {
 			limit = { has_global_flag = usa_remove_franco }
-
-			# TODO
+				USA = {
+					set_country_flag = prepare_spain_intervention
+				}
+				
+				SPR = {
+					load_oob = "SPR_1946"
+					load_oob = "SPR_1946"
+					
+					add_ai_strategy = {
+						type = prepare_for_war
+						id = FRA
+						value = 100
+					}
+					
+					add_ai_strategy = {
+						type = prepare_for_war
+						id = ENG
+						value = 100
+					}
+				
+				
+				}
+				FRA = {
+					add_ai_strategy = {
+						type = prepare_for_war
+						id = SPR
+						value = 100
+					}
+				}
+				ENG = {
+					add_ai_strategy = {
+						type = prepare_for_war
+						id = SPR
+						value = 100
+					}
+				}
+				
 		}
 		
 		if = {

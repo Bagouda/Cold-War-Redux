@@ -3,6 +3,10 @@ COM_REVOLT = {
 	color = rgb { 231 0 0 }
 	color_ui = hsv { 0.18 0.3 0.9 }
 }
+DEM_REVOLT = {
+	color = rgb { 66 135 245 }
+	color_ui = hsv { 0.18 0.3 0.9 }
+}
 AFRICAN_NATIONALIST_REVOLT = {
 	color = rgb { 63 63 63 }
 	color_ui = hsv { 0.18 0.3 0.9 }

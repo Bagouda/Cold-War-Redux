@@ -1,6 +1,6 @@
 ﻿capital = 613 # Nanjing
 set_variable = { twin_country = PRC.id }	#Communist China
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 save_global_event_target_as = neutral_leader
 set_country_flag = neutral_leader_flag
 set_major = yes
@@ -371,7 +371,7 @@ if = {
 }
 1949.12.1 = {
 	capital = 524 # Taipei
-	add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+	 add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 	set_convoys = 50
 	set_research_slots = 2
 }

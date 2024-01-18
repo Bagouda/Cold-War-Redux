@@ -1024,7 +1024,7 @@ news_event = {
 		name = cw_historic_events.54.a
 	}
 	option = {
-		trigger = {  is_communism =  no }
+		trigger = {  is_communism =  yes }
 		name = cw_historic_events.54.b
 	}
 }
@@ -1043,7 +1043,7 @@ news_event = {
 		name = cw_historic_events.55.a
 	}
 	option = {
-		trigger = {  is_communism =  no }
+		trigger = {  is_communism =  yes }
 		name = cw_historic_events.55.b
 	}
 }
@@ -1064,7 +1064,7 @@ news_event = {
 		name = cw_historic_events.56.a
 	}
 	option = {
-		trigger = {  is_communism =  no }
+		trigger = {  is_communism =  yes }
 		name = cw_historic_events.56.b
 	}
 }
@@ -1083,7 +1083,7 @@ news_event = {
 		name = cw_historic_events.57.a
 	}
 	option = {
-		trigger = {  is_communism =  no }
+		trigger = {  is_communism =  yes }
 		name = cw_historic_events.57.b
 	}
 }
@@ -1104,7 +1104,7 @@ news_event = {
 		name = cw_historic_events.58.a
 	}
 	option = {
-		trigger = {  is_communism =  no }
+		trigger = {  is_communism =  yes }
 		name = cw_historic_events.58.b
 	}
 }
@@ -1125,7 +1125,7 @@ news_event = {
 		name = cw_historic_events.59.a
 	}
 	option = {
-		trigger = {  is_communism =  no }
+		trigger = {  is_communism =  yes }
 		name = cw_historic_events.59.b
 	}
 }
@@ -1148,7 +1148,7 @@ news_event = {
 		name = cw_historic_events.60.a
 	}
 	option = {
-		trigger = {  is_communism =  no }
+		trigger = {  is_communism =  yes }
 		name = cw_historic_events.60.b
 	}
 }
@@ -1169,7 +1169,7 @@ news_event = {
 		name = cw_historic_events.61.a
 	}
 	option = {
-		trigger = {  is_communism =  no }
+		trigger = {  is_communism =  yes }
 		name = cw_historic_events.61.b
 	}
 }
@@ -1192,7 +1192,7 @@ news_event = {
 		name = cw_historic_events.62.a
 	}
 	option = {
-		trigger = {  is_communism =  no }
+		trigger = {  is_communism =  yes }
 		name = cw_historic_events.62.b
 	}
 }

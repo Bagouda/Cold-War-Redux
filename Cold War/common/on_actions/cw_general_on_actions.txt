@@ -56,82 +56,30 @@ on_actions = {
 				if = {
 					limit = {
 						ROOT = {
+							OR = { 
 							has_government = communism
+							has_government = communism_totalitarian
+							}
 							
 						}
 					}
 					ROOT = {
-						set_cosmetic_tag = COM_REVOLT
-						retire_country_leader = yes
-						if = { limit = { any_character = { has_ideology_group = communism	} }
-							create_country_leader = {
-								name = "Communist Militias"
-								desc = ""
-								picture = "gfx/leaders/generic_communist_militia.dds"
-								ideology = communist_idolg
-								expire = 2020.10.10
-								traits = { stern_anti_imperialist last_stand_fighter }
-							}
-						}						
+						set_cosmetic_tag = COM_REVOLT		
 					}
 				}
 				if = {
 					limit = {
 						ROOT = {
-							has_government = communism_totalitarian
-						}
-					}
-					ROOT = {
-						set_cosmetic_tag = COM_REVOLT
-						retire_country_leader = yes
-						if = { limit = { any_character = { has_ideology_group = communism_totalitarian	} }						
-							create_country_leader = {
-								name = "Communist Militias"
-								desc = ""
-								picture = "gfx/leaders/generic_communist_militia.dds"
-								ideology = stalinism_idolg
-								expire = 2020.10.10
-								traits = { stern_anti_imperialist last_stand_fighter }
-							}
-						}
-					}
-				}
-				if = {
-					limit = {
-						ROOT = {
+							OR = {
 							has_government = democratic
-						}
-					}
-					ROOT = {
-						retire_country_leader = yes
-						create_country_leader = {
-							name = "Pro Democracy Protestors"
-							desc = ""
-							picture = "gfx/leaders/SPR/portrait_spr_anarchist_commune.dds"
-							ideology = reactionary
-							expire = 2020.10.10
-							traits = { stern_anti_communist last_stand_fighter }
-						}
-					}
-				}
-				if = {
-					limit = {
-						ROOT = {
 							has_government = democratic_socialist
+							}
 						}
 					}
-					ROOT = {
-						retire_country_leader = yes
-						create_country_leader = {
-							name = "Pro Democracy Protestors"
-							desc = ""
-							picture = "gfx/leaders/SPR/portrait_spr_anarchist_commune.dds"
-							ideology = social_democrat_idolg
-							expire = 2020.10.10
-							traits = { stern_anti_communist last_stand_fighter }
-						}
-					}
-				}								
+			
+					set_cosmetic_tag = DEM_REVOLT
+				}
+											
 				if = {
 					limit = {
 						ROOT = {
@@ -160,16 +108,18 @@ on_actions = {
 								}								
 							}
 							set_cosmetic_tag = AFRICAN_NATIONALIST_REVOLT							
-						}					
-						retire_country_leader = yes
-						create_country_leader = {
-							name = "Left Wing Nationalists"
-							desc = ""
-							picture = "gfx/leaders/SPR/portrait_spr_anarchist_commune.dds"
-							ideology = neutrality_idolg
-							expire = 2020.10.10
-							traits = { stern_anti_imperialist last_stand_fighter }
-						}
+						}		
+							if = {
+								limit = { NOT = { any_character = { has_ideology_group = neutrality can_be_country_leader = yes } } }
+								create_country_leader = {
+									name = "Left Wing Nationalists"
+									desc = ""
+									picture = "gfx/leaders/SPR/portrait_spr_anarchist_commune.dds"
+									ideology = neutrality_idolg
+									expire = 2020.10.10
+									traits = { stern_anti_imperialist last_stand_fighter }
+								}
+							}
 					}
 				}
 				if = {
@@ -181,14 +131,16 @@ on_actions = {
 						FROM = { NOT = { is_in_array = { array = global.countries_with_monarchies value = THIS.id } } }
 					}
 					ROOT = {
-						retire_country_leader = yes
-						create_country_leader = {
-							name = "Left Wing Nationalists"
-							desc = ""
-							picture = "gfx/leaders/generic_right_wing_nationalists.dds"
-							ideology = anti_imperialist
-							expire = 2020.10.10
-							traits = { stern_anti_imperialist last_stand_fighter }
+						if = {
+							limit = { NOT = { any_character = { has_ideology_group = neutrality can_be_country_leader = yes } } }
+							create_country_leader = {
+								name = "Left Wing Nationalists"
+								desc = ""
+								picture = "gfx/leaders/generic_right_wing_nationalists.dds"
+								ideology = anti_imperialist
+								expire = 2020.10.10
+								traits = { stern_anti_imperialist last_stand_fighter }
+							}
 						}
 					}
 				}				
@@ -201,15 +153,7 @@ on_actions = {
 						FROM = { NOT = { is_in_array = { array = global.countries_with_monarchies value = THIS.id } } }
 					}
 					ROOT = {
-						retire_country_leader = yes
-						create_country_leader = {
-							name = "Right Wing Nationalists"
-							desc = ""
-							picture = "gfx/leaders/generic_right_wing_nationalists.dds"
-							ideology = nationalism_idolg
-							expire = 2020.10.10
-							traits = { stern_anti_imperialist last_stand_fighter }
-						}
+					
 					}
 				}
 				if = {
@@ -220,16 +164,9 @@ on_actions = {
 						FROM = { is_in_array = { array = global.countries_with_monarchies value = THIS.id } }
 					}
 					ROOT = {
+						
 						set_cosmetic_tag = MILITARY_COUP
-						retire_country_leader = yes
-						create_country_leader = {
-							name = "Military Junta"
-							desc = ""
-							picture = "gfx/leaders/generic_right_wing_nationalists.dds"
-							ideology = military_idolg
-							expire = 2020.10.10
-							traits = { stern_anti_communist last_stand_fighter }
-						}
+						
 					}
 				}				
 				if = {
@@ -240,47 +177,6 @@ on_actions = {
 					}
 					add_ideas = cw_we_hate_factions
 				}				
-			}
-			if = {
-				limit = {
-					ROOT = {
-						num_divisions < 10
-						has_civil_war = yes
-					}
-				}
-				ROOT = {
-					division_template = {
-						name = "Civil Militia"
-						template_counter = 13
-						is_locked = yes
-						regiments = {
-							insurgency = { x = 0 y = 0 }
-							insurgency = { x = 1 y = 0 }
-							insurgency = { x = 2 y = 0 }
-						} 
-					}
-					capital_scope = {
-						create_unit = {
-							division = "division_template = \"Civil Militia\" start_experience_factor = 0.1" 
-							owner = ROOT
-							allow_spawning_on_enemy_provs = yes
-							count = @MILITIA_DIVISIONS_TO_SPAWN 
-							id = 1500
-						}
-					}
-					random_controlled_state = {
-						limit = {
-							impassable = no
-						}
-						create_unit = {
-							division = "division_template = \"Civil Militia\" start_experience_factor = 0.1" 
-							owner = ROOT
-							allow_spawning_on_enemy_provs = yes
-							count = @MILITIA_DIVISIONS_TO_SPAWN
-							id = 1600
-						}
-					}
-				}
 			}
 			if = {
 				limit = {
@@ -496,10 +392,6 @@ on_actions = {
 				add_state_modifier = {
 					modifier = {
 						state_production_speed_buildings_factor  = -0.9
-						state_repair_speed_complex_factor   = -0.9
-						state_repair_speed_arms_factory_factor   = -0.9
-						state_repair_speed_infrastructure_factor   = -0.9
-						state_repair_speed_dockyard_factor   = -0.9
 						local_manpower = -0.9
 					}
 				}

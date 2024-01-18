@@ -6,7 +6,7 @@ state = {
 	history = {
  	add_to_array = { list_victory_point = 11834 }
  	add_to_array = { list_victory_point = 911 }
- 	set_variable = { victory_point = 11 }
+ 	set_variable = { victory_point = 25 }
 		owner = FRA
 		add_core_of = FRA
 		
@@ -20,10 +20,10 @@ state = {
 			}
 		}		
 		victory_points = {
-			11834 10
+			11834 20
 		}
 		victory_points = {
-			911 1 
+			911 5 
 		}
 	}
 	resources={

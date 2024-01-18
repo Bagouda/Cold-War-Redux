@@ -1,6 +1,6 @@
 ﻿capital = 802 #Hanoi
 set_variable = { twin_country = VIN.id }	#South Vietnam
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 1946.1.1 = {
 	add_ideas = {
 	}

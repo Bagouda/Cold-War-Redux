@@ -1,6 +1,6 @@
 ﻿capital = 851	#Bonn
 set_variable = { twin_country = DDR.id }	#East Germany
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 set_convoys = 50
 set_research_slots = 2
 set_research_slots = 3
@@ -92,7 +92,7 @@ set_research_slots = 3
 }
 1950.6.25 = {
 	capital = 51
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 }
 1956.10.29 = {
 	set_politics = {

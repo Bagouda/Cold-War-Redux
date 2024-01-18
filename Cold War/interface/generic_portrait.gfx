@@ -1,0 +1,57 @@
+spriteTypes = {
+	###############################################################################################
+	################################## Generic Political Characters ###############################
+	###############################################################################################
+	# communism
+	spriteType = { 
+		name = "GFX_generic_leader_cw_communism"
+		texturefile = "gfx/leaders/generic_communist_militia.dds"
+	}
+	# communism totalitarian
+	
+	spriteType = {
+		name = "GFX_generic_leader_cw_communism_totalitarian"
+		texturefile = "gfx/leaders/generic_communist_militia.dds"
+	} 
+	
+	#democratic
+	spriteType = { 
+		name = "GFX_generic_leader_cw_democratic"
+		texturefile = "gfx/leaders/cw_generic_democracy.dds"
+	}
+	
+	# democratic_socialist
+	spriteType = { 
+		name = "GFX_generic_leader_cw_democratic_socialist"
+		texturefile = "gfx/leaders/cw_generic_democracy.dds"
+	}
+	
+	# unaligned_right
+	
+	spriteType = { 
+		name = "GFX_generic_leader_cw_unaligned_right"
+		texturefile = "gfx/leaders/generic_junte.dds"
+	}
+	
+	
+	# fascism
+	spriteType = { 
+		name = "GFX_generic_leader_cw_fascism"
+		texturefile = "gfx/leaders/generic_junte.dds"
+	}
+	
+	
+	# neutrality
+	spriteType = { 
+		name = "GFX_generic_leader_cw_neutrality"
+		texturefile = "gfx/leaders/cw_generic_democracy.dds"
+	}
+	
+	
+	# colonial
+	spriteType = { 
+		name = "GFX_generic_leader_colonial"
+		texturefile = "gfx/leaders/generic_colonial_administration.dds"
+	}
+
+}

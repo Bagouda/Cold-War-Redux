@@ -364,8 +364,35 @@ on_actions = {
 				}
 			
 			}
+			##################################################################
+			#                   SET UP GENERIC                               #
+			##################################################################
+			every_country = {
+				limit = {
+					NOT = {
+						any_character = { AND = { has_ideology_group = communism_totalitarian  can_be_country_leader = yes } }
+					
+					}
+				}
+				log = "Create comunist leader for: [?THIS]"
+				create_country_leader = {
+					name = "Communist Militias"
+					desc = ""
+					picture = "gfx/leaders/generic_communist_militia.dds"
+					ideology = stalinism_idolg
+					expire = 1980.10.10
+					traits = { stern_anti_imperialist last_stand_fighter }
+				}
+				
+				every_character = {
+					limit = { has_ideology_group = communism_totalitarian }
+					set_character_flag = generic
+				
+				}
+			}
 			
 			
+			##################################################################
 			##################################################################
 			##################################################################
 			#################### MANDATES AND LEASE SETUP ####################

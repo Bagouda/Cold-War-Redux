@@ -1,5 +1,5 @@
 ﻿capital = 112
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 
 oob = "POR_1946"
 set_naval_oob = "POR_1946_naval_mtg"

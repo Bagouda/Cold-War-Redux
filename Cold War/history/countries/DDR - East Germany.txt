@@ -1,6 +1,6 @@
 ﻿capital = 64
 set_variable = { twin_country = GER.id }	#West Germany
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 set_technology = {
 	advanced_infantry_weapons = 1
 	advanced_medium_tank = 1

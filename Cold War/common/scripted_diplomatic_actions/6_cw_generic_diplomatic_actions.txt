@@ -443,6 +443,7 @@ scripted_diplomatic_actions = {
 			}			
 			OR = {
 				is_neighbor_of = ROOT
+				capital_scope = {  is_on_continent = europe }
 				any_home_area_neighbor_country = {
 					OR = {
 						is_subject_of = ROOT

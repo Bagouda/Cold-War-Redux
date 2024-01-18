@@ -1,5 +1,5 @@
 ﻿capital = 315
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 set_convoys = 50
 set_research_slots = 2
 set_variable = {proxy_point = 50 }
@@ -20,11 +20,12 @@ set_variable = {proxy_point = 50 }
 		unaligned_right = 0
 		colonial =  0
 	}
+	
 	create_country_leader = {
 		name = "Fidel Castro"
 		desc = ""
 		picture = "CUBH6.dds"
-		ideology = anti_imperialist
+		ideology = stalinism_idolg
 		expire = 2008.2.24
 		traits = {}
 	}

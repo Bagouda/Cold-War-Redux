@@ -1,5 +1,5 @@
 ﻿capital = 800
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 set_convoys = 500
 set_research_slots = 0
 ### NEW TECHS START ####

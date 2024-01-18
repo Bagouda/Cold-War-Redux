@@ -5228,7 +5228,11 @@ focus_tree = {
 
 		}
 		ai_will_do = {
-			base = 10		
+			base = 20
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
 		}	
 	
 	}
@@ -5263,9 +5267,7 @@ focus_tree = {
 		completion_reward = {
 
 		}
-		ai_will_do = {
-			base = 10		
-		}	
+			
 	
 	}
 	
@@ -5296,9 +5298,6 @@ focus_tree = {
 
 		completion_reward = {
 			set_global_flag = sov_claim_somalia
-		}
-		ai_will_do = {
-			base = 10		
 		}	
 	
 	}
@@ -5334,8 +5333,12 @@ focus_tree = {
 			set_global_flag = sov_claim_cyrenaica
 		}
 		ai_will_do = {
-			base = 10		
-		}	
+			base = 20
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
 	
 	}
 	
@@ -5373,7 +5376,11 @@ focus_tree = {
 
 		}
 		ai_will_do = {
-			base = 10		
+			base = 20
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
 		}	
 	
 	}
@@ -5406,7 +5413,11 @@ focus_tree = {
 			
 		}
 		ai_will_do = {
-			base = 0
+			base = 20
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
 		}
 	}
 	
@@ -5441,7 +5452,11 @@ focus_tree = {
 				set_global_flag = sov_claim_polish_silesia
 		}
 		ai_will_do = {
-			base = 0
+			base = 20
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
 		}
 	}
 	
@@ -5475,7 +5490,7 @@ focus_tree = {
 			set_global_flag = sov_claim_german_silesia
 		}
 		ai_will_do = {
-			base = 0
+			base = 20
 		}
 	}
 	
@@ -5507,7 +5522,11 @@ focus_tree = {
 			
 		}
 		ai_will_do = {
-			base = 0
+			base = 20
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
 		}
 	}
 	
@@ -5537,7 +5556,11 @@ focus_tree = {
 			
 		}
 		ai_will_do = {
-			base = 0
+			base = 20
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
 		}
 	}
 	focus = {
@@ -5567,7 +5590,11 @@ focus_tree = {
 			set_global_flag = sov_claim_finland_guarantee
 		}
 		ai_will_do = {
-			base = 0
+			base = 20
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
 		}
 	}
 	focus = {
@@ -5598,7 +5625,7 @@ focus_tree = {
 			set_global_flag = sov_claim_finland
 		}
 		ai_will_do = {
-			base = 0
+			base = 20
 		}
 	}
 	
@@ -5629,7 +5656,11 @@ focus_tree = {
 		completion_reward = {
 		}
 		ai_will_do = {
-			base = 0
+			base = 20
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
 		}
 	}
 	
@@ -5662,7 +5693,11 @@ focus_tree = {
 			
 		}
 		ai_will_do = {
-			base = 0
+			base = 20
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
 		}
 	}
 	
@@ -5694,7 +5729,7 @@ focus_tree = {
 			
 		}
 		ai_will_do = {
-			base = 0
+			base = 20
 		}
 	}
 	
@@ -5732,7 +5767,11 @@ focus_tree = {
 			custom_effect_tooltip = SOV_FATE_OF_TRANSYLVANIA_EFFECT_DESC
 		}
 		ai_will_do = {
-			base = 0
+			base = 20
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
 		}
 	}
 	focus = {
@@ -5765,7 +5804,8 @@ focus_tree = {
 			set_global_flag = sov_claim_transylvania_romania
 		}
 		ai_will_do = {
-			base = 0
+			base = 20
+			
 		}
 	}
 	focus = {
@@ -5800,7 +5840,8 @@ focus_tree = {
 	
 		}
 		ai_will_do = {
-			base = 0
+			base = 20
+		
 		}
 	}	
 	focus = {
@@ -5834,7 +5875,11 @@ focus_tree = {
 			set_global_flag = sov_claim_transylvania_romania
 		}
 		ai_will_do = {
-			base = 0
+			base = 20
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
 		}
 	}
 	
@@ -5923,8 +5968,12 @@ focus_tree = {
 			
 		}
 		ai_will_do = {
-			base = 10		
-		}	
+			base = 20
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
 	
 	}
 }

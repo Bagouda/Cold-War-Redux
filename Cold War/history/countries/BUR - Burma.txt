@@ -1,5 +1,5 @@
 ﻿capital = 288
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 
 set_variable = {proxy_point = 45 }
 set_convoys = 50

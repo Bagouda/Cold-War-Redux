@@ -102,13 +102,6 @@ cw_operation_kill_tito = {
 						compute_proxy_score = yes
 						
 						
-						PREV = { 
-							YUG_arso = { 
-								set_nationality = PREV.PREV
-							}
-						}
-						promote_character = YUG_arso
-						set_country_flag = not_standard_civilwar
 					}
 					compute_proxy_score = yes
 				}

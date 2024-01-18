@@ -1,5 +1,5 @@
 ﻿capital = 622	#Beijing
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 set_country_flag = police_action_blocked
 set_major = yes
 set_convoys = 20
@@ -366,7 +366,7 @@ if = {
 1950.6.25 = {
 	white_peace = CHI
 	capital = 608	#Beijing
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 	drop_cosmetic_tag = yes
 	set_cosmetic_tag = PRC_CP_PRO
 	set_convoys = 50

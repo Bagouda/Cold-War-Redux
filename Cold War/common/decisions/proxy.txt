@@ -113,107 +113,48 @@ spain_intervention = {
 	
 	}
 	
-	spain_coup_give_gun = {
-	
+	launch_spain_intervention = {
+			
 		icon = GFX_decision_eng_trade_unions_demand
 		priority = 0
 		
-		days_re_enable = 10	
-		visible = { always = yes }
-
+		fire_only_once = yes
+		cost = 50
 		days_remove = 10 
-		cost = 25
-		
-		
 		visible  = { 
-			has_completed_focus = USA_spain_send_gun 
-			SPR = { has_government = unaligned_right }
-		}
-		available  = {
-			has_equipment = { infantry_equipment > 4999 }
-		}	
-		
-		complete_effect  = {
-			ROOT = {
-				add_to_variable = { spain_coup_odd = 10 }
-		
-				send_equipment = {
-					equipment = infantry_equipment
-					amount = 5000
-					target = SPR
-				}
-			}
-		}
-	
-	}
-	
-	
-	spain_coup_give_tank = {
-	
-	icon = GFX_decision_eng_trade_unions_demand
-		priority = 0
-		visible = { always = yes }
-		days_re_enable = 10	
-		cost = 25
-		days_remove = 10 
-		visible = { has_completed_focus = USA_spain_send_tank 
-			SPR = { has_government = unaligned_right } 
-			}
-		available  = {
-			has_equipment = {
-				medium_tank_equipment_3 > 99
-			}
-			
-		}	
-		
-		complete_effect  = {
-				add_to_variable = { spain_coup_odd = 20 }
-		
-				send_equipment = {
-					equipment = medium_tank_equipment_3
-					amount = 100
-					target = SPR
-				}
-			
-		}
-	
-	
-	}
-	
-	
-	spain_coup_support_resistant = {
-	
-		priority = 0
-		
-		days_re_enable = 10	
-		cost = 25
-		visible = { has_completed_focus = USA_spain_support_dissident 
-			SPR = { has_government = unaligned_right }
-		}
-		available = {
-			
-			num_of_civilian_factories_available_for_projects > 4 
-		}
-		
-		modifier = {
-			civilian_factory_use = 3
-		}
-		days_remove = 10 
-		
+			has_country_flag = prepare_spain_intervention
 
+		}
+		complete_effect = {
 		
-		complete_effect  = {
-		
-			
-			USA = {
-				add_to_variable = { spain_coup_odd = 20 }
-		
-				send_equipment = {
-					equipment = medium_tank_equipment_3
-					amount = 100
+			FRA = {
+				declare_war_on = {
 					target = SPR
+					type = annex_everything
 				}
+				add_ideas = cw_unpopular_war
+				set_country_flag = spanish_intervention
 			}
+			USA = {
+				declare_war_on = {
+					target = SPR
+					type = annex_everything
+				}
+				add_ideas = cw_unpopular_war
+				set_country_flag = spanish_intervention
+			}
+			
+			ENG = {
+				declare_war_on = {
+					target = SPR
+					type = annex_everything
+				}
+				add_ideas = cw_unpopular_war
+				set_country_flag = spanish_intervention
+			}
+			
+			activate_mission = spain_intervention_timeout
+		
 		}
 	
 	}

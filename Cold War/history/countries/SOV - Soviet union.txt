@@ -361,158 +361,158 @@ if = {
 	}
 }
 ####end tech####
+1946.1.1 = { 
+
+	set_autonomy = {
+		target = POL
+		autonomous_state = autonomy_reichskommissariat
+		freedom_level = 0.5
+	}
+	set_autonomy = {
+		target = UKR
+		autonomous_state = autonomy_reichskommissariat
+		freedom_level = 0.2
+	}
+	set_autonomy = {
+		target = MON
+		autonomous_state = autonomy_reichsprotectorate
+		freedom_level = 0.8
+	}
+		
 
 
-set_autonomy = {
-	target = POL
-	autonomous_state = autonomy_reichskommissariat
-	freedom_level = 0.5
+	set_convoys = 500
+	oob = "SOV_1946"
+	set_naval_oob = "SOV_1946_naval_mtg"
+
+	add_political_power = 500
+	set_war_support = 0.1
+	set_stability = 0.3
+	give_military_access = PRC
+	add_opinion_modifier = { target = ENG modifier = ww2_major_allies }
+	add_opinion_modifier = { target = USA modifier = ww2_major_allies }
+	add_opinion_modifier = { target = CHI modifier = ww2_major_allies }
+	add_opinion_modifier = { target = FRA modifier = ww2_major_allies }
+	add_opinion_modifier = { target = PRC modifier = ww2_major_allies }	
+	add_opinion_modifier = { target = PRC modifier = revolutionary_brothers }
+	diplomatic_relation = { country = FIN relation = non_aggression_pact }
+	add_opinion_modifier = { target = SPR modifier = historic_grievances }
+	add_opinion_modifier = { target = ITA modifier = historic_grievances }
+	add_opinion_modifier = { target = JAP modifier = historic_grievances }
+	set_country_flag = recent_five_year_plan_change
+
+	add_equipment_to_stockpile = {
+		type = infantry_equipment_3
+		amount = 10000
+		producer = SOV
+	}
+	add_equipment_to_stockpile = {
+		type = support_equipment_1
+		amount = 10000
+		producer = SOV
+	}
+	### Country Leaders
+	recruit_character = SOV_joseph_stalin
+	### Deputy Minister
+	recruit_character = sov_mikhail_kalinin	
+	activate_advisor = sov_mikhail_kalinin
+	recruit_character = sov_nikolai_shvernik
+	recruit_character = SOV_georgy_malenkov
+	recruit_character = SOV_nikita_khrushchev
+	### Foreign Minister
+	recruit_character = sov_fm_vyacheslav_molotov	
+	activate_advisor = sov_fm_vyacheslav_molotov	
+	recruit_character = sov_fm_andrey_vyshinsky
+	recruit_character = sov_fm_andrei_gromyko
+	recruit_character = sov_fm_boris_ponomare
+	### Defense Minister
+	recruit_character = sov_dm_bulganin
+	activate_advisor = sov_dm_bulganin
+	recruit_character = sov_dm_zhukov
+	recruit_character = sov_dm_beria
+	recruit_character = sov_dm_aleksandr_vasilevsky
+	### Treasure Minister
+	recruit_character = sov_tm_arseny_zverev
+	activate_advisor = sov_tm_arseny_zverev
+	recruit_character = sov_tm_sov_maksim_saburov
+	recruit_character = sov_tm_alexei_kosygin
+	recruit_character = sov_nikolai_voznesensky
+	recruit_character = sov_tm_anastas_mikoyan
+	### Head of Intelligence
+	activate_advisor = sov_spy_beria
+	recruit_character = sov_spy_viktor_abakumov
+	recruit_character = sov_spy_sergei_kruglov
+	recruit_character = sov_spy_nikolay_dudorov
+	### Chief of Staff
+	recruit_character = SOV_aleksei_antonov
+	activate_advisor = sov_chief_aleksei_antonov
+	### Military Characters
+	recruit_character = SOV_georgy_zhukov_field_marshall
+	recruit_character = SOV_aleksandr_vasilevsky_field_marshall
+	recruit_character = SOV_vasily_sokolovsky_field_marshall
+	recruit_character = SOV_matvei_zakharov_cc
+	recruit_character = SOV_andrey_yeryomenko
+	recruit_character = SOV_radion_malinovsky
+	recruit_character = SOV_ivan_yefimovich_petrov
+	recruit_character = SOV_vasily_chuikov
+	recruit_character = SOV_konstantin_rokossovsky
+	recruit_character = SOV_ivan_konev
+	recruit_character = SOV_fyodor_tolbukhin
+	recruit_character = SOV_ivan_bagramyan
+	### Admirals
+	recruit_character = SOV_admiral_arseniy_golovko
+	recruit_character = SOV_admiral_filipp_oktyabrsky
+	recruit_character = SOV_admiral_nikolai_yegipko
+
+	add_ideas = {
+	# Country ideas
+	cw_home_of_revolution
+	winner_ww2
+	cw_gulag_system_4
+	sov_dispersed_industry_4
+	cw_sov_1946_famine_mild
+
+	# sov_leningrad_plot
+	# Economy
+		cw_opressive_quotas
+		cw_10_hour_workday
+		cw_containment
+		cw_acceptable_education_budget
+		cw_five_year_plan_military_industry_focus
+		cw_closed_economy	
+	# Military
+		cw_medium_military_budget
+		cw_limited_conscription
+		cw_long_training
+		cw_armored_forces
+		cw_strategic_weapons
+		cw_blue_water_navy_focus
+	# Society
+		cw_state_press
+		cw_closed_borders_policy
+		cw_monitored_religous_institutions
+		cw_minority_not_recognized
+		cw_ni_personality_cult
+	}		
+	set_politics = {
+		ruling_party = communism_totalitarian
+		last_election = "1930.11.9"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	set_popularities = {
+		democratic  = 0
+		democratic_socialist = 0
+		neutrality = 10
+		communism_totalitarian = 70
+		communism = 20
+		unaligned_right = 0
+		colonial =  0
+	}
+
+
+
 }
-set_autonomy = {
-	target = UKR
-	autonomous_state = autonomy_reichskommissariat
-	freedom_level = 0.2
-}
-set_autonomy = {
-	target = MON
-	autonomous_state = autonomy_reichsprotectorate
-	freedom_level = 0.8
-}
-	
-
-
-set_convoys = 500
-oob = "SOV_1946"
-set_naval_oob = "SOV_1946_naval_mtg"
-
-add_political_power = 500
-set_war_support = 0.1
-set_stability = 0.3
-give_military_access = PRC
-add_opinion_modifier = { target = ENG modifier = ww2_major_allies }
-add_opinion_modifier = { target = USA modifier = ww2_major_allies }
-add_opinion_modifier = { target = CHI modifier = ww2_major_allies }
-add_opinion_modifier = { target = FRA modifier = ww2_major_allies }
-add_opinion_modifier = { target = PRC modifier = ww2_major_allies }	
-add_opinion_modifier = { target = PRC modifier = revolutionary_brothers }
-diplomatic_relation = { country = FIN relation = non_aggression_pact }
-add_opinion_modifier = { target = SPR modifier = historic_grievances }
-add_opinion_modifier = { target = ITA modifier = historic_grievances }
-add_opinion_modifier = { target = JAP modifier = historic_grievances }
-set_country_flag = recent_five_year_plan_change
-
-add_equipment_to_stockpile = {
-	type = infantry_equipment_3
-	amount = 10000
-	producer = SOV
-}
-add_equipment_to_stockpile = {
-	type = support_equipment_1
-	amount = 10000
-	producer = SOV
-}
-### Country Leaders
-recruit_character = SOV_joseph_stalin
-### Deputy Minister
-recruit_character = sov_mikhail_kalinin	
-activate_advisor = sov_mikhail_kalinin
-recruit_character = sov_nikolai_shvernik
-recruit_character = SOV_georgy_malenkov
-recruit_character = SOV_nikita_khrushchev
-### Foreign Minister
-recruit_character = sov_fm_vyacheslav_molotov	
-activate_advisor = sov_fm_vyacheslav_molotov	
-recruit_character = sov_fm_andrey_vyshinsky
-recruit_character = sov_fm_andrei_gromyko
-recruit_character = sov_fm_boris_ponomare
-### Defense Minister
-recruit_character = sov_dm_bulganin
-activate_advisor = sov_dm_bulganin
-recruit_character = sov_dm_zhukov
-recruit_character = sov_dm_beria
-recruit_character = sov_dm_aleksandr_vasilevsky
-### Treasure Minister
-recruit_character = sov_tm_arseny_zverev
-activate_advisor = sov_tm_arseny_zverev
-recruit_character = sov_tm_sov_maksim_saburov
-recruit_character = sov_tm_alexei_kosygin
-recruit_character = sov_nikolai_voznesensky
-recruit_character = sov_tm_anastas_mikoyan
-### Head of Intelligence
-activate_advisor = sov_spy_beria
-recruit_character = sov_spy_viktor_abakumov
-recruit_character = sov_spy_sergei_kruglov
-recruit_character = sov_spy_nikolay_dudorov
-### Chief of Staff
-recruit_character = SOV_aleksei_antonov
-activate_advisor = sov_chief_aleksei_antonov
-### Military Characters
-recruit_character = SOV_georgy_zhukov_field_marshall
-recruit_character = SOV_aleksandr_vasilevsky_field_marshall
-recruit_character = SOV_vasily_sokolovsky_field_marshall
-recruit_character = SOV_matvei_zakharov_cc
-recruit_character = SOV_andrey_yeryomenko
-recruit_character = SOV_radion_malinovsky
-recruit_character = SOV_ivan_yefimovich_petrov
-recruit_character = SOV_vasily_chuikov
-recruit_character = SOV_konstantin_rokossovsky
-recruit_character = SOV_ivan_konev
-recruit_character = SOV_fyodor_tolbukhin
-recruit_character = SOV_ivan_bagramyan
-### Admirals
-recruit_character = SOV_admiral_arseniy_golovko
-recruit_character = SOV_admiral_filipp_oktyabrsky
-recruit_character = SOV_admiral_nikolai_yegipko
-
-add_ideas = {
-# Country ideas
-cw_home_of_revolution
-winner_ww2
-cw_gulag_system_4
-sov_dispersed_industry_4
-cw_sov_1946_famine_mild
-
-# sov_leningrad_plot
-# Economy
-	cw_opressive_quotas
-	cw_10_hour_workday
-	cw_containment
-	cw_acceptable_education_budget
-	cw_five_year_plan_military_industry_focus
-	cw_closed_economy	
-# Military
-	cw_medium_military_budget
-	cw_limited_conscription
-	cw_long_training
-	cw_armored_forces
-	cw_strategic_weapons
-	cw_blue_water_navy_focus
-# Society
-	cw_state_press
-	cw_closed_borders_policy
-	cw_monitored_religous_institutions
-	cw_minority_not_recognized
-	cw_ni_personality_cult
-}		
-set_politics = {
-	ruling_party = communism_totalitarian
-	last_election = "1930.11.9"
-	election_frequency = 48
-	elections_allowed = no
-}
-set_popularities = {
-	democratic  = 0
-	democratic_socialist = 0
-	neutrality = 10
-	communism_totalitarian = 70
-	communism = 20
-	unaligned_right = 0
-	colonial =  0
-}
-
-
-
-
 #####ships#####
 create_equipment_variant = {
 		name = "Srednyaya Class"				

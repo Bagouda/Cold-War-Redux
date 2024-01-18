@@ -1,5 +1,5 @@
 ﻿capital = 16
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 
 
 ## post ww2 communist insurgency 
@@ -376,6 +376,7 @@ if = {
 	recruit_character = fra_charles_de_gaulle
 	recruit_character = fra_felix_gouin
 	recruit_character = fra_georges_bidault
+	recruit_character = FRA_marcel_cachin
 	### Deputy Minister	
 	activate_advisor = fra_hog_felix_gouin
 	### Foreign Minister

@@ -51,6 +51,9 @@ sov_cc_operation_arrest_opposition = {
 				FROM = { add_popularity = { ideology = ROOT popularity = 0.10 } }
 			}
 		}
+		FROM = { 
+			news_event = cw_proxy_war.22
+		}
 	}
 	outcome_extra_execute = {	#Extra reward that can be earned, dependent on outcome_extra_chance, NOTE: overwrites the rewards in outcome_execute so all rewards must be added AS WELL as the bonus
 		FROM = { add_popularity = { ideology = ROOT popularity = 0.20 } }
@@ -223,6 +226,9 @@ sov_cc_arrest_country_leader = {
 	outcome_execute = {		#What you get once the operation is complete
 		custom_effect_tooltip = "ARREST_COUNTRY_LEADER_EFFECT_TT"
 		FROM = { hidden_effect = { retire_country_leader = yes set_politics = { ruling_party = ROOT } } }
+		FROM = {
+			news_event = cw_proxy_war.24
+		}
 		ROOT = { add_named_threat = { threat = 5 name = CW_THREAT_ARREST_FOREIGN_LEADER } }
 	}
 	outcome_extra_execute = {	#Extra reward that can be earned, dependent on outcome_extra_chance, NOTE: overwrites the rewards in outcome_execute so all rewards must be added AS WELL as the bonus

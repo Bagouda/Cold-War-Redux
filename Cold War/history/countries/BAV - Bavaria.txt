@@ -1,6 +1,6 @@
 ﻿capital = 52	#Munich
 set_variable = { twin_country = GER.id }
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 1946.1.1 = {
 	set_politics = {
 		ruling_party = democratic

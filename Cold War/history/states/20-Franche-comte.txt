@@ -5,7 +5,7 @@ state = {
 	state_category = city
 	history = {
  	add_to_array = { list_victory_point = 6613 }
- 	set_variable = { victory_point = 10 }
+ 	set_variable = { victory_point = 20 }
 		owner = FRA
 		add_core_of = FRA
 		
@@ -17,7 +17,7 @@ state = {
 		}
 		
 		victory_points = {
-			6613 10
+			6613 20
 		}
 	}
 	resources={

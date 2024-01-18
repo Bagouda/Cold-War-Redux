@@ -1055,3 +1055,83 @@ remove_potential_special_forces_tree = {
 		subtract_from_variable = { sf_trees = 1 }
 	}
 }
+
+add_generic_leader = {
+	create_country_leader = {
+		name = "Communist Militias"
+		desc = ""
+		picture = "gfx/leaders/generic_communist_militia.dds"
+		ideology = stalinism_idolg
+		expire = 1980.10.10
+		traits = { stern_anti_imperialist last_stand_fighter }
+	
+	}
+	
+	create_country_leader = {
+		name = "Communist Militias"
+		desc = ""
+		picture = "gfx/leaders/generic_communist_militia.dds"
+		ideology = communist_idolg
+		expire = 2020.10.10
+		traits = { stern_anti_imperialist last_stand_fighter }
+	}
+	
+	create_country_leader = {
+		name = "Pro Democracy Protestors"
+		desc = ""
+		picture = "gfx/leaders/SPR/portrait_spr_anarchist_commune.dds"
+		ideology = reactionary
+		expire = 2020.10.10
+		traits = {  }
+		
+	}
+	
+	create_country_leader = {
+		name = "Pro Democracy Protestors"
+		desc = ""
+		picture = "gfx/leaders/SPR/portrait_spr_anarchist_commune.dds"
+		ideology = social_democrat_idolg
+		expire = 2020.10.10
+		traits = {  }
+	}
+	
+	create_country_leader = {
+		name = "Left Wing Nationalists"
+		desc = ""
+		picture = "gfx/leaders/SPR/portrait_spr_anarchist_commune.dds"
+		ideology = neutrality_idolg
+		expire = 2020.10.10
+		traits = {  }
+	}
+	
+	create_country_leader = {
+		name = "Right Wing Nationalists"
+		desc = ""
+		picture = "gfx/leaders/generic_right_wing_nationalists.dds"
+		ideology = anti_imperialist
+		expire = 2020.10.10
+		traits = {  }
+	}
+	
+	create_country_leader = {
+		name = "Right Wing Nationalists"
+		desc = ""
+		picture = "gfx/leaders/generic_right_wing_nationalists.dds"
+		ideology = nationalism_idolg
+		expire = 2020.10.10
+		traits = {  }
+	}
+	
+	create_country_leader = {
+		name = "Military Junta"
+		desc = ""
+		picture = "gfx/leaders/generic_right_wing_nationalists.dds"
+		ideology = military_idolg
+		expire = 2020.10.10
+		traits = {  }
+	}
+				
+	
+
+
+}

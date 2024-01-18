@@ -1,8 +1,8 @@
 ﻿capital = 277
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 set_convoys = 50
 set_research_slots = 2
-1946.1.1 = {
+1946.1.1 = { 
 	set_politics = {
 		ruling_party = unaligned_right
 		last_election = "1940.7.7"
@@ -17,6 +17,7 @@ set_research_slots = 2
 		unaligned_right = 70
 		colonial =  0
 	}	
+	
 	create_country_leader = {
 		name = "Miguel Alemán Valdés"
 		desc = ""
@@ -33,6 +34,7 @@ set_research_slots = 2
 		expire = 1946.11.30
 		traits = {}
 	}
+	
 }
 1948.5.14 = {	#Arab Israeli War
 	set_politics = {

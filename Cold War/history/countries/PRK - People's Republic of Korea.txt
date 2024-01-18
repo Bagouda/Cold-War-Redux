@@ -25,7 +25,7 @@ set_technology = {
 }
 ####end tech####
 set_country_flag = guarantee_blocked
-add_ideas = cw_we_hate_factions		# Blocks country from joining factions
+ add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 1946.1.1 = {
 	### Country Leaders
 	recruit_character = PRK_kim_il_sung
