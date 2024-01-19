@@ -1,6 +1,8 @@
 spain_intervention = {
 
-	icon = GFX_decision_category_generic_industry
+	icon = GFX_influence_battle_category_icon	
+
+
 	priority = 12
 	allowed = {
 			tag = USA

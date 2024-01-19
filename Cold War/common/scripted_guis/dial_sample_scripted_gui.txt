@@ -1,0 +1,60 @@
+scripted_gui = {
+	dial_sample_scripted_gui = {
+		window_name = "dial_sample_gui"
+		context_type = decision_category
+		parent_window_name = decision_tab
+		
+		
+		effects = {
+
+			
+			left_button_click  = {
+
+				if = {
+					limit = {  check_variable = { ROOT.nuclear_effort > 0 } }
+					subtract_from_variable = {
+						ROOT.nuclear_effort = 1
+					}
+				}
+			
+			}
+			
+			left_button_shift_click  = {
+				if = {
+				limit = {  check_variable = { ROOT.nuclear_effort > 9 } }
+					subtract_from_variable = {
+						ROOT.nuclear_effort = 10
+					}
+					
+				}
+			}
+			right_button_click  = {
+
+				if = {
+					limit = { check_variable = { ROOT.num_of_civilian_factories_available_for_projects > 0 } }
+					add_to_variable = {
+						ROOT.nuclear_effort = 1
+					}
+				}
+			}
+			right_button_shift_click  = {
+			
+				if = {
+					limit = { check_variable = { ROOT.num_of_civilian_factories_available_for_projects > 9 } }
+					add_to_variable = {
+						ROOT.nuclear_effort = 10
+					}
+				}
+			}
+		}
+
+		properties = {
+			half_dial_hand_nuclear_enrichement = {
+				frame = ROOT.enrichement_completion
+			}
+			half_dial_hand_nuclear_effort  = {
+				frame = ROOT.nuclear_completion
+			}
+		}
+	}
+}

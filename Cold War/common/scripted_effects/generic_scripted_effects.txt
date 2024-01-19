@@ -583,34 +583,41 @@ cw_calculate_manchuria_overall_control = {
 	hidden_effect = {
 		clear_variable = global.prc_manchuria_control
 		clear_variable = global.kmt_manchuria_control
-		######## PRC CALCULATIONS ########
-		add_to_variable = {
-			var = global.prc_manchuria_control
-			value = 715.man_struggle_prc_control
-		}		
-		add_to_variable = {
-			var = global.prc_manchuria_control
-			value = 610.man_struggle_prc_control
+		######## PRC CALCULATIONS #######
+		715 = {
+			add_to_variable = {
+				global.prc_manchuria_control =  THIS.man_struggle_prc_control
+			}		
 		}
-		add_to_variable = {
-			var = global.prc_manchuria_control
-			value = 716.man_struggle_prc_control
+		610 = {
+			add_to_variable = {
+				global.prc_manchuria_control = THIS.man_struggle_prc_control
+			}
 		}
-		add_to_variable = {
-			var = global.prc_manchuria_control
-			value = 328.man_struggle_prc_control
+		716 = {
+			add_to_variable = {
+				global.prc_manchuria_control = THIS.man_struggle_prc_control
+			}
 		}
-		add_to_variable = {
-			var = global.prc_manchuria_control
-			value = 717.man_struggle_prc_control
+		328 = {
+			add_to_variable = {
+				global.prc_manchuria_control = THIS.man_struggle_prc_control
+			}	
 		}
-		add_to_variable = {
-			var = global.prc_manchuria_control
-			value = 714.man_struggle_prc_control
+		717 = {
+			add_to_variable = {
+				global.prc_manchuria_control = THIS.man_struggle_prc_control
+			}
 		}
-		add_to_variable = {
-			var = global.prc_manchuria_control
-			value = 761.man_struggle_prc_control
+		714 = {
+			add_to_variable = {
+				global.prc_manchuria_control = THIS.man_struggle_prc_control
+			}
+		}
+		761 = {
+			add_to_variable = {
+				global.prc_manchuria_control = THIS.man_struggle_prc_control
+			}
 		}
 		divide_variable = { global.prc_manchuria_control = 7 }
 		round_variable = global.prc_manchuria_control

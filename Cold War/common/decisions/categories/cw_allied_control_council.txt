@@ -1,6 +1,8 @@
 cw_war_reparations_to_us_category = {
 
-	icon = generic_arms_trade
+	icon = GFX_decision_category_generic_economy	
+
+
 	visible_when_empty = no
 
 	allowed = {
@@ -26,7 +28,7 @@ cw_war_reparations_to_us_category = {
 }
 cw_war_reparations_from_us_category = {
 
-	icon = generic_arms_trade
+	icon = GFX_decision_category_generic_economy
 	visible_when_empty = no
 
 	allowed = {

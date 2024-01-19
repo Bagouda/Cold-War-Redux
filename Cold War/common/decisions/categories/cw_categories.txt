@@ -1,6 +1,6 @@
 nuke_program = {
 	icon = GFX_decision_category_generic_arms_trade
-	
+	priority = 99
 	allowed = {
 		OR = {
 			original_tag = USA
@@ -13,6 +13,8 @@ nuke_program = {
 			has_country_flag = nuclear_program
 		}
 	}
+	
+	scripted_gui = dial_sample_scripted_gui
 
 }
 
@@ -56,7 +58,7 @@ cw_usa_red_scare = {
 
 ger_reconstruction = {
 	picture = ger_mefo_bills
-	icon = GFX_berlin_category_icon
+	icon = GFX_decision_category_generic_industry
 	
 	visible = {
 		NOT = { OR = { GER = { has_country_flag = win_reconstruction } DDR = { has_country_flag = win_reconstruction } }}
@@ -95,7 +97,9 @@ usa_berlin = {
 
 }
 cw_berlin_category = {
-	picture = ger_mefo_bills
+	picture = GFX_decision_category_generic_democracy	
+
+
 
 	icon = GFX_berlin_category_icon
 

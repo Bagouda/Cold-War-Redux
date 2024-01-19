@@ -327,14 +327,29 @@
  # GER
  ger_reconstruction:0 "Germany Reconstruction"
  ger_reconstruction_desc:0 "We are facing a competition to reconstructe germany on our term. If we fail to do so, we would lose international prestige.\nThe first to reach 35 civilian factory will win 100 £cw_score \nWest Germany reparation: §B[?GER.num_of_civilian_factories]/35§!\nEast Germany reparation: §R[?DDR.num_of_civilian_factories]/35\n§!"
- 
+ berlin_form_division:0 "Form division in Berlin"
+ GER_finish_reconstruction:0 "Finalize reconstruction of §YWest Germany§!"
+ GER_rebuild_state:0 "Rebuild [?FROM.GetName]"
+ DDR_finish_reconstruction:0 "Finalize reconstruction of §YEast Germany§!"
+ DDR_rebuild_state:0 "Rebuild [?FROM.GetName]"
  # nuke
  nuke_program:0 "Nuclear Program"
  nuke_program_desc:0 " [NUKE_PROGRAM_DESC]"
+ nuclear_enrichement_text:0 "Nuclear Enrichement: §R[?ROOT.enrichement_completion|%%]§!\nDaily progress: §R[?ROOT.uranium_score|%%]§!\nWe have §G[?ROOT.resource@uranium]§! uranium"
+ nuclear_effort_text:0 "Nuke Assemblement: §R[?ROOT.nuclear_completion|%%]§!\nDaily progress: §R[?ROOT.nuclear_effort_score|%%]§!\nNuclear Reactor: §G[?ROOT.num_reactor]§!\n£civ_factory invested §G[?ROOT.nuclear_effort]§!"
+ button_remove_factory:0 "-1 £civ_factory"
+ button_add_factory:0 "-1 £civ_factory"
  nuke_program_prototype:0 "This is our nuclear program:\nCompletion of prototype: §R[?ROOT.nuclear_completion|%%]§!\nEnrichement process: §R[?ROOT.enrichement_completion|%%]§!\n\nWe have  [?ROOT.resource@uranium] uranium\nThis advance the enrichement process by [?ROOT.uranium_score|%%] per week\n\nWe have [?ROOT.nuclear_effort] factories on our nuclear program\nThis advance the completion of the prototype by [?ROOT.nuclear_effort_score|%%] per week\nWe have [?ROOT.num_reactor]  nuclear reactor, each adding 1% per week toward completion."
  nuke_program_regular:0 "This is our nuclear program:\nCompletion of architecture: §R[?ROOT.nuclear_completion|%%]§!\nEnrichement process: §R[?ROOT.enrichement_completion|%%]§!\nA Nuke will automaticaly be build once both reach 100%\nWe have  [?ROOT.resource@uranium] uranium\nThis advance the enrichement process by [?ROOT.uranium_score|%%] per week\n\nWe have [?ROOT.nuclear_effort] factories on our nuclear program\nThis advance the completion of the architecture by [?ROOT.nuclear_effort_score|%%] per week\nWe have [?ROOT.num_reactor] nuclear reactor, each adding 1% per week toward completion.\nWe can't have more nuke than missile site\nWe currently have [?ROOT.num_of_nukes]/[?ROOT.max_nuke]"
+ add_factory:0 "Add one factory to the program"
+ add_factory_10:0 "Add ten factory to the program"
+ reduce_factory:0 "Remove one factory to the program"
+ reduce_factory_10:0 "Remove ten factory to the program"
+ SOV_test_prototype:0 "§YTest nuclear prototype§!"
+ toggle_missile:0 "Toggle nuke decisions"
  show_missile:0 "Select [?FROM.GetName] Missile Site"
  launch_nuke_on:0 "Nuke [?FROM.GetName]" 
+ stop_nuking:0 "Stop nuking Decisions"
  
  
  ### SCORE ###

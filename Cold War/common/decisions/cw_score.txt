@@ -57,7 +57,9 @@ cw_score = {
 		visible = { has_country_flag =  show_base }
 		state_target = yes
 		target_array = owned_states
-		
+		icon = GFX_decision_faction_gre_venezelist
+
+
 		target_trigger = {
 			FROM = { has_state_flag = military_base}
 		}

@@ -4,7 +4,9 @@ usa_berlin = {
 		available = {BRL = {   NOT = {  OR = { has_government = communism_totalitarian } has_army_size = { size > 9  } } } tag = USA }
 		visible = {BRL = {  has_army_size = { size < 10  } } tag = USA }
 		custom_cost_trigger = { has_army_experience > 10 command_power > 20 }
-		
+		icon = GFX_decision_generic_military	
+
+
 		complete_effect = {
 			801 = {
 				create_unit = {
@@ -101,8 +103,12 @@ ger_reconstruction = {
 		cost = 100
 		visible = { tag = USA  }
 		available = { GER = { num_of_civilian_factories > 35 } }
-		
-		
+		icon = GFX_decision_SWI_swiss_democratic_tradition_campaign	
+
+
+			
+
+
 		days_remove = 20
 		complete_effect = {
 			USA = {
@@ -144,6 +150,7 @@ ger_reconstruction = {
 		target_array =  GER.owned_states
 		days_remove = 30
 		visible = { tag = USA }
+		icon = GFX_decision_generic_construction
 		target_trigger = {
 			
 			FROM = { has_state_category = devestated_wasteland }
@@ -173,7 +180,7 @@ ger_reconstruction = {
 		visible = { tag = SOV }
 		available = { DDR = { num_of_civilian_factories > 35 } }
 		cost = 100
-
+		icon = GFX_decision_SOV_secure_the_administration
 		
 		
 		complete_effect = {
@@ -218,7 +225,7 @@ ger_reconstruction = {
 		state_target = yes
 		target_array =  DDR.owned_states
 		days_remove = 30
-		
+		icon = GFX_decision_generic_construction
 		available = {
 			ROOT = { num_of_civilian_factories_available_for_projects > 4 }
 		}

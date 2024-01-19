@@ -1,12 +1,13 @@
 cw_score = {
-	icon = GFX_decision_category_generic_industry
-	priority = 11
+	icon = GFX_influence_battle_cat_icon
+	priority = 100
 	allowed = {
 		OR =  {
 			tag = SOV
 			tag = USA
 		}
 	}
+
 
 	scripted_gui = line_graph_sample_scripted_gui
 	visible_when_empty = yes

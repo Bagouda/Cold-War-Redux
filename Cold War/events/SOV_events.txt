@@ -461,6 +461,7 @@ country_event = {
 	}	
 	
 	option = {
+		name = sov_events.18.a
 		news_event = cw_historic_events.62
 		FRA ={
 			
@@ -526,7 +527,8 @@ country_event = {
 					set_cosmetic_tag = CAM_CM 
 				}
 			}
-		name = sov_events.18.a
+		}
+	
 	}
 	option = {
 		name = sov_events.18.b

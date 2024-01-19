@@ -73,32 +73,18 @@ on_actions = {
 				compute_proxy_score = yes
 			}
 			
-			
-				if = {
-					limit = { OR  = {original_tag = SOV original_tag = USA } }
-					
-						############ MILITARY BASE ##################
-						set_variable = {cw_number_base = 0 }
-						every_controlled_state = {
-							limit = {  has_state_flag = military_base }
-							add_to_variable = { ROOT.cw_number_base = 1 }
-						}
-						
-						set_variable = {cw_number_base_bloat = cw_number_base }
-						divide_variable = {cw_number_base_bloat = 100}
-						
-						
-						############### NUKE ###############
-				
-						update_nuclear_program = yes
-				}
-			
 			}
 		}
 	}
 	
 	on_daily_SOV = {
 		effect = {	
+			if = {
+				limit = { SOV = { has_war = yes } }
+				subtract_from_variable = { cw_score = 1}
+			}
+			update_base_military = yes
+			update_nuclear_program = yes
 			update_cw_score = yes
 		}
 	}
@@ -106,6 +92,12 @@ on_actions = {
 	
 	on_daily_USA = {
 		effect = {	
+			if = {
+				limit = { USA = { has_war = yes } }
+				subtract_from_variable = { cw_score = 1}
+			}
+			update_base_military = yes
+			update_nuclear_program = yes
 			update_cw_score = yes
 		}
 	}

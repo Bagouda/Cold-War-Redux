@@ -182,10 +182,10 @@ update_revanchism = {
 }
 
 update_nuclear_program = {
-	if  = { limit = {OR = { has_country_flag = building_nuclear_prototype			has_country_flag = nuclear_program }}
+	if  = { limit = {OR = { has_country_flag = building_nuclear_prototype	has_country_flag = nuclear_program }}
 				
 		set_variable = { nuclear_effort_score = nuclear_effort}
-		divide_variable = { nuclear_effort_score = 4 }
+		divide_variable = { nuclear_effort_score = 15 }
 		add_to_variable = { nuclear_completion = nuclear_effort_score }
 		
 		set_variable = { max_nuke = 0 }
@@ -202,6 +202,7 @@ update_nuclear_program = {
 		divide_variable = { uranium_score = 4 }
 		add_to_variable = { enrichement_completion =  uranium_score }
 		
+
 		if = { limit = { check_variable = { nuclear_completion > 100 }} 
 			set_variable = { nuclear_completion =  100 }
 		}
@@ -311,6 +312,16 @@ colony_back_to_puppet = {
 
 }
 
+update_base_military = {
+	set_variable = {cw_number_base = 0 }
+	every_controlled_state = {
+		limit = {  has_state_flag = military_base }
+		add_to_variable = { ROOT.cw_number_base = 1 }
+	}
+	
+	set_variable = {cw_number_base_bloat = cw_number_base }
+	divide_variable = {cw_number_base_bloat = 100}
+}
 update_free_europe = {
 	if = {
 		limit = { check_variable = { 801.building_level@radar_station < 2 } }

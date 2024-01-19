@@ -1,65 +1,10 @@
 nuke_program = {
+	SOV_test_prototype = {
 	
-	add_factory = {
-	
-		available = { num_of_civilian_factories_available_for_projects > 0 }
-		icon = GFX_decision_eng_trade_unions_demand
+		icon = GFX_decision_generic_ignite_civil_war
 		cost = 0
 		
-		complete_effect = {
-			add_to_variable = { nuclear_effort = 1 }
-		}
-		
-		ai_will_do = {
-			base = 0
-			modifier = {
-				check_variable = { ROOT.num_of_civilian_factories_available_for_projects > 45 }
-			}
-		}
-	
-	}
-	
-	add_factory_10 = {
-		icon = GFX_decision_eng_trade_unions_demand
-		cost = 0
-		available = { num_of_civilian_factories_available_for_projects > 9 }
-		complete_effect = {
-			add_to_variable = { nuclear_effort = 10 }
-		}
-	
-	}
-	
-	
-	reduce_factory = {
-	
-		icon = GFX_decision_eng_trade_unions_demand
-		cost = 0
-		available = { check_variable = { nuclear_effort > 0 } } 
-		complete_effect = {
-			subtract_from_variable = { nuclear_effort = 1 }
-		}
-	
-	
-	}
-	
-	reduce_factory_10 = {
-	
-		icon = GFX_decision_eng_trade_unions_demand
-		cost = 0
-		available = { check_variable = { nuclear_effort > 9 } }
-		complete_effect = {
-			subtract_from_variable = { nuclear_effort = 10 }
-		}
-	
-	
-	}
-	
-	test_prototype = {
-	
-		icon = GFX_decision_eng_trade_unions_demand
-		cost = 0
-		
-		visible  = { has_country_flag  = building_nuclear_prototype}
+		visible  = { has_country_flag  = building_nuclear_prototype tag = SOV}
 		
 		available = { check_variable  = {nuclear_completion > 99 } 
 					  check_variable  = {enrichement_completion > 99 } }
@@ -94,8 +39,11 @@ nuke_program = {
 		
 	}
 	
+	
 	toggle_missile = {
-		icon = GFX_decision_eng_trade_unions_demand
+		icon = GFX_decision_SWE_set_air_budget	
+
+
 		cost = 0
 		
 		complete_effect = {

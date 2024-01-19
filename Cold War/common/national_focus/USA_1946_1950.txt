@@ -3636,7 +3636,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_sf_treaty_japanese_industry_to_anzus
-		x = 0
+		x = 2
 		y = 1
 		relative_position_id = USA_sf_treaty_japanese_industry
 		prerequisite = { focus = USA_sf_treaty_japanese_industry }
@@ -3693,7 +3693,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_sf_treaty_japanese_industry_to_japan
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = USA_sf_treaty_japanese_industry
 		prerequisite = { focus = USA_sf_treaty_japanese_industry }
@@ -3746,7 +3746,7 @@ focus_tree = {
 	
 	focus = {
 		id = USA_sf_treaty_taiwan_status_USA
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = USA_sf_treaty_taiwan_status
 		prerequisite = { focus = USA_sf_treaty_taiwan_status }
@@ -3774,7 +3774,7 @@ focus_tree = {
 	}
 	focus = {
 		id = USA_sf_treaty_taiwan_status_CHI
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = USA_sf_treaty_taiwan_status
 		prerequisite = { focus = USA_sf_treaty_taiwan_status }
@@ -6477,7 +6477,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = "We'll demand war reparation to spain"
+			custom_effect_tooltip = TT_USA_PARIS_FRANCO_REPARATION
 			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_sanction_franco
 		}
@@ -6516,7 +6516,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = "Unlock decision to remove Franco"
+			custom_effect_tooltip = TT_USA_PARIS_FRANCO_REMOVE
 			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_remove_franco
 		}
@@ -6552,7 +6552,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = "Franco will own us a favor"
+			custom_effect_tooltip = TT_USA_PARIS_FRANCO_GRACIED
 			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_franco_gracied
 		}
@@ -6627,7 +6627,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = "Transfer Dodecanese Back to Greece"
+			custom_effect_tooltip = TT_USA_PARIS_DODECANESE_GRE
 			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_greek_dodecanese
 		}
@@ -6664,7 +6664,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = "Establish a Military Base on Dodecanese Island, This will greatly upset the greek!"
+			custom_effect_tooltip = TT_USA_PARIS_DODECANESE_BASE
 			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_dodecanese_base
 		}
@@ -6735,7 +6735,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = "Greenland wil be given back to Denmark"
+			custom_effect_tooltip = TT_USA_PARIS_GREENLAND_DEN
 			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_give_back_greenland
 		}
@@ -6771,7 +6771,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = "The Status of Greenland will be discussed after the ratification of the treaty"
+			custom_effect_tooltip = TT_USA_GREENLAND_IND
 			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_claim_greenland
 		}
@@ -6847,7 +6847,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = "Transfer Trieste to Italy"
+			custom_effect_tooltip = TT_USA_TRIESTE_ITA
 			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_italian_trieste
 			ITA = { 
@@ -6892,7 +6892,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = "Establish a Military base in Trieste"
+			custom_effect_tooltip = TT_USA_TRIESTE_BASE
+			
 			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_unn_trieste
 		}
@@ -6930,7 +6931,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = "Transfer Trieste to Yugoslavia"
+			custom_effect_tooltip = TT_USA_PARIS_TRIESTE_YUG
+			
 			custom_effect_tooltip = TT_AFTER_PARIS_TREATY
 			set_global_flag = usa_yugoslavia_trieste
 			YUG = { 
@@ -7020,7 +7022,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = "The treaty will be vote once every party made its demands"
+			custom_effect_tooltip = TT_USA_PARIS_SIGN
+			
 			clr_country_flag = write_paris_treaty
 			clr_country_flag = important_matter
 			set_country_flag = ready_paris_treaty
@@ -7354,7 +7357,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = "Will allow decision to reconstruct Germany"
+			custom_effect_tooltip = TT_USA_REBUILD_GERMANY
 			set_country_flag = germany_rebuilding
 
 		}

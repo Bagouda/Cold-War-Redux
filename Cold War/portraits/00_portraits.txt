@@ -21,6 +21,48 @@ default = {
 			"GFX_portrait_operative_unknown"
 		}
 	}
+	political = {
+		communism = {
+				male = { 
+				"GFX_generic_leader_cw_communism"
+			}
+		}
+		communism_totalitarian = {
+				male = { 
+				"GFX_generic_leader_cw_communism"
+			}
+		}
+		democratic = {
+				male = { 
+				"GFX_generic_leader_cw_democratic" 
+			}
+		}
+		democratic_socialist = {
+				male = { 
+				"GFX_generic_leader_cw_democratic" 
+			}
+		}
+		fascism = {
+				male = { 
+				"GFX_generic_leader_cw_fascism" 
+			}
+		}
+		unaligned_right = {
+				male = { 
+				"GFX_generic_leader_cw_unaligned_right" 
+			}
+		}
+		neutrality = {
+				male = { 
+				"GFX_generic_leader_cw_neutrality" 
+			}
+		}
+		colonial = {
+				male = { 
+				"GFX_generic_leader_cw_colonial" 
+			}
+		}
+	}
 
 
 }
@@ -419,6 +461,68 @@ continent = {
 
 }
 
+continent = {
+	name = central_america
+	army = {
+		male = {
+			"GFX_Portrait_Arabia_Generic_land_1"
+			"GFX_Portrait_Arabia_Generic_land_2"
+			"GFX_Portrait_Arabia_Generic_land_3"
+		}
+	}
+	
+	navy = {
+		male = {
+			"GFX_Portrait_Arabia_Generic_navy_1"
+			"GFX_Portrait_Arabia_Generic_navy_2"
+			"GFX_Portrait_Arabia_Generic_navy_3"
+		}
+	}
+	
+	political = {
+		communism = {
+				male = { 
+				"GFX_generic_leader_cw_communism"
+			}
+		}
+		communism_totalitarian = {
+				male = { 
+				"GFX_generic_leader_cw_communism"
+			}
+		}
+		democratic = {
+				male = { 
+				"GFX_generic_leader_cw_democratic" 
+			}
+		}
+		democratic_socialist = {
+				male = { 
+				"GFX_generic_leader_cw_democratic" 
+			}
+		}
+		fascism = {
+				male = { 
+				"GFX_generic_leader_cw_fascism" 
+			}
+		}
+		unaligned_right = {
+				male = { 
+				"GFX_generic_leader_cw_unaligned_right" 
+			}
+		}
+		neutrality = {
+				male = { 
+				"GFX_generic_leader_cw_neutrality" 
+			}
+		}
+		colonial = {
+				male = { 
+				"GFX_generic_leader_cw_colonial" 
+			}
+		}
+	}
+
+}
 continent = {
 	name = middle_east
 	army = {
