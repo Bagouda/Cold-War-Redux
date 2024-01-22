@@ -152,7 +152,7 @@ focus_tree = {
 		select_effect = {}
 
 		completion_reward = {	
-			custom_effect_tooltip = "Will reduce the time required to complete reconstruction actions by 50 days."
+			custom_effect_tooltip = TT_SOV_RECONSTRUCTION_MOBILIZE
 			subtract_from_variable = { ROOT.sov_reconstruction_cost_time = 50 }
 		}
 	}
@@ -2387,7 +2387,32 @@ focus_tree = {
 					cw_make_unrecognized = yes
 					cw_new_country_notification = yes
 					add_to_array = { array = SOV.countries_who_pay_us_reparations value = THIS.id }
-					set_variable = { amount_of_reperations_remaining@SOV = 10 }			
+					set_variable = { amount_of_reperations_remaining@SOV = 10 }		
+
+					random_owned_state = {
+						create_unit = {
+							division = "division_template = \"Military police\" start_experience_factor = 0.5" 
+							owner = DDR
+						}
+					}
+					random_owned_state = {
+						create_unit = {
+							division = "division_template = \"Military police\" start_experience_factor = 0.5" 
+							owner = DDR
+						}
+					}
+					random_owned_state = {
+						create_unit = {
+							division = "division_template = \"Military police\" start_experience_factor = 0.5" 
+							owner = DDR
+						}
+					}
+					random_owned_state = {
+						create_unit = {
+							division = "division_template = \"Military police\" start_experience_factor = 0.5" 
+							owner = DDR
+						}
+					}
 				}
 			}
 			top_bar_decisions_notification_new_decisions_available = yes
@@ -2506,6 +2531,7 @@ focus_tree = {
 		
 		
 		completion_reward = {
+			custom_effect_tooltip = TT_SOV_REBUILD_GERMANY
 			set_country_flag = germany_rebuilding
 				
 		}
@@ -2760,7 +2786,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
 
 		completion_reward = {
-		
+			custom_effect_tooltip = TT_SOV_RECONSTRUCTION_MOBILIZE_MAN 
 			subtract_from_variable = { ROOT.sov_reconstruction_cost_time = 15 }
 			add_timed_idea = {
 				idea = cw_sov_man_reconstruction
@@ -4178,8 +4204,8 @@ focus_tree = {
 			
 			add_dynamic_modifier = {
 				modifier = red_army
-				scope = SOV
 			}
+			custom_effect_tooltip = TT_SOV_ARMY_MODIFIER
 		}
 		
 		ai_will_do = {
@@ -4272,6 +4298,7 @@ focus_tree = {
 
 
 		completion_reward = { 
+			custom_effect_tooltip = TT_SOV_ARMY_ACCLIMATATION
 			set_variable = { army_hot_bonus = 0.1 }
 			set_variable = { army_cold_bonus = 0.1 }
 		}
@@ -4330,6 +4357,7 @@ focus_tree = {
 		icon = GFX_goal_generic_special_forces	
 
 		completion_reward = { # more special template
+			custom_effect_tooltip = TT_SOV_ARMY_SPECIAL_DIVISION
 			set_variable = { army_special_bonus = 0.3 }
 		}
 		
@@ -4385,6 +4413,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_the_road_of_life	
 
 		completion_reward = { # supply bonus 
+			custom_effect_tooltip = TT_SOV_ARMY_SUPPLY
 			set_variable = { army_org_bonus = 0.05 }
 		}
 		
@@ -4416,6 +4445,7 @@ focus_tree = {
 
 
 		completion_reward = { # increase number of volunteer, decrease cost to create a military base
+			custom_effect_tooltip = TT_SOV_ARMY_VOLUNTEERS
 			set_variable = { army_volunteer_bonus = 3 }
 		}
 		
@@ -4481,6 +4511,7 @@ focus_tree = {
 
 
 		completion_reward = {
+			custom_effect_tooltip = TT_USA_TOTAL_WAR
 			set_variable = { army_training_bonus = -0.15 }
 		}
 		
@@ -4509,6 +4540,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_merge_plants	
 
 		completion_reward = {
+			custom_effect_tooltip = TT_SOV_ARMY_MILITARY_COMPLEX
 			set_variable = { army_mil_bonus = 0.1 }
 			set_variable = { army_civ_bonus = -0.1 }
 		}
@@ -4539,6 +4571,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_organize_wreckers	
 
 		completion_reward = {
+			custom_effect_tooltip = TT_SOV_MASS_PRODUCTION
 			set_variable = { army_efficiency_bonus = 0.1 }
 			set_variable = { army_change_bonus = -0.2 }
 		}
@@ -4569,7 +4602,8 @@ focus_tree = {
 		icon = GFX_focus_SOV_builder_of_the_red_army
 
 		completion_reward = {
-		set_variable = { army_manpower_bonus = 0.05 }
+			custom_effect_tooltip = TT_SOV_ARMY_FREEDOM
+			set_variable = { army_manpower_bonus = 0.03 }
 			set_variable = { army_consumer_goods_bonus = 0.05 }
 		}
 		
@@ -4677,6 +4711,10 @@ focus_tree = {
 			set_technology = {
 				nuclear_reactor = 1
 			}
+			add_dynamic_modifier = {
+				modifier = nuclear_program
+			}
+
 			set_country_flag = building_nuclear_prototype
 			custom_effect_tooltip = sov_nuclear_program
 			404 = {
@@ -4856,7 +4894,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		x = 2
+		x = -2
 		y = 1
 		cost = 5
 		
@@ -4893,7 +4931,14 @@ focus_tree = {
 
 
 		completion_reward = {
-			add_to_variable = { SOV.cw_ideology_operative = 0.15 }
+			custom_effect_tooltip = TT_SOV_IDEOLOGY_PURITY
+			add_to_variable = {
+				cw_ideology_operative = 0.2
+			}
+
+			add_to_variable = {
+				cw_stability_operative = 0.2
+			}
 		}
 		
 		ai_will_do = {
@@ -4919,7 +4964,14 @@ focus_tree = {
 		
 		icon = GFX_SOV_form_mgb
 		completion_reward = {
-			add_to_variable = { SOV.cw_slot_operative = 1 }
+			custom_effect_tooltip = TT_SOV_KGB
+			add_to_variable = {
+				cw_slot_operative = 1
+			}
+
+			add_to_variable = {
+				cw_intel_gain = 0.2
+			}
 			
 		}
 		
@@ -4949,7 +5001,14 @@ focus_tree = {
 		
 		icon = GFX_SOV_form_mgb
 		completion_reward = {
-			add_to_variable = { SOV.cw_slot_operative = 1 }
+			custom_effect_tooltip = TT_SOV_MGB
+			subtract_from_variable = {
+				cw_operative_capture = 0.2
+			}
+
+			add_to_variable = {
+				cw_ennemy_operative_capture = 0.2
+			}
 			
 		}
 		
@@ -4969,7 +5028,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		x = -2
+		x = 2
 		y = 1
 		cost = 5
 		
@@ -4988,7 +5047,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SOV_propaganda_offensive_europe
+		id = SOV_propaganda_offensive 
 		
 		prerequisite = { focus = SOV_create_cominform }
 		relative_position_id = SOV_create_cominform
@@ -5032,6 +5091,12 @@ focus_tree = {
 					is_ai = yes
 				}
 				USA = { is_faction_leader = yes }
+			}
+			OR = {
+				USA = { is_faction_leader = yes }
+				threat > 0.5
+				num_subjects > 4
+			
 			}
 		}
 		bypass = {

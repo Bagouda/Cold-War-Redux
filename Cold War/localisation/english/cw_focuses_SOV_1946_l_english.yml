@@ -14,6 +14,7 @@
  SOV_relocate_industry_west_desc:0 "In response to the devastation of the Great Patriotic War, we must move our industrial base westward, ensuring the security and prosperity of our nation."
  SOV_rebuild_western_cities:0 "Mobilize population for Reconstruction"
  SOV_rebuild_western_cities_desc:0 "The war has left scars across our land. It's time to heal these wounds by reconstructing our western cities with the collective effort of our people."
+ TT_SOV_RECONSTRUCTION_MOBILIZE:0 "Will §Yreduce§! the time required to complete reconstruction actions by §Y50§! days."
  SOV_rebuild_russian_cities:0 "Rebuild Russian Urban Centers"
  SOV_rebuild_russian_cities_desc:0 "The heart of our motherland lies in its cities. Rebuilding them is not just a matter of bricks and mortar, but of reviving the Soviet spirit."
  SOV_rebuild_belarus_cities:0 "Rebuild Belarusian Urban Centers"
@@ -149,19 +150,25 @@
  ############################################################
  #                COMECON KOMINFORM KGB                     #
  ############################################################
+ SOV_zhdanov_doctrine:0 "Zhdanov Doctrine"
  SOV_create_nkvd:0 "Create NKVD"
- SOV_create_nkvd_desc:0 "TODO"
+ SOV_create_nkvd_desc:0 "We'll establish NKVD"
  SOV_create_cominform:0 "Create Cominform"
  SOV_create_cominform_desc:0 ""
  SOV_upgrade_our_diplomacy:0 "Upgrade our diplomatic tools" # exploit uranium in karelia
  SOV_upgrade_our_diplomacy_desc:0 ""
  SOV_comecon_aid:0 "§YComecon Aid§!"
  SOV_comecon_aid_desc:0 ""
- SOV_create_KGB:0 "Founding the KGB"
+ SOV_create_KGB:0 "Establish the KGB"
+ TT_SOV_KGB:0 "Add to §YNKVD§!:\nOperative slot: §G+1§!\nIntel network strength gain factor §G+20%§!\n\n"
+ SOV_create_MGB:0 "Establish the MGB"
+ TT_SOV_MGB:0 "Add to §YNKVD§!:\nOwn operatives capture chances: §G-20%§!\nEnemy operatives capture chances: §G+20%§!\n\n"
  SOV_create_KGB_desc:0 "The establishment of the KGB marks a new era in our intelligence and security capabilities. This formidable agency will safeguard the Soviet Union and our socialist ideals."
  SOV_ideology_uniformity:0 "Ideological Uniformity"
+ TT_SOV_IDEOLOGY_PURITY:0 "Add to §YNKVD§!:\nPropaganda mission effects: §G+20%§!\nBoost Ideology mission effects: §G20%§!\n\n"
  SOV_ideology_uniformity_desc:0 "Through the Kominform, we enforce ideological uniformity across the communist bloc, ensuring that our allies remain steadfast in their commitment to our shared vision."
  SOV_propaganda_offensive:0 "Eastern European Propaganda"
+ 
  SOV_propaganda_offensive_desc:0 "A sweeping propaganda offensive is launched in Eastern Europe, bolstering our influence and swaying public opinion in favor of the socialist cause."
  SOV_comecon_aid_req_TT_block:0 "1. §gBulgaria, Romania, Hungary, Czechoslovakia and Poland are ruled by Communist regimes.§!"
  SOV_COMECON_AID_REQ_TT_MP_AID:0 "2. §g[USA.GetName] has initiated the Marshall Plan.§!\n"
@@ -229,7 +236,7 @@
  SOV_manchuria_question_desc:0 "Occupied Manchuria stands at a crossroads. Shall we aid Mao in the Chinese Civil War by ceding this strategic region, or retain it to fortify our own interests?"
  SOV_MAN_reconstruction:0 "Rebuild Using Manchurian Resources"
  SOV_MAN_reconstruction_desc:0 "Utilizing the manpower and resources of Manchuria, we can expedite the reconstruction of our Motherland, restoring our strength and industrial might."
- 
+ TT_SOV_RECONSTRUCTION_MOBILIZE_MAN:0 "Will §Yreduce§! the time required to complete reconstruction actions by §Y15§! days.\n\n"
  SOV_MAN_industry:0 "Manchurian Industrial Revival"
  SOV_MAN_industry_desc:0 "Manchuria, once the industrial heart of the Japanese empire, will be revitalized. We'll rebuild its infrastructure and industry, harnessing its potential for the Soviet cause."
  SOV_MAN_uranium:0 "Manchurian Uranium"
@@ -250,7 +257,7 @@
  ############################################################
  #                PARIS TREATY                              #
  ############################################################
- SOV_write_paris_treaty:0 "Prepare the Paris peace treaty"
+ SOV_write_paris_treaty:0 "Write Paris peace treaty"
  SOV_write_paris_treaty_desc:0 "As we stand on the threshold of the Paris Peace Treaty, we, the Soviet Union, must prepare ourselves for what we will demand. We gained vast territories during the war, and it is only just that our borders are settled accordingly. Our great leader Stalin has put his trust in us to secure the best possible outcome for the Soviet people. We must not disappoint him. We will come to Paris with strength and determination, ready to defend our interests and the interests of the working class."
  SOV_paris_italy:0 "Italy fate"
  SOV_paris_italy_desc:0 "We have fought hard to bring down the fascist regime in Italy, and now with the Paris Peace Treaty, we have the chance to take what is rightfully ours. The former Italian colonies in Africa are ripe for the taking and would expand our influence on the continent. However, we must also consider the cost of war reparations and the need to rebuild our own country. As we continue our fight against colonialism, we must decide whether the gains of seizing a colony outweigh the benefits of a peaceful settlement."
@@ -379,12 +386,24 @@
  SOV_supply_desc:0 "We will enhance our global supply networks, ensuring that Soviet aid reaches every corner of the world, sustaining our allies and fueling the flames of revolution."
  SOV_expeditionary_power:0 "Soviet Global Projection"
  SOV_expeditionary_power_desc:0 "The Soviet Union has emerged as a global force of intervention, projecting our power and ideology worldwide, reshaping the geopolitical landscape in favor of socialism."
-  #####################################################
-  #                         GERMANY                   #
-  #####################################################
+ TT_SOV_ARMY_MODIFIER:0 "§YRed Army§! will be improved with army reform."
+ TT_SOV_ARMY_ACCLIMATATION:0 "Add to §YRed Army§!:\nCold acclimatization gain factor: §G+10%§!\nHot acclimatization gain factor: §G+10%§!"
+ TT_SOV_ARMY_SPECIAL_DIVISION:0 "Add to §YRed Army§!:\nSpecial Forces Capapicity Multiplier: §G+30%§!"
+ TT_SOV_ARMY_SUPPLY:0 "Add to §YRed Army§!:\nDivision Organization: §G+5%§!"
+ TT_SOV_ARMY_VOLUNTEERS:0 "Add to §YRed Army§!:\nMax Peacekeeping Force Divisions: §G+3§!"
+ TT_SOV_ARMY_MILITARY_COMPLEX:0 "Add to §YRed Army§!:\n§YMilitary Factory§! construction speed: §G+10%§!\n§YCivilian Factory§! construction speed: §R-10%§!\n"
+ TT_SOV_MASS_PRODUCTION:0 "Add to §YRed Army§!:\nProduction efficiency cap: §G+10%§!\nProduction Efficiency Retention: §R-20%§!\n"
+ TT_SOV_TOTAL_WAR:0 "Add to §YRed Army§!:\nTraining time: §G-15%§!\n"
+ TT_SOV_ARMY_FREEDOM:0 "Add to §YRed Army§!:\nMobilization speed: §G+10%§!\nRecruitable Population: §G+3%§!\n"
+
+ #####################################################
+ #                         GERMANY                   #
+ #####################################################
  SOV_future_of_gemany:0 "Future of Germany"
  SOV_future_of_gemany_desc:0 "The future of Germany lies in our hands. We must decide its fate, shaping it into a bulwark of socialism that will stand as a testament to our strength and resolve."
  SOV_establish_east_germany:0 "Establish East Germany"
  SOV_establish_east_germany_desc:0 "By establishing the German Democratic Republic in the East, we create a socialist stronghold in the heart of Europe, a beacon of our ideological triumph over unaligned_right."
- SOV_blockus_berlin:0 "The Blockade of Berlin"
+ SOV_blockus_berlin:0 "Blockade Berlin"
  SOV_blockus_berlin_desc:0 "In a decisive move, we blockade Berlin, cutting off the capitalist encroachment. This bold action asserts our dominance in Germany and challenges the West's resolve."
+ SOV_rebuild_germany:0 "Rebuild Germany"
+ TT_SOV_REBUILD_GERMANY:0 "Will allow decision to reconstruct §YGermany§!"

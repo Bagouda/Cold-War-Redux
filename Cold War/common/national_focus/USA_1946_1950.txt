@@ -571,7 +571,7 @@ focus_tree = {
 		}
 		icon = GFX_SOV_korean_question
 		x = 23
-		y = 8
+		y = 7
 		cost = 5
 
 		bypass = {
@@ -2326,8 +2326,8 @@ focus_tree = {
 		}
 		
 		icon = GFX_focus_generic_support_fin
-		x = 46
-		y = 8
+		x = 32
+		y = 7
 		cost = 2
 		
 		
@@ -5776,7 +5776,7 @@ focus_tree = {
 				modifier = army_of_freedom
 				scope = USA
 			}
-			custom_effect_tooltip = "This modifier will be improved with the following focus."
+			custom_effect_tooltip = TT_USA_ARMY_MODIFIER
 		}
 		
 		ai_will_do = {
@@ -7117,6 +7117,7 @@ focus_tree = {
 				freedom_level = 0.5
 			}
 			give_guarantee = BRL
+			
 		}
 		
 
@@ -7161,7 +7162,7 @@ focus_tree = {
 						is_on_continent = europe
 					}    
 				}
-				custom_effect_tooltip =  RADIO_FREE_EUROPE_TT
+			
 					add_dynamic_modifier  = { 
 						modifier = radio_free_europe
 						scope  = PREV 
@@ -7308,6 +7309,30 @@ focus_tree = {
 				give_military_access = USA
 				give_military_access = ENG
 				give_military_access = FRA
+				random_owned_state = {
+					create_unit = {
+						division = "division_template = \"Military police\" start_experience_factor = 0.5" 
+						owner = GER
+					}
+				}
+				random_owned_state = {
+					create_unit = {
+						division = "division_template = \"Military police\" start_experience_factor = 0.5" 
+						owner = GER
+					}
+				}
+				random_owned_state = {
+					create_unit = {
+						division = "division_template = \"Military police\" start_experience_factor = 0.5" 
+						owner = GER
+					}
+				}
+				random_owned_state = {
+					create_unit = {
+						division = "division_template = \"Military police\" start_experience_factor = 0.5" 
+						owner = GER
+					}
+				}
 			}
 		}
 		ai_will_do = {

@@ -217,7 +217,6 @@ is_democracy = {
 				has_government = communism
 				has_government = communism_totalitarian
 				has_government = fascism
-				has_government = unaligned_right
 			}
 		
 		}

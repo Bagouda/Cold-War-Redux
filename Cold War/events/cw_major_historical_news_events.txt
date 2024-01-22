@@ -38,7 +38,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -324,7 +324,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -338,7 +338,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -352,7 +352,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -417,7 +417,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -431,7 +431,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -445,7 +445,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -459,7 +459,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -473,7 +473,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -568,7 +568,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -583,7 +583,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -598,7 +598,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -613,7 +613,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -628,7 +628,7 @@ news_event = {
 	major = yes
 	is_triggered_only = yes
 	fire_only_once = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -643,7 +643,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -657,7 +657,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -672,7 +672,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -686,7 +686,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -700,7 +700,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -714,7 +714,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -728,7 +728,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -742,7 +742,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -756,7 +756,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -770,7 +770,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -784,7 +784,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -798,7 +798,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -835,7 +835,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -849,7 +849,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		name = "OK"
@@ -1017,7 +1017,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		trigger = {  is_communism =  no }
@@ -1036,7 +1036,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		trigger = {  is_communism =  no }
@@ -1057,7 +1057,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		trigger = {  is_communism =  no }
@@ -1076,7 +1076,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		trigger = {  is_communism =  no }
@@ -1097,7 +1097,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		trigger = {  is_communism =  no }
@@ -1118,7 +1118,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		trigger = {  is_communism =  no }
@@ -1141,7 +1141,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		trigger = {  is_communism =  no }
@@ -1162,7 +1162,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		trigger = {  is_communism =  no }
@@ -1185,7 +1185,7 @@ news_event = {
 
 	major = yes
 	is_triggered_only = yes
-	fire_for_sender = no
+	fire_for_sender = yes
 	
 	option = {
 		trigger = {  is_communism =  no }
@@ -1194,5 +1194,53 @@ news_event = {
 	option = {
 		trigger = {  is_communism =  yes }
 		name = cw_historic_events.62.b
+	}
+}
+news_event = {
+	id = cw_historic_events.63		#West Germany unification
+	title = cw_historic_events.63.t
+	desc = cw_historic_events.63.d
+	picture = GFX_west_germany_established	
+
+
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.63.a
+	}
+	option = {
+		trigger = {  is_communism =  yes }
+		name = cw_historic_events.63.b
+	}
+}
+news_event = {
+	id = cw_historic_events.64		#East Germany unification
+	title = cw_historic_events.64.t
+	desc = cw_historic_events.64.d
+	picture = GFX_west_germany_established	
+
+
+
+
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.64.a
+	}
+	option = {
+		trigger = {  is_communism =  yes }
+		name = cw_historic_events.64.b
 	}
 }

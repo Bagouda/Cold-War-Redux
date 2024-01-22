@@ -121,3 +121,5 @@
  communist_total_military_advisors_desc:0 "We are receiving substantial aid from official and less official [communist_leader.GetAdjective] military experts to help us in the war effort.\n§RThis idea will be removed once war ends.§!"
  CW_CONSCRIPTION_LAWS_LIMITED_CONSCRIPTION_TT:0 "Not a Democratic country."
  CW_CONSCRIPTION_LAWS_LIMITED_CONSCRIPTION_TT2:0 "Is Democratic country."
+ bombing_campaign:0 "Bombing Campaign"
+ nuclear_program:0 "Nuclear Program"

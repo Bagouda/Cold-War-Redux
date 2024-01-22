@@ -325,37 +325,37 @@ update_base_military = {
 update_free_europe = {
 	if = {
 		limit = { check_variable = { 801.building_level@radar_station < 2 } }
-			set_variable = { BRL.free_europe_com  = 0.01 }
-			set_variable = { BRL.free_europe_com_tot  = 0.01 }
+			set_variable = { BRL.free_europe_com  = -0.01 }
+			set_variable = { BRL.free_europe_com_tot  = -0.01 }
 		}
 		else_if  = {
 			limit = { check_variable = { 801.building_level@radar_station = 2 } }
-			set_variable = { BRL.free_europe_com  = 0.015 }
-			set_variable = { BRL.free_europe_com_tot  = 0.015 }
+			set_variable = { BRL.free_europe_com  = -0.015 }
+			set_variable = { BRL.free_europe_com_tot  = -0.015 }
 		
 		}
 		else_if  = {
 			limit = { check_variable = { 801.building_level@radar_station = 3 } }
-			set_variable = { BRL.free_europe_com  = 0.02 }
-			set_variable = { BRL.free_europe_com_tot  = 0.02 }
+			set_variable = { BRL.free_europe_com  = -0.02 }
+			set_variable = { BRL.free_europe_com_tot  = -0.02 }
 		
 		}
 		else_if = {
 			limit = { check_variable = { 801.building_level@radar_station = 4 } }
-			set_variable = { BRL.free_europe_com  = 0.025 }
-			set_variable = { BRL.free_europe_com_tot  = 0.025 }
+			set_variable = { BRL.free_europe_com  = -0.025 }
+			set_variable = { BRL.free_europe_com_tot  = -0.025 }
 		
 		}
 		else_if = {
 			limit = { check_variable = { 801.building_level@radar_station = 5 } }
-			set_variable = { BRL.free_europe_com  = 0.03 }
-			set_variable = { BRL.free_europe_com_tot  = 0.03 }
+			set_variable = { BRL.free_europe_com  = -0.03 }
+			set_variable = { BRL.free_europe_com_tot  = -0.03 }
 		
 		}
 		else_if = {
 			limit = { check_variable = { 801.building_level@radar_station = 6 } }
-			set_variable = { BRL.free_europe_com  = 0.035 }
-			set_variable = { BRL.free_europe_com_tot  = 0.035 }
+			set_variable = { BRL.free_europe_com  = -0.035 }
+			set_variable = { BRL.free_europe_com_tot  = -0.035 }
 		}
 
 }

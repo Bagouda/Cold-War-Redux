@@ -36,6 +36,9 @@ set_variable =  { com_bloat = 0.02 }
 add_dynamic_modifier = {
 	modifier = bloated_military_complex
 }
+add_dynamic_modifier = {
+	modifier = nuclear_program
+}
 
 
 set_convoys = 500
@@ -155,6 +158,8 @@ set_technology = {
 	advanced_rocket_engines = 1
 	jet_engines = 1
 	atomic_research = 1
+	nuclear_reactor = 1
+	nukes = 1
 }
 if = {
 	limit = { 

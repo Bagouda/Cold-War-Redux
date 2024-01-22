@@ -4,6 +4,7 @@ set_variable = { twin_country = DDR.id }	#East Germany
 set_convoys = 50
 set_research_slots = 2
 set_research_slots = 3
+oob = "GER_1946"
 1946.1.1 = {
 	diplomatic_relation = { country = FRA relation = non_aggression_pact }
 	diplomatic_relation = { country = ENG relation = non_aggression_pact }

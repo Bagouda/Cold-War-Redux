@@ -1,5 +1,5 @@
 red_army = {
-	icon = "GFX_spr_international_brigades"
+	icon = "GFX_idea_spr_international_brigades"
 	enable = { always = yes }
 	acclimatization_hot_climate_gain_factor = army_hot_bonus
 	acclimatization_cold_climate_gain_factor = army_cold_bonus
@@ -10,10 +10,11 @@ red_army = {
 	training_time_factor = army_training_bonus
 	production_speed_arms_factory_factor = army_mil_bonus
 	production_speed_industrial_complex_factor = army_civ_bonus
-	mobilization_speed = army_efficiency_bonus
+	production_factory_max_efficiency_factor = army_efficiency_bonus
+	mobilization_speed = army_consumer_goods_bonus
 	line_change_production_efficiency_factor  = army_change_bonus
 	recruitable_population_factor = army_manpower_bonus
-	civilian_factory_use = army_consumer_goods_bonus
 	justify_war_goal_time = army_wargoal_bonus
+
 
 }

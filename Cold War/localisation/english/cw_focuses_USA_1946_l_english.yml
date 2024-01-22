@@ -157,7 +157,7 @@
  USA_establish_west_berlin_desc:0 "Establish West Berlin"
  USA_radio_free_europe:0 "Radio Free Europe"
  USA_radio_free_europe_desc:0 ""
- RADIO_FREE_EUROPE_TT:0 "Relies on the number of radio station build on berlin: [?801.building_level@radar_station]"
+ RADIO_FREE_EUROPE_TT:0 "Broadcast anti-communist media in the East. Efficiency will scale with the number of §YRadio Towers§! build on §YWest-Berlin§!"
  USA_create_west_germany:0 "Establish West Germany"
  USA_create_west_germany_desc:0 ""
  #########  secure europe
@@ -540,6 +540,7 @@
  USA_expand_saudi_oil_desc:0 ""
  
  ### TOOLTIP
+ TT_USA_ARMY_MODIFIER:0 "§YFreedom Army§! will be improved with army reform."
  TT_USA_ARMY_ACCLIMATATION:0 "Add to §YFreedom Army§!:\nCold acclimatization gain factor: §G+10%§!\nHot acclimatization gain factor: §G+10%§!"
  TT_USA_ARMY_SPECIAL_DIVISION:0 "Add to §YFreedom Army§!:\nSpecial Forces Capapicity Multiplier: §G+30%§!"
  TT_USA_ARMY_SUPPLY:0 "Add to §YFreedom Army§!:\nDivision Organization: §G+5%§!"

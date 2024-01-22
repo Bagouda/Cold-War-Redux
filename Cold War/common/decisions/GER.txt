@@ -1,9 +1,10 @@
 usa_berlin = {
 
 	berlin_form_division = {
-		available = {BRL = {   NOT = {  OR = { has_government = communism_totalitarian } has_army_size = { size > 9  } } } tag = USA }
+		available = { USA = { has_army_experience > 10 command_power > 20 } BRL = {   NOT = {  OR = { has_government = communism_totalitarian } has_army_size = { size > 9  } } } tag = USA }
 		visible = {BRL = {  has_army_size = { size < 10  } } tag = USA }
 		custom_cost_trigger = { has_army_experience > 10 command_power > 20 }
+		custom_cost_text = decision_cost_CP_20_xp_10
 		icon = GFX_decision_generic_military	
 
 
@@ -22,7 +23,11 @@ usa_berlin = {
 		fire_only_once = yes
 		visible = { NOT = { BRL = { OR = { has_government = communism_totalitarian has_tech = radio_detection } } } tag = USA  has_completed_focus = USA_radio_free_europe}
 		custom_cost_trigger = { }
-		
+		icon = GFX_decision_hol_radio_oranje
+		cost = 50
+
+		fire_only_once = yes
+        days_remove = 10
 
 		
 		complete_effect = {
@@ -35,8 +40,11 @@ usa_berlin = {
 		fire_only_once = yes
 		visible = { NOT = { BRL = { OR = {  has_government = communism_totalitarian has_tech = decimetric_radar } }  } BRL = {  has_tech = radio_detection } tag = USA  has_completed_focus = USA_radio_free_europe }
 		custom_cost_trigger = { }
+		icon = GFX_decision_hol_radio_oranje
+		cost = 50
 		
-
+		fire_only_once = yes
+        days_remove = 10
 		
 		complete_effect = {
 				BRL = { set_technology = { decimetric_radar = 1 } }
@@ -48,8 +56,10 @@ usa_berlin = {
 		fire_only_once = yes
 		visible = { NOT = { BRL = { OR = { has_government = communism_totalitarian has_tech = improved_decimetric_radar } } } BRL = {  has_tech = decimetric_radar  } tag = USA has_completed_focus = USA_radio_free_europe }
 		custom_cost_trigger = { }
-		
-
+		icon = GFX_decision_hol_radio_oranje
+		cost = 50
+		fire_only_once = yes
+        days_remove = 10
 		
 		complete_effect = {
 				BRL = { set_technology = {  improved_decimetric_radar = 1 } }
@@ -61,9 +71,10 @@ usa_berlin = {
 		fire_only_once = yes
 		visible = { NOT = { BRL = { OR = { has_government = communism_totalitarian has_tech = centimetric_radar } } } BRL = { has_tech = improved_decimetric_radar } tag = USA has_completed_focus = USA_radio_free_europe }
 		custom_cost_trigger = { }
-		
-
-		
+		icon = GFX_decision_hol_radio_oranje
+		cost = 50
+		fire_only_once = yes
+        days_remove = 10
 		complete_effect = {
 				BRL = { set_technology = { centimetric_radar  = 1 } }
 			}
@@ -74,9 +85,10 @@ usa_berlin = {
 		fire_only_once = yes
 		visible = { NOT = { BRL = { OR = { has_government = communism_totalitarian has_tech = improved_centimetric_radar } } } BRL = { has_tech = centimetric_radar } tag = USA has_completed_focus = USA_radio_free_europe }
 		custom_cost_trigger = { }
-		
-
-		
+		icon = GFX_decision_hol_radio_oranje
+		cost = 50
+		fire_only_once = yes
+        days_remove = 10
 		complete_effect = {
 				BRL = { set_technology = { improved_centimetric_radar = 1 } }
 			}
@@ -87,8 +99,10 @@ usa_berlin = {
 		fire_only_once = yes
 		visible = { NOT = { BRL = { OR = { has_government = communism_totalitarian has_tech = advanced_centimetric_radar } } } BRL = { has_tech = improved_centimetric_radar } tag = USA has_completed_focus = USA_radio_free_europe }
 		custom_cost_trigger = { }
-		
-
+		icon = GFX_decision_hol_radio_oranje
+		cost = 50
+		fire_only_once = yes
+        days_remove = 10
 		
 		complete_effect = {
 				BRL = { set_technology = { advanced_centimetric_radar =1 } }
@@ -98,11 +112,14 @@ usa_berlin = {
 }
 
 ger_reconstruction = {
+
+	
+	
 	GER_finish_reconstruction = {
 	
 		cost = 100
 		visible = { tag = USA  }
-		available = { GER = { num_of_civilian_factories > 35 } }
+		available = { GER = { num_of_civilian_factories > 20 } }
 		icon = GFX_decision_SWI_swiss_democratic_tradition_campaign	
 
 
@@ -151,6 +168,9 @@ ger_reconstruction = {
 		days_remove = 30
 		visible = { tag = USA }
 		icon = GFX_decision_generic_construction
+		cost = 30
+		custom_cost_trigger = { num_of_civilian_factories_available_for_projects > 4  }
+		custom_cost_text = decision_cost_factory_5
 		target_trigger = {
 			
 			FROM = { has_state_category = devestated_wasteland }
@@ -174,11 +194,14 @@ ger_reconstruction = {
 	
 	}
 	
+	
+	
+	
 	DDR_finish_reconstruction = {
 		days_remove = 20
 	
 		visible = { tag = SOV }
-		available = { DDR = { num_of_civilian_factories > 35 } }
+		available = { DDR = { num_of_civilian_factories > 20 } }
 		cost = 100
 		icon = GFX_decision_SOV_secure_the_administration
 		
@@ -226,6 +249,7 @@ ger_reconstruction = {
 		target_array =  DDR.owned_states
 		days_remove = 30
 		icon = GFX_decision_generic_construction
+		cost = 30
 		available = {
 			ROOT = { num_of_civilian_factories_available_for_projects > 4 }
 		}

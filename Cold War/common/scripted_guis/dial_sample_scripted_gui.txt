@@ -21,26 +21,29 @@ scripted_gui = {
 			
 			left_button_shift_click  = {
 				if = {
-				limit = {  check_variable = { ROOT.nuclear_effort > 9 } }
-					subtract_from_variable = {
-						ROOT.nuclear_effort = 10
-					}
+					limit = {  check_variable = { ROOT.nuclear_effort > 9 } }
+						subtract_from_variable = {
+							ROOT.nuclear_effort = 10
+						}
 					
 				}
 			}
 			right_button_click  = {
 
+			
 				if = {
-					limit = { check_variable = { ROOT.num_of_civilian_factories_available_for_projects > 0 } }
+					limit = { check_variable = { ROOT.num_of_civilian_factories_available_for_projects > ROOT.nuclear_effort } }
 					add_to_variable = {
 						ROOT.nuclear_effort = 1
 					}
+					
 				}
 			}
 			right_button_shift_click  = {
-			
+				set_temp_variable = {nuclear_effort_10 = nuclear_effort}
+				add_to_temp_variable = { nuclear_effort_1 = 9 }
 				if = {
-					limit = { check_variable = { ROOT.num_of_civilian_factories_available_for_projects > 9 } }
+					limit = { check_variable = { ROOT.num_of_civilian_factories_available_for_projects > nuclear_effort_10 } }
 					add_to_variable = {
 						ROOT.nuclear_effort = 10
 					}

@@ -1,5 +1,53 @@
 cw_score = {
-
+	GER_unification {
+		cost = 150
+		available = { tag = USA GER = { exists = yes is_communism = no } DDR = { exists = yes is_communism = no } }
+		visible = { tag = USA GER = { exists = yes } DDR = { exists = yes } }
+		icon = GFX_decision_SWI_swiss_democratic_tradition_campaign	
+		
+		days_remove = 20
+		complete_effect = {
+			news_event  = cw_historic_events.63
+			GER = {
+				annex_country = {
+					target = DDR
+					transfer_troops = yes
+				}
+				
+				annex_country = {
+					target = BRL
+					transfer_troops = yes
+				}
+			}
+	
+		}
+			
+	}
+	
+	DDR_unification {
+		cost = 150
+		available = { tag = SOV GER = { exists = yes is_communism = yes } DDR = { exists = yes is_communism = yes } }
+		visible = { tag = SOV GER = { exists = yes } DDR = { exists = yes } }
+		icon = GFX_decision_SWI_swiss_democratic_tradition_campaign	
+		
+		days_remove = 20
+		complete_effect = {
+			news_event  = cw_historic_events.64
+			DDR = {
+				annex_country = {
+					target = DDR
+					transfer_troops = yes
+				}
+				
+				annex_country = {
+					target = BRL
+					transfer_troops = yes
+				}
+			}
+	
+		}
+			
+	}
 	toggle_sphere = {
 		
 		cost = 0 

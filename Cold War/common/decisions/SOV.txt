@@ -445,7 +445,7 @@ special_projects = {
 		}
 		
 		visible = {
-			#has_country_flag = great_european_wall_initiated
+			has_country_flag = great_european_wall_initiated
 		}
 		
 		highlight_states = {

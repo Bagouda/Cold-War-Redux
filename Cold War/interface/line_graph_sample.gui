@@ -5,12 +5,8 @@ guiTypes = {
 		size = { width = 500 height= 250 }
 		orientation = center
 		origo = center
-		moveable = yes
 		
-		background = {
-			name = "background"		
-			quadTextureSprite = "GFX_Line_Graph_Background"
-		}
+
 
 		# Chart background
 		iconType = {

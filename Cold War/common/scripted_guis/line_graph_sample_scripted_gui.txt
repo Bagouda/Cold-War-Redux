@@ -2,7 +2,7 @@ scripted_gui = {
 	line_graph_sample_scripted_gui = {
 		window_name = "line_graph_sample_gui"
 		context_type = decision_category
-
+		parent_window_name = decision_tab
 
 
 		# Set up dynamic list to generate one line segment per point

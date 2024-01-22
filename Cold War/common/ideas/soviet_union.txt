@@ -69,7 +69,7 @@ ideas = {
 
 
 			modifier = {
-				production_speed_buildings_factor  = 0.15
+				production_speed_buildings_factor  = 0.10
 				consumer_goods_factor = -0.05
 				stability_factor  = -0.1
 				
