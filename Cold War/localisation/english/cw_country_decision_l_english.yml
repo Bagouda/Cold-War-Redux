@@ -224,6 +224,13 @@
  cps_exempt_region_quaotas_both_desc:0 "By reducing the production quotas in [?ROOT.exempted_city_name.GetName] the local party delegates will owe a huge favour to [CW_CPS_PLAYER_CANDIDATE_NAME].\n\nBy controlling these party representatives [CW_CPS_PLAYER_CANDIDATE_NAME]'s influence over the party will rise even higher."
  sov_manchuria_handover:0 "The Manchuria Handover\n§gResources: Steel: 30 | Aluminium: 8 | Fossil Fuel: 7§!"
  sov_manchuria_handover_desc:0 "The 1945 Sino-Soviet Treaty of Friendship and Alliance has obligated us to return control of Manchuria to [CHI.GetName].\n\nDespite this, the situation in China has changed and our Communist comrades in China have increased their pressure to hand over the territory to them.\n\n§CTip:§! §gUse the focus tree to increase the de facto control over Manchuria in favour of the Communists or the Kuomintang.§!"
+ TT_MAN_761:0 "KMT: [?716.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?716.man_struggle_prc_control]%"
+ TT_MAN_714:0 "KMT: [?714.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?714.man_struggle_prc_control]%"
+ TT_MAN_717:0 "KMT: [?717.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?717.man_struggle_prc_control]%"
+ TT_MAN_328:0 "KMT: [?328.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?328.man_struggle_prc_control]%"
+ TT_MAN_610:0 "KMT: [?610.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?610.man_struggle_prc_control]%"
+ TT_MAN_716:0 "KMT: [?716.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?716.man_struggle_prc_control]%"
+ TT_MAN_715:0 "KMT: [?715.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?715.man_struggle_prc_control]%"
  ### COMMUNIST CONSOLIDATION ###
  communist_consolidation_descredit_opposition:0 "Discredit [From.GetAdjective] Opposition\n§gCommunist Organisation:§! §G[FROM.CW_COMECON_GET_COMMUNIST_TYPE]§!"
  communist_consolidation_descredit_opposition_desc:0 "\nToo many voices in [From.GetName] are dominating the political landscape.\n\nWe can initiate a campaign that will smear the opposition and discredit them in the eyes of the [From.GetAdjective] people."
@@ -347,7 +354,8 @@
  DDR_rebuild_state:0 "Rebuild §Y[?FROM.GetName]§!"
  # nuke
  nuke_program:0 "Nuclear Program"
- nuke_program_desc:0 " [NUKE_PROGRAM_DESC]"
+ #nuke_program_desc:0 " [NUKE_PROGRAM_DESC]"
+ nuke_program_desc:0 "We currently have: §Y[?ROOT.num_of_nukes]§! nukes"
  nuclear_enrichement_text:0 "Nuclear Enrichement: §R[?ROOT.enrichement_completion|%%]§!\nDaily progress: §R[?ROOT.uranium_score|%%]§!\nWe have §G[?ROOT.resource@uranium]§! uranium"
  nuclear_effort_text:0 "Nuke Assemblement: §R[?ROOT.nuclear_completion|%%]§!\nDaily progress: §R[?ROOT.nuclear_effort_score|%%]§!\nNuclear Reactor: §G[?ROOT.num_reactor]§!\n£civ_factory invested §G[?ROOT.nuclear_effort]§!"
  button_remove_factory:0 "-1 £civ_factory"

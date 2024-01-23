@@ -34,7 +34,7 @@ guiTypes = {
 				name = "holunbuir_control_indicator"
 				position = { x = -70 y = 60 }
 				font = "Arial12_bold"
-				text = "KMT: [?761.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?761.man_struggle_prc_control]%"
+				text = TT_MAN_761
 				maxWidth = 300
 				maxHeight = 50
 				fixedsize = yes
@@ -63,7 +63,7 @@ guiTypes = {
 				name = "heilngikiang_control_indicator"
 				position = { x = 30 y = 110 }
 				font = "Arial12_bold"
-				text = "KMT: [?714.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?714.man_struggle_prc_control]%"
+				text = TT_MAN_714
 				maxWidth = 300
 				maxHeight = 50
 				fixedsize = yes
@@ -92,7 +92,7 @@ guiTypes = {
 				name = "sungukiang_control_indicator"
 				position = { x = 120 y = 170 }
 				font = "Arial12_bold"
-				text = "KMT: [?717.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?717.man_struggle_prc_control]%"
+				text = TT_MAN_717
 				maxWidth = 300
 				maxHeight = 50
 				fixedsize = yes
@@ -121,7 +121,7 @@ guiTypes = {
 				name = "liaoning_control_indicator"
 				position = { x = -40 y = 170 }
 				font = "Arial12_bold"
-				text = "KMT: [?715.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?715.man_struggle_prc_control]%"
+				text = TT_MAN_715
 				maxWidth = 300
 				maxHeight = 50
 				fixedsize = yes
@@ -150,7 +150,7 @@ guiTypes = {
 				name = "kirin_control_indicator"
 				position = { x = 40 y = 190 }
 				font = "Arial12_bold"
-				text = "KMT: [?328.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?328.man_struggle_prc_control]%"
+				text = TT_MAN_328
 				maxWidth = 300
 				maxHeight = 50
 				fixedsize = yes
@@ -179,7 +179,7 @@ guiTypes = {
 				name = "jehol_control_indicator"
 				position = { x = -90 y = 225 }
 				font = "Arial12_bold"
-				text = "KMT: [?610.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?610.man_struggle_prc_control]%"
+				text = TT_MAN_610
 				maxWidth = 300
 				maxHeight = 50
 				fixedsize = yes
@@ -208,7 +208,7 @@ guiTypes = {
 				name = "liaotung_control_indicator"
 				position = { x = -10 y = 250 }
 				font = "Arial12_bold"
-				text = "KMT: [?716.man_struggle_chi_control]%[CW_INSERT_NEW_SPACE_LOC]PLA: [?716.man_struggle_prc_control]%"
+				text = TT_MAN_716
 				maxWidth = 300
 				maxHeight = 50
 				fixedsize = yes
