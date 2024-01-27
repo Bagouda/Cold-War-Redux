@@ -92,7 +92,7 @@ scripted_gui = {
 				clr_country_flag = tree_50_loaded
 			  }
 			  else = {
-				set_country_flag = tree_50_loaded 
+				set_country_flag = tree_50_loaded
 			  }
 			  
 			  mark_focus_tree_layout_dirty =  yes

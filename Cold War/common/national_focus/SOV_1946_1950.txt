@@ -6628,7 +6628,7 @@ focus_tree = {
 		
 		icon = GFX_focus_comecon_asia
 		x = 0
-		y = 2
+		y = 3
 		cost = 5
 		
 		prerequisite = { focus = SOV_support_communists_abroad }
@@ -6999,8 +6999,8 @@ focus_tree = {
 		y = 2
 		cost = 2
 		
-		prerequisite = { focus = SOV_establish_warsaw_pact }
-		relative_position_id = SOV_establish_warsaw_pact
+		prerequisite = { focus = SOV_support_communists_abroad }
+		relative_position_id = SOV_support_communists_abroad
 		dynamic = no
 		cancel_if_invalid = no
 		continue_if_invalid = no
@@ -7044,8 +7044,8 @@ focus_tree = {
 		y = 2
 		cost = 2
 		
-		prerequisite = { focus = SOV_establish_warsaw_pact }
-		relative_position_id = SOV_establish_warsaw_pact
+		prerequisite = { focus = SOV_support_communists_abroad }
+		relative_position_id = SOV_support_communists_abroad
 		dynamic = no
 		cancel_if_invalid = yes
 		continue_if_invalid = no
