@@ -249,7 +249,7 @@ country_event = {
 news_event = {
 
 	id = sov_events.9		#successfull nuke
-	title = sov_events.9.d
+	title = sov_events.9.t
 	desc = sov_events.9.d
 	picture = GFX_news_event_nuke.dds	
 

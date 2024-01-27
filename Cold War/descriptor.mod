@@ -52,5 +52,6 @@ tags={
 	"Map"
 	"Gameplay"
 }
-name="Cold War Mod"
+name="Cold War Mod DEV"
 supported_version="1.13.*"
+remote_file_id="1950502043"

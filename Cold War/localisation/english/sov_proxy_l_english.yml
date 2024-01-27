@@ -18,7 +18,7 @@
  cw_proxy_war.5.d:0 "Facing unfavorable conditions and dwindling chances of success, [ROOT.GetName] has decided to withdraw their volunteer forces from §R[From.From.GetOldName]§. This retreat marks a setback in their efforts to influence the conflict."
  cw_proxy_war.6.t:0 "[ROOT.GetName] intervention in §R[From.From.GetOldName]§!" # another democratic country sends volunteers to maintain its colonies
  cw_proxy_war.6.d:0 "In an effort to uphold their colonial empire and influence, [ROOT.GetName] has sent military volunteers to §R[From.From.GetOldName]§. This intervention highlights the determination of democratic nations to maintain their overseas territories amid rising challenges."
- cw_proxy_war.6.a:0 "The old order figth back"
+ cw_proxy_war.6.a:0 "The old order fight back"
  cw_proxy_war.7.t:0 "[ROOT.GetName] Retreat From §R[From.From.GetOldName]§!" # another democratic country calls back its volunteers when the colony is falling
  cw_proxy_war.7.d:0 "Conceding to the overwhelming pressures and changing tides of conflict, [ROOT.GetName] has ordered the withdrawal of their volunteers from §R[From.From.GetOldName]§. This retreat signifies a significant blow to their colonial ambitions."
  cw_proxy_war.7.a:0 "Another blow to their empire"
