@@ -16,12 +16,6 @@ scripted_diplomatic_actions = {
 		selectable = {
 			hidden_trigger = { ROOT = { NOT = { has_country_flag = did_diplomatic_action } } }		#Used to suspend request spam by AI
 			ROOT = { is_major = yes }
-			ROOT = {
-				custom_trigger_tooltip = {
-					tooltip = "Must not be intervening in more than 3 referendums simultaneously."
-					ROOT = { check_variable = { var = intervened_referendums value = 3 compare = less_than } }
-				}
-			}
 		}
 		can_be_accepted = {
 			always = yes
@@ -64,12 +58,6 @@ scripted_diplomatic_actions = {
 		selectable = {
 			hidden_trigger = { ROOT = { NOT = { has_country_flag = did_diplomatic_action } } }		#Used to suspend request spam by AI
 			ROOT = { is_major = yes }
-			ROOT = {
-				custom_trigger_tooltip = {
-					tooltip = "Must not be intervening in more than 3 referendums simultaneously."
-					ROOT = { check_variable = { var = intervened_referendums value = 3 compare = less_than } }
-				}
-			}
 		}
 		can_be_accepted = {
 			always = yes
@@ -114,12 +102,6 @@ scripted_diplomatic_actions = {
 		selectable = {
 			hidden_trigger = { ROOT = { NOT = { has_country_flag = did_diplomatic_action } } }		#Used to suspend request spam by AI
 			ROOT = { OR = { is_major = yes is_neighbor_of = PREV } }
-			ROOT = {
-				custom_trigger_tooltip = {
-					tooltip = "Must not be intervening in more than 3 referendums simultaneously."
-					ROOT = { check_variable = { var = intervened_referendums value = 3 compare = less_than } }
-				}
-			}
 		}
 		can_be_accepted = {
 			always = yes
@@ -220,12 +202,6 @@ scripted_diplomatic_actions = {
 		selectable = {
 			hidden_trigger = { ROOT = { NOT = { has_country_flag = did_diplomatic_action } } }		#Used to suspend request spam by AI
 			ROOT = { OR = { is_major = yes is_neighbor_of = PREV } }
-			ROOT = {
-				custom_trigger_tooltip = {
-					tooltip = "Must not be intervening in more than 3 referendums simultaneously."
-					ROOT = { check_variable = { var = intervened_referendums value = 3 compare = less_than } }
-				}
-			}
 		}
 		can_be_accepted = {
 			always = yes

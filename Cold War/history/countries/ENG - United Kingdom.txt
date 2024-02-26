@@ -373,6 +373,21 @@ if = {	#Always put first bookmark vassals before the first bookmark date
 		autonomous_state = autonomy_puppet
 		freedom_level = 0.3		
 	}
+	set_autonomy = {
+		target = IRQ
+		autonomous_state = autonomy_supervised_state
+		freedom_level = 0.3		
+	}
+	set_autonomy = {
+		target = OMA
+		autonomous_state = autonomy_supervised_state
+		freedom_level = 0.3		
+	}
+	set_autonomy = {
+		target = YEM
+		autonomous_state = autonomy_supervised_state
+		freedom_level = 0.3		
+	}
 	else = {
 		puppet = IND
 		puppet = NFL

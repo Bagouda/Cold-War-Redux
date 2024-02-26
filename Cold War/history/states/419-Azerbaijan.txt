@@ -7,6 +7,7 @@ state = {
  	add_to_array = { list_victory_point = 1896 }
  	set_variable = { victory_point = 5 }
 		owner = SOV
+		owner = AZR
 		add_claim_by = AZR
 		add_core_of = PER
 		

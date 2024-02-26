@@ -1244,3 +1244,158 @@ news_event = {
 		name = cw_historic_events.64.b
 	}
 }
+
+
+
+news_event = {
+	id = cw_historic_events.65		# Bagdad pact
+	title = cw_historic_events.65.t
+	desc = cw_historic_events.65.d
+	picture = GFX_west_germany_established	
+
+
+
+
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.65.a
+	}
+	option = {
+		trigger = {  is_communism =  yes }
+		name = cw_historic_events.65.b
+	}
+}
+
+news_event = {
+	id = cw_historic_events.66		#Adriatic closed
+	title = cw_historic_events.66.t
+	desc = cw_historic_events.66.d
+	picture = GFX_west_germany_established	
+
+
+
+
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.66.a
+	}
+	option = {
+		trigger = {  is_communism =  yes }
+		name = cw_historic_events.66.b
+	}
+}news_event = {
+	id = cw_historic_events.67		# USA fail to open adriatic
+	title = cw_historic_events.67.t
+	desc = cw_historic_events.67.d
+	picture = GFX_west_germany_established	
+
+
+
+
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.67.a
+	}
+	option = {
+		trigger = {  is_communism =  yes }
+		name = cw_historic_events.67.b
+	}
+}
+
+news_event = {
+	id = cw_historic_events.68		# USA reopen adriatic
+	title = cw_historic_events.68.t
+	desc = cw_historic_events.68.d
+	picture = GFX_west_germany_established	
+
+
+
+
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.68.a
+	}
+	option = {
+		trigger = {  is_communism =  yes }
+		name = cw_historic_events.68.b
+	}
+}
+
+news_event = {
+	id = cw_historic_events.69		# Soviet install persian republic
+	title = cw_historic_events.69.t
+	desc = cw_historic_events.69.d
+	picture = GFX_west_germany_established	
+
+
+
+
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.69.a
+	}
+	option = {
+		trigger = {  is_communism =  yes }
+		name = cw_historic_events.69.b
+	}
+}
+news_event = {
+	id = cw_historic_events.70		# British install persian protectorate
+	title = cw_historic_events.70.t
+	desc = cw_historic_events.70.d
+	picture = GFX_west_germany_established	
+
+
+
+
+
+
+
+	major = yes
+	is_triggered_only = yes
+	fire_for_sender = yes
+	
+	option = {
+		trigger = {  is_communism =  no }
+		name = cw_historic_events.70.a
+	}
+	option = {
+		trigger = {  is_communism =  yes }
+		name = cw_historic_events.70.b
+	}
+}

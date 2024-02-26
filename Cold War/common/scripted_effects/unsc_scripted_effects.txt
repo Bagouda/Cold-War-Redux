@@ -2745,22 +2745,13 @@ cw_unsc_adopt_resolution = {
 		limit = {
 			has_event_target = unsc_target
 			event_target:unsc_target = { has_country_flag = resolution_generic_transfer_core_state_un }
-			event_target:unsc_target = { is_ai = yes }
+			
 		}
 		event_target:unsc_target = { country_event = { days = 10 id = unsc.resolution.1 } }
 		set_global_flag = unsc_implementing_resolution_flag
 		# JUNK and flag are cleared in events
 	}
-	if = {																																											# Transfer Core Resolution for Human, with diplomatic action implementation ADOPTED
-		limit = {
-			has_event_target = unsc_target
-			event_target:unsc_target = { has_country_flag = resolution_generic_transfer_core_state_un }
-			event_target:unsc_target = { is_ai = no }
-		}
-		event_target:unsc_target = { set_country_flag =  resolution_generic_transfer_core_state_un_implementation }
-		set_global_flag = unsc_implementing_resolution_flag
-		# JUNK and flag are cleared in events
-	}
+
 	#### ABOLISH CORE RESOLUTION ####
 	if = {																																											# Abolish core when controlled ADOPTED
 		limit = {

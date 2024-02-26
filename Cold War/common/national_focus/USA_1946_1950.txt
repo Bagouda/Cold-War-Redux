@@ -1997,17 +1997,34 @@ focus_tree = {
 			}
 		}
 	}
+	
 	focus = {
-		id = USA_iran_british_withdrawal
+		id = USA_iran_kick_sov
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = "The British occupy Iranian territory."
-				ENG = { any_owned_state = { is_core_of = PER } }
+			PER = {
+				is_puppet = no
+				NOT = {
+					has_government = communism
+					has_government = communism_totalitarian
+				}
+				
+			}
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = "The British occupy Iranian territory."
+					ENG = { any_owned_state = { is_core_of = PER } }
+				}
+				
+				custom_trigger_tooltip = {
+					tooltip = "The Soviets occupy Iranian territory."
+					SOV = { any_owned_state = { is_core_of = PER } }
+				}
+			
 			}
 		}
 		
-		icon = GFX_kick_flag_british
-		x = -1
+		icon = GFX_kick_flag_soviet
+		x = -3
 		y = 1
 		cost = 5
 		
@@ -2017,15 +2034,21 @@ focus_tree = {
 		available_if_capitulated = no
 		historical_ai = {}
 		allow_branch = {}
-		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES }
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES }
 		relative_position_id = USA_cca_support_iran_integrity
 		prerequisite = { focus = USA_cca_support_iran_integrity }
-
+		mutually_exclusive = { focus = USA_iran_total_withdrawal }
+		
 		select_effect = {
 		}
 
 		completion_reward = {
-			ENG = { country_event = { id = us_events.5 days = 5 } }
+			ENG = {
+				puppet = PER
+			
+			}
+			PER = { # country_event = { id = us_events.5 days = 5 } 
+			}
 		}
 		ai_will_do = {
 			base = 10
@@ -2036,11 +2059,10 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_iran_soviet_withdrawal
+		id = USA_iran_fortify
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = "The Soviets occupy Iranian territory."
-				SOV = { any_owned_state = { is_core_of = PER } }
+			PER = {
+				is_puppet_of = ENG
 			}
 		}
 		
@@ -2055,7 +2077,126 @@ focus_tree = {
 		available_if_capitulated = no
 		historical_ai = {}
 		allow_branch = {}
-		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES }
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES }
+		relative_position_id = USA_iran_kick_sov
+		prerequisite = { focus = USA_iran_kick_sov }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			420 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+
+			
+			}
+			
+			416 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+
+			
+			}
+			
+			266 = {
+				add_building_construction = {
+					type = bunker
+					level = 2
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			
+			}
+			
+
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	focus = {
+		id = USA_iran_north_monopoly
+		available = {
+			PER = {
+				is_puppet_of = ENG
+			}
+		}
+		
+		icon = GFX_kick_flag_soviet
+		x = -1
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES }
+		relative_position_id = USA_iran_kick_sov
+		prerequisite = { focus = USA_iran_kick_sov }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			
+			420 = { USA = { cw_give_state_monopoly_perpetual_country = yes } }
+			266 = { USA = { cw_give_state_monopoly_perpetual_country = yes } }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = USA_iran_support_tibriz_offensive
+		available = {
+			PER = {
+				is_puppet_of = ENG
+			}
+		}
+		
+		icon = GFX_kick_flag_soviet
+		x = 0
+		y = 2
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES }
 		relative_position_id = USA_cca_support_iran_integrity
 		prerequisite = { focus = USA_cca_support_iran_integrity }
 
@@ -2063,6 +2204,64 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			AZR = {
+				end_puppet = yes 
+			}
+			PER = { 
+				declare_war_on = {
+					target = AZR
+					type = annex_everything
+				}
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = USA_iran_total_withdrawal
+		available = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = "The British occupy Iranian territory."
+					ENG = { any_owned_state = { is_core_of = PER } }
+				}
+				
+				custom_trigger_tooltip = {
+					tooltip = "The Soviets occupy Iranian territory."
+					SOV = { any_owned_state = { is_core_of = PER } }
+				}
+			
+			}
+		}
+		
+		icon = GFX_kick_flag_british
+		x = 3
+		y = 1
+		cost = 5
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = no
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_SPHERE_FOCUSES }
+		relative_position_id = USA_cca_support_iran_integrity
+		prerequisite = { focus = USA_cca_support_iran_integrity }
+		mutually_exclusive = { focus = USA_iran_kick_sov }
+
+		select_effect = {
+		}
+
+		completion_reward = {
+			ENG = { country_event = { id = us_events.5 days = 5 } }
 			SOV = { country_event = { id = us_events.5 days = 5 } }
 		}
 		ai_will_do = {
@@ -2073,6 +2272,7 @@ focus_tree = {
 			}
 		}
 	}
+	
 	focus = {
 		id = USA_iran_unsc_resolution
 		available = {
@@ -2099,8 +2299,8 @@ focus_tree = {
 		}
 		
 		icon = GFX_goal_iran_withdrawal_resolution
-		x = 0
-		y = 2
+		x = 1
+		y = 1
 		cost = 2
 		
 		dynamic = no
@@ -2110,8 +2310,8 @@ focus_tree = {
 		historical_ai = {}
 		allow_branch = {}
 		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES FOCUS_FILTER_UNSC_FOCUSES }
-		relative_position_id = USA_cca_support_iran_integrity
-		prerequisite = { focus = USA_cca_support_iran_integrity }
+		relative_position_id = USA_iran_total_withdrawal
+		prerequisite = { focus = USA_iran_total_withdrawal }
 
 		select_effect = {
 			PER = { cw_unsc_resolution_foreign_withdrawal = yes }
@@ -2121,6 +2321,92 @@ focus_tree = {
 			effect_tooltip = {
 				PER = { cw_unsc_resolution_foreign_withdrawal = yes }
 			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = USA_iran_bagdad_pact
+		available = {
+			
+		}
+		bypass = {
+		}
+		
+		icon = GFX_goal_iran_withdrawal_resolution
+		x = -1
+		y = 1
+		cost = 2
+		
+		dynamic = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+		historical_ai = {}
+		allow_branch = {}
+		search_filters = {  }
+		relative_position_id = USA_iran_total_withdrawal
+		prerequisite = { focus = USA_iran_total_withdrawal }
+
+		select_effect = {
+
+		}
+
+		completion_reward = {
+			set_global_flag  = bagdad_pact_created
+			country_event = cw_historic_events.65 
+			TUR = {
+				give_guarantee  = IRQ
+				give_guarantee  = PER
+				give_guarantee  = PAK
+				if = {
+				limit = { PAK = { exists = yes }}
+				
+					give_guarantee  = PAK
+				
+				}
+				
+			
+			}
+			
+			IRQ = {
+				give_guarantee  = PER
+				give_guarantee  = PAK
+				
+				if = {
+				limit = { PAK = { exists = yes }}
+				
+					give_guarantee  = PAK
+				
+				}
+				
+			
+			}
+			
+			PER = {
+				give_guarantee  = IRQ
+				
+				if = {
+				limit = { PAK = { exists = yes }}
+				
+					give_guarantee  = PAK
+				
+				}
+			}
+			if = {
+				limit = { PAK = { exists = yes }}
+				PAK = {
+					give_guarantee  = PER
+					give_guarantee  = IRQ
+				}
+			}
+				
 		}
 		ai_will_do = {
 			base = 10
@@ -2861,9 +3147,8 @@ focus_tree = {
 		
 		completion_reward = {
 			ITA = { 
-				add_ideas = {
-					idea = ten_million_letters
-				}
+				add_ideas = ten_million_letters
+				
 			}
 		}
 		ai_will_do = {

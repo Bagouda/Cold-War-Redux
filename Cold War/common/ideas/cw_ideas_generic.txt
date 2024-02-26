@@ -2104,18 +2104,6 @@ ideas = {
 			}
 		}
 		
-		disagreement_on_greek_civil_war = {
-			
-			allowed = { always = no }
-			picture = gre_political_instability_communism	
-			cancel = {
-				CGR = { has_war = no } 
-			}
-			
-			modifier = {
-				communism_drift = 0.03
-			}
-		}
 		
 		soviet_hatred = {
 		

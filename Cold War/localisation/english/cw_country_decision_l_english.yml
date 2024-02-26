@@ -373,6 +373,9 @@
  stop_nuking:0 "Stop nuking Decisions"
  
  
+ # PROXY
+ make_soviet_puppet:0 "Establish Persian Soviet Republic"
+ 
  ### SCORE ###
  cw_score:0 "Score Cold War §R[?ROOT.cw_score]§! £cw_score"
  cw_score_desc:0 "USA cold war score: §B[?USA.cw_score|.0]§! £cw_score\n SOV cold war score: §R[?SOV.cw_score|.0]§! £cw_score\n\n\nMonthly gain USA: §B[?USA.monthly_gain]§! £cw_score\nMonthly gain SOV: §R[?SOV.monthly_gain]§! £cw_score\n\n\n Hard power: §R[?ROOT.cw_hard_power]§! £cw_score \nManpower: [?ROOT.cw_manpower_score]\nMilitary industry: [?ROOT.cw_score_industry]\nMilitary Base: [?ROOT.cw_military_base_score]\nDoctrine: [?ROOT.cw_score_doctrine]\nNuke: [?ROOT.cw_nuke_score]\n\nSoft power: §R[?ROOT.cw_soft_power]§! £cw_score \nCivilian industry [?ROOT.cw_score_industry_civilian]\nCountries in sphere: [?ROOT.cw_sphere_score]\nCountries in aid program: [?ROOT.cw_economic_aid_score]\nIdeological power:  [?ROOT.cw_ideology_power]\n\n\nNumber volunteers: [?ROOT.cw_number_base] + [?ROOT.base_number_volunteers] = [?ROOT.number_volunteers]"

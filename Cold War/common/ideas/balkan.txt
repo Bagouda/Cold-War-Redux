@@ -1,0 +1,33 @@
+ideas = {
+	country = {
+		disagreement_on_greek_civil_war = {
+			
+			allowed = { always = no }
+			picture = gre_political_instability_communism	
+			cancel = {
+				CGR = { has_war = no } 
+			}
+			
+			modifier = {
+				communism_drift = 0.03
+			}
+		}
+		
+		adriatic_blocus_influence = {
+		
+			allowed = { always = no }
+			picture = gre_political_instability_communism	
+			cancel = {
+				NOT = { has_global_flag = adriatic_blocus }
+			}
+			
+			modifier = {
+				communism_totalitarian_drift = 0.03
+			}
+		
+		}
+	
+	}
+
+
+}

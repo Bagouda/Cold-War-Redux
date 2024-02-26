@@ -369,6 +369,11 @@ if = {
 		freedom_level = 0.5
 	}
 	set_autonomy = {
+		target = AZR
+		autonomous_state = autonomy_reichskommissariat
+		freedom_level = 0.3
+	}
+	set_autonomy = {
 		target = UKR
 		autonomous_state = autonomy_reichskommissariat
 		freedom_level = 0.2

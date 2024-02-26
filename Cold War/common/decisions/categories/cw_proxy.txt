@@ -16,3 +16,34 @@ spain_intervention = {
 
 
 }
+
+balkan = {
+
+	icon = GFX_influence_battle_category_icon	
+
+
+	priority = 12
+	allowed = {
+			OR = {
+				tag = USA
+				tag = SOV
+			}
+	}
+
+
+}
+iran = {
+
+	icon = GFX_influence_battle_category_icon	
+
+
+	priority = 12
+	allowed = {
+			OR = {
+				tag = USA
+				tag = SOV
+			}
+	}
+
+
+}

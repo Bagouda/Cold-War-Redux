@@ -29,6 +29,7 @@ country_event = {
 				factor = 500
 			}			
 		}	
+		news_event = unsc.resolution_news.12
 		event_target:requested_core = { remove_core_of = event_target:unsc_target }
 		event_target:unsc_initiator = { transfer_state = event_target:requested_core }
 		cw_unsc_clear_junk = yes
@@ -46,6 +47,8 @@ country_event = {
 				event_target:requested_core = { is_capital = yes }
 			}			
 		}
+		
+		news_event = unsc.resolution_news.13
 		hidden_effect = {
 			custom_effect_tooltip = UNSC_ELIGABLE_FOR_SANCTIONS_US
 			unsc_mark_for_sanctions = yes

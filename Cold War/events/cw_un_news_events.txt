@@ -201,3 +201,29 @@ news_event = {
 		name = "OK"
 	}
 }
+news_event = {
+	id = unsc.resolution_news.12		# accept land transfer
+	title = unsc.resolution_news.12.t
+	desc = unsc.resolution_news.12.d
+	picture = GFX_un_generic_news_3
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}
+news_event = {
+	id = unsc.resolution_news.13		# Refuse land transfer
+	title = unsc.resolution_news.13.t
+	desc = unsc.resolution_news.13.d
+	picture = GFX_un_generic_news_3
+
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "OK"
+	}
+}

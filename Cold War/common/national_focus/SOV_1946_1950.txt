@@ -2972,6 +2972,7 @@ focus_tree = {
 		relative_position_id = SOV_future_of_korea
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
+		
 		mutually_exclusive = { focus = SOV_unified_korea }		
 		
 			
@@ -3190,6 +3191,7 @@ focus_tree = {
 			cancel_if_invalid = no
 			prerequisite = { focus = SOV_kick_hollande }
 			relative_position_id = SOV_kick_hollande
+			search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
 			icon = GFX_focus_usa_dutch_withdrawal
 			x = 1
 			y = 1
@@ -3394,6 +3396,7 @@ focus_tree = {
 			prerequisite = { focus = SOV_kick_france }
 			relative_position_id = SOV_kick_france
 			icon = GFX_prc_vietnam_withdrawal
+			search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
 			x = 1
 			y = 1
 			cost = 5
@@ -3462,6 +3465,7 @@ focus_tree = {
 			prerequisite = { focus = SOV_kick_english }
 			relative_position_id = SOV_kick_english
 			icon = GFX_prc_burma_withdrawal
+			search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
 			x = -1
 			y = 1
 			cost = 5
@@ -3497,6 +3501,7 @@ focus_tree = {
 			bypass = {
 				MAL = { has_war = no is_puppet = no }
 			}
+			search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
 			prerequisite = { focus = SOV_kick_english }
 			relative_position_id = SOV_kick_english
 			icon = GFX_prc_burma_withdrawal
@@ -3610,7 +3615,7 @@ focus_tree = {
 		}
 		allow_branch = { NOT = { has_country_flag = important_matter has_country_flag = tree_50_loaded  }}
 		icon = GFX_SOV_middle_east
-		x = 43
+		x = 45
 		y = 8
 		cost = 2
 
@@ -3640,8 +3645,9 @@ focus_tree = {
 		}
 		
 		icon = GFX_focus_star_of_david_burning
+		allow_branch = { NOT = { has_country_flag = important_matter has_country_flag = tree_50_loaded  }}
 		x = 0
-		y = 3
+		y = 10
 		cost = 2
 		
 		dynamic = no
@@ -3651,7 +3657,7 @@ focus_tree = {
 		historical_ai = {}
 		
 		search_filters = { FOCUS_FILTER_HISTORICAL_FOCUSES }
-		prerequisite = { focus = SOV_middle_east_policy }
+		# prerequisite = { focus = SOV_middle_east_policy }
 		relative_position_id = SOV_middle_east_policy
 
 		select_effect = {
@@ -3809,10 +3815,10 @@ focus_tree = {
 		}
 		prerequisite = { focus = SOV_middle_east_policy }
 		icon = GFX_persia_flag_hands
-		x = -3
+		x = -4
 		y = 1
 		relative_position_id = SOV_middle_east_policy
-		cost = 8
+		cost = 5
 
 		available_if_capitulated = no
 
@@ -3826,19 +3832,60 @@ focus_tree = {
 			}
 		}
 	}
+	
+	focus = {
+		id = SOV_give_back_azerbaijan
+		available = {
+			OR = {
+				controls_state = 419
+				AZR = {
+					controls_state = 419
+				}
+			}
+		}
+		prerequisite = { focus = SOV_settle_iran_dispute }
+		icon = GFX_goal_generic_intelligence_exchange	
+
+
+		x = -2
+		y = 1
+		relative_position_id = SOV_settle_iran_dispute
+		cost = 1
+
+		mutually_exclusive = { focus = SOV_iran_keep_azerbaidjan }
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+
+		completion_reward = {
+		
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
 	focus = {
 		id = SOV_azerbaijan_for_oil
 		available = {
-			controls_state = 419
+			OR = {
+				controls_state = 419
+				AZR = {
+					controls_state = 419
+				}
+			}
 		}
-		prerequisite = { focus = SOV_settle_iran_dispute }
+		prerequisite = { focus = SOV_give_back_azerbaijan }
 		icon = GFX_iran_oil_contract
 		x = -1
 		y = 1
-		relative_position_id = SOV_settle_iran_dispute
-		cost = 8
+		relative_position_id = SOV_give_back_azerbaijan
+		cost = 3
 
-		mutually_exclusive = { focus = SOV_legitimize_soviet_azerbaijan }
+		mutually_exclusive = { focus = SOV_azerbaijan_for_neutrality }
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
 
@@ -3854,6 +3901,177 @@ focus_tree = {
 			}
 		}
 	}
+	
+	focus = {
+		id = SOV_azerbaijan_for_neutrality
+		available = {
+			OR = {
+				controls_state = 419
+				AZR = {
+					controls_state = 419
+				}
+			}
+		}
+		prerequisite = { focus = SOV_give_back_azerbaijan }
+		icon = GFX_goal_generic_neutrality_focus	
+
+
+		x = 1
+		y = 1
+		relative_position_id = SOV_give_back_azerbaijan
+		cost = 3
+
+		mutually_exclusive = { focus = SOV_azerbaijan_for_oil }
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+
+		completion_reward = {
+			PER = {	
+			transfer_state = 419
+				add_ideas = enforced_neutrality
+			}
+			
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_fund_tudeh_party_iran
+		available = {
+		}
+		prerequisite = { focus = SOV_azerbaijan_for_neutrality focus = SOV_azerbaijan_for_oil }
+		icon = GFX_iran_tudeh_party
+		x = 1
+		y = 1
+		relative_position_id = SOV_azerbaijan_for_oil
+		cost = 3
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			PER = { add_timed_idea = { idea = foreign_support_for_com_total days = 180 } }
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	
+	
+	focus = {
+		id = SOV_comecon_iran
+		available = {
+			has_completed_focus = SOV_comecon_aid
+		}
+		prerequisite = { focus = SOV_fund_tudeh_party_iran }
+		icon = GFX_extend_comecon
+		x = 0
+		y = 1
+		relative_position_id = SOV_fund_tudeh_party_iran
+		cost = 4
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = "Will allow us to provide Comecon aid to Iran."
+			PER = {
+			
+				set_country_flag = special_aid_permission
+			}
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}	
+	
+	focus = {
+		id = SOV_iran_keep_azerbaidjan
+		available = {
+			OR = {
+				controls_state = 419
+				AZR = {
+					controls_state = 419
+				}
+			}
+		}
+		prerequisite = { focus = SOV_settle_iran_dispute }
+		icon = GFX_goal_generic_more_territorial_claims
+
+
+		x = 2
+		y = 1
+		relative_position_id = SOV_settle_iran_dispute
+		cost = 1
+
+		mutually_exclusive = { focus = SOV_give_back_azerbaijan }
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+
+		completion_reward = {
+			
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				is_historical_focus_on = no
+			}
+		}
+	}	
+	
+
+	focus = {
+		id = SOV_azerbaijan_annex
+		available = {
+			OR = {
+				controls_state = 419
+				AZR = {
+					controls_state = 419
+				}
+			}
+		}
+		prerequisite = { focus = SOV_iran_keep_azerbaidjan }
+		icon = GFX_goal_generic_territory_or_war	
+
+
+		x = -1
+		y = 1
+		relative_position_id = SOV_iran_keep_azerbaidjan
+		cost = 5
+
+		mutually_exclusive = { focus = SOV_azerbaijan_recognition }
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+
+		completion_reward = {
+			SOV = {	
+				transfer_state = 419
+				
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				is_historical_focus_on = no
+			}
+		}
+	}
+	
+	
 	focus = {
 		id = SOV_legitimize_soviet_azerbaijan
 		available = {
@@ -3861,14 +4079,14 @@ focus_tree = {
 			unsc_implementing_resolution = no		
 			controls_state = 419		
 		}
-		prerequisite = { focus = SOV_settle_iran_dispute }
+		prerequisite = { focus = SOV_azerbaijan_annex }
 		icon = GFX_SOV_un_azerbaijan
-		x = 1
+		x = 0
 		y = 1
-		relative_position_id = SOV_settle_iran_dispute
-		cost = 2
+		relative_position_id = SOV_azerbaijan_annex
+		cost = 3
 
-		mutually_exclusive = { focus = SOV_azerbaijan_for_oil }
+		
 		available_if_capitulated = no
 		continue_if_invalid = yes
 		cancel_if_invalid = no
@@ -3922,41 +4140,147 @@ focus_tree = {
 			}
 		}
 	}
+	
+	
 	focus = {
-		id = SOV_fund_tudeh_party_iran
+		id = SOV_azerbaijan_recognition
 		available = {
+			unsc_in_session = no
+			unsc_implementing_resolution = no		
+			
+			AZR = {
+				controls_state = 419
+			}
+		
 		}
-		prerequisite = { focus = SOV_settle_iran_dispute }
-		icon = GFX_iran_tudeh_party
-		x = 0
-		y = 2
-		relative_position_id = SOV_settle_iran_dispute
-		cost = 7
+		prerequisite = { focus = SOV_iran_keep_azerbaidjan }
+		icon = GFX_legitimize_communist_regime	
 
+
+		x = 1
+		y = 1
+		relative_position_id = SOV_iran_keep_azerbaidjan
+		cost = 3
+		continue_if_invalid = yes
+		cancel_if_invalid = no
+
+		mutually_exclusive = { focus = SOV_azerbaijan_annex }
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+
+		select_effect = {
+			
+			AZR = { cw_usnc_generic_recognize_government =  yes }
+			cw_unsc_start_resolution_effect = yes
+		
+		}
 
 		completion_reward = {
-			PER = { add_timed_idea = { idea = foreign_support_for_com_total days = 180 } }
+  			
+			
 		}
 		ai_will_do = {
-			base = 10
+			base = 0
 			modifier = {
-				add = 10
-				is_historical_focus_on = yes
+				add = 20
+				is_historical_focus_on = no
 			}
 		}
-	}	
+	}
 	focus = {
-		id = SOV_settle_turkey_dispute
+		id = SOV_azerbaijan_claim
+		available = {
+			OR = {
+				controls_state = 419
+				AZR = {
+					controls_state = 419
+				}
+			}
+		}
+		prerequisite = { focus = SOV_azerbaijan_recognition  focus = SOV_azerbaijan_annex }
+		icon = GFX_goal_generic_forceful_treaty	
+
+
+		x = 0
+		y = 1
+		relative_position_id = SOV_azerbaijan_recognition
+		cost = 3
+
+		
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+
+		completion_reward = {
+			419 = {
+				add_core_of = AZR
+			}
+			420 = {
+				add_core_of = AZR
+				add_claim_by = AZR
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				is_historical_focus_on = no
+			}
+		}
+	}
+	
+	
+	
+	focus = {
+		id = SOV_strike_iran
+		available = {
+			AZR = exists
+		}
+		prerequisite = { focus = SOV_azerbaijan_recognition  focus = SOV_azerbaijan_annex }
+		icon = GFX_focus_generic_attack_iran
+
+
+		x = -1
+		y = 2
+		relative_position_id = SOV_azerbaijan_recognition
+		cost = 2
+
+		
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESOURCES_FOCUSES }
+
+		completion_reward = {
+			set_global_flag = PER_SOV_intervention
+			if = {
+				limit = { AZR = { exists = yes }}
+				SOV = { end_puppet = AZR }
+				AZR = { declare_war_on = { target = PER type = annex_everything } }
+			
+			}
+			else = {
+				SOV = { declare_war_on = { target = PER type = puppet_wargoal_focus }}
+			
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 20
+				is_historical_focus_on = no
+			}
+		}
+	}
+	
+	focus = {
+		id = SOV_settle_turkey_dispute 
 		available = {
 			NOT = { controls_state = 806 }
 		}
 		prerequisite = { focus = SOV_middle_east_policy }
 		icon = GFX_SOV_turkey
-		x = 3
+		x = 4
 		y = 1
 		relative_position_id = SOV_middle_east_policy
-		cost = 8
+		cost = 5
 
 		available_if_capitulated = no
 
@@ -3981,24 +4305,67 @@ focus_tree = {
 	
 	
 	focus = {
-		id = SOV_push_claim
+		id = SOV_settle_turkey_diplomacy
 		available = {
-			TUR = { controls_state = 806 }
+			NOT = { controls_state = 806 }
 		}
 		prerequisite = { focus = SOV_settle_turkey_dispute }
-		icon = GFX_turkish_straits
-		x = 1
+		icon = GFX_goal_generic_improve_relations	
+
+	
+
+
+		x = -2
 		y = 1
 		relative_position_id = SOV_settle_turkey_dispute
-		cancel_if_invalid = yes
-		continue_if_invalid = yes
-		cost = 3
+		cost = 2
 		
+		available_if_capitulated = no
+
 		bypass = {
 			controls_state = 806
 		}
+		mutually_exclusive = { focus = SOV_push_claim_turkey_turkey }
 		
-		mutually_exclusive = { focus = SOV_make_tur_straits_international }
+		completion_reward = {			
+		}
+		ai_will_do = {
+			base = -10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = -100
+				TUR = { OR = { has_government = communism has_government = communism_totalitarian } }
+			}
+		}	
+	}
+	
+	
+	
+	
+	focus = {
+		id = SOV_push_claim_turkey_turkey
+		available = {
+			TUR = { controls_state = 806 }
+			TUR = { controls_state = 354 }
+		}
+		prerequisite = { focus = SOV_settle_turkey_dispute }
+		icon = GFX_turkish_straits
+		x = 2
+		y = 1
+		relative_position_id = SOV_settle_turkey_dispute
+		
+		cost = 2
+		
+		bypass = {
+			controls_state = 806
+			controls_state = 354
+			
+		}
+		
+		
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
@@ -4025,22 +4392,132 @@ focus_tree = {
 	}
 	
 	
+	
+	focus = {
+		id = SOV_make_tur_straits_international
+		available = {
+			TUR = { owns_state = 806 }
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+		prerequisite = { focus = SOV_push_claim_turkey_turkey }
+		icon = GFX_turkish_straits_un
+		x = -1
+		y = 1
+		relative_position_id = SOV_push_claim_turkey_turkey
+		cost = 3
+
+		
+		continue_if_invalid = yes
+		cancel_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+
+		select_effect = {
+			hidden_effect = {
+				806 = { save_global_event_target_as = requested_int_zone }
+				806 = { owner = { save_global_event_target_as = unsc_target } }
+				806 = { owner = { cw_unsc_set_hate_resolution = yes } }
+				806 = { owner = { set_country_flag = unsc_resolution_generic_international_lease } }
+				save_global_event_target_as = unsc_initiator
+				set_country_flag = wants_unsc_support
+				USA = { set_country_flag = wants_unsc_support }
+				cw_unsc_start_resolution_effect = yes
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = "SOV_INTERNATIONAL_TURKISH_STRAITS_TT"
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 50
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = -50
+				country_has_majority_support = no
+			}			
+		}	
+	}
+	
+	focus = {
+		id = SOV_request_eastern_anatolia
+		available = {
+			TUR = { owns_state = 354 }
+			unsc_in_session = no
+			unsc_implementing_resolution = no
+		}
+		prerequisite = { focus = SOV_push_claim_turkey_turkey }
+		icon = GFX_legitimize_communist_regime	
+
+
+		x = 1
+		y = 1
+		relative_position_id = SOV_push_claim_turkey_turkey
+		cost = 3
+
+		
+		continue_if_invalid = yes
+		cancel_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
+
+		select_effect = {
+			hidden_effect = {
+				354 = {
+					ROOT = { save_global_event_target_as = unsc_initiator }
+					save_global_event_target_as = requested_core
+					owner = {
+					  cw_set_resolution_observer = yes
+					  set_country_flag = unsc_target_flag 
+					  cw_unsc_set_hate_resolution = yes
+					  set_country_flag = resolution_generic_transfer_core_state_un
+					  save_global_event_target_as = unsc_target
+					}
+					cw_unsc_start_resolution_effect = yes
+				
+				}
+			}
+		}    
+		completion_reward = {
+			custom_effect_tooltip = "SOV_INTERNATIONAL_TURKISH_ANATOLIA_TT"
+			
+		}
+		ai_will_do = {
+			base = 10
+			modifier = {
+				add = 50
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = -50
+				country_has_majority_support = no
+			}			
+		}	
+	}
+	
 	focus = {
 		id = SOV_strait_or_war
 		available = {
-			TUR = { controls_state = 806 }
+			OR = {
+				TUR = { controls_state = 806 }
+				TUR = { controls_state = 354 }
+			}
 		}
-		prerequisite = { focus = SOV_push_claim }
-		icon = GFX_focus_sov_bosphorus
-		x = 1
+		prerequisite = { focus = SOV_request_eastern_anatolia focus = SOV_make_tur_straits_international  }
+		icon = GFX_focus_generic_attack_turkey	
+
+
+		x = -1
 		y = 1
-		relative_position_id = SOV_push_claim
+		relative_position_id = SOV_request_eastern_anatolia
 		cancel_if_invalid = yes
 		continue_if_invalid = yes
-		cost = 1
+		cost = 2
 		
 		bypass = {
-			controls_state = 806
+			
 		}
 		
 		available_if_capitulated = no
@@ -4075,23 +4552,67 @@ focus_tree = {
 		}	
 	}
 	
-	
-	
-	
 	focus = {
 		id = SOV_regime_change_turkey
 		available = {
 		}
-		prerequisite = { focus = SOV_settle_turkey_dispute }
+		prerequisite = { focus = SOV_settle_turkey_diplomacy }
 		icon = GFX_turkish_communist_party
-		x = 0
-		y = 2		
-		relative_position_id = SOV_settle_turkey_dispute
-		cost = 7
+		x = 1
+		y = 1		
+		relative_position_id = SOV_settle_turkey_diplomacy
+		cost = 3
 
 		available_if_capitulated = no
 		completion_reward = {
 			TUR = { add_timed_idea = { idea = foreign_support_for_com_total days = 180 } }
+		}
+		ai_will_do = {
+			base = -10
+			modifier = {
+				add = -100
+				is_historical_focus_on = yes
+			}
+		}	
+	}
+	
+	focus = { 
+		id = SOV_friendship_turkey
+		available = {
+		}
+		prerequisite = { focus = SOV_settle_turkey_diplomacy }
+		icon = GFX_focus_generic_befriend_turkey
+		x = -1
+		y = 1		
+		relative_position_id = SOV_settle_turkey_diplomacy
+		cost = 3
+
+		available_if_capitulated = no
+		completion_reward = {
+			SOV = {
+				diplomatic_relation = {
+					country = TUR  
+					relation = non_aggression_pact
+					active = yes
+				}
+			}
+			
+			354 = { set_demilitarized_zone = yes }
+			341 = { set_demilitarized_zone = yes }
+			806 = { set_demilitarized_zone = yes }
+			TUR = {
+				diplomatic_relation = {
+					country = SOV
+					relation = non_aggression_pact
+					active = yes
+				}
+				diplomatic_relation = {
+					country = SOV
+					relation = docking_rights
+					active = yes
+				}
+			}
+			
 		}
 		ai_will_do = {
 			base = -10
@@ -4110,16 +4631,18 @@ focus_tree = {
 			has_completed_focus = SOV_comecon_aid
 		}
 		prerequisite = { focus = SOV_regime_change_turkey }
+		prerequisite = { focus = SOV_friendship_turkey }
 		icon = GFX_extend_comecon
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = SOV_regime_change_turkey
-		cost = 5
+		cost = 4
 
 		available_if_capitulated = no
 
 		completion_reward = {
 			custom_effect_tooltip = "Will allow us to provide Comecon aid to Turkey."
+			set_country_flag = special_aid_permission
 		}
 		ai_will_do = {
 			base = 10
@@ -4129,53 +4652,7 @@ focus_tree = {
 			}
 		}	
 	}	
-	focus = {
-		id = SOV_make_tur_straits_international
-		available = {
-			TUR = { owns_state = 806 }
-			unsc_in_session = no
-			unsc_implementing_resolution = no
-		}
-		prerequisite = { focus = SOV_settle_turkey_dispute }
-		icon = GFX_turkish_straits_un
-		x = -1
-		y = 1
-		relative_position_id = SOV_settle_turkey_dispute
-		cost = 2
-
-		mutually_exclusive = { focus = SOV_push_claim }
-		continue_if_invalid = yes
-		cancel_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_UNSC_FOCUSES }
-
-		select_effect = {
-			hidden_effect = {
-				806 = { save_global_event_target_as = requested_int_zone }
-				806 = { owner = { save_global_event_target_as = unsc_target } }
-				806 = { owner = { cw_unsc_set_hate_resolution = yes } }
-				806 = { owner = { set_country_flag = unsc_resolution_generic_international_lease } }
-				save_global_event_target_as = unsc_initiator
-				set_country_flag = wants_unsc_support
-				USA = { set_country_flag = wants_unsc_support }
-				cw_unsc_start_resolution_effect = yes
-			}
-		}
-		completion_reward = {
-			custom_effect_tooltip = "SOV_INTERNATIONAL_TURKISH_STRAITS_TT"
-		}
-		ai_will_do = {
-			base = 10
-			modifier = {
-				add = 50
-				is_historical_focus_on = no
-			}
-			modifier = {
-				add = -50
-				country_has_majority_support = no
-			}			
-		}	
-	}
+	
 	
 	
 	##########################
@@ -7273,6 +7750,10 @@ focus_tree = {
 		icon = GFX_goal_support_communism
 		x = 15
 		y = 3
+		offset = {
+			x = -14
+			trigger = { has_completed_focus =  SOV_old_guard_candidate_reforms }
+		}
 		relative_position_id = SOV_the_old_guard
 		cost = 1
 		
@@ -7282,6 +7763,8 @@ focus_tree = {
 		available_if_capitulated = yes
 		historical_ai = {}
 		allow_branch = {
+			has_country_flag = tree_50_loaded
+			NOT = { has_completed_focus = SOV_reformist_candidate_reforms }
 		}
 		select_effect = {}		
 
@@ -7343,7 +7826,7 @@ focus_tree = {
 		icon = GFX_focus_focus_fra_revolution_utmost
 		x = -1
 		y = 2
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
@@ -7418,16 +7901,14 @@ focus_tree = {
 		icon = GFX_focus_hanging_rope
 		x = -2
 		y = 1
-		cost = 8
+		cost = 5
 		
 		dynamic = yes
 		cancel_if_invalid = no
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		historical_ai = {}
-		allow_branch = {
-			
-		}
+
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		relative_position_id = SOV_statlinists_continue_personality_cult
 
@@ -7478,7 +7959,7 @@ focus_tree = {
 		icon = GFX_focus_spa_the_spanish_miracle
 		x = 1
 		y = 1
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
@@ -7521,7 +8002,7 @@ focus_tree = {
 		icon = GFX_focus_palace_of_soviets
 		x = 1
 		y = 2
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
@@ -7578,7 +8059,7 @@ focus_tree = {
 		icon = GFX_goal_generic_war_with_comintern
 		x = 0
 		y = 3
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
@@ -7652,7 +8133,7 @@ focus_tree = {
 		icon = GFX_focus_YUG_pan_slavic_congress
 		x = -1
 		y = 1
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
@@ -7691,7 +8172,7 @@ focus_tree = {
 		icon = GFX_focus_CZE_german_puppet
 		x = 1
 		y = 1
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
@@ -7730,7 +8211,7 @@ focus_tree = {
 		icon = GFX_goal_demand_sudetenland
 		x = 0
 		y = 2
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
@@ -7765,7 +8246,7 @@ focus_tree = {
 		icon = GFX_goal_generic_forceful_treaty
 		x = -2
 		y = 1
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
@@ -7809,7 +8290,7 @@ focus_tree = {
 		icon = GFX_focus_belarus_russia
 		x = 2
 		y = 1
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
@@ -7854,7 +8335,7 @@ focus_tree = {
 		icon = GFX_focus_eng_concessions_to_the_trade_unions
 		x = 0
 		y = 2
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
@@ -7934,7 +8415,7 @@ focus_tree = {
 		icon = GFX_focus_take_vistula
 		x = -1
 		y = 1
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
@@ -8042,7 +8523,7 @@ focus_tree = {
 		icon = GFX_focus_comecon_asia
 		x = 1
 		y = 1
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
@@ -8086,16 +8567,14 @@ focus_tree = {
 		icon = GFX_focus_kill_tito
 		x = 1
 		y = 2
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		historical_ai = {}
-		allow_branch = {
-						
-		}
+
 		
 		available = {
 			YUG = {
@@ -8137,15 +8616,14 @@ focus_tree = {
 		icon = GFX_focus_chi_cooperation_with_the_communists
 		x = -1
 		y = 2
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		historical_ai = {}
-		allow_branch = {			
-		}
+
 		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_INDUSTRY }
 		relative_position_id = SOV_statlinists_new_foreign_policy
 
@@ -8247,8 +8725,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		historical_ai = {}
-		allow_branch = {			
-		}
+
 		search_filters = {}
 		relative_position_id = SOV_statlinists_new_foreign_policy
 
@@ -8277,15 +8754,14 @@ focus_tree = {
 		icon = GFX_focus_destroy_mongolia
 		x = 1
 		y = 1
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		historical_ai = {}
-		allow_branch = {			
-		}
+
 		search_filters = { FOCUS_FILTER_SPHERE_FOCUSES FOCUS_FILTER_ANNEXATION FOCUS_TENSION_FOCUSES }
 		relative_position_id = SOV_statlinists_settle_mongolia_question
 
@@ -8332,7 +8808,7 @@ focus_tree = {
 		icon = GFX_focus_mongolia_consessions
 		x = -1
 		y = 2
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
@@ -8398,7 +8874,7 @@ focus_tree = {
 		icon = GFX_focus_generic_tank_production
 		x = -1
 		y = 1
-		cost = 8
+		cost = 5
 		
 		dynamic = no
 		cancel_if_invalid = no
@@ -9101,6 +9577,17 @@ focus_tree = {
 		icon = GFX_focus_focus_fra_liberte_egalite_solidarite
 		x = -10
 		y = 3
+		
+		offset = {
+			x = 11
+			trigger = {
+				has_completed_focus = SOV_reformist_candidate_reforms
+			}
+		}
+		allow_branch = {
+			has_country_flag = tree_50_loaded
+			NOT = { has_completed_focus = SOV_old_guard_candidate_reforms }
+		}
 		relative_position_id = SOV_anti_stalin_camp
 		cost = 1
 		
@@ -9109,9 +9596,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		historical_ai = {}
-		allow_branch = {
-			
-		}
+
 		select_effect = {}		
 
 		available_if_capitulated = no

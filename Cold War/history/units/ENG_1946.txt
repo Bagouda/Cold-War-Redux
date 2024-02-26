@@ -117,6 +117,40 @@ units = {
 		location = 2050
 		division_template = "Colonial Infantry"
 	}
+	# IRAN occupation
+	division = {
+		name = "Iran Occupation Force"
+		location = 7982
+		division_template = "Colonial Infantry"
+	}
+	division = {
+		name = "Iran Occupation Force"
+		location = 8117
+		division_template = "Colonial Infantry"
+	}
+	division = {
+		name = "Iran Occupation Force"
+		location = 7953
+		division_template = "Colonial Infantry"
+	}
+	division = {
+		name = "Iran Occupation Force"
+		location = 5005
+		division_template = "Colonial Infantry"
+	}
+	
+	# IRAQ occupation
+	division = {
+		name = "Iraq Colonial Garrison"
+		location = 2097
+		division_template = "Colonial Infantry"
+	}
+	division = {
+		name = "Iraq Colonial Garrison"
+		location = 2097
+		division_template = "Colonial Infantry"
+	}
+	
 	### Regular Troops - British Isles ###
 	division = {
 		location = 4135

@@ -1,4 +1,4 @@
-﻿capital = 47
+﻿capital = 918
 set_variable = { twin_country = CGR.id }	#Communist Greece
  add_ideas = cw_we_hate_factions		# Blocks country from joining factions
 set_country_flag = police_action_blocked

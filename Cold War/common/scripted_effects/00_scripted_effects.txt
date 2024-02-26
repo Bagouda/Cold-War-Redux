@@ -1130,8 +1130,4 @@ add_generic_leader = {
 		expire = 2020.10.10
 		traits = {  }
 	}
-				
-	
-
-
 }

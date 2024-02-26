@@ -1,5 +1,5 @@
 cw_score = {
-	GER_unification {
+	GER_unification = {
 		cost = 150
 		available = { tag = USA GER = { exists = yes is_communism = no } DDR = { exists = yes is_communism = no } }
 		visible = { tag = USA GER = { exists = yes } DDR = { exists = yes } }
@@ -24,7 +24,7 @@ cw_score = {
 			
 	}
 	
-	DDR_unification {
+	DDR_unification =  {
 		cost = 150
 		available = { tag = SOV GER = { exists = yes is_communism = yes } DDR = { exists = yes is_communism = yes } }
 		visible = { tag = SOV GER = { exists = yes } DDR = { exists = yes } }

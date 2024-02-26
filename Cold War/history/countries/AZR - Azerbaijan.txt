@@ -3,7 +3,7 @@
 set_convoys = 50
 set_research_slots = 2
 1946.1.1 = {
-#	set_cosmetic_tag = AZB_PER
+	set_cosmetic_tag = AZB_PER
 	add_ideas = {
 		cw_non_recognized_state
 	}	

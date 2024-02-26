@@ -1,3 +1,428 @@
+iran = {
+	make_soviet_puppet = {
+		
+		
+		allowed = { tag = SOV }
+		fire_only_once = yes
+		
+		cost = 50
+		days_remove = 5
+		
+		available = {
+		
+			has_global_flag = PER_SOV_intervention
+	
+			
+			
+		}
+		
+		complete_effect = {
+		
+			clr_country_flag = PER_SOV_intervention
+		
+			
+		
+		}
+		
+		remove_effect = {
+			news_event = cw_historic_events.69
+			
+			PER = {
+			
+				every_enemy_country = {
+					white_peace = PER
+				
+				}
+				
+				every_controlled_state ={
+					limit = { is_core_of = AZR }
+					if = {
+						limit = { AZR = { exists = yes }}
+						AZR = {
+							transfer_state = PREV
+						
+						}
+					}
+					else = {
+						SOV = {
+							transfer_state = PREV
+						
+						}
+					}
+				
+				}
+				
+			
+			}
+			
+			if = {
+			limit = { AZR = { exists = yes	} }
+				SOV = {
+					puppet = AZR
+				}
+			
+			}
+			SOV ={
+				puppet = PER
+			}
+			
+		
+			
+		
+		
+		
+		}
+	
+	}
+
+
+}
+
+balkan = {
+
+	close_adriatic = {
+		allowed = {
+			tag = SOV
+		}
+		fire_only_once = yes
+		visible = {
+			#OR = {
+			#	ALB = { is_puppet_of = SOV }
+			#	ITA = { is_puppet_of = SOV }
+			#
+			#}
+		
+		}
+		
+		cost = 100
+		days_remove = 5
+		
+		complete_effect = {
+			news_event = cw_historic_events.66	
+		}
+		
+		remove_effect = {
+			set_global_flag = adriatic_blocus
+			ITA = { 
+				add_timed_idea = {
+					idea = adriatic_blocus_influence
+					days = 180
+				} 
+			}
+			YUG = {
+				add_timed_idea = {
+					idea = adriatic_blocus_influence
+					days = 180
+				} 
+			}
+			ALB = {
+				add_timed_idea = {
+					idea = adriatic_blocus_influence
+					days = 180
+				} 
+			}
+			
+		}
+	
+	}
+	
+	SOV_transfer_sub_adriatic = {
+		allowed = {
+			tag = SOV
+			
+		}
+		
+		visible = {
+			has_global_flag = adriatic_blocus
+		}
+		
+		available = {
+			has_navy_size = {
+				size > 3
+				archetype  = ship_hull_submarine
+			}
+		
+		}
+		
+		cost = 10
+		days_remove = 5
+		remove_effect = {
+			transfer_ship = {
+				type = ship_hull_submarine
+				target = ALB
+				exclude_refitting = no
+			}
+			transfer_ship = {
+				type = ship_hull_submarine
+				target = ALB
+				exclude_refitting = no
+			}
+			transfer_ship = {
+				type = ship_hull_submarine
+				target = ALB
+				exclude_refitting = no
+			}
+			transfer_ship = {
+				type = ship_hull_submarine
+				target = ALB
+				exclude_refitting = no
+			}
+
+		}
+	
+	
+	}
+	SOV_transfer_cruiser_adriatic = {
+		allowed = {
+			tag = SOV
+			
+		}
+		
+		visible = {
+			has_global_flag = adriatic_blocus
+		}
+		
+		available = {
+			has_navy_size = {
+				size > 0
+				archetype  = ship_hull_cruiser
+			}
+		
+		}
+		
+		cost = 10
+		days_remove = 5
+		remove_effect = {
+			transfer_ship = {
+				type = ship_hull_cruiser
+				target = ALB
+				exclude_refitting = no
+			}
+
+		}
+	
+	
+	}
+	SOV_transfer_heavy_adriatic = {
+		allowed = {
+			tag = SOV
+			
+		}
+		
+		visible = {
+			has_global_flag = adriatic_blocus
+		}
+		
+		available = {
+			has_navy_size = {
+				size > 0
+				archetype  = ship_hull_heavy
+			}
+		
+		}
+		
+		cost = 10
+		days_remove = 5
+		remove_effect = {
+			transfer_ship = {
+				type = ship_hull_heavy
+				target = ALB
+				exclude_refitting = no
+			}
+
+		}
+	
+	
+	}
+	SOV_transfer_light_adriatic = {
+		allowed = {
+			tag = SOV
+			
+		}
+		
+		visible = {
+			has_global_flag = adriatic_blocus
+		}
+		
+		available = {
+			has_navy_size = {
+				size > 2
+				archetype  = ship_hull_light
+			}
+		
+		}
+		
+		cost = 10
+		days_remove = 5
+		remove_effect = {
+			transfer_ship = {
+				type = ship_hull_light
+				target = ALB
+				exclude_refitting = no
+			}
+			transfer_ship = {
+				type = ship_hull_light
+				target = ALB
+				exclude_refitting = no
+			}
+			transfer_ship = {
+				type = ship_hull_light
+				target = ALB
+				exclude_refitting = no
+			}
+
+		}
+	
+	
+	}
+	
+	SOV_transfer_CGR_adriatic = {
+	
+		allowed = {
+			tag = SOV
+			
+		}
+		
+		visible = {
+			has_global_flag = adriatic_blocus
+			GRE = { exists = no }
+		}
+		
+		available = {
+			
+		
+		}
+		
+		cost = 10
+		days_remove = 5
+		remove_effect = {
+		
+
+		}
+	
+	
+	}
+	
+	SOV_fortify_corfu_adriatic = {
+	
+		allowed = {
+			tag = SOV	
+		}
+		
+		visible = {
+			has_global_flag = adriatic_blocus
+			GRE = { exists = no }
+		}
+		
+		available = {
+			
+		}
+		
+		cost = 10
+		days_remove = 5
+		remove_effect = {
+		
+
+		}
+	}
+	
+	
+	SOV_transfer_YUG_adriatic = {
+	
+		allowed = {
+			tag = SOV
+		}
+		
+		visible = {
+			has_global_flag = adriatic_blocus
+			YUG = { has_government = communism_totalitarian  }
+		}
+		
+		available = {
+			
+		
+		}
+		
+		cost = 10
+		days_remove = 5
+		remove_effect = {
+		
+
+		}
+	}
+	
+	SOV_mine_adriatic = {
+	
+		allowed = {
+			tag = SOV
+			
+		}
+		
+		visible = {
+			has_global_flag = adriatic_blocus
+		}
+		
+		available = {
+			
+		
+		}
+		
+		cost = 10
+		days_remove = 5
+		remove_effect = {
+		
+
+		}
+	
+	
+	}
+	
+	USA_confront_albania_adriatic = {
+	
+		allowed = {
+			tag = USA
+		}
+		
+		visible = {
+			has_global_flag = adriatic_blocus
+		}
+		
+		available = {
+			
+		}
+		
+		cost = 10
+		days_remove = 5
+		remove_effect = {
+		
+
+		}
+	}
+	
+	USA_GRE_adriatic = {
+	
+		allowed = {
+			tag = USA
+		}
+		
+		visible = {
+			has_global_flag = adriatic_blocus
+			CGR = { exists = no }
+		}
+		
+		available = {
+			
+		}
+		
+		cost = 10
+		days_remove = 5
+		remove_effect = {
+		
+
+		}
+	}
+}
+
 
 spain_intervention = {
 

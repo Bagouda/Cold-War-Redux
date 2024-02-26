@@ -1,4 +1,7 @@
 foreign_politics = {
+
+	
+
 	sov_manchuria_handover = {
 
 		icon = GFX_decision_eng_trade_unions_demand
@@ -437,6 +440,53 @@ foreign_politics = {
 	}
 }
 cw_struggle_for_manchuria_category = {
+}
+balkan = {
+	close_adriatic = {
+		allowed = {
+			tag = SOV
+		}
+		
+		visible = {
+			#OR = {
+			#	ALB = { is_puppet_of = SOV }
+			#	ITA = { is_puppet_of = SOV }
+			#
+			#}
+		
+		}
+		
+		cost = 100
+		days_remove = 5
+		
+		complete_effect = {
+		}
+		
+		remove_effect = {
+			set_global_flag = adriatic_blocus
+			ITA = { 
+				add_timed_idea = {
+					idea = adriatic_blocus_influence
+					days = 180
+				} 
+			}
+			YUG = {
+				add_timed_idea = {
+					idea = adriatic_blocus_influence
+					days = 180
+				} 
+			}
+			ALB = {
+				add_timed_idea = {
+					idea = adriatic_blocus_influence
+					days = 180
+				} 
+			}
+			
+		}
+	
+	}
+
 }
 special_projects = {
 	sov_great_european_wall_construction = {

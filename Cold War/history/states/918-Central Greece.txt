@@ -1,0 +1,42 @@
+state={
+	id=918
+	name="STATE_918"
+	provinces={
+		976 1109 3988 4109 7127 
+	}
+	history={
+		owner = GRE
+		add_core_of = GRE
+		add_claim_by = CGR
+		add_to_array = {
+			list_victory_point = 4109
+
+		}
+
+		set_variable = {
+			victory_point = 20
+
+		}
+		victory_points = {
+			4109 20 
+		}
+		
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			air_base = 3
+			arms_factory = 1
+			dockyard = 1
+			4109 = {
+				naval_base = 3
+
+			}
+
+		}
+	
+	}
+	state_category=large_city
+	manpower=1571300
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

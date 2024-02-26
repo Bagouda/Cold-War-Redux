@@ -9,6 +9,16 @@
         artillery = { x = 0 y = 0 }
 	}	
 }
+
+division_template = {
+	name = "Mountaineers Division"	
+	regiments = {
+		mountaineers = { x = 0 y = 0 }
+		mountaineers = { x = 1 y = 0 }
+		mountaineers = { x = 2 y = 0 }
+		mountaineers = { x = 0 y = 1 }
+	}
+}
 units = {
     division = { 
 		name = "Royal Hellenic Army 1st division"
@@ -34,6 +44,11 @@ units = {
 		name = "Royal Hellenic Army 5th division"
 		location = 9837
 		division_template = "Infantry Brigade"
+	}
+	division = { 
+		name = "Royal Hellenic Mountaineers Division"
+		location = 1205
+		division_template = "Mountaineers Division"	
 	}
 }
 

@@ -1,0 +1,17 @@
+state={
+	id=916
+	name="STATE_916"
+	provinces={
+		841 3914 3980 9837 11786 
+	}
+	history={
+		owner = GRE
+		add_core_of = GRE
+		add_claim_by = CGR
+	
+	}
+	state_category=town
+	manpower=262200
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

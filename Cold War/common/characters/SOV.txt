@@ -66,6 +66,9 @@ characters={
 				tag = SOV
 			}
 			available = {	#Determines what player sees as requirements to use
+				NOT = { has_idea = cw_sov_1946_famine_mild }
+				NOT = { has_idea = cw_sov_1946_famine_severe }
+				NOT = { has_idea = cw_sov_1946_famine_insignificant }
 			}
 
 			visible = {
